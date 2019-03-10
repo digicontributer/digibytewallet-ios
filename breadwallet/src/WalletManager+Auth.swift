@@ -625,6 +625,8 @@ func keychainItem<T>(key: String) throws -> T? {
         return NSKeyedUnarchiver.unarchiveObject(with: data) as? T
     case is NSArray.Type:
         return NSKeyedUnarchiver.unarchiveObject(with: data) as? T
+    case is NSInteger.Type:
+        return NSKeyedUnarchiver.unarchiveObject(with: data) as? T
     default:
         throw NSError(domain: NSOSStatusErrorDomain, code: Int(errSecParam))
     }
@@ -652,6 +654,8 @@ func setKeychainItem<T>(key: String, item: T?, authenticated: Bool = false) thro
         case is Dictionary<AnyHashable, Any>.Type:
             data = NSKeyedArchiver.archivedData(withRootObject: item)
         case is NSArray.Type:
+            data = NSKeyedArchiver.archivedData(withRootObject: item)
+        case is NSInteger.Type:
             data = NSKeyedArchiver.archivedData(withRootObject: item)
         default:
             throw NSError(domain: NSOSStatusErrorDomain, code: Int(errSecParam))
