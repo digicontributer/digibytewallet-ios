@@ -8,6 +8,8 @@
 
 import UIKit
 
+fileprivate let ADDRESSBOOK_VERSION: Int = 1
+
 func hBox(_ view: UIView, horizontal padding: CGFloat) -> UIView {
     let v = UIView()
     v.addSubview(view)
@@ -549,6 +551,21 @@ class AddressBookContact: NSCoder, NSCoding {
     
     // loads the contacts from memory
     static func loadContacts() -> [AddressBookContact] {
+        do {
+            if let version = try keychainItem(key: "addressBookVersion") as NSInteger? {
+                if version < ADDRESSBOOK_VERSION {
+                    // migrate old data to new data (for future versions)
+                    // ...
+                }
+            } else {
+                // addressbook version not set, so set it cleanly
+                try setKeychainItem(key: "addressBook", item: [] as NSArray)
+                try setKeychainItem(key: "addressBookVersion", item: ADDRESSBOOK_VERSION)
+            }
+        } catch {
+            // Skip error handling.. Shouldn't be too bad
+        }
+        
         do {
             if
                 let s = try keychainItem(key: "addressBook") as NSArray?,
