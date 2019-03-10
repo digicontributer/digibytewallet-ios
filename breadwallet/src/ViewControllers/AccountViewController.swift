@@ -580,7 +580,7 @@ fileprivate class HamburgerViewMenu: UIView {
     }
     
     private func setStyles() {
-        backgroundColor = C.Colors.background
+        backgroundColor = .black
         
         walletLabel.textAlignment = .center
         walletVersionLabel.textAlignment = .center
@@ -744,8 +744,10 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         self.edgeGesture = UIScreenEdgePanGestureRecognizer()
         super.init(nibName: nil, bundle: nil)
         
+        self.edgeGesture.delegate = self
+        
         footerView.debugDigiAssetsCallback = { [unowned self] in
-            return;
+//            return;
             guard let w = self.walletManager else { return }
             let vc = BRDigiAssetsTestViewController(wallet: w)
             self.present(vc, animated: true, completion: nil)
@@ -954,6 +956,9 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         hamburgerMenuView.addButton(title: S.MenuButton.settings, icon: #imageLiteral(resourceName: "hamburger_003Settings")) {
             self.store.perform(action: HamburgerActions.Present(modal: .settings))
         }
+//        hamburgerMenuView.addButton(title: S.MenuButton.digiAssets, icon: #imageLiteral(resourceName: "hamburger_003Settings")) {
+//            self.store.perform(action: HamburgerActions.Present(modal: .digiAssets))
+//        }
         hamburgerMenuView.addButton(title: S.MenuButton.lock, icon: #imageLiteral(resourceName: "hamburger_004Locked")) {
             self.store.perform(action: HamburgerActions.Present(modal: .lockWallet))
         }
@@ -970,8 +975,6 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
             hamburgerMenuView.topAnchor.constraint(equalTo: view.topAnchor),
             hamburgerMenuView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
-
-        hamburgerMenuView.backgroundColor = .black
         
         let tapper = UITapGestureRecognizer()
         tapper.numberOfTapsRequired = 1
@@ -1082,57 +1085,8 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
     }
     
     private func addSubviews() {
-#if REBRAND
-        
-        /* just display a Digi-ID logo that, when pressed, launches camera */
-        let digiIDImage = UIImageView(image: #imageLiteral(resourceName: "DigiID-Logo"))
-        digiIDImage.contentMode = UIViewContentMode.scaleAspectFit
-        
-        let descriptionLabel = UILabel()
-        descriptionLabel.text = "Click the Digi-ID logo to launch the scanner"
-        descriptionLabel.textColor = UIColor.gray
-        
-        view.backgroundColor = .white
-        view.addSubview(digiIDImage)
-        view.addSubview(descriptionLabel)
-        
-        digiIDImage.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        let scale: CGFloat = 0.7
-        let image = #imageLiteral(resourceName: "DigiID-Logo")
-        let imageViewHeight = scale * view.frame.width / image.size.width * image.size.height
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(digiID_clicked))
-        tap.numberOfTapsRequired = 1
-        digiIDImage.isUserInteractionEnabled = true
-        digiIDImage.addGestureRecognizer(tap)
-        
-        // add constraints
-        NSLayoutConstraint.activate([
-            digiIDImage.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -30),
-            digiIDImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            digiIDImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: scale),
-            digiIDImage.heightAnchor.constraint(equalToConstant: imageViewHeight)
-        ])
-        
-        descriptionLabel.lineBreakMode = .byWordWrapping
-        //descriptionLabel.layer.borderColor = UIColor.red.cgColor
-        //descriptionLabel.layer.borderWidth = 1.0
-        descriptionLabel.numberOfLines = 0
-        descriptionLabel.textAlignment = .center
-        
-        NSLayoutConstraint.activate([
-            descriptionLabel.bottomAnchor.constraint(equalTo: digiIDImage.bottomAnchor, constant: 60),
-            descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            descriptionLabel.heightAnchor.constraint(equalToConstant: 70.0)
-        ])
-#else
         view.addSubview(balanceView)
         view.addSubview(headerContainer)
-#endif
         
         addChildViewController(syncViewController)
         view.addSubview(syncViewController.view)
@@ -1414,8 +1368,16 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
 }
 
+// To make the edge gesture recognizer work above transaction list
+extension AccountViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+}
 
