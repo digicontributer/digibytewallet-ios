@@ -27,7 +27,13 @@ class SendCell : UIView {
             accessoryView.constraint(.top, toView: self),
             accessoryView.constraint(.trailing, toView: self),
             accessoryView.heightAnchor.constraint(equalToConstant: SendCell.defaultHeight) ])
-        border.constrainBottomCorners(height: 1.0)
+//        border.constrainBottomCorners(height: 1.0)
+        border.constrain([
+            border.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
+            border.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
+            border.bottomAnchor.constraint(equalTo: bottomAnchor),
+            border.heightAnchor.constraint(equalToConstant: 1)
+        ])
     }
 
     required init?(coder aDecoder: NSCoder) {

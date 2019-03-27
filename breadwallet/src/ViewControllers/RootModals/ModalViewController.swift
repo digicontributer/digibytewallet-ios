@@ -52,13 +52,11 @@ class ModalViewController : UIViewController, Subscriber {
     }()
 
     deinit {
-		
 		objc_sync_enter(self)
 		defer {
 			objc_sync_exit(self)
 		}
 		store.unsubscribe(self)
-		
     }
 
     override func viewDidLoad() {

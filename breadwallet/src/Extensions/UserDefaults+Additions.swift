@@ -26,6 +26,8 @@ private let hasShownWelcomeKey = "hasShownWelcomeKey"
 private let maxSendButtonVisibleKey = "maxSendButtonVisible"
 private let excludeLogoInQRKey = "excludeLogoInQR"
 private let balanceViewCollapsedKey = "balanceViewCollapsed"
+private let digiAssetsOnboardingShownKey = "digiAssetsShown"
+private let automaticBiometricsOnStartupKey = "automaticBiometricsOnStartup"
 
 extension UserDefaults {
 
@@ -162,6 +164,21 @@ extension UserDefaults {
         } set { defaults.set(newValue, forKey: balanceViewCollapsedKey) }
     }
     
+    static var digiAssetsOnboardingShown: Bool {
+        get {
+            return defaults.bool(forKey: digiAssetsOnboardingShownKey)
+        } set {
+            defaults.set(newValue, forKey: digiAssetsOnboardingShownKey)
+        }
+    }
+    
+    static var automaticBiometricsOnStartup: Bool {
+        get {
+            return defaults.bool(forKey: automaticBiometricsOnStartupKey)
+        } set {
+            defaults.set(newValue, forKey: automaticBiometricsOnStartupKey)
+        }
+    }
 }
 
 //MARK: - Wallet Requires Backup

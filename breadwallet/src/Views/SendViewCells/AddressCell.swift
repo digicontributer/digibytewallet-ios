@@ -157,7 +157,7 @@ class AddressCell: UIView {
         }
 
 		paste.constrain([
-			paste.leadingAnchor.constraint(equalTo: leadingAnchor, constant: C.padding[0]),
+			paste.leadingAnchor.constraint(equalTo: leadingAnchor, constant: C.padding[2]),
 			paste.trailingAnchor.constraint(equalTo: scan.leadingAnchor, constant: -C.padding[1]),
             paste.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: C.padding[1]),
             paste.heightAnchor.constraint(equalToConstant: 35),
@@ -170,7 +170,7 @@ class AddressCell: UIView {
 			scan.constraint(.bottom, toView: self, constant: -C.padding[1]) ])
 
 		qrImage.constrain([
-			qrImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -C.padding[0]),
+			qrImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -C.padding[2]),
             qrImage.centerYAnchor.constraint(equalTo: paste.centerYAnchor),
             qrImage.heightAnchor.constraint(equalToConstant: 35),
 			qrImage.constraint(.bottom, toView: self, constant: -C.padding[1]) ])

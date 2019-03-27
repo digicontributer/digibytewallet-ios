@@ -128,7 +128,7 @@ fileprivate class AddressBookAddContactViewController: UIViewController {
     init(style: Style = .add) {
         super.init(nibName: nil, bundle: nil)
         
-        let padding: CGFloat = 0
+        let padding: CGFloat = 16
         
         view.addSubview(topBox)
         topBox.addSubview(icon)
@@ -165,9 +165,9 @@ fileprivate class AddressBookAddContactViewController: UIViewController {
         if style == .edit {
             deleteButton.constrain([
                 deleteButton.centerYAnchor.constraint(equalTo: icon.bottomAnchor, constant: 0),
-                deleteButton.rightAnchor.constraint(equalTo: topBox.rightAnchor, constant: 0),
-                deleteButton.heightAnchor.constraint(equalToConstant: 44),
-                deleteButton.widthAnchor.constraint(equalToConstant: 44)
+                deleteButton.rightAnchor.constraint(equalTo: topBox.rightAnchor, constant: -15),
+                deleteButton.heightAnchor.constraint(equalToConstant: 24),
+                deleteButton.widthAnchor.constraint(equalToConstant: 24)
             ])
         }
         
@@ -192,8 +192,8 @@ fileprivate class AddressBookAddContactViewController: UIViewController {
         topBox.backgroundColor = UIColor(red: 36 / 255, green: 37 / 255, blue: 55 / 255, alpha: 1.0) // 36 37 55
         view.backgroundColor = C.Colors.background
         
-        stackView.addArrangedSubview(hBox(nameBox, horizontal: padding))
-        stackView.addArrangedSubview(hBox(addressCell, horizontal: padding))
+        stackView.addArrangedSubview(hBox(nameBox, horizontal: 0))
+        stackView.addArrangedSubview(hBox(addressCell, horizontal: 0))
         
         addressCell.toLabel.text = S.AddressBook.address
         
@@ -256,6 +256,9 @@ fileprivate class AddressBookAddContactViewController: UIViewController {
             icon.image = UIImage(named: "AddressBook_AddContact_white") // ToDo: ask Damir to provide an edit icon
             addButton.title = S.AddressBook.editContactButtonTitle
             deleteButton.isHidden = false
+            deleteButton.setImage(UIImage(named: "AddressBook_DeleteContact_white")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            deleteButton.tintColor = UIColor.white
+            deleteButton.contentMode = .scaleAspectFit
         }
         
         // close callback
@@ -293,11 +296,11 @@ fileprivate class AddressBookAddContactViewController: UIViewController {
         
         deleteButton.tap = { [unowned self] in
             let alertController = UIAlertController(title: S.AddressBook.deleteContactHeader, message: S.AddressBook.deleteContact, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: S.Button.yes, style: .cancel, handler: { _ in
+            alertController.addAction(UIAlertAction(title: S.Button.no, style: .default, handler: nil))
+            alertController.addAction(UIAlertAction(title: S.Button.yes, style: .destructive, handler: { _ in
                 self.deleteCallback?(self.id)
                 self.dismiss(animated: true, completion: nil)
             }))
-            alertController.addAction(UIAlertAction(title: S.Button.no, style: .default, handler: nil))
             self.present(alertController, animated: true, completion: nil)
         }
         

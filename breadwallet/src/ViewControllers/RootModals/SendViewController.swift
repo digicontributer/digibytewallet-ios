@@ -90,6 +90,11 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
     private let amountView: AmountViewController
     private var addressCell: AddressCell!
     private let descriptionCell = DescriptionSendCell(placeholder: S.Send.descriptionLabel)
+    
+    private var dandelionSwitchContainer = UIView()
+    private let dandelionSwitch = UISwitch()
+    private let dandelionLabel = UILabel()
+    
     private let sendButton = ShadowButton(title: S.Send.sendLabel, type: .primary)
     private let currency: ShadowButton
     private let currencyBorder = UIView(color: C.Colors.blueGrey)
@@ -112,6 +117,24 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
         view.addSubview(contactNameLabel)
         view.addSubview(descriptionCell)
         view.addSubview(sendButton)
+        view.addSubview(dandelionSwitchContainer)
+        
+        dandelionLabel.text = "Use Dandelion privacy protocol"
+        dandelionLabel.textColor = UIColor.white
+        dandelionSwitch.onTintColor = C.Colors.blue
+        
+        dandelionSwitchContainer.addSubview(dandelionLabel)
+        dandelionSwitchContainer.addSubview(dandelionSwitch)
+        
+        dandelionLabel.constrain([
+            dandelionLabel.leadingAnchor.constraint(equalTo: dandelionSwitchContainer.leadingAnchor, constant: 16),
+            dandelionLabel.centerYAnchor.constraint(equalTo: dandelionSwitchContainer.centerYAnchor)
+        ])
+        
+        dandelionSwitch.constrain([
+            dandelionSwitch.centerYAnchor.constraint(equalTo: dandelionSwitchContainer.centerYAnchor, constant: 0),
+            dandelionSwitch.trailingAnchor.constraint(equalTo: dandelionSwitchContainer.trailingAnchor, constant: -16),
+        ])
 
         addressCell.constrainTopCorners(sidePadding: 0, topPadding: 0)
         
@@ -136,12 +159,19 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
         descriptionCell.accessoryView.constrain([
                 descriptionCell.accessoryView.constraint(.width, constant: 0.0) ])
         
+        dandelionSwitchContainer.constrain([
+            dandelionSwitchContainer.topAnchor.constraint(equalTo: descriptionCell.bottomAnchor, constant: 15),
+            dandelionSwitchContainer.leftAnchor.constraint(equalTo: descriptionCell.leftAnchor),
+            dandelionSwitchContainer.rightAnchor.constraint(equalTo: descriptionCell.rightAnchor),
+            dandelionSwitchContainer.heightAnchor.constraint(equalToConstant: 32)
+        ])
+        
         sendButton.constrain([
             sendButton.constraint(.leading, toView: view, constant: C.padding[2]),
             sendButton.constraint(.trailing, toView: view, constant: -C.padding[2]),
-            sendButton.constraint(toBottom: descriptionCell, constant: verticalButtonPadding),
+            sendButton.constraint(toBottom: dandelionSwitchContainer, constant: verticalButtonPadding),
             sendButton.constraint(.height, constant: C.Sizes.buttonHeight),
-            sendButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: E.isIPhoneX ? -C.padding[5] : -C.padding[2]) ])
+            sendButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: E.isIPhoneXOrGreater ? -C.padding[5] : -C.padding[2]) ])
         addButtonActions()
         store.subscribe(self, selector: { $0.walletState.balance != $1.walletState.balance },
                         callback: {
@@ -161,6 +191,7 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
                 self.contactNameLabel.text = contact.name
             }
         }
+    
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -369,9 +400,11 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
                 return showAlert(title: S.Alert.error, message: S.Send.createTransactionError, buttonLabel: S.Button.ok)
             }
         }
+        
+        sender.transaction?.isDandelion = dandelionSwitch.isOn
 
         guard let amount = amount else { return }
-        let confirm = ConfirmationViewController(amount: amount, fee: Satoshis(sender.fee), feeType: feeType ?? .regular, state: store.state, selectedRate: amountView.selectedRate, minimumFractionDigits: amountView.minimumFractionDigits, address: addressCell.address ?? "", isUsingBiometrics: sender.canUseBiometrics)
+        let confirm = ConfirmationViewController(amount: amount, fee: Satoshis(sender.fee), feeType: feeType ?? .regular, state: store.state, selectedRate: amountView.selectedRate, minimumFractionDigits: amountView.minimumFractionDigits, address: addressCell.address, isUsingBiometrics: sender.canUseBiometrics)
         
 		confirm.successCallback = {
             confirm.dismiss(animated: true, completion: {

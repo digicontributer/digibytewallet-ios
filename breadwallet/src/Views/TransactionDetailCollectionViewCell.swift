@@ -206,7 +206,7 @@ class TransactionDetailCollectionViewCell : UICollectionViewCell {
         
         var top: CGFloat = 0
         // top = UIScreen.main.bounds.height - self.scrollView.contentSize.height + 40
-        top = 100 + (E.isIPhoneX ? 60 : 0)
+        top = 100 + (E.isIPhoneXOrGreater ? 60 : 0)
         if top > 0 {
             contentOffsetTop?.constant = top
             transactionDetailCardView.layoutIfNeeded()

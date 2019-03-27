@@ -569,7 +569,7 @@ class AccountFooterView: UIView {
     var debugDigiAssetsCallback: (() -> Void)?
     
     let height: CGFloat = 73
-    let menuHeightOffset = CGFloat(E.isIPhoneX ? 15 : 0)
+    let menuHeightOffset = CGFloat(E.isIPhoneXOrGreater ? 15 : 0)
     
     private let circleButton: RadialGradientMenu
     private let startColor = UIColor(red: 0x02 / 255, green: 0x5C / 255, blue: 0xBA / 255, alpha: 1)

@@ -153,9 +153,9 @@ class AmountViewController : UIViewController, Trackable {
 
         let borderTop = isRequesting ? border.topAnchor.constraint(equalTo: currencyToggle.bottomAnchor, constant: C.padding[2]) : border.topAnchor.constraint(equalTo: feeContainer.bottomAnchor)
         border.constrain([
-            border.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            border.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             borderTop,
-            border.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            border.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             border.heightAnchor.constraint(equalToConstant: 1.0) ])
         balanceLabel.constrain([
             balanceLabel.leadingAnchor.constraint(equalTo: amountLabel.leadingAnchor),

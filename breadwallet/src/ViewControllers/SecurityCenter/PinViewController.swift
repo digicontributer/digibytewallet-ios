@@ -437,7 +437,7 @@ class LoginViewController: PINViewController, Trackable {
             hasAttemptedToShowBiometrics = true
             
             // do not ask for fingerprint / faceid, if app was opened using an application url
-            if senderApp == "" {
+            if UserDefaults.automaticBiometricsOnStartup, senderApp == "" {
                 self.biometricsTapped()
             }
         }
@@ -509,7 +509,7 @@ class LoginViewController: PINViewController, Trackable {
             biometricsView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
             //biometricsView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 5),
             biometricsView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: deviceHeight < 600.0 ? -102 : -120),
-            biometricsView.heightAnchor.constraint(equalToConstant: 130),
+            biometricsView.heightAnchor.constraint(equalToConstant: 170),
         ])
         
         constraints["pinView.centerY"]?.isActive = false
@@ -632,9 +632,7 @@ class LoginViewController: PINViewController, Trackable {
     @objc func biometricsTapped() {
         print("DEBUG disabled")
         guard !isWalletDisabled else { return }
-        // YOSHI
-//        self.authenticationSucceded()
-//        return;
+
         self.walletManager?.authenticate(biometricsPrompt: S.UnlockScreen.touchIdPrompt, isDigiIDAuth: false, completion: { result in
             if result == .success {
                 self.authenticationSucceded()
@@ -787,7 +785,7 @@ class PINViewController: UIViewController, Subscriber {
             pinView.heightAnchor.constraint(equalToConstant: pinView.itemSize)
         ])
         
-        if E.isIPhoneX {
+        if E.isIPhoneXOrGreater {
             addChildViewController(pinPad, layout: {
                 pinPad.view.constrainBottomCorners(sidePadding: 0.0, bottomPadding: 0.0)
                 pinPad.view.constrain([pinPad.view.heightAnchor.constraint(equalToConstant: pinPad.height),

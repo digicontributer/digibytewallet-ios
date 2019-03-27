@@ -239,6 +239,8 @@ class ModalPresenter : Subscriber, Trackable {
                 return
             case .securityCenter:
                 return makeSecurityCenter()
+            case .digiAssets:
+                return makeDigiAssets()
             case .support:
                 return makeFaq()
             case .settings:
@@ -620,15 +622,40 @@ class ModalPresenter : Subscriber, Trackable {
             let vc = ScanViewController(digiIdCompletion: { digiIdRequest in
                 scanCompletion(digiIdRequest)
                 parent?.view.isFrameChangeBlocked = false
-            }, isValidURI: { address in
-                print("DIGIID", address)
-                print("DIGIID", address.urlEscapedString)
-            
+            }, isValidURI: { address in            
                 return address.isValidAddress
             })
             parent?.view.isFrameChangeBlocked = true
             parent?.present(vc, animated: true, completion: {})
         }
+    }
+    
+    private func makeDigiAssets() {
+        guard let walletManager = walletManager else { return }
+        
+        let digiAssetsViewController = DAMainViewController()
+        let onboarding = DAOnboardingViewController()
+        
+        var nextVC: UIViewController!
+        
+        if !UserDefaults.digiAssetsOnboardingShown {
+            // Onboarding shall be displayed.
+            // After user has finished introduction, we will display the
+            // main DigiAssets view controller
+            nextVC = onboarding
+            onboarding.nextVC = digiAssetsViewController
+        } else {
+            // Directly display the main view controller for DigiAssets
+            nextVC = digiAssetsViewController
+        }
+        
+        let nc = ModalNavigationController(rootViewController: nextVC)
+        nc.setDefaultStyle()
+        nc.setWhiteStyle()
+        nc.isNavigationBarHidden = true
+//        nc.delegate = securityCenterNavigationDelegate
+        
+        window.rootViewController?.present(nc, animated: true, completion: nil)
     }
 
     private func makeSecurityCenter() {
@@ -1040,6 +1067,8 @@ class SecurityCenterNavigationDelegate : NSObject, UINavigationControllerDelegat
 
     func setStyle(navigationController: UINavigationController, viewController: UIViewController) {
         if viewController is SecurityCenterViewController {
+            navigationController.isNavigationBarHidden = true
+        } else if viewController is DAOnboardingViewController {
             navigationController.isNavigationBarHidden = true
         } else {
             navigationController.isNavigationBarHidden = false

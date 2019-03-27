@@ -48,7 +48,7 @@ extension State {
                         isPushNotificationsEnabled: UserDefaults.pushToken != nil,
                         isPromptingBiometrics: false,
                         pinLength: 6,
-                        fees: Fees.defaultFees )
+                        fees: Fees.defaultFees)
     }
 }
 
@@ -70,6 +70,7 @@ enum HamburgerMenuModal {
     case securityCenter
     case support
     case settings
+    case digiAssets
     case lockWallet
 }
 

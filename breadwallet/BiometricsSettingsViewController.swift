@@ -27,7 +27,9 @@ class BiometricsSettingsViewController : UIViewController, Subscriber {
     private let illustration = LAContext.biometricType() == .face ? UIImageView(image: #imageLiteral(resourceName: "FaceId-Large")) : UIImageView(image: #imageLiteral(resourceName: "TouchId-Large"))
     private let label = UILabel.wrapping(font: .customBody(size: 16.0), color: .white)
     private let switchLabel = UILabel(font: .customMedium(size: 14.0), color: .white)
+    private let automaticBiometricsSwitchLabel = UILabel(font: .customBody(size: 14.0), color: .white)
     private let toggle = GradientSwitch()
+    private let automaticBiometricsSwitch = GradientSwitch()
     private let separator = UIView(color: C.Colors.greyBlue)
     private let textView = UnEditableTextView()
     private let walletManager: WalletManager
@@ -65,6 +67,8 @@ class BiometricsSettingsViewController : UIViewController, Subscriber {
         view.addSubview(label)
         view.addSubview(switchLabel)
         view.addSubview(toggle)
+        view.addSubview(automaticBiometricsSwitch)
+        view.addSubview(automaticBiometricsSwitchLabel)
         view.addSubview(separator)
         view.addSubview(textView)
     }
@@ -74,7 +78,7 @@ class BiometricsSettingsViewController : UIViewController, Subscriber {
         header.constrain([header.heightAnchor.constraint(equalToConstant: C.Sizes.largeHeaderHeight)])
         illustration.constrain([
             illustration.centerXAnchor.constraint(equalTo: header.centerXAnchor),
-            illustration.centerYAnchor.constraint(equalTo: header.centerYAnchor, constant: E.isIPhoneX ? C.padding[4] : C.padding[2]) ])
+            illustration.centerYAnchor.constraint(equalTo: header.centerYAnchor, constant: E.isIPhoneXOrGreater ? C.padding[4] : C.padding[2]) ])
         label.constrain([
             label.leadingAnchor.constraint(equalTo: header.leadingAnchor, constant: C.padding[2]),
             label.topAnchor.constraint(equalTo: header.bottomAnchor, constant: C.padding[2]),
@@ -85,10 +89,16 @@ class BiometricsSettingsViewController : UIViewController, Subscriber {
         toggle.constrain([
             toggle.centerYAnchor.constraint(equalTo: switchLabel.centerYAnchor),
             toggle.trailingAnchor.constraint(equalTo: label.trailingAnchor) ])
+        automaticBiometricsSwitchLabel.constrain([
+            automaticBiometricsSwitchLabel.leadingAnchor.constraint(equalTo: label.leadingAnchor),
+            automaticBiometricsSwitchLabel.topAnchor.constraint(equalTo: switchLabel.bottomAnchor, constant: C.padding[3]) ])
+        automaticBiometricsSwitch.constrain([
+            automaticBiometricsSwitch.centerYAnchor.constraint(equalTo: automaticBiometricsSwitchLabel.centerYAnchor),
+            automaticBiometricsSwitch.trailingAnchor.constraint(equalTo: label.trailingAnchor) ])
         separator.constrain([
-            separator.leadingAnchor.constraint(equalTo: switchLabel.leadingAnchor),
-            separator.topAnchor.constraint(equalTo: toggle.bottomAnchor, constant: C.padding[1]),
-            separator.trailingAnchor.constraint(equalTo: toggle.trailingAnchor),
+            separator.leadingAnchor.constraint(equalTo: automaticBiometricsSwitchLabel.leadingAnchor),
+            separator.topAnchor.constraint(equalTo: automaticBiometricsSwitch.bottomAnchor, constant: C.padding[1]),
+            separator.trailingAnchor.constraint(equalTo: automaticBiometricsSwitch.trailingAnchor),
             separator.heightAnchor.constraint(equalToConstant: 1.0) ])
         textView.constrain([
             textView.leadingAnchor.constraint(equalTo: separator.leadingAnchor),
@@ -103,6 +113,8 @@ class BiometricsSettingsViewController : UIViewController, Subscriber {
         title = LAContext.biometricType() == .face ? S.FaceIDSettings.title : S.TouchIdSettings.title
         label.text = LAContext.biometricType() == .face ? S.FaceIDSettings.label : S.TouchIdSettings.label
         switchLabel.text = LAContext.biometricType() == .face ? S.FaceIDSettings.switchLabel : S.TouchIdSettings.switchLabel
+        automaticBiometricsSwitchLabel.text = LAContext.biometricType() == .face ? S.FaceIDSettings.automaticBiometricsSwitchLabel : S.TouchIdSettings.automaticBiometricsSwitchLabel
+        
         textView.isEditable = false
         textView.textContainerInset = .zero
         textView.textContainer.lineFragmentPadding = 0.0
@@ -113,6 +125,7 @@ class BiometricsSettingsViewController : UIViewController, Subscriber {
         
         addFaqButton()
         let hasSetToggleInitialValue = false
+        
         store.subscribe(self, selector: { $0.isBiometricsEnabled != $1.isBiometricsEnabled }, callback: {
             self.toggle.isOn = $0.isBiometricsEnabled
             if !hasSetToggleInitialValue {
@@ -129,6 +142,11 @@ class BiometricsSettingsViewController : UIViewController, Subscriber {
                 myself.presentCantUseBiometricsAlert()
                 myself.toggle.isOn = false
             }
+        }
+        
+        self.automaticBiometricsSwitch.isOn = UserDefaults.automaticBiometricsOnStartup
+        automaticBiometricsSwitch.valueChanged = { [unowned self] in
+            UserDefaults.automaticBiometricsOnStartup = self.automaticBiometricsSwitch.isOn
         }
     }
 

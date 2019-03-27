@@ -64,7 +64,8 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
     
     private var amount: Satoshis? {
         didSet {
-            if let amount = amount, let address = address {
+            let address = self.address!
+            if let amount = amount, amount > 0 {
                 addressButton.isUserInteractionEnabled = true
                 qrCode.layer.opacity = 1
                 requestString.layer.opacity = 1
@@ -73,15 +74,17 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
                 descriptionLabel.alpha = 0
                 let amountStr: CGFloat = CGFloat(amount.rawValue) / 100000000.0
                 requestString.text = "\(amountStr) \(C.btcCurrencyCode) \(S.Confirmation.to.lowercased())\n\(address)"
+                setQrCode()
             } else {
-                addressButton.isUserInteractionEnabled = false
-                qrCode.layer.opacity = 0.0
-                share.layer.opacity = 0.1
-                requestString.layer.opacity = 0.0
+                addressButton.isUserInteractionEnabled = true
+                qrCode.layer.opacity = 1.0
+                share.layer.opacity = 1.0
+                requestString.layer.opacity = 1.0
                 descriptionLabel.alpha = 1
-                share.isUserInteractionEnabled = false
+                share.isUserInteractionEnabled = true
+                requestString.text = "Receive to\n\(address)" // ToDo: Export language
+                setReceiveAddress()
             }
-            setQrCode()
         }
     }
 
@@ -158,7 +161,7 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
                 amountView.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                 amountView.view.topAnchor.constraint(equalTo: border.bottomAnchor, constant: 20),
                 amountView.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                amountView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: E.isIPhoneX ? -C.padding[5] : -C.padding[2])
+                amountView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: E.isIPhoneXOrGreater ? -C.padding[5] : -C.padding[2])
                 ])
             // amountView.closePinPad()
         })
@@ -176,16 +179,16 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
         requestString.numberOfLines = 2
         requestString.text = "\n"
         requestString.textAlignment = .center
-        share.isUserInteractionEnabled = false
-        share.layer.opacity = 0.1
+        share.isUserInteractionEnabled = true
+        share.layer.opacity = 1.0
         sharePopout.clipsToBounds = true
         addressButton.setBackgroundImage(UIImage.imageForColor(.secondaryShadow), for: .highlighted)
         addressButton.layer.cornerRadius = 4.0
         addressButton.layer.masksToBounds = true
         
-        qrCode.layer.opacity = 0.0
+        qrCode.layer.opacity = 1.0
         qrCode.backgroundColor = .white
-        addressButton.isUserInteractionEnabled = false
+        addressButton.isUserInteractionEnabled = true
         
         descriptionLabel.alpha = 1.0
         descriptionLabel.numberOfLines = 0
@@ -194,6 +197,7 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
         descriptionLabel.text = ""
         
         setReceiveAddress()
+        amount = nil
     }
     
     private func setQrCode(){
@@ -207,7 +211,7 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
     private func setReceiveAddress() {
         address = wallet.receiveAddress
         
-        qrCode.image = UIImage.qrCode(data: "\(wallet.receiveAddress)".data(using: .utf8)!, color: CIColor(color: .white))?
+        qrCode.image = UIImage.qrCode(data: "\(wallet.receiveAddress)".data(using: .utf8)!, color: CIColor(color: .black))?
             .resize(CGSize(width: qrSize, height: qrSize))!
         
         qrCode.image = placeLogoIntoQR(qrCode.image!, width: qrSize, height: qrSize)
@@ -226,10 +230,8 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
     }
     
     @objc private func shareTapped() {
-        
-        guard let amount = amount else { return showErrorMessage(S.RequestAnAmount.noAmount) }
-
-        let request = PaymentRequest.requestString(withAddress: wallet.receiveAddress, forAmount: amount.rawValue)
+        let request =
+            amount != nil ? PaymentRequest.requestString(withAddress: wallet.receiveAddress, forAmount: amount!.rawValue) : PaymentRequest.requestString(withAddress: wallet.receiveAddress)
         
         if
             let qrImage = UIImage.qrCode(data: request.data(using: .utf8)!, color: CIColor(color: .black))?.resize(CGSize(width: 512, height: 512)),
