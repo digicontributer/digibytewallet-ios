@@ -28,6 +28,9 @@ class Transaction {
         self.tx = tx
         self.wallet = wallet
         self.kvStore = kvStore
+        
+        print("-TX", tx.txHash.hexString)
+        print("-TX", tx)
 
         let fee = wallet.feeForTx(tx) ?? 0
         self.fee = fee

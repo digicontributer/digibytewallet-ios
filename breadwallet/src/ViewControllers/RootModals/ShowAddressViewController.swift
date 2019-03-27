@@ -137,7 +137,7 @@ class ShowAddressViewController : UIViewController, Subscriber, Trackable {
             
             share.constraint(.width, constant: 58),
             share.constraint(.height, constant: 58),
-            share.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: E.isIPhoneX ? -C.padding[5] : -C.padding[2])
+            share.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: E.isIPhoneXOrGreater ? -C.padding[5] : -C.padding[2])
         ])
         sharePopout.heightConstraint = sharePopout.constraint(.height, constant: 0.0)
         topSharePopoutConstraint = sharePopout.constraint(toBottom: share, constant: largeSharePadding)

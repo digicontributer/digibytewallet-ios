@@ -217,8 +217,12 @@ open class BRDigiID : NSObject {
                 nonce = newNonce() // we are generating our own nonce
             }
             
-            // Build a payload consisting of the signature, address and signed uri
-            guard var priv = walletManager.buildBitIdKey(url: url.absoluteString, index: Int(BRDigiID.DEFAULT_INDEX)) else {
+            // Build a payload consisting of the signature, address and uri.
+            // First we need to remove the args from the uri, because the changing nonce would
+            // create a different key for each auth.
+            var derivationURI = URLComponents(string: url.absoluteString)!
+            derivationURI.query = nil
+            guard var priv = walletManager.buildBitIdKey(url: derivationURI.string!, index: Int(BRDigiID.DEFAULT_INDEX)) else {
                 return
             }
 

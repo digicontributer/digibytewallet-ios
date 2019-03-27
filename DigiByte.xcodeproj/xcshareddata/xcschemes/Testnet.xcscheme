@@ -17,7 +17,7 @@
                BlueprintIdentifier = "75A2A78F1DA5934300A983D8"
                BuildableName = "digibyte.app"
                BlueprintName = "digibyte"
-               ReferencedContainer = "container:breadwallet.xcodeproj">
+               ReferencedContainer = "container:DigiByte.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,27 +35,17 @@
                BlueprintIdentifier = "75A2A7A31DA5934300A983D8"
                BuildableName = "digibyteTests.xctest"
                BlueprintName = "digibyteTests"
-               ReferencedContainer = "container:breadwallet.xcodeproj">
+               ReferencedContainer = "container:DigiByte.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "YES">
+            skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "75A2A7AE1DA5934300A983D8"
                BuildableName = "digibyteUITests.xctest"
                BlueprintName = "digibyteUITests"
-               ReferencedContainer = "container:breadwallet.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CEA7E67A1F09A9D2001F8C27"
-               BuildableName = "Screenshots.xctest"
-               BlueprintName = "Screenshots"
-               ReferencedContainer = "container:breadwallet.xcodeproj">
+               ReferencedContainer = "container:DigiByte.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -65,17 +55,16 @@
             BlueprintIdentifier = "75A2A78F1DA5934300A983D8"
             BuildableName = "digibyte.app"
             BlueprintName = "digibyte"
-            ReferencedContainer = "container:breadwallet.xcodeproj">
+            ReferencedContainer = "container:DigiByte.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Testnet"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = "en"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -89,21 +78,14 @@
             BlueprintIdentifier = "75A2A78F1DA5934300A983D8"
             BuildableName = "digibyte.app"
             BlueprintName = "digibyte"
-            ReferencedContainer = "container:breadwallet.xcodeproj">
+            ReferencedContainer = "container:DigiByte.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "OS_ACTIVITY_MODE"
-            value = "disable"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
@@ -115,7 +97,7 @@
             BlueprintIdentifier = "75A2A78F1DA5934300A983D8"
             BuildableName = "digibyte.app"
             BlueprintName = "digibyte"
-            ReferencedContainer = "container:breadwallet.xcodeproj">
+            ReferencedContainer = "container:DigiByte.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

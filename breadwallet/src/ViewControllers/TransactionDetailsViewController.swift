@@ -66,7 +66,7 @@ class TransactionDetailsViewController: UICollectionViewController, Subscriber, 
         }
         
         header.constrain([
-            header.topAnchor.constraint(equalTo: view.topAnchor, constant: E.isIPhoneX ? 70 : 20),
+            header.topAnchor.constraint(equalTo: view.topAnchor, constant: E.isIPhoneXOrGreater ? 70 : 20),
             header.leftAnchor.constraint(equalTo: view.leftAnchor),
             header.rightAnchor.constraint(equalTo: view.rightAnchor),
             header.heightAnchor.constraint(equalToConstant: 50)

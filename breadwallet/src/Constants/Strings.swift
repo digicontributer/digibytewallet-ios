@@ -283,12 +283,14 @@ enum S {
         static let spendingLimit = NSLocalizedString("TouchIdSettings.spendingLimit", value: "Spending limit: %1$@ (%2$@)", comment: "Spending Limit: b100,000 ($100)")
         static let customizeText = NSLocalizedString("TouchIdSettings.customizeText", value: "You can customize your Touch ID spending limit from the %1$@.", comment: "You can customize your Touch ID Spending Limit from the [TouchIdSettings.linkText gets added here as a button]")
         static let linkText = NSLocalizedString("TouchIdSettings.linkText", value: "Touch ID Spending Limit Screen", comment: "Link Text (see TouchIdSettings.customizeText)")
+        static let automaticBiometricsSwitchLabel = NSLocalizedString("TouchIdSettings.automaticBiometricsSwitchLabel", value: "Request Touch ID automatically on startup", comment: "Switch label for setting")
     }
     
     enum FaceIDSettings {
         static let title = NSLocalizedString("FaceIDSettings.title", value:"Face ID", comment: "Face ID settings view title")
         static let label = NSLocalizedString("FaceIDSettings.label", value:"Use your face to unlock your DigiByte and send money up to a set limit.", comment: "Face Id screen label")
         static let switchLabel = NSLocalizedString("FaceIDSettings.switchLabel", value:"Enable Face ID for DigiByte", comment: "Face id switch label.")
+        static let automaticBiometricsSwitchLabel = NSLocalizedString("FaceIDSettings.automaticBiometricsSwitchLabel", value: "Request Face ID automatically on startup", comment: "Switch label for setting")
         static let unavailableAlertTitle = NSLocalizedString("FaceIDSettings.unavailableAlertTitle", value:"Face ID Not Set Up", comment: "Face ID unavailable alert title")
         static let unavailableAlertMessage = NSLocalizedString("FaceIDSettings.unavailableAlertMessage", value:"You have not set up Face ID on this device. Go to Settings->Face ID & Passcode to set it up now.", comment: "Face ID unavailable alert message")
         static let customizeText = NSLocalizedString("FaceIDSettings.customizeText", value: "You can customize your Face ID spending limit from the %1$@.", comment: "You can customize your Face ID Spending Limit from the [TouchIdSettings.linkText gets added here as a button]")
@@ -424,6 +426,7 @@ enum S {
         static let security = NSLocalizedString("MenuButton.security", value:"Security Center", comment: "Menu button title")
         static let support = NSLocalizedString("MenuButton.support", value:"Support", comment: "Menu button title")
         static let settings = NSLocalizedString("MenuButton.settings", value:"Settings", comment: "Menu button title")
+        static let digiAssets = NSLocalizedString("MenuButton.digiAssets", value: "DigiAssets", comment: "Menu button title for DigiAssets")
         static let lock = NSLocalizedString("MenuButton.lock", value:"Lock Wallet", comment: "Menu button title")
         static let report = NSLocalizedString("MenuButton.report", value: "Report Bug", comment: "Report Bug title")
         static let digiid = "DigiID"

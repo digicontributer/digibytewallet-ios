@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:breadwallet.xcodeproj">
+      location = "group:/Users/julianjager/Desktop/Digibyte/old/digibytewallet-ios/DigiByte.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

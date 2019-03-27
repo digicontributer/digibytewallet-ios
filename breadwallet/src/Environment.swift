@@ -56,8 +56,15 @@ struct E {
     static let isIPhoneX: Bool = {
         return (UIScreen.main.bounds.size.height == 812.0)
     }()
+    static let isIphoneXsMax: Bool = {
+        return (UIScreen.main.bounds.size.height == 896.0)
+    }()
     static let is32Bit: Bool = {
         return MemoryLayout<Int>.size == MemoryLayout<UInt32>.size
+    }()
+    
+    static let isIPhoneXOrGreater: Bool = {
+        return E.isIPhoneX || E.isIphoneXsMax
     }()
     
     static let scaleFactor: CGFloat = {

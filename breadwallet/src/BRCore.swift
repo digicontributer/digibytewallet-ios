@@ -297,6 +297,15 @@ extension UnsafeMutablePointer where Pointee == BRTransaction {
         set { self.pointee.blockHeight = newValue }
     }
     
+    var isDandelion: Bool {
+        get {
+            return self.pointee.is_dandelion == 1;
+        }
+        set {
+            self.pointee.is_dandelion = newValue ? 1 : 0;
+        }
+    }
+    
     var timestamp: TimeInterval {
         get { return self.pointee.timestamp > UInt32(NSTimeIntervalSince1970) ?
               TimeInterval(self.pointee.timestamp) - NSTimeIntervalSince1970 : 0 }

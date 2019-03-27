@@ -744,8 +744,6 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         self.edgeGesture = UIScreenEdgePanGestureRecognizer()
         super.init(nibName: nil, bundle: nil)
         
-        self.edgeGesture.delegate = self
-        
         footerView.debugDigiAssetsCallback = { [unowned self] in
 //            return;
             guard let w = self.walletManager else { return }
@@ -956,9 +954,9 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         hamburgerMenuView.addButton(title: S.MenuButton.settings, icon: #imageLiteral(resourceName: "hamburger_003Settings")) {
             self.store.perform(action: HamburgerActions.Present(modal: .settings))
         }
-//        hamburgerMenuView.addButton(title: S.MenuButton.digiAssets, icon: #imageLiteral(resourceName: "hamburger_003Settings")) {
-//            self.store.perform(action: HamburgerActions.Present(modal: .digiAssets))
-//        }
+        hamburgerMenuView.addButton(title: S.MenuButton.digiAssets, icon: #imageLiteral(resourceName: "hamburger_003Settings")) {
+            self.store.perform(action: HamburgerActions.Present(modal: .digiAssets))
+        }
         hamburgerMenuView.addButton(title: S.MenuButton.lock, icon: #imageLiteral(resourceName: "hamburger_004Locked")) {
             self.store.perform(action: HamburgerActions.Present(modal: .lockWallet))
         }
@@ -1111,7 +1109,7 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
 
         footerView.constrainBottomCorners(sidePadding: 0, bottomPadding: 0)
         footerView.constrain([
-            footerView.constraint(.height, constant: E.isIPhoneX ? footerHeight + 19.0 : footerHeight)
+            footerView.constraint(.height, constant: E.isIPhoneXOrGreater ? footerHeight + 19.0 : footerHeight)
         ])
         searchHeaderview.constrain(toSuperviewEdges: nil)
         
@@ -1301,10 +1299,13 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
             ])
         })
         
+        edgeGesture.delaysTouchesBegan = true
+        pageController.scrollView?.panGestureRecognizer.require(toFail: edgeGesture)
+        
         let insets = UIEdgeInsets(
             top: 15,
             left: 0,
-            bottom: E.isIPhoneX ? footerHeight + C.padding[2] + 19 : footerHeight + C.padding[2],
+            bottom: E.isIPhoneXOrGreater ? footerHeight + C.padding[2] + 19 : footerHeight + C.padding[2],
             right: 0
         )
         
@@ -1370,14 +1371,25 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
     }
 }
 
-// To make the edge gesture recognizer work above transaction list
-extension AccountViewController: UIGestureRecognizerDelegate {
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
+//// To make the edge gesture recognizer work above transaction list
+extension UIPageViewController {
+    public var scrollView: UIScrollView? {
+        for view in self.view.subviews {
+            if let scrollView = view as? UIScrollView {
+                return scrollView
+            }
+        }
+        return nil
     }
     
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
 }
+//extension AccountViewController: UIGestureRecognizerDelegate {
+//    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+//        return false
+//    }
+//
+//    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+//        return false
+//    }
+//}
 
