@@ -130,7 +130,8 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
         
         dandelionLabel.constrain([
             dandelionLabel.leadingAnchor.constraint(equalTo: dandelionSwitchContainer.leadingAnchor, constant: 16),
-            dandelionLabel.centerYAnchor.constraint(equalTo: dandelionSwitchContainer.centerYAnchor)
+            dandelionLabel.trailingAnchor.constraint(equalTo: dandelionSwitch.leadingAnchor, constant: -16),
+            dandelionLabel.centerYAnchor.constraint(equalTo: dandelionSwitchContainer.centerYAnchor),
         ])
         
         dandelionSwitch.constrain([
@@ -174,13 +175,16 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
             sendButton.constraint(toBottom: dandelionSwitchContainer, constant: verticalButtonPadding),
             sendButton.constraint(.height, constant: C.Sizes.buttonHeight),
             sendButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: E.isIPhoneXOrGreater ? -C.padding[5] : -C.padding[2]) ])
+        
         addButtonActions()
+        
         store.subscribe(self, selector: { $0.walletState.balance != $1.walletState.balance },
                         callback: {
                             if let balance = $0.walletState.balance {
                                 self.balance = balance
                             }
         })
+        
         walletManager.wallet?.feePerKb = store.state.fees.regular
         
         contactNameLabel.textColor = C.Colors.greyBlue
