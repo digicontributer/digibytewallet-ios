@@ -951,12 +951,14 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
 //        hamburgerMenuView.addButton(title: S.MenuButton.support, icon: #imageLiteral(resourceName: "hamburger_001Info")) {
 //            self.store.perform(action: HamburgerActions.Present(modal: .support))
 //        }
+        hamburgerMenuView.addButton(title: S.MenuButton.digiAssets, icon: UIImage(named: "digiassets")!) {
+            self.store.perform(action: HamburgerActions.Present(modal: .digiAssets))
+        }
+        
         hamburgerMenuView.addButton(title: S.MenuButton.settings, icon: #imageLiteral(resourceName: "hamburger_003Settings")) {
             self.store.perform(action: HamburgerActions.Present(modal: .settings))
         }
-        hamburgerMenuView.addButton(title: S.MenuButton.digiAssets, icon: #imageLiteral(resourceName: "hamburger_003Settings")) {
-            self.store.perform(action: HamburgerActions.Present(modal: .digiAssets))
-        }
+
         hamburgerMenuView.addButton(title: S.MenuButton.lock, icon: #imageLiteral(resourceName: "hamburger_004Locked")) {
             self.store.perform(action: HamburgerActions.Present(modal: .lockWallet))
         }
