@@ -638,7 +638,7 @@ class ModalPresenter : Subscriber, Trackable {
         
         var nextVC: UIViewController!
         
-        if !UserDefaults.digiAssetsOnboardingShown {
+        if !UserDefaults.digiAssetsOnboardingShown, false /* YOSHI */{
             // Onboarding shall be displayed.
             // After user has finished introduction, we will display the
             // main DigiAssets view controller

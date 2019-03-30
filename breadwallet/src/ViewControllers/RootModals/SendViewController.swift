@@ -358,7 +358,7 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
 						if let decode = qrCode.messageString {
 							if let payRequest = PaymentRequest(string: decode) {
 								self.handleRequest(payRequest)
-								return showAlert(title: S.QRImageReader.title, message: S.QRImageReader.SuccessFoundMessage + decode, buttonLabel: S.Button.ok)
+                                return;
 							}
 						}
 					}

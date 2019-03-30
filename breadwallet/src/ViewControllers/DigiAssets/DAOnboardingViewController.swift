@@ -173,12 +173,13 @@ class DAOnboardingViewController: UIViewController {
         }
         
         actionButtonEventShape.tap = { [unowned self] in
-            print(self.header.close.frame)
-            print(self.header.frame)
             if let idx = self.pages.index(of: self.pageViewController.viewControllers![0]) {
                 if idx < self.pages.count - 1 {
                     let nextPage = self.pages[idx+1]
                     self.pageViewController.setViewControllers([nextPage], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
+                } else {
+                    // last page
+                    self.navigationController?.pushViewController(DAMainViewController(), animated: true)
                 }
             }
         }
