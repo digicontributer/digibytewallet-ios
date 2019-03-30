@@ -49,6 +49,8 @@ DigiWallet for iOS and Android was engineered from the ground-up to be as friend
 - Spanish
 - Swedish
 
+... and many more
+
 We manage all translations with:
 
 [PhraseApp - Start localizing software the simple way](https://phraseapp.com)
