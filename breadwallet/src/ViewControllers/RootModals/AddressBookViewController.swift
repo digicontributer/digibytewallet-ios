@@ -408,9 +408,7 @@ fileprivate class AddressBookAddContactViewController: UIViewController {
 
 extension AddressBookAddContactViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        self.dismiss(animated: true, completion: { () -> Void in
-            
-        })
+        self.dismiss(animated: true, completion: { () -> Void in })
         
         if
             let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage,
@@ -425,9 +423,9 @@ extension AddressBookAddContactViewController: UIImagePickerControllerDelegate &
                 if features.count == 1 {
                     if let qrCode = features.first as? CIQRCodeFeature {
                         if let decode = qrCode.messageString {
-                            if let payRequest = PaymentRequest(string: decode) {
-                                // self.handleRequest(payRequest)
-                                return showAlert(title: S.QRImageReader.title, message: S.QRImageReader.SuccessFoundMessage + decode, buttonLabel: S.Button.ok)
+                            if PaymentRequest(string: decode) != nil {
+                                self.addressCell.setContent(decode)
+                                return;
                             }
                         }
                     }
@@ -436,10 +434,8 @@ extension AddressBookAddContactViewController: UIImagePickerControllerDelegate &
                 } else {
                     return showAlert(title: S.QRImageReader.title, message: S.QRImageReader.NotFoundMessage, buttonLabel: S.Button.ok)
                 }
-                
             }
         }
-        
     }
 }
 
