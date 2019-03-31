@@ -18,7 +18,7 @@ enum ButtonType {
 
 private let minTargetSize: CGFloat = 48.0
 
-class ShadowButton: UIControl {
+class ShadowButton: DAHapticControl {
 
     init(title: String, type: ButtonType) {
         self.title = title

@@ -83,7 +83,7 @@ class AddressCell: UIView {
 
     let showAddressBookButton: Bool
     let textField = ToCell(placeholder: S.Send.toLabel)
-    let addressBookButton = UIButton()
+    let addressBookButton = DGBHapticButton()
     let paste = ShadowButton(title: S.Send.pasteLabel, type: .primary)
     let scan = ShadowButton(title: S.Send.scanLabel, type: .primary)
 	let qrImage = ShadowButton(title: S.QRImageReader.buttonLabel, type: .primary)

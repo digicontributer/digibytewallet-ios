@@ -458,6 +458,12 @@ fileprivate class RadialGradientMenu: UIView {
         
         view.highlightOnTouch = true
         view.addTapGestureRecognizer {
+            if #available(iOS 10.0, *) {
+                let feedbackGenerator = UISelectionFeedbackGenerator()
+                feedbackGenerator.prepare()
+                feedbackGenerator.selectionChanged()
+            }
+
             let _ = self.closeMenu() {
                 onTap()
             }
@@ -609,19 +615,19 @@ class AccountFooterView: UIView {
         }
         
         // left button (trigger hamburger menu)
-        let hamburgerButton = UIButton(type: .system)
+        let hamburgerButton = DGBHapticButton()//  UIButton(type: .system)
         hamburgerButton.setImage(#imageLiteral(resourceName: "hamburgerButton").withRenderingMode(.alwaysTemplate), for: .normal)
         hamburgerButton.tintColor = .white
         hamburgerButton.contentMode = .center
         
         // right button (qr code scanner)
-        let qrButton = UIButton(type: .system)
+        let qrButton = DGBHapticButton(type: .system)
         qrButton.setImage( #imageLiteral(resourceName: "qrButtonImage").withRenderingMode(.alwaysTemplate), for: .normal)
         qrButton.tintColor = .white
         qrButton.contentMode = .center
         
         // DigiID
-        let digiIDButton = UIButton(type: .system)
+        let digiIDButton = DGBHapticButton(type: .system)
         digiIDButton.setBackgroundImage(#imageLiteral(resourceName: "digiIDButton"), for: .normal)
         digiIDButton.contentMode = .scaleAspectFit
         
