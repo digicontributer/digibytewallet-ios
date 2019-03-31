@@ -94,6 +94,11 @@ class AlertView : UIView {
     }
 
     func animate() {
+        if #available(iOS 10.0, *) {
+            let feedbackGen = UINotificationFeedbackGenerator()
+            feedbackGen.notificationOccurred(UINotificationFeedbackType.success)
+        }
+        
         UIView.animate(withDuration: 0.3, delay: 0.1, usingSpringWithDamping: 0.6, initialSpringVelocity: 15, options: UIViewAnimationOptions.curveEaseIn, animations: {
             self.icon.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         }, completion: { _ in
