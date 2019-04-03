@@ -257,13 +257,20 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
     }
 
     @objc private func addressTapped() {
-        guard let amount = amount else { return }
-        let req = PaymentRequest.requestString(withAddress: wallet.receiveAddress, forAmount: amount.rawValue)
-        //saveEvent("receive.copiedAddress")
-        UIPasteboard.general.string = req
-        toggle(alertView: addressPopout, shouldAdjustPadding: false, shouldShrinkAfter: true)
-        if sharePopout.isExpanded {
-            toggle(alertView: sharePopout, shouldAdjustPadding: true)
+        if let amount = amount {
+            let req = PaymentRequest.requestString(withAddress: wallet.receiveAddress, forAmount: amount.rawValue)
+            UIPasteboard.general.string = req
+            toggle(alertView: addressPopout, shouldAdjustPadding: false, shouldShrinkAfter: true)
+            if sharePopout.isExpanded {
+                toggle(alertView: sharePopout, shouldAdjustPadding: true)
+            }
+        } else {
+            let req = PaymentRequest.requestString(withAddress: wallet.receiveAddress)
+            UIPasteboard.general.string = req
+            toggle(alertView: addressPopout, shouldAdjustPadding: false, shouldShrinkAfter: true)
+            if sharePopout.isExpanded {
+                toggle(alertView: sharePopout, shouldAdjustPadding: true)
+            }
         }
     }
 
