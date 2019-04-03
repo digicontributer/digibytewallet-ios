@@ -265,8 +265,7 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
                 toggle(alertView: sharePopout, shouldAdjustPadding: true)
             }
         } else {
-            let req = PaymentRequest.requestString(withAddress: wallet.receiveAddress)
-            UIPasteboard.general.string = req
+            UIPasteboard.general.string = wallet.receiveAddress
             toggle(alertView: addressPopout, shouldAdjustPadding: false, shouldShrinkAfter: true)
             if sharePopout.isExpanded {
                 toggle(alertView: sharePopout, shouldAdjustPadding: true)
