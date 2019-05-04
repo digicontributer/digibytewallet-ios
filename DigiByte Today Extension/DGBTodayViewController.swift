@@ -137,7 +137,14 @@ class DGBTodayViewController: UIViewController, NCWidgetProviding {
         btn.contentMode = .scaleAspectFit
         
         btn.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
-        btn.callback = callback
+        btn.callback = { [weak btn] in
+            if #available(iOSApplicationExtension 10.0, *) {
+                let feedback = UISelectionFeedbackGenerator()
+                feedback.prepare()
+                feedback.selectionChanged()
+            }
+            callback()
+        }
         
         return btn
     }
@@ -392,7 +399,7 @@ class DGBTodayViewController: UIViewController, NCWidgetProviding {
                 self.actionItemHeader.alpha = 1.0
                 self.receiveHeaderLabel.alpha = 1.0
                 self.receiveAddressLabel.alpha = 1.0
-                self.receiveHeaderLabelConstraint.constant = 2.0
+                self.receiveHeaderLabelConstraint.constant = -2.0
                 self.actionLabelConstraint.constant = 6.0
                 self.actionItemView.alpha = 1.0
             }, completion: nil)
