@@ -205,6 +205,8 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
         let request = PaymentRequest.requestString(withAddress: wallet.receiveAddress, forAmount: amount.rawValue)
         qrCode.image = UIImage.qrCode(data: request.data(using: .utf8)!, color: CIColor(color: .black))?
             .resize(CGSize(width: qrSize, height: qrSize))!
+        
+        guard !UserDefaults.excludeLogoInQR else { return }
         qrCode.image = placeLogoIntoQR(qrCode.image!, width: qrSize, height: qrSize)
     }
 
@@ -214,6 +216,7 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
         qrCode.image = UIImage.qrCode(data: "\(wallet.receiveAddress)".data(using: .utf8)!, color: CIColor(color: .black))?
             .resize(CGSize(width: qrSize, height: qrSize))!
         
+        guard !UserDefaults.excludeLogoInQR else { return }
         qrCode.image = placeLogoIntoQR(qrCode.image!, width: qrSize, height: qrSize)
     }
 
@@ -235,7 +238,7 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
         
         if
             let qrImage = UIImage.qrCode(data: request.data(using: .utf8)!, color: CIColor(color: .black))?.resize(CGSize(width: 512, height: 512)),
-            let qrImageLogo = placeLogoIntoQR(qrImage, width: 512, height: 512),
+            let qrImageLogo = UserDefaults.excludeLogoInQR ? qrImage : placeLogoIntoQR(qrImage, width: 512, height: 512),
             let imgData = UIImageJPEGRepresentation(qrImageLogo, 1.0),
             let jpegRep = UIImage(data: imgData) {
                 let activityViewController = UIActivityViewController(activityItems: [request, jpegRep], applicationActivities: nil)

@@ -300,7 +300,7 @@ class LoginViewController: PINViewController, Trackable {
     private let isPresentedForLock: Bool
     private let activityView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     private let securityCheckLabel = UILabel(font: .customMedium(size: 12), color: C.Colors.blueGrey)
-    private let digiIdButton = UIButton()
+    private let digiIdButton = DGBHapticButton()
 
     private let biometricsView: UIView = {
         let view = UIView()
@@ -371,10 +371,7 @@ class LoginViewController: PINViewController, Trackable {
         addPinPadCallback()
         setData()
         
-        DispatchQueue.main.async {
-            // YOSHI
-            self.authenticationSucceded()
-            
+        DispatchQueue.main.async {            
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: {
                 self.store.perform(action: HamburgerActions.Present(modal: .digiAssets))
             })
@@ -441,7 +438,6 @@ class LoginViewController: PINViewController, Trackable {
             walletLocked()
         }
         
-        print("BIO", shouldUseBiometrics && !hasAttemptedToShowBiometrics && !isPresentedForLock && UserDefaults.hasShownWelcome)
         if shouldUseBiometrics && !hasAttemptedToShowBiometrics && !isPresentedForLock {
             hasAttemptedToShowBiometrics = true
             

@@ -94,7 +94,7 @@ fileprivate class AddressBookAddContactViewController: UIViewController {
     private let favoriteLabel = UILabel()
     
     private let addButton = ShadowButton(title: S.AddressBook.addContactButtonTitle, type: .primary)
-    private let deleteButton = UIButton(frame: .zero)
+    private let deleteButton = DGBHapticButton(frame: .zero)
     private let closeButton = UIButton.close
     
     private var fav: UIImageView!
@@ -656,7 +656,7 @@ class AddressBookOverviewViewController: UIViewController, Trackable, Subscriber
     
     //MARK: - Private
     private let searchBox = AddressBookSearchBar()
-    private let addContactButton = UIButton()
+    private let addContactButton = DGBHapticButton()
     private let tableView = UITableView(frame: .zero, style: UITableViewStyle.grouped)
     private var contacts = [AddressBookContact]() {
         didSet {

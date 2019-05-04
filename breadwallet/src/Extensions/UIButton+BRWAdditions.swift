@@ -26,7 +26,7 @@ extension UIButton {
         return button
     }
 
-    static var close: UIButton {
+    static var close: DGBHapticButton {
         let accessibilityLabel = E.isScreenshots ? "Close" : S.AccessibilityLabels.close
         return UIButton.icon(image: #imageLiteral(resourceName: "Close"), accessibilityLabel: accessibilityLabel)
     }
@@ -39,8 +39,8 @@ extension UIButton {
         return button
     }
 
-    static func icon(image: UIImage, accessibilityLabel: String) -> UIButton {
-        let button = UIButton(type: .system)
+    static func icon(image: UIImage, accessibilityLabel: String) -> DGBHapticButton {
+        let button = DGBHapticButton(type: .system)
         button.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
         button.setImage(image, for: .normal)
 

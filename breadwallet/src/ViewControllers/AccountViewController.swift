@@ -156,6 +156,13 @@ fileprivate class BalanceView: UIView, Subscriber {
     
     @objc private func balanceViewTapped() {
         guard !animating else { return }
+        
+        if #available(iOS 10.0, *) {
+            let feedbackGenerator = UISelectionFeedbackGenerator()
+            feedbackGenerator.prepare()
+            feedbackGenerator.selectionChanged()
+        }
+
         animating = true
         
         self.store.perform(action: CurrencyChange.toggle())
@@ -628,7 +635,7 @@ fileprivate class HamburgerViewMenu: UIView {
         buttonText.lineBreakMode = .byWordWrapping
         buttonText.numberOfLines = 0
         
-        let buttonContainer = UIControl()
+        let buttonContainer = DAHapticControl()
         buttonContainer.isUserInteractionEnabled = true
         buttonContainer.addSubview(buttonImage)
         buttonContainer.addSubview(buttonText)
@@ -951,9 +958,11 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
 //        hamburgerMenuView.addButton(title: S.MenuButton.support, icon: #imageLiteral(resourceName: "hamburger_001Info")) {
 //            self.store.perform(action: HamburgerActions.Present(modal: .support))
 //        }
-        hamburgerMenuView.addButton(title: S.MenuButton.digiAssets, icon: UIImage(named: "digiassets")!) {
-            self.store.perform(action: HamburgerActions.Present(modal: .digiAssets))
-        }
+        
+        // YOSHI
+//        hamburgerMenuView.addButton(title: S.MenuButton.digiAssets, icon: UIImage(named: "digiassets")!) {
+//            self.store.perform(action: HamburgerActions.Present(modal: .digiAssets))
+//        }
         
         hamburgerMenuView.addButton(title: S.MenuButton.settings, icon: #imageLiteral(resourceName: "hamburger_003Settings")) {
             self.store.perform(action: HamburgerActions.Present(modal: .settings))

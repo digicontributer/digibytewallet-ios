@@ -2,7 +2,7 @@
 //  DAOnboardingViewController.swift
 //  digibyte
 //
-//  Created by Julian Jäger on 28.02.19.
+//  Created by Yoshi Jaeger on 28.02.19.
 //  Copyright © 2019 breadwallet LLC. All rights reserved.
 //
 

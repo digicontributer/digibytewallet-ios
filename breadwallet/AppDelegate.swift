@@ -95,6 +95,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         applicationController.performFetch(completionHandler)
     }
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.applicationController.resetWindows()
+            
+            switch shortcutItem.type {
+                case "App.Shortcuts.Send":
+                    self.applicationController.showSend()
+                    break
+                
+                case "App.Shortcuts.Receive":
+                    self.applicationController.showReceive()
+                    break
+                
+                case "App.Shortcuts.DigiID":
+                    self.applicationController.openDigiIDScanner()
+                    break
+                
+                case "App.Shortcuts.AddressBook":
+                    self.applicationController.showAddressBook()
+                    break
+                
+                default:
+                    break
+            }
+        }
+    }
 
     func application(_ application: UIApplication, shouldAllowExtensionPointIdentifier extensionPointIdentifier: UIApplicationExtensionPointIdentifier) -> Bool {
         return false // disable extensions such as custom keyboards for security purposes
