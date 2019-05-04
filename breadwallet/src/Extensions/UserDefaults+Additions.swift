@@ -24,7 +24,6 @@ private let customNodePortKey = "customNodePortKey"
 private let hasPromptedShareDataKey = "hasPromptedShareDataKey"
 private let hasShownWelcomeKey = "hasShownWelcomeKey"
 private let maxSendButtonVisibleKey = "maxSendButtonVisible"
-private let excludeLogoInQRKey = "excludeLogoInQR"
 private let balanceViewCollapsedKey = "balanceViewCollapsed"
 private let digiAssetsOnboardingShownKey = "digiAssetsShown"
 private let automaticBiometricsOnStartupKey = "automaticBiometricsOnStartup"
@@ -149,13 +148,6 @@ extension UserDefaults {
             return defaults.bool(forKey: maxSendButtonVisibleKey)
         }
         set { defaults.set(newValue, forKey: maxSendButtonVisibleKey) }
-    }
-    
-    static var excludeLogoInQR: Bool {
-        get {
-            return defaults.bool(forKey: excludeLogoInQRKey)
-        }
-        set { defaults.set(newValue, forKey: excludeLogoInQRKey) }
     }
     
     static var balanceViewCollapsed: Bool {

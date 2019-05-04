@@ -115,9 +115,55 @@
 	<string>Used to scan barcodes</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Lato-Regular.ttf</string>
+		<string>Lato-Bold.ttf</string>
+		<string>Lato-Medium.ttf</string>
 		<string>Rubik-Medium.ttf</string>
 		<string>Rubik-Regular.ttf</string>
 		<string>Rubik-Bold.ttf</string>
+	</array>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeShare</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Send your DGB to someone</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Send DGB</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>App.Shortcuts.Send</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeUpdate</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Receive DGB from someone</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Receive DGB</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>App.Shortcuts.Receive</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>Digi-id-icon</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>Open Digi-ID Authenticator</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Digi-ID</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>App.Shortcuts.DigiID</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeContact</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>View your contacts</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>AddressBook</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>App.Shortcuts.AddressBook</string>
+		</dict>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
