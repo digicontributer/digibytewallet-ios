@@ -59,7 +59,7 @@
 		22E773041EE7813000397E0E /* Bonjour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E773031EE7813000397E0E /* Bonjour.swift */; };
 		39082BDC22760675008657F6 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A2A8091DA5936F00A983D8 /* NotificationCenter.framework */; };
 		39082BDF22760675008657F6 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39082BDE22760675008657F6 /* TodayViewController.swift */; };
-		39082BE622760675008657F6 /* DigiByte Mobile App.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 39082BDB22760674008657F6 /* DigiByte Mobile App.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		39082BE622760675008657F6 /* DigiByte TodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 39082BDB22760674008657F6 /* DigiByte TodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		39082BED227606F0008657F6 /* BRTodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE916E361EDA855800D641D6 /* BRTodayViewController.m */; };
 		39082BEE227606F0008657F6 /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = CE916E301EDA7F1400D641D6 /* UIImage+Utils.m */; };
 		39082BEF227606F0008657F6 /* BRBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE916E2D1EDA7ED000D641D6 /* BRBubbleView.m */; };
@@ -603,7 +603,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				39082BE622760675008657F6 /* DigiByte Mobile App.appex in Embed App Extensions */,
+				39082BE622760675008657F6 /* DigiByte TodayExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -698,7 +698,7 @@
 		22C431351DF8A6DF0017CAEA /* BRAPIClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BRAPIClientTests.swift; sourceTree = "<group>"; };
 		22E773031EE7813000397E0E /* Bonjour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bonjour.swift; sourceTree = "<group>"; };
 		2D5BD8E0D12DB696F3145E2D /* Pods-digibyteUITests.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyteUITests.testflight.xcconfig"; path = "Pods/Target Support Files/Pods-digibyteUITests/Pods-digibyteUITests.testflight.xcconfig"; sourceTree = "<group>"; };
-		39082BDB22760674008657F6 /* DigiByte Mobile App.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "DigiByte Mobile App.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		39082BDB22760674008657F6 /* DigiByte TodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "DigiByte TodayExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39082BDE22760675008657F6 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		39082BE322760675008657F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39082BF42276089B008657F6 /* DigiByte Today Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "DigiByte Today Extension.entitlements"; sourceTree = "<group>"; };
@@ -2830,7 +2830,7 @@
 				78D04F2320C710DB00AD1403 /* NotificationServiceExtension.appex */,
 				78D04F3920C710E700AD1403 /* digibyte WatchKit App.app */,
 				78D04F5320C710F100AD1403 /* digibyte WatchKit Extension.appex */,
-				39082BDB22760674008657F6 /* DigiByte Mobile App.appex */,
+				39082BDB22760674008657F6 /* DigiByte TodayExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3552,21 +3552,22 @@
 			productReference = 22A9A9961DF63426000F0016 /* libbz2.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		39082BDA22760674008657F6 /* DigiByte Mobile App */ = {
+		39082BDA22760674008657F6 /* DigiByte TodayExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 39082BE722760675008657F6 /* Build configuration list for PBXNativeTarget "DigiByte Mobile App" */;
+			buildConfigurationList = 39082BE722760675008657F6 /* Build configuration list for PBXNativeTarget "DigiByte TodayExtension" */;
 			buildPhases = (
 				39082BD722760674008657F6 /* Sources */,
 				39082BD822760674008657F6 /* Frameworks */,
 				39082BD922760674008657F6 /* Resources */,
+				39CBC670227DC0B000A9E7AE /* Build Versioning */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "DigiByte Mobile App";
+			name = "DigiByte TodayExtension";
 			productName = "DigiByte Today Extension";
-			productReference = 39082BDB22760674008657F6 /* DigiByte Mobile App.appex */;
+			productReference = 39082BDB22760674008657F6 /* DigiByte TodayExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		752FB0411DF8BE6B009086FB /* sqlite3 */ = {
@@ -3962,6 +3963,7 @@
 				78D04F1720C710DB00AD1403 /* NotificationServiceExtension */,
 				78D04F2520C710E700AD1403 /* digibyte WatchKit App */,
 				78D04F3B20C710F100AD1403 /* digibyte WatchKit Extension */,
+				39082BDA22760674008657F6 /* DigiByte TodayExtension */,
 				75A2A7EF1DA5935F00A983D8 /* MessagesExtension */,
 				755CD9C31DAA18420075898E /* unbound */,
 				755CD9D01DAA197C0075898E /* BRCore */,
@@ -3970,7 +3972,6 @@
 				22A9A9951DF63426000F0016 /* libbz2 */,
 				752FB0411DF8BE6B009086FB /* sqlite3 */,
 				CEA7E67A1F09A9D2001F8C27 /* Screenshots */,
-				39082BDA22760674008657F6 /* DigiByte Mobile App */,
 			);
 		};
 /* End PBXProject section */
@@ -4121,6 +4122,24 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		39CBC670227DC0B000A9E7AE /* Build Versioning */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build Versioning";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nbranch=${1:-'master'}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nif [ -f \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\n";
 		};
 		5B40AECB1651708AC93267AB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4776,7 +4795,7 @@
 		};
 		39082BE522760675008657F6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 39082BDA22760674008657F6 /* DigiByte Mobile App */;
+			target = 39082BDA22760674008657F6 /* DigiByte TodayExtension */;
 			targetProxy = 39082BE422760675008657F6 /* PBXContainerItemProxy */;
 		};
 		752FB04F1DF8BF5C009086FB /* PBXTargetDependency */ = {
@@ -6843,7 +6862,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		39082BE722760675008657F6 /* Build configuration list for PBXNativeTarget "DigiByte Mobile App" */ = {
+		39082BE722760675008657F6 /* Build configuration list for PBXNativeTarget "DigiByte TodayExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				39082BE822760675008657F6 /* Debug */,
