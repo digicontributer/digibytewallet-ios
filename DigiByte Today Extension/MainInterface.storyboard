@@ -6,43 +6,22 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
-        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Today View Controller-->
+        <!--mainViewController-->
         <scene sceneID="cwh-vc-ff4">
             <objects>
-                <viewController id="M4Y-Lb-cyx" customClass="DGBTodayViewController" customModule="DigiByte_Mobile_App" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jPu-ML-ksa"/>
-                        <viewControllerLayoutGuide type="bottom" id="o7M-tz-l6J"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="f96-iG-tNl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
+                <viewController title="mainViewController" id="M4Y-Lb-cyx" customClass="DGBTodayViewController" customModule="DigiByte_TodayExtension" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="240"/>
-                    <connections>
-                        <outlet property="mainView" destination="f96-iG-tNl" id="Yzu-IQ-GbN"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="hAM-OP-Qvr">
-                    <connections>
-                        <action selector="widgetTapped:" destination="M4Y-Lb-cyx" id="pLN-AH-gIb"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="Qtk-rs-lkS">
-                    <connections>
-                        <action selector="qrImageTapped:" destination="M4Y-Lb-cyx" id="AUv-be-e3w"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="hAM-OP-Qvr"/>
+                <tapGestureRecognizer id="Qtk-rs-lkS"/>
             </objects>
             <point key="canvasLocation" x="967" y="301"/>
         </scene>
