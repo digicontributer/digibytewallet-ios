@@ -85,9 +85,9 @@ fileprivate class SuccessMessage: UIView {
 }
 
 class DGBTodayViewController: UIViewController, NCWidgetProviding {
-    @IBOutlet var mainView: UIView!
+    var mainView: UIView!
     
-    var app: UserDefaults = {
+    lazy var app: UserDefaults = {
         return UserDefaults(suiteName: APP_GROUP_ID)!
     }()
     
@@ -156,6 +156,10 @@ class DGBTodayViewController: UIViewController, NCWidgetProviding {
     }
     
     private func addSubviews() {
+        view.backgroundColor = .clear
+        mainView = view
+        mainView!.backgroundColor = .clear
+        
         mainView.addSubview(qrImage)
         
         mainView.addSubview(receiveHeaderLabel)
@@ -317,14 +321,24 @@ class DGBTodayViewController: UIViewController, NCWidgetProviding {
         // If there's an update, use NCUpdateResult.NewData
         
         if let address = app.object(forKey: APP_GROUP_RECEIVE_ADDRESS_KEY) as? String {
+            guard receiveAddressLabel.text != address else {
+                completionHandler(NCUpdateResult.noData)
+                return
+            }
+            
             receiveAddressLabel.text = address
             
-            qrImage.image = UIImage.qrCode(data: address.data(using: .utf8)!, color: CIColor(color: .black))?
-                .resize(CGSize(width: QRImageHeight, height: QRImageHeight))!
-            qrImage.image = placeLogoIntoQR(qrImage.image!, width: QRImageHeight, height: QRImageHeight)
+            if let image = UIImage.qrCode(data: address.data(using: .utf8)!, color: CIColor(color: .black))?
+                .resize(CGSize(width: QRImageHeight, height: QRImageHeight))! {
+                qrImage.image = placeLogoIntoQR(image, width: QRImageHeight, height: QRImageHeight)
+            } else {
+                qrImage.image = nil
+            }
+            
+            completionHandler(NCUpdateResult.newData)
+        } else {
+            completionHandler(NCUpdateResult.failed)
         }
-        
-        completionHandler(NCUpdateResult.newData)
     }
     
     @available(iOSApplicationExtension 10.0, *)
