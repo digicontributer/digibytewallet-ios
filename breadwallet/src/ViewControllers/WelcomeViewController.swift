@@ -146,11 +146,10 @@ fileprivate class WelcomeViewPage: UIViewController {
 
         bigImage.constrain([
             bigImage.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
-            topConstraint,
             widthConstraint,
         ])
         
-        let subtitleBottomAnchor = subTitleLabel.bottomAnchor.constraint(greaterThanOrEqualTo: view.bottomAnchor, constant: -80)
+        let subtitleBottomAnchor = subTitleLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
         subTitleLabel.constrain([
             subtitleBottomAnchor,
             subTitleLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50),
@@ -170,9 +169,18 @@ fileprivate class WelcomeViewPage: UIViewController {
                 smallImage.widthAnchor.constraint(equalToConstant: 62),
                 smallImage.heightAnchor.constraint(equalToConstant: 62)
             ])
+            
+            bigImage.constrain([ topConstraint ])
         } else {
+            let titleMarginToImage = titleLabel.topAnchor.constraint(greaterThanOrEqualTo: bigImage.bottomAnchor, constant: 60)
+            titleMarginToImage.priority = UILayoutPriority(231)
+            
             titleLabel.constrain([
-                titleLabel.topAnchor.constraint(equalTo: bigImage.bottomAnchor, constant: 30)
+                titleMarginToImage
+            ])
+            
+            bigImage.constrain([
+                bigImage.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50)
             ])
         }
     }

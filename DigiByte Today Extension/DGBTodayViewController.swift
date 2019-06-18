@@ -13,7 +13,8 @@ let APP_GROUP_ID                  = "group.org.digibytefoundation.DigiByte"
 let APP_GROUP_REQUEST_DATA_KEY    = "kBRSharedContainerDataWalletRequestDataKey"
 let APP_GROUP_RECEIVE_ADDRESS_KEY = "kBRSharedContainerDataWalletReceiveAddressKey"
 
-let SCAN_URL = "digibytewallet://x-callback-url/scanqr"
+let SEND_URL = "digibytewallet://x-callback-url/send"
+let SCAN_URL = "digibytewallet://x-callback-url/scanqr" // obsolete
 let RECEIVE_URL = "digibytewallet://x-callback-url/receive"
 let CONTACTS_URL = "digibytewallet://x-callback-url/contacts"
 let DIGIID_URL = "digibytewallet://x-callback-url/digi-id"
@@ -170,7 +171,7 @@ class DGBTodayViewController: UIViewController, NCWidgetProviding {
         mainView.addSubview(actionItemView)
         
         actionItemView.addArrangedSubview(createActionButtonItem("Send", image: UIImage(named: "sendArrow"), callback: {
-            self.extensionContext?.open(URL(string: SCAN_URL)!, completionHandler: nil)
+            self.extensionContext?.open(URL(string: SEND_URL)!, completionHandler: nil)
         }))
         actionItemView.addArrangedSubview(createActionButtonItem("Receive", image: UIImage(named: "receiveArrow"), callback: {
             self.extensionContext?.open(URL(string: RECEIVE_URL)!, completionHandler: nil)
