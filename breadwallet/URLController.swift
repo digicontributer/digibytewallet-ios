@@ -75,8 +75,6 @@ class URLController : Trackable {
                 }
             }
             
-            print("STORE1", url.host)
-            
             if url.host == "scanqr" || url.path == "/scanqr" {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak store] in
                     store?.trigger(name: .scanQr)
@@ -89,9 +87,12 @@ class URLController : Trackable {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak store] in
                     store?.perform(action: RootModalActions.Present(modal: .receive))
                 }
+            } else if url.host == "send" || url.path == "/send" {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak store] in
+                    store?.perform(action: RootModalActions.Present(modal: .send))
+                }
             } else if url.host == "digi-id" || url.path == "/digi-id" {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak store] in
-                    print("STORE", store)
                     store?.trigger(name: .scanDigiId)
                 }
             } else if url.host == "addresslist" || url.path == "/addresslist" {
