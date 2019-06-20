@@ -52,6 +52,9 @@ class EnterPhraseCollectionViewController : UICollectionViewController {
         super.viewDidAppear(animated)
         becomeFirstResponder(atIndex: 0)
     }
+    
+//    var debugPhrase: [String] = ["alien", "wealth", "salute", "mercy", "stuff", "tackle", "exclude", "hero", "shift", "civil", "spatial", "identify"]
+    var debugPhrase: [String] = []
 
     //MARK: - UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -86,6 +89,11 @@ class EnterPhraseCollectionViewController : UICollectionViewController {
         } else if indexPath.item == 11 {
             enterPhraseCell.disableNextButton()
         }
+        
+        if debugPhrase.count > 0 {
+            enterPhraseCell.textField.text = debugPhrase[indexPath.item]
+        }
+        
         return item
     }
 

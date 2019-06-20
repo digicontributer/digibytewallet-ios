@@ -259,7 +259,7 @@ class WalletCoordinator : Subscriber, Trackable {
             //self.store.perform(action: WalletChange.setIsSyncing(false))
             
             if let w = self.walletManager.wallet {
-                let req = OldestBlockRequest(w.allAddresses, completion: { (success, hash, height, timestamp) in
+                let req = FirstBlockWithWalletTxRequest(w.allAddresses, completion: { (success, hash, height, timestamp) in
                     var start: Any? = nil
                     
                     if success && timestamp != 0 && height > 0 {

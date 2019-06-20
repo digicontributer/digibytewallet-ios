@@ -370,12 +370,12 @@ class LoginViewController: PINViewController, Trackable {
         addDigiIDButton()
         addPinPadCallback()
         setData()
-        
-        DispatchQueue.main.async {            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: {
-                self.store.perform(action: HamburgerActions.Present(modal: .digiAssets))
-            })
-        }
+//        
+//        DispatchQueue.main.async {            
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: {
+//                self.store.perform(action: HamburgerActions.Present(modal: .digiAssets))
+//            })
+//        }
         
         disabledView.didTapReset = { [weak self] in
             guard let store = self?.store else { return }

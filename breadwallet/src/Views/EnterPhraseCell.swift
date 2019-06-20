@@ -71,6 +71,8 @@ class EnterPhraseCell : UICollectionViewCell {
         contentView.addSubview(textField)
         contentView.addSubview(separator)
         contentView.addSubview(label)
+        
+        textField.keyboardAppearance = .dark
 
         textField.constrain([
             textField.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),

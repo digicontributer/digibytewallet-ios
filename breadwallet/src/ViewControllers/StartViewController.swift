@@ -127,6 +127,12 @@ class StartViewController : UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        if #available(iOS 10.0, *) {
+            let feedback = UIImpactFeedbackGenerator(style: .medium)
+            feedback.prepare()
+            feedback.impactOccurred()
+        }
+        
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 20, options: UIViewAnimationOptions.curveEaseInOut, animations: {
             self.logo.transform = CGAffineTransform.init(scaleX: 1.0, y: 1.0)
         }) { (_) in

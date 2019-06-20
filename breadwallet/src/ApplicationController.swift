@@ -56,22 +56,35 @@ class ApplicationController : Subscriber, Trackable {
         }
     }
     
+    private var blockReq: FirstBlockWithWalletTxRequest? = nil
+    
     func firstBlockSyncInit(_ w: BRWallet) {
         print("No blocks in database found. Trying to fetch first block of interest to start the sync at.")
-        let req = OldestBlockRequest(w.allAddresses, completion: { (success, hash, height, timestamp) in
+        blockReq = FirstBlockWithWalletTxRequest(w.allAddresses, completion: { [weak self] (success, hash, height, timestamp) in
             if success && timestamp != 0 && height > 0 {
+                guard let walletManager = self?.walletManager else { return }
+                
                 // set first block to start from
-                self.walletManager!.startBlock = StartBlock(hash: hash, timestamp: timestamp, startHeight: height)
+                let start = StartBlock(hash: hash, timestamp: timestamp, startHeight: height)
+                walletManager.startBlock = start
+                
+                // Make the start block persistent (to safely continue after reboot)
+                walletManager.saveBlocks(true, [walletManager.generateMerkleBlock(s: start)])
             }
             
-            self.defaultInitWallet()
+            self?.blockReq = nil
+            
+            self?.defaultInitWallet()
         })
         
-        req.start()
+        blockReq!.start()
     }
     
     private func initWallet() {
         self.walletManager = try? WalletManager(store: self.store, dbPath: nil)
+        
+//        walletManager!.wipeWallet(pin: "forceWipe")
+//        exit(0)
         
         var firstInit = false
         var wallet: BRWallet?
