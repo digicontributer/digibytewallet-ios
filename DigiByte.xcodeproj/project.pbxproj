@@ -248,7 +248,7 @@
 		75A2A7F61DA5935F00A983D8 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2A7F51DA5935F00A983D8 /* MessagesViewController.swift */; };
 		75A2A7FB1DA5935F00A983D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75A2A7FA1DA5935F00A983D8 /* Assets.xcassets */; };
 		75C735AA1DAA1B9C00251ECF /* libunbound.c in Sources */ = {isa = PBXBuildFile; fileRef = 755CD4121DAA0E3E0075898E /* libunbound.c */; };
-		785BA39C2087EDE800739B5E /* OldestBlockRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785BA39B2087EDE700739B5E /* OldestBlockRequest.swift */; };
+		785BA39C2087EDE800739B5E /* FirstBlockWithWalletTxRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785BA39B2087EDE700739B5E /* FirstBlockWithWalletTxRequest.swift */; };
 		787CA16720B06BBE005C4B92 /* UILabel+CharacterSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787CA16620B06BBE005C4B92 /* UILabel+CharacterSpacing.swift */; };
 		787CA16B20B0840E005C4B92 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 787CA16A20B081AC005C4B92 /* Rubik-Bold.ttf */; };
 		787CA16C20B0840F005C4B92 /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 787CA16920B081AC005C4B92 /* Rubik-Medium.ttf */; };
@@ -1408,7 +1408,7 @@
 		75DC77CE1DAA05B500932D9A /* BRWallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRWallet.h; sourceTree = "<group>"; };
 		75DC783C1DAA05B500932D9A /* test.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = test.c; sourceTree = "<group>"; };
 		75FEFD1B1DAED56E00203D3A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		785BA39B2087EDE700739B5E /* OldestBlockRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OldestBlockRequest.swift; path = src/OldestBlockRequest.swift; sourceTree = "<group>"; };
+		785BA39B2087EDE700739B5E /* FirstBlockWithWalletTxRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstBlockWithWalletTxRequest.swift; path = src/FirstBlockWithWalletTxRequest.swift; sourceTree = "<group>"; };
 		787CA16620B06BBE005C4B92 /* UILabel+CharacterSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+CharacterSpacing.swift"; sourceTree = "<group>"; };
 		787CA16820B081AB005C4B92 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		787CA16920B081AC005C4B92 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
@@ -2832,7 +2832,7 @@
 				754AE0BB1DFE8A46007FD001 /* BRCore.swift */,
 				75519F331DC7D20500EDF66C /* WalletManager.swift */,
 				7503773C1DF57428005EB8AE /* WalletManager+Auth.swift */,
-				785BA39B2087EDE700739B5E /* OldestBlockRequest.swift */,
+				785BA39B2087EDE700739B5E /* FirstBlockWithWalletTxRequest.swift */,
 				CE44BA1E1F353AB200392A1A /* WalletManager+BCash.swift */,
 				CE4B6C191E219CA600CF935B /* WalletCoordinator.swift */,
 				CEE659E61F65A936001FF29D /* RetryTimer.swift */,
@@ -4625,7 +4625,7 @@
 				CEBF32F41DDCE12900348FC6 /* AccountFooterView.swift in Sources */,
 				CE9057181DFF0FA8006BA848 /* String+Additions.swift in Sources */,
 				CED341331EF5A5C00014912A /* InAppAlert.swift in Sources */,
-				785BA39C2087EDE800739B5E /* OldestBlockRequest.swift in Sources */,
+				785BA39C2087EDE800739B5E /* FirstBlockWithWalletTxRequest.swift in Sources */,
 				CE47A8E01F7DA54000FF35BA /* UIScreen+Additions.swift in Sources */,
 				CE3754AD1DDE6E080045B0CB /* MaskedShadow.swift in Sources */,
 				222C42521E904C5000078EB5 /* AssociatedObject.swift in Sources */,

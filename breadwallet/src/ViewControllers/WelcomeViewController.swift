@@ -195,11 +195,21 @@ fileprivate class WelcomeViewPage: UIViewController {
     }
     
     func animate() {
+        if #available(iOS 10.0, *) {
+            if self.bigImage.transform != CGAffineTransform(scaleX: 1.0, y: 1.0) ||
+                self.smallImage.transform != CGAffineTransform(scaleX: 1.0, y: 1.0)
+            {
+                let feedback = UIImpactFeedbackGenerator(style: .medium)
+                feedback.prepare()
+                feedback.impactOccurred()
+            }
+        }
+        
         UIView.spring(0.3, animations: {
             self.bigImage.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             self.smallImage.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         }) { (_) in
-        
+            
         }
     }
     

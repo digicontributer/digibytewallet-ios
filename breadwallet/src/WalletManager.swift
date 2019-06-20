@@ -69,7 +69,7 @@ class WalletManager : BRWalletListener, BRPeerManagerListener {
     var masterPubKey = BRMasterPubKey()
     var earliestKeyTime: TimeInterval = 0 {
         didSet {
-            print(earliestKeyTime)
+            print("Sync should start from:", earliestKeyTime)
         }
     }
     var startBlock: StartBlock? = nil

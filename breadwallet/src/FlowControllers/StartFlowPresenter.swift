@@ -92,7 +92,8 @@ class StartFlowPresenter : Subscriber {
         navigationController = ModalNavigationController()
         navigationController?.delegate = navigationControllerDelegate
         
-        if !UserDefaults.hasShownWelcome {
+//        if !UserDefaults.hasShownWelcome {
+        if walletManager.wallet == nil {
             let welcome = WelcomeViewController {
                 self.navigationController?.setViewControllers([startViewController], animated: true)
                 UserDefaults.hasShownWelcome = true
@@ -127,7 +128,7 @@ class StartFlowPresenter : Subscriber {
             let pinCreationView = UpdatePinViewController(store: myself.store, walletManager: myself.walletManager, type: .creationWithPhrase, showsBackButton: false, phrase: phrase)
             
             pinCreationView.setPinSuccess = { [weak self] _ in
-                let req = OldestBlockRequest(myself.walletManager.wallet!.allAddresses, completion: { (success, hash, height, timestamp) in
+                let req = FirstBlockWithWalletTxRequest(myself.walletManager.wallet!.allAddresses, completion: { (success, hash, height, timestamp) in
                     // check whether we got the latest data
                     if success && height > 0 && timestamp > 0 {
                         // set first block to start from
@@ -154,12 +155,24 @@ class StartFlowPresenter : Subscriber {
             self?.navigationController = nil
         }
     }
+    
+    private var blockReq: BestBlockRequest? = nil
 
     private func pushPinCreationViewControllerForNewWallet() {
         let pinCreationViewController = UpdatePinViewController(store: store, walletManager: walletManager, type: .creationNoPhrase, showsBackButton: true, phrase: nil)
         pinCreationViewController.setPinSuccess = { [weak self] pin in
             autoreleasepool {
                 guard self?.walletManager.setRandomSeedPhrase() != nil else { self?.handleWalletCreationError(); return }
+            }
+            
+            // Determine the best block of the blockchain
+            self?.blockReq = BestBlockRequest(completion: { (success, blockHash, blockHeight, blockDate) in
+                if success && blockDate > 0 && blockHeight > 0 {
+                    self?.walletManager.startBlock = StartBlock(hash: blockHash, timestamp: blockDate, startHeight: blockHeight)
+                }
+                
+                self?.blockReq = nil
+                
                 self?.store.perform(action: WalletChange.setWalletCreationDate(Date()))
                 DispatchQueue.walletQueue.async {
                     self?.walletManager.peerManager?.connect()
@@ -168,7 +181,8 @@ class StartFlowPresenter : Subscriber {
                         self?.store.trigger(name: .didCreateOrRecoverWallet)
                     }
                 }
-            }
+            })
+            
         }
 
         navigationController?.setNavigationBarHidden(false, animated: false)
