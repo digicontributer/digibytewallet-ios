@@ -76,30 +76,41 @@ class BiometricsSettingsViewController : UIViewController, Subscriber {
     private func addConstraints() {
         header.constrainTopCorners(sidePadding: 0.0, topPadding: 0.0)
         header.constrain([header.heightAnchor.constraint(equalToConstant: C.Sizes.largeHeaderHeight)])
+        
         illustration.constrain([
             illustration.centerXAnchor.constraint(equalTo: header.centerXAnchor),
             illustration.centerYAnchor.constraint(equalTo: header.centerYAnchor, constant: E.isIPhoneXOrGreater ? C.padding[4] : C.padding[2]) ])
+        
         label.constrain([
             label.leadingAnchor.constraint(equalTo: header.leadingAnchor, constant: C.padding[2]),
             label.topAnchor.constraint(equalTo: header.bottomAnchor, constant: C.padding[2]),
             label.trailingAnchor.constraint(equalTo: header.trailingAnchor, constant: -C.padding[2]) ])
+        
         switchLabel.constrain([
             switchLabel.leadingAnchor.constraint(equalTo: label.leadingAnchor),
             switchLabel.topAnchor.constraint(equalTo: label.bottomAnchor, constant: C.padding[2]) ])
+        
         toggle.constrain([
             toggle.centerYAnchor.constraint(equalTo: switchLabel.centerYAnchor),
-            toggle.trailingAnchor.constraint(equalTo: label.trailingAnchor) ])
+            toggle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16) ])
+        
         automaticBiometricsSwitchLabel.constrain([
             automaticBiometricsSwitchLabel.leadingAnchor.constraint(equalTo: label.leadingAnchor),
-            automaticBiometricsSwitchLabel.topAnchor.constraint(equalTo: switchLabel.bottomAnchor, constant: C.padding[3]) ])
+            automaticBiometricsSwitchLabel.trailingAnchor.constraint(equalTo: automaticBiometricsSwitch.leadingAnchor, constant: -8),
+            automaticBiometricsSwitchLabel.centerYAnchor.constraint(equalTo: switchLabel.bottomAnchor, constant: 24) ])
+        
         automaticBiometricsSwitch.constrain([
             automaticBiometricsSwitch.centerYAnchor.constraint(equalTo: automaticBiometricsSwitchLabel.centerYAnchor),
-            automaticBiometricsSwitch.trailingAnchor.constraint(equalTo: label.trailingAnchor) ])
+            automaticBiometricsSwitch.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            automaticBiometricsSwitch.widthAnchor.constraint(equalToConstant: 51) // locked intrinsic value of UISwitch
+        ])
+        
         separator.constrain([
             separator.leadingAnchor.constraint(equalTo: automaticBiometricsSwitchLabel.leadingAnchor),
             separator.topAnchor.constraint(equalTo: automaticBiometricsSwitch.bottomAnchor, constant: C.padding[1]),
             separator.trailingAnchor.constraint(equalTo: automaticBiometricsSwitch.trailingAnchor),
             separator.heightAnchor.constraint(equalToConstant: 1.0) ])
+        
         textView.constrain([
             textView.leadingAnchor.constraint(equalTo: separator.leadingAnchor),
             textView.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: C.padding[2]),
@@ -114,6 +125,9 @@ class BiometricsSettingsViewController : UIViewController, Subscriber {
         label.text = LAContext.biometricType() == .face ? S.FaceIDSettings.label : S.TouchIdSettings.label
         switchLabel.text = LAContext.biometricType() == .face ? S.FaceIDSettings.switchLabel : S.TouchIdSettings.switchLabel
         automaticBiometricsSwitchLabel.text = LAContext.biometricType() == .face ? S.FaceIDSettings.automaticBiometricsSwitchLabel : S.TouchIdSettings.automaticBiometricsSwitchLabel
+        automaticBiometricsSwitchLabel.numberOfLines = 0
+        automaticBiometricsSwitchLabel.lineBreakMode = .byWordWrapping
+        automaticBiometricsSwitchLabel.autoresizingMask = .flexibleWidth
         
         textView.isEditable = false
         textView.textContainerInset = .zero

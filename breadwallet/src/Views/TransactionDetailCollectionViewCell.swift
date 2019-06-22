@@ -215,11 +215,12 @@ class TransactionDetailCollectionViewCell : UICollectionViewCell {
         
         cardInitialized = true
         
-        address.tap = { () in
-            self.address.tempDisable()
-            self.store?.trigger(name: .lightWeightAlert(S.Receive.copied))
-            UIPasteboard.general.string = self.address.titleLabel?.text
-        }
+        // ToDo: enable this again if we have fixed the segwit address stuff
+//        address.tap = { () in
+//            self.address.tempDisable()
+//            self.store?.trigger(name: .lightWeightAlert(S.Receive.copied))
+//            UIPasteboard.general.string = self.address.titleLabel?.text
+//        }
     }
     
     @objc private func cardPan(recognizer: UIPanGestureRecognizer) {
@@ -585,11 +586,13 @@ class TransactionDetailCollectionViewCell : UICollectionViewCell {
         fullAddress.titleLabel?.numberOfLines = 0
         fullAddress.titleLabel?.lineBreakMode = .byCharWrapping
         fullAddress.tintColor = C.Colors.text
-        fullAddress.tap = strongify(self) { myself in
-            myself.fullAddress.tempDisable()
-            myself.store?.trigger(name: .lightWeightAlert(S.Receive.copied))
-            UIPasteboard.general.string = myself.fullAddress.titleLabel?.text
-        }
+        
+//      ToDo: enable this again if we have fixed the segwit address stuff
+//        fullAddress.tap = strongify(self) { myself in
+//            myself.fullAddress.tempDisable()
+//            myself.store?.trigger(name: .lightWeightAlert(S.Receive.copied))
+//            UIPasteboard.general.string = myself.fullAddress.titleLabel?.text
+//        }
         fullAddress.contentHorizontalAlignment = .left
 
         txHash.titleLabel?.font = .customBody(size: 13.0)

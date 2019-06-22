@@ -262,11 +262,19 @@ class WelcomeViewController: UIPageViewController, UIPageViewControllerDataSourc
         
         return page
     }()
-    
+    private let sixth: WelcomeViewPage = {
+        let page = WelcomeViewPage(
+            image: nil,
+            title: "",
+            description: ""
+        )
+        
+        return page
+    }()
     
     // pages as array
     private lazy var pages = {
-        return [first, second, third, fourth, fifth]
+        return [first, second, third, fourth, fifth, sixth]
     }()
     
     // additional background images
@@ -328,10 +336,10 @@ class WelcomeViewController: UIPageViewController, UIPageViewControllerDataSourc
         ])
         
         dismissBtn.constrain([
-            dismissBtn.bottomAnchor.constraint(equalTo: pages.last!.view.bottomAnchor, constant: 0),
-            dismissBtn.rightAnchor.constraint(equalTo: pages.last!.view.rightAnchor, constant: -15),
-            dismissBtn.widthAnchor.constraint(equalToConstant: 90),
-            dismissBtn.heightAnchor.constraint(equalToConstant: 90),
+            dismissBtn.centerYAnchor.constraint(equalTo: pages.last!.view.centerYAnchor, constant: 0),
+            dismissBtn.centerXAnchor.constraint(equalTo: pages.last!.view.centerXAnchor, constant: 0),
+            dismissBtn.widthAnchor.constraint(equalToConstant: 140),
+            dismissBtn.heightAnchor.constraint(equalToConstant: 140),
         ])
     }
 
@@ -387,9 +395,19 @@ class WelcomeViewController: UIPageViewController, UIPageViewControllerDataSourc
             vc?.animate()
         }
         
+        
         UIView.animate(withDuration: 0.3) {
             self.blurryBackground.layer.opacity = showBlurryBg ? 1.0 : 0
-            self.dismissBtn.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        }
+        
+        if self.sixth == page {
+            UIView.spring(0.3, animations: {
+                self.dismissBtn.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            }) { _ in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+                    self.callback?()
+                })
+            }
         }
 
         UIView.animate(withDuration: 1) {
