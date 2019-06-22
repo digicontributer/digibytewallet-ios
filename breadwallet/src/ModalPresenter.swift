@@ -502,14 +502,14 @@ class ModalPresenter : Subscriber, Trackable {
                 Setting(switchWithTitle: S.Settings.excludeLogoInQR, initial: UserDefaults.excludeLogoInQR, callback: { (a) in
                     UserDefaults.excludeLogoInQR = a
                 }),
-                Setting(title: LAContext.biometricType() == .face ? S.Settings.faceIdLimit : S.Settings.touchIdLimit, accessoryText: { [weak self] in
-                    guard let myself = self else { return "" }
-                    guard let rate = myself.store.state.currentRate else { return "" }
-                    let amount = Amount(amount: walletManager.spendingLimit, rate: rate, maxDigits: myself.store.state.maxDigits)
-                    return amount.localCurrency
-                }, callback: {
-                    self.pushBiometricsSpendingLimit(onNc: settingsNav)
-                }),
+//                Setting(title: LAContext.biometricType() == .face ? S.Settings.faceIdLimit : S.Settings.touchIdLimit, accessoryText: { [weak self] in
+//                    guard let myself = self else { return "" }
+//                    guard let rate = myself.store.state.currentRate else { return "" }
+//                    let amount = Amount(amount: walletManager.spendingLimit, rate: rate, maxDigits: myself.store.state.maxDigits)
+//                    return amount.localCurrency
+//                }, callback: {
+//                    self.pushBiometricsSpendingLimit(onNc: settingsNav)
+//                }),
                 Setting(title: S.Settings.currency, accessoryText: {
                     let code = self.store.state.defaultCurrencyCode
                     let components: [String : String] = [NSLocale.Key.currencyCode.rawValue : code]
@@ -522,10 +522,10 @@ class ModalPresenter : Subscriber, Trackable {
                 Setting(title: S.Settings.sync, callback: {
                     settingsNav.pushViewController(ReScanViewController(store: self.store), animated: true)
                 }),
-                Setting(title: S.UpdatePin.updateTitle, callback: strongify(self) { myself in
-                    let updatePin = UpdatePinViewController(store: myself.store, walletManager: walletManager, type: .update)
-                    settingsNav.pushViewController(updatePin, animated: true)
-                })
+//                Setting(title: S.UpdatePin.updateTitle, callback: strongify(self) { myself in
+//                    let updatePin = UpdatePinViewController(store: myself.store, walletManager: walletManager, type: .update)
+//                    settingsNav.pushViewController(updatePin, animated: true)
+//                })
             ],
             "DigiByte": [
                 /*Setting(title: S.Settings.shareData, callback: {
