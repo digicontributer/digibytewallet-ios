@@ -127,7 +127,7 @@ class StartFlowPresenter : Subscriber {
             guard let myself = self else { return }
             let pinCreationView = UpdatePinViewController(store: myself.store, walletManager: myself.walletManager, type: .creationWithPhrase, showsBackButton: false, phrase: phrase)
             
-            pinCreationView.setPinSuccess = { [weak self] _ in
+            pinCreationView.setPinSuccess = { _ in
                 let req = FirstBlockWithWalletTxRequest(myself.walletManager.wallet!.allAddresses, completion: { (success, hash, height, timestamp) in
                     // check whether we got the latest data
                     if success && height > 0 && timestamp > 0 {
