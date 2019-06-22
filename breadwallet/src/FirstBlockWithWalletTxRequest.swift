@@ -156,6 +156,7 @@ class BestBlockRequest {
                 // This should be ok as we only have 15 seconds block times.
                 let blockDate = Date().timeIntervalSince1970
                 self.onCompletion(true, json.info.bestblockhash, json.info.blocks, Int(blockDate))
+                return
             } catch {
                 // JSON Decoding issues, we can't handle this issue, so we just return
             }

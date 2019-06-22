@@ -519,7 +519,7 @@ class LoginViewController: PINViewController, Trackable {
         
         constraints["pinView.centerY"]?.isActive = false
         pinView.constrain([
-            pinView.topAnchor.constraint(equalTo: biometricsView.bottomAnchor, constant: deviceHeight < 600.0 ? 48 : 105)
+            pinView.topAnchor.constraint(equalTo: biometricsView.bottomAnchor, constant: deviceHeight < 600.0 ? 20 : 105)
         ])
     }
     
