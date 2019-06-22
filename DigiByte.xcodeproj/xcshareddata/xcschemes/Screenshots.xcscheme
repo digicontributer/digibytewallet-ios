@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "75A2A78F1DA5934300A983D8"
-               BuildableName = "digibyte.app"
-               BlueprintName = "digibyte"
+               BuildableName = "DigiByte.app"
+               BlueprintName = "DigiByte"
                ReferencedContainer = "container:DigiByte.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,8 +43,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "75A2A7A31DA5934300A983D8"
-               BuildableName = "digibyteTests.xctest"
-               BlueprintName = "digibyteTests"
+               BuildableName = "DigiByteTests.xctest"
+               BlueprintName = "DigiByteTests"
                ReferencedContainer = "container:DigiByte.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -53,8 +53,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "75A2A7AE1DA5934300A983D8"
-               BuildableName = "digibyteUITests.xctest"
-               BlueprintName = "digibyteUITests"
+               BuildableName = "DigiByteUITests.xctest"
+               BlueprintName = "DigiByteUITests"
                ReferencedContainer = "container:DigiByte.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -63,8 +63,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "75A2A78F1DA5934300A983D8"
-            BuildableName = "digibyte.app"
-            BlueprintName = "digibyte"
+            BuildableName = "DigiByte.app"
+            BlueprintName = "DigiByte"
             ReferencedContainer = "container:DigiByte.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -86,8 +86,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "75A2A78F1DA5934300A983D8"
-            BuildableName = "digibyte.app"
-            BlueprintName = "digibyte"
+            BuildableName = "DigiByte.app"
+            BlueprintName = "DigiByte"
             ReferencedContainer = "container:DigiByte.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -105,8 +105,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "75A2A78F1DA5934300A983D8"
-            BuildableName = "digibyte.app"
-            BlueprintName = "digibyte"
+            BuildableName = "DigiByte.app"
+            BlueprintName = "DigiByte"
             ReferencedContainer = "container:DigiByte.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

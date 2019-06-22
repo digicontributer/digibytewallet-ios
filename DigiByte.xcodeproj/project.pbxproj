@@ -1345,13 +1345,13 @@
 		755CD9D11DAA197C0075898E /* libBRCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBRCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		759DA09F1DAB838D008CC49B /* view.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = view.c; sourceTree = "<group>"; };
 		759DA0A01DAB838D008CC49B /* view.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = view.h; sourceTree = "<group>"; };
-		75A2A7901DA5934300A983D8 /* digibyte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = digibyte.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		75A2A7901DA5934300A983D8 /* DigiByte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigiByte.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A2A7931DA5934300A983D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75A2A79A1DA5934300A983D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75A2A79F1DA5934300A983D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		75A2A7A41DA5934300A983D8 /* digibyteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = digibyteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		75A2A7A41DA5934300A983D8 /* DigiByteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DigiByteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A2A7AA1DA5934300A983D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		75A2A7AF1DA5934300A983D8 /* digibyteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = digibyteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		75A2A7AF1DA5934300A983D8 /* DigiByteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DigiByteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A2A7B31DA5934300A983D8 /* breadwalletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = breadwalletUITests.swift; sourceTree = "<group>"; };
 		75A2A7B51DA5934300A983D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75A2A7C01DA5934300A983D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1420,8 +1420,8 @@
 		78B6BBF820BAFE05003A2F29 /* Rebrand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Rebrand.xcassets; sourceTree = "<group>"; };
 		78B6BBFA20BB3352003A2F29 /* ShowAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowAddressViewController.swift; path = src/ViewControllers/RootModals/ShowAddressViewController.swift; sourceTree = "<group>"; };
 		78D04F2320C710DB00AD1403 /* NotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		78D04F3920C710E700AD1403 /* digibyte WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "digibyte WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		78D04F5320C710F100AD1403 /* digibyte WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "digibyte WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		78D04F3920C710E700AD1403 /* DigiByte WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DigiByte WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		78D04F5320C710F100AD1403 /* DigiByte WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "DigiByte WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C7397EB8A4764D7E851BF4A /* Pods-digibyte.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyte.debug.xcconfig"; path = "Pods/Target Support Files/Pods-digibyte/Pods-digibyte.debug.xcconfig"; sourceTree = "<group>"; };
 		9F2E8CBC20DA4CBF00F16465 /* CircleProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircleProgressView.swift; path = src/Views/CircleProgressView.swift; sourceTree = "<group>"; };
 		9F2E8CBD20DA4CBF00F16465 /* DGBAnimatedWaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DGBAnimatedWaveView.swift; path = src/Views/DGBAnimatedWaveView.swift; sourceTree = "<group>"; };
@@ -2803,9 +2803,9 @@
 		75A2A7911DA5934300A983D8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				75A2A7901DA5934300A983D8 /* digibyte.app */,
-				75A2A7A41DA5934300A983D8 /* digibyteTests.xctest */,
-				75A2A7AF1DA5934300A983D8 /* digibyteUITests.xctest */,
+				75A2A7901DA5934300A983D8 /* DigiByte.app */,
+				75A2A7A41DA5934300A983D8 /* DigiByteTests.xctest */,
+				75A2A7AF1DA5934300A983D8 /* DigiByteUITests.xctest */,
 				75A2A7F01DA5935F00A983D8 /* MessagesExtension.appex */,
 				755CD9C41DAA18420075898E /* libunbound.a */,
 				755CD9D11DAA197C0075898E /* libBRCore.a */,
@@ -2814,8 +2814,8 @@
 				752FB04A1DF8BE6B009086FB /* sqlite3.framework */,
 				CEA7E67B1F09A9D2001F8C27 /* Screenshots.xctest */,
 				78D04F2320C710DB00AD1403 /* NotificationServiceExtension.appex */,
-				78D04F3920C710E700AD1403 /* digibyte WatchKit App.app */,
-				78D04F5320C710F100AD1403 /* digibyte WatchKit Extension.appex */,
+				78D04F3920C710E700AD1403 /* DigiByte WatchKit App.app */,
+				78D04F5320C710F100AD1403 /* DigiByte WatchKit Extension.appex */,
 				39082BDB22760674008657F6 /* DigiByte TodayExtension.appex */,
 			);
 			name = Products;
@@ -3610,9 +3610,9 @@
 			productReference = 755CD9D11DAA197C0075898E /* libBRCore.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		75A2A78F1DA5934300A983D8 /* digibyte */ = {
+		75A2A78F1DA5934300A983D8 /* DigiByte */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 75A2A7E31DA5934400A983D8 /* Build configuration list for PBXNativeTarget "digibyte" */;
+			buildConfigurationList = 75A2A7E31DA5934400A983D8 /* Build configuration list for PBXNativeTarget "DigiByte" */;
 			buildPhases = (
 				622CA7497DB8E431E1899859 /* [CP] Check Pods Manifest.lock */,
 				75A2A78C1DA5934300A983D8 /* Sources */,
@@ -3633,14 +3633,14 @@
 				752FB04F1DF8BF5C009086FB /* PBXTargetDependency */,
 				39082BE522760675008657F6 /* PBXTargetDependency */,
 			);
-			name = digibyte;
+			name = DigiByte;
 			productName = breadwallet;
-			productReference = 75A2A7901DA5934300A983D8 /* digibyte.app */;
+			productReference = 75A2A7901DA5934300A983D8 /* DigiByte.app */;
 			productType = "com.apple.product-type.application";
 		};
-		75A2A7A31DA5934300A983D8 /* digibyteTests */ = {
+		75A2A7A31DA5934300A983D8 /* DigiByteTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 75A2A7E61DA5934400A983D8 /* Build configuration list for PBXNativeTarget "digibyteTests" */;
+			buildConfigurationList = 75A2A7E61DA5934400A983D8 /* Build configuration list for PBXNativeTarget "DigiByteTests" */;
 			buildPhases = (
 				5B40AECB1651708AC93267AB /* [CP] Check Pods Manifest.lock */,
 				75A2A7A01DA5934300A983D8 /* Sources */,
@@ -3652,14 +3652,14 @@
 			dependencies = (
 				75A2A7A61DA5934300A983D8 /* PBXTargetDependency */,
 			);
-			name = digibyteTests;
+			name = DigiByteTests;
 			productName = breadwalletTests;
-			productReference = 75A2A7A41DA5934300A983D8 /* digibyteTests.xctest */;
+			productReference = 75A2A7A41DA5934300A983D8 /* DigiByteTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		75A2A7AE1DA5934300A983D8 /* digibyteUITests */ = {
+		75A2A7AE1DA5934300A983D8 /* DigiByteUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 75A2A7E91DA5934400A983D8 /* Build configuration list for PBXNativeTarget "digibyteUITests" */;
+			buildConfigurationList = 75A2A7E91DA5934400A983D8 /* Build configuration list for PBXNativeTarget "DigiByteUITests" */;
 			buildPhases = (
 				37905F5A49F5EB10788E9E50 /* [CP] Check Pods Manifest.lock */,
 				75A2A7AB1DA5934300A983D8 /* Sources */,
@@ -3671,9 +3671,9 @@
 			dependencies = (
 				75A2A7B11DA5934300A983D8 /* PBXTargetDependency */,
 			);
-			name = digibyteUITests;
+			name = DigiByteUITests;
 			productName = breadwalletUITests;
-			productReference = 75A2A7AF1DA5934300A983D8 /* digibyteUITests.xctest */;
+			productReference = 75A2A7AF1DA5934300A983D8 /* DigiByteUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		75A2A7EF1DA5935F00A983D8 /* MessagesExtension */ = {
@@ -3730,9 +3730,9 @@
 			productReference = 78D04F2320C710DB00AD1403 /* NotificationServiceExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		78D04F2520C710E700AD1403 /* digibyte WatchKit App */ = {
+		78D04F2520C710E700AD1403 /* DigiByte WatchKit App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 78D04F3320C710E700AD1403 /* Build configuration list for PBXNativeTarget "digibyte WatchKit App" */;
+			buildConfigurationList = 78D04F3320C710E700AD1403 /* Build configuration list for PBXNativeTarget "DigiByte WatchKit App" */;
 			buildPhases = (
 				78D04F2820C710E700AD1403 /* Resources */,
 				78D04F2F20C710E700AD1403 /* Embed App Extensions */,
@@ -3743,14 +3743,14 @@
 			);
 			dependencies = (
 			);
-			name = "digibyte WatchKit App";
+			name = "DigiByte WatchKit App";
 			productName = "breadwallet WatchKit App";
-			productReference = 78D04F3920C710E700AD1403 /* digibyte WatchKit App.app */;
+			productReference = 78D04F3920C710E700AD1403 /* DigiByte WatchKit App.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
-		78D04F3B20C710F100AD1403 /* digibyte WatchKit Extension */ = {
+		78D04F3B20C710F100AD1403 /* DigiByte WatchKit Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 78D04F4D20C710F100AD1403 /* Build configuration list for PBXNativeTarget "digibyte WatchKit Extension" */;
+			buildConfigurationList = 78D04F4D20C710F100AD1403 /* Build configuration list for PBXNativeTarget "DigiByte WatchKit Extension" */;
 			buildPhases = (
 				78D04F3C20C710F100AD1403 /* Sources */,
 				78D04F4820C710F100AD1403 /* Frameworks */,
@@ -3762,9 +3762,9 @@
 			);
 			dependencies = (
 			);
-			name = "digibyte WatchKit Extension";
+			name = "DigiByte WatchKit Extension";
 			productName = "breadwallet WatchKit Extension";
-			productReference = 78D04F5320C710F100AD1403 /* digibyte WatchKit Extension.appex */;
+			productReference = 78D04F5320C710F100AD1403 /* DigiByte WatchKit Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
 		CEA7E67A1F09A9D2001F8C27 /* Screenshots */ = {
@@ -3942,12 +3942,12 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				75A2A78F1DA5934300A983D8 /* digibyte */,
-				75A2A7A31DA5934300A983D8 /* digibyteTests */,
-				75A2A7AE1DA5934300A983D8 /* digibyteUITests */,
+				75A2A78F1DA5934300A983D8 /* DigiByte */,
+				75A2A7A31DA5934300A983D8 /* DigiByteTests */,
+				75A2A7AE1DA5934300A983D8 /* DigiByteUITests */,
 				78D04F1720C710DB00AD1403 /* NotificationServiceExtension */,
-				78D04F2520C710E700AD1403 /* digibyte WatchKit App */,
-				78D04F3B20C710F100AD1403 /* digibyte WatchKit Extension */,
+				78D04F2520C710E700AD1403 /* DigiByte WatchKit App */,
+				78D04F3B20C710F100AD1403 /* DigiByte WatchKit Extension */,
 				39082BDA22760674008657F6 /* DigiByte TodayExtension */,
 				75A2A7EF1DA5935F00A983D8 /* MessagesExtension */,
 				755CD9C31DAA18420075898E /* unbound */,
@@ -4088,7 +4088,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\nbranch=${1:-'develop'}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nif [ -f \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\n";
+			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\nb=`cat versioning_branch`\nbranch=${1:-\"$b\"}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nif [ -f \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\n";
 		};
 		37905F5A49F5EB10788E9E50 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4124,7 +4124,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nbranch=${1:-'develop'}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nif [ -f \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\n";
+			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nb=`cat versioning_branch`\nbranch=${1:-\"$b\"}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nif [ -f \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\n";
 		};
 		5B40AECB1651708AC93267AB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4196,7 +4196,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nbranch=${1:-'develop'}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nif [ -f \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\n";
+			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nb=`cat versioning_branch`\nbranch=${1:-\"$b\"}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nif [ -f \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\n";
 		};
 		78D04F3120C710E700AD1403 /* Build Versioning */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4210,7 +4210,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nbranch=${1:-'develop'}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nif [ -f \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\n";
+			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nb=`cat versioning_branch`\nbranch=${1:-\"$b\"}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nif [ -f \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\n";
 		};
 		78D04F4C20C710F100AD1403 /* Build Versioning */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4224,7 +4224,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nbranch=${1:-'develop'}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nif [ -f \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\n";
+			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nb=`cat versioning_branch`\nbranch=${1:-\"$b\"}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nif [ -f \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\n";
 		};
 		AA532F321FEB1A7E00CFF3F9 /* Build Versioning */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4808,17 +4808,17 @@
 		};
 		75A2A7A61DA5934300A983D8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 75A2A78F1DA5934300A983D8 /* digibyte */;
+			target = 75A2A78F1DA5934300A983D8 /* DigiByte */;
 			targetProxy = 75A2A7A51DA5934300A983D8 /* PBXContainerItemProxy */;
 		};
 		75A2A7B11DA5934300A983D8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 75A2A78F1DA5934300A983D8 /* digibyte */;
+			target = 75A2A78F1DA5934300A983D8 /* DigiByte */;
 			targetProxy = 75A2A7B01DA5934300A983D8 /* PBXContainerItemProxy */;
 		};
 		CEA7E6811F09A9D2001F8C27 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 75A2A78F1DA5934300A983D8 /* digibyte */;
+			target = 75A2A78F1DA5934300A983D8 /* DigiByte */;
 			targetProxy = CEA7E6801F09A9D2001F8C27 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -6922,7 +6922,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		75A2A7E31DA5934400A983D8 /* Build configuration list for PBXNativeTarget "digibyte" */ = {
+		75A2A7E31DA5934400A983D8 /* Build configuration list for PBXNativeTarget "DigiByte" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75A2A7E41DA5934400A983D8 /* Debug */,
@@ -6934,7 +6934,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		75A2A7E61DA5934400A983D8 /* Build configuration list for PBXNativeTarget "digibyteTests" */ = {
+		75A2A7E61DA5934400A983D8 /* Build configuration list for PBXNativeTarget "DigiByteTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75A2A7E71DA5934400A983D8 /* Debug */,
@@ -6946,7 +6946,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		75A2A7E91DA5934400A983D8 /* Build configuration list for PBXNativeTarget "digibyteUITests" */ = {
+		75A2A7E91DA5934400A983D8 /* Build configuration list for PBXNativeTarget "DigiByteUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75A2A7EA1DA5934400A983D8 /* Debug */,
@@ -6994,7 +6994,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		78D04F3320C710E700AD1403 /* Build configuration list for PBXNativeTarget "digibyte WatchKit App" */ = {
+		78D04F3320C710E700AD1403 /* Build configuration list for PBXNativeTarget "DigiByte WatchKit App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				78D04F3420C710E700AD1403 /* Debug */,
@@ -7006,7 +7006,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		78D04F4D20C710F100AD1403 /* Build configuration list for PBXNativeTarget "digibyte WatchKit Extension" */ = {
+		78D04F4D20C710F100AD1403 /* Build configuration list for PBXNativeTarget "DigiByte WatchKit Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				78D04F4E20C710F100AD1403 /* Debug */,
