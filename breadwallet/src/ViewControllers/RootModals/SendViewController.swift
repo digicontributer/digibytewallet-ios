@@ -124,6 +124,8 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
         dandelionLabel.lineBreakMode = .byWordWrapping
         dandelionLabel.textColor = UIColor.white
         dandelionSwitch.onTintColor = C.Colors.blue
+        dandelionSwitch.isOn = true
+        dandelionLabel.font = UIFont.customBody(size: 14)
         
         dandelionSwitchContainer.addSubview(dandelionLabel)
         dandelionSwitchContainer.addSubview(dandelionSwitch)
@@ -137,6 +139,7 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
         dandelionSwitch.constrain([
             dandelionSwitch.centerYAnchor.constraint(equalTo: dandelionSwitchContainer.centerYAnchor, constant: 0),
             dandelionSwitch.trailingAnchor.constraint(equalTo: dandelionSwitchContainer.trailingAnchor, constant: -16),
+            dandelionSwitch.widthAnchor.constraint(equalToConstant: 52)
         ])
 
         addressCell.constrainTopCorners(sidePadding: 0, topPadding: 0)
