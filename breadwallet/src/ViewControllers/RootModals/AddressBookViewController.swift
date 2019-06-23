@@ -8,7 +8,7 @@
 
 import UIKit
 
-fileprivate let ADDRESSBOOK_VERSION: Int = 1
+fileprivate let ADDRESSBOOK_VERSION: Int = 2
 
 func hBox(_ view: UIView, horizontal padding: CGFloat) -> UIView {
     let v = UIView()
@@ -116,6 +116,7 @@ fileprivate class AddressBookAddContactViewController: UIViewController {
         nameBox.content = ""
         addressCell.setContent("")
         favoriteSwitch.isOn = false
+        fav.transform = CGAffineTransform(scaleX: 0, y: 0)
     }
     
     func initialize(_ data: AddressBookContact) {
@@ -511,21 +512,75 @@ fileprivate class AddressBookContactCell: UITableViewCell {
     }
 }
 
-class AddressBookContact: NSCoder, NSCoding {
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(self.id)
-        aCoder.encode(self.name)
-        aCoder.encode(self.address)
-        aCoder.encode(self.isFavorite)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        id = aDecoder.decodeObject() as! String
-        name = aDecoder.decodeObject() as! String
-        address = aDecoder.decodeObject() as! String
-        isFavorite = aDecoder.decodeObject() as! Bool
-    }
-    
+//class AddressBookContact: NSCoder, NSCoding {
+//    func encode(with aCoder: NSCoder) {
+//        aCoder.encode(self.id)
+//        aCoder.encode(self.name)
+//        aCoder.encode(self.address)
+//        aCoder.encode(self.isFavorite)
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        id = aDecoder.decodeObject() as! String
+//        name = aDecoder.decodeObject() as! String
+//        address = aDecoder.decodeObject() as! String
+//        isFavorite = aDecoder.decodeObject() as! Bool
+//    }
+//
+//    var id: String
+//    var name: String
+//    var address: String
+//    var isFavorite: Bool
+//
+//    func matches(_ str: String) -> Bool {
+//        guard str != "" else { return true }
+//        let uname = name.uppercased()
+//        let uaddress = address // case sensitive
+//        let search = str.uppercased()
+//
+//        return uname.contains(search) || uaddress.contains(search)
+//    }
+//
+//    init(id: String, name: String, address: String, isFavorite: Bool = false) {
+//        self.id = id
+//        self.name = name
+//        self.address = address
+//        self.isFavorite = isFavorite
+//        super.init()
+//    }
+//
+//    // loads the contacts from memory
+//    static func loadContacts() -> [AddressBookContact] {
+//        do {
+//            if let version = try keychainItem(key: "addressBookVersion") as NSInteger? {
+//                if version < ADDRESSBOOK_VERSION {
+//                    // migrate old data to new data (for future versions)
+//                    // ...
+//                }
+//            } else {
+//                // addressbook version not set, so set it cleanly
+//                try setKeychainItem(key: "addressBook", item: [] as NSArray)
+//                try setKeychainItem(key: "addressBookVersion", item: ADDRESSBOOK_VERSION)
+//            }
+//        } catch {
+//            // Skip error handling.. Shouldn't be too bad
+//        }
+//
+//        do {
+//            if
+//                let s = try keychainItem(key: "addressBook") as NSArray?,
+//                let addressBook: [AddressBookContact] = s as? [AddressBookContact] {
+//                return addressBook
+//            }
+//        } catch {
+//            return []
+//        }
+//
+//        return []
+//    }
+//}
+
+class AddressBookContact: Codable {
     var id: String
     var name: String
     var address: String
@@ -539,26 +594,29 @@ class AddressBookContact: NSCoder, NSCoding {
         
         return uname.contains(search) || uaddress.contains(search)
     }
-
+    
     init(id: String, name: String, address: String, isFavorite: Bool = false) {
         self.id = id
         self.name = name
         self.address = address
         self.isFavorite = isFavorite
-        super.init()
     }
     
-    // loads the contacts from memory
+    // Loads the contacts from memory
     static func loadContacts() -> [AddressBookContact] {
         do {
             if let version = try keychainItem(key: "addressBookVersion") as NSInteger? {
-                if version < ADDRESSBOOK_VERSION {
-                    // migrate old data to new data (for future versions)
-                    // ...
+                if version == 1 {
+                    // Delete alpha version data (objects are now stored as JSON)
+                    try setKeychainItem(key: "addressBook", item: "[]" as String)
+                    try setKeychainItem(key: "addressBookVersion", item: ADDRESSBOOK_VERSION)
+                    
+                } else if version < ADDRESSBOOK_VERSION {
+                    // Future migrations...
                 }
             } else {
-                // addressbook version not set, so set it cleanly
-                try setKeychainItem(key: "addressBook", item: [] as NSArray)
+                // Addressbook version not set, so set it cleanly
+                try setKeychainItem(key: "addressBook", item: "[]" as String)
                 try setKeychainItem(key: "addressBookVersion", item: ADDRESSBOOK_VERSION)
             }
         } catch {
@@ -566,10 +624,10 @@ class AddressBookContact: NSCoder, NSCoding {
         }
         
         do {
-            if
-                let s = try keychainItem(key: "addressBook") as NSArray?,
-                let addressBook: [AddressBookContact] = s as? [AddressBookContact] {
-                return addressBook
+            let jsonDecoder = JSONDecoder()
+            if let serializedAddressbook = try keychainItem(key: "addressBook") as String? {
+                let deserializedAddressbook = try jsonDecoder.decode([AddressBookContact].self, from: serializedAddressbook.data(using: .utf8)!)
+                return deserializedAddressbook
             }
         } catch {
             return []
@@ -720,7 +778,9 @@ class AddressBookOverviewViewController: UIViewController, Trackable, Subscriber
     // saves the contacts into keychain
     private func saveContacts() {
         do {
-            try setKeychainItem(key: "addressBook", item: NSArray(array: contacts))
+            let jsonEncoder = JSONEncoder()
+            let serializedAddressbook = try jsonEncoder.encode(contacts)
+            try setKeychainItem(key: "addressBook", item: serializedAddressbook)
         } catch let e {
             print(e)
         }
