@@ -78,7 +78,7 @@ class DefaultCurrencyViewController : UITableViewController, Subscriber {
         if let currentRate = rates.filter({ $0.code == defaultCurrencyCode }).first {
             let amount = Amount(amount: C.satoshis, rate: currentRate, maxDigits: store.state.maxDigits)
             let bitsAmount = Amount(amount: C.satoshis, rate: currentRate, maxDigits: store.state.maxDigits)
-            rateLabel.textColor = .orange
+            rateLabel.textColor = UIColor.blueGradientEnd
             rateLabel.text = "\(bitsAmount.bits) = \(amount.string(forLocal: currentRate.locale))"
         }
     }
@@ -101,7 +101,7 @@ class DefaultCurrencyViewController : UITableViewController, Subscriber {
 
         if rate.code == defaultCurrencyCode {
             let check = UIImageView(image: #imageLiteral(resourceName: "CircleCheck").withRenderingMode(.alwaysTemplate))
-            check.tintColor = UIColor.orange
+            check.tintColor = UIColor.blueGradientEnd
             cell.accessoryView = check
         } else {
             cell.accessoryView = nil
@@ -120,8 +120,6 @@ class DefaultCurrencyViewController : UITableViewController, Subscriber {
         header.addSubview(rateLabel)
         header.addSubview(bitcoinLabel)
         header.addSubview(bitcoinSwitch)
-        
-        bitcoinSwitch.tintColor = .orange
 
         rateLabelTitle.constrain([
             rateLabelTitle.leadingAnchor.constraint(equalTo: header.leadingAnchor, constant: C.padding[2]),
@@ -153,6 +151,8 @@ class DefaultCurrencyViewController : UITableViewController, Subscriber {
                 myself.store.perform(action: MaxDigits.set(5))
             }
         }
+        
+        bitcoinSwitch.tintColor = UIColor.blueGradientEnd
 
         bitcoinLabel.text = S.DefaultCurrency.bitcoinLabel
         rateLabelTitle.text = S.DefaultCurrency.rateLabel

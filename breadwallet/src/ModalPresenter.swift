@@ -441,7 +441,7 @@ class ModalPresenter : Subscriber, Trackable {
         guard let top = topViewController else { return }
         guard let walletManager = self.walletManager else { return }
         let settingsNav = UINavigationController()
-        let sections = ["Wallet", "Manage", "DigiByte", "Advanced"]
+        let sections = ["Wallet", "Manage", "Advanced"]
         var rows = [
             "Wallet": [/*Setting(title: S.Settings.importTile, callback: { [weak self] in
                     guard let myself = self else { return }
@@ -527,14 +527,12 @@ class ModalPresenter : Subscriber, Trackable {
 //                    settingsNav.pushViewController(updatePin, animated: true)
 //                })
             ],
-            "DigiByte": [
-                /*Setting(title: S.Settings.shareData, callback: {
-                    settingsNav.pushViewController(ShareDataViewController(store: self.store), animated: true)
-                }),*/
-                Setting(title: S.Settings.about, callback: {
-                    settingsNav.pushViewController(AboutViewController(), animated: true)
-                }),
-            ],
+//            "DigiByte": [
+//                /*Setting(title: S.Settings.shareData, callback: {
+//                    settingsNav.pushViewController(ShareDataViewController(store: self.store), animated: true)
+//                }),*/
+//
+//            ],
             "Advanced": [
                 Setting(title: "Advanced", callback: { [weak self] in
                     guard let myself = self else { return }
@@ -555,7 +553,11 @@ class ModalPresenter : Subscriber, Trackable {
 
                     let advancedSettingsVC = SettingsViewController(sections: sections, rows: advancedSettings, optionalTitle: S.Settings.advancedTitle)
                     settingsNav.pushViewController(advancedSettingsVC, animated: true)
-                })
+                }),
+                
+                Setting(title: S.Settings.about, callback: {
+                    settingsNav.pushViewController(AboutViewController(), animated: true)
+                }),
             ]
         ]
         

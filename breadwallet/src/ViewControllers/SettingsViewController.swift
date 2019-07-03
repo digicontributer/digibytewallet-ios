@@ -79,6 +79,8 @@ class SettingsViewController : UITableViewController, CustomTitleView {
             
             if setting.switchViewMode {
                 let switchView = UISwitch()
+                switchView.tintColor = UIColor.blueGradientEnd
+                switchView.onTintColor = UIColor.blueGradientEnd
                 switchView.isOn = setting.initialSwitchValue
                 switchView.valueChanged = { () in setting.callback(switchView.isOn) }
                 cell.accessoryView = switchView
@@ -96,7 +98,7 @@ class SettingsViewController : UITableViewController, CustomTitleView {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 44))
         view.backgroundColor = C.Colors.background
-        let label = UILabel(font: .customMedium(size: 14.0), color: UIColor.orange)
+        let label = UILabel(font: .customMedium(size: 14.0), color: UIColor.blueGradientEnd)
         view.addSubview(label)
         switch sections[section] {
         case "Wallet":

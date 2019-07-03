@@ -26,6 +26,7 @@
 import UIKit
 import LocalAuthentication
 import Buglife
+import UserNotifications
 
 var senderApp = ""
 
@@ -145,5 +146,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return applicationController.open(url: url)
     }
-
 }

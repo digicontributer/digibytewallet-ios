@@ -47,7 +47,7 @@ class FeeSelector : UIView {
         addSubview(warning)
         
         backgroundColor = C.Colors.background
-        control.tintColor = C.Colors.weirdRed
+        control.tintColor = UIColor.blueGradientEnd
 
         header.constrain([
             header.leadingAnchor.constraint(equalTo: leadingAnchor, constant: C.padding[2]),
