@@ -109,8 +109,8 @@ extension BRAddress: CustomStringConvertible, Hashable {
     }
     
     public var description: String {
-        let addressBytes = UnsafeMutablePointer<CChar>.allocate(capacity: 36)
-        addressBytes.initialize(from: UnsafeRawPointer([self.s]).assumingMemoryBound(to: CChar.self), count: 36)
+        let addressBytes = UnsafeMutablePointer<CChar>.allocate(capacity: 100)
+        addressBytes.initialize(from: UnsafeRawPointer([self.s]).assumingMemoryBound(to: CChar.self), count: 100)
         return String(cString: addressBytes)
     }
     
@@ -250,8 +250,8 @@ extension BRTxInput {
 
 extension BRTxOutput {
     var swiftAddress: String {
-        get { let addressBytes = UnsafeMutablePointer<CChar>.allocate(capacity: 36)
-              addressBytes.initialize(from: UnsafeRawPointer([self.address]).assumingMemoryBound(to: CChar.self), count: 36)
+        get { let addressBytes = UnsafeMutablePointer<CChar>.allocate(capacity: 44)
+              addressBytes.initialize(from: UnsafeRawPointer([self.address]).assumingMemoryBound(to: CChar.self), count: 44)
               return String(cString: addressBytes) }
         set { BRTxOutputSetAddress(&self, newValue) }
     }
@@ -440,7 +440,11 @@ class BRWallet {
     
     // the first unused external address
     var receiveAddress: String {
-        return BRWalletReceiveAddress(cPtr).description
+        return BRWalletReceiveAddress(cPtr, 1).description
+    }
+    
+    func getReceiveAddress(useSegwit: Bool) -> String {
+        return BRWalletReceiveAddress(cPtr, useSegwit ? 1 : 0).description
     }
     
     // all previously genereated internal and external addresses
@@ -482,8 +486,15 @@ class BRWallet {
         set (value) { BRWalletSetFeePerKb(cPtr, value) }
     }
 
-    func feeForTx(amount: UInt64) -> UInt64 {
+    func feeForTx(amount: UInt64, force: Bool = false) -> UInt64 {
+        guard !force else {
+            return BRWalletForceFeeForTxAmount(cPtr, amount)
+        }
         return BRWalletFeeForTxAmount(cPtr, amount)
+    }
+    
+    func maxAmount() -> UInt64 {
+        return BRWalletMaxOutputAmount(cPtr)
     }
     
     // returns an unsigned transaction that sends the specified amount from the wallet to the given address

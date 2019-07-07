@@ -805,6 +805,7 @@ class ModalPresenter : Subscriber, Trackable {
         }
         nc.setDefaultStyle()
         nc.isNavigationBarHidden = true
+        nc.navigationBar.isTranslucent = true
         nc.delegate = securityCenterNavigationDelegate
         topViewController?.present(nc, animated: true, completion: nil)
     }

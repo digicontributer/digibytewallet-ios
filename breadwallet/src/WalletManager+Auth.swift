@@ -269,16 +269,20 @@ extension WalletManager : WalletAuthenticator {
             // - wallet will be unlocked
             // - ongoing digi-id request was confirmed by clicking yes in a dialog
             let execBiometricsPrompt: (() -> Void) = {
+                ctx.localizedFallbackTitle = S.UnlockScreen.subheader
+                
                 ctx.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: biometricsPrompt) { (success, error) in
                     DispatchQueue.main.async {
                         if success { return completion(.success) }
                         
                         guard let error = error else { return completion(.failure) }
+                        
                         if error._code == Int(kLAErrorUserCancel) {
                             return completion (.cancel)
                         } else if error._code == Int(kLAErrorUserFallback) {
                             return completion (.fallback)
                         }
+                        
                         completion(.failure)
                     }
                 }
@@ -286,7 +290,7 @@ extension WalletManager : WalletAuthenticator {
             
             if LAContext.biometricType() == .face {
                 if isDigiIDAuth {
-                    // it's important to show the url before authenticating.
+                    // It's important to show the url before authenticating.
                     // When using touchID the user must have a chance to cancel the request.
                     // Hence, we display a prompt before using touchID
                     let alert = UIAlertController(title: S.DigiID.title, message: biometricsPrompt, preferredStyle: .alert)
