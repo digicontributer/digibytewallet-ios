@@ -402,7 +402,7 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
             guard !(walletManager.wallet?.containsAddress(address) ?? false) else {
                 return showAlert(title: S.Alert.error, message: S.Send.containsAddress, buttonLabel: S.Button.ok)
             }
-            guard amount.rawValue <= (walletManager.wallet?.maxOutputAmount ?? 0) else {
+            guard amount.rawValue + sender.feeForTx(amount: amount.rawValue, force: true) <= (walletManager.wallet?.balance ?? 0) else {
                 return showAlert(title: S.Alert.error, message: S.Send.insufficientFunds, buttonLabel: S.Button.ok)
             }
             guard sender.createTransaction(amount: amount.rawValue, to: address) else {

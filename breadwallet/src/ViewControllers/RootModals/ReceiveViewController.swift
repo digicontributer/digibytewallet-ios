@@ -36,6 +36,13 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
     private let requestString = UILabel(font: .customBody(size: 14.0))
     private let descriptionLabel = UILabel(font: .customBody(size: 14.0), color: C.Colors.text)
     private let addressPopout = InViewAlert(type: .primary)
+    
+    private let segwitSwitch: UISwitch = {
+        let v = UISwitch()
+        v.isOn = true
+        return v
+    }()
+    
     private let share: UIButton = {
         let btn = UIButton(type: .system)
         btn.backgroundColor = .clear
@@ -48,6 +55,7 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
     private var topSharePopoutConstraint: NSLayoutConstraint?
     private let wallet: BRWallet
     private let store: Store
+    
     private var balance: UInt64? = nil {
         didSet {
             if let newValue = balance, let oldValue = oldValue {
@@ -73,7 +81,7 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
                 share.layer.opacity = 1
                 descriptionLabel.alpha = 0
                 let amountStr: CGFloat = CGFloat(amount.rawValue) / 100000000.0
-                requestString.text = "\(amountStr) \(C.btcCurrencyCode) \(S.Confirmation.to.lowercased())\n\(address)"
+                requestString.text = "Receive \(amountStr) \(C.btcCurrencyCode) \(S.Confirmation.to.lowercased())\n\(address)"
                 setQrCode()
             } else {
                 addressButton.isUserInteractionEnabled = true
@@ -111,6 +119,7 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
         view.addSubview(sharePopout)
         view.addSubview(border)
         view.addSubview(addressButton)
+        view.addSubview(segwitSwitch)
     }
 
     private func addConstraints() {
@@ -131,7 +140,9 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
         ])
         requestString.constrain([
             requestString.constraint(toBottom: qrCode, constant: C.padding[1]),
-            requestString.constraint(.centerX, toView: view) ])
+            requestString.constraint(.leading, toView: view, constant: 30),
+            requestString.constraint(.trailing, toView: view, constant: -30)
+        ])
         addressPopout.heightConstraint = addressPopout.constraint(.height, constant: 0.0)
         addressPopout.constrain([
             addressPopout.constraint(toBottom: requestString, constant: 0.0),
@@ -171,14 +182,20 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
             addressButton.topAnchor.constraint(equalTo: qrCode.topAnchor),
             addressButton.trailingAnchor.constraint(equalTo: requestString.trailingAnchor, constant: C.padding[1]),
             addressButton.bottomAnchor.constraint(equalTo: requestString.bottomAnchor, constant: C.padding[1]) ])
+        
+        segwitSwitch.constrain([
+            segwitSwitch.topAnchor.constraint(equalTo: view.topAnchor, constant: 32),
+            segwitSwitch.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16)
+        ])
     }
 
     private func setStyle() {
         view.backgroundColor = .clear
         requestString.textColor = C.Colors.text
-        requestString.numberOfLines = 2
-        requestString.text = "\n"
+        requestString.numberOfLines = 3
+        requestString.text = "\n\n"
         requestString.textAlignment = .center
+        requestString.lineBreakMode = .byCharWrapping
         share.isUserInteractionEnabled = true
         share.layer.opacity = 1.0
         sharePopout.clipsToBounds = true
@@ -198,11 +215,22 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
         
         setReceiveAddress()
         amount = nil
+        
+        segwitSwitch.addTarget(self, action: #selector(segwitSwitchTapped), for: .valueChanged)
+    }
+    
+    @objc
+    private func segwitSwitchTapped() {
+        let addr = wallet.getReceiveAddress(useSegwit: segwitSwitch.isOn)
+        address = addr
+        
+        self.amount = { self.amount }() // triggers setReceiveAddress
     }
     
     private func setQrCode(){
         guard let amount = amount else { return }
-        let request = PaymentRequest.requestString(withAddress: wallet.receiveAddress, forAmount: amount.rawValue)
+        let addr = wallet.getReceiveAddress(useSegwit: segwitSwitch.isOn)
+        let request = PaymentRequest.requestString(withAddress: addr, forAmount: amount.rawValue)
         qrCode.image = UIImage.qrCode(data: request.data(using: .utf8)!, color: CIColor(color: .black))?
             .resize(CGSize(width: qrSize, height: qrSize))!
         
@@ -211,9 +239,10 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
     }
 
     private func setReceiveAddress() {
-        address = wallet.receiveAddress
+        let addr = wallet.getReceiveAddress(useSegwit: segwitSwitch.isOn)
+        address = addr
         
-        qrCode.image = UIImage.qrCode(data: "\(wallet.receiveAddress)".data(using: .utf8)!, color: CIColor(color: .black))?
+        qrCode.image = UIImage.qrCode(data: "\(addr)".data(using: .utf8)!, color: CIColor(color: .black))?
             .resize(CGSize(width: qrSize, height: qrSize))!
         
         guard !UserDefaults.excludeLogoInQR else { return }
@@ -233,8 +262,10 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
     }
     
     @objc private func shareTapped() {
+        let addr = wallet.getReceiveAddress(useSegwit: segwitSwitch.isOn)
+        
         let request =
-            amount != nil ? PaymentRequest.requestString(withAddress: wallet.receiveAddress, forAmount: amount!.rawValue) : PaymentRequest.requestString(withAddress: wallet.receiveAddress)
+            amount != nil ? PaymentRequest.requestString(withAddress: addr, forAmount: amount!.rawValue) : PaymentRequest.requestString(withAddress: addr)
         
         if
             let qrImage = UIImage.qrCode(data: request.data(using: .utf8)!, color: CIColor(color: .black))?.resize(CGSize(width: 512, height: 512)),
@@ -260,15 +291,17 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
     }
 
     @objc private func addressTapped() {
+        let addr = wallet.getReceiveAddress(useSegwit: segwitSwitch.isOn)
+        
         if let amount = amount {
-            let req = PaymentRequest.requestString(withAddress: wallet.receiveAddress, forAmount: amount.rawValue)
+            let req = PaymentRequest.requestString(withAddress: addr, forAmount: amount.rawValue)
             UIPasteboard.general.string = req
             toggle(alertView: addressPopout, shouldAdjustPadding: false, shouldShrinkAfter: true)
             if sharePopout.isExpanded {
                 toggle(alertView: sharePopout, shouldAdjustPadding: true)
             }
         } else {
-            UIPasteboard.general.string = wallet.receiveAddress
+            UIPasteboard.general.string = addr
             toggle(alertView: addressPopout, shouldAdjustPadding: false, shouldShrinkAfter: true)
             if sharePopout.isExpanded {
                 toggle(alertView: sharePopout, shouldAdjustPadding: true)

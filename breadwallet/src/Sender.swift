@@ -58,6 +58,10 @@ class Sender {
     func feeForTx(amount: UInt64) -> UInt64 {
         return walletManager.wallet?.feeForTx(amount:amount) ?? 0
     }
+    
+    func feeForTx(amount: UInt64, force: Bool = false) -> UInt64 {
+        return walletManager.wallet?.feeForTx(amount:amount) ?? 0
+    }
 
     //Amount in bits
     func send(biometricsMessage: String, rate: Rate?, comment: String?, feePerKb: UInt64, verifyPinFunction: @escaping (@escaping(String) -> Bool) -> Void, completion:@escaping (SendResult) -> Void) {
@@ -67,7 +71,7 @@ class Sender {
         self.comment = comment
         self.feePerKb = feePerKb
 
-        if UserDefaults.isBiometricsEnabled && walletManager.canUseBiometrics(forTx:tx) {
+        if UserDefaults.isBiometricsEnabled && walletManager.canUseBiometrics(forTx: tx) {
             DispatchQueue.walletQueue.async { [weak self] in
                 guard let myself = self else { return }
                 myself.walletManager.signTransaction(tx, biometricsPrompt: biometricsMessage, completion: { result in
