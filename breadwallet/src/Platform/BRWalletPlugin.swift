@@ -249,9 +249,10 @@ class BRWalletPlugin: BRHTTPRouterPlugin, BRWebSocketClient, Trackable {
             guard let nameArray = m["name"], nameArray.count == 1 else {
                 return BRHTTPResponse(request: req, code: 400)
             }
-            let name = nameArray[0]
+//            let name = nameArray[0]
             if let body = req.body(), body.count > 0 {
-                if let json = try? JSONSerialization.jsonObject(with: body, options: []) as? [String: String] {
+                if var json = try? JSONSerialization.jsonObject(with: body, options: []) as? [String: String] {
+                    json = {json}()
                     //self.saveEvent(name, attributes: json ?? [:])
                 } else {
                     return BRHTTPResponse(request: req, code: 400)

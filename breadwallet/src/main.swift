@@ -17,4 +17,10 @@ private let unsafeArgv = UnsafeMutableRawPointer(CommandLine.unsafeArgv)
                                 to: UnsafeMutablePointer<Int8>.self,
                                 capacity: Int(CommandLine.argc))
 
-UIApplicationMain(CommandLine.argc, unsafeArgv, nil, delegateClassName())
+//class MyApplication: UIApplication {
+//    override func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey : Any] = [:], completionHandler completion: ((Bool) -> Void)? = nil) {
+//        completion?(true)
+//    }
+//}
+
+UIApplicationMain(CommandLine.argc, CommandLine.unsafeArgv, nil, delegateClassName())

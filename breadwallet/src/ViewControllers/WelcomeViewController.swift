@@ -359,7 +359,7 @@ class WelcomeViewController: UIPageViewController, UIPageViewControllerDataSourc
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        if let viewControllerIndex = self.pages.index(of: viewController) {
+        if let viewControllerIndex = self.pages.firstIndex(of: viewController) {
             if viewControllerIndex != 0 {
                 // go to previous page in array
                 return self.pages[viewControllerIndex - 1]
@@ -369,7 +369,7 @@ class WelcomeViewController: UIPageViewController, UIPageViewControllerDataSourc
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        if let viewControllerIndex = self.pages.index(of: viewController) {
+        if let viewControllerIndex = self.pages.firstIndex(of: viewController) {
             if viewControllerIndex < self.pages.count - 1 {
                 // go to next page in array
                 return self.pages[viewControllerIndex + 1]

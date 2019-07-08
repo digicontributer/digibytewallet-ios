@@ -170,7 +170,7 @@ class Sender {
         request.setValue("application/digibyte-payment", forHTTPHeaderField: "Content-Type")
         request.addValue("application/digibyte-paymentack", forHTTPHeaderField: "Accept")
         request.httpMethod = "POST"
-        request.httpBody = Data(bytes: payment!.bytes)
+        request.httpBody = Data(payment!.bytes)
 
         URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
             guard error == nil else { print("payment error: \(error!)"); return }

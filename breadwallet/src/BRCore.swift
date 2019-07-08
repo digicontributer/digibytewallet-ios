@@ -114,8 +114,8 @@ extension BRAddress: CustomStringConvertible, Hashable {
         return String(cString: addressBytes)
     }
     
-    public var hashValue: Int {
-        return BRAddressHash([self.s])
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(BRAddressHash([self.s]))
     }
     
     static public func == (l: BRAddress, r: BRAddress) -> Bool {
@@ -400,7 +400,7 @@ extension Data {
             }
             bytes[index >> 1] |= nibble
         }
-        self = Data(bytes: bytes)
+        self = Data(bytes)
     }
 }
 

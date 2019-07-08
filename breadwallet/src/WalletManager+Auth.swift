@@ -650,7 +650,7 @@ func setKeychainItem<T>(key: String, item: T?, authenticated: Bool = false) thro
         case is Data.Type:
             data = item as? Data
         case is String.Type:
-            data = CFStringCreateExternalRepresentation(secureAllocator, item as! CFString,
+            data = CFStringCreateExternalRepresentation(secureAllocator, (item as! CFString),
                                                         CFStringBuiltInEncodings.UTF8.rawValue, 0) as Data
         case is Int64.Type:
             data = CFDataCreateMutable(secureAllocator, MemoryLayout<T>.stride) as Data

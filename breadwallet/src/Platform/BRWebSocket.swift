@@ -236,7 +236,7 @@ class BRWebSocketServer {
                     if Int32(serr) == EWOULDBLOCK || Int32(serr) == EAGAIN {
                         return
                     } else {
-                        self.log("socket write failed fd=\(fd) err=\(strerror(serr))")
+                        self.log("socket write failed fd=\(fd) err=\(String(describing: strerror(serr)))")
                         throw BRHTTPServerError.socketWriteFailed
                     }
                 }
@@ -417,7 +417,7 @@ class BRWebSocketImpl: BRWebSocket {
             }
             lengtharray[lengtharrayWritten - 1] = byte
             if lengtharrayWritten == 2 {
-                let ll = Data(bytes: lengtharray).withUnsafeBytes({ (p: UnsafePointer<UInt16>) -> UInt16 in
+                let ll = Data(lengtharray).withUnsafeBytes({ (p: UnsafePointer<UInt16>) -> UInt16 in
                     if Int(OSHostByteOrder()) != OSBigEndian {
                         return CFSwapInt16BigToHost(p.pointee)
                     }
@@ -450,7 +450,7 @@ class BRWebSocketImpl: BRWebSocket {
             }
             lengtharray[lengtharrayWritten - 1] = byte
             if lengtharrayWritten == 8 {
-                let ll = Data(bytes: lengtharray).withUnsafeBytes({ (p: UnsafePointer<UInt64>) -> UInt64 in
+                let ll = Data(lengtharray).withUnsafeBytes({ (p: UnsafePointer<UInt64>) -> UInt64 in
                     if Int(OSHostByteOrder()) != OSBigEndian {
                         return CFSwapInt64BigToHost(p.pointee)
                     }
@@ -541,7 +541,7 @@ class BRWebSocketImpl: BRWebSocket {
             var reason = ""
             if dataWritten >= 2 {
                 let lt = Array(data.prefix(2))
-                let ll = Data(bytes: lt).withUnsafeBytes({ (p: UnsafePointer<UInt16>) -> UInt16 in
+                let ll = Data(lt).withUnsafeBytes({ (p: UnsafePointer<UInt16>) -> UInt16 in
                     return CFSwapInt16BigToHost(p.pointee)
                 })
                 if let ss = SocketCloseEventCode(rawValue: ll) {

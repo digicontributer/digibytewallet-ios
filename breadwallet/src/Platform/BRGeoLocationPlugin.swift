@@ -120,6 +120,8 @@ open class BRGeoLocationPlugin: NSObject, BRHTTPRouterPlugin, CLLocationManagerD
                 retJson["status"] = "inuse"
             case .authorizedAlways:
                 retJson["status"] = "always"
+            @unknown default:
+                fatalError("Geo error / obsolete")
             }
             retJson["user_queried"] = userDefaults.bool(forKey: "geo_permission_was_queried")
             retJson["location_enabled"] = CLLocationManager.locationServicesEnabled()
@@ -168,7 +170,7 @@ open class BRGeoLocationPlugin: NSObject, BRHTTPRouterPlugin, CLLocationManagerD
             let del = BRGeoLocationDelegate(response: resp)
             del.remove = {
                 objc_sync_enter(self)
-                if let idx = self.outstanding.index(where: { (d) -> Bool in return d == del }) {
+                if let idx = self.outstanding.firstIndex(where: { (d) -> Bool in return d == del }) {
                     self.outstanding.remove(at: idx)
                 }
                 objc_sync_exit(self)

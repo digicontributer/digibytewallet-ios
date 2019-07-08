@@ -82,6 +82,8 @@ class ModalTransitionDelegate : NSObject, Subscriber {
             break
         case .possible:
             break
+        @unknown default:
+            fatalError("Unknown UIPanGestureRecognizer transition state")
         }
     }
 
