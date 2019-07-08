@@ -218,7 +218,9 @@ fileprivate class BalanceView: UIView, Subscriber {
                         selector: {$0.walletState.balance != $1.walletState.balance },
                         callback: { state in
                             if let balance = state.walletState.balance {
-                                self.balance = balance
+                                DispatchQueue.main.async {
+                                    self.balance = balance
+                                }
                             } })
     }
 

@@ -32,9 +32,9 @@ class UpdatingLabel : UILabel {
 
     func setValueAnimated(_ endingValue: Double, completion: @escaping () -> Void) {
         self.completion = completion
-        guard let currentText = text else { return }
-        guard let startingValue = formatter.number(from: currentText)?.doubleValue else { return }
-        self.startingValue = startingValue
+//        guard let currentText = text else { return }
+//        guard let startingValue = formatter.number(from: currentText)?.doubleValue else { return }
+        self.startingValue = value
         self.endingValue = endingValue
 
         timer?.invalidate()

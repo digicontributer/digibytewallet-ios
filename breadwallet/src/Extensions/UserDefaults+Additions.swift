@@ -43,7 +43,8 @@ extension UserDefaults {
     static var defaultCurrencyCode: String {
         get {
             guard defaults.object(forKey: defaultCurrencyCodeKey) != nil else {
-                return Locale.current.currencyCode ?? "USD"
+                let d = (Locale.current.currencyCode ?? "USD")
+                return d != "XXX" ? d : "USD"
             }
             return defaults.string(forKey: defaultCurrencyCodeKey)!
         }
