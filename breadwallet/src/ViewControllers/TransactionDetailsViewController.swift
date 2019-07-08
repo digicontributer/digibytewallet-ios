@@ -24,7 +24,7 @@ class TransactionDetailsViewController: UICollectionViewController, Subscriber, 
         
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: UIScreen.main.safeWidth-C.padding[4], height: UIScreen.main.bounds.height - C.padding[1])
-        layout.sectionInset = UIEdgeInsetsMake(C.padding[1], 0, 0, 0)
+        layout.sectionInset = UIEdgeInsets(top: C.padding[1], left: 0, bottom: 0, right: 0)
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = C.padding[1]
         super.init(collectionViewLayout: layout)
@@ -75,7 +75,7 @@ class TransactionDetailsViewController: UICollectionViewController, Subscriber, 
         collectionView?.register(TransactionDetailCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
         collectionView?.delegate = self
         collectionView?.dataSource = self
-        collectionView?.contentInset = UIEdgeInsetsMake(C.padding[2], C.padding[2], C.padding[2], C.padding[2])
+        collectionView?.contentInset = UIEdgeInsets(top: C.padding[2], left: C.padding[2], bottom: C.padding[2], right: C.padding[2])
         setupScrolling()
         
         collectionView?.backgroundColor = .clear

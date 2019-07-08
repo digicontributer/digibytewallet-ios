@@ -133,7 +133,7 @@ class StartViewController : UIViewController {
             feedback.impactOccurred()
         }
         
-        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 20, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 20, options: UIView.AnimationOptions.curveEaseInOut, animations: {
             self.logo.transform = CGAffineTransform.init(scaleX: 1.0, y: 1.0)
         }) { (_) in
             

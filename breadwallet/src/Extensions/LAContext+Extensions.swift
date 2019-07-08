@@ -43,6 +43,8 @@ extension LAContext {
                 return .touch
             case .faceID:
                 return .face
+            @unknown default:
+                fatalError("Unknown biometry")
             }
         } else {
             return context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) ? .touch : .none

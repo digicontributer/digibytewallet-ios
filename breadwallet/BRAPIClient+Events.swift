@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// Implement Trackabble in your class to have access to these functions
 public protocol Trackable {
@@ -63,8 +64,8 @@ class EventManager {
     private let sampleChance: UInt32 = 10
     private var isSubscribed = false
     private let eventToNotifications: [String: NSNotification.Name] = [
-        "foreground": .UIApplicationDidBecomeActive,
-        "background": .UIApplicationDidEnterBackground
+        "foreground": UIApplication.didBecomeActiveNotification,
+        "background": UIApplication.didEnterBackgroundNotification
     ]
     private var buffer = [Event]()
     private let adaptor: BRAPIAdaptor
@@ -104,7 +105,7 @@ class EventManager {
         eventToNotifications.forEach { key, value in
             NotificationCenter.default.addObserver(forName: value, object: nil, queue: self.queue, using: { [weak self] note in
                 self?.saveEvent(key)
-                if note.name == .UIApplicationDidEnterBackground {
+                if note.name == UIApplication.didEnterBackgroundNotification {
                     self?.persistToDisk()
                     self?.sendToServer()
                 }
@@ -199,7 +200,7 @@ class EventManager {
                 guard let inputStream = InputStream(fileAtPath: fileName) else { return }
                 inputStream.open()
                 guard let fileContents = try? JSONSerialization.jsonObject(with: inputStream, options: []) as? [[String: Any]] else { return }
-                guard let inArray = fileContents else { return }
+                let inArray = fileContents
                 // 2: transform it into the json data the server expects
                 let eventDump = myself.eventTupleArrayToDictionary(inArray)
                 guard let body = try? JSONSerialization.data(withJSONObject: eventDump, options: []) else { return }

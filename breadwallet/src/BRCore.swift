@@ -440,11 +440,13 @@ class BRWallet {
     
     // the first unused external address
     var receiveAddress: String {
-        return BRWalletReceiveAddress(cPtr, 1).description
+//        return BRWalletReceiveAddress(cPtr, 1).description
+        return BRWalletReceiveAddress(cPtr).description
     }
     
     func getReceiveAddress(useSegwit: Bool) -> String {
-        return BRWalletReceiveAddress(cPtr, useSegwit ? 1 : 0).description
+//        return BRWalletReceiveAddress(cPtr, useSegwit ? 1 : 0).description
+        return BRWalletReceiveAddress(cPtr).description
     }
     
     // all previously genereated internal and external addresses
@@ -487,9 +489,9 @@ class BRWallet {
     }
 
     func feeForTx(amount: UInt64, force: Bool = false) -> UInt64 {
-        guard !force else {
-            return BRWalletForceFeeForTxAmount(cPtr, amount)
-        }
+//        guard !force else {
+//            return BRWalletForceFeeForTxAmount(cPtr, amount)
+//        }
         return BRWalletFeeForTxAmount(cPtr, amount)
     }
     

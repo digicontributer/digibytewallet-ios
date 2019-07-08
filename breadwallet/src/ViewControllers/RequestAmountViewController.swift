@@ -143,10 +143,10 @@ class RequestAmountViewController : UIViewController {
 
         if
             let qrImage = qrCode.image,
-            let imgData = UIImageJPEGRepresentation(qrImage, 1.0),
+            let imgData = qrImage.jpegData(compressionQuality: 1.0),
             let jpegRep = UIImage(data: imgData) {
                 let activityViewController = UIActivityViewController(activityItems: [address, jpegRep], applicationActivities: nil)
-                activityViewController.excludedActivityTypes = [UIActivityType.assignToContact, UIActivityType.addToReadingList, UIActivityType.postToVimeo]
+            activityViewController.excludedActivityTypes = [UIActivity.ActivityType.assignToContact, UIActivity.ActivityType.addToReadingList, UIActivity.ActivityType.postToVimeo]
                 present(activityViewController, animated: true, completion: {})
         }
 

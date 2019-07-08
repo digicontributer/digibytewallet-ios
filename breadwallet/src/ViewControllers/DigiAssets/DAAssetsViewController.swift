@@ -64,7 +64,7 @@ fileprivate class AssetCell: PaddedCell {
     
     var menuButtonTapped: ((AssetCell) -> Void)? = nil
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(backgroundRect)
         contentView.addSubview(assetImage)
@@ -147,7 +147,7 @@ fileprivate class CreateNewAssetCell: PaddedCell {
     let headingLabel = UILabel(font: UIFont.da.customBold(size: 20), color: .white)
     let getStartedBtn = DAButton(title: "Get started".uppercased(), backgroundColor: UIColor.da.darkSkyBlue)
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         backgroundView = backgroundImage
@@ -390,7 +390,7 @@ class DAAssetsViewController: UIViewController {
         ])
         
         emptyContainer.isHidden = true /* YOSHI */
-        mainView.bringSubview(toFront: tableViewBorder)
+        mainView.bringSubviewToFront(tableViewBorder)
         
         mainView.addSubview(contextMenuUnderlay)
         contextMenuUnderlay.constrain(toSuperviewEdges: nil)
@@ -476,8 +476,8 @@ class DAAssetsViewController: UIViewController {
             // show context menu
             contextMenu.isHidden = false
             contextMenuUnderlay.isHidden = false
-            mainView.bringSubview(toFront: contextMenuUnderlay)
-            mainView.bringSubview(toFront: contextMenu)
+            mainView.bringSubviewToFront(contextMenuUnderlay)
+            mainView.bringSubviewToFront(contextMenu)
             
             UIView.spring(0.3, animations: { [weak contextMenu, weak cell] in
                 contextMenu?.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)

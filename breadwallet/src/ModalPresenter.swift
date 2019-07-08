@@ -369,7 +369,7 @@ class ModalPresenter : Subscriber, Trackable {
         let present = presentScan(parent: top)
         store.perform(action: RootModalActions.Present(modal: .none))
         present({ digiIdUrl in
-            print(digiIdUrl?.toAddress)
+            print(digiIdUrl?.toAddress ?? "invalid")
         })
     }
 
@@ -439,10 +439,10 @@ class ModalPresenter : Subscriber, Trackable {
 
     private func makeSettings() {
         guard let top = topViewController else { return }
-        guard let walletManager = self.walletManager else { return }
+//        guard let walletManager = self.walletManager else { return }
         let settingsNav = UINavigationController()
         let sections = ["Wallet", "Manage", "Advanced"]
-        var rows = [
+        let rows = [
             "Wallet": [/*Setting(title: S.Settings.importTile, callback: { [weak self] in
                     guard let myself = self else { return }
                     guard let walletManager = myself.walletManager else { return }
@@ -633,7 +633,7 @@ class ModalPresenter : Subscriber, Trackable {
     }
     
     private func makeDigiAssets() {
-        guard let walletManager = walletManager else { return }
+//        guard let walletManager = walletManager else { return }
         
         let digiAssetsViewController = DAMainViewController()
         let onboarding = DAOnboardingViewController()

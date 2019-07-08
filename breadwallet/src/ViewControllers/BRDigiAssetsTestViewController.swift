@@ -113,8 +113,8 @@ class BRDigiAssetsTestViewController: UIViewController {
         
         // check return value
         guard signed != nil else {
-            let alert = UIAlertController(title: "Error", message: "Could not sign transaction", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            let alert = UIAlertController(title: "Error", message: "Could not sign transaction", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
             present(alert, animated: true, completion: nil)
             return
         }

@@ -173,16 +173,16 @@ class ShowAddressViewController : UIViewController, Subscriber, Trackable {
         if
             let qrImage = UIImage.qrCode(data: "\(address.text!)".data(using: .utf8)!, color: CIColor(color: .black))?.resize(CGSize(width: 512, height: 512)),
             let qrImageLogo = UserDefaults.excludeLogoInQR ? qrImage : placeLogoIntoQR(qrImage, width: 512, height: 512),
-            let imgData = UIImageJPEGRepresentation(qrImageLogo, 1.0),
+            let imgData = qrImageLogo.jpegData(compressionQuality: 1.0),
             let jpegRep = UIImage(data: imgData),
             let address = address.text {
                 let paymentURI = PaymentRequest.requestString(withAddress: address)
                 let activityViewController = UIActivityViewController(activityItems: [paymentURI, jpegRep], applicationActivities: nil)
-                activityViewController.completionWithItemsHandler = {(activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+            activityViewController.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
                     guard completed else { return }
                     self.store.trigger(name: .lightWeightAlert(S.Import.success))
                 }
-                activityViewController.excludedActivityTypes = [UIActivityType.assignToContact, UIActivityType.addToReadingList, UIActivityType.postToVimeo]
+            activityViewController.excludedActivityTypes = [UIActivity.ActivityType.assignToContact, UIActivity.ActivityType.addToReadingList, UIActivity.ActivityType.postToVimeo]
                 present(activityViewController, animated: true, completion: {})
         }
     }

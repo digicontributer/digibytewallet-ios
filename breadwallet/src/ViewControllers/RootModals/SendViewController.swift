@@ -70,8 +70,8 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
             self.present(root, animated: true, completion: nil)
         })
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         defer {
             self.initialAddress = initialAddress
@@ -288,14 +288,14 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
             }
         }
 
-        let attributes: [NSAttributedStringKey: Any] = [
-            NSAttributedStringKey.font: UIFont.customBody(size: 14.0),
-            NSAttributedStringKey.foregroundColor: color
+        let attributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.font: UIFont.customBody(size: 14.0),
+            NSAttributedString.Key.foregroundColor: color
         ]
 
-        let feeAttributes: [NSAttributedStringKey: Any] = [
-            NSAttributedStringKey.font: UIFont.customBody(size: 14.0),
-            NSAttributedStringKey.foregroundColor: UIColor.grayTextTint
+        let feeAttributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.font: UIFont.customBody(size: 14.0),
+            NSAttributedString.Key.foregroundColor: UIColor.grayTextTint
         ]
 
         return (NSAttributedString(string: balanceOutput, attributes: attributes), NSAttributedString(string: feeOutput, attributes: feeAttributes))
@@ -343,11 +343,11 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
 		}
 	}
 
-	internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+	internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 		self.dismiss(animated: true, completion: { () -> Void in })
 
 		if
-			let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage,
+            let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
 			let cgImage = originalImage.cgImage {
 
 			let ciImage = CIImage(cgImage:cgImage)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		014B64C29F883115429A6A9C /* Pods_DigiByte.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA32442D798485E30F6C7ACE /* Pods_DigiByte.framework */; };
 		047876C020084BB200C422DE /* SupportStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047876BF20084BB200C422DE /* SupportStoryboard.storyboard */; };
 		047876C22008514500C422DE /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047876C12008514500C422DE /* SupportViewController.swift */; };
 		049B9B7F20104B65004EF1A1 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 049B9B7E20104B65004EF1A1 /* Settings.bundle */; };
@@ -98,7 +99,6 @@
 		39EB89D522500D0400B2FA60 /* UIColor+DAAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB89D422500D0400B2FA60 /* UIColor+DAAdditions.swift */; };
 		39FC20B6222859DD007B13D4 /* DigiAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39FC20B5222859DD007B13D4 /* DigiAssets.xcassets */; };
 		39FC20BB22285DAE007B13D4 /* DAMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FC20BA22285DAE007B13D4 /* DAMainViewController.swift */; };
-		4B12F407819BEE2C20FC72A9 /* Pods_digibyte.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E35FACAB4CC40422D8F90369 /* Pods_digibyte.framework */; };
 		7503773D1DF57428005EB8AE /* WalletManager+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7503773C1DF57428005EB8AE /* WalletManager+Auth.swift */; };
 		751734B91DAC941E00193C87 /* sec-sub-1.c in Sources */ = {isa = PBXBuildFile; fileRef = 755CD8BE1DAA16820075898E /* sec-sub-1.c */; };
 		752438751DAAC50800844BEC /* alloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 755CD6761DAA0E400075898E /* alloc.c */; };
@@ -278,6 +278,7 @@
 		78D04F4620C710F100AD1403 /* BalanceInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2A7CE1DA5934300A983D8 /* BalanceInterfaceController.swift */; };
 		78D04F4720C710F100AD1403 /* WatchTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED811A51EB29692003A8D1E /* WatchTransaction.swift */; };
 		78D04F4A20C710F100AD1403 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75A2A7D61DA5934300A983D8 /* Assets.xcassets */; };
+		7AAD68AC6F3551C1ED7E518F /* Pods_DigiByteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94ED725009CC29055DBB4844 /* Pods_DigiByteTests.framework */; };
 		9F2E8CBE20DA4CC000F16465 /* CircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2E8CBC20DA4CBF00F16465 /* CircleProgressView.swift */; };
 		9F2E8CBF20DA4CC000F16465 /* DGBAnimatedWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2E8CBD20DA4CBF00F16465 /* DGBAnimatedWaveView.swift */; };
 		9F3EF3712059CA6400E3C837 /* BRBech32.c in Sources */ = {isa = PBXBuildFile; fileRef = 9F3EF36F2059CA6400E3C837 /* BRBech32.c */; };
@@ -477,8 +478,7 @@
 		CEF61B121ECF52C700C7EA6A /* AmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF61B111ECF52C700C7EA6A /* AmountViewController.swift */; };
 		CEF61B141ED0D10000C7EA6A /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF61B131ED0D10000C7EA6A /* Types.swift */; };
 		CEF61B161ED2056D00C7EA6A /* NumberFormatter+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF61B151ED2056D00C7EA6A /* NumberFormatter+Additions.swift */; };
-		F1405EAFC084372D789C72D9 /* Pods_digibyteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 031C5F28CB0D2B0D152B9D2F /* Pods_digibyteTests.framework */; };
-		FE461957D71C2B1E9E6FF757 /* Pods_digibyteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E49ADB6736857C5D63E8053 /* Pods_digibyteUITests.framework */; };
+		DC05924428F47B8A0B4C25E6 /* Pods_DigiByteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B8D86C455CCE2E11B4640E5 /* Pods_DigiByteUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -638,15 +638,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		031C5F28CB0D2B0D152B9D2F /* Pods_digibyteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_digibyteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		047876BF20084BB200C422DE /* SupportStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = SupportStoryboard.storyboard; path = src/ViewControllers/SupportStoryboard.storyboard; sourceTree = "<group>"; };
 		047876C12008514500C422DE /* SupportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SupportViewController.swift; path = src/ViewControllers/SupportViewController.swift; sourceTree = "<group>"; };
 		049B9B7E20104B65004EF1A1 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		05F39B6A4B46E1882748F6F8 /* Pods-digibyteTests.screenshots.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyteTests.screenshots.xcconfig"; path = "Pods/Target Support Files/Pods-digibyteTests/Pods-digibyteTests.screenshots.xcconfig"; sourceTree = "<group>"; };
+		08FA0BAF2A382E159BE5B10A /* Pods-DigiByteUITests.testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByteUITests.testnet.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByteUITests/Pods-DigiByteUITests.testnet.xcconfig"; sourceTree = "<group>"; };
+		158E98D4612A6B5316FA5BEC /* Pods-DigiByteTests.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByteTests.testflight.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByteTests/Pods-DigiByteTests.testflight.xcconfig"; sourceTree = "<group>"; };
 		16C6A71BAE93053870AB8C11 /* Pods-digibyteTests.testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyteTests.testnet.xcconfig"; path = "Pods/Target Support Files/Pods-digibyteTests/Pods-digibyteTests.testnet.xcconfig"; sourceTree = "<group>"; };
 		1B1AFF9E1FB7EF7C00E61908 /* BiometricsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricsSettingsViewController.swift; sourceTree = "<group>"; };
 		1B1AFF9F1FB7EF7C00E61908 /* BiometricsSpendingLimitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricsSpendingLimitViewController.swift; sourceTree = "<group>"; };
-		1E49ADB6736857C5D63E8053 /* Pods_digibyteUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_digibyteUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B8D86C455CCE2E11B4640E5 /* Pods_DigiByteUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DigiByteUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		20273339BF9F67B70C7D8C9B /* Pods-DigiByteUITests.screenshots.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByteUITests.screenshots.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByteUITests/Pods-DigiByteUITests.screenshots.xcconfig"; sourceTree = "<group>"; };
 		22122B711F0B8996000E9AB9 /* BRAPIClient+Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BRAPIClient+Events.swift"; sourceTree = "<group>"; };
 		2218BD761E8F55430091D5E8 /* BRAPIClient+Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "BRAPIClient+Assets.swift"; path = "src/Platform/BRAPIClient+Assets.swift"; sourceTree = "<group>"; };
 		2218BD781E8F6CBA0091D5E8 /* AssetBundles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AssetBundles.plist; path = src/AssetBundles.plist; sourceTree = "<group>"; };
@@ -695,7 +697,10 @@
 		22C431331DF89DFE0017CAEA /* BRCoderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BRCoderTests.swift; sourceTree = "<group>"; };
 		22C431351DF8A6DF0017CAEA /* BRAPIClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BRAPIClientTests.swift; sourceTree = "<group>"; };
 		22E773031EE7813000397E0E /* Bonjour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bonjour.swift; sourceTree = "<group>"; };
+		24B5E26A28D70E73F714179D /* Pods-DigiByteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByteTests/Pods-DigiByteTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2B8AFC1D9DDCF5EA57A72D4C /* Pods-DigiByte.testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByte.testnet.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByte/Pods-DigiByte.testnet.xcconfig"; sourceTree = "<group>"; };
 		2D5BD8E0D12DB696F3145E2D /* Pods-digibyteUITests.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyteUITests.testflight.xcconfig"; path = "Pods/Target Support Files/Pods-digibyteUITests/Pods-digibyteUITests.testflight.xcconfig"; sourceTree = "<group>"; };
+		37E1286D646F2BC9A77A7C48 /* Pods-DigiByteTests.testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByteTests.testnet.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByteTests/Pods-DigiByteTests.testnet.xcconfig"; sourceTree = "<group>"; };
 		39082BDB22760674008657F6 /* DigiByte TodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "DigiByte TodayExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39082BDE22760675008657F6 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		39082BE322760675008657F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -732,6 +737,8 @@
 		3F253E13C3E4A94EE8612B2F /* Pods-digibyteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-digibyteTests/Pods-digibyteTests.release.xcconfig"; sourceTree = "<group>"; };
 		40C6581957990676DAFB3521 /* Pods-digibyteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-digibyteTests/Pods-digibyteTests.debug.xcconfig"; sourceTree = "<group>"; };
 		42BF279CC081DF814253BED5 /* Pods-digibyteUITests.testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyteUITests.testnet.xcconfig"; path = "Pods/Target Support Files/Pods-digibyteUITests/Pods-digibyteUITests.testnet.xcconfig"; sourceTree = "<group>"; };
+		4859C2B8DF4D5AC75368B398 /* Pods-DigiByte.screenshots.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByte.screenshots.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByte/Pods-DigiByte.screenshots.xcconfig"; sourceTree = "<group>"; };
+		48A95A543C034755E98ED686 /* Pods-DigiByteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByteUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByteUITests/Pods-DigiByteUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7503773C1DF57428005EB8AE /* WalletManager+Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "WalletManager+Auth.swift"; path = "src/WalletManager+Auth.swift"; sourceTree = "<group>"; };
 		7528D2971ECF655500925DBC /* PaymentProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentProtocol.swift; path = src/PaymentProtocol.swift; sourceTree = "<group>"; };
 		752FB03B1DF8BE4B009086FB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1423,11 +1430,16 @@
 		78D04F3920C710E700AD1403 /* DigiByte WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DigiByte WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78D04F5320C710F100AD1403 /* DigiByte WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "DigiByte WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C7397EB8A4764D7E851BF4A /* Pods-digibyte.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyte.debug.xcconfig"; path = "Pods/Target Support Files/Pods-digibyte/Pods-digibyte.debug.xcconfig"; sourceTree = "<group>"; };
+		94ED725009CC29055DBB4844 /* Pods_DigiByteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DigiByteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F2E8CBC20DA4CBF00F16465 /* CircleProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircleProgressView.swift; path = src/Views/CircleProgressView.swift; sourceTree = "<group>"; };
 		9F2E8CBD20DA4CBF00F16465 /* DGBAnimatedWaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DGBAnimatedWaveView.swift; path = src/Views/DGBAnimatedWaveView.swift; sourceTree = "<group>"; };
 		9F3EF36E2059CA6400E3C837 /* BRChainParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRChainParams.h; sourceTree = "<group>"; };
 		9F3EF36F2059CA6400E3C837 /* BRBech32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BRBech32.c; sourceTree = "<group>"; };
 		9F3EF3702059CA6400E3C837 /* BRBech32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBech32.h; sourceTree = "<group>"; };
+		A03AEC7D561C781073A61CA4 /* Pods-DigiByte.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByte.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByte/Pods-DigiByte.debug.xcconfig"; sourceTree = "<group>"; };
+		A13B2B3CA1E1ED55D7DA1313 /* Pods-DigiByte.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByte.testflight.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByte/Pods-DigiByte.testflight.xcconfig"; sourceTree = "<group>"; };
+		A200C6BEB37CDF9346A0C713 /* Pods-DigiByteUITests.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByteUITests.testflight.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByteUITests/Pods-DigiByteUITests.testflight.xcconfig"; sourceTree = "<group>"; };
+		A4B8F8E59B14FFAFE75F9809 /* Pods-DigiByteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByteUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByteUITests/Pods-DigiByteUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AA147C022020CD6D005244A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = src/Strings/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AA147C032020CE66005244A9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "src/Strings/zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		AA2DC52A2025602F0067E900 /* ar-001 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ar-001"; path = "src/Strings/ar-001.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -1567,8 +1579,10 @@
 		AAF8A2112039275300B47F58 /* hr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hr; path = src/Strings/hr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B252788FCCE3166FC621948F /* Pods-digibyte.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyte.release.xcconfig"; path = "Pods/Target Support Files/Pods-digibyte/Pods-digibyte.release.xcconfig"; sourceTree = "<group>"; };
 		B5AE909ECCB7673495A88259 /* Pods-digibyteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyteUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-digibyteUITests/Pods-digibyteUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BF677DE5BEB3700DB14BE701 /* Pods-DigiByteTests.screenshots.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByteTests.screenshots.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByteTests/Pods-DigiByteTests.screenshots.xcconfig"; sourceTree = "<group>"; };
 		C2F327098575E85039FDCAD1 /* Pods-digibyte.testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyte.testnet.xcconfig"; path = "Pods/Target Support Files/Pods-digibyte/Pods-digibyte.testnet.xcconfig"; sourceTree = "<group>"; };
 		C959511BF3776EB93B813F2D /* Pods-digibyte.screenshots.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyte.screenshots.xcconfig"; path = "Pods/Target Support Files/Pods-digibyte/Pods-digibyte.screenshots.xcconfig"; sourceTree = "<group>"; };
+		CCFE0D5F6C3D87E773497F07 /* Pods-DigiByte.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByte.release.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByte/Pods-DigiByte.release.xcconfig"; sourceTree = "<group>"; };
 		CE03EC711EF193800038E3A8 /* String+Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Keys.swift"; path = "src/Extensions/String+Keys.swift"; sourceTree = "<group>"; };
 		CE03EC731EF256AC0038E3A8 /* SimpleUTXO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleUTXO.swift; path = src/Models/SimpleUTXO.swift; sourceTree = "<group>"; };
 		CE0CD1581DBFBCF5004023DA /* ModalPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ModalPresenter.swift; path = src/ModalPresenter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -1758,9 +1772,10 @@
 		CEF61B151ED2056D00C7EA6A /* NumberFormatter+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NumberFormatter+Additions.swift"; path = "src/Extensions/NumberFormatter+Additions.swift"; sourceTree = "<group>"; };
 		CEFFA2D01EB3BD730085C5D1 /* LoadingIndicator.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LoadingIndicator.xcassets; sourceTree = "<group>"; };
 		D92616E2AE3F5C65C5CCF179 /* Pods-digibyteTests.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyteTests.testflight.xcconfig"; path = "Pods/Target Support Files/Pods-digibyteTests/Pods-digibyteTests.testflight.xcconfig"; sourceTree = "<group>"; };
-		E35FACAB4CC40422D8F90369 /* Pods_digibyte.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_digibyte.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4078AF369EC83FDAFBF5FEB /* Pods-digibyteUITests.screenshots.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyteUITests.screenshots.xcconfig"; path = "Pods/Target Support Files/Pods-digibyteUITests/Pods-digibyteUITests.screenshots.xcconfig"; sourceTree = "<group>"; };
 		E9F5A4261B652FEDEE61FD0D /* Pods-digibyteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyteUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-digibyteUITests/Pods-digibyteUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EBCAFC3AA3EEE31AE87A9DEF /* Pods-DigiByteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByteTests/Pods-DigiByteTests.release.xcconfig"; sourceTree = "<group>"; };
+		FA32442D798485E30F6C7ACE /* Pods_DigiByte.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DigiByte.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC4CE2CC69B7B05264463A8 /* Pods-digibyte.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyte.testflight.xcconfig"; path = "Pods/Target Support Files/Pods-digibyte/Pods-digibyte.testflight.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1815,7 +1830,7 @@
 				223DB21B1DF69F0F0076A151 /* libbz2.framework in Frameworks */,
 				752FB04D1DF8BF4B009086FB /* sqlite3.framework in Frameworks */,
 				759DA0BE1DAC36A3008CC49B /* libBRCore.a in Frameworks */,
-				4B12F407819BEE2C20FC72A9 /* Pods_digibyte.framework in Frameworks */,
+				014B64C29F883115429A6A9C /* Pods_DigiByte.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1823,7 +1838,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1405EAFC084372D789C72D9 /* Pods_digibyteTests.framework in Frameworks */,
+				7AAD68AC6F3551C1ED7E518F /* Pods_DigiByteTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1831,7 +1846,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE461957D71C2B1E9E6FF757 /* Pods_digibyteUITests.framework in Frameworks */,
+				DC05924428F47B8A0B4C25E6 /* Pods_DigiByteUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2948,9 +2963,9 @@
 				75FEFD1B1DAED56E00203D3A /* libsqlite3.tbd */,
 				75A2A7F21DA5935F00A983D8 /* Messages.framework */,
 				75A2A8091DA5936F00A983D8 /* NotificationCenter.framework */,
-				E35FACAB4CC40422D8F90369 /* Pods_digibyte.framework */,
-				031C5F28CB0D2B0D152B9D2F /* Pods_digibyteTests.framework */,
-				1E49ADB6736857C5D63E8053 /* Pods_digibyteUITests.framework */,
+				FA32442D798485E30F6C7ACE /* Pods_DigiByte.framework */,
+				94ED725009CC29055DBB4844 /* Pods_DigiByteTests.framework */,
+				1B8D86C455CCE2E11B4640E5 /* Pods_DigiByteUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -3064,6 +3079,21 @@
 				E4078AF369EC83FDAFBF5FEB /* Pods-digibyteUITests.screenshots.xcconfig */,
 				B5AE909ECCB7673495A88259 /* Pods-digibyteUITests.release.xcconfig */,
 				2D5BD8E0D12DB696F3145E2D /* Pods-digibyteUITests.testflight.xcconfig */,
+				A03AEC7D561C781073A61CA4 /* Pods-DigiByte.debug.xcconfig */,
+				2B8AFC1D9DDCF5EA57A72D4C /* Pods-DigiByte.testnet.xcconfig */,
+				4859C2B8DF4D5AC75368B398 /* Pods-DigiByte.screenshots.xcconfig */,
+				CCFE0D5F6C3D87E773497F07 /* Pods-DigiByte.release.xcconfig */,
+				A13B2B3CA1E1ED55D7DA1313 /* Pods-DigiByte.testflight.xcconfig */,
+				24B5E26A28D70E73F714179D /* Pods-DigiByteTests.debug.xcconfig */,
+				37E1286D646F2BC9A77A7C48 /* Pods-DigiByteTests.testnet.xcconfig */,
+				BF677DE5BEB3700DB14BE701 /* Pods-DigiByteTests.screenshots.xcconfig */,
+				EBCAFC3AA3EEE31AE87A9DEF /* Pods-DigiByteTests.release.xcconfig */,
+				158E98D4612A6B5316FA5BEC /* Pods-DigiByteTests.testflight.xcconfig */,
+				A4B8F8E59B14FFAFE75F9809 /* Pods-DigiByteUITests.debug.xcconfig */,
+				08FA0BAF2A382E159BE5B10A /* Pods-DigiByteUITests.testnet.xcconfig */,
+				20273339BF9F67B70C7D8C9B /* Pods-DigiByteUITests.screenshots.xcconfig */,
+				48A95A543C034755E98ED686 /* Pods-DigiByteUITests.release.xcconfig */,
+				A200C6BEB37CDF9346A0C713 /* Pods-DigiByteUITests.testflight.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -4101,7 +4131,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-digibyteUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-DigiByteUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -4137,7 +4167,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-digibyteTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-DigiByteTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -4155,7 +4185,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-digibyte-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-DigiByte-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -4167,21 +4197,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-digibyte/Pods-digibyte-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Buglife/Buglife.framework",
-				"${PODS_ROOT}/Reveal-SDK/RevealServer-20/iOS/RevealServer.framework",
-				"${BUILT_PRODUCTS_DIR}/VisualEffectView/VisualEffectView.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DigiByte/Pods-DigiByte-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Buglife.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VisualEffectView.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DigiByte/Pods-DigiByte-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-digibyte/Pods-digibyte-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DigiByte/Pods-DigiByte-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		78D04F1C20C710DB00AD1403 /* Build Versioning */ = {
@@ -5340,7 +5365,7 @@
 				SWIFT_INCLUDE_PATHS = "$(SDK_DIR)/usr/include $(SRCROOT)/Modules $(SRCROOT)/breadwallet/src/Platform";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -5396,7 +5421,7 @@
 				SWIFT_INCLUDE_PATHS = "$(SDK_DIR)/usr/include $(SRCROOT)/Modules $(SRCROOT)/breadwallet/src/Platform";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -5404,7 +5429,7 @@
 		};
 		75A2A7E41DA5934400A983D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C7397EB8A4764D7E851BF4A /* Pods-digibyte.debug.xcconfig */;
+			baseConfigurationReference = A03AEC7D561C781073A61CA4 /* Pods-DigiByte.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -5431,7 +5456,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_INCLUDE_PATHS = "$(SDK_DIR)/usr/include $(SRCROOT)/Modules/** $(SRCROOT)/breadwallet/src/Platform";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -5439,7 +5464,7 @@
 		};
 		75A2A7E51DA5934400A983D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B252788FCCE3166FC621948F /* Pods-digibyte.release.xcconfig */;
+			baseConfigurationReference = CCFE0D5F6C3D87E773497F07 /* Pods-DigiByte.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -5465,7 +5490,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_INCLUDE_PATHS = "$(SDK_DIR)/usr/include $(SRCROOT)/Modules/** $(SRCROOT)/breadwallet/src/Platform";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -5473,7 +5498,7 @@
 		};
 		75A2A7E71DA5934400A983D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 40C6581957990676DAFB3521 /* Pods-digibyteTests.debug.xcconfig */;
+			baseConfigurationReference = 24B5E26A28D70E73F714179D /* Pods-DigiByteTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -5487,13 +5512,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.digibyte.digibytewalletTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/digibyte.app/digibyte";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DigiByte.app/DigiByte";
 			};
 			name = Debug;
 		};
 		75A2A7E81DA5934400A983D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3F253E13C3E4A94EE8612B2F /* Pods-digibyteTests.release.xcconfig */;
+			baseConfigurationReference = EBCAFC3AA3EEE31AE87A9DEF /* Pods-DigiByteTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -5507,13 +5532,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.digibyte.digibytewalletTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/digibyte.app/digibyte";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DigiByte.app/DigiByte";
 			};
 			name = Release;
 		};
 		75A2A7EA1DA5934400A983D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E9F5A4261B652FEDEE61FD0D /* Pods-digibyteUITests.debug.xcconfig */;
+			baseConfigurationReference = A4B8F8E59B14FFAFE75F9809 /* Pods-DigiByteUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				DEVELOPMENT_TEAM = G49J8N7X2F;
@@ -5532,7 +5557,7 @@
 		};
 		75A2A7EB1DA5934400A983D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5AE909ECCB7673495A88259 /* Pods-digibyteUITests.release.xcconfig */;
+			baseConfigurationReference = 48A95A543C034755E98ED686 /* Pods-DigiByteUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				DEVELOPMENT_TEAM = G49J8N7X2F;
@@ -6057,14 +6082,14 @@
 				SWIFT_INCLUDE_PATHS = "$(SDK_DIR)/usr/include $(SRCROOT)/Modules $(SRCROOT)/breadwallet/src/Platform";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Screenshots;
 		};
 		CEA7E6891F09AC6A001F8C27 /* Screenshots */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C959511BF3776EB93B813F2D /* Pods-digibyte.screenshots.xcconfig */;
+			baseConfigurationReference = 4859C2B8DF4D5AC75368B398 /* Pods-DigiByte.screenshots.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -6091,7 +6116,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_INCLUDE_PATHS = "$(SDK_DIR)/usr/include $(SRCROOT)/Modules/** $(SRCROOT)/breadwallet/src/Platform";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -6099,7 +6124,7 @@
 		};
 		CEA7E68A1F09AC6A001F8C27 /* Screenshots */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05F39B6A4B46E1882748F6F8 /* Pods-digibyteTests.screenshots.xcconfig */;
+			baseConfigurationReference = BF677DE5BEB3700DB14BE701 /* Pods-DigiByteTests.screenshots.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -6113,13 +6138,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.digibyte.digibytewalletTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/digibyte.app/digibyte";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DigiByte.app/DigiByte";
 			};
 			name = Screenshots;
 		};
 		CEA7E68B1F09AC6A001F8C27 /* Screenshots */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E4078AF369EC83FDAFBF5FEB /* Pods-digibyteUITests.screenshots.xcconfig */;
+			baseConfigurationReference = 20273339BF9F67B70C7D8C9B /* Pods-DigiByteUITests.screenshots.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				DEVELOPMENT_TEAM = G49J8N7X2F;
@@ -6346,14 +6371,14 @@
 				SWIFT_INCLUDE_PATHS = "$(SDK_DIR)/usr/include $(SRCROOT)/Modules $(SRCROOT)/breadwallet/src/Platform";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Testnet;
 		};
 		CEA7E69C1F0AAA84001F8C27 /* Testnet */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C2F327098575E85039FDCAD1 /* Pods-digibyte.testnet.xcconfig */;
+			baseConfigurationReference = 2B8AFC1D9DDCF5EA57A72D4C /* Pods-DigiByte.testnet.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -6380,7 +6405,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_INCLUDE_PATHS = "$(SDK_DIR)/usr/include $(SRCROOT)/Modules/** $(SRCROOT)/breadwallet/src/Platform";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -6388,7 +6413,7 @@
 		};
 		CEA7E69D1F0AAA84001F8C27 /* Testnet */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 16C6A71BAE93053870AB8C11 /* Pods-digibyteTests.testnet.xcconfig */;
+			baseConfigurationReference = 37E1286D646F2BC9A77A7C48 /* Pods-DigiByteTests.testnet.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -6402,13 +6427,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.digibyte.digibytewalletTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/digibyte.app/digibyte";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DigiByte.app/DigiByte";
 			};
 			name = Testnet;
 		};
 		CEA7E69E1F0AAA84001F8C27 /* Testnet */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 42BF279CC081DF814253BED5 /* Pods-digibyteUITests.testnet.xcconfig */;
+			baseConfigurationReference = 08FA0BAF2A382E159BE5B10A /* Pods-DigiByteUITests.testnet.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				DEVELOPMENT_TEAM = G49J8N7X2F;
@@ -6628,7 +6653,7 @@
 				SWIFT_INCLUDE_PATHS = "$(SDK_DIR)/usr/include $(SRCROOT)/Modules $(SRCROOT)/breadwallet/src/Platform";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -6636,7 +6661,7 @@
 		};
 		CEE0EF551EBF8D7F0018DB36 /* Testflight */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FAC4CE2CC69B7B05264463A8 /* Pods-digibyte.testflight.xcconfig */;
+			baseConfigurationReference = A13B2B3CA1E1ED55D7DA1313 /* Pods-DigiByte.testflight.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -6662,7 +6687,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_INCLUDE_PATHS = "$(SDK_DIR)/usr/include $(SRCROOT)/Modules/** $(SRCROOT)/breadwallet/src/Platform";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -6670,7 +6695,7 @@
 		};
 		CEE0EF561EBF8D7F0018DB36 /* Testflight */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D92616E2AE3F5C65C5CCF179 /* Pods-digibyteTests.testflight.xcconfig */;
+			baseConfigurationReference = 158E98D4612A6B5316FA5BEC /* Pods-DigiByteTests.testflight.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -6684,13 +6709,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.digibyte.digibytewalletTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/digibyte.app/digibyte";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DigiByte.app/DigiByte";
 			};
 			name = Testflight;
 		};
 		CEE0EF571EBF8D7F0018DB36 /* Testflight */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D5BD8E0D12DB696F3145E2D /* Pods-digibyteUITests.testflight.xcconfig */;
+			baseConfigurationReference = A200C6BEB37CDF9346A0C713 /* Pods-DigiByteUITests.testflight.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				DEVELOPMENT_TEAM = G49J8N7X2F;
