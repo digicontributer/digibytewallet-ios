@@ -15,6 +15,7 @@
 			dependencies = (
 			);
 			name = "Reveal-SDK";
+			productName = "Reveal-SDK";
 		};
 /* End PBXAggregateTarget section */
 
@@ -369,7 +370,7 @@
 		2DEF285AF808D7B12D0AB126F945DEA1 /* LIFEPickerViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LIFEPickerViewController.h; path = Source/Controllers/LIFEPickerViewController.h; sourceTree = "<group>"; };
 		2EACAFDEAD25293C13A4136A373A8547 /* LIFEReport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LIFEReport.m; path = Source/Models/LIFEReport.m; sourceTree = "<group>"; };
 		2FA2ADA35C5597FD61D440A5D4EC25D4 /* LIFEPickerInputField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LIFEPickerInputField.m; path = Source/LIFEPickerInputField.m; sourceTree = "<group>"; };
-		2FF9FEE52E3A849A991B01547B4C2BFF /* VisualEffectView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = VisualEffectView.framework; path = VisualEffectView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FF9FEE52E3A849A991B01547B4C2BFF /* VisualEffectView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VisualEffectView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3021A54F21687C51B573D8E60272DE5B /* LIFEToolButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LIFEToolButton.m; path = "Source/Controllers/Image Editor/LIFEToolButton.m"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		34192E9B1488082B22E81DFD384D8351 /* LIFEImageEditorViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LIFEImageEditorViewController.m; path = "Source/Controllers/Image Editor/LIFEImageEditorViewController.m"; sourceTree = "<group>"; };
@@ -481,13 +482,13 @@
 		9957B689EDEC32220F65FE4C0B80DC62 /* LIFEPickerInputField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LIFEPickerInputField.h; path = Source/LIFEPickerInputField.h; sourceTree = "<group>"; };
 		99BC6A75DBBBA5D04E06607DBE5D29A0 /* Buglife-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Buglife-umbrella.h"; sourceTree = "<group>"; };
 		9A7460731358C5193F727AE80586031A /* LIFETextInputViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LIFETextInputViewController.h; path = Source/Controllers/LIFETextInputViewController.h; sourceTree = "<group>"; };
-		9BC6BCE626E9737CA93DFA32BCDE5FE1 /* Pods_DigiByteUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_DigiByteUITests.framework; path = "Pods-DigiByteUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BC6BCE626E9737CA93DFA32BCDE5FE1 /* Pods_DigiByteUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DigiByteUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C800627C8B117D954E13D2C0597241B /* LIFEGeometry.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LIFEGeometry.m; path = Source/Additions/LIFEGeometry.m; sourceTree = "<group>"; };
 		9CD4854327763067E52EB4728F3232A7 /* LIFEAlertAction.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LIFEAlertAction.m; path = "Source/Controllers/Alert View/LIFEAlertAction.m"; sourceTree = "<group>"; };
 		9CDB4BA8485BFEE5383883DE5CB419DA /* Pods-DigiByteUITests.screenshots.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DigiByteUITests.screenshots.xcconfig"; sourceTree = "<group>"; };
 		9CFC48E844E030F7504C616AC39E4784 /* LIFEPickerViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LIFEPickerViewController.m; path = Source/Controllers/LIFEPickerViewController.m; sourceTree = "<group>"; };
 		9D5FBC5FE915D418AF387C3EF0FD4CC9 /* LIFEReachability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LIFEReachability.h; path = Source/Services/LIFEReachability.h; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9EB747D3AA7712B7528BC91D870C98DB /* NSString+LIFEAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+LIFEAdditions.h"; path = "Source/Additions/NSString+LIFEAdditions.h"; sourceTree = "<group>"; };
 		9F2E59A00734504295FAA9E2347A2EBA /* LIFEScreenshotAnnotatorView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LIFEScreenshotAnnotatorView.h; path = Source/Views/LIFEScreenshotAnnotatorView.h; sourceTree = "<group>"; };
 		9F9895EA296D800044404C2431954A53 /* LIFEAnnotatedImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LIFEAnnotatedImage.h; path = Source/Models/LIFEAnnotatedImage.h; sourceTree = "<group>"; };
@@ -497,7 +498,7 @@
 		A314A73D9FB002B55B8DA7ADC220026D /* Pods-DigiByteUITests.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DigiByteUITests.testflight.xcconfig"; sourceTree = "<group>"; };
 		A322385F3F5683E7DDBD164C6182CC68 /* LIFEDeviceBatteryState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LIFEDeviceBatteryState.h; path = Source/Models/LIFEDeviceBatteryState.h; sourceTree = "<group>"; };
 		A341155621682C2263AA3BB571D0A44D /* LIFEDataProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LIFEDataProvider.h; path = Source/Services/LIFEDataProvider.h; sourceTree = "<group>"; };
-		A4017453F0D883FE4FF6D749B3BB6EB1 /* Buglife.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Buglife.framework; path = Buglife.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4017453F0D883FE4FF6D749B3BB6EB1 /* Buglife.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Buglife.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4337768466882BF08F24316267DDB90 /* LIFELoupeAnnotationView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LIFELoupeAnnotationView.m; path = Source/Views/AnnotationViews/LIFELoupeAnnotationView.m; sourceTree = "<group>"; };
 		A435144B0DDA1CE959E5C851F253A31E /* UIControl+LIFEAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIControl+LIFEAdditions.h"; path = "Source/Additions/UIControl+LIFEAdditions.h"; sourceTree = "<group>"; };
 		A5BDC20050E9372B810FC056D4CB8F6A /* UITableView+LIFEAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITableView+LIFEAdditions.m"; path = "Source/Additions/UITableView+LIFEAdditions.m"; sourceTree = "<group>"; };
@@ -551,7 +552,7 @@
 		CF2813F308AAE2AE29788FEF9CCBA3FC /* Pods-DigiByteTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-DigiByteTests.modulemap"; sourceTree = "<group>"; };
 		CFA3AC9BAB2D9A72FA3B1A0812F1111C /* LIFEToastControllerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LIFEToastControllerView.h; path = Source/Views/Toast/LIFEToastControllerView.h; sourceTree = "<group>"; };
 		CFD4A8EC99F50760E4BE54D25404B7B0 /* LIFEAnnotationView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LIFEAnnotationView.h; path = Source/Views/AnnotationViews/LIFEAnnotationView.h; sourceTree = "<group>"; };
-		D1874F26575D38BD2CCAC87EF84EAA5F /* Pods_DigiByteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_DigiByteTests.framework; path = "Pods-DigiByteTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1874F26575D38BD2CCAC87EF84EAA5F /* Pods_DigiByteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DigiByteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D234963255F0998AA9CA98106299113C /* LIFEOverlayWindow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LIFEOverlayWindow.h; path = Source/Views/LIFEOverlayWindow.h; sourceTree = "<group>"; };
 		D25B7F789DCCAA902D7A04DBF00AD907 /* LIFEToastView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LIFEToastView.h; path = Source/Views/Toast/LIFEToastView.h; sourceTree = "<group>"; };
 		D5B7A3D50B7A9EF010EB538EF53926C3 /* LIFELogViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LIFELogViewController.m; path = Source/Controllers/LIFELogViewController.m; sourceTree = "<group>"; };
@@ -575,7 +576,7 @@
 		E43C237A7BFCB1EB921FFBFE80D3BD09 /* Pods-DigiByte-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DigiByte-acknowledgements.plist"; sourceTree = "<group>"; };
 		E660250E783B32CC6DF8C734B882333D /* LIFEPickerInputField+Protected.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "LIFEPickerInputField+Protected.h"; path = "Source/Protected/LIFEPickerInputField+Protected.h"; sourceTree = "<group>"; };
 		E7123B00AD91C24BABF20D6B26A43DFD /* LIFEScreenshotAnnotatorView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LIFEScreenshotAnnotatorView.m; path = Source/Views/LIFEScreenshotAnnotatorView.m; sourceTree = "<group>"; };
-		E7240A5F0C661B289FEF4657DCF3F6BF /* Pods_DigiByte.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_DigiByte.framework; path = "Pods-DigiByte.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7240A5F0C661B289FEF4657DCF3F6BF /* Pods_DigiByte.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DigiByte.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E82079A659B69120830FF58D2AD44019 /* LIFENotificationLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LIFENotificationLogger.h; path = Source/Services/Logging/LIFENotificationLogger.h; sourceTree = "<group>"; };
 		E82BF4584F9ED18BDA6421F129608F98 /* LIFEAnnotation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LIFEAnnotation.m; path = Source/Models/LIFEAnnotation.m; sourceTree = "<group>"; };
 		E8A0F58B0193C495301D83C5D728143C /* LIFEDependencyLoader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LIFEDependencyLoader.m; path = Source/Services/LIFEDependencyLoader.m; sourceTree = "<group>"; };
@@ -664,7 +665,6 @@
 				A84AC02312454F9C6A7CBC29D3F94EA0 /* Frameworks */,
 				9B75D58675EC882B5D366E3F453D2918 /* Support Files */,
 			);
-			name = "Reveal-SDK";
 			path = "Reveal-SDK";
 			sourceTree = "<group>";
 		};
@@ -967,7 +967,6 @@
 				87D3675B828869477875AB30DAB3CC90 /* UIWindow+LIFEAdditions.m */,
 				3E996E22C03C8199D92EE013B7A6A457 /* Support Files */,
 			);
-			name = Buglife;
 			path = Buglife;
 			sourceTree = "<group>";
 		};
@@ -977,7 +976,6 @@
 				AEE77DD857FD58896FC86579DBC6E61D /* VisualEffectView.swift */,
 				1F4554A0F3CD426BC9A2BD5656729317 /* Support Files */,
 			);
-			name = VisualEffectView;
 			path = VisualEffectView;
 			sourceTree = "<group>";
 		};
@@ -1363,6 +1361,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
+				TargetAttributes = {
+					29D8A5EE9737EDD9B0E0E5A37D9BBEF1 = {
+						LastSwiftMigration = 1100;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -1370,6 +1373,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = D7715E5C0A0D46203F4AAB62F8C695C7 /* Products */;

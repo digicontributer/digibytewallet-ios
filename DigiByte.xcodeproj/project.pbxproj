@@ -5511,7 +5511,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.digibyte.digibytewalletTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DigiByte.app/DigiByte";
 			};
 			name = Debug;
@@ -5531,7 +5531,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.digibyte.digibytewalletTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DigiByte.app/DigiByte";
 			};
 			name = Release;
@@ -5550,7 +5550,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.digibyte.digibytewalletUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = breadwallet;
 			};
 			name = Debug;
@@ -5569,7 +5569,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.digibyte.digibytewalletUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = breadwallet;
 			};
 			name = Release;
@@ -5658,7 +5658,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte.NotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -5679,7 +5679,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte.NotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Testnet;
@@ -5700,7 +5700,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte.NotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Screenshots;
@@ -5721,7 +5721,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte.NotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -5742,7 +5742,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte.NotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Testflight;
@@ -5864,7 +5864,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
@@ -5888,7 +5888,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
@@ -5912,7 +5912,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
@@ -5936,7 +5936,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
@@ -5960,7 +5960,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
@@ -5981,7 +5981,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.digibyte..Screenshots;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = breadwallet;
 			};
 			name = Debug;
@@ -6000,7 +6000,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.digibyte..Screenshots;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = breadwallet;
 			};
 			name = Release;
@@ -6019,7 +6019,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.digibyte..Screenshots;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = breadwallet;
 			};
 			name = Testflight;
@@ -6137,7 +6137,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.digibyte.digibytewalletTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DigiByte.app/DigiByte";
 			};
 			name = Screenshots;
@@ -6156,7 +6156,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.digibyte.digibytewalletUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = breadwallet;
 			};
 			name = Screenshots;
@@ -6308,7 +6308,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.digibyte..Screenshots;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = breadwallet;
 			};
 			name = Screenshots;
@@ -6426,7 +6426,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.digibyte.digibytewalletTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DigiByte.app/DigiByte";
 			};
 			name = Testnet;
@@ -6445,7 +6445,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.digibyte.digibytewalletUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = breadwallet;
 			};
 			name = Testnet;
@@ -6597,7 +6597,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.digibyte..Screenshots;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = breadwallet;
 			};
 			name = Testnet;
@@ -6708,7 +6708,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.digibyte.digibytewalletTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DigiByte.app/DigiByte";
 			};
 			name = Testflight;
@@ -6727,7 +6727,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.digibyte.digibytewalletUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = breadwallet;
 			};
 			name = Testflight;

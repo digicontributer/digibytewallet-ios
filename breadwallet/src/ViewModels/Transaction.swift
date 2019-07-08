@@ -333,7 +333,6 @@ private func makeStatusCode(_ txRef: BRTxRef, wallet: BRWallet, peerManager: BRP
     }
     
     if confirms < 6 {
-        var percentageString = ""
         if confirms == 0 {
             let relayCount = peerManager.relayCount(tx.txHash)
             if relayCount == 0 {

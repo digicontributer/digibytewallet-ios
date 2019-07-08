@@ -177,7 +177,7 @@ class PaymentProtocolRequest {
             var trustResult = SecTrustResultType.invalid
             
             for c in self.certs {
-                if let cert = SecCertificateCreateWithData(nil, Data(bytes: c) as CFData) { certs.append(cert) }
+                if let cert = SecCertificateCreateWithData(nil, Data(c) as CFData) { certs.append(cert) }
             }
             
             if certs.count > 0 {
