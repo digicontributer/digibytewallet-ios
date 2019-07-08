@@ -21,7 +21,7 @@ class MenuViewController : UIViewController, Trackable {
     fileprivate let buttonHeight: CGFloat = 72.0
     fileprivate let buttons: [MenuButton] = {
         let types: [MenuButtonType] = [.security, .support, .report, .settings, .lock] // TODO: Writeup support/FAQ documentation for digibyte wallet
-        return types.flatMap {
+        return types.compactMap {
             return MenuButton(type: $0)
         }
     }()

@@ -110,9 +110,9 @@ class AboutViewController : UIViewController {
         return NSAttributedString(
             string: text,
             attributes: [
-                NSAttributedStringKey.foregroundColor: C.Colors.blueGrey,
-                NSAttributedStringKey.font: UIFont(name: "Helvetica", size: 14) ?? UIFont.systemFont(ofSize: 14),
-                NSAttributedStringKey.paragraphStyle: style,
+                NSAttributedString.Key.foregroundColor: C.Colors.blueGrey,
+                NSAttributedString.Key.font: UIFont(name: "Helvetica", size: 14) ?? UIFont.systemFont(ofSize: 14),
+                NSAttributedString.Key.paragraphStyle: style,
             ]
         )
     }
@@ -124,9 +124,9 @@ class AboutViewController : UIViewController {
         return NSAttributedString(
             string: text,
             attributes: [
-                NSAttributedStringKey.foregroundColor: UIColor.white,
-                NSAttributedStringKey.font: UIFont(name: "Helvetica-Bold", size: 14) ?? UIFont.systemFont(ofSize: 14),
-                NSAttributedStringKey.paragraphStyle: style,
+                NSAttributedString.Key.foregroundColor: UIColor.white,
+                NSAttributedString.Key.font: UIFont(name: "Helvetica-Bold", size: 14) ?? UIFont.systemFont(ofSize: 14),
+                NSAttributedString.Key.paragraphStyle: style,
             ]
         )
     }

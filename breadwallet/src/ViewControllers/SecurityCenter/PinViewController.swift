@@ -298,7 +298,7 @@ class LoginViewController: PINViewController, Trackable {
     private var isResetting = false
     private var unlockTimer: Timer?
     private let isPresentedForLock: Bool
-    private let activityView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+    private let activityView = UIActivityIndicatorView(style: .whiteLarge)
     private let securityCheckLabel = UILabel(font: .customMedium(size: 12), color: C.Colors.blueGrey)
     private let digiIdButton = DGBHapticButton()
 
@@ -396,8 +396,8 @@ class LoginViewController: PINViewController, Trackable {
             nc.viewControllers = [recover]
             nc.navigationBar.tintColor = .whiteTint
             nc.navigationBar.titleTextAttributes = [
-                NSAttributedStringKey.foregroundColor: UIColor.darkText,
-                NSAttributedStringKey.font: UIFont.customBold(size: 17.0)
+                NSAttributedString.Key.foregroundColor: UIColor.darkText,
+                NSAttributedString.Key.font: UIFont.customBold(size: 17.0)
             ]
             nc.setClearNavbar()
             nc.navigationBar.isTranslucent = false

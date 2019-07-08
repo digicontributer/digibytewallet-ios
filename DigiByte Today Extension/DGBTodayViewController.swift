@@ -138,7 +138,7 @@ class DGBTodayViewController: UIViewController, NCWidgetProviding {
         btn.contentMode = .scaleAspectFit
         
         btn.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
-        btn.callback = { [weak btn] in
+        btn.callback = { 
             if #available(iOSApplicationExtension 10.0, *) {
                 let feedback = UISelectionFeedbackGenerator()
                 feedback.prepare()

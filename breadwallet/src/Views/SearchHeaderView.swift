@@ -133,7 +133,7 @@ class SearchHeaderView : UIView {
 
     private func addConstraints() {
         cancel.setTitle(S.Button.cancel, for: .normal)
-        let titleSize = NSString(string: cancel.titleLabel!.text!).size(withAttributes: [NSAttributedStringKey.font : cancel.titleLabel!.font])
+        let titleSize = NSString(string: cancel.titleLabel!.text!).size(withAttributes: [NSAttributedString.Key.font : cancel.titleLabel!.font])
         cancel.constrain([
             cancel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -C.padding[2]),
             cancel.centerYAnchor.constraint(equalTo: searchBar.centerYAnchor),
@@ -200,7 +200,7 @@ class SearchHeaderView : UIView {
     }
 
     @discardableResult private func toggleFilterType(_ filterType: SearchFilterType) -> Bool {
-        if let index = filters.index(of: filterType) {
+        if let index = filters.firstIndex(of: filterType) {
             filters.remove(at: index)
             return false
         } else {
@@ -251,7 +251,7 @@ class SearchHeaderView : UIView {
 extension SearchHeaderView : UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let filter: SearchFilterType = .text(searchText)
-        if let index = filters.index(of: filter) {
+        if let index = filters.firstIndex(of: filter) {
             filters.remove(at: index)
         }
         if searchText != "" {

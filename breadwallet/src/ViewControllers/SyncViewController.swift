@@ -21,7 +21,7 @@ class BottomDesignedLabel: UILabel {
             let strAsNS = str as NSString
             let labelStringSize = strAsNS.boundingRect(with: CGSize(width: self.frame.width, height: CGFloat.greatestFiniteMagnitude),
                                                        options: NSStringDrawingOptions.usesLineFragmentOrigin,
-                                                       attributes: [NSAttributedStringKey.font: font],
+                                                       attributes: [NSAttributedString.Key.font: font as Any],
                                                        context: nil).size
             super.drawText(in: CGRect(x: 0, y: rect.size.height - labelStringSize.height + offsetY, width: self.frame.width, height: ceil(labelStringSize.height)))
         }
@@ -164,9 +164,9 @@ class SyncViewController: UIViewController, Subscriber {
         let dateStr1 = "-- "
         let dateStr2 = formatter.string(from: Date())
         
-        let attr1 = NSMutableAttributedString(string: dateStr1, attributes: [NSAttributedStringKey.foregroundColor: C.Colors.weirdGreen])
+        let attr1 = NSMutableAttributedString(string: dateStr1, attributes: [NSAttributedString.Key.foregroundColor: C.Colors.weirdGreen])
         let attrS = NSAttributedString(string: " / ", attributes: nil)
-        let attr2 = NSAttributedString(string: dateStr2, attributes: [NSAttributedStringKey.foregroundColor: UIColor.blue])
+        let attr2 = NSAttributedString(string: dateStr2, attributes: [NSAttributedString.Key.foregroundColor: UIColor.blue])
         
         attr1.append(attrS)
         attr1.append(attr2)

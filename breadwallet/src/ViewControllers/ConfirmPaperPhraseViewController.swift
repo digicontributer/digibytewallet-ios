@@ -17,7 +17,7 @@ class ConfirmPaperPhraseViewController : UIViewController {
         self.callback = callback
         super.init(nibName: nil, bundle: nil)
         if !E.isIPhone4 {
-            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: .UIKeyboardWillShow, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         }
     }
 
@@ -63,7 +63,7 @@ class ConfirmPaperPhraseViewController : UIViewController {
 
         confirmFirstPhrase.textField.becomeFirstResponder()
     
-        NotificationCenter.default.addObserver(forName: .UIApplicationWillResignActive, object: nil, queue: nil) { [weak self] note in
+        NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification, object: nil, queue: nil) { [weak self] note in
             self?.dismiss(animated: true, completion: nil)
         }
         
@@ -134,7 +134,7 @@ class ConfirmPaperPhraseViewController : UIViewController {
 
     @objc private func keyboardWillShow(notification: Notification) {
         guard let userInfo = notification.userInfo else { return }
-        guard let frameValue = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue else { return }
+        guard let frameValue = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
         self.addSubmitButtonConstraints(keyboardHeight: frameValue.cgRectValue.height)
     }
 

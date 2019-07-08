@@ -110,7 +110,7 @@ class DAOnboardingViewController: UIViewController {
         setEvents()
         setStyle()
         
-        pageViewController.setViewControllers([createViewController], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
+        pageViewController.setViewControllers([createViewController], direction: UIPageViewController.NavigationDirection.forward, animated: true, completion: nil)
     }
     
     private func addSubviews() {
@@ -119,7 +119,7 @@ class DAOnboardingViewController: UIViewController {
         view.addSubview(actionButton)
         
         // add the page view controller
-        addChildViewController(pageViewController)
+        addChild(pageViewController)
         view.addSubview(pageViewController.view)
     
         // this shape receives the tap events
@@ -173,10 +173,10 @@ class DAOnboardingViewController: UIViewController {
         }
         
         actionButtonEventShape.tap = { [unowned self] in
-            if let idx = self.pages.index(of: self.pageViewController.viewControllers![0]) {
+            if let idx = self.pages.firstIndex(of: self.pageViewController.viewControllers![0]) {
                 if idx < self.pages.count - 1 {
                     let nextPage = self.pages[idx+1]
-                    self.pageViewController.setViewControllers([nextPage], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
+                    self.pageViewController.setViewControllers([nextPage], direction: UIPageViewController.NavigationDirection.forward, animated: true, completion: nil)
                 } else {
                     // last page
                     self.navigationController?.pushViewController(DAMainViewController(), animated: true)
@@ -214,7 +214,7 @@ class DAOnboardingViewController: UIViewController {
 
 extension DAOnboardingViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        if let idx = pages.index(of: viewController) {
+        if let idx = pages.firstIndex(of: viewController) {
             if idx != 0 {
                 return pages[idx - 1]
             }
@@ -223,7 +223,7 @@ extension DAOnboardingViewController: UIPageViewControllerDelegate, UIPageViewCo
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        if let idx = pages.index(of: viewController) {
+        if let idx = pages.firstIndex(of: viewController) {
             if idx < pages.count - 1 {
                 return pages[idx + 1]
             }
@@ -233,7 +233,8 @@ extension DAOnboardingViewController: UIPageViewControllerDelegate, UIPageViewCo
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if let vcs = pageViewController.viewControllers {
-            if let idx = self.pages.index(of: vcs[0]) {
+            if var idx = self.pages.firstIndex(of: vcs[0]) {
+                idx = { idx }()
 //                pageControl.currentPage = idx
 //                updateNextButtonTitle(idx: idx)
             }

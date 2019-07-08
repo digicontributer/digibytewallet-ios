@@ -230,7 +230,7 @@ fileprivate class AddressBookAddContactViewController: UIViewController {
         
         favoriteSwitch.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         favoriteSwitch.onTintColor = C.Colors.blue
-        favoriteSwitch.addTarget(self, action: #selector(switchChanged), for: UIControlEvents.valueChanged)
+        favoriteSwitch.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
         
         stackView.addArrangedSubview(hBox(switchContainer, horizontal: padding))
         stackView.addArrangedSubview(hBox(addButton, horizontal: padding))
@@ -408,11 +408,11 @@ fileprivate class AddressBookAddContactViewController: UIViewController {
 
 
 extension AddressBookAddContactViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
-    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         self.dismiss(animated: true, completion: { () -> Void in })
         
         if
-            let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage,
+            let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
             let cgImage = originalImage.cgImage {
             
             let ciImage = CIImage(cgImage:cgImage)
@@ -454,8 +454,8 @@ fileprivate class AddressBookSearchBar: UITextField {
         // add search bar text
         let placeholderColor = UIColor(red: 71 / 255, green: 73 / 255, blue: 108 / 255, alpha: 1.0) // 71 73 108
         let placeholder = NSMutableAttributedString(string: S.AddressBook.searchPlaceholder)
-        placeholder.addAttribute(NSAttributedStringKey.foregroundColor, value: placeholderColor, range: NSRange(location:0,length: placeholder.length))
-        placeholder.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize: 14), range: NSRange(location:0,length: placeholder.length))
+        placeholder.addAttribute(NSAttributedString.Key.foregroundColor, value: placeholderColor, range: NSRange(location:0,length: placeholder.length))
+        placeholder.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 14), range: NSRange(location:0,length: placeholder.length))
         attributedPlaceholder = placeholder
         
         // search icon
@@ -488,8 +488,8 @@ fileprivate class AddressBookSearchBar: UITextField {
 
 fileprivate class AddressBookContactCell: UITableViewCell {
     private let title = UILabel()
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: UITableViewCellStyle.default, reuseIdentifier: reuseIdentifier)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: reuseIdentifier)
         backgroundColor = UIColor.clear
         selectionStyle = .none
         
@@ -715,7 +715,7 @@ class AddressBookOverviewViewController: UIViewController, Trackable, Subscriber
     //MARK: - Private
     private let searchBox = AddressBookSearchBar()
     private let addContactButton = DGBHapticButton()
-    private let tableView = UITableView(frame: .zero, style: UITableViewStyle.grouped)
+    private let tableView = UITableView(frame: .zero, style: UITableView.Style.grouped)
     private var contacts = [AddressBookContact]() {
         didSet {
             reindex()
@@ -860,7 +860,7 @@ class AddressBookOverviewViewController: UIViewController, Trackable, Subscriber
     }
     
     private func addActions() {
-        searchBox.addTarget(self, action: #selector(searchTermChanged), for: UIControlEvents.editingChanged)
+        searchBox.addTarget(self, action: #selector(searchTermChanged), for: UIControl.Event.editingChanged)
         addContactButton.addTarget(self, action: #selector(addContactTapped), for: .touchUpInside)
     }
     

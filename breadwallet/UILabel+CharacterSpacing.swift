@@ -12,7 +12,7 @@ extension UILabel {
     func setCharacterSpacing(_ spacing: Double) {
         guard let t = self.text else { return }
         let attributedString = NSMutableAttributedString(string: t)
-        attributedString.addAttribute(NSAttributedStringKey.kern, value: spacing, range: NSRange(location: 0, length: attributedString.length))
+        attributedString.addAttribute(NSAttributedString.Key.kern, value: spacing, range: NSRange(location: 0, length: attributedString.length))
         self.attributedText = attributedString
     }
 }

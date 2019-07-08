@@ -185,7 +185,7 @@ fileprivate class RadialGradientMenu: UIView {
             
         } else if sender.state == .changed {
             // changed
-            var translationY = -sender.translation(in: sender.view?.superview).y
+            let translationY = -sender.translation(in: sender.view?.superview).y
             if translationY > 0 {
                 // move up
                 // translationY = translationY
@@ -361,10 +361,10 @@ fileprivate class RadialGradientMenu: UIView {
     
     private func bringButtonsToFront() {
         for i in 0..<buttonModels.count {
-            bringSubview(toFront: buttonModels[i].view)
+            bringSubviewToFront(buttonModels[i].view)
             // centerButtonImageAndTitle(button: buttonModels[i].view)
         }
-        bringSubview(toFront: buttonText)
+        bringSubviewToFront(buttonText)
     }
     
     @objc private func blurViewTap() {
@@ -387,7 +387,7 @@ fileprivate class RadialGradientMenu: UIView {
         circleView.frame = CGRect(origin: CGPoint(), size: size)
         circleView.setNeedsLayout()
         
-        circleView.contentMode = UIViewContentMode.redraw
+        circleView.contentMode = UIView.ContentMode.redraw
         
         buttonText.text = "+"
         buttonText.textColor = .white
@@ -471,7 +471,7 @@ fileprivate class RadialGradientMenu: UIView {
         
         currentOffset += 20
         
-        bringSubview(toFront: buttonText)
+        bringSubviewToFront(buttonText)
         // centerButtonImageAndTitle(button: view)
     }
     

@@ -387,7 +387,7 @@ class CircleProgressView: UIView {
 			.font: UIFont(name: self.fontName, size: self.fontSize * 0.50)!,
 			.foregroundColor: UIColor.lightGray,
 			.paragraphStyle: lastBlockTextStyle,
-			] as [NSAttributedStringKey: Any]
+            ] as [NSAttributedString.Key: Any]
 
 		lastBlockTextSt.draw(in: lastBlockTextRect, withAttributes: lastBlockTextFontAttributes)
 
@@ -400,7 +400,7 @@ class CircleProgressView: UIView {
 			.font: UIFont(name: self.fontName, size: self.fontSize)!,
 			.foregroundColor: UIColor.white,
 			.paragraphStyle: blockProgressTextStyle,
-			] as [NSAttributedStringKey: Any]
+            ] as [NSAttributedString.Key: Any]
 
 		let blockProgressTextTextHeight: CGFloat = progressText.boundingRect(with: CGSize(width: blockProgressTextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: blockProgressTextFontAttributes, context: nil).height
 		context.saveGState()

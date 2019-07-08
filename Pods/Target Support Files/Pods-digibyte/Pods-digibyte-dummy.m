@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-@interface PodsDummy_Pods_digibyte : NSObject
+@interface PodsDummy_Pods_DigiByte : NSObject
 @end
-@implementation PodsDummy_Pods_digibyte
+@implementation PodsDummy_Pods_DigiByte
 @end

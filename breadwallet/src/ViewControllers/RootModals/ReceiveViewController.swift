@@ -40,6 +40,7 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
     private let segwitSwitch: UISwitch = {
         let v = UISwitch()
         v.isOn = true
+        v.isHidden = true // Pre Segwit Release
         return v
     }()
     
@@ -270,14 +271,14 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
         if
             let qrImage = UIImage.qrCode(data: request.data(using: .utf8)!, color: CIColor(color: .black))?.resize(CGSize(width: 512, height: 512)),
             let qrImageLogo = UserDefaults.excludeLogoInQR ? qrImage : placeLogoIntoQR(qrImage, width: 512, height: 512),
-            let imgData = UIImageJPEGRepresentation(qrImageLogo, 1.0),
+            let imgData = qrImageLogo.jpegData(compressionQuality: 1.0),
             let jpegRep = UIImage(data: imgData) {
                 let activityViewController = UIActivityViewController(activityItems: [request, jpegRep], applicationActivities: nil)
-                activityViewController.completionWithItemsHandler = {(activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+            activityViewController.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
                     guard completed else { return }
                     self.store.trigger(name: .lightWeightAlert(S.Import.success))
                 }
-                activityViewController.excludedActivityTypes = [UIActivityType.assignToContact, UIActivityType.addToReadingList, UIActivityType.postToVimeo]
+            activityViewController.excludedActivityTypes = [UIActivity.ActivityType.assignToContact, UIActivity.ActivityType.addToReadingList, UIActivity.ActivityType.postToVimeo]
                 present(activityViewController, animated: true, completion: {})
         }
     }

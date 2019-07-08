@@ -46,7 +46,7 @@ class TransactionCardView: UIView {
         outerPath.append(circlePath2)
         
         shape.fillColor = UIColor.white.cgColor
-        shape.fillRule = kCAFillRuleEvenOdd
+        shape.fillRule = CAShapeLayerFillRule.evenOdd
         shape.path = outerPath.cgPath
         
         layer.mask = shape

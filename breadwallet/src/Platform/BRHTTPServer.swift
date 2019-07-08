@@ -24,6 +24,7 @@
 //  THE SOFTWARE.
 
 import Foundation
+import UIKit
 
 enum BRHTTPServerError: Error {
     case socketCreationFailed
@@ -83,10 +84,10 @@ open class BRHTTPMiddlewareResponse {
                 let nc = NotificationCenter.default
                 // backgrounding
                 nc.addObserver(self, selector: #selector(BRHTTPServer.suspend(_:)),
-                               name: .UIApplicationWillResignActive, object: nil)
+                               name: UIApplication.willResignActiveNotification, object: nil)
                 // foregrounding
                 nc.addObserver(self, selector: #selector(BRHTTPServer.resume(_:)),
-                               name: .UIApplicationDidBecomeActive, object: nil)
+                               name: UIApplication.didBecomeActiveNotification, object: nil)
                 return
             } catch {
                 continue
@@ -156,9 +157,9 @@ open class BRHTTPMiddlewareResponse {
         shutdownServer()
         let nc = NotificationCenter.default
         // background
-        nc.removeObserver(self, name: .UIApplicationWillResignActive, object: nil)
+        nc.removeObserver(self, name: UIApplication.willResignActiveNotification, object: nil)
         // foreground
-        nc.removeObserver(self, name: .UIApplicationDidBecomeActive, object: nil)
+        nc.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
     }
     
     @objc func suspend(_: Notification) {

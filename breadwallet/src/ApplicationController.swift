@@ -107,9 +107,9 @@ class ApplicationController : Subscriber, Trackable {
         }
     }
 
-    func launch(application: UIApplication, options: [UIApplicationLaunchOptionsKey: Any]?) {
+    func launch(application: UIApplication, options: [UIApplication.LaunchOptionsKey: Any]?) {
         self.application = application
-        application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        application.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
         setup()
         handleLaunchOptions(options)
         reachability.didChange = { isReachable in
@@ -294,9 +294,9 @@ class ApplicationController : Subscriber, Trackable {
     }
 
     private func setupAppearance() {
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.font: UIFont.header]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: UIFont.header]
         //Hack to globally hide the back button text
-        UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffsetMake(-500.0, -500.0), for: .default)
+        UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -500.0, vertical: -500.0), for: .default)
     }
 
     private func setupRootViewController() {
@@ -319,16 +319,16 @@ class ApplicationController : Subscriber, Trackable {
                         
                     }, completion: { (b) in
                         backgroundView.removeFromSuperview()
-                        vc.willMove(toParentViewController: nil)
+                        vc.willMove(toParent: nil)
                         vc.view.removeFromSuperview()
-                        vc.removeFromParentViewController()
+                        vc.removeFromParent()
                     })
                 }
             )
         
             wnd.view.addSubview(backgroundView)
             backgroundView.constrain(toSuperviewEdges: nil)
-            wnd.addChildViewController(transactionDetails)
+            wnd.addChild(transactionDetails)
             wnd.view.addSubview(transactionDetails.view)
             transactionDetails.view.frame.origin.y = UIScreen.main.bounds.height
         
@@ -416,7 +416,7 @@ class ApplicationController : Subscriber, Trackable {
         }
     }
 
-    private func handleLaunchOptions(_ options: [UIApplicationLaunchOptionsKey: Any]?) {
+    private func handleLaunchOptions(_ options: [UIApplication.LaunchOptionsKey: Any]?) {
         if let url = options?[.url] as? URL {
             do {
                 let file = try Data(contentsOf: url)

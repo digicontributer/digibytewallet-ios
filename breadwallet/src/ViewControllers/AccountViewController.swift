@@ -816,7 +816,7 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
     private func showActivity(_ view: UIView) {
         let act = UIActivityIndicatorView()
         act.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        act.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        act.style = UIActivityIndicatorView.Style.whiteLarge
         view.addSubview(act)
         act.constrain([
             act.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -839,7 +839,7 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
                     isJailbroken = true
                 }
             }
-            NotificationCenter.default.addObserver(forName: .UIApplicationWillEnterForeground, object: nil, queue: nil) { note in
+            NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: nil) { note in
                 self.showJailbreakWarnings(isJailbroken: isJailbroken)
             }
             showJailbreakWarnings(isJailbroken: isJailbroken)
@@ -916,9 +916,9 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
 
         let width = hamburgerMenuView.frame.width
         
-        if sender.state == UIGestureRecognizerState.began {
+        if sender.state == UIGestureRecognizer.State.began {
             // do nothing
-        } else if sender.state == UIGestureRecognizerState.changed {
+        } else if sender.state == UIGestureRecognizer.State.changed {
             let translationX = sender.translation(in: sender.view).x
             if translationX > 0 {
                 menuLeftConstraint.constant = -15 + sqrt(translationX)
@@ -1096,7 +1096,7 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         view.addSubview(balanceView)
         view.addSubview(headerContainer)
         
-        addChildViewController(syncViewController)
+        addChild(syncViewController)
         view.addSubview(syncViewController.view)
 
         view.addSubview(footerView)
@@ -1271,7 +1271,7 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        if let viewControllerIndex = self.pages.index(of: viewController) {
+        if let viewControllerIndex = self.pages.firstIndex(of: viewController) {
             if viewControllerIndex != 0 {
                 // go to previous page in array
                 return self.pages[viewControllerIndex - 1]
@@ -1281,7 +1281,7 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        if let viewControllerIndex = self.pages.index(of: viewController) {
+        if let viewControllerIndex = self.pages.firstIndex(of: viewController) {
             if viewControllerIndex < self.pages.count - 1 {
                 // go to next page in array
                 return self.pages[viewControllerIndex + 1]
@@ -1293,7 +1293,7 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         guard completed else { return }
         if let viewControllers = pageViewController.viewControllers {
-            if let viewControllerIndex = self.pages.index(of: viewControllers[0]) {
+            if let viewControllerIndex = self.pages.firstIndex(of: viewControllers[0]) {
                 menu.updateSegmentedControlSegs(index: viewControllerIndex)
             }
         }
@@ -1332,14 +1332,14 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
     }
 
     private func addAppLifecycleNotificationEvents() {
-        NotificationCenter.default.addObserver(forName: .UIApplicationDidBecomeActive, object: nil, queue: nil) { note in
+        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { note in
             UIView.animate(withDuration: 0.1, animations: {
                 self.blurView.alpha = 0.0
             }, completion: { _ in
                 self.blurView.removeFromSuperview()
             })
         }
-        NotificationCenter.default.addObserver(forName: .UIApplicationWillResignActive, object: nil, queue: nil) { note in
+        NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification, object: nil, queue: nil) { note in
             if !self.isLoginRequired && !self.store.state.isPromptingBiometrics {
                 self.blurView.alpha = 1.0
                 self.view.addSubview(self.blurView)
