@@ -246,7 +246,7 @@ class DGBTodayViewController: UIViewController, NCWidgetProviding {
     private func setContent() {
         receiveHeaderLabel.text = "Your receive address:"
         receiveHeaderLabel.font = UIFont.boldSystemFont(ofSize: 12)
-        receiveHeaderLabel.textColor = UIColor(red: 70/255, green: 70/255, blue: 70/255, alpha: 1.0)
+        receiveHeaderLabel.textColor = UIColor.lightText // UIColor(red: 70/255, green: 70/255, blue: 70/255, alpha: 1.0)
         
         receiveAddressLabel.text = "XXX"
         receiveAddressLabel.font = UIFont.boldSystemFont(ofSize: 14)
@@ -254,7 +254,13 @@ class DGBTodayViewController: UIViewController, NCWidgetProviding {
         
         actionItemHeader.text = "Actions"
         actionItemHeader.font = UIFont.boldSystemFont(ofSize: 12)
-        actionItemHeader.textColor = UIColor(red: 70/255, green: 70/255, blue: 70/255, alpha: 1.0)
+        actionItemHeader.textColor = UIColor.lightText
+        
+        if #available(iOSApplicationExtension 13.0, *) {
+            actionItemHeader.textColor = UIColor.secondaryLabel
+            receiveHeaderLabel.textColor = UIColor.secondaryLabel
+        } else {
+        }
         
         qrImage.backgroundColor = UIColor.white
         
