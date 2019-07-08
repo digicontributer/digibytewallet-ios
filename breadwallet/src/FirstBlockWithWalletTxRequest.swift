@@ -91,6 +91,8 @@ private class DigiExplorerEndpoint {
             return nil
         }
         
+        print(url)
+        
         // Create the session task
         let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, url, err) in
             var shouldTryOtherURL: Bool = false

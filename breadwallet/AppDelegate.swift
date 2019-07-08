@@ -141,8 +141,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        let sendingAppID: String = options[.sourceApplication] as! String
-        senderApp = sendingAppID
+        if let sendingAppID: String = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String {
+            senderApp = sendingAppID
+        }
         
         return applicationController.open(url: url)
     }

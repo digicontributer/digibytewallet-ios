@@ -276,7 +276,9 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
                 let activityViewController = UIActivityViewController(activityItems: [request, jpegRep], applicationActivities: nil)
             activityViewController.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
                     guard completed else { return }
-                    self.store.trigger(name: .lightWeightAlert(S.Import.success))
+                    if error == nil {
+                        self.store.trigger(name: .lightWeightAlert(S.Import.success))
+                    }
                 }
             activityViewController.excludedActivityTypes = [UIActivity.ActivityType.assignToContact, UIActivity.ActivityType.addToReadingList, UIActivity.ActivityType.postToVimeo]
                 present(activityViewController, animated: true, completion: {})

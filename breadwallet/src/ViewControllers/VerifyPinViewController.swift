@@ -107,7 +107,7 @@ class VerifyPinViewController : UIViewController, ContentBoxPresenter {
         contentBox.layer.shadowOffset = .zero
         
         toolbar.backgroundColor = C.Colors.background
-        cancel.setTitleColor(UIColor.orange, for: .normal)
+        cancel.setTitleColor(UIColor.blueGradientStart, for: .normal)
         
         titleLabel.text = S.VerifyPin.title
         titleLabel.textAlignment = .center

@@ -196,8 +196,6 @@ fileprivate class AddressBookAddContactViewController: UIViewController {
         stackView.addArrangedSubview(hBox(nameBox, horizontal: 0))
         stackView.addArrangedSubview(hBox(addressCell, horizontal: 0))
         
-        addressCell.toLabel.text = S.AddressBook.address
-        
         nameBox.heightAnchor.constraint(equalToConstant: NameCell.defaultHeight).isActive = true
         
         switchContainer = UIView()
