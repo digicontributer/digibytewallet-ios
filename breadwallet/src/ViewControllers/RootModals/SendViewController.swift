@@ -63,7 +63,7 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
             // the edit / add button
             vc.contactSelectedCallback = { [unowned self] contact in
                 self.addressCell.setContent(contact.address)
-                self.contactNameLabel.text = "\(contact.name)"
+                self.addressCell.nameLabel.text = "\(contact.name)"
                 root.dismiss(animated: true, completion: nil)
             }
             
@@ -108,13 +108,11 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
     private let confirmTransitioningDelegate = PinTransitioningDelegate()
     private var feeType: Fee?
     
-    private let contactNameLabel = UILabel()
     private var indexedContacts: [String: AddressBookContact] = [:]
 
     override func viewDidLoad() {
         view.backgroundColor = .clear
         view.addSubview(addressCell)
-        view.addSubview(contactNameLabel)
         view.addSubview(descriptionCell)
         view.addSubview(sendButton)
         view.addSubview(dandelionSwitchContainer)
@@ -143,11 +141,6 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
         ])
 
         addressCell.constrainTopCorners(sidePadding: 0, topPadding: 0)
-        
-        contactNameLabel.constrain([
-            contactNameLabel.bottomAnchor.constraint(equalTo: addressCell.textField.bottomAnchor, constant: -9),
-            contactNameLabel.leftAnchor.constraint(equalTo: addressCell.textField.textView.leftAnchor, constant: 5),
-        ])
 
         addChildViewController(amountView, layout: {
             amountView.view.constrain([
@@ -190,14 +183,11 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
         
         walletManager.wallet?.feePerKb = store.state.fees.regular
         
-        contactNameLabel.textColor = C.Colors.greyBlue
-        contactNameLabel.font = UIFont.customBody(size: 13)
-        
         addressCell.didEdit = { [unowned self] in
-            self.contactNameLabel.text = ""
+            self.addressCell.nameLabel.text = ""
             
             if let contact = self.indexedContacts[self.addressCell.address] {
-                self.contactNameLabel.text = contact.name
+                self.addressCell.nameLabel.text = contact.name
             }
         }
     

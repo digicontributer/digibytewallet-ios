@@ -37,7 +37,7 @@ class ToCell: SendCell {
         textView.constrain([
             textView.constraint(.leading, toView: self, constant: 11.0),
             textView.topAnchor.constraint(equalTo: topAnchor, constant: C.padding[2]),
-            textView.heightAnchor.constraint(greaterThanOrEqualToConstant: 30.0),
+            textView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -C.padding[2] - 2),
             textView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -C.padding[2]) ])
         
         textView.addSubview(placeholder)
@@ -88,7 +88,7 @@ class AddressCell: UIView {
     let scan = ShadowButton(title: S.Send.scanLabel, type: .primary)
 	let qrImage = ShadowButton(title: S.QRImageReader.buttonLabel, type: .primary)
     
-    let toLabel = UILabel(font: .customBody(size: 16.0))
+    let nameLabel = UILabel(font: .customBody(size: 13))
     let underLineView = UIView()
 
     fileprivate let contentLabel = UILabel(font: .customBody(size: 14.0), color: C.Colors.text)
@@ -127,6 +127,8 @@ class AddressCell: UIView {
     private func addSubviews() {
         addSubview(textField)
         addSubview(addressBookButton)
+        addSubview(underLineView)
+        addSubview(nameLabel)
         addSubview(paste)
         addSubview(scan)
 		addSubview(qrImage)
@@ -134,9 +136,21 @@ class AddressCell: UIView {
 
     private func addConstraints() {
         textField.constrain([
-            textField.heightAnchor.constraint(equalToConstant: ToCell.defaultHeight),
+//            textField.heightAnchor.constraint(equalToConstant: ToCell.defaultHeight),
             textField.topAnchor.constraint(equalTo: topAnchor),
             textField.leftAnchor.constraint(equalTo: leftAnchor),
+        ])
+        
+        underLineView.constrain([
+            underLineView.bottomAnchor.constraint(equalTo: textField.bottomAnchor),
+            underLineView.leftAnchor.constraint(equalTo: leftAnchor, constant: C.padding[2]),
+            underLineView.rightAnchor.constraint(equalTo: rightAnchor, constant: -C.padding[2]),
+            underLineView.heightAnchor.constraint(equalToConstant: 1)
+        ])
+        
+        nameLabel.constrain([
+            nameLabel.bottomAnchor.constraint(equalTo: textField.bottomAnchor, constant: -9),
+            nameLabel.leftAnchor.constraint(equalTo: textField.textView.leftAnchor, constant: 5),
         ])
         
         if showAddressBookButton {
@@ -179,13 +193,14 @@ class AddressCell: UIView {
     private func setStyle() {
         addressBookButton.setBackgroundImage(UIImage(named: "AddressBook"), for: .normal)
         addressBookButton.isHidden = !showAddressBookButton
+        
+        nameLabel.textColor = C.Colors.greyBlue
+        
+        textField.border.isHidden = true
     }
 
     private func setInitialData() {
         backgroundColor = .clear
-        toLabel.text = S.Send.toLabel
-		toLabel.textColor = C.Colors.blueGrey
-        
         textField.textView.delegate = self
         textField.textView.returnKeyType = .done
 
