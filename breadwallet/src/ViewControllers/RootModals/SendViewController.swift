@@ -64,6 +64,7 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
             vc.contactSelectedCallback = { [unowned self] contact in
                 self.addressCell.setContent(contact.address)
                 self.addressCell.nameLabel.text = "\(contact.name)"
+                self.addressCell.textField.textView.textColor = C.Colors.weirdGreen
                 root.dismiss(animated: true, completion: nil)
             }
             
@@ -185,9 +186,11 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
         
         addressCell.didEdit = { [unowned self] in
             self.addressCell.nameLabel.text = ""
+            self.addressCell.textField.textView.textColor = UIColor.white
             
             if let contact = self.indexedContacts[self.addressCell.address] {
                 self.addressCell.nameLabel.text = contact.name
+                self.addressCell.textField.textView.textColor = C.Colors.weirdGreen
             }
         }
     
