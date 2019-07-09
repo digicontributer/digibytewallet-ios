@@ -556,7 +556,15 @@ class ModalPresenter : Subscriber, Trackable {
                 }),
                 
                 Setting(title: "Support", callback: {
-                    UIApplication.shared.open(URL(string: "https://t.me/DigiByteCoin")!, options: [:], completionHandler: nil)
+                    let screenName =  "DGBSupport"
+                    let appURL = URL(string: "tg://resolve?domain=\(screenName)")!
+                    let webURL = URL(string: "https://t.me/\(screenName)")!
+                    
+                    if UIApplication.shared.canOpenURL(appURL as URL) {
+                        UIApplication.shared.open(appURL, options: [:], completionHandler: nil)
+                    } else {
+                        UIApplication.shared.open(webURL, options: [:], completionHandler: nil)
+                    }
                 }),
                 
                 Setting(title: S.Settings.about, callback: {
