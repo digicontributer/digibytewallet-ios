@@ -71,11 +71,13 @@ class FeeSelector : UIView {
         control.valueChanged = strongify(self) { myself in
             if myself.control.selectedSegmentIndex == 0 {
                 myself.didUpdateFee?(.regular)
-                myself.subheader.text = String(format: S.FeeSelector.estimatedDelivery, S.FeeSelector.regularTime)
+//                myself.subheader.text = String(format: S.FeeSelector.estimatedDelivery, S.FeeSelector.regularTime)
+                myself.subheader.text = S.FeeSelector.regularLabel
                 myself.warning.text = ""
             } else {
                 myself.didUpdateFee?(.economy)
-                myself.subheader.text = String(format: S.FeeSelector.estimatedDelivery, S.FeeSelector.economyTime)
+//                myself.subheader.text = String(format: S.FeeSelector.estimatedDelivery, S.FeeSelector.economyTime)
+                myself.subheader.text = S.FeeSelector.economyLabel
                 myself.warning.text = S.FeeSelector.economyWarning
             }
         }
