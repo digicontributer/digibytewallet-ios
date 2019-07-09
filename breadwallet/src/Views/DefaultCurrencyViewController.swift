@@ -13,7 +13,7 @@ class DefaultCurrencyViewController : UITableViewController, Subscriber {
     init(walletManager: WalletManager, store: Store) {
         self.walletManager = walletManager
         self.store = store
-        self.rates = store.state.rates.filter { $0.code != C.btcCurrencyCode }
+        self.rates = store.state.rates
         super.init(style: .plain)
     }
 
@@ -80,6 +80,7 @@ class DefaultCurrencyViewController : UITableViewController, Subscriber {
             let bitsAmount = Amount(amount: C.satoshis, rate: currentRate, maxDigits: store.state.maxDigits)
             rateLabel.textColor = UIColor.blueGradientEnd
             rateLabel.text = "\(bitsAmount.bits) = \(amount.string(forLocal: currentRate.locale))"
+            rateLabel.text = "\(bitsAmount.bits) = \(amount.localCurrency)"
         }
     }
 

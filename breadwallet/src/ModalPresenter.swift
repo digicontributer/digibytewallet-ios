@@ -555,9 +555,13 @@ class ModalPresenter : Subscriber, Trackable {
                     settingsNav.pushViewController(advancedSettingsVC, animated: true)
                 }),
                 
+                Setting(title: "Support", callback: {
+                    UIApplication.shared.open(URL(string: "https://t.me/DigiByteCoin")!, options: [:], completionHandler: nil)
+                }),
+                
                 Setting(title: S.Settings.about, callback: {
                     settingsNav.pushViewController(AboutViewController(), animated: true)
-                }),
+                })
             ]
         ]
         
