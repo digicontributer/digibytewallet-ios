@@ -343,7 +343,10 @@ fileprivate class AddressBookAddContactViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    
+        self.favWidth.isActive = true
         icon.transform = CGAffineTransform(scaleX: 0, y: 0)
+        self.view.layoutIfNeeded()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             UIView.spring(0.4, animations: {
@@ -401,6 +404,8 @@ fileprivate class AddressBookAddContactViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        switchChanged()
     }
 }
 
@@ -767,10 +772,20 @@ class AddressBookOverviewViewController: UIViewController, Trackable, Subscriber
         indexedContacts = [Int: [AddressBookContact]]()
         indexedContacts[0] = []
         
-        c.forEach {
-            if $0.key == 0 || $0.value.count > 0 { indexedContacts[$0.key] = $0.value }
+        counter = 1
+        
+        c.sorted{ (a, b) -> Bool in
+            return a.key < b.key
+        }.forEach {
+            guard $0.value.count > 0 else { return }
+            
+            if $0.key == 0 {
+                indexedContacts[0] = $0.value
+            } else {
+                indexedContacts[counter] = $0.value
+                counter = counter + 1
+            }
         }
-        print(123)
     }
     
     // saves the contacts into keychain
