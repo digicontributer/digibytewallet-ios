@@ -233,6 +233,10 @@ extension AddressCell : UITextViewDelegate {
         }
     }
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        didBeginEditing?()
+    }
+    
     func textViewDidChange(_ textView: UITextView) {
         self.textField.placeholder.isHidden = textView.text != ""
         self.textField.textView.textColor = UIColor.white

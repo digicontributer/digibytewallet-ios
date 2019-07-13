@@ -217,12 +217,19 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
             indexedContacts[contact.address] = contact
         }
     }
+    
+    @objc
+    private func dismissKeyboard() {
+        addressCell.textField.textView.resignFirstResponder()
+    }
 
     private func addButtonActions() {
         addressCell.paste.addTarget(self, action: #selector(SendViewController.pasteTapped), for: .touchUpInside)
         addressCell.scan.addTarget(self, action: #selector(SendViewController.scanTapped), for: .touchUpInside)
 		addressCell.qrImage.addTarget(self, action: #selector(SendViewController.qrImageTapped), for: .touchUpInside)
         amountView.maxButton.addTarget(self, action: #selector(maxTapped), for: .touchUpInside)
+        amountView.view.isUserInteractionEnabled = true
+//        amountView.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
         
         sendButton.addTarget(self, action: #selector(sendTapped), for: .touchUpInside)
         descriptionCell.didReturn = { textView in
@@ -261,6 +268,7 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
             if isFirstResponder {
                 self?.descriptionCell.textView.resignFirstResponder()
                 self?.addressCell.textField.resignFirstResponder()
+                self?.addressCell.textField.textView.resignFirstResponder()
             }
         }
     }
