@@ -19,6 +19,8 @@
 			<array>
 				<string>digibyte.paymentrequest</string>
 			</array>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeIconFiles</key>
@@ -31,6 +33,8 @@
 			<array>
 				<string>digibyte.payment</string>
 			</array>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeIconFiles</key>
@@ -43,6 +47,8 @@
 			<array>
 				<string>digibyte.paymentack</string>
 			</array>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
