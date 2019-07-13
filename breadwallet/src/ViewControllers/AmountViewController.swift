@@ -360,7 +360,7 @@ class AmountViewController : UIViewController, Trackable {
         bottomBorder.isHidden = isCollapsed ? false : true
         updateBalanceAndFeeLabels()
         updateBalanceLabel()
-        didChangeFirstResponder?(isCollapsed)
+        didChangeFirstResponder?(true)
     }
 
     private func updateBalanceAndFeeLabels() {
