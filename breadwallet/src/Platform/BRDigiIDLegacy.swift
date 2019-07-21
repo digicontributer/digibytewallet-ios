@@ -1,5 +1,5 @@
 //
-//  BRDigiID.swift
+//  BRDigiIDLegacy.swift
 //  BreadWallet
 //
 //  Created by Samuel Sutch on 6/17/16.
@@ -27,60 +27,7 @@ import Foundation
 import Security
 import BRCore
 
-public extension URLRequest {
-    
-    /// Returns a cURL command for a request
-    /// - return A String object that contains cURL command or "" if an URL is not properly initalized.
-    var cURL: String {
-        
-        guard
-            let url = url,
-            let httpMethod = httpMethod,
-            url.absoluteString.utf8.count > 0
-            else {
-                return ""
-        }
-        
-        var curlCommand = "curl --verbose \\\n"
-        
-        // URL
-        curlCommand = curlCommand.appendingFormat(" '%@' \\\n", url.absoluteString)
-        
-        // Method if different from GET
-        if "GET" != httpMethod {
-            curlCommand = curlCommand.appendingFormat(" -X %@ \\\n", httpMethod)
-        }
-        
-        // Headers
-        let allHeadersFields = allHTTPHeaderFields!
-        let allHeadersKeys = Array(allHeadersFields.keys)
-        let sortedHeadersKeys  = allHeadersKeys.sorted(by: <)
-        for key in sortedHeadersKeys {
-            curlCommand = curlCommand.appendingFormat(" -H '%@: %@' \\\n", key, self.value(forHTTPHeaderField: key)!)
-        }
-        
-        // HTTP body
-        if let httpBody = httpBody, httpBody.count > 0 {
-            let httpBodyString = String(data: httpBody, encoding: String.Encoding.utf8)!
-            let escapedHttpBody = URLRequest.escapeAllSingleQuotes(httpBodyString)
-            curlCommand = curlCommand.appendingFormat(" --data '%@' \\\n", escapedHttpBody)
-        }
-        
-        return curlCommand
-    }
-    
-    /// Escapes all single quotes for shell from a given string.
-    static func escapeAllSingleQuotes(_ value: String) -> String {
-        return value.replacingOccurrences(of: "'", with: "'\\''")
-    }
-}
-
-protocol BRDigiIDProtocol {
-    func runCallback(store: Store, _ completionHandler: @escaping (Data?, URLResponse?, NSError?) -> Void);
-    var url: URL { get }
-}
-
-open class BRDigiID : NSObject, BRDigiIDProtocol {
+open class BRDigiIDLegacy : NSObject, BRDigiIDProtocol {
     static let SCHEME = "digiid"
     static let PARAM_NONCE = "x"
     static let PARAM_UNSECURE = "u"
@@ -116,7 +63,7 @@ open class BRDigiID : NSObject, BRDigiIDProtocol {
     let walletManager: WalletManager
     
     open var siteName: String {
-        return "\(url.host!)\(portStr)"
+        return "\(url.host!)\(portStr)\(url.path)"
     }
     
     init(url u: URL, walletManager wm: WalletManager) {
@@ -160,7 +107,7 @@ open class BRDigiID : NSObject, BRDigiIDProtocol {
     }
     
     func runCallback(store: Store, _ completionHandler: @escaping (Data?, URLResponse?, NSError?) -> Void) {
-        print("Digi-ID (non-legacy)")
+        print("Digi-ID (legacy)")
         guard !walletManager.noWallet else {
             DispatchQueue.main.async {
                 completionHandler(nil, nil, NSError(domain: "", code: -1001, userInfo:
@@ -184,130 +131,60 @@ open class BRDigiID : NSObject, BRDigiIDProtocol {
             }
         }))
     }
-
+    
     private func run(_ completionHandler: @escaping (Data?, URLResponse?, NSError?) -> Void) {
         autoreleasepool {
-            // Default scheme is https;
-            // http will only be used, if the digi-id request specifies 1 as the value for the argument u.
             var scheme = "https"
-            
-            // Request id / ad-hoc token
             var nonce: String
-            
-            // First we check, if a valid URL was passed
-            guard url.query != nil else {
+            guard let query = url.query?.parseQueryString() else {
                 DispatchQueue.main.async {
                     completionHandler(nil, nil, NSError(domain: "", code: -1001, userInfo:
                         [NSLocalizedDescriptionKey: NSLocalizedString("Malformed URI", comment: "")]))
                 }
                 return
             }
-            
-            // Convert query parameters to dictionary for easy access
-            let query = url.query!.parseQueryString()
-            
-            // Check if unsecure parameter was specified.
-            // That is, the service wants to use http instead of https.
-            // ToDo: Since we want to provide a secure authentication algorithm, we
-            //       should actually force users to use HTTPS. Or at least the wallet user
-            //       must enable a switch in the wallet settings. We need to discuss that in the
-            //       future.
-            if let u = query[BRDigiID.PARAM_UNSECURE], u.count == 1 && u[0] == "1" {
+            if let u = query[BRDigiID.PARAM_UNSECURE] , u.count == 1 && u[0] == "1" {
                 scheme = "http"
             }
-            
-            // Check if service is providing a nonce, or if we should generate one.
-            if let x = query[BRDigiID.PARAM_NONCE], x.count == 1 {
+            if let x = query[BRDigiID.PARAM_NONCE] , x.count == 1 {
                 nonce = x[0] // service is providing a nonce
             } else {
                 nonce = newNonce() // we are generating our own nonce
             }
             
-            // Build a payload consisting of the signature, address and uri.
-            // First we need to remove the args from the uri, because the changing nonce would
-            // create a different key for each auth.
-            var derivationURI = URLComponents(string: url.absoluteString)!
-            derivationURI.query = nil
-            derivationURI.scheme = scheme
-            guard var priv = walletManager.buildBitIdKey(url: derivationURI.string!, index: Int(BRDigiID.DEFAULT_INDEX)) else {
+            let uri = "\(scheme)://\(url.host!)\(portStr)\(url.path)"
+            
+            // build a payload consisting of the signature, address and signed uri
+            guard var priv = walletManager.buildBitIdKey(url: uri, index: Int(BRDigiID.DEFAULT_INDEX)) else {
                 return
             }
-
-            // Sign the input url with wallet's private key.
-            // According to the Digi-ID protocol, we will have to provide
-            // the public address of the private key and the signature itself.
-            // Also the input URI will be provided.
-            // Cryptographic proof: signature will be decrypted with provided address,
-            //                      which should result in the value of the field uri
-            let uriWithNonce = url.absoluteString
+            
+            let uriWithNonce = "digiid://\(url.host!)\(portStr)\(url.path)?x=\(nonce)"
             let signature = BRDigiID.signMessage(uriWithNonce, usingKey: priv)
             let payload: [String: String] = [
                 "address": priv.address()!,
                 "signature": signature,
                 "uri": uriWithNonce
             ]
-            
-            // Encode the payload to JSON
             let json = try! JSONSerialization.data(withJSONObject: payload, options: [])
             
-            // The Digi-ID protocol foresees the digi-id uri to start with digiid://.
-            // In order to call the callback, we need to replace that pattern with http(s)://
-            let digiidURIString = url.absoluteString
-            let httpURLString = try! NSRegularExpression(pattern: "^digiid://", options: NSRegularExpression.Options.caseInsensitive).stringByReplacingMatches(in: digiidURIString, options: [], range: NSMakeRange(0, digiidURIString.count), withTemplate: "\(scheme)://")
-            guard let httpURL = URL(string: httpURLString) else {
-                DispatchQueue.main.async {
-                    completionHandler(nil, nil, NSError(domain: "", code: -1001, userInfo:
-                    [NSLocalizedDescriptionKey: NSLocalizedString("Malformed http URI", comment: "")]))
-                }
-                return
-            }
+            // output:
+            //   let string = NSString(data: json, encoding: String.Encoding.utf8.rawValue)
+            //   print("DIGIID json:", string)
             
-            // Prepare the request
-            var req = URLRequest(url: httpURL)
+            // send off said payload
+            var req = URLRequest(url: URL(string: "\(uri)?x=\(nonce)")!)
             req.setValue("application/json", forHTTPHeaderField: "Content-Type")
             req.httpMethod = "POST"
             req.httpBody = json
             let session = URLSession.shared
-            
-            // debug (print as CURL)
-               print(req.cURL)
-            
-            // Fire the digi-id callback request
             session.dataTask(with: req, completionHandler: { (dat: Data?, resp: URLResponse?, err: Error?) in
                 var rerr: NSError?
                 if err != nil {
                     rerr = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "\(err!.localizedDescription)"])
                 }
-                
-                // Call the completion handler with the return data.
-                // rerr: return error is optional.
                 completionHandler(dat, resp, rerr)
             }).resume()
         }
-    }
-}
-
-extension URL {
-    
-    @discardableResult
-    func append(_ queryItem: String, value: String?) -> URL {
-        
-        guard var urlComponents = URLComponents(string:  absoluteString) else { return absoluteURL }
-        
-        // create array of existing query items
-        var queryItems: [URLQueryItem] = urlComponents.queryItems ??  []
-        
-        // create query item if value is not nil
-        guard let value = value else { return absoluteURL }
-        let queryItem = URLQueryItem(name: queryItem, value: value)
-        
-        // append the new query item in the existing query items array
-        queryItems.append(queryItem)
-        
-        // append updated query items array in the url component object
-        urlComponents.queryItems = queryItems// queryItems?.append(item)
-        
-        // returns the url from new url components
-        return urlComponents.url!
     }
 }

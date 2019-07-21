@@ -6,6 +6,10 @@
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
 	<string>DigiByte</string>
+	<key>CFBundleGetInfoString</key>
+	<string></string>
+	<key>NSHumanReadableCopyright</key>
+	<string></string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -256,5 +260,7 @@
 			</dict>
 		</dict>
 	</array>
+	<key>CFBundleVersion2</key>
+	<string></string>
 </dict>
 </plist>

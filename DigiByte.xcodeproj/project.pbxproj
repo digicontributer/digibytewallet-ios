@@ -87,10 +87,13 @@
 		399D35A4224EC87400B7F9B9 /* DAReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D359D224EC87300B7F9B9 /* DAReceiveViewController.swift */; };
 		399D35A5224EC87400B7F9B9 /* DAOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D359E224EC87300B7F9B9 /* DAOnboardingViewController.swift */; };
 		399D35A6224EC87400B7F9B9 /* DAAssetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399D359F224EC87400B7F9B9 /* DAAssetsViewController.swift */; };
+		39B4F97822E0DE6800A85CBC /* BRDigiIDLegacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B4F97722E0DE6800A85CBC /* BRDigiIDLegacy.swift */; };
+		39C1DBA422E4D9980045BC37 /* DigiIDExceptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C1DBA322E4D9980045BC37 /* DigiIDExceptionViewController.swift */; };
 		39C5A2B521A1BB30006206E8 /* AddressBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C5A2B421A1BB2F006206E8 /* AddressBookViewController.swift */; };
 		39CBC66A227D9C1F00A9E7AE /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBC669227D9C1F00A9E7AE /* UserDefaults+Shared.swift */; };
 		39CBC66B227D9C5E00A9E7AE /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBC669227D9C1F00A9E7AE /* UserDefaults+Shared.swift */; };
 		39CCB64520E40DFC0008519E /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CCB64420E40DFC0008519E /* BlurView.swift */; };
+		39D868DA22E4DD6E0035FAF7 /* DigiIDLegacySites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D868D922E4DD6E0035FAF7 /* DigiIDLegacySites.swift */; };
 		39EB89C92250086C00B2FA60 /* DAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB89C82250086C00B2FA60 /* DAButton.swift */; };
 		39EB89CE22500ADC00B2FA60 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB89CD22500AB400B2FA60 /* Lato-Bold.ttf */; };
 		39EB89CF22500ADC00B2FA60 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB89CC22500AB400B2FA60 /* Lato-Italic.ttf */; };
@@ -711,9 +714,12 @@
 		399D359D224EC87300B7F9B9 /* DAReceiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DAReceiveViewController.swift; path = src/ViewControllers/DigiAssets/DAReceiveViewController.swift; sourceTree = "<group>"; };
 		399D359E224EC87300B7F9B9 /* DAOnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DAOnboardingViewController.swift; path = src/ViewControllers/DigiAssets/DAOnboardingViewController.swift; sourceTree = "<group>"; };
 		399D359F224EC87400B7F9B9 /* DAAssetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DAAssetsViewController.swift; path = src/ViewControllers/DigiAssets/DAAssetsViewController.swift; sourceTree = "<group>"; };
+		39B4F97722E0DE6800A85CBC /* BRDigiIDLegacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BRDigiIDLegacy.swift; path = src/Platform/BRDigiIDLegacy.swift; sourceTree = "<group>"; };
+		39C1DBA322E4D9980045BC37 /* DigiIDExceptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DigiIDExceptionViewController.swift; path = src/ViewControllers/DigiIDExceptionViewController.swift; sourceTree = "<group>"; };
 		39C5A2B421A1BB2F006206E8 /* AddressBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddressBookViewController.swift; path = src/ViewControllers/RootModals/AddressBookViewController.swift; sourceTree = "<group>"; };
 		39CBC669227D9C1F00A9E7AE /* UserDefaults+Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserDefaults+Shared.swift"; path = "src/Extensions/UserDefaults+Shared.swift"; sourceTree = "<group>"; };
 		39CCB64420E40DFC0008519E /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlurView.swift; path = src/Views/BlurView.swift; sourceTree = "<group>"; };
+		39D868D922E4DD6E0035FAF7 /* DigiIDLegacySites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DigiIDLegacySites.swift; path = src/Models/DigiIDLegacySites.swift; sourceTree = "<group>"; };
 		39EB89C82250086C00B2FA60 /* DAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DAButton.swift; path = src/ViewControllers/DigiAssets/DAButton.swift; sourceTree = "<group>"; };
 		39EB89CA22500AB400B2FA60 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		39EB89CB22500AB400B2FA60 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
@@ -1914,6 +1920,7 @@
 				22E773031EE7813000397E0E /* Bonjour.swift */,
 				222319AF1F27985A00008F20 /* BRBrowserViewController.swift */,
 				222319B11F279B3C00008F20 /* POSTBouncer.html */,
+				39B4F97722E0DE6800A85CBC /* BRDigiIDLegacy.swift */,
 			);
 			name = Platform;
 			sourceTree = "<group>";
@@ -2009,6 +2016,31 @@
 			name = DigiAssets;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
+=======
+		6D716B14102D4BDBB7F7B840 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C66514794B5D493F104741F8 /* Pods-DigiByte.debug.xcconfig */,
+				01CF15F178B34356E9C48546 /* Pods-DigiByte.testnet.xcconfig */,
+				B5E56143B2FAECA7985F1405 /* Pods-DigiByte.screenshots.xcconfig */,
+				23382B6073AFB6DB31CC034A /* Pods-DigiByte.release.xcconfig */,
+				C83486CB51728B7709F3B1B6 /* Pods-DigiByte.testflight.xcconfig */,
+				DD93BB23E8BD2B6325A9FBEA /* Pods-DigiByteTests.debug.xcconfig */,
+				3B4628DB5B219277397E4123 /* Pods-DigiByteTests.testnet.xcconfig */,
+				85096B3A60B42C5B5DD8F770 /* Pods-DigiByteTests.screenshots.xcconfig */,
+				828021015739671C84CC58E9 /* Pods-DigiByteTests.release.xcconfig */,
+				B131B800B6561F2FBACABA99 /* Pods-DigiByteTests.testflight.xcconfig */,
+				34B27285DE2955974B0E90B3 /* Pods-DigiByteUITests.debug.xcconfig */,
+				E429D7AABE1CC00A0B2C0550 /* Pods-DigiByteUITests.testnet.xcconfig */,
+				69CA1BC791477730C6447AA7 /* Pods-DigiByteUITests.screenshots.xcconfig */,
+				36A18178C691FD9AE833EA15 /* Pods-DigiByteUITests.release.xcconfig */,
+				C49E2E561CDD11493263899D /* Pods-DigiByteUITests.testflight.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+>>>>>>> 50abdb7b... Added Digi-ID Legacy option in settings
 		755CD3191DAA0A110075898E /* secp256k1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3362,6 +3394,7 @@
 				CEF61B131ED0D10000C7EA6A /* Types.swift */,
 				CE03EC731EF256AC0038E3A8 /* SimpleUTXO.swift */,
 				396B94BA2250F23B0075E4A9 /* DAAssetModel.swift */,
+				39D868D922E4DD6E0035FAF7 /* DigiIDLegacySites.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -3494,6 +3527,7 @@
 			isa = PBXGroup;
 			children = (
 				CEEC707E1E8D6B4100EF788E /* SettingsViewController.swift */,
+				39C1DBA322E4D9980045BC37 /* DigiIDExceptionViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -4533,6 +4567,7 @@
 				047876C22008514500C422DE /* SupportViewController.swift in Sources */,
 				CED82D4E1E575A5500507A9B /* main.swift in Sources */,
 				CEEC708E1E954AAB00EF788E /* AboutCell.swift in Sources */,
+				39D868DA22E4DD6E0035FAF7 /* DigiIDLegacySites.swift in Sources */,
 				22A9A9461DF61945000F0016 /* BRAPIClient.swift in Sources */,
 				CEAA9E9B1DC2B9320066731D /* ConfirmPhrase.swift in Sources */,
 				75A2A7941DA5934300A983D8 /* AppDelegate.swift in Sources */,
@@ -4568,6 +4603,7 @@
 				223DB2151DF654940076A151 /* WalletManager.swift in Sources */,
 				22A9A94E1DF61945000F0016 /* BRHTTPIndexMiddleware.swift in Sources */,
 				CE124CF81E67A8E500DFA146 /* TransactionDirection.swift in Sources */,
+				39B4F97822E0DE6800A85CBC /* BRDigiIDLegacy.swift in Sources */,
 				CE8CD8DD1E2D9EF200785E02 /* Sender.swift in Sources */,
 				78B6BBF720B8C625003A2F29 /* UIView+TapGesture.swift in Sources */,
 				CE4DFB2C1E9BE5880014009E /* ReScanViewController.swift in Sources */,
@@ -4639,6 +4675,7 @@
 				CECCE5A51E02408300D99448 /* UIView+FrameChangeBlocking.swift in Sources */,
 				3961FCD02116432E009A62DD /* TransactionCardViewCell.swift in Sources */,
 				396B94BB2250F23B0075E4A9 /* DAAssetModel.swift in Sources */,
+				39C1DBA422E4D9980045BC37 /* DigiIDExceptionViewController.swift in Sources */,
 				22A9A94F1DF61945000F0016 /* BRHTTPRouter.swift in Sources */,
 				CE6DCC271E6108D50044257B /* EnterPhraseCell.swift in Sources */,
 				CE760EDD1E561DF900EFAC2B /* PinViewController.swift in Sources */,

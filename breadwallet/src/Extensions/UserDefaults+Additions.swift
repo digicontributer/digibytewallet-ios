@@ -27,8 +27,19 @@ private let maxSendButtonVisibleKey = "maxSendButtonVisible"
 private let balanceViewCollapsedKey = "balanceViewCollapsed"
 private let digiAssetsOnboardingShownKey = "digiAssetsShown"
 private let automaticBiometricsOnStartupKey = "automaticBiometricsOnStartup"
+private let legacyDigiIdSitesKey = "legacyDigi-ID-Sites"
 
 extension UserDefaults {
+    
+    static var legacyDigiIdSites: String {
+        get {
+            guard defaults.object(forKey: legacyDigiIdSitesKey) != nil else {
+                return ""
+            }
+            return defaults.string(forKey: legacyDigiIdSitesKey) ?? ""
+        }
+        set { defaults.set(newValue, forKey: legacyDigiIdSitesKey) }
+    }
 
     static var isBiometricsEnabled: Bool {
         get {
