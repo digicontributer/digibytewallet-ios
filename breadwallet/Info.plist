@@ -6,10 +6,6 @@
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
 	<string>DigiByte</string>
-	<key>CFBundleGetInfoString</key>
-	<string></string>
-	<key>NSHumanReadableCopyright</key>
-	<string></string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -23,8 +19,6 @@
 			<array>
 				<string>digibyte.paymentrequest</string>
 			</array>
-			<key>LSHandlerRank</key>
-			<string>Default</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeIconFiles</key>
@@ -37,8 +31,6 @@
 			<array>
 				<string>digibyte.payment</string>
 			</array>
-			<key>LSHandlerRank</key>
-			<string>Default</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeIconFiles</key>
@@ -51,12 +43,12 @@
 			<array>
 				<string>digibyte.paymentack</string>
 			</array>
-			<key>LSHandlerRank</key>
-			<string>Default</string>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleGetInfoString</key>
+	<string></string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -121,6 +113,8 @@
 	<string>Used to scan barcodes</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Wallet Authentication</string>
+	<key>NSHumanReadableCopyright</key>
+	<string></string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Used to determine where you are - never recorded or shared with anyone</string>
 	<key>NSLocationAlwaysUsageDescription</key>
@@ -260,7 +254,5 @@
 			</dict>
 		</dict>
 	</array>
-	<key>CFBundleVersion2</key>
-	<string></string>
 </dict>
 </plist>

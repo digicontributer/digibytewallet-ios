@@ -1,5 +1,5 @@
 //
-//  BRDigiIDLegacy.swift
+//  BRDigiID.swift
 //  BreadWallet
 //
 //  Created by Samuel Sutch on 6/17/16.
@@ -32,7 +32,7 @@ open class BRDigiIDLegacy : NSObject, BRDigiIDProtocol {
     static let PARAM_NONCE = "x"
     static let PARAM_UNSECURE = "u"
     static let USER_DEFAULTS_NONCE_KEY = "BRDigiID_nonces"
-    static let DEFAULT_INDEX: UInt32 = 0
+    static let DEFAULT_INDEX: UInt32 = 42
     
     class func isBitIDURL(_ url: URL!) -> Bool {
         return url.scheme == SCHEME
@@ -59,33 +59,26 @@ open class BRDigiIDLegacy : NSObject, BRDigiIDProtocol {
     }
     
     let url: URL
-    let portStr: String
     let walletManager: WalletManager
     
     open var siteName: String {
-        return "\(url.host!)\(portStr)\(url.path)"
+        return "\(url.host!)\(url.path)"
     }
     
     init(url u: URL, walletManager wm: WalletManager) {
         walletManager = wm
         url = u
-        
-        if let p = u.port {
-            portStr = ":\(p)"
-        } else {
-            portStr = ""
-        }
     }
     
     func newNonce() -> String {
         let defs = UserDefaults.standard
-        let nonceKey = "\(url.host!)\(portStr)/\(url.path)"
+        let nonceKey = "\(url.host!)/\(url.path)"
         var allNonces = [String: [String]]()
         var specificNonces = [String]()
         
         // load previous nonces. we save all nonces generated for each service
         // so they are not used twice from the same device
-        if let existingNonces = defs.object(forKey: BRDigiID.USER_DEFAULTS_NONCE_KEY) {
+        if let existingNonces = defs.object(forKey: BRDigiIDLegacy.USER_DEFAULTS_NONCE_KEY) {
             allNonces = existingNonces as! [String: [String]]
         }
         if let existingSpecificNonces = allNonces[nonceKey] {
@@ -101,7 +94,7 @@ open class BRDigiIDLegacy : NSObject, BRDigiIDProtocol {
         // save out the nonce list
         specificNonces.append(nonce)
         allNonces[nonceKey] = specificNonces
-        defs.set(allNonces, forKey: BRDigiID.USER_DEFAULTS_NONCE_KEY)
+        defs.set(allNonces, forKey: BRDigiIDLegacy.USER_DEFAULTS_NONCE_KEY)
         
         return nonce
     }
@@ -115,16 +108,7 @@ open class BRDigiIDLegacy : NSObject, BRDigiIDProtocol {
             }
             return
         }
-        
-        if url.host == nil {
-            DispatchQueue.main.async {
-                completionHandler(nil, nil, NSError(domain: "", code: -1001, userInfo:
-                    [NSLocalizedDescriptionKey: NSLocalizedString("Invalid url", comment: "")]))
-            }
-            return
-        }
-        
-        let prompt = siteName
+        let prompt = url.host ?? url.description
         store.trigger(name: .authenticateForBitId(prompt, { (s) -> Void in
             if case .success = s {
                 self.run(completionHandler)
@@ -143,24 +127,23 @@ open class BRDigiIDLegacy : NSObject, BRDigiIDProtocol {
                 }
                 return
             }
-            if let u = query[BRDigiID.PARAM_UNSECURE] , u.count == 1 && u[0] == "1" {
+            if let u = query[BRDigiIDLegacy.PARAM_UNSECURE] , u.count == 1 && u[0] == "1" {
                 scheme = "http"
             }
-            if let x = query[BRDigiID.PARAM_NONCE] , x.count == 1 {
+            if let x = query[BRDigiIDLegacy.PARAM_NONCE] , x.count == 1 {
                 nonce = x[0] // service is providing a nonce
             } else {
                 nonce = newNonce() // we are generating our own nonce
             }
-            
-            let uri = "\(scheme)://\(url.host!)\(portStr)\(url.path)"
+            let uri = "\(scheme)://\(url.host!)\(url.path)"
             
             // build a payload consisting of the signature, address and signed uri
-            guard var priv = walletManager.buildBitIdKey(url: uri, index: Int(BRDigiID.DEFAULT_INDEX)) else {
+            guard var priv = walletManager.buildBitIdKey(url: uri, index: Int(BRDigiIDLegacy.DEFAULT_INDEX)) else {
                 return
             }
             
-            let uriWithNonce = "digiid://\(url.host!)\(portStr)\(url.path)?x=\(nonce)"
-            let signature = BRDigiID.signMessage(uriWithNonce, usingKey: priv)
+            let uriWithNonce = "digiid://\(url.host!)\(url.path)?x=\(nonce)"
+            let signature = BRDigiIDLegacy.signMessage(uriWithNonce, usingKey: priv)
             let payload: [String: String] = [
                 "address": priv.address()!,
                 "signature": signature,
@@ -181,7 +164,7 @@ open class BRDigiIDLegacy : NSObject, BRDigiIDProtocol {
             session.dataTask(with: req, completionHandler: { (dat: Data?, resp: URLResponse?, err: Error?) in
                 var rerr: NSError?
                 if err != nil {
-                    rerr = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "\(err!.localizedDescription)"])
+                    rerr = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "\(err!)"])
                 }
                 completionHandler(dat, resp, rerr)
             }).resume()
