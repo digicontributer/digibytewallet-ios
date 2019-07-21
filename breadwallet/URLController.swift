@@ -151,7 +151,7 @@ class URLController : Trackable {
     }
 
     private func handleBitId(_ url: URL) {
-        let bitid = BRDigiID(url: url, walletManager: walletManager)
+        let bitid: BRDigiIDProtocol = DigiIDLegacySites.default.test(url: url) ? BRDigiIDLegacy(url: url, walletManager: walletManager) : BRDigiID(url: url, walletManager: walletManager)
         
         // senderApp
         let req = DigiIdRequest(string: url.absoluteString)

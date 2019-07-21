@@ -393,7 +393,7 @@ class ModalPresenter : Subscriber, Trackable {
             let url = URL(string: request.signString)
             
             if let signMessage = url {
-                let bitId: BRDigiID = BRDigiID(url: signMessage, walletManager: self.walletManager!)
+                let bitId: BRDigiIDProtocol = DigiIDLegacySites.default.test(url: url) ? BRDigiIDLegacy(url: signMessage, walletManager: self.walletManager!) : BRDigiID(url: signMessage, walletManager: self.walletManager!)
                 bitId.runCallback(store: self.store, { (data, response, error) in
                     if let resp = response as? HTTPURLResponse, error == nil && resp.statusCode >= 200 && resp.statusCode < 300 {
                         let senderAppInfo = getSenderAppInfo(request: request)
@@ -543,7 +543,21 @@ class ModalPresenter : Subscriber, Trackable {
                             Setting(title: "DigiByte Nodes", callback: {
                                 let nodeSelector = NodeSelectorViewController(walletManager: walletManager)
                                 settingsNav.pushViewController(nodeSelector, animated: true)
-                            })/*,
+                            }),
+                            Setting(title: "Use Digi-ID Legacy", accessoryText: { () -> String in
+                                let count = DigiIDLegacySites.default.sites.count
+                                return "\(count) site(s)"
+                            }, callback: {
+                                let vc = DigiIDExceptionViewController()
+                                vc.presentScan = myself.presentDigiIdScan(parent: vc)
+                                settingsNav.pushViewController(vc, animated: true)
+
+                                DispatchQueue.main.async {
+                                    self?.showLightWeightWarning(message: "Adding exceptions is not recommended. Digi-ID Legacy will be removed a future release")
+                                }
+                            })
+                            /*,
+                            
                             Setting(title: S.BCH.title, callback: {
                                 let bCash = BCashTransactionViewController(walletManager: walletManager, store: myself.store)
                                 settingsNav.pushViewController(bCash, animated: true)
@@ -1043,6 +1057,26 @@ class ModalPresenter : Subscriber, Trackable {
 
     private func showLightWeightAlert(message: String) {
         let alert = LightWeightAlert(message: message)
+        let view = UIApplication.shared.keyWindow!
+        view.addSubview(alert)
+        alert.constrain([
+            alert.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            alert.centerYAnchor.constraint(equalTo: view.centerYAnchor) ])
+        alert.alpha = 0
+        UIView.animate(withDuration: 0.6, animations: {
+            alert.alpha = 1
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.6, delay: 2.0, options: [], animations: {
+                alert.alpha = 0
+            }, completion: { _ in
+                alert.removeFromSuperview()
+            })
+        })
+    }
+    
+    private func showLightWeightWarning(message: String) {
+        let alert = LightWeightAlert(message: message)
+        alert.container.backgroundColor = C.Colors.favoriteYellow
         let view = UIApplication.shared.keyWindow!
         view.addSubview(alert)
         alert.constrain([
