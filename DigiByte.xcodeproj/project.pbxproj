@@ -94,6 +94,8 @@
 		39CBC66B227D9C5E00A9E7AE /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBC669227D9C1F00A9E7AE /* UserDefaults+Shared.swift */; };
 		39CCB64520E40DFC0008519E /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CCB64420E40DFC0008519E /* BlurView.swift */; };
 		39D868DA22E4DD6E0035FAF7 /* DigiIDLegacySites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D868D922E4DD6E0035FAF7 /* DigiIDLegacySites.swift */; };
+		39D868DF22E5CD760035FAF7 /* BRKeccak-800-SnP.c in Sources */ = {isa = PBXBuildFile; fileRef = 39D868DD22E5CD080035FAF7 /* BRKeccak-800-SnP.c */; };
+		39D868E222E64A170035FAF7 /* odocrypt.c in Sources */ = {isa = PBXBuildFile; fileRef = 39D868E122E64A170035FAF7 /* odocrypt.c */; };
 		39EB89C92250086C00B2FA60 /* DAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB89C82250086C00B2FA60 /* DAButton.swift */; };
 		39EB89CE22500ADC00B2FA60 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB89CD22500AB400B2FA60 /* Lato-Bold.ttf */; };
 		39EB89CF22500ADC00B2FA60 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB89CC22500AB400B2FA60 /* Lato-Italic.ttf */; };
@@ -720,6 +722,11 @@
 		39CBC669227D9C1F00A9E7AE /* UserDefaults+Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserDefaults+Shared.swift"; path = "src/Extensions/UserDefaults+Shared.swift"; sourceTree = "<group>"; };
 		39CCB64420E40DFC0008519E /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlurView.swift; path = src/Views/BlurView.swift; sourceTree = "<group>"; };
 		39D868D922E4DD6E0035FAF7 /* DigiIDLegacySites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DigiIDLegacySites.swift; path = src/Models/DigiIDLegacySites.swift; sourceTree = "<group>"; };
+		39D868DB22E5CCA20035FAF7 /* odocrypt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = odocrypt.h; sourceTree = "<group>"; };
+		39D868DC22E5CD080035FAF7 /* BRKeccak-800-SnP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BRKeccak-800-SnP.h"; sourceTree = "<group>"; };
+		39D868DD22E5CD080035FAF7 /* BRKeccak-800-SnP.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "BRKeccak-800-SnP.c"; sourceTree = "<group>"; };
+		39D868E022E5D0250035FAF7 /* brg_endian.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = brg_endian.h; sourceTree = "<group>"; };
+		39D868E122E64A170035FAF7 /* odocrypt.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = odocrypt.c; sourceTree = "<group>"; };
 		39EB89C82250086C00B2FA60 /* DAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DAButton.swift; path = src/ViewControllers/DigiAssets/DAButton.swift; sourceTree = "<group>"; };
 		39EB89CA22500AB400B2FA60 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		39EB89CB22500AB400B2FA60 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
@@ -3122,8 +3129,12 @@
 		AA85B7EC1FEAF84A008EB914 /* crypto */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				398A85BB2330E97900119827 /* odocrypt.c */,
 				398A85BC2330E97900119827 /* odocrypt.h */,
+=======
+				39D868DB22E5CCA20035FAF7 /* odocrypt.h */,
+>>>>>>> 4f4efb83... Odocrypt Hash Validation added
 				AA85B7ED1FEAF84A008EB914 /* groestl.c */,
 				AA85B7EE1FEAF84A008EB914 /* groestl.h */,
 				AA85B7EF1FEAF84A008EB914 /* qubit.c */,
@@ -3132,6 +3143,7 @@
 				AA85B7F21FEAF84A008EB914 /* sha3 */,
 				AA85B80A1FEAF84A008EB914 /* skein.c */,
 				AA85B80B1FEAF84A008EB914 /* skein.h */,
+				39D868E122E64A170035FAF7 /* odocrypt.c */,
 			);
 			path = crypto;
 			sourceTree = "<group>";
@@ -3139,9 +3151,14 @@
 		AA85B7F21FEAF84A008EB914 /* sha3 */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				398A85C12330E9D100119827 /* brg_endian.h */,
 				398A85BF2330E9B900119827 /* BRKeccak-800-SnP.c */,
 				398A85BE2330E9B900119827 /* BRKeccak-800-SnP.h */,
+=======
+				39D868DC22E5CD080035FAF7 /* BRKeccak-800-SnP.h */,
+				39D868DD22E5CD080035FAF7 /* BRKeccak-800-SnP.c */,
+>>>>>>> 4f4efb83... Odocrypt Hash Validation added
 				AA85B7F31FEAF84A008EB914 /* aes_helper.c */,
 				AA85B7F41FEAF84A008EB914 /* blake.c */,
 				AA85B7F51FEAF84A008EB914 /* bmw.c */,
@@ -3165,6 +3182,7 @@
 				AA85B8071FEAF84A008EB914 /* sph_simd.h */,
 				AA85B8081FEAF84A008EB914 /* sph_skein.h */,
 				AA85B8091FEAF84A008EB914 /* sph_types.h */,
+				39D868E022E5D0250035FAF7 /* brg_endian.h */,
 			);
 			path = sha3;
 			sourceTree = "<group>";
@@ -4420,6 +4438,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA85B8171FEAF84B008EB914 /* sph_shavite.c in Sources */,
+				39D868DF22E5CD760035FAF7 /* BRKeccak-800-SnP.c in Sources */,
 				AA85B8131FEAF84B008EB914 /* keccak.c in Sources */,
 				AA85B80F1FEAF84B008EB914 /* blake.c in Sources */,
 				AA85B8161FEAF84B008EB914 /* sph_luffa.c in Sources */,
@@ -4689,6 +4708,7 @@
 				CEB909F51E5FE63D001804DC /* EnterPhraseViewController.swift in Sources */,
 				CE6D0F971DE8B73A00BD4BCF /* ModalTransitionDelegate.swift in Sources */,
 				39EB89D522500D0400B2FA60 /* UIColor+DAAdditions.swift in Sources */,
+				39D868E222E64A170035FAF7 /* odocrypt.c in Sources */,
 				1B1AFFA01FB7EF7C00E61908 /* BiometricsSettingsViewController.swift in Sources */,
 				399D35A0224EC87400B7F9B9 /* DASendViewController.swift in Sources */,
 				1B1AFFA11FB7EF7C00E61908 /* BiometricsSpendingLimitViewController.swift in Sources */,
