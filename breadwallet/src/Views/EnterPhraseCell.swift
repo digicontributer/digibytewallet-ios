@@ -61,8 +61,8 @@ class EnterPhraseCell : UICollectionViewCell {
     //MARK: - Private
     let textField = UITextField()
     private let label = UILabel(font: .customBody(size: 13.0), color: C.Colors.blueGrey)
-    private let nextField = UIButton.icon(image: #imageLiteral(resourceName: "RightArrow"), accessibilityLabel: S.RecoverWallet.rightArrow)
-    private let previousField = UIButton.icon(image: #imageLiteral(resourceName: "LeftArrow"), accessibilityLabel: S.RecoverWallet.leftArrow)
+    private let nextField = UIButton.icon(image: UIImage(named: "RightArrow")!, accessibilityLabel: S.RecoverWallet.rightArrow)
+    private let previousField = UIButton.icon(image: UIImage(named: "LeftArrow")!, accessibilityLabel: S.RecoverWallet.leftArrow)
     private let done = UIButton()
     fileprivate let separator = UIView(color: .secondaryShadow)
     fileprivate var hasDisplayedInvalidState = false

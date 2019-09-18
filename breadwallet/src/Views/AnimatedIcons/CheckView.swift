@@ -13,7 +13,7 @@ class CheckView : UIView, AnimatableIcon {
     init(_ size: Double) {
         super.init(frame: CGRect(x: 0, y: 0, width: size, height: size))
         
-        let image = UIImageView(image: #imageLiteral(resourceName: "check"))
+        let image = UIImageView(image: UIImage(named: "check"))
         image.contentMode = .scaleAspectFit
         self.addSubview(image)
         

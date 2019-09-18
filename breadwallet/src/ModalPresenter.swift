@@ -35,13 +35,6 @@ class ModalPresenter : Subscriber, Trackable {
     private let verifyPinTransitionDelegate = PinTransitioningDelegate()
     private let noAuthApiClient: BRAPIClient
 
-    var supportCenter: SupportCenterContainer? {
-        guard walletManager != nil else { return nil }
-        return _supportCenter
-    }
-    private lazy var _supportCenter: SupportCenterContainer = {
-        return SupportCenterContainer(walletManager: self.walletManager!, store: self.store, apiClient: self.noAuthApiClient)
-    }()
     private var currentRequest: PaymentRequest?
     private var reachability = ReachabilityMonitor()
     private var notReachableAlert: InAppAlert?
@@ -405,7 +398,7 @@ class ModalPresenter : Subscriber, Trackable {
                         } else {
                             // open the sender app
                             if let u = URL(string: senderAppInfo.appURI) {
-                                DispatchQueue.main.async { UIApplication.shared.openURL(u) }
+                                DispatchQueue.main.async { UIApplication.shared.open(u, options: [:], completionHandler: nil) }
                             }
                         }
                     } else {
@@ -953,7 +946,7 @@ class ModalPresenter : Subscriber, Trackable {
                     view.dismiss(animated: true, completion: {
                         self?.store.perform(action: Alert.Show(.addressesCopied))
                         if let success = success, let url = URL(string: success) {
-                            UIApplication.shared.openURL(url)
+                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
                         }
                     })
                     return true
@@ -1023,7 +1016,7 @@ class ModalPresenter : Subscriber, Trackable {
 
     private func showNotReachable() {
         guard notReachableAlert == nil else { return }
-        let alert = InAppAlert(message: S.Alert.noInternet, image: #imageLiteral(resourceName: "BrokenCloud"))
+        let alert = InAppAlert(message: S.Alert.noInternet, image: UIImage(named: "BrokenCloud")!)
         notReachableAlert = alert
         let window = UIApplication.shared.keyWindow!
         let size = window.bounds.size
@@ -1102,7 +1095,7 @@ class SecurityCenterNavigationDelegate : NSObject, UINavigationControllerDelegat
         guard let coordinator = navigationController.topViewController?.transitionCoordinator else { return }
 
         if coordinator.isInteractive {
-            coordinator.notifyWhenInteractionEnds { context in
+            coordinator.notifyWhenInteractionChanges { context in
                 //We only want to style the view controller if the
                 //pop animation wasn't cancelled
                 if !context.isCancelled {

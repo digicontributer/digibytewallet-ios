@@ -33,15 +33,15 @@ enum MenuButtonType {
     var image: UIImage {
         switch self {
         case .security:
-            return #imageLiteral(resourceName: "Shield")
+            return UIImage(named: "Shield")!
         case .support:
-            return #imageLiteral(resourceName: "FaqFill")
+            return UIImage(named: "FaqFill")!
         case .settings:
-            return #imageLiteral(resourceName: "Settings")
+            return UIImage(named: "Settings")!
         case .lock:
-            return #imageLiteral(resourceName: "Lock")
+            return UIImage(named: "Lock")!
 		case .report:
-			return #imageLiteral(resourceName: "BugReport")
+			return UIImage(named: "BugReport")!
         }
     }
 }

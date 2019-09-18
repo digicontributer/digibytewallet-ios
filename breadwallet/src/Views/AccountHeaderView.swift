@@ -71,7 +71,7 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
         didSet { setBalances() }
     }
     private var logo: UIImageView = {
-        let image = UIImageView(image: #imageLiteral(resourceName: "Logo"))
+        let image = UIImageView(image: UIImage(named: "Logo"))
         image.contentMode = .scaleAspectFit
 		image.tintColor = UIColor.whiteTint
         return image
@@ -112,7 +112,7 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
         secondaryBalance.textColor = .whiteTint
         secondaryBalance.font = UIFont.customBody(size: largeFontSize)
 
-        search.setImage(#imageLiteral(resourceName: "SearchIcon"), for: .normal)
+        search.setImage(UIImage(named: "SearchIcon"), for: .normal)
         search.tintColor = .white
 
         if E.isTestnet {

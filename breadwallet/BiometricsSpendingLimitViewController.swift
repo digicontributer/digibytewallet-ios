@@ -97,7 +97,7 @@ class BiometricsSpendingLimitViewController: UITableViewController, Subscriber {
             }
             
             if limits[indexPath.row] == selectedLimit {
-                let check = UIImageView(image: #imageLiteral(resourceName: "CircleCheck").withRenderingMode(.alwaysTemplate))
+                let check = UIImageView(image: UIImage(named: "CircleCheck")?.withRenderingMode(.alwaysTemplate))
                 check.tintColor = .orange
                 cell.accessoryView = check
             } else {
@@ -112,7 +112,7 @@ class BiometricsSpendingLimitViewController: UITableViewController, Subscriber {
             // If selectedLimit is not in limits, we assume a custom limit was entered.
             // In that case we will display the custom limit as a preview in this specific cell
             if let limit = selectedLimit, !limits.contains(limit) {
-                let check = UIImageView(image: #imageLiteral(resourceName: "CircleCheck").withRenderingMode(.alwaysTemplate))
+                let check = UIImageView(image: UIImage(named: "CircleCheck")?.withRenderingMode(.alwaysTemplate))
                 check.tintColor = .orange
                 cell.accessoryView = check
                 

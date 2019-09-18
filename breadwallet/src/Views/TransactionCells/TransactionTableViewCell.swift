@@ -98,11 +98,11 @@ class TransactionTableViewCell : UITableViewCell, Subscriber {
     private var transaction: Transaction?
     private let availability = UILabel(font: .customBold(size: 13.0), color: .txListGreen)
     private var timer: Timer? = nil
-    private let receivedImage = #imageLiteral(resourceName: "receivedTransaction")
-    private let sentImage = #imageLiteral(resourceName: "sentTransaction")
-    private let arrow = UIImageView(image: #imageLiteral(resourceName: "receivedTransaction"))
+    private let receivedImage = UIImage(named: "receivedTransaction")
+    private let sentImage = UIImage(named: "sentTransaction")
+    private let arrow = UIImageView(image: UIImage(named: "receivedTransaction"))
     private let bgView: UIImageView = {
-        let img = UIImageView(image: #imageLiteral(resourceName: "cardBg"))
+        let img = UIImageView(image: UIImage(named: "cardBg"))
         img.contentMode = .scaleAspectFit
         return img
     }()
@@ -128,7 +128,7 @@ class TransactionTableViewCell : UITableViewCell, Subscriber {
     }
 
     private func addConstraints() {
-        let scale = UIScreen.main.bounds.width / #imageLiteral(resourceName: "cardBg").size.width
+        let scale = UIScreen.main.bounds.width / UIImage(named: "cardBg")!.size.width
         
         bgView.constrain([
             bgView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
@@ -136,7 +136,7 @@ class TransactionTableViewCell : UITableViewCell, Subscriber {
             bgView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             bgView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             bgView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-            bgView.heightAnchor.constraint(equalToConstant: scale * #imageLiteral(resourceName: "cardBg").size.height)
+            bgView.heightAnchor.constraint(equalToConstant: scale * UIImage(named: "cardBg")!.size.height)
         ])
         
         // bgView.contentMode = .scaleAspectFit

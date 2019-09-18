@@ -223,6 +223,9 @@ open class BRDigiID : NSObject, BRDigiIDProtocol {
                 nonce = newNonce() // we are generating our own nonce
             }
             
+            // ToDo: Use nonce
+            nonce = nonce + "" // silent warning
+            
             // Build a payload consisting of the signature, address and uri.
             // First we need to remove the args from the uri, because the changing nonce would
             // create a different key for each auth.

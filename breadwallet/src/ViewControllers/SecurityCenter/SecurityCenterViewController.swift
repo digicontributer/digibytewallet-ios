@@ -20,7 +20,7 @@ class DigiRadialGradientView: RadialGradientView {
     }
     
     private func addBackgroundImage() {
-        let image = UIImageView(image: #imageLiteral(resourceName: "fill6").withRenderingMode(.alwaysTemplate))
+        let image = UIImageView(image: UIImage(named: "fill6")?.withRenderingMode(.alwaysTemplate))
         image.contentMode = .scaleAspectFit
         // 383a59
         image.tintColor = .black
@@ -69,7 +69,7 @@ class SecurityCenterViewController : UIViewController, Subscriber {
     fileprivate var headerBackgroundHeight: NSLayoutConstraint?
     private let headerBackground = DigiRadialGradientView(backgroundColor: C.Colors.background, offset: 64.0)
     private let header: ModalHeaderView
-    fileprivate let shield = UIImageView(image: #imageLiteral(resourceName: "shield").withRenderingMode(.alwaysTemplate))
+    fileprivate let shield = UIImageView(image: UIImage(named: "shield")!.withRenderingMode(.alwaysTemplate))
     private let scrollView = UIScrollView()
     private let info = UILabel(font: .customBody(size: 16.0), color: C.Colors.text)
     private let pinCell = SecurityCenterCell(title: S.SecurityCenter.Cells.pinTitle, descriptionText: S.SecurityCenter.Cells.pinDescription)

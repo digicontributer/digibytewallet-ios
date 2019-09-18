@@ -492,8 +492,8 @@ fileprivate class CustomSegmentedControl: UIControl {
 }
 
 fileprivate class HamburgerViewMenu: UIView {
-    private let bgImage = UIImageView(image: #imageLiteral(resourceName: "hamburgerBg"))
-    private var digibyteLogo = UIImageView(image: #imageLiteral(resourceName: "DigiByteSymbol"))
+    private let bgImage = UIImageView(image: UIImage(named: "hamburgerBg"))
+    private var digibyteLogo = UIImageView(image: UIImage(named: "DigiByteSymbol"))
     private let walletLabel = UILabel(font: .customMedium(size: 18), color: C.Colors.text)
     private let walletVersionLabel = UILabel(font: .customMedium(size: 11), color: .gray)
     private var y: CGFloat = 0
@@ -953,10 +953,10 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         // set closer delegate
         hamburgerMenuView.setCloser(supervc: self)
         
-        hamburgerMenuView.addButton(title: S.MenuButton.security, icon: #imageLiteral(resourceName: "hamburger_002Shield")) {
+        hamburgerMenuView.addButton(title: S.MenuButton.security, icon: UIImage(named: "hamburger_002Shield")!) {
             self.store.perform(action: HamburgerActions.Present(modal: .securityCenter))
         }
-//        hamburgerMenuView.addButton(title: S.MenuButton.support, icon: #imageLiteral(resourceName: "hamburger_001Info")) {
+//        hamburgerMenuView.addButton(title: S.MenuButton.support, icon: UIImage(named: "hamburger_001Info")) {
 //            self.store.perform(action: HamburgerActions.Present(modal: .support))
 //        }
         
@@ -965,11 +965,11 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
 //            self.store.perform(action: HamburgerActions.Present(modal: .digiAssets))
 //        }
         
-        hamburgerMenuView.addButton(title: S.MenuButton.settings, icon: #imageLiteral(resourceName: "hamburger_003Settings")) {
+        hamburgerMenuView.addButton(title: S.MenuButton.settings, icon: UIImage(named: "hamburger_003Settings")!) {
             self.store.perform(action: HamburgerActions.Present(modal: .settings))
         }
 
-        hamburgerMenuView.addButton(title: S.MenuButton.lock, icon: #imageLiteral(resourceName: "hamburger_004Locked")) {
+        hamburgerMenuView.addButton(title: S.MenuButton.lock, icon: UIImage(named: "hamburger_004Locked")!) {
             self.store.perform(action: HamburgerActions.Present(modal: .lockWallet))
         }
         

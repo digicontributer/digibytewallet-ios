@@ -82,8 +82,8 @@ class AlertView : UIView {
     init(type: AlertType) {
         self.type = type
         self.icon = type.icon
-        confettiLeft = UIImageView(image: #imageLiteral(resourceName: "confetti_left"))
-        confettiRight = UIImageView(image: #imageLiteral(resourceName: "confetti_left"))
+        confettiLeft = UIImageView(image: UIImage(named: "confetti_left"))
+        confettiRight = UIImageView(image: UIImage(named: "confetti_left"))
         
         icon.transform = CGAffineTransform(scaleX: 0, y: 0)
         

@@ -63,11 +63,11 @@ class TransactionDetailCollectionViewCell : UICollectionViewCell {
         let directionSymbolImage: UIImage = {
             switch transaction.direction {
             case .sent:
-                return #imageLiteral(resourceName: "sentTransaction")
+                return UIImage(named: "sentTransaction")!
             case .received:
-                return #imageLiteral(resourceName: "receivedTransaction")
+                return UIImage(named: "receivedTransaction")!
             case .moved:
-                return #imageLiteral(resourceName: "hamburger_001Info")
+                return UIImage(named: "hamburger_001Info")!
             }
         }()
         
@@ -149,7 +149,7 @@ class TransactionDetailCollectionViewCell : UICollectionViewCell {
         return c
     }()
     private let digiLogo: UIImageView = {
-        let img = UIImageView(image: #imageLiteral(resourceName: "DigiByteSymbol"))
+        let img = UIImageView(image: UIImage(named: "DigiByteSymbol"))
         img.contentMode = .scaleAspectFit
         return img
     }()
@@ -165,7 +165,7 @@ class TransactionDetailCollectionViewCell : UICollectionViewCell {
     private let blockHeight = UILabel(font: .customBody(size: 13.0), color: C.Colors.text)
     private var scrollViewHeight: NSLayoutConstraint?
     
-    private let directionSymbolImageView = UIImageView(image: #imageLiteral(resourceName: "hamburger_001Info"))
+    private let directionSymbolImageView = UIImageView(image: UIImage(named: "hamburger_001Info"))
     private let blurView = UIView()
     
     private var contentOffsetTop: NSLayoutConstraint? = nil

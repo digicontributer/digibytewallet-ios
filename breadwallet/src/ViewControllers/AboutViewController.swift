@@ -14,7 +14,7 @@ class AboutViewController : UIViewController {
     private let scrollView = UIScrollView(frame: .zero)
     private let versionLabel = UILabel(frame: .zero)
     private let introductionLabel = UILabel(frame: .zero)
-    private let logo = UIImageView(image: #imageLiteral(resourceName: "aboutHeaderImage"))
+    private let logo = UIImageView(image: UIImage(named: "aboutHeaderImage"))
     private let credits = UITextView(frame: .zero)
 
     init() {

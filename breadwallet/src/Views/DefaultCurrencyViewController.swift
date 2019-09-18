@@ -101,7 +101,7 @@ class DefaultCurrencyViewController : UITableViewController, Subscriber {
         cell.textLabel?.textColor = C.Colors.text
 
         if rate.code == defaultCurrencyCode {
-            let check = UIImageView(image: #imageLiteral(resourceName: "CircleCheck").withRenderingMode(.alwaysTemplate))
+            let check = UIImageView(image: UIImage(named: "CircleCheck")?.withRenderingMode(.alwaysTemplate))
             check.tintColor = UIColor.blueGradientEnd
             cell.accessoryView = check
         } else {
