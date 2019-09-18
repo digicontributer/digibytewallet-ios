@@ -56,6 +56,20 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
         btn.setBackgroundImage(UIImage(named: "coinRequestButton"), for: .normal)
         return btn
     }()
+    
+    private lazy var shareButtonContainer: UIStackView = {
+        let v = UIStackView()
+        v.distribution = .equalSpacing
+        v.axis = .horizontal
+        v.alignment = .center
+        v.spacing = 10
+        
+        v.addArrangedSubview(crShare)
+        v.addArrangedSubview(share)
+        
+        return v
+    }()
+
     private let sharePopout = InViewAlert(type: .secondary)
     private let border = UIView()
     private let addressButton = UIButton(type: .system)
@@ -80,29 +94,32 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
     private var amount: Satoshis? {
         didSet {
             let address = self.address!
-            if let amount = amount, amount > 0 {
-                addressButton.isUserInteractionEnabled = true
-                qrCode.layer.opacity = 1
-                requestString.layer.opacity = 1
-                share.isUserInteractionEnabled = true
-                share.layer.opacity = 1
-                crShare.isUserInteractionEnabled = true
-                crShare.layer.opacity = 1
-                descriptionLabel.alpha = 0
-                let amountStr: CGFloat = CGFloat(amount.rawValue) / 100000000.0
-                requestString.text = "Receive \(amountStr) \(C.btcCurrencyCode) \(S.Confirmation.to.lowercased())\n\(address)"
-                setQrCode()
-            } else {
-                addressButton.isUserInteractionEnabled = true
-                qrCode.layer.opacity = 1.0
-                share.layer.opacity = 1.0
-                requestString.layer.opacity = 1.0
-                descriptionLabel.alpha = 1
-                share.isUserInteractionEnabled = true
-                requestString.text = "Receive to\n\(address)" // ToDo: Export language
-                setReceiveAddress()
-                crShare.layer.opacity = 0.1
-                crShare.isUserInteractionEnabled = false
+            
+            UIView.animate(withDuration: 0.3) {
+                if let amount = self.amount, amount > 0 {
+                    self.addressButton.isUserInteractionEnabled = true
+                    self.qrCode.layer.opacity = 1
+                    self.requestString.layer.opacity = 1
+                    self.share.isUserInteractionEnabled = true
+                    self.share.layer.opacity = 1
+                    self.crShare.isUserInteractionEnabled = true
+                    self.crShare.layer.opacity = 1
+                    self.descriptionLabel.alpha = 0
+                    let amountStr: CGFloat = CGFloat(amount.rawValue) / 100000000.0
+                    self.requestString.text = "Receive \(amountStr) \(C.btcCurrencyCode) \(S.Confirmation.to.lowercased())\n\(address)"
+                    self.setQrCode()
+                } else {
+                    self.addressButton.isUserInteractionEnabled = true
+                    self.qrCode.layer.opacity = 1.0
+                    self.share.layer.opacity = 1.0
+                    self.requestString.layer.opacity = 1.0
+                    self.descriptionLabel.alpha = 1
+                    self.share.isUserInteractionEnabled = true
+                    self.requestString.text = "Receive to\n\(address)" // ToDo: Export language
+                    self.setReceiveAddress()
+                    self.crShare.layer.opacity = 0.1
+                    self.crShare.isUserInteractionEnabled = false
+                }
             }
         }
     }
@@ -125,8 +142,9 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
         view.addSubview(qrCode)
         view.addSubview(descriptionLabel)
         view.addSubview(requestString)
-        view.addSubview(share)
-        view.addSubview(crShare)
+        
+        view.addSubview(shareButtonContainer)
+        
         view.addSubview(addressPopout)
         view.addSubview(sharePopout)
         view.addSubview(border)
@@ -161,18 +179,24 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
             addressPopout.constraint(.centerX, toView: view),
             addressPopout.constraint(.width, toView: view),
             addressPopout.heightConstraint ])
-        share.constrain([
-            share.topAnchor.constraint(equalTo: requestString.bottomAnchor, constant: 25),
-            share.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -76),
-            share.constraint(.width, constant: 58),
-            share.constraint(.height, constant: 58) ])
-        crShare.constrain([
-            crShare.topAnchor.constraint(equalTo: requestString.bottomAnchor, constant: 25),
-            crShare.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -152),
-            crShare.constraint(.width, constant: 58),
-            crShare.constraint(.height, constant: 58) ])
+//        share.constrain([
+//            share.topAnchor.constraint(equalTo: requestString.bottomAnchor, constant: 25),
+//            share.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -76),
+//            share.constraint(.width, constant: 58),
+//            share.constraint(.height, constant: 58) ])
+//        crShare.constrain([
+//            crShare.topAnchor.constraint(equalTo: requestString.bottomAnchor, constant: 25),
+//            crShare.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -152),
+//            crShare.constraint(.width, constant: 58),
+//            crShare.constraint(.height, constant: 58) ])
+        
+        shareButtonContainer.constrain([
+            shareButtonContainer.topAnchor.constraint(equalTo: requestString.bottomAnchor, constant: 25),
+            shareButtonContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+        
         sharePopout.heightConstraint = sharePopout.constraint(.height, constant: 0.0)
-        topSharePopoutConstraint = sharePopout.constraint(toBottom: share, constant: largeSharePadding)
+        topSharePopoutConstraint = sharePopout.constraint(toBottom: shareButtonContainer, constant: largeSharePadding)
         sharePopout.constrain([
             topSharePopoutConstraint,
             sharePopout.constraint(.centerX, toView: view),
