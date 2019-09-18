@@ -5277,6 +5277,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/Modules/digibytewallet-core",
 					"${SRCROOT}/Modules/digibytewallet-core/secp256k1",
@@ -5293,6 +5294,7 @@
 				CLANG_WARN_COMMA = NO;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 4R7S6N88W9;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/Modules/digibytewallet-core",
 					"${SRCROOT}/Modules/digibytewallet-core/secp256k1",
@@ -6236,6 +6238,7 @@
 					"$(inherited)",
 					"BITCOIN_TESTNET=1",
 				);
+				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/Modules/digibytewallet-core",
 					"${SRCROOT}/Modules/digibytewallet-core/secp256k1",
@@ -6527,6 +6530,7 @@
 					"$(inherited)",
 					"BITCOIN_TESTNET=1",
 				);
+				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/Modules/digibytewallet-core",
 					"${SRCROOT}/Modules/digibytewallet-core/secp256k1",
@@ -6806,6 +6810,7 @@
 				CLANG_WARN_COMMA = NO;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 4R7S6N88W9;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/Modules/digibytewallet-core",
 					"${SRCROOT}/Modules/digibytewallet-core/secp256k1",
