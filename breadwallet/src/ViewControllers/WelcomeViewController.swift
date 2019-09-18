@@ -401,6 +401,12 @@ class WelcomeViewController: UIPageViewController, UIPageViewControllerDataSourc
         }
         
         if self.sixth == page {
+            if #available(iOS 10.0, *) {
+                let feedback = UIImpactFeedbackGenerator(style: .medium)
+                feedback.prepare()
+                feedback.impactOccurred()
+            }
+            
             UIView.spring(0.3, animations: {
                 self.dismissBtn.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             }) { _ in

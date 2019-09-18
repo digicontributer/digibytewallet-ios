@@ -27,14 +27,13 @@ class LightWeightAlert : UIView {
         background.contentView.addSubview(container)
         container.addSubview(label)
         container.constrain(toSuperviewEdges: nil)
-        label.constrain(toSuperviewEdges: UIEdgeInsetsMake(C.padding[2], C.padding[2], -C.padding[2], -C.padding[2]))
+        label.constrain(toSuperviewEdges: UIEdgeInsets(top: C.padding[2], left: C.padding[2], bottom: -C.padding[2], right: -C.padding[2]))
         
         container.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor, multiplier: 1.0).isActive = true
         label.widthAnchor.constraint(equalTo: container.widthAnchor, multiplier: 0.8).isActive = true
         label.textAlignment = .center
         label.numberOfLines = 0
         
->>>>>>> 50abdb7b... Added Digi-ID Legacy option in settings
         layer.cornerRadius = 4.0
         layer.masksToBounds = true
         label.textColor = C.Colors.text

@@ -70,15 +70,15 @@ class DigiIDExceptionViewController: UITableViewController {
         return 2
     }
     
-    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         if indexPath.section == 0 {
-            return UITableViewCellEditingStyle.delete
+            return UITableViewCell.EditingStyle.delete
         }
         
-        return UITableViewCellEditingStyle.none
+        return UITableViewCell.EditingStyle.none
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             DigiIDLegacySites.default.sites.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
