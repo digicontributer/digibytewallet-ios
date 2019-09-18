@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		014B64C29F883115429A6A9C /* Pods_DigiByte.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA32442D798485E30F6C7ACE /* Pods_DigiByte.framework */; };
 		047876C020084BB200C422DE /* SupportStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047876BF20084BB200C422DE /* SupportStoryboard.storyboard */; };
 		047876C22008514500C422DE /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047876C12008514500C422DE /* SupportViewController.swift */; };
 		049B9B7F20104B65004EF1A1 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 049B9B7E20104B65004EF1A1 /* Settings.bundle */; };
@@ -60,7 +59,6 @@
 		22E773041EE7813000397E0E /* Bonjour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E773031EE7813000397E0E /* Bonjour.swift */; };
 		39082BDC22760675008657F6 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A2A8091DA5936F00A983D8 /* NotificationCenter.framework */; };
 		39082BDF22760675008657F6 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39082BDE22760675008657F6 /* TodayViewController.swift */; };
-		39082BE622760675008657F6 /* DigiByte TodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 39082BDB22760674008657F6 /* DigiByte TodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		39082BEE227606F0008657F6 /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = CE916E301EDA7F1400D641D6 /* UIImage+Utils.m */; };
 		39082BF12276071F008657F6 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE916E291EDA7E4400D641D6 /* Media.xcassets */; };
 		39082BF322760763008657F6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA94556A2020DA9600B6ABB1 /* MainInterface.storyboard */; };
@@ -74,6 +72,9 @@
 		3961FCD02116432E009A62DD /* TransactionCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961FCCF2116432E009A62DD /* TransactionCardViewCell.swift */; };
 		396B94BB2250F23B0075E4A9 /* DAAssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396B94BA2250F23B0075E4A9 /* DAAssetModel.swift */; };
 		396B94BD22515F470075E4A9 /* DGBHapticButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396B94BC22515F470075E4A9 /* DGBHapticButton.swift */; };
+		398A85BD2330E97900119827 /* odocrypt.c in Sources */ = {isa = PBXBuildFile; fileRef = 398A85BB2330E97900119827 /* odocrypt.c */; };
+		398A85C02330E9BA00119827 /* BRKeccak-800-SnP.c in Sources */ = {isa = PBXBuildFile; fileRef = 398A85BF2330E9B900119827 /* BRKeccak-800-SnP.c */; };
+		398A85C22330E9D100119827 /* brg_endian.h in Headers */ = {isa = PBXBuildFile; fileRef = 398A85C12330E9D100119827 /* brg_endian.h */; };
 		398C0CDB211E1DD800AF2E58 /* EmergencyRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398C0CDA211E1DD800AF2E58 /* EmergencyRates.swift */; };
 		3991212122777A15008187AE /* Rebrand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78B6BBF820BAFE05003A2F29 /* Rebrand.xcassets */; };
 		3991212222777ABB008187AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75A2A79A1DA5934300A983D8 /* Assets.xcassets */; };
@@ -300,6 +301,7 @@
 		AA9455692020D91C00B6ABB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA9455682020D91B00B6ABB1 /* LaunchScreen.storyboard */; };
 		AA94556D2020DAB500B6ABB1 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA94556C2020DAB500B6ABB1 /* MainInterface.storyboard */; };
 		AAF3240D206B307E004D2BED /* BIP39Words.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA94555A2020D40B00B6ABB1 /* BIP39Words.plist */; };
+		ADD03C566DEA174267C774D0 /* Pods_DigiByte.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA32442D798485E30F6C7ACE /* Pods_DigiByte.framework */; };
 		CE03EC721EF193810038E3A8 /* String+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03EC711EF193800038E3A8 /* String+Keys.swift */; };
 		CE03EC741EF256AC0038E3A8 /* SimpleUTXO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03EC731EF256AC0038E3A8 /* SimpleUTXO.swift */; };
 		CE0CD1591DBFBCF5004023DA /* ModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0CD1581DBFBCF5004023DA /* ModalPresenter.swift */; };
@@ -489,13 +491,6 @@
 			remoteGlobalIDString = 22A9A9951DF63426000F0016;
 			remoteInfo = libbz2;
 		};
-		39082BE422760675008657F6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 75A2A7881DA5934300A983D8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 39082BDA22760674008657F6;
-			remoteInfo = "DigiByte Today Extension";
-		};
 		752FB04E1DF8BF5C009086FB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 75A2A7881DA5934300A983D8 /* Project object */;
@@ -593,17 +588,6 @@
 			files = (
 			);
 			name = "Embed Watch Content";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		75A2A8031DA5935F00A983D8 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				39082BE622760675008657F6 /* DigiByte TodayExtension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		75C735AD1DAA1C9F00251ECF /* CopyFiles */ = {
@@ -714,6 +698,11 @@
 		3961FCCF2116432E009A62DD /* TransactionCardViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionCardViewCell.swift; path = src/Views/TransactionCardViewCell.swift; sourceTree = "<group>"; };
 		396B94BA2250F23B0075E4A9 /* DAAssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DAAssetModel.swift; path = src/Models/DAAssetModel.swift; sourceTree = "<group>"; };
 		396B94BC22515F470075E4A9 /* DGBHapticButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DGBHapticButton.swift; path = src/Controls/DGBHapticButton.swift; sourceTree = "<group>"; };
+		398A85BB2330E97900119827 /* odocrypt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = odocrypt.c; sourceTree = "<group>"; };
+		398A85BC2330E97900119827 /* odocrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = odocrypt.h; sourceTree = "<group>"; };
+		398A85BE2330E9B900119827 /* BRKeccak-800-SnP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BRKeccak-800-SnP.h"; sourceTree = "<group>"; };
+		398A85BF2330E9B900119827 /* BRKeccak-800-SnP.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "BRKeccak-800-SnP.c"; sourceTree = "<group>"; };
+		398A85C12330E9D100119827 /* brg_endian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = brg_endian.h; sourceTree = "<group>"; };
 		398C0CDA211E1DD800AF2E58 /* EmergencyRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyRates.swift; sourceTree = "<group>"; };
 		39912125227782D4008187AE /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		399D3599224EC87200B7F9B9 /* DASendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DASendViewController.swift; path = src/ViewControllers/DigiAssets/DASendViewController.swift; sourceTree = "<group>"; };
@@ -1830,7 +1819,7 @@
 				223DB21B1DF69F0F0076A151 /* libbz2.framework in Frameworks */,
 				752FB04D1DF8BF4B009086FB /* sqlite3.framework in Frameworks */,
 				759DA0BE1DAC36A3008CC49B /* libBRCore.a in Frameworks */,
-				014B64C29F883115429A6A9C /* Pods_DigiByte.framework in Frameworks */,
+				ADD03C566DEA174267C774D0 /* Pods_DigiByte.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3101,6 +3090,8 @@
 		AA85B7EC1FEAF84A008EB914 /* crypto */ = {
 			isa = PBXGroup;
 			children = (
+				398A85BB2330E97900119827 /* odocrypt.c */,
+				398A85BC2330E97900119827 /* odocrypt.h */,
 				AA85B7ED1FEAF84A008EB914 /* groestl.c */,
 				AA85B7EE1FEAF84A008EB914 /* groestl.h */,
 				AA85B7EF1FEAF84A008EB914 /* qubit.c */,
@@ -3116,6 +3107,9 @@
 		AA85B7F21FEAF84A008EB914 /* sha3 */ = {
 			isa = PBXGroup;
 			children = (
+				398A85C12330E9D100119827 /* brg_endian.h */,
+				398A85BF2330E9B900119827 /* BRKeccak-800-SnP.c */,
+				398A85BE2330E9B900119827 /* BRKeccak-800-SnP.h */,
 				AA85B7F31FEAF84A008EB914 /* aes_helper.c */,
 				AA85B7F41FEAF84A008EB914 /* blake.c */,
 				AA85B7F51FEAF84A008EB914 /* bmw.c */,
@@ -3520,6 +3514,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				398A85C22330E9D100119827 /* brg_endian.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3650,7 +3645,6 @@
 				75A2A78E1DA5934300A983D8 /* Resources */,
 				046ABC181FE6270400EA87D2 /* Build Versioning */,
 				75A2A7E21DA5934400A983D8 /* Embed Watch Content */,
-				75A2A8031DA5935F00A983D8 /* Embed App Extensions */,
 				22A9A9831DF63288000F0016 /* Embed Frameworks */,
 				CEE0EF531EBF8C8A0018DB36 /* Icon Versioning */,
 				756FB167A65ABBE5A0B78821 /* [CP] Embed Pods Frameworks */,
@@ -3661,7 +3655,6 @@
 				759DA0BD1DAC369C008CC49B /* PBXTargetDependency */,
 				22A9A99C1DF63426000F0016 /* PBXTargetDependency */,
 				752FB04F1DF8BF5C009086FB /* PBXTargetDependency */,
-				39082BE522760675008657F6 /* PBXTargetDependency */,
 			);
 			name = DigiByte;
 			productName = breadwallet;
@@ -3903,7 +3896,7 @@
 				};
 			};
 			buildConfigurationList = 75A2A78B1DA5934300A983D8 /* Build configuration list for PBXProject "DigiByte" */;
-			compatibilityVersion = "Xcode 10.0";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -4118,7 +4111,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\nb=`cat versioning_branch`\nbranch=${1:-\"$b\"}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nif [ -f \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\n";
+			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\nexit 0\nb=`cat versioning_branch`\nbranch=${1:-\"$b\"}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nif [ -f \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\n";
 		};
 		37905F5A49F5EB10788E9E50 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4154,7 +4147,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nb=`cat versioning_branch`\nbranch=${1:-\"$b\"}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nif [ -f \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\n";
+			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\nexit 0\nb=`cat versioning_branch`\nbranch=${1:-\"$b\"}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nif [ -f \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\n";
 		};
 		5B40AECB1651708AC93267AB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4221,7 +4214,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nb=`cat versioning_branch`\nbranch=${1:-\"$b\"}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nif [ -f \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\n";
+			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\nexit 0\nb=`cat versioning_branch`\nbranch=${1:-\"$b\"}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nif [ -f \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\n";
 		};
 		78D04F3120C710E700AD1403 /* Build Versioning */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4235,7 +4228,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nb=`cat versioning_branch`\nbranch=${1:-\"$b\"}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nif [ -f \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\n";
+			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\nexit 0\nb=`cat versioning_branch`\nbranch=${1:-\"$b\"}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nif [ -f \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\n";
 		};
 		78D04F4C20C710F100AD1403 /* Build Versioning */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4249,7 +4242,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nb=`cat versioning_branch`\nbranch=${1:-\"$b\"}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nif [ -f \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\n";
+			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\nexit 0\nb=`cat versioning_branch`\nbranch=${1:-\"$b\"}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nif [ -f \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\n";
 		};
 		AA532F321FEB1A7E00CFF3F9 /* Build Versioning */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4263,7 +4256,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\n\nbranch=${1:-'develop'}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nif [ -f \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\n";
+			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\nexit 0\nbranch=${1:-'develop'}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nif [ -f \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\n";
 		};
 		CEE0EF531EBF8C8A0018DB36 /* Icon Versioning */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4580,6 +4573,7 @@
 				CE4DFB2C1E9BE5880014009E /* ReScanViewController.swift in Sources */,
 				396B94BD22515F470075E4A9 /* DGBHapticButton.swift in Sources */,
 				CE44BA1F1F353AB200392A1A /* WalletManager+BCash.swift in Sources */,
+				398A85BD2330E97900119827 /* odocrypt.c in Sources */,
 				CE8F0AE31EB91BB500AA7642 /* SearchHeaderView.swift in Sources */,
 				22A9A9551DF61945000F0016 /* BRTar.swift in Sources */,
 				CE14E4091E4D506000AEA83A /* TransactionDetailsViewController.swift in Sources */,
@@ -4605,6 +4599,7 @@
 				CE25BF911DF9ADE700BC67B6 /* UIImage+Utils.swift in Sources */,
 				CEBF33041DDE17A600348FC6 /* Transaction.swift in Sources */,
 				CEAA9E911DC0FDFE0066731D /* UIViewPropertyAnimator+BRWAdditions.swift in Sources */,
+				398A85C02330E9BA00119827 /* BRKeccak-800-SnP.c in Sources */,
 				22E773041EE7813000397E0E /* Bonjour.swift in Sources */,
 				CEAA9EA01DC2F9F50066731D /* UIFont+BRWAdditions.swift in Sources */,
 				CEC6AA491DEFD00100EE5AFD /* MenuButton.swift in Sources */,
@@ -4800,11 +4795,6 @@
 			isa = PBXTargetDependency;
 			target = 22A9A9951DF63426000F0016 /* libbz2 */;
 			targetProxy = 22A9A99B1DF63426000F0016 /* PBXContainerItemProxy */;
-		};
-		39082BE522760675008657F6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 39082BDA22760674008657F6 /* DigiByte TodayExtension */;
-			targetProxy = 39082BE422760675008657F6 /* PBXContainerItemProxy */;
 		};
 		752FB04F1DF8BF5C009086FB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -5038,6 +5028,7 @@
 				CODE_SIGN_ENTITLEMENTS = "DigiByte Today Extension/DigiByte Today Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "DigiByte Today Extension/Info.plist";
@@ -5047,7 +5038,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.digibytefoundation.DigiByte.DigiByte-Today-Extension";
@@ -5069,6 +5060,7 @@
 				CODE_SIGN_ENTITLEMENTS = "DigiByte Today Extension/DigiByte Today Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "DigiByte Today Extension/Info.plist";
@@ -5078,7 +5070,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.digibytefoundation.DigiByte.DigiByte-Today-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5099,6 +5091,7 @@
 				CODE_SIGN_ENTITLEMENTS = "DigiByte Today Extension/DigiByte Today Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "DigiByte Today Extension/Info.plist";
@@ -5108,7 +5101,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.digibytefoundation.DigiByte.DigiByte-Today-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5129,6 +5122,7 @@
 				CODE_SIGN_ENTITLEMENTS = "DigiByte Today Extension/DigiByte Today Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "DigiByte Today Extension/Info.plist";
@@ -5138,7 +5132,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.digibytefoundation.DigiByte.DigiByte-Today-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5159,6 +5153,7 @@
 				CODE_SIGN_ENTITLEMENTS = "DigiByte Today Extension/DigiByte Today Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "DigiByte Today Extension/Info.plist";
@@ -5168,7 +5163,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.digibytefoundation.DigiByte.DigiByte-Today-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5436,13 +5431,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A03AEC7D561C781073A61CA4 /* Pods-DigiByte.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = breadwallet/breadwallet.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
@@ -5455,7 +5449,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5473,13 +5467,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CCFE0D5F6C3D87E773497F07 /* Pods-DigiByte.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = breadwallet/breadwallet.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
@@ -5492,7 +5485,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5586,8 +5579,8 @@
 		75A2A8011DA5935F00A983D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				INFOPLIST_FILE = MessagesExtension/Info.plist;
@@ -5597,7 +5590,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte.MessagesExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -5608,8 +5601,8 @@
 		75A2A8021DA5935F00A983D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				INFOPLIST_FILE = MessagesExtension/Info.plist;
@@ -5619,7 +5612,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte.MessagesExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -5656,7 +5649,7 @@
 		78D04F1E20C710DB00AD1403 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/NotificationServiceExtension/Info.plist";
@@ -5666,7 +5659,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte.NotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -5678,7 +5671,7 @@
 		78D04F1F20C710DB00AD1403 /* Testnet */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/NotificationServiceExtension/Info.plist";
@@ -5688,7 +5681,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte.NotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -5700,7 +5693,7 @@
 		78D04F2020C710DB00AD1403 /* Screenshots */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/NotificationServiceExtension/Info.plist";
@@ -5710,7 +5703,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte.NotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -5722,7 +5715,7 @@
 		78D04F2120C710DB00AD1403 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/NotificationServiceExtension/Info.plist";
@@ -5732,7 +5725,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte.NotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -5744,7 +5737,7 @@
 		78D04F2220C710DB00AD1403 /* Testflight */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/NotificationServiceExtension/Info.plist";
@@ -5754,7 +5747,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte.NotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -5768,12 +5761,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				IBSC_MODULE = digibyte_WatchKit_Extension;
 				INFOPLIST_FILE = "$(SRCROOT)/breadwallet WatchKit App/Info.plist";
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -5789,12 +5782,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				IBSC_MODULE = digibyte_WatchKit_Extension;
 				INFOPLIST_FILE = "$(SRCROOT)/breadwallet WatchKit App/Info.plist";
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -5810,12 +5803,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				IBSC_MODULE = digibyte_WatchKit_Extension;
 				INFOPLIST_FILE = "$(SRCROOT)/breadwallet WatchKit App/Info.plist";
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -5831,12 +5824,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				IBSC_MODULE = digibyte_WatchKit_Extension;
 				INFOPLIST_FILE = "$(SRCROOT)/breadwallet WatchKit App/Info.plist";
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -5852,12 +5845,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				IBSC_MODULE = digibyte_WatchKit_Extension;
 				INFOPLIST_FILE = "$(SRCROOT)/breadwallet WatchKit App/Info.plist";
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -5872,7 +5865,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/breadwallet WatchKit Extension/Info.plist";
@@ -5881,7 +5874,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -5897,7 +5890,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/breadwallet WatchKit Extension/Info.plist";
@@ -5906,7 +5899,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -5922,7 +5915,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/breadwallet WatchKit Extension/Info.plist";
@@ -5931,7 +5924,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -5947,7 +5940,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/breadwallet WatchKit Extension/Info.plist";
@@ -5956,7 +5949,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -5972,7 +5965,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/breadwallet WatchKit Extension/Info.plist";
@@ -5981,7 +5974,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -6117,13 +6110,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4859C2B8DF4D5AC75368B398 /* Pods-DigiByte.screenshots.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = breadwallet/breadwallet.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
@@ -6136,7 +6128,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -6192,8 +6184,8 @@
 		CEA7E68E1F09AC6A001F8C27 /* Screenshots */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				INFOPLIST_FILE = MessagesExtension/Info.plist;
@@ -6203,7 +6195,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte.MessagesExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -6409,13 +6401,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2B8AFC1D9DDCF5EA57A72D4C /* Pods-DigiByte.testnet.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = breadwallet/breadwallet.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
@@ -6428,7 +6419,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -6484,8 +6475,8 @@
 		CEA7E6A11F0AAA84001F8C27 /* Testnet */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				INFOPLIST_FILE = MessagesExtension/Info.plist;
@@ -6495,7 +6486,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte.MessagesExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -6695,13 +6686,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A13B2B3CA1E1ED55D7DA1313 /* Pods-DigiByte.testflight.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = breadwallet/breadwallet.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
@@ -6714,7 +6704,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -6769,8 +6759,8 @@
 		CEE0EF5A1EBF8D7F0018DB36 /* Testflight */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				INFOPLIST_FILE = MessagesExtension/Info.plist;
@@ -6780,7 +6770,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte.MessagesExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

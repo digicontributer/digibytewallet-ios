@@ -1,6 +1,0 @@
-framework module Pods_DigiByte {
-  umbrella header "Pods-DigiByte-umbrella.h"
-
-  export *
-  module * { export * }
-}
