@@ -416,7 +416,7 @@ extension WalletManager : WalletAuthenticator {
             var phraseData = CFDataCreateMutable(secureAllocator, phraseLen) as Data
             phraseData.count = phraseLen
             guard phraseData.withUnsafeMutableBytes({
-                BRBIP39Encode($0, phraseLen, &words, entropyRef, MemoryLayout<UInt128>.size)
+                BRBIP39Encode($0.baseAddress?.assumingMemoryBound(to: Int8.self), phraseLen, &words, entropyRef, MemoryLayout<UInt128>.size)
             }) == phraseData.count else { return nil }
             entropy = UInt128()
             let phrase = CFStringCreateFromExternalRepresentation(secureAllocator, phraseData as CFData,
@@ -506,10 +506,8 @@ extension WalletManager : WalletAuthenticator {
     var apiAuthKey: String? {
         return autoreleasepool {
             do {
-                if let apiKey: String? = try? keychainItem(key: KeychainKey.apiAuthKey) {
-                    if apiKey != nil {
-                        return apiKey
-                    }
+                if let apiKey: String = ((try? keychainItem(key: KeychainKey.apiAuthKey)) as String?), !apiKey.isEmpty {
+                    return apiKey
                 }
                 var key = BRKey()
                 var seed = UInt512()
@@ -520,13 +518,13 @@ extension WalletManager : WalletAuthenticator {
                 let pkLen = BRKeyPrivKey(&key, nil, 0)
                 var pkData = CFDataCreateMutable(secureAllocator, pkLen) as Data
                 pkData.count = pkLen
-                guard pkData.withUnsafeMutableBytes({ BRKeyPrivKey(&key, $0, pkLen) }) == pkLen else { return nil }
+                guard pkData.withUnsafeMutableBytes({ BRKeyPrivKey(&key, $0.baseAddress?.assumingMemoryBound(to: Int8.self), pkLen) }) == pkLen else { return nil }
+                key.clean()
                 let privKey = CFStringCreateFromExternalRepresentation(secureAllocator, pkData as CFData,
                                                                        CFStringBuiltInEncodings.UTF8.rawValue) as String
                 try setKeychainItem(key: KeychainKey.apiAuthKey, item: privKey)
                 return privKey
-            }
-            catch let error {
+            } catch let error {
                 print("apiAuthKey error: \(error)")
                 return nil
             }
@@ -612,31 +610,26 @@ extension WalletManager : WalletAuthenticator {
 }
 
 func keychainItem<T>(key: String) throws -> T? {
-    let query = [kSecClass as String : kSecClassGenericPassword as String,
-                 kSecAttrService as String : WalletSecAttrService,
-                 kSecAttrAccount as String : key,
-                 kSecReturnData as String : true as Any]
-    var result: CFTypeRef? = nil
-    let status = SecItemCopyMatching(query as CFDictionary, &result);
+    let query = [kSecClass as String: kSecClassGenericPassword as String,
+                 kSecAttrService as String: WalletSecAttrService,
+                 kSecAttrAccount as String: key,
+                 kSecReturnData as String: true as Any]
+    var result: CFTypeRef?
+    let status = SecItemCopyMatching(query as CFDictionary, &result)
     guard status == noErr || status == errSecItemNotFound else {
         throw NSError(domain: NSOSStatusErrorDomain, code: Int(status))
     }
     guard let data = result as? Data else { return nil }
-    
+
     switch T.self {
     case is Data.Type:
         return data as? T
     case is String.Type:
-        return CFStringCreateFromExternalRepresentation(secureAllocator, data as CFData,
-                                                        CFStringBuiltInEncodings.UTF8.rawValue) as? T
+        return CFStringCreateFromExternalRepresentation(secureAllocator, data as CFData, CFStringBuiltInEncodings.UTF8.rawValue) as? T
     case is Int64.Type:
         guard data.count == MemoryLayout<T>.stride else { return nil }
-        return data.withUnsafeBytes { $0.pointee }
+        return data.withUnsafeBytes({ $0.load(as: T.self) })
     case is Dictionary<AnyHashable, Any>.Type:
-        return NSKeyedUnarchiver.unarchiveObject(with: data) as? T
-    case is NSArray.Type:
-        return NSKeyedUnarchiver.unarchiveObject(with: data) as? T
-    case is NSInteger.Type:
         return NSKeyedUnarchiver.unarchiveObject(with: data) as? T
     default:
         throw NSError(domain: NSOSStatusErrorDomain, code: Int(errSecParam))

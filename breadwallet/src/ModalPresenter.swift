@@ -663,8 +663,8 @@ class ModalPresenter : Subscriber, Trackable {
             // Onboarding shall be displayed.
             // After user has finished introduction, we will display the
             // main DigiAssets view controller
-            nextVC = onboarding
-            onboarding.nextVC = digiAssetsViewController
+//            nextVC = onboarding
+//            onboarding.nextVC = digiAssetsViewController
         } else {
             // Directly display the main view controller for DigiAssets
             nextVC = digiAssetsViewController
