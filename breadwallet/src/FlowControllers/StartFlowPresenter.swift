@@ -91,8 +91,11 @@ class StartFlowPresenter : Subscriber {
         
         navigationController = ModalNavigationController()
         navigationController?.delegate = navigationControllerDelegate
+        if #available(iOS 13.0, *) {
+            navigationController?.isModalInPresentation = true
+            navigationController?.modalPresentationStyle = .fullScreen
+        }
         
-//        if !UserDefaults.hasShownWelcome {
         if walletManager.wallet == nil {
             let welcome = WelcomeViewController {
                 self.navigationController?.setViewControllers([startViewController], animated: true)

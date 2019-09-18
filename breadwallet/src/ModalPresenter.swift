@@ -655,7 +655,7 @@ class ModalPresenter : Subscriber, Trackable {
 //        guard let walletManager = walletManager else { return }
         
         let digiAssetsViewController = DAMainViewController()
-        let onboarding = DAOnboardingViewController()
+//        let onboarding = DAOnboardingViewController()
         
         var nextVC: UIViewController!
         
