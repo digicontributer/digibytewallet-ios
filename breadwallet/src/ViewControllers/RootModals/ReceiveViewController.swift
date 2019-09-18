@@ -47,7 +47,13 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
     private let share: UIButton = {
         let btn = UIButton(type: .system)
         btn.backgroundColor = .clear
-        btn.setBackgroundImage(#imageLiteral(resourceName: "shareButton"), for: .normal)
+        btn.setBackgroundImage(UIImage(named: "shareButton"), for: .normal)
+        return btn
+    }()
+    private let crShare: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.backgroundColor = .clear
+        btn.setBackgroundImage(UIImage(named: "coinRequestButton"), for: .normal)
         return btn
     }()
     private let sharePopout = InViewAlert(type: .secondary)
@@ -80,6 +86,8 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
                 requestString.layer.opacity = 1
                 share.isUserInteractionEnabled = true
                 share.layer.opacity = 1
+                crShare.isUserInteractionEnabled = true
+                crShare.layer.opacity = 1
                 descriptionLabel.alpha = 0
                 let amountStr: CGFloat = CGFloat(amount.rawValue) / 100000000.0
                 requestString.text = "Receive \(amountStr) \(C.btcCurrencyCode) \(S.Confirmation.to.lowercased())\n\(address)"
@@ -93,6 +101,8 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
                 share.isUserInteractionEnabled = true
                 requestString.text = "Receive to\n\(address)" // ToDo: Export language
                 setReceiveAddress()
+                crShare.layer.opacity = 0.1
+                crShare.isUserInteractionEnabled = false
             }
         }
     }
@@ -116,6 +126,7 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
         view.addSubview(descriptionLabel)
         view.addSubview(requestString)
         view.addSubview(share)
+        view.addSubview(crShare)
         view.addSubview(addressPopout)
         view.addSubview(sharePopout)
         view.addSubview(border)
@@ -155,6 +166,11 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
             share.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -76),
             share.constraint(.width, constant: 58),
             share.constraint(.height, constant: 58) ])
+        crShare.constrain([
+            crShare.topAnchor.constraint(equalTo: requestString.bottomAnchor, constant: 25),
+            crShare.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -152),
+            crShare.constraint(.width, constant: 58),
+            crShare.constraint(.height, constant: 58) ])
         sharePopout.heightConstraint = sharePopout.constraint(.height, constant: 0.0)
         topSharePopoutConstraint = sharePopout.constraint(toBottom: share, constant: largeSharePadding)
         sharePopout.constrain([
@@ -199,6 +215,8 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
         requestString.lineBreakMode = .byCharWrapping
         share.isUserInteractionEnabled = true
         share.layer.opacity = 1.0
+        crShare.isUserInteractionEnabled = false
+        crShare.layer.opacity = 0.1
         sharePopout.clipsToBounds = true
         addressButton.setBackgroundImage(UIImage.imageForColor(.secondaryShadow), for: .highlighted)
         addressButton.layer.cornerRadius = 4.0
@@ -257,6 +275,8 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
         
         share.addTarget(self, action: #selector(ReceiveViewController.shareTapped), for: .touchUpInside)
         
+        crShare.addTarget(self, action: #selector(ReceiveViewController.crShareTapped), for: .touchUpInside)
+        
         amountView.didUpdateAmount = { [weak self] amount in
             self?.amount = amount
         }
@@ -285,6 +305,17 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
         }
     }
 
+    @objc private func crShareTapped() {
+        var satoshi = CGFloat.init()
+        if(amount != nil){
+            satoshi = CGFloat(amount!.rawValue) / 100000000.0
+        }
+        let location = "https://coinrequest.io/create?coin=digibyte&wallet=digibyte&amount=\(satoshi)&address=\(wallet.receiveAddress)"
+        if let url = URL(string: location) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
     private func setupCopiedMessage() {
         let copiedMessage = UILabel(font: .customMedium(size: 14.0))
         copiedMessage.textColor = .white
@@ -314,6 +345,7 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
 
     private func toggle(alertView: InViewAlert, shouldAdjustPadding: Bool, shouldShrinkAfter: Bool = false) {
         share.isEnabled = false
+        crShare.isEnabled = false
         requestString.isUserInteractionEnabled = false
 
         var deltaY = alertView.isExpanded ? -alertView.height : alertView.height
@@ -339,6 +371,7 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
         }, completion: { _ in
             alertView.isExpanded = !alertView.isExpanded
             self.share.isEnabled = true
+            self.crShare.isEnabled = true
             self.requestString.isUserInteractionEnabled = true
             alertView.contentView?.isHidden = false
             if shouldShrinkAfter {

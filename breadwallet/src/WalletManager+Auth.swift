@@ -78,14 +78,21 @@ extension WalletManager : WalletAuthenticator {
             try self.init(masterPubKey: BRMasterPubKey(), earliestKeyTime: 0, dbPath: dbPath, store: store)
             return
         }
-		
-		var earliestKeyTime = BIP39CreationTime
-        if let creationTime: Data = try keychainItem(key: KeychainKey.creationTime),
-            creationTime.count == MemoryLayout<TimeInterval>.stride {
-            creationTime.withUnsafeBytes { earliestKeyTime = $0.pointee }
+        
+        var creationTime: TimeInterval {
+            var creationTime = BIP39CreationTime
+            do {
+                if let creationTimeData: Data = try keychainItem(key: KeychainKey.creationTime),
+                    creationTimeData.count == MemoryLayout<TimeInterval>.stride {
+                    creationTimeData.withUnsafeBytes { creationTime = $0.load(as: TimeInterval.self) }
+                }
+                return creationTime
+            } catch {
+                return creationTime
+            }
         }
         
-        try self.init(masterPubKey: masterPubKey, earliestKeyTime: earliestKeyTime, dbPath: dbPath, store: store)
+        try self.init(masterPubKey: masterPubKey, earliestKeyTime: creationTime, dbPath: dbPath, store: store)
     }
     
     // true if keychain is available and we know that no wallet exists on it

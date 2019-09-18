@@ -246,8 +246,8 @@ class IDCameraOverlay: UIView, CameraOverlay {
     override init(frame: CGRect) {
         overlayRect = CGRect(x: 0, y: 0, width: frame.width, height: frame.width * CGFloat(4.0/3.0))
         takePhotoButton = UIButton(type: .custom)
-        takePhotoButton.setImage(#imageLiteral(resourceName: "camera-btn"), for: UIControl.State())
-        takePhotoButton.setImage(#imageLiteral(resourceName: "camera-btn-pressed"), for: .highlighted)
+        takePhotoButton.setImage(UIImage(named: "camera-btn"), for: UIControl.State())
+        takePhotoButton.setImage(UIImage(named: "camera-btn-pressed"), for: .highlighted)
         takePhotoButton.frame = CGRect(x: 0, y: 0, width: 79, height: 79)
         takePhotoButton.center = CGPoint(
             x: overlayRect.midX,

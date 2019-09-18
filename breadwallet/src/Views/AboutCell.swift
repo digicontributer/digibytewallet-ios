@@ -13,7 +13,7 @@ class AboutCell : UIView {
     let button: UIButton
 
     init(text: String) {
-        button = UIButton.icon(image: #imageLiteral(resourceName: "OpenBrowser"), accessibilityLabel: text)
+        button = UIButton.icon(image: UIImage(named: "OpenBrowser")!, accessibilityLabel: text)
         label.text = text
         super.init(frame: .zero)
         setup()

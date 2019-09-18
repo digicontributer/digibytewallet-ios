@@ -28,11 +28,11 @@ extension UIButton {
 
     static var close: DGBHapticButton {
         let accessibilityLabel = E.isScreenshots ? "Close" : S.AccessibilityLabels.close
-        return UIButton.icon(image: #imageLiteral(resourceName: "Close"), accessibilityLabel: accessibilityLabel)
+        return UIButton.icon(image: UIImage(named: "Close")!, accessibilityLabel: accessibilityLabel)
     }
 
     static func buildFaqButton(store: Store, articleId: String) -> UIButton {
-        let button = UIButton.icon(image: #imageLiteral(resourceName: "Faq"), accessibilityLabel: S.AccessibilityLabels.faq)
+        let button = UIButton.icon(image: UIImage(named: "Faq")!, accessibilityLabel: S.AccessibilityLabels.faq)
         button.tap = {
             store.trigger(name: .presentFaq(articleId))
         }
@@ -44,7 +44,7 @@ extension UIButton {
         button.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
         button.setImage(image, for: .normal)
 
-        if image == #imageLiteral(resourceName: "Close") {
+        if image == UIImage(named: "Close")! {
             button.imageEdgeInsets = UIEdgeInsets(top: 14.0, left: 14.0, bottom: 14.0, right: 14.0)
         } else {
             button.imageEdgeInsets = UIEdgeInsets(top: 12.0, left: 12.0, bottom: 12.0, right: 12.0)

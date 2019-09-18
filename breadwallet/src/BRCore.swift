@@ -161,7 +161,7 @@ extension BRKey {
             let count = BRKeyPrivKey(&self, nil, 0)
             var data = CFDataCreateMutable(secureAllocator, count) as Data
             data.count = count
-            guard data.withUnsafeMutableBytes({ BRKeyPrivKey(&self, $0, count) }) != 0 else { return nil }
+            guard data.withUnsafeMutableBytes({ BRKeyPrivKey(&self, $0.baseAddress?.assumingMemoryBound(to: Int8.self), count) }) != 0 else { return nil }
             return CFStringCreateFromExternalRepresentation(secureAllocator, data as CFData,
                                                             CFStringBuiltInEncodings.UTF8.rawValue) as String
         }
@@ -176,7 +176,7 @@ extension BRKey {
             let count = BRKeyBIP38Key(&self, nil, 0, nfcPhrase as String)
             var data = CFDataCreateMutable(secureAllocator, count) as Data
             data.count = count
-            guard data.withUnsafeMutableBytes({ BRKeyBIP38Key(&self, $0, count, nfcPhrase as String) }) != 0
+            guard data.withUnsafeMutableBytes({ BRKeyBIP38Key(&self, $0.baseAddress?.assumingMemoryBound(to: Int8.self), count, nfcPhrase as String) }) != 0
                 else { return nil }
             return CFStringCreateFromExternalRepresentation(secureAllocator, data as CFData,
                                                             CFStringBuiltInEncodings.UTF8.rawValue) as String
@@ -188,6 +188,14 @@ extension BRKey {
         var pubKey = [UInt8](repeating: 0, count: BRKeyPubKey(&self, nil, 0))
         guard pubKey.count > 0, BRKeyPubKey(&self, &pubKey, pubKey.count) == pubKey.count else { return nil }
         return pubKey
+    }
+    
+    public var publicKey: Data {
+        var k = self
+        let len = BRKeyPubKey(&k, nil, 0)
+        var result = [UInt8](repeating: 0, count: len)
+        BRKeyPubKey(&k, &result, len)
+        return Data(result)
     }
     
     // ripemd160 hash of the sha256 hash of the public key
@@ -538,8 +546,11 @@ class BRWallet {
     private func signSerializedTransaction(_ data: Data, seed: inout UInt512) -> Data? {
         let output = UnsafeMutablePointer<UInt8>.allocate(capacity: 1024)
         
-        let txParsed = data.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) -> UnsafeMutablePointer<BRTransaction> in
-            BRTransactionParse(bytes, data.count)
+        var txParsed: UnsafeMutablePointer<BRTransaction> = UnsafeMutablePointer<BRTransaction>(nil)!
+        
+        data.withUnsafeBytes { ptr in
+            guard let ba = ptr.baseAddress else { return }
+            txParsed = BRTransactionParse(ba.assumingMemoryBound(to: UInt8.self), data.count)
         }
         
         let signed = BRWalletSignTransaction(cPtr, txParsed, 0, &seed, MemoryLayout<UInt512>.stride)

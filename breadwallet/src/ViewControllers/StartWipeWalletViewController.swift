@@ -17,11 +17,11 @@ class StartWipeWalletViewController : UIViewController {
 
     private let didTapNext: () -> Void
     private let header = RadialGradientView(backgroundColor: C.Colors.background, offset: 64.0)
-    private let illustration = UIImageView(image: #imageLiteral(resourceName: "RestoreIllustration"))
+    private let illustration = UIImageView(image: UIImage(named: "RestoreIllustration"))
     private let message = UILabel.wrapping(font: .customBody(size: 16.0), color: C.Colors.text)
     private let warning = UILabel.wrapping(font: .customBody(size: 16.0), color: C.Colors.text)
     private let button = ShadowButton(title: S.RecoverWallet.next, type: .primary)
-    private let bullet = UIImageView(image: #imageLiteral(resourceName: "deletecircle").withRenderingMode(.alwaysTemplate))
+    private let bullet = UIImageView(image: UIImage(named: "deletecircle")?.withRenderingMode(.alwaysTemplate))
 
     override func viewDidLoad() {
         addSubviews()

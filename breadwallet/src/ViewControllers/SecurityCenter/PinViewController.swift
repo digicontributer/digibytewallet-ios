@@ -312,12 +312,12 @@ class LoginViewController: PINViewController, Trackable {
         
         let biometricsImage = { () -> UIImageView in
             if LAContext.biometricType() == .face {
-                let img = #imageLiteral(resourceName: "faceId").withRenderingMode(.alwaysTemplate)
+                let img = UIImage(named: "faceId")!.withRenderingMode(.alwaysTemplate)
                 let v = UIImageView(image: img)
                 v.tintColor = C.Colors.blue
                 return v
             } else {
-                return UIImageView(image: #imageLiteral(resourceName: "touchId"))
+                return UIImageView(image: UIImage(named: "touchId"))
             }
         }()
         
@@ -535,7 +535,7 @@ class LoginViewController: PINViewController, Trackable {
         label.textColor = .white
         label.text = S.UnlockScreen.locked
     
-        let lock = UIImageView(image: #imageLiteral(resourceName: "locked").withRenderingMode(.alwaysTemplate))
+        let lock = UIImageView(image: UIImage(named: "locked")?.withRenderingMode(.alwaysTemplate))
         lock.tintColor = UIColor.white
         
         view.addSubview(label)
@@ -579,7 +579,7 @@ class LoginViewController: PINViewController, Trackable {
         label.textColor = .white
         label.text = S.UnlockScreen.unlocked
         label.alpha = 0.0
-        let lock = UIImageView(image: #imageLiteral(resourceName: "unlocked").withRenderingMode(.alwaysTemplate))
+        let lock = UIImageView(image: UIImage(named: "unlocked")?.withRenderingMode(.alwaysTemplate))
         lock.tintColor = UIColor.white
         lock.alpha = 0.0
         

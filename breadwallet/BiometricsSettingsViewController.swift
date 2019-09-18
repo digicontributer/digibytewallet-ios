@@ -24,7 +24,7 @@ class BiometricsSettingsViewController : UIViewController, Subscriber {
         let view = DigiRadialGradientView(backgroundColor: C.Colors.background, offset: 64.0, hideDigi: false)
         return view
     }()
-    private let illustration = LAContext.biometricType() == .face ? UIImageView(image: #imageLiteral(resourceName: "FaceId-Large")) : UIImageView(image: #imageLiteral(resourceName: "TouchId-Large"))
+    private let illustration = LAContext.biometricType() == .face ? UIImageView(image: UIImage(named: "FaceId-Large")) : UIImageView(image: UIImage(named: "TouchId-Large"))
     private let label = UILabel.wrapping(font: .customBody(size: 16.0), color: .white)
     private let switchLabel = UILabel(font: .customMedium(size: 14.0), color: .white)
     private let automaticBiometricsSwitchLabel = UILabel(font: .customBody(size: 14.0), color: .white)

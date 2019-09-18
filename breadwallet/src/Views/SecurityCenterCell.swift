@@ -56,7 +56,7 @@ class SecurityCenterCell : UIControl {
         
         descriptionLabel.numberOfLines = 0
         descriptionLabel.lineBreakMode = .byWordWrapping
-        check.setImage(#imageLiteral(resourceName: "CircleCheck"), for: .normal)
+        check.setImage(UIImage(named: "CircleCheck"), for: .normal)
         isCheckHighlighted = false
     }
 

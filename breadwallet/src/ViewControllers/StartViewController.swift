@@ -10,13 +10,13 @@ import UIKit
 
 class DigiBackgroundView: UIView {
     private let designAdditionalImage1: UIImageView = {
-        let image = UIImageView(image: #imageLiteral(resourceName: "LoginBackground1"))
+        let image = UIImageView(image: UIImage(named: "LoginBackground1"))
         image.contentMode = .scaleAspectFill
         return image
     }()
     
     private let designAdditionalImage2: UIImageView = {
-        let image = UIImageView(image: #imageLiteral(resourceName: "LoginBackground2"))
+        let image = UIImageView(image: UIImage(named: "LoginBackground2"))
         image.contentMode = .scaleAspectFill
         return image
     }()
@@ -65,7 +65,7 @@ class StartViewController : UIViewController {
     //MARK: - Private
 
     private let logo: UIImageView = {
-        let image = UIImageView(image: #imageLiteral(resourceName: "DigiLogo"))
+        let image = UIImageView(image: UIImage(named: "DigiLogo"))
         image.contentMode = .scaleAspectFit
         image.tintColor = UIColor.whiteTint
         return image

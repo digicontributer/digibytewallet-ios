@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		047876C020084BB200C422DE /* SupportStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047876BF20084BB200C422DE /* SupportStoryboard.storyboard */; };
-		047876C22008514500C422DE /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047876C12008514500C422DE /* SupportViewController.swift */; };
 		049B9B7F20104B65004EF1A1 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 049B9B7E20104B65004EF1A1 /* Settings.bundle */; };
 		1B1AFFA01FB7EF7C00E61908 /* BiometricsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1AFF9E1FB7EF7C00E61908 /* BiometricsSettingsViewController.swift */; };
 		1B1AFFA11FB7EF7C00E61908 /* BiometricsSpendingLimitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1AFF9F1FB7EF7C00E61908 /* BiometricsSpendingLimitViewController.swift */; };
@@ -95,7 +93,6 @@
 		39CCB64520E40DFC0008519E /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CCB64420E40DFC0008519E /* BlurView.swift */; };
 		39D0349E233254B000DE3E78 /* ToDos.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 39D0349D233254AF00DE3E78 /* ToDos.rtf */; };
 		39D868DA22E4DD6E0035FAF7 /* DigiIDLegacySites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D868D922E4DD6E0035FAF7 /* DigiIDLegacySites.swift */; };
-		39D868E222E64A170035FAF7 /* odocrypt.c in Sources */ = {isa = PBXBuildFile; fileRef = 39D868E122E64A170035FAF7 /* odocrypt.c */; };
 		39EB89C92250086C00B2FA60 /* DAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB89C82250086C00B2FA60 /* DAButton.swift */; };
 		39EB89CE22500ADC00B2FA60 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB89CD22500AB400B2FA60 /* Lato-Bold.ttf */; };
 		39EB89CF22500ADC00B2FA60 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB89CC22500AB400B2FA60 /* Lato-Italic.ttf */; };
@@ -361,7 +358,6 @@
 		CE4DFB2C1E9BE5880014009E /* ReScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4DFB2B1E9BE5880014009E /* ReScanViewController.swift */; };
 		CE4DFB2E1E9C26DA0014009E /* ShareDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4DFB2D1E9C26DA0014009E /* ShareDataViewController.swift */; };
 		CE5E6C941EB7964900A476DB /* WalletDisabledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E6C931EB7964900A476DB /* WalletDisabledView.swift */; };
-		CE5E6C961EB8CCF500A476DB /* SupportCenterContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E6C951EB8CCF500A476DB /* SupportCenterContainer.swift */; };
 		CE5E6C9A1EB9135000A476DB /* Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE5E6C991EB9135000A476DB /* Icon.xcassets */; };
 		CE5F21D91E4A922700C47B8E /* DismissLoginAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5F21D81E4A922700C47B8E /* DismissLoginAnimator.swift */; };
 		CE5F21DB1E4A93A500C47B8E /* LoginTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5F21DA1E4A93A500C47B8E /* LoginTransitionDelegate.swift */; };
@@ -627,8 +623,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		047876BF20084BB200C422DE /* SupportStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = SupportStoryboard.storyboard; path = src/ViewControllers/SupportStoryboard.storyboard; sourceTree = "<group>"; };
-		047876C12008514500C422DE /* SupportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SupportViewController.swift; path = src/ViewControllers/SupportViewController.swift; sourceTree = "<group>"; };
 		049B9B7E20104B65004EF1A1 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		05F39B6A4B46E1882748F6F8 /* Pods-digibyteTests.screenshots.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyteTests.screenshots.xcconfig"; path = "Pods/Target Support Files/Pods-digibyteTests/Pods-digibyteTests.screenshots.xcconfig"; sourceTree = "<group>"; };
 		08FA0BAF2A382E159BE5B10A /* Pods-DigiByteUITests.testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByteUITests.testnet.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByteUITests/Pods-DigiByteUITests.testnet.xcconfig"; sourceTree = "<group>"; };
@@ -1640,7 +1634,6 @@
 		CE4DFB2B1E9BE5880014009E /* ReScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReScanViewController.swift; path = src/ViewControllers/ReScanViewController.swift; sourceTree = "<group>"; };
 		CE4DFB2D1E9C26DA0014009E /* ShareDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareDataViewController.swift; path = src/ViewControllers/ShareDataViewController.swift; sourceTree = "<group>"; };
 		CE5E6C931EB7964900A476DB /* WalletDisabledView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WalletDisabledView.swift; path = src/Views/WalletDisabledView.swift; sourceTree = "<group>"; };
-		CE5E6C951EB8CCF500A476DB /* SupportCenterContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SupportCenterContainer.swift; path = src/ViewControllers/SupportCenterContainer.swift; sourceTree = "<group>"; };
 		CE5E6C991EB9135000A476DB /* Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icon.xcassets; sourceTree = "<group>"; };
 		CE5F21D81E4A922700C47B8E /* DismissLoginAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DismissLoginAnimator.swift; path = src/ViewControllers/ViewControllerTransitions/DismissLoginAnimator.swift; sourceTree = "<group>"; };
 		CE5F21DA1E4A93A500C47B8E /* LoginTransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginTransitionDelegate.swift; path = src/ViewControllers/ViewControllerTransitions/LoginTransitionDelegate.swift; sourceTree = "<group>"; };
@@ -3170,8 +3163,6 @@
 				CEC6AA3E1DEFC85700EE5AFD /* RootModals */,
 				CE6D0F951DE8B6B600BD4BCF /* ViewControllerTransitions */,
 				CE760ED71E55F9E000EFAC2B /* SecurityCenter */,
-				047876C12008514500C422DE /* SupportViewController.swift */,
-				047876BF20084BB200C422DE /* SupportStoryboard.storyboard */,
 				CEBF32EF1DDCD30600348FC6 /* AccountViewController.swift */,
 				CE20C9061DBC587200C8397A /* StartViewController.swift */,
 				CEAA9E8E1DC074410066731D /* StartPaperPhraseViewController.swift */,
@@ -3190,7 +3181,6 @@
 				CEEC70931E96A24F00EF788E /* DefaultCurrencyViewController.swift */,
 				CE4DFB2B1E9BE5880014009E /* ReScanViewController.swift */,
 				CE4DFB2D1E9C26DA0014009E /* ShareDataViewController.swift */,
-				CE5E6C951EB8CCF500A476DB /* SupportCenterContainer.swift */,
 				CEEE92F01EBA7CBA00B7AC9C /* RequestAmountViewController.swift */,
 				CEF61B111ECF52C700C7EA6A /* AmountViewController.swift */,
 				CEC4CF061F0C48DD00E5C82E /* StartWipeWalletViewController.swift */,
@@ -4036,7 +4026,6 @@
 				39EB89CF22500ADC00B2FA60 /* Lato-Italic.ttf in Resources */,
 				39EB89D022500ADC00B2FA60 /* Lato-Medium.ttf in Resources */,
 				39EB89D122500ADC00B2FA60 /* Lato-Regular.ttf in Resources */,
-				047876C020084BB200C422DE /* SupportStoryboard.storyboard in Resources */,
 				39D0349E233254B000DE3E78 /* ToDos.rtf in Resources */,
 				AA34562A2020CA7C00B2C462 /* Localizable.strings in Resources */,
 				AAF3240D206B307E004D2BED /* BIP39Words.plist in Resources */,
@@ -4476,7 +4465,6 @@
 				2228734F1E916FC30044BA15 /* BRAPIClient+Wallet.swift in Sources */,
 				CEAA9EA81DC3342E0066731D /* PinView.swift in Sources */,
 				CE1D84B61EAEB2F4002A5D7B /* UIBarButtonItem+Additions.swift in Sources */,
-				CE5E6C961EB8CCF500A476DB /* SupportCenterContainer.swift in Sources */,
 				CE4B6C1A1E219CA600CF935B /* WalletCoordinator.swift in Sources */,
 				CE6D0E5C1E14BFA700137DF1 /* KeyboardNotificationInfo.swift in Sources */,
 				399D35A4224EC87400B7F9B9 /* DAReceiveViewController.swift in Sources */,
@@ -4548,7 +4536,6 @@
 				39FC20BB22285DAE007B13D4 /* DAMainViewController.swift in Sources */,
 				CE27F9591E2C8EA300F7F7F2 /* Amount.swift in Sources */,
 				CE1280F61EEA855C00D27649 /* Date+Additions.swift in Sources */,
-				047876C22008514500C422DE /* SupportViewController.swift in Sources */,
 				CED82D4E1E575A5500507A9B /* main.swift in Sources */,
 				CEEC708E1E954AAB00EF788E /* AboutCell.swift in Sources */,
 				39D868DA22E4DD6E0035FAF7 /* DigiIDLegacySites.swift in Sources */,
@@ -4673,7 +4660,6 @@
 				CEB909F51E5FE63D001804DC /* EnterPhraseViewController.swift in Sources */,
 				CE6D0F971DE8B73A00BD4BCF /* ModalTransitionDelegate.swift in Sources */,
 				39EB89D522500D0400B2FA60 /* UIColor+DAAdditions.swift in Sources */,
-				39D868E222E64A170035FAF7 /* odocrypt.c in Sources */,
 				1B1AFFA01FB7EF7C00E61908 /* BiometricsSettingsViewController.swift in Sources */,
 				399D35A0224EC87400B7F9B9 /* DASendViewController.swift in Sources */,
 				1B1AFFA11FB7EF7C00E61908 /* BiometricsSpendingLimitViewController.swift in Sources */,

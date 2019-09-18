@@ -391,9 +391,6 @@ class ApplicationController : Subscriber, Trackable {
                 for (n, e) in errors {
                     print("Bundle \(n) ran update. err: \(String(describing: e))")
                 }
-                DispatchQueue.main.async {
-                    let _ = myself.modalPresenter?.supportCenter // Initialize support center
-                }
             }
         }
     }
@@ -477,27 +474,39 @@ class ApplicationController : Subscriber, Trackable {
 //MARK: - Push notifications
 extension ApplicationController {
     func listenForPushNotificationRequest() {
-        store.subscribe(self, name: .registerForPushNotificationToken, callback: { _ in 
-            let settings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)
-            self.application?.registerUserNotificationSettings(settings)
+        store.subscribe(self, name: .registerForPushNotificationToken, callback: { _ in
+            if #available(iOS 10.0, *) {
+                let center = UNUserNotificationCenter.current()
+                center.requestAuthorization(options: [.alert, .badge, .sound])  { (granted, error) in
+                    // Enable or disable features based on authorization.
+                    // ToDo
+                }
+            } else {
+                // REGISTER FOR PUSH NOTIFICATIONS
+                let notifyTypes:UIUserNotificationType  = [.alert, .badge, .sound]
+                let settings = UIUserNotificationSettings(types: notifyTypes, categories: nil)
+                self.application?.registerUserNotificationSettings(settings)
+                self.application?.registerForRemoteNotifications()
+                self.application?.applicationIconBadgeNumber = 0
+            }
         })
     }
 
-    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
-        if !notificationSettings.types.isEmpty {
-            application.registerForRemoteNotifications()
-        }
+    func application(_ application: UIApplication, didRegister notificationSettings: UNNotificationSettings) {
+//        if !notificationSettings.types.isEmpty {
+//            application.registerForRemoteNotifications()
+//        }
     }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        guard let apiClient = walletManager?.apiClient else { return }
-        guard UserDefaults.pushToken != deviceToken else { return }
-        UserDefaults.pushToken = deviceToken
-        apiClient.savePushNotificationToken(deviceToken)
+//        guard let apiClient = walletManager?.apiClient else { return }
+//        guard UserDefaults.pushToken != deviceToken else { return }
+//        UserDefaults.pushToken = deviceToken
+//        apiClient.savePushNotificationToken(deviceToken)
     }
 
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("didFailToRegisterForRemoteNotification: \(error)")
+//        print("didFailToRegisterForRemoteNotification: \(error)")
     }
     
     func resetWindows() { self.store.perform(action: HamburgerActions.Present(modal: .none)) }

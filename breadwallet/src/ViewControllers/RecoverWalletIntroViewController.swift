@@ -43,7 +43,7 @@ class RecoverWalletIntroViewController : UIViewController {
         return button
     }()
     private let label = UILabel(font: .customBody(size: 16.0))
-    private let illustration = UIImageView(image: #imageLiteral(resourceName: "RecoverWalletIllustration"))
+    private let illustration = UIImageView(image: UIImage(named: "RecoverWalletIllustration"))
 
     override func viewDidLoad() {
         addSubviews()

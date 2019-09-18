@@ -33,7 +33,7 @@ class ShowAddressViewController : UIViewController, Subscriber, Trackable {
     private let share: UIButton = {
         let btn = UIButton(type: .system)
         btn.backgroundColor = .clear
-        btn.setBackgroundImage(#imageLiteral(resourceName: "shareButton"), for: .normal)
+        btn.setBackgroundImage(UIImage(named: "shareButton"), for: .normal)
         
         return btn
     }()

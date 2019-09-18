@@ -36,15 +36,15 @@ extension UINavigationController {
     }
 
     func setBlackBackArrow() {
-        let image = #imageLiteral(resourceName: "arrow_back")
-        let renderedImage = image.withRenderingMode(.alwaysOriginal)
+        let image = UIImage(named: "arrow_back")
+        let renderedImage = image?.withRenderingMode(.alwaysOriginal)
         navigationBar.backIndicatorImage = renderedImage
         navigationBar.backIndicatorTransitionMaskImage = renderedImage
     }
 
     func setTintableBackArrow() {
-        navigationBar.backIndicatorImage = #imageLiteral(resourceName: "arrow_back")
-        navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "arrow_back")
+        navigationBar.backIndicatorImage = UIImage(named: "arrow_back")
+        navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "arrow_back")
     }
     
     open override var preferredStatusBarStyle: UIStatusBarStyle {

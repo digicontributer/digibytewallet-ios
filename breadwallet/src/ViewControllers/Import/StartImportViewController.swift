@@ -24,11 +24,11 @@ class StartImportViewController : UIViewController {
     private let walletManager: WalletManager
     private let store: Store
     private let header = RadialGradientView(backgroundColor: C.Colors.background, offset: 64.0)
-    private let illustration = UIImageView(image: #imageLiteral(resourceName: "ImportIllustration"))
+    private let illustration = UIImageView(image: UIImage(named: "ImportIllustration"))
     private let message = UILabel.wrapping(font: .customBody(size: 16.0), color: .darkText)
     private let warning = UILabel.wrapping(font: .customBody(size: 16.0), color: .darkText)
     private let button = ShadowButton(title: S.Import.scan, type: .primary)
-    private let bullet = UIImageView(image: #imageLiteral(resourceName: "deletecircle"))
+    private let bullet = UIImageView(image: UIImage(named: "deletecircle"))
     private let leftCaption = UILabel.wrapping(font: .customMedium(size: 13.0), color: .darkText)
     private let rightCaption = UILabel.wrapping(font: .customMedium(size: 13.0), color: .darkText)
     private let balanceActivity = BRActivityViewController(message: S.Import.checking)

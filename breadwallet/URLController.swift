@@ -136,7 +136,7 @@ class URLController : Trackable {
             let queryLength = url.query?.utf8.count ?? 0
             let callback = callback.appendingFormat("%@address=%@", queryLength > 0 ? "&" : "?", wallet.receiveAddress)
             if let callbackURL = URL(string: callback) {
-                UIApplication.shared.openURL(callbackURL)
+                UIApplication.shared.open(callbackURL, options: [:], completionHandler: nil)
             }
         }
     }
@@ -171,7 +171,7 @@ class URLController : Trackable {
                     } else {
                         // open the sender app
                         if let u = URL(string: senderAppInfo.appURI) {
-                            DispatchQueue.main.async { UIApplication.shared.openURL(u) }
+                            DispatchQueue.main.async { UIApplication.shared.open(u, options: [:], completionHandler: nil) }
                         }
                     }
                 } else {

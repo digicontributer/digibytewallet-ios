@@ -53,7 +53,7 @@ class TransactionCardView: UIView {
     }
     
     override init(frame: CGRect) {
-        dots = UIImageView(image: #imageLiteral(resourceName: "dots"))
+        dots = UIImageView(image: UIImage(named: "dots"))
         dots.contentMode = .scaleToFill
         circleLeft = UIView()
         circleRight = UIView()

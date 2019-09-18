@@ -13,7 +13,7 @@ class GenericPinPadCell : UICollectionViewCell {
     var text: String? {
         didSet {
             if text == deleteKeyIdentifier {
-                imageView.image = #imageLiteral(resourceName: "removeCharacter")
+                imageView.image = UIImage(named: "removeCharacter")
                 imageView.tintColor = C.Colors.blueGrey
                 topLabel.text = ""
                 centerLabel.text = ""

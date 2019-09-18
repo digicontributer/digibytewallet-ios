@@ -107,9 +107,9 @@ class TransactionCardViewCell: UITableViewCell, Subscriber {
     private var transaction: Transaction?
     private let availability = UILabel(font: .customBold(size: 13.0), color: .txListGreen)
     private var timer: Timer? = nil
-    private let receivedImage = #imageLiteral(resourceName: "receivedTransaction")
-    private let sentImage = #imageLiteral(resourceName: "sentTransaction")
-    private let arrow = UIImageView(image: #imageLiteral(resourceName: "receivedTransaction"))
+    private let receivedImage = UIImage(named: "receivedTransaction")
+    private let sentImage = UIImage(named: "sentTransaction")
+    private let arrow = UIImageView(image: UIImage(named: "receivedTransaction"))
     private let amountCommentContainer = UIView()
     
     private func setupViews() {

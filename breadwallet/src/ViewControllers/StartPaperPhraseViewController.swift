@@ -19,8 +19,8 @@ class StartPaperPhraseViewController : UIViewController {
     }
     
     private let button: ShadowButton
-    private let illustration = UIImageView(image: #imageLiteral(resourceName: "PaperKey"))
-    private let pencil = UIImageView(image: #imageLiteral(resourceName: "Pencil"))
+    private let illustration = UIImageView(image: UIImage(named: "PaperKey"))
+    private let pencil = UIImageView(image: UIImage(named: "Pencil"))
     private let explanation = UILabel.wrapping(font: UIFont.customBody(size: 16.0), color: C.Colors.text)
     private let store: Store
     private let header = RadialGradientView(backgroundColor: C.Colors.background, offset: 64.0)

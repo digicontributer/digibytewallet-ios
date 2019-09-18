@@ -85,7 +85,7 @@ fileprivate class RadialGradientViewButton: UIView {
 
 fileprivate struct RadialGradientViewButtonModel {
     let text: String
-    let icon: UIImage
+    let icon: UIImage?
     let callback: () -> Void
     
     let view: UIView
@@ -411,7 +411,7 @@ fileprivate class RadialGradientMenu: UIView {
         circleView.layer.cornerRadius = r / 2
     }
     
-    func addMenuItem(img: UIImage, text: String, onTap: @escaping () -> Void) {
+    func addMenuItem(img: UIImage?, text: String, onTap: @escaping () -> Void) {
         let view = RadialGradientViewButton()
         let image = UIImageView(image: img)
         //image.tintColor = C.Colors.text
@@ -607,28 +607,28 @@ class AccountFooterView: UIView {
         circleButton.addMenuItem(img: UIImage(named: "AddressBook")!, text: S.AddressBook.title) {
             self.addressBookCallback?()
         }
-        circleButton.addMenuItem(img: #imageLiteral(resourceName: "receiveArrow"), text: S.Receive.title) {
+        circleButton.addMenuItem(img: UIImage(named: "receiveArrow"), text: S.Receive.title) {
             self.receiveCallback?()
         }
-        circleButton.addMenuItem(img: #imageLiteral(resourceName: "sendArrow"), text: S.Send.title) {
+        circleButton.addMenuItem(img: UIImage(named: "sendArrow"), text: S.Send.title) {
             self.sendCallback?()
         }
         
         // left button (trigger hamburger menu)
         let hamburgerButton = DGBHapticButton()//  UIButton(type: .system)
-        hamburgerButton.setImage(#imageLiteral(resourceName: "hamburgerButton").withRenderingMode(.alwaysTemplate), for: .normal)
+        hamburgerButton.setImage(UIImage(named: "hamburgerButton")?.withRenderingMode(.alwaysTemplate), for: .normal)
         hamburgerButton.tintColor = .white
         hamburgerButton.contentMode = .center
         
         // right button (qr code scanner)
         let qrButton = DGBHapticButton(type: .system)
-        qrButton.setImage( #imageLiteral(resourceName: "qrButtonImage").withRenderingMode(.alwaysTemplate), for: .normal)
+        qrButton.setImage( UIImage(named: "qrButtonImage")?.withRenderingMode(.alwaysTemplate), for: .normal)
         qrButton.tintColor = .white
         qrButton.contentMode = .center
         
         // DigiID
         let digiIDButton = DGBHapticButton(type: .system)
-        digiIDButton.setBackgroundImage(#imageLiteral(resourceName: "digiIDButton"), for: .normal)
+        digiIDButton.setBackgroundImage(UIImage(named: "digiIDButton"), for: .normal)
         digiIDButton.contentMode = .scaleAspectFit
         
         // black border around circleButton
