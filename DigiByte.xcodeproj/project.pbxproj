@@ -93,8 +93,8 @@
 		39CBC66A227D9C1F00A9E7AE /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBC669227D9C1F00A9E7AE /* UserDefaults+Shared.swift */; };
 		39CBC66B227D9C5E00A9E7AE /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBC669227D9C1F00A9E7AE /* UserDefaults+Shared.swift */; };
 		39CCB64520E40DFC0008519E /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CCB64420E40DFC0008519E /* BlurView.swift */; };
+		39D0349E233254B000DE3E78 /* ToDos.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 39D0349D233254AF00DE3E78 /* ToDos.rtf */; };
 		39D868DA22E4DD6E0035FAF7 /* DigiIDLegacySites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D868D922E4DD6E0035FAF7 /* DigiIDLegacySites.swift */; };
-		39D868DF22E5CD760035FAF7 /* BRKeccak-800-SnP.c in Sources */ = {isa = PBXBuildFile; fileRef = 39D868DD22E5CD080035FAF7 /* BRKeccak-800-SnP.c */; };
 		39D868E222E64A170035FAF7 /* odocrypt.c in Sources */ = {isa = PBXBuildFile; fileRef = 39D868E122E64A170035FAF7 /* odocrypt.c */; };
 		39EB89C92250086C00B2FA60 /* DAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EB89C82250086C00B2FA60 /* DAButton.swift */; };
 		39EB89CE22500ADC00B2FA60 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39EB89CD22500AB400B2FA60 /* Lato-Bold.ttf */; };
@@ -704,7 +704,6 @@
 		396B94BA2250F23B0075E4A9 /* DAAssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DAAssetModel.swift; path = src/Models/DAAssetModel.swift; sourceTree = "<group>"; };
 		396B94BC22515F470075E4A9 /* DGBHapticButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DGBHapticButton.swift; path = src/Controls/DGBHapticButton.swift; sourceTree = "<group>"; };
 		398A85BB2330E97900119827 /* odocrypt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = odocrypt.c; sourceTree = "<group>"; };
-		398A85BC2330E97900119827 /* odocrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = odocrypt.h; sourceTree = "<group>"; };
 		398A85BE2330E9B900119827 /* BRKeccak-800-SnP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BRKeccak-800-SnP.h"; sourceTree = "<group>"; };
 		398A85BF2330E9B900119827 /* BRKeccak-800-SnP.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "BRKeccak-800-SnP.c"; sourceTree = "<group>"; };
 		398A85C12330E9D100119827 /* brg_endian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = brg_endian.h; sourceTree = "<group>"; };
@@ -721,10 +720,9 @@
 		39C5A2B421A1BB2F006206E8 /* AddressBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddressBookViewController.swift; path = src/ViewControllers/RootModals/AddressBookViewController.swift; sourceTree = "<group>"; };
 		39CBC669227D9C1F00A9E7AE /* UserDefaults+Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserDefaults+Shared.swift"; path = "src/Extensions/UserDefaults+Shared.swift"; sourceTree = "<group>"; };
 		39CCB64420E40DFC0008519E /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BlurView.swift; path = src/Views/BlurView.swift; sourceTree = "<group>"; };
+		39D0349D233254AF00DE3E78 /* ToDos.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = ToDos.rtf; sourceTree = "<group>"; };
 		39D868D922E4DD6E0035FAF7 /* DigiIDLegacySites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DigiIDLegacySites.swift; path = src/Models/DigiIDLegacySites.swift; sourceTree = "<group>"; };
 		39D868DB22E5CCA20035FAF7 /* odocrypt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = odocrypt.h; sourceTree = "<group>"; };
-		39D868DC22E5CD080035FAF7 /* BRKeccak-800-SnP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BRKeccak-800-SnP.h"; sourceTree = "<group>"; };
-		39D868DD22E5CD080035FAF7 /* BRKeccak-800-SnP.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "BRKeccak-800-SnP.c"; sourceTree = "<group>"; };
 		39D868E022E5D0250035FAF7 /* brg_endian.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = brg_endian.h; sourceTree = "<group>"; };
 		39D868E122E64A170035FAF7 /* odocrypt.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = odocrypt.c; sourceTree = "<group>"; };
 		39EB89C82250086C00B2FA60 /* DAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DAButton.swift; path = src/ViewControllers/DigiAssets/DAButton.swift; sourceTree = "<group>"; };
@@ -2023,31 +2021,6 @@
 			name = DigiAssets;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-=======
-		6D716B14102D4BDBB7F7B840 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C66514794B5D493F104741F8 /* Pods-DigiByte.debug.xcconfig */,
-				01CF15F178B34356E9C48546 /* Pods-DigiByte.testnet.xcconfig */,
-				B5E56143B2FAECA7985F1405 /* Pods-DigiByte.screenshots.xcconfig */,
-				23382B6073AFB6DB31CC034A /* Pods-DigiByte.release.xcconfig */,
-				C83486CB51728B7709F3B1B6 /* Pods-DigiByte.testflight.xcconfig */,
-				DD93BB23E8BD2B6325A9FBEA /* Pods-DigiByteTests.debug.xcconfig */,
-				3B4628DB5B219277397E4123 /* Pods-DigiByteTests.testnet.xcconfig */,
-				85096B3A60B42C5B5DD8F770 /* Pods-DigiByteTests.screenshots.xcconfig */,
-				828021015739671C84CC58E9 /* Pods-DigiByteTests.release.xcconfig */,
-				B131B800B6561F2FBACABA99 /* Pods-DigiByteTests.testflight.xcconfig */,
-				34B27285DE2955974B0E90B3 /* Pods-DigiByteUITests.debug.xcconfig */,
-				E429D7AABE1CC00A0B2C0550 /* Pods-DigiByteUITests.testnet.xcconfig */,
-				69CA1BC791477730C6447AA7 /* Pods-DigiByteUITests.screenshots.xcconfig */,
-				36A18178C691FD9AE833EA15 /* Pods-DigiByteUITests.release.xcconfig */,
-				C49E2E561CDD11493263899D /* Pods-DigiByteUITests.testflight.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
->>>>>>> 50abdb7b... Added Digi-ID Legacy option in settings
 		755CD3191DAA0A110075898E /* secp256k1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2827,6 +2800,7 @@
 		75A2A7871DA5934300A983D8 = {
 			isa = PBXGroup;
 			children = (
+				39D0349D233254AF00DE3E78 /* ToDos.rtf */,
 				75A2A7921DA5934300A983D8 /* breadwallet */,
 				75A2A7A71DA5934300A983D8 /* breadwalletTests */,
 				75A2A7B21DA5934300A983D8 /* breadwalletUITests */,
@@ -3129,12 +3103,8 @@
 		AA85B7EC1FEAF84A008EB914 /* crypto */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				398A85BB2330E97900119827 /* odocrypt.c */,
-				398A85BC2330E97900119827 /* odocrypt.h */,
-=======
 				39D868DB22E5CCA20035FAF7 /* odocrypt.h */,
->>>>>>> 4f4efb83... Odocrypt Hash Validation added
 				AA85B7ED1FEAF84A008EB914 /* groestl.c */,
 				AA85B7EE1FEAF84A008EB914 /* groestl.h */,
 				AA85B7EF1FEAF84A008EB914 /* qubit.c */,
@@ -3151,14 +3121,9 @@
 		AA85B7F21FEAF84A008EB914 /* sha3 */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				398A85C12330E9D100119827 /* brg_endian.h */,
 				398A85BF2330E9B900119827 /* BRKeccak-800-SnP.c */,
 				398A85BE2330E9B900119827 /* BRKeccak-800-SnP.h */,
-=======
-				39D868DC22E5CD080035FAF7 /* BRKeccak-800-SnP.h */,
-				39D868DD22E5CD080035FAF7 /* BRKeccak-800-SnP.c */,
->>>>>>> 4f4efb83... Odocrypt Hash Validation added
 				AA85B7F31FEAF84A008EB914 /* aes_helper.c */,
 				AA85B7F41FEAF84A008EB914 /* blake.c */,
 				AA85B7F51FEAF84A008EB914 /* bmw.c */,
@@ -4072,6 +4037,7 @@
 				39EB89D022500ADC00B2FA60 /* Lato-Medium.ttf in Resources */,
 				39EB89D122500ADC00B2FA60 /* Lato-Regular.ttf in Resources */,
 				047876C020084BB200C422DE /* SupportStoryboard.storyboard in Resources */,
+				39D0349E233254B000DE3E78 /* ToDos.rtf in Resources */,
 				AA34562A2020CA7C00B2C462 /* Localizable.strings in Resources */,
 				AAF3240D206B307E004D2BED /* BIP39Words.plist in Resources */,
 				222319B21F279B3C00008F20 /* POSTBouncer.html in Resources */,
@@ -4438,7 +4404,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA85B8171FEAF84B008EB914 /* sph_shavite.c in Sources */,
-				39D868DF22E5CD760035FAF7 /* BRKeccak-800-SnP.c in Sources */,
 				AA85B8131FEAF84B008EB914 /* keccak.c in Sources */,
 				AA85B80F1FEAF84B008EB914 /* blake.c in Sources */,
 				AA85B8161FEAF84B008EB914 /* sph_luffa.c in Sources */,
