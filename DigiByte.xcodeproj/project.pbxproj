@@ -273,7 +273,6 @@
 		3981278D233281050019D5E6 /* Interface.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3981264B233281040019D5E6 /* Interface.strings */; };
 		3981278E233281050019D5E6 /* LoadingIndicator.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39812650233281040019D5E6 /* LoadingIndicator.xcassets */; };
 		3981278F233281050019D5E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39812655233281040019D5E6 /* Assets.xcassets */; };
-		3981279A233283900019D5E6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39812799233283900019D5E6 /* Default-568h@2x.png */; };
 		398127B5233287280019D5E6 /* BitIdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39812497233281030019D5E6 /* BitIdTests.swift */; };
 		398127B6233287280019D5E6 /* BRAPIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39812498233281030019D5E6 /* BRAPIClientTests.swift */; };
 		398127B7233287280019D5E6 /* TouchIdEnabledTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39812499233281030019D5E6 /* TouchIdEnabledTests.swift */; };
@@ -1065,7 +1064,6 @@
 		39812661233281040019D5E6 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Interface.strings; sourceTree = "<group>"; };
 		39812663233281040019D5E6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39812664233281040019D5E6 /* Interface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Interface.storyboard; sourceTree = "<group>"; };
-		39812799233283900019D5E6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		398A85BB2330E97900119827 /* odocrypt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = odocrypt.c; sourceTree = "<group>"; };
 		398A85BE2330E9B900119827 /* BRKeccak-800-SnP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BRKeccak-800-SnP.h"; sourceTree = "<group>"; };
 		398A85BF2330E9B900119827 /* BRKeccak-800-SnP.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "BRKeccak-800-SnP.c"; sourceTree = "<group>"; };
@@ -3284,7 +3282,6 @@
 		75A2A7871DA5934300A983D8 = {
 			isa = PBXGroup;
 			children = (
-				39812799233283900019D5E6 /* Default-568h@2x.png */,
 				39D0349D233254AF00DE3E78 /* ToDos.rtf */,
 				398124B7233281030019D5E6 /* DigiByte */,
 				3981264A233281040019D5E6 /* DigiByte WatchKit App */,
@@ -4066,7 +4063,6 @@
 				39812689233281050019D5E6 /* LaunchScreen.storyboard in Resources */,
 				3981278E233281050019D5E6 /* LoadingIndicator.xcassets in Resources */,
 				39812712233281050019D5E6 /* #*merge*#130503Ci# in Resources */,
-				3981279A233283900019D5E6 /* Default-568h@2x.png in Resources */,
 				3981267E233281050019D5E6 /* Assets.xcassets in Resources */,
 				39812695233281050019D5E6 /* Assets.xcassets in Resources */,
 				398126AF233281050019D5E6 /* Localizable.strings in Resources */,
