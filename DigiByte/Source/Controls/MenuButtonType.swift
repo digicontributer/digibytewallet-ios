@@ -13,7 +13,6 @@ enum MenuButtonType {
     case support
     case settings
     case lock
-    case report
 
     var title: String {
         switch self {
@@ -25,8 +24,6 @@ enum MenuButtonType {
             return S.MenuButton.settings
         case .lock:
             return S.MenuButton.lock
-        case .report:
-            return S.MenuButton.report
         }
     }
 
@@ -40,8 +37,6 @@ enum MenuButtonType {
             return UIImage(named: "Settings")!
         case .lock:
             return UIImage(named: "Lock")!
-		case .report:
-			return UIImage(named: "BugReport")!
         }
     }
 }
