@@ -47,9 +47,6 @@
 		3981269A233281050019D5E6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398124F1233281030019D5E6 /* Utils.swift */; };
 		3981269B233281050019D5E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398124F7233281030019D5E6 /* AppDelegate.swift */; };
 		3981269C233281050019D5E6 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 398124F8233281030019D5E6 /* Lato-Medium.ttf */; };
-		3981269D233281050019D5E6 /* CircularPro-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 398124FB233281030019D5E6 /* CircularPro-Medium.otf */; };
-		3981269E233281050019D5E6 /* CircularPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 398124FC233281030019D5E6 /* CircularPro-Bold.otf */; };
-		3981269F233281050019D5E6 /* CircularPro-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 398124FD233281030019D5E6 /* CircularPro-Book.otf */; };
 		398126A0233281050019D5E6 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 398124FE233281030019D5E6 /* Rubik-Regular.ttf */; };
 		398126A1233281050019D5E6 /* EmergencyRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39812501233281030019D5E6 /* EmergencyRates.swift */; };
 		398126A3233281050019D5E6 /* Bonjour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39812504233281030019D5E6 /* Bonjour.swift */; };
@@ -731,9 +728,6 @@
 		398124F7233281030019D5E6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		398124F8233281030019D5E6 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
 		398124F9233281030019D5E6 /* bn */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = bn; path = bn.lproj/BIP39Words.plist; sourceTree = "<group>"; };
-		398124FB233281030019D5E6 /* CircularPro-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CircularPro-Medium.otf"; sourceTree = "<group>"; };
-		398124FC233281030019D5E6 /* CircularPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CircularPro-Bold.otf"; sourceTree = "<group>"; };
-		398124FD233281030019D5E6 /* CircularPro-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CircularPro-Book.otf"; sourceTree = "<group>"; };
 		398124FE233281030019D5E6 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		398124FF233281030019D5E6 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "pt-PT"; path = "pt-PT.lproj/BIP39Words.plist"; sourceTree = "<group>"; };
 		39812501233281030019D5E6 /* EmergencyRates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmergencyRates.swift; sourceTree = "<group>"; };
@@ -1992,9 +1986,6 @@
 				398124E3233281030019D5E6 /* Rubik-Medium.ttf */,
 				398124F8233281030019D5E6 /* Lato-Medium.ttf */,
 				398124FE233281030019D5E6 /* Rubik-Regular.ttf */,
-				398124FB233281030019D5E6 /* CircularPro-Medium.otf */,
-				398124FC233281030019D5E6 /* CircularPro-Bold.otf */,
-				398124FD233281030019D5E6 /* CircularPro-Book.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -3970,20 +3961,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				3981278D233281050019D5E6 /* Interface.strings in Resources */,
-				3981269D233281050019D5E6 /* CircularPro-Medium.otf in Resources */,
 				3981268A233281050019D5E6 /* Rubik-Bold.ttf in Resources */,
 				39812686233281050019D5E6 /* Lato-Italic.ttf in Resources */,
 				3981269C233281050019D5E6 /* Lato-Medium.ttf in Resources */,
 				398126A5233281050019D5E6 /* DigiAssets.xcassets in Resources */,
 				39812696233281050019D5E6 /* Lato-Regular.ttf in Resources */,
 				39812687233281050019D5E6 /* Icon.xcassets in Resources */,
-				3981269E233281050019D5E6 /* CircularPro-Bold.otf in Resources */,
 				39812685233281050019D5E6 /* BIP39Words.plist in Resources */,
 				39812690233281050019D5E6 /* coinflip.aiff in Resources */,
 				39D0349E233254B000DE3E78 /* ToDos.rtf in Resources */,
 				3981268F233281050019D5E6 /* Settings.bundle in Resources */,
 				3981268C233281050019D5E6 /* Lato-Bold.ttf in Resources */,
-				3981269F233281050019D5E6 /* CircularPro-Book.otf in Resources */,
 				3981278F233281050019D5E6 /* Assets.xcassets in Resources */,
 				39082BF822762EA2008657F6 /* Media.xcassets in Resources */,
 				39812692233281050019D5E6 /* Rebrand.xcassets in Resources */,
