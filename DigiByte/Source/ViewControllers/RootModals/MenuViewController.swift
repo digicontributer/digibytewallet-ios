@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Buglife
 
 class MenuViewController : UIViewController, Trackable {
 
@@ -64,7 +63,7 @@ class MenuViewController : UIViewController, Trackable {
         case .lock:
             didTapLock?()
         case .report:
-            Buglife.shared().presentReporter()
+            break
         }
     }
 }

@@ -6,8 +6,7 @@
 //  Copyright © 2018 breadwallet LLC. All rights reserved.
 //
 
-import Foundation
-import VisualEffectView
+import UIKit
 
 class BlurView: VisualEffectView {
     override init(effect: UIVisualEffect? = nil) {
