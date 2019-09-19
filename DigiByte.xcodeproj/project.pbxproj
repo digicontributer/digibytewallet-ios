@@ -21,6 +21,8 @@
 		39082BF322760763008657F6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA94556A2020DA9600B6ABB1 /* MainInterface.storyboard */; };
 		39082BF622762CF9008657F6 /* DGBTodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39082BF522762CF9008657F6 /* DGBTodayViewController.swift */; };
 		39082BF822762EA2008657F6 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE916E291EDA7E4400D641D6 /* Media.xcassets */; };
+		391BE382233372DF0079B56A /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391BE381233372DF0079B56A /* VisualEffectView.swift */; };
+		391BE383233372DF0079B56A /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391BE381233372DF0079B56A /* VisualEffectView.swift */; };
 		3981267E233281050019D5E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 398124B0233281030019D5E6 /* Assets.xcassets */; };
 		39812685233281050019D5E6 /* BIP39Words.plist in Resources */ = {isa = PBXBuildFile; fileRef = 398124B8233281030019D5E6 /* BIP39Words.plist */; };
 		39812686233281050019D5E6 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 398124BA233281030019D5E6 /* Lato-Italic.ttf */; };
@@ -288,7 +290,6 @@
 		398127C1233287280019D5E6 /* WalletAuthenticationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398124A3233281030019D5E6 /* WalletAuthenticationTests.swift */; };
 		398127C2233287280019D5E6 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398124A4233281030019D5E6 /* TestHelpers.swift */; };
 		398127C3233287280019D5E6 /* BRTarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398124A5233281030019D5E6 /* BRTarTests.swift */; };
-		398127C4233287280019D5E6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 398124A6233281030019D5E6 /* Info.plist */; };
 		398127C5233287280019D5E6 /* BRHTTPServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398124A7233281030019D5E6 /* BRHTTPServerTests.swift */; };
 		398127C6233287280019D5E6 /* NSDataExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398124A8233281030019D5E6 /* NSDataExtensionTests.swift */; };
 		398127C9233287B20019D5E6 /* PushNotificationPayload.apns in Resources */ = {isa = PBXBuildFile; fileRef = 398124AA233281030019D5E6 /* PushNotificationPayload.apns */; };
@@ -460,7 +461,6 @@
 		75A2A7FB1DA5935F00A983D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75A2A7FA1DA5935F00A983D8 /* Assets.xcassets */; };
 		75C735AA1DAA1B9C00251ECF /* libunbound.c in Sources */ = {isa = PBXBuildFile; fileRef = 755CD4121DAA0E3E0075898E /* libunbound.c */; };
 		78D04F1920C710DB00AD1403 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2A81E1DA5938500A983D8 /* NotificationService.swift */; };
-		7AAD68AC6F3551C1ED7E518F /* Pods_DigiByteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94ED725009CC29055DBB4844 /* Pods_DigiByteTests.framework */; };
 		9F3EF3712059CA6400E3C837 /* BRBech32.c in Sources */ = {isa = PBXBuildFile; fileRef = 9F3EF36F2059CA6400E3C837 /* BRBech32.c */; };
 		AA85B80C1FEAF84B008EB914 /* groestl.c in Sources */ = {isa = PBXBuildFile; fileRef = AA85B7ED1FEAF84A008EB914 /* groestl.c */; };
 		AA85B80D1FEAF84B008EB914 /* qubit.c in Sources */ = {isa = PBXBuildFile; fileRef = AA85B7EF1FEAF84A008EB914 /* qubit.c */; };
@@ -477,10 +477,8 @@
 		AA85B8181FEAF84B008EB914 /* sph_simd.c in Sources */ = {isa = PBXBuildFile; fileRef = AA85B8061FEAF84A008EB914 /* sph_simd.c */; };
 		AA85B8191FEAF84B008EB914 /* skein.c in Sources */ = {isa = PBXBuildFile; fileRef = AA85B80A1FEAF84A008EB914 /* skein.c */; };
 		AA94556D2020DAB500B6ABB1 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA94556C2020DAB500B6ABB1 /* MainInterface.storyboard */; };
-		ADD03C566DEA174267C774D0 /* Pods_DigiByte.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA32442D798485E30F6C7ACE /* Pods_DigiByte.framework */; };
 		CEA7E67E1F09A9D2001F8C27 /* Screenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7E67D1F09A9D2001F8C27 /* Screenshots.swift */; };
 		CEA7E6871F09AB00001F8C27 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7E6861F09AB00001F8C27 /* SnapshotHelper.swift */; };
-		DC05924428F47B8A0B4C25E6 /* Pods_DigiByteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B8D86C455CCE2E11B4640E5 /* Pods_DigiByteUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -622,12 +620,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		05F39B6A4B46E1882748F6F8 /* Pods-digibyteTests.screenshots.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyteTests.screenshots.xcconfig"; path = "Pods/Target Support Files/Pods-digibyteTests/Pods-digibyteTests.screenshots.xcconfig"; sourceTree = "<group>"; };
-		08FA0BAF2A382E159BE5B10A /* Pods-DigiByteUITests.testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByteUITests.testnet.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByteUITests/Pods-DigiByteUITests.testnet.xcconfig"; sourceTree = "<group>"; };
-		158E98D4612A6B5316FA5BEC /* Pods-DigiByteTests.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByteTests.testflight.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByteTests/Pods-DigiByteTests.testflight.xcconfig"; sourceTree = "<group>"; };
-		16C6A71BAE93053870AB8C11 /* Pods-digibyteTests.testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyteTests.testnet.xcconfig"; path = "Pods/Target Support Files/Pods-digibyteTests/Pods-digibyteTests.testnet.xcconfig"; sourceTree = "<group>"; };
-		1B8D86C455CCE2E11B4640E5 /* Pods_DigiByteUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DigiByteUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		20273339BF9F67B70C7D8C9B /* Pods-DigiByteUITests.screenshots.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByteUITests.screenshots.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByteUITests/Pods-DigiByteUITests.screenshots.xcconfig"; sourceTree = "<group>"; };
 		22A9A95D1DF61FD0000F0016 /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
 		22A9A95F1DF61FD8000F0016 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		22A9A9611DF61FE0000F0016 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -638,15 +630,12 @@
 		22A9A9A91DF64B97000F0016 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Modules/libbz2/Info.plist; sourceTree = SOURCE_ROOT; };
 		22A9A9AA1DF64B97000F0016 /* iphone.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = iphone.modulemap; path = Modules/libbz2/iphone.modulemap; sourceTree = SOURCE_ROOT; };
 		22A9A9AB1DF64B97000F0016 /* iphonesim.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = iphonesim.modulemap; path = Modules/libbz2/iphonesim.modulemap; sourceTree = SOURCE_ROOT; };
-		24B5E26A28D70E73F714179D /* Pods-DigiByteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByteTests/Pods-DigiByteTests.debug.xcconfig"; sourceTree = "<group>"; };
-		2B8AFC1D9DDCF5EA57A72D4C /* Pods-DigiByte.testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByte.testnet.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByte/Pods-DigiByte.testnet.xcconfig"; sourceTree = "<group>"; };
-		2D5BD8E0D12DB696F3145E2D /* Pods-digibyteUITests.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyteUITests.testflight.xcconfig"; path = "Pods/Target Support Files/Pods-digibyteUITests/Pods-digibyteUITests.testflight.xcconfig"; sourceTree = "<group>"; };
-		37E1286D646F2BC9A77A7C48 /* Pods-DigiByteTests.testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByteTests.testnet.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByteTests/Pods-DigiByteTests.testnet.xcconfig"; sourceTree = "<group>"; };
 		39082BDB22760674008657F6 /* DigiByte TodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "DigiByte TodayExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39082BDE22760675008657F6 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		39082BE322760675008657F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39082BF42276089B008657F6 /* DigiByte Today Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "DigiByte Today Extension.entitlements"; sourceTree = "<group>"; };
 		39082BF522762CF9008657F6 /* DGBTodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DGBTodayViewController.swift; sourceTree = "<group>"; };
+		391BE381233372DF0079B56A /* VisualEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VisualEffectView.swift; path = Modules/VisualEffectView/Sources/VisualEffectView.swift; sourceTree = SOURCE_ROOT; };
 		39812494233281030019D5E6 /* digibyteUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = digibyteUITests.swift; sourceTree = "<group>"; };
 		39812495233281030019D5E6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39812497233281030019D5E6 /* BitIdTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitIdTests.swift; sourceTree = "<group>"; };
@@ -1072,11 +1061,6 @@
 		39D868DB22E5CCA20035FAF7 /* odocrypt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = odocrypt.h; sourceTree = "<group>"; };
 		39D868E022E5D0250035FAF7 /* brg_endian.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = brg_endian.h; sourceTree = "<group>"; };
 		39D868E122E64A170035FAF7 /* odocrypt.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = odocrypt.c; sourceTree = "<group>"; };
-		3F253E13C3E4A94EE8612B2F /* Pods-digibyteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-digibyteTests/Pods-digibyteTests.release.xcconfig"; sourceTree = "<group>"; };
-		40C6581957990676DAFB3521 /* Pods-digibyteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-digibyteTests/Pods-digibyteTests.debug.xcconfig"; sourceTree = "<group>"; };
-		42BF279CC081DF814253BED5 /* Pods-digibyteUITests.testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyteUITests.testnet.xcconfig"; path = "Pods/Target Support Files/Pods-digibyteUITests/Pods-digibyteUITests.testnet.xcconfig"; sourceTree = "<group>"; };
-		4859C2B8DF4D5AC75368B398 /* Pods-DigiByte.screenshots.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByte.screenshots.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByte/Pods-DigiByte.screenshots.xcconfig"; sourceTree = "<group>"; };
-		48A95A543C034755E98ED686 /* Pods-DigiByteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByteUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByteUITests/Pods-DigiByteUITests.release.xcconfig"; sourceTree = "<group>"; };
 		752FB03B1DF8BE4B009086FB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		752FB03C1DF8BE4B009086FB /* iphone.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = iphone.modulemap; sourceTree = "<group>"; };
 		752FB03D1DF8BE4B009086FB /* iphonesim.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = iphonesim.modulemap; sourceTree = "<group>"; };
@@ -1735,15 +1719,9 @@
 		78D04F2320C710DB00AD1403 /* NotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		78D04F3920C710E700AD1403 /* DigiByte WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DigiByte WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78D04F5320C710F100AD1403 /* DigiByte WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "DigiByte WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C7397EB8A4764D7E851BF4A /* Pods-digibyte.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyte.debug.xcconfig"; path = "Pods/Target Support Files/Pods-digibyte/Pods-digibyte.debug.xcconfig"; sourceTree = "<group>"; };
-		94ED725009CC29055DBB4844 /* Pods_DigiByteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DigiByteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F3EF36E2059CA6400E3C837 /* BRChainParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRChainParams.h; sourceTree = "<group>"; };
 		9F3EF36F2059CA6400E3C837 /* BRBech32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BRBech32.c; sourceTree = "<group>"; };
 		9F3EF3702059CA6400E3C837 /* BRBech32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBech32.h; sourceTree = "<group>"; };
-		A03AEC7D561C781073A61CA4 /* Pods-DigiByte.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByte.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByte/Pods-DigiByte.debug.xcconfig"; sourceTree = "<group>"; };
-		A13B2B3CA1E1ED55D7DA1313 /* Pods-DigiByte.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByte.testflight.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByte/Pods-DigiByte.testflight.xcconfig"; sourceTree = "<group>"; };
-		A200C6BEB37CDF9346A0C713 /* Pods-DigiByteUITests.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByteUITests.testflight.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByteUITests/Pods-DigiByteUITests.testflight.xcconfig"; sourceTree = "<group>"; };
-		A4B8F8E59B14FFAFE75F9809 /* Pods-DigiByteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByteUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByteUITests/Pods-DigiByteUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AA85B7ED1FEAF84A008EB914 /* groestl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = groestl.c; sourceTree = "<group>"; };
 		AA85B7EE1FEAF84A008EB914 /* groestl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = groestl.h; sourceTree = "<group>"; };
 		AA85B7EF1FEAF84A008EB914 /* qubit.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = qubit.c; sourceTree = "<group>"; };
@@ -1776,12 +1754,6 @@
 		AA85B80B1FEAF84A008EB914 /* skein.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = skein.h; sourceTree = "<group>"; };
 		AA94556A2020DA9600B6ABB1 /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		AA94556C2020DAB500B6ABB1 /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
-		B252788FCCE3166FC621948F /* Pods-digibyte.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyte.release.xcconfig"; path = "Pods/Target Support Files/Pods-digibyte/Pods-digibyte.release.xcconfig"; sourceTree = "<group>"; };
-		B5AE909ECCB7673495A88259 /* Pods-digibyteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyteUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-digibyteUITests/Pods-digibyteUITests.release.xcconfig"; sourceTree = "<group>"; };
-		BF677DE5BEB3700DB14BE701 /* Pods-DigiByteTests.screenshots.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByteTests.screenshots.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByteTests/Pods-DigiByteTests.screenshots.xcconfig"; sourceTree = "<group>"; };
-		C2F327098575E85039FDCAD1 /* Pods-digibyte.testnet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyte.testnet.xcconfig"; path = "Pods/Target Support Files/Pods-digibyte/Pods-digibyte.testnet.xcconfig"; sourceTree = "<group>"; };
-		C959511BF3776EB93B813F2D /* Pods-digibyte.screenshots.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyte.screenshots.xcconfig"; path = "Pods/Target Support Files/Pods-digibyte/Pods-digibyte.screenshots.xcconfig"; sourceTree = "<group>"; };
-		CCFE0D5F6C3D87E773497F07 /* Pods-DigiByte.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByte.release.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByte/Pods-DigiByte.release.xcconfig"; sourceTree = "<group>"; };
 		CE916E291EDA7E4400D641D6 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		CE916E2F1EDA7F1400D641D6 /* UIImage+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utils.h"; sourceTree = "<group>"; };
 		CE916E301EDA7F1400D641D6 /* UIImage+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utils.m"; sourceTree = "<group>"; };
@@ -1790,12 +1762,6 @@
 		CEA7E67D1F09A9D2001F8C27 /* Screenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screenshots.swift; sourceTree = "<group>"; };
 		CEA7E67F1F09A9D2001F8C27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEA7E6861F09AB00001F8C27 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
-		D92616E2AE3F5C65C5CCF179 /* Pods-digibyteTests.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyteTests.testflight.xcconfig"; path = "Pods/Target Support Files/Pods-digibyteTests/Pods-digibyteTests.testflight.xcconfig"; sourceTree = "<group>"; };
-		E4078AF369EC83FDAFBF5FEB /* Pods-digibyteUITests.screenshots.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyteUITests.screenshots.xcconfig"; path = "Pods/Target Support Files/Pods-digibyteUITests/Pods-digibyteUITests.screenshots.xcconfig"; sourceTree = "<group>"; };
-		E9F5A4261B652FEDEE61FD0D /* Pods-digibyteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyteUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-digibyteUITests/Pods-digibyteUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		EBCAFC3AA3EEE31AE87A9DEF /* Pods-DigiByteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiByteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DigiByteTests/Pods-DigiByteTests.release.xcconfig"; sourceTree = "<group>"; };
-		FA32442D798485E30F6C7ACE /* Pods_DigiByte.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DigiByte.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAC4CE2CC69B7B05264463A8 /* Pods-digibyte.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digibyte.testflight.xcconfig"; path = "Pods/Target Support Files/Pods-digibyte/Pods-digibyte.testflight.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1849,7 +1815,6 @@
 				223DB21B1DF69F0F0076A151 /* libbz2.framework in Frameworks */,
 				752FB04D1DF8BF4B009086FB /* sqlite3.framework in Frameworks */,
 				759DA0BE1DAC36A3008CC49B /* libBRCore.a in Frameworks */,
-				ADD03C566DEA174267C774D0 /* Pods_DigiByte.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1857,7 +1822,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AAD68AC6F3551C1ED7E518F /* Pods_DigiByteTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1865,7 +1829,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC05924428F47B8A0B4C25E6 /* Pods_DigiByteUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1940,6 +1903,14 @@
 				39082BF522762CF9008657F6 /* DGBTodayViewController.swift */,
 			);
 			path = "DigiByte Today Extension";
+			sourceTree = "<group>";
+		};
+		391BE380233372AE0079B56A /* VisualEffectView */ = {
+			isa = PBXGroup;
+			children = (
+				391BE381233372DF0079B56A /* VisualEffectView.swift */,
+			);
+			path = VisualEffectView;
 			sourceTree = "<group>";
 		};
 		39812493233281030019D5E6 /* digibyteUITests */ = {
@@ -3295,7 +3266,6 @@
 				CEA7E67C1F09A9D2001F8C27 /* Screenshots */,
 				75A2A7F11DA5935F00A983D8 /* Frameworks */,
 				75A2A7911DA5934300A983D8 /* Products */,
-				946CE2428AEA9F776033391B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -3332,9 +3302,6 @@
 				75FEFD1B1DAED56E00203D3A /* libsqlite3.tbd */,
 				75A2A7F21DA5935F00A983D8 /* Messages.framework */,
 				75A2A8091DA5936F00A983D8 /* NotificationCenter.framework */,
-				FA32442D798485E30F6C7ACE /* Pods_DigiByte.framework */,
-				94ED725009CC29055DBB4844 /* Pods_DigiByteTests.framework */,
-				1B8D86C455CCE2E11B4640E5 /* Pods_DigiByteUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -3362,6 +3329,7 @@
 		75B6F52F1DA71DCC0031A93F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				391BE380233372AE0079B56A /* VisualEffectView */,
 				22A9A9971DF63426000F0016 /* libbz2 */,
 				75DC77AB1DAA05B500932D9A /* digibytewallet-core */,
 				755CD3831DAA0E3E0075898E /* unbound */,
@@ -3428,43 +3396,6 @@
 			);
 			name = sqlite3;
 			path = Modules/sqlite3;
-			sourceTree = "<group>";
-		};
-		946CE2428AEA9F776033391B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				8C7397EB8A4764D7E851BF4A /* Pods-digibyte.debug.xcconfig */,
-				C2F327098575E85039FDCAD1 /* Pods-digibyte.testnet.xcconfig */,
-				C959511BF3776EB93B813F2D /* Pods-digibyte.screenshots.xcconfig */,
-				B252788FCCE3166FC621948F /* Pods-digibyte.release.xcconfig */,
-				FAC4CE2CC69B7B05264463A8 /* Pods-digibyte.testflight.xcconfig */,
-				40C6581957990676DAFB3521 /* Pods-digibyteTests.debug.xcconfig */,
-				16C6A71BAE93053870AB8C11 /* Pods-digibyteTests.testnet.xcconfig */,
-				05F39B6A4B46E1882748F6F8 /* Pods-digibyteTests.screenshots.xcconfig */,
-				3F253E13C3E4A94EE8612B2F /* Pods-digibyteTests.release.xcconfig */,
-				D92616E2AE3F5C65C5CCF179 /* Pods-digibyteTests.testflight.xcconfig */,
-				E9F5A4261B652FEDEE61FD0D /* Pods-digibyteUITests.debug.xcconfig */,
-				42BF279CC081DF814253BED5 /* Pods-digibyteUITests.testnet.xcconfig */,
-				E4078AF369EC83FDAFBF5FEB /* Pods-digibyteUITests.screenshots.xcconfig */,
-				B5AE909ECCB7673495A88259 /* Pods-digibyteUITests.release.xcconfig */,
-				2D5BD8E0D12DB696F3145E2D /* Pods-digibyteUITests.testflight.xcconfig */,
-				A03AEC7D561C781073A61CA4 /* Pods-DigiByte.debug.xcconfig */,
-				2B8AFC1D9DDCF5EA57A72D4C /* Pods-DigiByte.testnet.xcconfig */,
-				4859C2B8DF4D5AC75368B398 /* Pods-DigiByte.screenshots.xcconfig */,
-				CCFE0D5F6C3D87E773497F07 /* Pods-DigiByte.release.xcconfig */,
-				A13B2B3CA1E1ED55D7DA1313 /* Pods-DigiByte.testflight.xcconfig */,
-				24B5E26A28D70E73F714179D /* Pods-DigiByteTests.debug.xcconfig */,
-				37E1286D646F2BC9A77A7C48 /* Pods-DigiByteTests.testnet.xcconfig */,
-				BF677DE5BEB3700DB14BE701 /* Pods-DigiByteTests.screenshots.xcconfig */,
-				EBCAFC3AA3EEE31AE87A9DEF /* Pods-DigiByteTests.release.xcconfig */,
-				158E98D4612A6B5316FA5BEC /* Pods-DigiByteTests.testflight.xcconfig */,
-				A4B8F8E59B14FFAFE75F9809 /* Pods-DigiByteUITests.debug.xcconfig */,
-				08FA0BAF2A382E159BE5B10A /* Pods-DigiByteUITests.testnet.xcconfig */,
-				20273339BF9F67B70C7D8C9B /* Pods-DigiByteUITests.screenshots.xcconfig */,
-				48A95A543C034755E98ED686 /* Pods-DigiByteUITests.release.xcconfig */,
-				A200C6BEB37CDF9346A0C713 /* Pods-DigiByteUITests.testflight.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		AA85B7EC1FEAF84A008EB914 /* crypto */ = {
@@ -3661,7 +3592,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75A2A7E31DA5934400A983D8 /* Build configuration list for PBXNativeTarget "DigiByte" */;
 			buildPhases = (
-				622CA7497DB8E431E1899859 /* [CP] Check Pods Manifest.lock */,
 				75A2A78C1DA5934300A983D8 /* Sources */,
 				75A2A78D1DA5934300A983D8 /* Frameworks */,
 				75A2A78E1DA5934300A983D8 /* Resources */,
@@ -3669,7 +3599,6 @@
 				75A2A7E21DA5934400A983D8 /* Embed Watch Content */,
 				22A9A9831DF63288000F0016 /* Embed Frameworks */,
 				CEE0EF531EBF8C8A0018DB36 /* Icon Versioning */,
-				756FB167A65ABBE5A0B78821 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -3687,7 +3616,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75A2A7E61DA5934400A983D8 /* Build configuration list for PBXNativeTarget "DigiByteTests" */;
 			buildPhases = (
-				5B40AECB1651708AC93267AB /* [CP] Check Pods Manifest.lock */,
 				75A2A7A01DA5934300A983D8 /* Sources */,
 				75A2A7A11DA5934300A983D8 /* Frameworks */,
 				75A2A7A21DA5934300A983D8 /* Resources */,
@@ -3706,7 +3634,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75A2A7E91DA5934400A983D8 /* Build configuration list for PBXNativeTarget "DigiByteUITests" */;
 			buildPhases = (
-				37905F5A49F5EB10788E9E50 /* [CP] Check Pods Manifest.lock */,
 				75A2A7AB1DA5934300A983D8 /* Sources */,
 				75A2A7AC1DA5934300A983D8 /* Frameworks */,
 				75A2A7AD1DA5934300A983D8 /* Resources */,
@@ -3838,7 +3765,7 @@
 			attributes = {
 				CLASSPREFIX = BR;
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "DigiByte Foundation NZ Limited";
 				TargetAttributes = {
 					22A9A9951DF63426000F0016 = {
@@ -4075,7 +4002,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				398127C4233287280019D5E6 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4145,24 +4071,6 @@
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\nb=`cat versioning_branch`\nbranch=${1:-\"$b\"}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nif [ -f \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\n";
 		};
-		37905F5A49F5EB10788E9E50 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DigiByteUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		39CBC670227DC0B000A9E7AE /* Build Versioning */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -4180,59 +4088,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/bash\n\n#  update_build_number.sh\n#  Usage: `update_build_number.sh [branch]`\n#  Run this script after the 'Copy Bundle Resources' build phase\n#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/\nb=`cat versioning_branch`\nbranch=${1:-\"$b\"}\nbuildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))\necho \"Updating build number to $buildNumber using branch '$branch'.\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nif [ -f \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\" ]; then\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"\nfi\n";
-		};
-		5B40AECB1651708AC93267AB /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DigiByteTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		622CA7497DB8E431E1899859 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DigiByte-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		756FB167A65ABBE5A0B78821 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DigiByte/Pods-DigiByte-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DigiByte/Pods-DigiByte-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DigiByte/Pods-DigiByte-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		78D04F1C20C710DB00AD1403 /* Build Versioning */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4561,6 +4416,7 @@
 				398126F5233281050019D5E6 /* UIImage+Utils.swift in Sources */,
 				39812735233281050019D5E6 /* StartImportViewController.swift in Sources */,
 				39812733233281050019D5E6 /* AmountViewController.swift in Sources */,
+				391BE382233372DF0079B56A /* VisualEffectView.swift in Sources */,
 				398126EA233281050019D5E6 /* UIColor+BRWAdditions.swift in Sources */,
 				39812691233281050019D5E6 /* UIFont+DAAdditions.swift in Sources */,
 				3981274A233281050019D5E6 /* PaymentProtocol.swift in Sources */,
@@ -4717,6 +4573,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				398127D82332B4C00019D5E6 /* digibyteUITests.swift in Sources */,
+				391BE383233372DF0079B56A /* VisualEffectView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5503,7 +5360,6 @@
 		};
 		75A2A7E41DA5934400A983D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A03AEC7D561C781073A61CA4 /* Pods-DigiByte.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -5540,7 +5396,6 @@
 		};
 		75A2A7E51DA5934400A983D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CCFE0D5F6C3D87E773497F07 /* Pods-DigiByte.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -5577,7 +5432,6 @@
 		};
 		75A2A7E71DA5934400A983D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24B5E26A28D70E73F714179D /* Pods-DigiByteTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -5598,7 +5452,6 @@
 		};
 		75A2A7E81DA5934400A983D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EBCAFC3AA3EEE31AE87A9DEF /* Pods-DigiByteTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -5619,16 +5472,10 @@
 		};
 		75A2A7EA1DA5934400A983D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A4B8F8E59B14FFAFE75F9809 /* Pods-DigiByteUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/Buglife\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/VisualEffectView\"",
-					"\"${PODS_ROOT}/Reveal-SDK/RevealServer-20/iOS\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = digibyteUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -5645,7 +5492,6 @@
 		};
 		75A2A7EB1DA5934400A983D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 48A95A543C034755E98ED686 /* Pods-DigiByteUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
@@ -6210,7 +6056,6 @@
 		};
 		CEA7E6891F09AC6A001F8C27 /* Screenshots */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4859C2B8DF4D5AC75368B398 /* Pods-DigiByte.screenshots.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -6247,7 +6092,6 @@
 		};
 		CEA7E68A1F09AC6A001F8C27 /* Screenshots */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BF677DE5BEB3700DB14BE701 /* Pods-DigiByteTests.screenshots.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -6268,7 +6112,6 @@
 		};
 		CEA7E68B1F09AC6A001F8C27 /* Screenshots */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 20273339BF9F67B70C7D8C9B /* Pods-DigiByteUITests.screenshots.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
@@ -6509,7 +6352,6 @@
 		};
 		CEA7E69C1F0AAA84001F8C27 /* Testnet */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B8AFC1D9DDCF5EA57A72D4C /* Pods-DigiByte.testnet.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -6546,7 +6388,6 @@
 		};
 		CEA7E69D1F0AAA84001F8C27 /* Testnet */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 37E1286D646F2BC9A77A7C48 /* Pods-DigiByteTests.testnet.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -6567,7 +6408,6 @@
 		};
 		CEA7E69E1F0AAA84001F8C27 /* Testnet */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 08FA0BAF2A382E159BE5B10A /* Pods-DigiByteUITests.testnet.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
@@ -6802,7 +6642,6 @@
 		};
 		CEE0EF551EBF8D7F0018DB36 /* Testflight */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A13B2B3CA1E1ED55D7DA1313 /* Pods-DigiByte.testflight.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -6838,7 +6677,6 @@
 		};
 		CEE0EF561EBF8D7F0018DB36 /* Testflight */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 158E98D4612A6B5316FA5BEC /* Pods-DigiByteTests.testflight.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -6859,7 +6697,6 @@
 		};
 		CEE0EF571EBF8D7F0018DB36 /* Testflight */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A200C6BEB37CDF9346A0C713 /* Pods-DigiByteUITests.testflight.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = G49J8N7X2F;

@@ -10,3 +10,6 @@
 [submodule "Modules/digibytewallet-core"]
 	path = Modules/digibytewallet-core
 	url = https://github.com/SmartArray/digibytewallet-core.git
+[submodule "Modules/VisualEffectView"]
+	path = Modules/VisualEffectView
+	url = https://github.com/efremidze/VisualEffectView.git

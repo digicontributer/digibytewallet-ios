@@ -25,7 +25,6 @@
 
 import UIKit
 import LocalAuthentication
-import Buglife
 import UserNotifications
 
 var senderApp = ""
@@ -62,13 +61,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             resetKeychain()
         }
 #endif
-        
-		Buglife.shared().start(withAPIKey: "") // TODO: Replace me with the BugLife API Key
-        
-        let appearance = Buglife.shared().appearance
-        appearance.tintColor = .black
-        appearance.barTintColor = .blueGradientEnd
-        appearance.statusBarStyle = .lightContent
         
         UIView.swizzleSetFrame()
         applicationController.launch(application: application, options: launchOptions)
