@@ -155,7 +155,6 @@
 		3981270D233281050019D5E6 /* BRDigiAssetsTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398125BE233281040019D5E6 /* BRDigiAssetsTestViewController.swift */; };
 		3981270E233281050019D5E6 /* ManageWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398125C0233281040019D5E6 /* ManageWalletViewController.swift */; };
 		39812711233281050019D5E6 /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398125C3233281040019D5E6 /* ReceiveViewController.swift */; };
-		39812712233281050019D5E6 /* #*merge*#130503Ci# in Resources */ = {isa = PBXBuildFile; fileRef = 398125C4233281040019D5E6 /* #*merge*#130503Ci# */; };
 		39812713233281050019D5E6 /* ShowAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398125C5233281040019D5E6 /* ShowAddressViewController.swift */; };
 		39812714233281050019D5E6 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398125C6233281040019D5E6 /* SendViewController.swift */; };
 		39812716233281050019D5E6 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398125C8233281040019D5E6 /* ModalViewController.swift */; };
@@ -910,7 +909,6 @@
 		398125BE233281040019D5E6 /* BRDigiAssetsTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BRDigiAssetsTestViewController.swift; sourceTree = "<group>"; };
 		398125C0233281040019D5E6 /* ManageWalletViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageWalletViewController.swift; sourceTree = "<group>"; };
 		398125C3233281040019D5E6 /* ReceiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
-		398125C4233281040019D5E6 /* #*merge*#130503Ci# */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "#*merge*#130503Ci#"; sourceTree = "<group>"; };
 		398125C5233281040019D5E6 /* ShowAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowAddressViewController.swift; sourceTree = "<group>"; };
 		398125C6233281040019D5E6 /* SendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
 		398125C8233281040019D5E6 /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
@@ -2250,7 +2248,6 @@
 			children = (
 				398125C0233281040019D5E6 /* ManageWalletViewController.swift */,
 				398125C3233281040019D5E6 /* ReceiveViewController.swift */,
-				398125C4233281040019D5E6 /* #*merge*#130503Ci# */,
 				398125C5233281040019D5E6 /* ShowAddressViewController.swift */,
 				398125C6233281040019D5E6 /* SendViewController.swift */,
 				398125C8233281040019D5E6 /* ModalViewController.swift */,
@@ -3980,7 +3977,6 @@
 				39812692233281050019D5E6 /* Rebrand.xcassets in Resources */,
 				39812689233281050019D5E6 /* LaunchScreen.storyboard in Resources */,
 				3981278E233281050019D5E6 /* LoadingIndicator.xcassets in Resources */,
-				39812712233281050019D5E6 /* #*merge*#130503Ci# in Resources */,
 				3981267E233281050019D5E6 /* Assets.xcassets in Resources */,
 				39812695233281050019D5E6 /* Assets.xcassets in Resources */,
 				398126AF233281050019D5E6 /* Localizable.strings in Resources */,

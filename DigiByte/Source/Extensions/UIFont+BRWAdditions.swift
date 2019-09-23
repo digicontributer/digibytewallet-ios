@@ -22,7 +22,9 @@ extension UIFont {
         return font
     }
     static func customMedium(size: CGFloat) -> UIFont {
-        guard let font = UIFont(name: "Rubik-Medium", size: size) else { return UIFont.preferredFont(forTextStyle: .body) }
+        guard let font = UIFont(name: "Rubik-Medium", size: size) else {
+            return UIFont.preferredFont(forTextStyle: .body)
+        }
         return font
     }
 

@@ -141,8 +141,6 @@
 		<dict>
 			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypeShare</string>
-			<key>UIApplicationShortcutItemSubtitle</key>
-			<string>Send your DGB to someone</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Send DGB</string>
 			<key>UIApplicationShortcutItemType</key>
@@ -151,8 +149,6 @@
 		<dict>
 			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypeUpdate</string>
-			<key>UIApplicationShortcutItemSubtitle</key>
-			<string>Receive DGB from someone</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Receive DGB</string>
 			<key>UIApplicationShortcutItemType</key>
@@ -161,8 +157,6 @@
 		<dict>
 			<key>UIApplicationShortcutItemIconFile</key>
 			<string>Digi-id-icon</string>
-			<key>UIApplicationShortcutItemSubtitle</key>
-			<string>Open Digi-ID Authenticator</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Digi-ID</string>
 			<key>UIApplicationShortcutItemType</key>
@@ -171,8 +165,6 @@
 		<dict>
 			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypeContact</string>
-			<key>UIApplicationShortcutItemSubtitle</key>
-			<string>View your contacts</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>AddressBook</string>
 			<key>UIApplicationShortcutItemType</key>
