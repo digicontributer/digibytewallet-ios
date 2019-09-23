@@ -314,6 +314,9 @@
 		398A85C02330E9BA00119827 /* BRKeccak-800-SnP.c in Sources */ = {isa = PBXBuildFile; fileRef = 398A85BF2330E9B900119827 /* BRKeccak-800-SnP.c */; };
 		398A85C22330E9D100119827 /* brg_endian.h in Headers */ = {isa = PBXBuildFile; fileRef = 398A85C12330E9D100119827 /* brg_endian.h */; };
 		39D0349E233254B000DE3E78 /* ToDos.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 39D0349D233254AF00DE3E78 /* ToDos.rtf */; };
+		39E304582338B3F0008F8386 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398125A3233281040019D5E6 /* UIImage+Utils.swift */; };
+		39E304592338B413008F8386 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398124F1233281030019D5E6 /* Utils.swift */; };
+		39E3045A2338B434008F8386 /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398125AA233281040019D5E6 /* UserDefaults+Shared.swift */; };
 		751734B91DAC941E00193C87 /* sec-sub-1.c in Sources */ = {isa = PBXBuildFile; fileRef = 755CD8BE1DAA16820075898E /* sec-sub-1.c */; };
 		752438751DAAC50800844BEC /* alloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 755CD6761DAA0E400075898E /* alloc.c */; };
 		752438761DAAC52700844BEC /* config_file.c in Sources */ = {isa = PBXBuildFile; fileRef = 755CD67A1DAA0E400075898E /* config_file.c */; };
@@ -4161,9 +4164,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39E304592338B413008F8386 /* Utils.swift in Sources */,
+				39E3045A2338B434008F8386 /* UserDefaults+Shared.swift in Sources */,
 				39082BF622762CF9008657F6 /* DGBTodayViewController.swift in Sources */,
 				39082BEE227606F0008657F6 /* UIImage+Utils.m in Sources */,
 				39082BDF22760675008657F6 /* TodayViewController.swift in Sources */,
+				39E304582338B3F0008F8386 /* UIImage+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
