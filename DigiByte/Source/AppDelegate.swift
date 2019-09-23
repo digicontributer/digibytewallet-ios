@@ -27,7 +27,15 @@ import UIKit
 import LocalAuthentication
 import UserNotifications
 
-var senderApp = ""
+var _senderApp: String = "";
+
+var senderApp: String {
+    set {
+        _senderApp = newValue
+    } get {
+        return _senderApp
+    }
+}
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -52,28 +60,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 #endif
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        if let _ = launchOptions?[UIApplication.LaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
+            senderApp = "HomeScreen"
+        }
+        
+        return true;
+    }
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 
 #if Debug
-        
+
         if false {
             UserDefaults.hasShownWelcome = false
             resetKeychain()
         }
 #endif
-        
+
         UIView.swizzleSetFrame()
         applicationController.launch(application: application, options: launchOptions)
         return true
     }
-
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        senderApp = ""
-        
         applicationController.willEnterForeground()
     }
 
@@ -90,6 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.applicationController.resetWindows()
             
@@ -111,6 +126,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     break
                 
                 default:
+                    senderApp = ""
                     break
             }
         }

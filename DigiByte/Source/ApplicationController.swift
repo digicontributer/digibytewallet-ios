@@ -175,6 +175,7 @@ class ApplicationController : Subscriber, Trackable {
     }
 
     func willEnterForeground() {
+        senderApp = ""
         guard let walletManager = walletManager else { return }
         guard !walletManager.noWallet else { return }
         if shouldRequireLogin() {
@@ -343,22 +344,27 @@ class ApplicationController : Subscriber, Trackable {
         accountViewController = AccountViewController(store: store, didSelectTransaction: didSelectTransaction)
         
         accountViewController?.sendCallback = {
+            senderApp = "HomeScreen"
             self.store.perform(action: RootModalActions.Present(modal: .send))
         }
         
         accountViewController?.receiveCallback = {
+            senderApp = "HomeScreen"
             self.store.perform(action: RootModalActions.Present(modal: .receive))
         }
         
         accountViewController?.showAddressBookCallback = {
+            senderApp = "HomeScreen"
             self.store.perform(action: RootModalActions.Present(modal: .showAddressBook))
         }
         
         accountViewController?.digiIDCallback = {
+            senderApp = "HomeScreen"
             self.store.trigger(name: .scanDigiId)
         }
         
         accountViewController?.scanCallback = {
+            senderApp = "HomeScreen"
             self.modalPresenter?.presentLoginScan()
         }
         
