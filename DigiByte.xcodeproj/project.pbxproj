@@ -25,13 +25,10 @@
 		391BE383233372DF0079B56A /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391BE381233372DF0079B56A /* VisualEffectView.swift */; };
 		3981267E233281050019D5E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 398124B0233281030019D5E6 /* Assets.xcassets */; };
 		39812685233281050019D5E6 /* BIP39Words.plist in Resources */ = {isa = PBXBuildFile; fileRef = 398124B8233281030019D5E6 /* BIP39Words.plist */; };
-		39812686233281050019D5E6 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 398124BA233281030019D5E6 /* Lato-Italic.ttf */; };
 		39812687233281050019D5E6 /* Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 398124BF233281030019D5E6 /* Icon.xcassets */; };
 		39812688233281050019D5E6 /* BiometricsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398124C0233281030019D5E6 /* BiometricsSettingsViewController.swift */; };
 		39812689233281050019D5E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 398124C2233281030019D5E6 /* LaunchScreen.storyboard */; };
-		3981268A233281050019D5E6 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 398124C4233281030019D5E6 /* Rubik-Bold.ttf */; };
 		3981268B233281050019D5E6 /* AssociatedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398124C5233281030019D5E6 /* AssociatedObject.swift */; };
-		3981268C233281050019D5E6 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 398124C6233281030019D5E6 /* Lato-Bold.ttf */; };
 		3981268D233281050019D5E6 /* BRAPIClient+KV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398124C8233281030019D5E6 /* BRAPIClient+KV.swift */; };
 		3981268E233281050019D5E6 /* BRAPIClient+Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398124C9233281030019D5E6 /* BRAPIClient+Wallet.swift */; };
 		3981268F233281050019D5E6 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 398124CE233281030019D5E6 /* Settings.bundle */; };
@@ -41,13 +38,9 @@
 		39812693233281050019D5E6 /* BRAPIClient+Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398124D9233281030019D5E6 /* BRAPIClient+Features.swift */; };
 		39812694233281050019D5E6 /* BRAPIClient+Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398124DA233281030019D5E6 /* BRAPIClient+Events.swift */; };
 		39812695233281050019D5E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 398124DE233281030019D5E6 /* Assets.xcassets */; };
-		39812696233281050019D5E6 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 398124DF233281030019D5E6 /* Lato-Regular.ttf */; };
-		39812697233281050019D5E6 /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 398124E3233281030019D5E6 /* Rubik-Medium.ttf */; };
 		39812699233281050019D5E6 /* URLController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398124EA233281030019D5E6 /* URLController.swift */; };
 		3981269A233281050019D5E6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398124F1233281030019D5E6 /* Utils.swift */; };
 		3981269B233281050019D5E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398124F7233281030019D5E6 /* AppDelegate.swift */; };
-		3981269C233281050019D5E6 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 398124F8233281030019D5E6 /* Lato-Medium.ttf */; };
-		398126A0233281050019D5E6 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 398124FE233281030019D5E6 /* Rubik-Regular.ttf */; };
 		398126A1233281050019D5E6 /* EmergencyRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39812501233281030019D5E6 /* EmergencyRates.swift */; };
 		398126A3233281050019D5E6 /* Bonjour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39812504233281030019D5E6 /* Bonjour.swift */; };
 		398126A5233281050019D5E6 /* DigiAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39812506233281030019D5E6 /* DigiAssets.xcassets */; };
@@ -312,6 +305,13 @@
 		398A85BD2330E97900119827 /* odocrypt.c in Sources */ = {isa = PBXBuildFile; fileRef = 398A85BB2330E97900119827 /* odocrypt.c */; };
 		398A85C02330E9BA00119827 /* BRKeccak-800-SnP.c in Sources */ = {isa = PBXBuildFile; fileRef = 398A85BF2330E9B900119827 /* BRKeccak-800-SnP.c */; };
 		398A85C22330E9D100119827 /* brg_endian.h in Headers */ = {isa = PBXBuildFile; fileRef = 398A85C12330E9D100119827 /* brg_endian.h */; };
+		39C4A7762339104A00D84AF6 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 398124BA233281030019D5E6 /* Lato-Italic.ttf */; };
+		39C4A7772339104A00D84AF6 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 398124C4233281030019D5E6 /* Rubik-Bold.ttf */; };
+		39C4A7782339104A00D84AF6 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 398124C6233281030019D5E6 /* Lato-Bold.ttf */; };
+		39C4A7792339104A00D84AF6 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 398124DF233281030019D5E6 /* Lato-Regular.ttf */; };
+		39C4A77A2339104A00D84AF6 /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 398124E3233281030019D5E6 /* Rubik-Medium.ttf */; };
+		39C4A77B2339104A00D84AF6 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 398124F8233281030019D5E6 /* Lato-Medium.ttf */; };
+		39C4A77C2339104A00D84AF6 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 398124FE233281030019D5E6 /* Rubik-Regular.ttf */; };
 		39D0349E233254B000DE3E78 /* ToDos.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 39D0349D233254AF00DE3E78 /* ToDos.rtf */; };
 		39E304582338B3F0008F8386 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398125A3233281040019D5E6 /* UIImage+Utils.swift */; };
 		39E304592338B413008F8386 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398124F1233281030019D5E6 /* Utils.swift */; };
@@ -3961,17 +3961,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				3981278D233281050019D5E6 /* Interface.strings in Resources */,
-				3981268A233281050019D5E6 /* Rubik-Bold.ttf in Resources */,
-				39812686233281050019D5E6 /* Lato-Italic.ttf in Resources */,
-				3981269C233281050019D5E6 /* Lato-Medium.ttf in Resources */,
+				39C4A7762339104A00D84AF6 /* Lato-Italic.ttf in Resources */,
+				39C4A7772339104A00D84AF6 /* Rubik-Bold.ttf in Resources */,
+				39C4A7782339104A00D84AF6 /* Lato-Bold.ttf in Resources */,
+				39C4A7792339104A00D84AF6 /* Lato-Regular.ttf in Resources */,
+				39C4A77A2339104A00D84AF6 /* Rubik-Medium.ttf in Resources */,
+				39C4A77B2339104A00D84AF6 /* Lato-Medium.ttf in Resources */,
+				39C4A77C2339104A00D84AF6 /* Rubik-Regular.ttf in Resources */,
 				398126A5233281050019D5E6 /* DigiAssets.xcassets in Resources */,
-				39812696233281050019D5E6 /* Lato-Regular.ttf in Resources */,
 				39812687233281050019D5E6 /* Icon.xcassets in Resources */,
 				39812685233281050019D5E6 /* BIP39Words.plist in Resources */,
 				39812690233281050019D5E6 /* coinflip.aiff in Resources */,
 				39D0349E233254B000DE3E78 /* ToDos.rtf in Resources */,
 				3981268F233281050019D5E6 /* Settings.bundle in Resources */,
-				3981268C233281050019D5E6 /* Lato-Bold.ttf in Resources */,
 				3981278F233281050019D5E6 /* Assets.xcassets in Resources */,
 				39082BF822762EA2008657F6 /* Media.xcassets in Resources */,
 				39812692233281050019D5E6 /* Rebrand.xcassets in Resources */,
@@ -3980,8 +3982,6 @@
 				3981267E233281050019D5E6 /* Assets.xcassets in Resources */,
 				39812695233281050019D5E6 /* Assets.xcassets in Resources */,
 				398126AF233281050019D5E6 /* Localizable.strings in Resources */,
-				398126A0233281050019D5E6 /* Rubik-Regular.ttf in Resources */,
-				39812697233281050019D5E6 /* Rubik-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
