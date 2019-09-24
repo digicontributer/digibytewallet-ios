@@ -15,12 +15,7 @@
 		22A9A9661DF61FEE000F0016 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A9A9651DF61FEE000F0016 /* WebKit.framework */; };
 		22A9A9A31DF63497000F0016 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A9A9671DF61FF8000F0016 /* libbz2.tbd */; };
 		39082BDC22760675008657F6 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A2A8091DA5936F00A983D8 /* NotificationCenter.framework */; };
-		39082BDF22760675008657F6 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39082BDE22760675008657F6 /* TodayViewController.swift */; };
-		39082BEE227606F0008657F6 /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = CE916E301EDA7F1400D641D6 /* UIImage+Utils.m */; };
-		39082BF12276071F008657F6 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE916E291EDA7E4400D641D6 /* Media.xcassets */; };
-		39082BF322760763008657F6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA94556A2020DA9600B6ABB1 /* MainInterface.storyboard */; };
 		39082BF622762CF9008657F6 /* DGBTodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39082BF522762CF9008657F6 /* DGBTodayViewController.swift */; };
-		39082BF822762EA2008657F6 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE916E291EDA7E4400D641D6 /* Media.xcassets */; };
 		391BE382233372DF0079B56A /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391BE381233372DF0079B56A /* VisualEffectView.swift */; };
 		391BE383233372DF0079B56A /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391BE381233372DF0079B56A /* VisualEffectView.swift */; };
 		3981267E233281050019D5E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 398124B0233281030019D5E6 /* Assets.xcassets */; };
@@ -312,6 +307,8 @@
 		39C4A77A2339104A00D84AF6 /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 398124E3233281030019D5E6 /* Rubik-Medium.ttf */; };
 		39C4A77B2339104A00D84AF6 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 398124F8233281030019D5E6 /* Lato-Medium.ttf */; };
 		39C4A77C2339104A00D84AF6 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 398124FE233281030019D5E6 /* Rubik-Regular.ttf */; };
+		39CD011C233A355400FCF02C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39CD011B233A355400FCF02C /* MainInterface.storyboard */; };
+		39CD011F233A379700FCF02C /* DigiByte Wallet.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 39082BDB22760674008657F6 /* DigiByte Wallet.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		39D0349E233254B000DE3E78 /* ToDos.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 39D0349D233254AF00DE3E78 /* ToDos.rtf */; };
 		39E304582338B3F0008F8386 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398125A3233281040019D5E6 /* UIImage+Utils.swift */; };
 		39E304592338B413008F8386 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398124F1233281030019D5E6 /* Utils.swift */; };
@@ -488,6 +485,13 @@
 			remoteGlobalIDString = 22A9A9951DF63426000F0016;
 			remoteInfo = libbz2;
 		};
+		39CD011D233A364900FCF02C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75A2A7881DA5934300A983D8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 39082BDA22760674008657F6;
+			remoteInfo = "DigiByte TodayExtension";
+		};
 		752FB04E1DF8BF5C009086FB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 75A2A7881DA5934300A983D8 /* Project object */;
@@ -557,6 +561,17 @@
 				754AE0B81DFCA870007FD001 /* sqlite3.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39C4A7932339124500D84AF6 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				39CD011F233A379700FCF02C /* DigiByte Wallet.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		755CD9C21DAA18420075898E /* CopyFiles */ = {
@@ -629,10 +644,9 @@
 		22A9A9A91DF64B97000F0016 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Modules/libbz2/Info.plist; sourceTree = SOURCE_ROOT; };
 		22A9A9AA1DF64B97000F0016 /* iphone.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = iphone.modulemap; path = Modules/libbz2/iphone.modulemap; sourceTree = SOURCE_ROOT; };
 		22A9A9AB1DF64B97000F0016 /* iphonesim.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = iphonesim.modulemap; path = Modules/libbz2/iphonesim.modulemap; sourceTree = SOURCE_ROOT; };
-		39082BDB22760674008657F6 /* DigiByte TodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "DigiByte TodayExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		39082BDE22760675008657F6 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		39082BDB22760674008657F6 /* DigiByte Wallet.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "DigiByte Wallet.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39082BE322760675008657F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		39082BF42276089B008657F6 /* DigiByte Today Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "DigiByte Today Extension.entitlements"; sourceTree = "<group>"; };
+		39082BF42276089B008657F6 /* DigiByte TodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "DigiByte TodayExtension.entitlements"; sourceTree = "<group>"; };
 		39082BF522762CF9008657F6 /* DGBTodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DGBTodayViewController.swift; sourceTree = "<group>"; };
 		391BE381233372DF0079B56A /* VisualEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VisualEffectView.swift; path = Modules/VisualEffectView/Sources/VisualEffectView.swift; sourceTree = SOURCE_ROOT; };
 		39812494233281030019D5E6 /* digibyteUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = digibyteUITests.swift; sourceTree = "<group>"; };
@@ -1052,6 +1066,7 @@
 		398A85BE2330E9B900119827 /* BRKeccak-800-SnP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BRKeccak-800-SnP.h"; sourceTree = "<group>"; };
 		398A85BF2330E9B900119827 /* BRKeccak-800-SnP.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "BRKeccak-800-SnP.c"; sourceTree = "<group>"; };
 		398A85C12330E9D100119827 /* brg_endian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = brg_endian.h; sourceTree = "<group>"; };
+		39CD011B233A355400FCF02C /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		39D0349D233254AF00DE3E78 /* ToDos.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = ToDos.rtf; sourceTree = "<group>"; };
 		39D868DB22E5CCA20035FAF7 /* odocrypt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = odocrypt.h; sourceTree = "<group>"; };
 		39D868E022E5D0250035FAF7 /* brg_endian.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = brg_endian.h; sourceTree = "<group>"; };
@@ -1747,12 +1762,7 @@
 		AA85B8091FEAF84A008EB914 /* sph_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sph_types.h; sourceTree = "<group>"; };
 		AA85B80A1FEAF84A008EB914 /* skein.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = skein.c; sourceTree = "<group>"; };
 		AA85B80B1FEAF84A008EB914 /* skein.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = skein.h; sourceTree = "<group>"; };
-		AA94556A2020DA9600B6ABB1 /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		AA94556C2020DAB500B6ABB1 /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
-		CE916E291EDA7E4400D641D6 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		CE916E2F1EDA7F1400D641D6 /* UIImage+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utils.h"; sourceTree = "<group>"; };
-		CE916E301EDA7F1400D641D6 /* UIImage+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utils.m"; sourceTree = "<group>"; };
-		CE916E341EDA848B00D641D6 /* TodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayExtension.entitlements; sourceTree = "<group>"; };
 		CEA7E67B1F09A9D2001F8C27 /* Screenshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Screenshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA7E67D1F09A9D2001F8C27 /* Screenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screenshots.swift; sourceTree = "<group>"; };
 		CEA7E67F1F09A9D2001F8C27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1884,20 +1894,15 @@
 			path = Modules/libbz2;
 			sourceTree = "<group>";
 		};
-		39082BDD22760675008657F6 /* DigiByte Today Extension */ = {
+		39082BDD22760675008657F6 /* DigiByte TodayExtension */ = {
 			isa = PBXGroup;
 			children = (
-				39082BF42276089B008657F6 /* DigiByte Today Extension.entitlements */,
-				AA94556A2020DA9600B6ABB1 /* MainInterface.storyboard */,
-				CE916E341EDA848B00D641D6 /* TodayExtension.entitlements */,
-				CE916E2F1EDA7F1400D641D6 /* UIImage+Utils.h */,
-				CE916E301EDA7F1400D641D6 /* UIImage+Utils.m */,
-				CE916E291EDA7E4400D641D6 /* Media.xcassets */,
-				39082BDE22760675008657F6 /* TodayViewController.swift */,
+				39CD011B233A355400FCF02C /* MainInterface.storyboard */,
+				39082BF42276089B008657F6 /* DigiByte TodayExtension.entitlements */,
 				39082BE322760675008657F6 /* Info.plist */,
 				39082BF522762CF9008657F6 /* DGBTodayViewController.swift */,
 			);
-			path = "DigiByte Today Extension";
+			path = "DigiByte TodayExtension";
 			sourceTree = "<group>";
 		};
 		391BE380233372AE0079B56A /* VisualEffectView */ = {
@@ -3247,7 +3252,7 @@
 				39D0349D233254AF00DE3E78 /* ToDos.rtf */,
 				398124B7233281030019D5E6 /* DigiByte */,
 				3981264A233281040019D5E6 /* DigiByte WatchKit App */,
-				39082BDD22760675008657F6 /* DigiByte Today Extension */,
+				39082BDD22760675008657F6 /* DigiByte TodayExtension */,
 				398124A9233281030019D5E6 /* DigiByte WatchKit Extension */,
 				39812496233281030019D5E6 /* digibyteTests */,
 				39812493233281030019D5E6 /* digibyteUITests */,
@@ -3276,7 +3281,7 @@
 				78D04F2320C710DB00AD1403 /* NotificationServiceExtension.appex */,
 				78D04F3920C710E700AD1403 /* DigiByte WatchKit App.app */,
 				78D04F5320C710F100AD1403 /* DigiByte WatchKit Extension.appex */,
-				39082BDB22760674008657F6 /* DigiByte TodayExtension.appex */,
+				39082BDB22760674008657F6 /* DigiByte Wallet.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3522,7 +3527,7 @@
 			);
 			name = "DigiByte TodayExtension";
 			productName = "DigiByte Today Extension";
-			productReference = 39082BDB22760674008657F6 /* DigiByte TodayExtension.appex */;
+			productReference = 39082BDB22760674008657F6 /* DigiByte Wallet.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		752FB0411DF8BE6B009086FB /* sqlite3 */ = {
@@ -3590,10 +3595,12 @@
 				75A2A7E21DA5934400A983D8 /* Embed Watch Content */,
 				22A9A9831DF63288000F0016 /* Embed Frameworks */,
 				CEE0EF531EBF8C8A0018DB36 /* Icon Versioning */,
+				39C4A7932339124500D84AF6 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				39CD011E233A364900FCF02C /* PBXTargetDependency */,
 				759DA0BD1DAC369C008CC49B /* PBXTargetDependency */,
 				22A9A99C1DF63426000F0016 /* PBXTargetDependency */,
 				752FB04F1DF8BF5C009086FB /* PBXTargetDependency */,
@@ -3755,7 +3762,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = BR;
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "DigiByte Foundation NZ Limited";
 				TargetAttributes = {
@@ -3944,8 +3951,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39082BF322760763008657F6 /* MainInterface.storyboard in Resources */,
-				39082BF12276071F008657F6 /* Media.xcassets in Resources */,
+				39CD011C233A355400FCF02C /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3975,7 +3981,6 @@
 				39D0349E233254B000DE3E78 /* ToDos.rtf in Resources */,
 				3981268F233281050019D5E6 /* Settings.bundle in Resources */,
 				3981278F233281050019D5E6 /* Assets.xcassets in Resources */,
-				39082BF822762EA2008657F6 /* Media.xcassets in Resources */,
 				39812692233281050019D5E6 /* Rebrand.xcassets in Resources */,
 				39812689233281050019D5E6 /* LaunchScreen.storyboard in Resources */,
 				3981278E233281050019D5E6 /* LoadingIndicator.xcassets in Resources */,
@@ -4163,8 +4168,6 @@
 				39E304592338B413008F8386 /* Utils.swift in Sources */,
 				39E3045A2338B434008F8386 /* UserDefaults+Shared.swift in Sources */,
 				39082BF622762CF9008657F6 /* DGBTodayViewController.swift in Sources */,
-				39082BEE227606F0008657F6 /* UIImage+Utils.m in Sources */,
-				39082BDF22760675008657F6 /* TodayViewController.swift in Sources */,
 				39E304582338B3F0008F8386 /* UIImage+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4673,6 +4676,11 @@
 			target = 22A9A9951DF63426000F0016 /* libbz2 */;
 			targetProxy = 22A9A99B1DF63426000F0016 /* PBXContainerItemProxy */;
 		};
+		39CD011E233A364900FCF02C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 39082BDA22760674008657F6 /* DigiByte TodayExtension */;
+			targetProxy = 39CD011D233A364900FCF02C /* PBXContainerItemProxy */;
+		};
 		752FB04F1DF8BF5C009086FB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 752FB0411DF8BE6B009086FB /* sqlite3 */;
@@ -4940,13 +4948,13 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = "DigiByte Today Extension/DigiByte Today Extension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "DigiByte TodayExtension/DigiByte TodayExtension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "DigiByte Today Extension/Info.plist";
+				INFOPLIST_FILE = "DigiByte TodayExtension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4957,10 +4965,10 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.digibytefoundation.DigiByte.DigiByte-Today-Extension";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				PRODUCT_NAME = "DigiByte Wallet";
+				SKIP_INSTALL = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -4972,13 +4980,13 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = "DigiByte Today Extension/DigiByte Today Extension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "DigiByte TodayExtension/DigiByte TodayExtension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "DigiByte Today Extension/Info.plist";
+				INFOPLIST_FILE = "DigiByte TodayExtension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4988,10 +4996,10 @@
 				MARKETING_VERSION = 1.0.11;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.digibytefoundation.DigiByte.DigiByte-Today-Extension";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				PRODUCT_NAME = "DigiByte Wallet";
+				SKIP_INSTALL = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Testnet;
 		};
@@ -5003,13 +5011,13 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = "DigiByte Today Extension/DigiByte Today Extension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "DigiByte TodayExtension/DigiByte TodayExtension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "DigiByte Today Extension/Info.plist";
+				INFOPLIST_FILE = "DigiByte TodayExtension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5019,10 +5027,10 @@
 				MARKETING_VERSION = 1.0.11;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.digibytefoundation.DigiByte.DigiByte-Today-Extension";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				PRODUCT_NAME = "DigiByte Wallet";
+				SKIP_INSTALL = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Screenshots;
 		};
@@ -5034,13 +5042,13 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = "DigiByte Today Extension/DigiByte Today Extension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "DigiByte TodayExtension/DigiByte TodayExtension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "DigiByte Today Extension/Info.plist";
+				INFOPLIST_FILE = "DigiByte TodayExtension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5050,10 +5058,10 @@
 				MARKETING_VERSION = 1.0.11;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.digibytefoundation.DigiByte.DigiByte-Today-Extension";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				PRODUCT_NAME = "DigiByte Wallet";
+				SKIP_INSTALL = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -5065,13 +5073,13 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = "DigiByte Today Extension/DigiByte Today Extension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "DigiByte TodayExtension/DigiByte TodayExtension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2500;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "DigiByte Today Extension/Info.plist";
+				INFOPLIST_FILE = "DigiByte TodayExtension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5081,10 +5089,10 @@
 				MARKETING_VERSION = 1.0.11;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.digibytefoundation.DigiByte.DigiByte-Today-Extension";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				PRODUCT_NAME = "DigiByte Wallet";
+				SKIP_INSTALL = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Testflight;
 		};
@@ -5278,7 +5286,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -5335,7 +5343,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -5353,7 +5361,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = Digibyte/digibyte.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DigiByte/digibyte.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2500;
@@ -5364,7 +5372,7 @@
 					"$(inherited)",
 				);
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
-				INFOPLIST_FILE = Digibyte/Info.plist;
+				INFOPLIST_FILE = DigiByte/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5389,7 +5397,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = Digibyte/digibyte.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DigiByte/digibyte.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2500;
@@ -5401,7 +5409,7 @@
 					"$(inherited)",
 				);
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
-				INFOPLIST_FILE = Digibyte/Info.plist;
+				INFOPLIST_FILE = DigiByte/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6031,7 +6039,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -6049,7 +6057,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = Digibyte/digibyte.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DigiByte/digibyte.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2500;
@@ -6060,7 +6068,7 @@
 					"$(inherited)",
 				);
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
-				INFOPLIST_FILE = Digibyte/Info.plist;
+				INFOPLIST_FILE = DigiByte/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6327,7 +6335,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -6345,7 +6353,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = Digibyte/digibyte.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DigiByte/digibyte.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2500;
@@ -6356,7 +6364,7 @@
 					"$(inherited)",
 				);
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
-				INFOPLIST_FILE = Digibyte/Info.plist;
+				INFOPLIST_FILE = DigiByte/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6617,7 +6625,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -6635,7 +6643,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = Digibyte/digibyte.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DigiByte/digibyte.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2500;
@@ -6646,7 +6654,7 @@
 					"$(inherited)",
 				);
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
-				INFOPLIST_FILE = Digibyte/Info.plist;
+				INFOPLIST_FILE = DigiByte/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

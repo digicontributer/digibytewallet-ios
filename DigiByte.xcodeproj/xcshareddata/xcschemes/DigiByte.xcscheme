@@ -20,6 +20,20 @@
                ReferencedContainer = "container:DigiByte.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "39082BDA22760674008657F6"
+               BuildableName = "DigiByte Wallet.appex"
+               BlueprintName = "DigiByte TodayExtension"
+               ReferencedContainer = "container:DigiByte.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
