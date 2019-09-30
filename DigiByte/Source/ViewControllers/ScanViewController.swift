@@ -42,6 +42,7 @@ class ScanViewController : UIViewController, Trackable {
 
     fileprivate let guide = CameraGuideView()
     fileprivate let session = AVCaptureSession()
+    private var previewLayer: CALayer?
     private let toolbar = UIView()
     private let close = UIButton.close
     private let flash = UIButton.icon(image: UIImage(named: "flash-off")!.withRenderingMode(.alwaysTemplate), accessibilityLabel: S.Scanner.flashButtonLabel)
@@ -78,9 +79,15 @@ class ScanViewController : UIViewController, Trackable {
         self.isValidURI = isValidURI
         super.init(nibName: nil, bundle: nil)
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        previewLayer?.frame = self.view.superview?.bounds ?? self.view.bounds
+    }
 
     override func viewDidLoad() {
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor.clear
         flash.tintColor = C.Colors.text
         toolbar.backgroundColor = C.Colors.background
 
@@ -165,9 +172,11 @@ class ScanViewController : UIViewController, Trackable {
         guard let device = AVCaptureDevice.default(for: AVMediaType.video) else { return }
         guard let input = try? AVCaptureDeviceInput(device: device) else { return }
         session.addInput(input)
-        let previewLayer = AVCaptureVideoPreviewLayer(session: session)
-        previewLayer.frame = view.bounds
-        view.layer.insertSublayer(previewLayer, at: 0)
+        previewLayer = AVCaptureVideoPreviewLayer(session: session)
+        if let previewLayer = previewLayer {
+            previewLayer.frame = self.view.superview?.bounds ?? self.view.bounds
+            view.layer.insertSublayer(previewLayer, at: 0)
+        }
 
         let output = AVCaptureMetadataOutput()
         output.setMetadataObjectsDelegate(self, queue: .main)

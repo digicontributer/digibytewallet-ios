@@ -42,6 +42,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var window: UIWindow? {
         return applicationController.window
     }
+    
+    /// See this answer: https://stackoverflow.com/questions/58131996/every-uialertcontroller-disappear-automatically-before-user-responds-since-ios/58133993#58133993
+    let alertWindow: UIWindow = {
+        let win = UIWindow(frame: UIScreen.main.bounds)
+        win.windowLevel = UIWindow.Level.alert + 1
+        return win
+    }()
+    
     let applicationController = ApplicationController()
     
 #if Debug
