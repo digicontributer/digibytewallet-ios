@@ -181,12 +181,12 @@ import WebKit
 
     fileprivate func notifyUserOfLoadFailure() {
         if self.didAppear && !self.didLoad {
-            let alert = UIAlertController.init(
+            let alert = AlertController(
                 title: S.Alert.error,
                 message: S.Webview.errorMessage,
                 preferredStyle: .alert
             )
-            let action = UIAlertAction(title: S.Webview.dismiss, style: .default) { [weak self] _ in
+            let action = AlertAction(title: S.Webview.dismiss, style: .default) { [weak self] _ in
                 self?.closeNow()
             }
             alert.addAction(action)

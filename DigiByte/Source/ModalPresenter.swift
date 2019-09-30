@@ -279,8 +279,8 @@ class ModalPresenter : Subscriber, Trackable {
 
     private func makeSendView() -> UIViewController? {
         guard !store.state.walletState.isRescanning else {
-            let alert = UIAlertController(title: S.Alert.error, message: S.Send.isRescanning, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: S.Button.ok, style: .cancel, handler: nil))
+            let alert = AlertController(title: S.Alert.error, message: S.Send.isRescanning, preferredStyle: .alert)
+            alert.addAction(AlertAction(title: S.Button.ok, style: .cancel, handler: nil))
             topViewController?.present(alert, animated: true, completion: nil)
             return nil
         }
@@ -392,8 +392,8 @@ class ModalPresenter : Subscriber, Trackable {
                         let senderAppInfo = getSenderAppInfo(request: request)
                         if senderAppInfo.unknownApp {
                             // we can not open the sender app again, we will just display a messagebox
-                            let alert = UIAlertController(title: S.DigiID.success, message: nil, preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: S.Button.ok, style: .default, handler: nil))
+                            let alert = AlertController(title: S.DigiID.success, message: nil, preferredStyle: .alert)
+                            alert.addAction(AlertAction(title: S.Button.ok, style: .default, handler: nil))
                             DispatchQueue.main.async { alert.show() }
                         } else {
                             // open the sender app
@@ -421,8 +421,8 @@ class ModalPresenter : Subscriber, Trackable {
                         }()
                         
                         // show alert controller and display error description
-                        let alert = UIAlertController(title: S.DigiID.error, message: "\(errorInformation).\n\n\(additionalInformation)", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: S.Button.ok, style: .default, handler: nil))
+                        let alert = AlertController(title: S.DigiID.error, message: "\(errorInformation).\n\n\(additionalInformation)", preferredStyle: .alert)
+                        alert.addAction(AlertAction(title: S.Button.ok, style: .default, handler: nil))
                         DispatchQueue.main.async { alert.show() }
                     }
                 })
@@ -581,12 +581,12 @@ class ModalPresenter : Subscriber, Trackable {
         ]
         
         /*rows["DigiByte"]?.append( Setting(title: S.Settings.review, callback: {
-                let alert = UIAlertController(title: S.Settings.review, message: S.Settings.enjoying, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: S.Button.no, style: .default, handler: { _ in
+                let alert = AlertController(title: S.Settings.review, message: S.Settings.enjoying, preferredStyle: .alert)
+                alert.addAction(AlertAction(title: S.Button.no, style: .default, handler: { _ in
                     self.messagePresenter.presenter = self.topViewController
                     self.messagePresenter.presentFeedbackCompose()
                 }))
-                alert.addAction(UIAlertAction(title: S.Button.yes, style: .default, handler: { _ in
+                alert.addAction(AlertAction(title: S.Button.yes, style: .default, handler: { _ in
                     if let url = URL(string: C.reviewLink) {
                         UIApplication.shared.openURL(url)
                     }
@@ -788,9 +788,9 @@ class ModalPresenter : Subscriber, Trackable {
     }
 
     func wipeWallet() {
-        let alert = UIAlertController(title: S.WipeWallet.alertTitle, message: S.WipeWallet.alertMessage, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: S.Button.cancel, style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: S.WipeWallet.wipe, style: .default, handler: { _ in
+        let alert = AlertController(title: S.WipeWallet.alertTitle, message: S.WipeWallet.alertMessage, preferredStyle: .alert)
+        alert.addAction(AlertAction(title: S.Button.cancel, style: .default, handler: nil))
+        alert.addAction(AlertAction(title: S.WipeWallet.wipe, style: .default, handler: { _ in
             self.topViewController?.dismiss(animated: true, completion: {
                 let activity = BRActivityViewController(message: S.WipeWallet.wiping)
                 self.topViewController?.present(activity, animated: true, completion: nil)
@@ -801,8 +801,8 @@ class ModalPresenter : Subscriber, Trackable {
                             if (self.walletManager?.wipeWallet(pin: "forceWipe"))! {
                                 self.store.trigger(name: .reinitWalletManager({}))
                             } else {
-                                let failure = UIAlertController(title: S.WipeWallet.failedTitle, message: S.WipeWallet.failedMessage, preferredStyle: .alert)
-                                failure.addAction(UIAlertAction(title: S.Button.ok, style: .default, handler: nil))
+                                let failure = AlertController(title: S.WipeWallet.failedTitle, message: S.WipeWallet.failedMessage, preferredStyle: .alert)
+                                failure.addAction(AlertAction(title: S.Button.ok, style: .default, handler: nil))
                                 self.topViewController?.present(failure, animated: true, completion: nil)
                             }
                         })
@@ -877,14 +877,14 @@ class ModalPresenter : Subscriber, Trackable {
             }
         } else if let ack = PaymentProtocolACK(data: file) {
             if let memo = ack.memo {
-                let alert = UIAlertController(title: "", message: memo, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: S.Button.ok, style: .cancel, handler: nil))
+                let alert = AlertController(title: "", message: memo, preferredStyle: .alert)
+                alert.addAction(AlertAction(title: S.Button.ok, style: .cancel, handler: nil))
                 topViewController?.present(alert, animated: true, completion: nil)
             }
         //TODO - handle payment type
         } else {
-            let alert = UIAlertController(title: S.Alert.error, message: S.PaymentProtocol.Errors.corruptedDocument, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: S.Button.ok, style: .cancel, handler: nil))
+            let alert = AlertController(title: S.Alert.error, message: S.PaymentProtocol.Errors.corruptedDocument, preferredStyle: .alert)
+            alert.addAction(AlertAction(title: S.Button.ok, style: .cancel, handler: nil))
             topViewController?.present(alert, animated: true, completion: nil)
         }
     }
@@ -936,9 +936,9 @@ class ModalPresenter : Subscriber, Trackable {
 
     private func handleCopyAddresses(success: String?, error: String?) {
         guard let walletManager = walletManager else { return }
-        let alert = UIAlertController(title: S.URLHandling.addressListAlertTitle, message: S.URLHandling.addressListAlertMessage, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: S.Button.cancel, style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: S.URLHandling.copy, style: .default, handler: { [weak self] _ in
+        let alert = AlertController(title: S.URLHandling.addressListAlertTitle, message: S.URLHandling.addressListAlertMessage, preferredStyle: .alert)
+        alert.addAction(AlertAction(title: S.Button.cancel, style: .cancel, handler: nil))
+        alert.addAction(AlertAction(title: S.URLHandling.copy, style: .default, handler: { [weak self] _ in
             guard let myself = self else { return }
             let verify = VerifyPinViewController(bodyText: S.URLHandling.addressListVerifyPrompt, pinLength: myself.store.state.pinLength, callback: { [weak self] pin, view in
                 if walletManager.authenticate(pin: pin) {

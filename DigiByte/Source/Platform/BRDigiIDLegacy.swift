@@ -166,7 +166,7 @@ open class BRDigiIDLegacy : NSObject, BRDigiIDProtocol {
                 if err != nil {
                     rerr = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "\(err!)"])
                 }
-                completionHandler(dat, resp, rerr)
+                DispatchQueue.main.async { completionHandler(dat, resp, rerr) }
             }).resume()
         }
     }

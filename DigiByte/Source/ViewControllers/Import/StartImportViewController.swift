@@ -122,14 +122,14 @@ class StartImportViewController : UIViewController {
     }
 
     private func unlock(address: String, callback: @escaping (BRKey) -> Void) {
-        let alert = UIAlertController(title: S.Import.title, message: S.Import.password, preferredStyle: .alert)
+        let alert = AlertController(title: S.Import.title, message: S.Import.password, preferredStyle: .alert)
         alert.addTextField(configurationHandler: { textField in
             textField.placeholder = S.Import.passwordPlaceholder
             textField.isSecureTextEntry = true
             textField.returnKeyType = .done
         })
-        alert.addAction(UIAlertAction(title: S.Button.cancel, style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: S.Button.ok, style: .default, handler: { _ in
+        alert.addAction(AlertAction(title: S.Button.cancel, style: .cancel, handler: nil))
+        alert.addAction(AlertAction(title: S.Button.ok, style: .default, handler: { _ in
             self.present(self.unlockingActivity, animated: true, completion: {
                 if let password = alert.textFields?.first?.text {
                     if let key = BRKey(bip38Key: address, passphrase: password) {
@@ -198,9 +198,9 @@ class StartImportViewController : UIViewController {
             let balanceText = self.store.state.isBtcSwapped ? balanceAmount.localCurrency : balanceAmount.bits
             let feeText = self.store.state.isBtcSwapped ? feeAmount.localCurrency : feeAmount.bits
             let message = String(format: S.Import.confirm, balanceText, feeText)
-            let alert = UIAlertController(title: S.Import.title, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: S.Button.cancel, style: .cancel, handler: nil))
-            alert.addAction(UIAlertAction(title: S.Import.importButton, style: .default, handler: { _ in
+            let alert = AlertController(title: S.Import.title, message: message, preferredStyle: .alert)
+            alert.addAction(AlertAction(title: S.Button.cancel, style: .cancel, handler: nil))
+            alert.addAction(AlertAction(title: S.Import.importButton, style: .default, handler: { _ in
                 self.publish(tx: tx, balance: balance, fee: fee, key: key)
             }))
             self.present(alert, animated: true, completion: nil)

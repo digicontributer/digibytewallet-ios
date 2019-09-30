@@ -232,8 +232,8 @@ class UpdatePinViewController : PINViewController {
                     }
 
                 } else {
-                    let alert = UIAlertController(title: S.UpdatePin.updateTitle, message: S.UpdatePin.setPinError, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: S.Button.ok, style: .default, handler: { [weak self] _ in
+                    let alert = AlertController(title: S.UpdatePin.updateTitle, message: S.UpdatePin.setPinError, preferredStyle: .alert)
+                    alert.addAction(AlertAction(title: S.Button.ok, style: .default, handler: { [weak self] _ in
                         self?.clearAfterFailure()
                         self?.pushNewStep(.new)
                     }))
@@ -635,7 +635,6 @@ class LoginViewController: PINViewController, Trackable {
     }
     
     @objc func biometricsTapped() {
-        print("DEBUG disabled")
         guard !isWalletDisabled else { return }
 
         self.walletManager?.authenticate(biometricsPrompt: S.UnlockScreen.touchIdPrompt, isDigiIDAuth: false, completion: { result in

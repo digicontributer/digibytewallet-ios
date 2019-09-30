@@ -294,9 +294,9 @@ fileprivate class AddressBookAddContactViewController: UIViewController {
         }
         
         deleteButton.tap = { [unowned self] in
-            let alertController = UIAlertController(title: S.AddressBook.deleteContactHeader, message: S.AddressBook.deleteContact, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: S.Button.no, style: .default, handler: nil))
-            alertController.addAction(UIAlertAction(title: S.Button.yes, style: .destructive, handler: { _ in
+            let alertController = AlertController(title: S.AddressBook.deleteContactHeader, message: S.AddressBook.deleteContact, preferredStyle: .alert)
+            alertController.addAction(AlertAction(title: S.Button.no, style: .default, handler: nil))
+            alertController.addAction(AlertAction(title: S.Button.yes, style: .destructive, handler: { _ in
                 self.deleteCallback?(self.id)
                 self.dismiss(animated: true, completion: nil)
             }))

@@ -159,16 +159,16 @@ class URLController : Trackable {
         let req = DigiIdRequest(string: url.absoluteString)
         
         let message = String(format: S.DigiID.authenticationRequest, bitid.url.host!)
-        let alert = UIAlertController(title: S.DigiID.title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: S.DigiID.deny, style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: S.DigiID.approve, style: .default, handler: { _ in
+        let alert = AlertController(title: S.DigiID.title, message: message, preferredStyle: .alert)
+        alert.addAction(AlertAction(title: S.DigiID.deny, style: .cancel, handler: nil))
+        alert.addAction(AlertAction(title: S.DigiID.approve, style: .default, handler: { _ in
             bitid.runCallback(store: self.store) { data, response, error in
                 if let resp = response as? HTTPURLResponse, error == nil && resp.statusCode >= 200 && resp.statusCode < 300 {
                     let senderAppInfo = getSenderAppInfo(request: req)
                     if senderAppInfo.unknownApp {
                         // we can not open the sender app again, we will just display a messagebox
-                        let alert = UIAlertController(title: S.DigiID.success, message: nil, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: S.Button.ok, style: .default, handler: nil))
+                        let alert = AlertController(title: S.DigiID.success, message: nil, preferredStyle: .alert)
+                        alert.addAction(AlertAction(title: S.Button.ok, style: .default, handler: nil))
                         self.present(alert: alert)
                     } else {
                         // open the sender app
@@ -193,8 +193,8 @@ class URLController : Trackable {
                     }
                     
                     // show alert controller and display error description
-                    let alert = UIAlertController(title: S.DigiID.error, message: "\(errorInformation).\n\n\(additionalInformation)", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: S.Button.ok, style: .default, handler: nil))
+                    let alert = AlertController(title: S.DigiID.error, message: "\(errorInformation).\n\n\(additionalInformation)", preferredStyle: .alert)
+                    alert.addAction(AlertAction(title: S.Button.ok, style: .default, handler: nil))
                     self.present(alert: alert)
                 }
             }

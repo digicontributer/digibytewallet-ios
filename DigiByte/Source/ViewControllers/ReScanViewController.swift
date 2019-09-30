@@ -77,9 +77,9 @@ class ReScanViewController : UIViewController, Subscriber {
     }
 
     private func presentRescanAlert() {
-        let alert = UIAlertController(title: S.ReScan.alertTitle, message: S.ReScan.alertMessage, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: S.Button.cancel, style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: S.ReScan.alertAction, style: .default, handler: { _ in
+        let alert = AlertController(title: S.ReScan.alertTitle, message: S.ReScan.alertMessage, preferredStyle: .alert)
+        alert.addAction(AlertAction(title: S.Button.cancel, style: .default, handler: nil))
+        alert.addAction(AlertAction(title: S.ReScan.alertAction, style: .default, handler: { _ in
             self.store.trigger(name: .rescan)
             self.showSyncView()
         }))
