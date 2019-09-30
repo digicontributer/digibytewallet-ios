@@ -111,7 +111,7 @@ class NodeSelectorViewController : UIViewController, Trackable {
                 if let portText = port.text {
                     if let i = Int(portText) {
                         if i > UINT16_MAX {
-                            let v = UIAlertController(title: nil, message: S.Settings.invalidPort, preferredStyle: .alert)
+                            let v = AlertController(title: nil, message: S.Settings.invalidPort, preferredStyle: .alert)
                             self.present(v, animated: true, completion: {() in
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                                     v.dismiss(animated: true, completion: nil)

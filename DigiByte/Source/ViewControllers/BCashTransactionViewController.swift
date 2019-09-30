@@ -142,9 +142,9 @@ class BCashTransactionViewController : UIViewController {
         guard address != "", address.isValidBCHAddress else { return showErrorMessage(S.Send.invalidAddressMessage) }
         let amount = DisplayAmount(amount: Satoshis(rawValue: walletManager.bCashBalance), state: store.state, selectedRate: nil, minimumFractionDigits: 0)
         let message = String(format: S.BCH.confirmationMessage, amount.description, address)
-        let alert = UIAlertController(title: S.BCH.confirmationTitle, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: S.Button.cancel, style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: S.Button.ok, style: .default, handler: { _ in
+        let alert = AlertController(title: S.BCH.confirmationTitle, message: message, preferredStyle: .alert)
+        alert.addAction(AlertAction(title: S.Button.cancel, style: .cancel, handler: nil))
+        alert.addAction(AlertAction(title: S.Button.ok, style: .default, handler: { _ in
             self.send(toAddress: address)
         }))
         present(alert, animated: true, completion: nil)

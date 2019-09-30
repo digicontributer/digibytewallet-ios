@@ -25,7 +25,7 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
     init(wallet: BRWallet, store: Store, isRequestAmountVisible: Bool) {
         self.wallet = wallet
         self.isRequestAmountVisible = isRequestAmountVisible
-        self.amountView = AmountViewController(store: store, isPinPadExpandedAtLaunch: true, scrollDownOnTap: true, isRequesting: true, hideMaxButton: true)
+        self.amountView = AmountViewController(store: store, isPinPadExpandedAtLaunch: false, scrollDownOnTap: true, isRequesting: true, hideMaxButton: true)
         self.store = store
         super.init(nibName: nil, bundle: nil)
     }
@@ -215,7 +215,7 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
                 amountView.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                 amountView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: E.isIPhoneXOrGreater ? -C.padding[5] : -C.padding[2])
                 ])
-            // amountView.closePinPad()
+//             amountView.closePinPad()
         })
         
         addressButton.constrain([

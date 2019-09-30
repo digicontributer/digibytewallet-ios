@@ -21,9 +21,9 @@ enum ScanViewType {
 class ScanViewController : UIViewController, Trackable {
 
     static func presentCameraUnavailableAlert(fromRoot: UIViewController) {
-        let alertController = UIAlertController(title: S.Send.cameraUnavailableTitle, message: S.Send.cameraUnavailableMessage, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: S.Button.cancel, style: .cancel, handler: nil))
-        alertController.addAction(UIAlertAction(title: S.Button.settings, style: .`default`, handler: { _ in
+        let alertController = AlertController(title: S.Send.cameraUnavailableTitle, message: S.Send.cameraUnavailableMessage, preferredStyle: .alert)
+        alertController.addAction(AlertAction(title: S.Button.cancel, style: .cancel, handler: nil))
+        alertController.addAction(AlertAction(title: S.Button.settings, style: .`default`, handler: { _ in
             if let appSettings = URL(string: UIApplication.openSettingsURLString) {
                 UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
             }

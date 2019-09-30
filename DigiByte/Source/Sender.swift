@@ -103,8 +103,8 @@ class Sender {
             }
             let result = group.wait(timeout: .now() + 30.0)
             if result == .timedOut {
-                let alert = UIAlertController(title: "Error", message: "Did not sign tx within timeout", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                let alert = AlertController(title: "Error", message: "Did not sign tx within timeout", preferredStyle: .alert)
+                alert.addAction(AlertAction(title: "OK", style: .default, handler: nil))
                 self.topViewController?.present(alert, animated: true, completion: nil)
                 return false
             }

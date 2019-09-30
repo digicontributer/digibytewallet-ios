@@ -572,11 +572,11 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
     }
 
     private func showError(title: String, message: String, ignore: @escaping () -> Void) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: S.Button.ignore, style: .default, handler: { _ in
+        let alertController = AlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(AlertAction(title: S.Button.ignore, style: .default, handler: { _ in
             ignore()
         }))
-        alertController.addAction(UIAlertAction(title: S.Button.cancel, style: .cancel, handler: nil))
+        alertController.addAction(AlertAction(title: S.Button.cancel, style: .cancel, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
 

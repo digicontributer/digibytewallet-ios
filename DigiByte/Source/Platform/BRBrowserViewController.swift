@@ -183,8 +183,8 @@ fileprivate class BRBrowserViewControllerInternal: UIViewController, WKNavigatio
     }
     
     func showError(_ errString: String) {
-        let alertView = UIAlertController(title: "Error", message: errString, preferredStyle: .alert)
-        alertView.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        let alertView = AlertController(title: "Error", message: errString, preferredStyle: .alert)
+        alertView.addAction(AlertAction(title: "OK", style: .default, handler: nil))
         self.present(alertView, animated: true, completion: nil)
     }
     

@@ -263,9 +263,10 @@ extension WalletManager : WalletAuthenticator {
 
     // show biometric dialog and call completion block with success or failure
     func authenticate(biometricsPrompt: String, isDigiIDAuth: Bool, completion: @escaping (BiometricsResult) -> ()) {
-        let ctx = LAContext()
+        
         var err: NSError?
         
+        let ctx = LAContext()
         if ctx.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &err) {
             if let error = err {
                 print(error)
@@ -277,17 +278,82 @@ extension WalletManager : WalletAuthenticator {
             // - ongoing digi-id request was confirmed by clicking yes in a dialog
             let execBiometricsPrompt: (() -> Void) = {
                 ctx.localizedFallbackTitle = S.UnlockScreen.subheader
-                
                 ctx.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: biometricsPrompt) { (success, error) in
                     DispatchQueue.main.async {
                         if success { return completion(.success) }
-                        
                         guard let error = error else { return completion(.failure) }
                         
                         if error._code == Int(kLAErrorUserCancel) {
                             return completion (.cancel)
                         } else if error._code == Int(kLAErrorUserFallback) {
                             return completion (.fallback)
+                        } else if error._code == Int(kLAErrorSystemCancel) {
+                            return;
+                        }
+                        
+                        switch (error._code) {
+                            case Int(kLAErrorAuthenticationFailed):
+                                print("kLAErrorAuthenticationFailed")
+                                break
+                                
+                            case Int(kLAErrorUserCancel):
+                                print("kLAErrorUserCancel")
+                                break
+                                
+                            case Int(kLAErrorUserFallback):
+                                print("kLAErrorUserFallback")
+                                break
+                                
+                            case Int(kLAErrorSystemCancel):
+                                print("kLAErrorSystemCancel")
+                                break
+                                
+                            case Int(kLAErrorPasscodeNotSet):
+                                print("kLAErrorPasscodeNotSet")
+                                break
+                                
+                            case Int(kLAErrorTouchIDNotAvailable):
+                                print("kLAErrorTouchIDNotAvailable")
+                                break
+                                
+                            case Int(kLAErrorTouchIDNotEnrolled):
+                                print("kLAErrorTouchIDNotEnrolled")
+                                break
+                                
+                            case Int(kLAErrorTouchIDLockout):
+                                print("kLAErrorTouchIDLockout")
+                                break
+                                
+                            case Int(kLAErrorAppCancel):
+                                print("kLAErrorAppCancel")
+                                break
+                                
+                            case Int(kLAErrorInvalidContext):
+                                print("kLAErrorInvalidContext")
+                                break
+                                
+                            case Int(kLAErrorWatchNotAvailable):
+                                print("kLAErrorWatchNotAvailable")
+                                break
+                                
+                            case Int(kLAErrorNotInteractive):
+                                print("kLAErrorNotInteractive")
+                                break
+                                
+                            case Int(kLAErrorBiometryNotAvailable):
+                                print("kLAErrorBiometryNotAvailable")
+                                break
+                                
+                            case Int(kLAErrorBiometryNotEnrolled):
+                                print("kLAErrorBiometryNotEnrolled")
+                                break
+                                
+                            case Int(kLAErrorBiometryLockout):
+                                print("kLAErrorBiometryLockout")
+                                break
+                                
+                            default:
+                                break
                         }
                         
                         completion(.failure)
@@ -304,7 +370,7 @@ extension WalletManager : WalletAuthenticator {
                     alert.addAction(AlertAction(title: S.DigiID.deny, style: .cancel, handler: { _ in /* do nothing */ }))
                     alert.addAction(AlertAction(title: S.DigiID.approve, style: .default, handler: { _ in execBiometricsPrompt() }))
                     
-                    alert.showx()
+                    alert.show()
                 } else {
                     // just show the prompt, in case of wallet authentication (from lock screen)
                     execBiometricsPrompt()
@@ -312,6 +378,7 @@ extension WalletManager : WalletAuthenticator {
             } else {
                 // touchID
                 // just display the touchID-prompt
+                execBiometricsPrompt()
                 execBiometricsPrompt()
             }
 

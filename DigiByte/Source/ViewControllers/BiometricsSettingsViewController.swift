@@ -201,8 +201,8 @@ class BiometricsSettingsViewController : UIViewController, Subscriber {
     fileprivate func presentCantUseBiometricsAlert() {
         let unavailableAlertTitle = LAContext.biometricType() == .face ? S.FaceIDSettings.unavailableAlertTitle : S.TouchIdSettings.unavailableAlertTitle
         let unavailableAlertMessage = LAContext.biometricType() == .face ? S.FaceIDSettings.unavailableAlertMessage : S.TouchIdSettings.unavailableAlertMessage
-        let alert = UIAlertController(title: unavailableAlertTitle, message: unavailableAlertMessage, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: S.Button.ok, style: .cancel, handler: nil))
+        let alert = AlertController(title: unavailableAlertTitle, message: unavailableAlertMessage, preferredStyle: .alert)
+        alert.addAction(AlertAction(title: S.Button.ok, style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
 

@@ -14,19 +14,6 @@ struct AlertAction {
     var handler: ((UIAlertAction) -> Void)? = nil
 }
 
-public extension UIAlertController {
-    @available(*, unavailable, message: "Use AlertController class instead of UIAlertController")
-    func show() {
-        let win = UIWindow(frame: UIScreen.main.bounds)
-        let vc = UIViewController()
-        vc.view.backgroundColor = .clear
-        win.rootViewController = vc
-        win.windowLevel = UIWindow.Level.alert + 1
-        win.makeKeyAndVisible()
-        vc.present(self, animated: true, completion: nil)
-    }
-}
-
 class AlertController: UIAlertController {
     func show() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

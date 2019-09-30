@@ -271,9 +271,9 @@ open class BRDigiID : NSObject, BRDigiIDProtocol {
             req.httpMethod = "POST"
             req.httpBody = json
             let session = URLSession.shared
-            
+        
             // debug (print as CURL)
-               print(req.cURL)
+            print(req.cURL)
             
             // Fire the digi-id callback request
             session.dataTask(with: req, completionHandler: { (dat: Data?, resp: URLResponse?, err: Error?) in
@@ -284,7 +284,9 @@ open class BRDigiID : NSObject, BRDigiIDProtocol {
                 
                 // Call the completion handler with the return data.
                 // rerr: return error is optional.
-                completionHandler(dat, resp, rerr)
+                DispatchQueue.main.async {
+                    completionHandler(dat, resp, rerr)
+                }
             }).resume()
         }
     }
