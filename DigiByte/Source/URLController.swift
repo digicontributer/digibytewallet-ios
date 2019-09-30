@@ -75,6 +75,8 @@ class URLController : Trackable {
                 }
             }
             
+            senderApp = "URL"
+            
             if url.host == "scanqr" || url.path == "/scanqr" {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak store] in
                     store?.trigger(name: .scanQr)
