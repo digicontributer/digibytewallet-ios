@@ -722,15 +722,15 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
                     //self.attemptShowWelcomeView()
                 })
                 
-                let pin = UpdatePinViewController(store: store, walletManager: walletManager, type: .update, showsBackButton: false, phrase: "Enter your PIN")
-                pin.transitioningDelegate = loginTransitionDelegate
-                pin.modalPresentationStyle = .overFullScreen
-                pin.modalPresentationCapturesStatusBarAppearance = true
-                self.present(pin, animated: false, completion: {
-                    self.tempView.removeFromSuperview()
-                    self.tempLoginView.remove()
-                })
-                
+//                let pin = UpdatePinViewController(store: store, walletManager: walletManager, type: .update, showsBackButton: false, phrase: "Enter your PIN")
+//                pin.view.backgroundColor = UIColor.txListGreen // DDDDD
+//                pin.transitioningDelegate = loginTransitionDelegate
+//                pin.modalPresentationStyle = .overFullScreen
+//                pin.modalPresentationCapturesStatusBarAppearance = true
+//                self.present(pin, animated: false, completion: {
+//                    self.tempView.removeFromSuperview()
+//                    self.tempLoginView.remove()
+//                })
             }
             transactionsTableView.walletManager = walletManager
             transactionsTableViewForSentTransactions.walletManager = walletManager
