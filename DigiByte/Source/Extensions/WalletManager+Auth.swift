@@ -300,10 +300,11 @@ extension WalletManager : WalletAuthenticator {
                     // It's important to show the url before authenticating.
                     // When using touchID the user must have a chance to cancel the request.
                     // Hence, we display a prompt before using touchID
-                    let alert = UIAlertController(title: S.DigiID.title, message: biometricsPrompt, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: S.DigiID.deny, style: .cancel, handler: { _ in /* do nothing */ }))
-                    alert.addAction(UIAlertAction(title: S.DigiID.approve, style: .default, handler: { _ in execBiometricsPrompt() }))
-                    alert.show()
+                    let alert = AlertController(title: S.DigiID.title, message: biometricsPrompt, preferredStyle: .alert)
+                    alert.addAction(AlertAction(title: S.DigiID.deny, style: .cancel, handler: { _ in /* do nothing */ }))
+                    alert.addAction(AlertAction(title: S.DigiID.approve, style: .default, handler: { _ in execBiometricsPrompt() }))
+                    
+                    alert.showx()
                 } else {
                     // just show the prompt, in case of wallet authentication (from lock screen)
                     execBiometricsPrompt()
