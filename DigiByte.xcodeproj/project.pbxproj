@@ -14,6 +14,7 @@
 		22A9A9641DF61FE7000F0016 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A9A9631DF61FE7000F0016 /* Security.framework */; };
 		22A9A9661DF61FEE000F0016 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A9A9651DF61FEE000F0016 /* WebKit.framework */; };
 		22A9A9A31DF63497000F0016 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A9A9671DF61FF8000F0016 /* libbz2.tbd */; };
+		3906DE892340E33000CF8896 /* Rebrand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 398124D7233281030019D5E6 /* Rebrand.xcassets */; };
 		39082BDC22760675008657F6 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A2A8091DA5936F00A983D8 /* NotificationCenter.framework */; };
 		39082BF622762CF9008657F6 /* DGBTodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39082BF522762CF9008657F6 /* DGBTodayViewController.swift */; };
 		391BE382233372DF0079B56A /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391BE381233372DF0079B56A /* VisualEffectView.swift */; };
@@ -3951,6 +3952,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3906DE892340E33000CF8896 /* Rebrand.xcassets in Resources */,
 				39CD011C233A355400FCF02C /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
