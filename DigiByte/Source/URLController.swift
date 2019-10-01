@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 func getSenderAppInfo(request: DigiIdRequest?) -> (unknownApp: Bool, appURI: String) {
     var unknownApp = true
@@ -158,10 +159,7 @@ class URLController : Trackable {
         // senderApp
         let req = DigiIdRequest(string: url.absoluteString)
         
-        let message = String(format: S.DigiID.authenticationRequest, bitid.url.host!)
-        let alert = AlertController(title: S.DigiID.title, message: message, preferredStyle: .alert)
-        alert.addAction(AlertAction(title: S.DigiID.deny, style: .cancel, handler: nil))
-        alert.addAction(AlertAction(title: S.DigiID.approve, style: .default, handler: { _ in
+        let callback = { () -> Void in
             bitid.runCallback(store: self.store) { data, response, error in
                 if let resp = response as? HTTPURLResponse, error == nil && resp.statusCode >= 200 && resp.statusCode < 300 {
                     let senderAppInfo = getSenderAppInfo(request: req)
@@ -169,7 +167,10 @@ class URLController : Trackable {
                         // we can not open the sender app again, we will just display a messagebox
                         let alert = AlertController(title: S.DigiID.success, message: nil, preferredStyle: .alert)
                         alert.addAction(AlertAction(title: S.Button.ok, style: .default, handler: nil))
-                        self.present(alert: alert)
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { // FaceID animation timeout
+                            self.present(alert: alert)
+                        }
                     } else {
                         // open the sender app
                         if let u = URL(string: senderAppInfo.appURI) {
@@ -198,8 +199,20 @@ class URLController : Trackable {
                     self.present(alert: alert)
                 }
             }
-        }))
-        present(alert: alert)
+        }
+        
+        if UserDefaults.isBiometricsEnabled, LAContext.biometricType() == .face {
+            // A confirm dialog will be displayed in WalletManager+Auth
+            callback()
+        } else {
+            let message = String(format: S.DigiID.authenticationRequest, bitid.url.host!)
+            let alert = AlertController(title: S.DigiID.title, message: message, preferredStyle: .alert)
+            alert.addAction(AlertAction(title: S.DigiID.deny, style: .cancel, handler: nil))
+            alert.addAction(AlertAction(title: S.DigiID.approve, style: .default, handler: { _ in
+                callback()
+            }))
+            present(alert: alert)
+        }
     }
 
     private func present(alert: UIAlertController) {

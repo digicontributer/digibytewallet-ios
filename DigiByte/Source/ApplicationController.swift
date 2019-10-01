@@ -175,7 +175,6 @@ class ApplicationController : Subscriber, Trackable {
     }
 
     func willEnterForeground() {
-        senderApp = ""
         guard let walletManager = walletManager else { return }
         guard !walletManager.noWallet else { return }
         if shouldRequireLogin() {
@@ -209,6 +208,8 @@ class ApplicationController : Subscriber, Trackable {
     }
 
     func didEnterBackground() {
+        senderApp = "" // reset sender App
+        
         if store.state.walletState.syncState == .success {
             DispatchQueue.walletQueue.async {
                 self.walletManager?.peerManager?.disconnect()

@@ -155,6 +155,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         if let sendingAppID: String = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String {
             senderApp = sendingAppID
+        } else {
+            senderApp = "UNKNOWN"
         }
         
         return applicationController.open(url: url)
