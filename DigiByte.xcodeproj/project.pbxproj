@@ -4151,7 +4151,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/scripts/icon_versioning.sh\"\n";
+			shellScript = "#\"${SRCROOT}/scripts/icon_versioning.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
