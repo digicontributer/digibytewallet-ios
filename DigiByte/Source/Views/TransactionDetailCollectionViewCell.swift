@@ -87,7 +87,7 @@ class TransactionDetailCollectionViewCell : UICollectionViewCell {
     var kvStore: BRReplicatedKVStore?
     var transaction: Transaction?
     var rate: Rate?
-    var store: Store? {
+    var store: BRStore? {
         didSet {
             if oldValue == nil {
                 guard let store = store else { return }

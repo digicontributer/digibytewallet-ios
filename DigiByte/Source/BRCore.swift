@@ -462,6 +462,12 @@ class BRWallet {
         return addrs.map({ $0.description })
     }
     
+    func allAddressesLimited(limit: Int) -> [String] {
+        var addrs = [BRAddress](repeating: BRAddress(), count: limit)
+        guard BRWalletAllAddrs(cPtr, &addrs, addrs.count) == addrs.count else { return [] }
+        return addrs.map({ $0.description })
+    }
+    
     // true if the address is a previously generated internal or external address
     func containsAddress(_ address: String) -> Bool {
         return BRWalletContainsAddress(cPtr, address) != 0

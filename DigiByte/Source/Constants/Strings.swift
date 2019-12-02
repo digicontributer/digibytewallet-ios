@@ -420,6 +420,9 @@ enum S {
         static let sendSuccessSubheader = NSLocalizedString("Alerts.sendSuccessSubheader", value:"Money Sent!", comment: "Send success alert subheader label (e.g. the money was sent)")
         static let copiedAddressesHeader = NSLocalizedString("Alerts.copiedAddressesHeader", value:"Addresses Copied", comment: "'the addresses were copied'' Alert title")
         static let copiedAddressesSubheader = NSLocalizedString("Alerts.copiedAddressesSubheader", value:"All wallet addresses successfully copied.", comment: "Addresses Copied Alert sub header")
+        
+        static let defaultConfirmOkCaption = NSLocalizedString("Alerts.confirmOkCaption", value:"OK", comment: "Confirm dialog's default confirm action title")
+        static let defaultConfirmCancelCaption = NSLocalizedString("Alerts.confirmCancelCaption", value:"Cancel", comment: "confirm dialog's default cancel action title")
     }
 
     enum MenuButton {

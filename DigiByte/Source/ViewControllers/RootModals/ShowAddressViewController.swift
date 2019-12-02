@@ -20,7 +20,7 @@ class ShowAddressViewController : UIViewController, Subscriber, Trackable {
     var presentEmail: PresentShare?
     var presentText: PresentShare?
 
-    init(wallet: BRWallet, store: Store) {
+    init(wallet: BRWallet, store: BRStore) {
         self.wallet = wallet
         self.store = store
         super.init(nibName: nil, bundle: nil)
@@ -42,7 +42,7 @@ class ShowAddressViewController : UIViewController, Subscriber, Trackable {
     private let addressButton = UIButton(type: .system)
     private var topSharePopoutConstraint: NSLayoutConstraint?
     private let wallet: BRWallet
-    private let store: Store
+    private let store: BRStore
     private var balance: UInt64? = nil {
         didSet {
             if let newValue = balance, let oldValue = oldValue {

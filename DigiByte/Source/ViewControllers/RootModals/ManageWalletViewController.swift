@@ -15,10 +15,10 @@ class ManageWalletViewController : UIViewController, ModalPresentable, Subscribe
     private let textField = UITextField()
     private let separator = UIView(color: .secondaryShadow)
     fileprivate let body = UILabel.wrapping(font: .customBody(size: 13.0), color: .secondaryGrayText)
-    private let store: Store
+    private let store: BRStore
     fileprivate let maxWalletNameLength = 20
 
-    init(store: Store) {
+    init(store: BRStore) {
         self.store = store
         super.init(nibName: nil, bundle: nil)
     }

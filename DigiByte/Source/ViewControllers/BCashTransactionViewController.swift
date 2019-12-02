@@ -16,12 +16,12 @@ class BCashTransactionViewController : UIViewController {
     private let addressCell = AddressCell()
     private let send = ShadowButton(title: S.Send.sendLabel, type: .primary)
     private let walletManager: WalletManager
-    private let store: Store
+    private let store: BRStore
     private let txHash = UIButton(type: .system)
     private let txHashHeader = UILabel(font: .customBold(size: 14.0), color: .grayTextTint)
     private let verifyPinTransitionDelegate = PinTransitioningDelegate()
 
-    init(walletManager: WalletManager, store: Store) {
+    init(walletManager: WalletManager, store: BRStore) {
         self.walletManager = walletManager
         self.store = store
         super.init(nibName: nil, bundle: nil)

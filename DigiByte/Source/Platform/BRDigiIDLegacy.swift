@@ -99,7 +99,7 @@ open class BRDigiIDLegacy : NSObject, BRDigiIDProtocol {
         return nonce
     }
     
-    func runCallback(store: Store, _ completionHandler: @escaping (Data?, URLResponse?, NSError?) -> Void) {
+    func runCallback(store: BRStore, _ completionHandler: @escaping (Data?, URLResponse?, NSError?) -> Void) {
         print("Digi-ID (legacy)")
         guard !walletManager.noWallet else {
             DispatchQueue.main.async {

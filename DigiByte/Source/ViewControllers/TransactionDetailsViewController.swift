@@ -14,7 +14,7 @@ class TransactionDetailsViewController: UICollectionViewController, Subscriber, 
     private let onDismiss: ((UIViewController) -> Void)
 
     //MARK: - Public
-    init(store: Store, transactions: [Transaction], selectedIndex: Int, kvStore: BRReplicatedKVStore, onDismiss: @escaping (UIViewController) -> Void) {
+    init(store: BRStore, transactions: [Transaction], selectedIndex: Int, kvStore: BRReplicatedKVStore, onDismiss: @escaping (UIViewController) -> Void) {
         self.store = store
         self.transactions = transactions
         self.selectedIndex = selectedIndex
@@ -37,7 +37,7 @@ class TransactionDetailsViewController: UICollectionViewController, Subscriber, 
 //    }
 
     //MARK: - Private
-    fileprivate let store: Store
+    fileprivate let store: BRStore
     fileprivate var transactions: [Transaction]
     fileprivate let selectedIndex: Int
     fileprivate let kvStore: BRReplicatedKVStore

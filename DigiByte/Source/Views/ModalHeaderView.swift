@@ -20,7 +20,7 @@ class ModalHeaderView : UIView {
         didSet { close.tap = closeCallback }
     }
 
-    init(title: String, style: ModalHeaderViewStyle, faqInfo: (Store, String)? = nil) {
+    init(title: String, style: ModalHeaderViewStyle, faqInfo: (BRStore, String)? = nil) {
         self.title.text = title.uppercased()
         self.style = style
 
@@ -33,7 +33,7 @@ class ModalHeaderView : UIView {
         addFaqButton()
     }
 
-    var faqInfo: (Store, String)? {
+    var faqInfo: (BRStore, String)? {
         didSet {
             if oldValue == nil {
                 guard let faqInfo = faqInfo else { return }

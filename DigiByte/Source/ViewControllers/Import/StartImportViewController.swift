@@ -15,14 +15,14 @@ private let testnetURL = "https://test-insight.bitpay.com/api/addrs/utxo"
 
 class StartImportViewController : UIViewController {
 
-    init(walletManager: WalletManager, store: Store) {
+    init(walletManager: WalletManager, store: BRStore) {
         self.walletManager = walletManager
         self.store = store
         super.init(nibName: nil, bundle: nil)
     }
 
     private let walletManager: WalletManager
-    private let store: Store
+    private let store: BRStore
     private let header = RadialGradientView(backgroundColor: C.Colors.background, offset: 64.0)
     private let illustration = UIImageView(image: UIImage(named: "ImportIllustration"))
     private let message = UILabel.wrapping(font: .customBody(size: 16.0), color: .darkText)

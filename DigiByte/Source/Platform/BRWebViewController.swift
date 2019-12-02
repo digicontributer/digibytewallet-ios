@@ -37,7 +37,7 @@ import WebKit
     var debugEndpoint: String?
     var mountPoint: String
     var walletManager: WalletManager
-    let store: Store
+    let store: BRStore
     let noAuthApiClient: BRAPIClient?
 
     // bonjour debug endpoint establishment - this will configure the debugEndpoint 
@@ -71,7 +71,7 @@ import WebKit
     
     private let messageUIPresenter = MessageUIPresenter()
     
-    init(bundleName: String, mountPoint: String = "/", walletManager: WalletManager, store: Store, noAuthApiClient: BRAPIClient? = nil) {
+    init(bundleName: String, mountPoint: String = "/", walletManager: WalletManager, store: BRStore, noAuthApiClient: BRAPIClient? = nil) {
         wkProcessPool = WKProcessPool()
         self.bundleName = bundleName
         self.mountPoint = mountPoint

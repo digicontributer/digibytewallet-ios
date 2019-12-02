@@ -10,7 +10,7 @@ import UIKit
 
 class WritePaperPhraseViewController: UIViewController {
 
-    private let store: Store
+    private let store: BRStore
     private let walletManager: WalletManager
     private let pin: String
     private let label = UILabel.wrapping(font: UIFont.customBody(size: 16.0))
@@ -52,7 +52,7 @@ class WritePaperPhraseViewController: UIViewController {
 
     var lastWordSeen: (() -> Void)?
 
-    init(store: Store, walletManager: WalletManager, pin: String, callback: @escaping () -> Void) {
+    init(store: BRStore, walletManager: WalletManager, pin: String, callback: @escaping () -> Void) {
         self.store = store
         self.walletManager = walletManager
         self.pin = pin

@@ -56,7 +56,7 @@ enum BiometricsResult {
 extension WalletManager : WalletAuthenticator {
     static private var failedPins = [String]()
     
-    convenience init(store: Store, dbPath: String? = nil) throws {
+    convenience init(store: BRStore, dbPath: String? = nil) throws {
         if !UIApplication.shared.isProtectedDataAvailable {
             throw NSError(domain: NSOSStatusErrorDomain, code: Int(errSecNotAvailable))
         }

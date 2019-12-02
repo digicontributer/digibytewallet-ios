@@ -33,7 +33,7 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
     }
     var isPresentedFromLock = false
     
-    init(store: Store, sender: Sender, walletManager: WalletManager, initialAddress: String? = nil, initialRequest: PaymentRequest? = nil) {
+    init(store: BRStore, sender: Sender, walletManager: WalletManager, initialAddress: String? = nil, initialRequest: PaymentRequest? = nil) {
         self.store = store
         self.sender = sender
         self.walletManager = walletManager
@@ -85,7 +85,7 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
         NotificationCenter.default.removeObserver(self)
     }
 
-    private let store: Store
+    private let store: BRStore
     private let sender: Sender
     private let walletManager: WalletManager
     private let amountView: AmountViewController

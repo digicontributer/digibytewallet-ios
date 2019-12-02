@@ -22,7 +22,7 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
     var presentEmail: PresentShare?
     var presentText: PresentShare?
 
-    init(wallet: BRWallet, store: Store, isRequestAmountVisible: Bool) {
+    init(wallet: BRWallet, store: BRStore, isRequestAmountVisible: Bool) {
         self.wallet = wallet
         self.isRequestAmountVisible = isRequestAmountVisible
         self.amountView = AmountViewController(store: store, isPinPadExpandedAtLaunch: false, scrollDownOnTap: true, isRequesting: true, hideMaxButton: true)
@@ -75,7 +75,7 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
     private let addressButton = UIButton(type: .system)
     private var topSharePopoutConstraint: NSLayoutConstraint?
     private let wallet: BRWallet
-    private let store: Store
+    private let store: BRStore
     
     private var balance: UInt64? = nil {
         didSet {

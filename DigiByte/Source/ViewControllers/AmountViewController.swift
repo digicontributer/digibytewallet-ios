@@ -13,7 +13,7 @@ private let feeHeight: CGFloat = 130.0
 
 class AmountViewController : UIViewController, Trackable {
 
-    init(store: Store, isPinPadExpandedAtLaunch: Bool, scrollDownOnTap: Bool = false, isRequesting: Bool = false, hideMaxButton: Bool = false) {
+    init(store: BRStore, isPinPadExpandedAtLaunch: Bool, scrollDownOnTap: Bool = false, isRequesting: Bool = false, hideMaxButton: Bool = false) {
         self.store = store
         self.isPinPadExpandedAtLaunch = isPinPadExpandedAtLaunch
         self.isRequesting = isRequesting
@@ -58,7 +58,7 @@ class AmountViewController : UIViewController, Trackable {
         }
     }
 
-    private let store: Store
+    private let store: BRStore
     private let isPinPadExpandedAtLaunch: Bool
     private let isRequesting: Bool
     private let hideMaxButton: Bool

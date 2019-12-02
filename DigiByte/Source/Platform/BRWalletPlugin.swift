@@ -35,14 +35,14 @@ enum BitIdAuthResult {
 class BRWalletPlugin: BRHTTPRouterPlugin, BRWebSocketClient, Trackable {
     var sockets = [String: BRWebSocket]()
     let walletManager: WalletManager
-    let store: Store
+    let store: BRStore
     var tempBitIDKeys = [String: BRKey]() // this should only ever be mutated from the main thread
     private var tempBitIDResponses = [String: Int]()
     private var tempAuthResponses = [String: Int]()
     private var tempAuthResults = [String: Bool]()
     private var isPresentingAuth = false
 
-    init(walletManager: WalletManager, store: Store) {
+    init(walletManager: WalletManager, store: BRStore) {
         self.walletManager = walletManager
         self.store = store
     }

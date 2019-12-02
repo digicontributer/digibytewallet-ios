@@ -31,7 +31,7 @@ extension UIButton {
         return UIButton.icon(image: UIImage(named: "Close")!, accessibilityLabel: accessibilityLabel)
     }
 
-    static func buildFaqButton(store: Store, articleId: String) -> UIButton {
+    static func buildFaqButton(store: BRStore, articleId: String) -> UIButton {
         let button = UIButton.icon(image: UIImage(named: "Faq")!, accessibilityLabel: S.AccessibilityLabels.faq)
         button.tap = {
             store.trigger(name: .presentFaq(articleId))
