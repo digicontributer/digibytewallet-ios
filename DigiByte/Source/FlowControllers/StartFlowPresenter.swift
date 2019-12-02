@@ -11,7 +11,7 @@ import UIKit
 class StartFlowPresenter : Subscriber {
 
     //MARK: - Public
-    init(store: Store, walletManager: WalletManager, rootViewController: UIViewController) {
+    init(store: BRStore, walletManager: WalletManager, rootViewController: UIViewController) {
         self.store = store
         self.walletManager = walletManager
         self.rootViewController = rootViewController
@@ -20,7 +20,7 @@ class StartFlowPresenter : Subscriber {
     }
 
     //MARK: - Private
-    private let store: Store
+    private let store: BRStore
     private let rootViewController: UIViewController
     private var navigationController: ModalNavigationController?
     private let navigationControllerDelegate: StartNavigationDelegate

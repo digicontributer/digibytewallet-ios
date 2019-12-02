@@ -15,7 +15,7 @@ class ModalPresenter : Subscriber, Trackable {
 
     //MARK: - Public
     var walletManager: WalletManager?
-    init(store: Store, walletManager: WalletManager, window: UIWindow, apiClient: BRAPIClient) {
+    init(store: BRStore, walletManager: WalletManager, window: UIWindow, apiClient: BRAPIClient) {
         self.store = store
         self.window = window
         self.walletManager = walletManager
@@ -26,7 +26,7 @@ class ModalPresenter : Subscriber, Trackable {
     }
 
     //MARK: - Private
-    private let store: Store
+    private let store: BRStore
     private let window: UIWindow
     private let alertHeight: CGFloat = 350.0
     private let modalTransitionDelegate: ModalTransitionDelegate

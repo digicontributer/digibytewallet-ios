@@ -24,7 +24,7 @@ var firstLogin: Bool = true
 class TransactionsTableViewController : UITableViewController, Subscriber, Trackable {
 
     //MARK: - Public
-    init(store: Store, didSelectTransaction: @escaping ([Transaction], Int) -> Void, kvStore: BRReplicatedKVStore? = nil, filterMode: TransactionFilterMode = .showAll) {
+    init(store: BRStore, didSelectTransaction: @escaping ([Transaction], Int) -> Void, kvStore: BRReplicatedKVStore? = nil, filterMode: TransactionFilterMode = .showAll) {
         self.store = store
         self.kvStore = kvStore
         self.didSelectTransaction = didSelectTransaction
@@ -52,7 +52,7 @@ class TransactionsTableViewController : UITableViewController, Subscriber, Track
     var walletManager: WalletManager?
 
     //MARK: - Private
-    private let store: Store
+    private let store: BRStore
     private let headerCellIdentifier = "HeaderCellIdentifier"
     private let transactionCellIdentifier = "TransactionCellIdentifier"
     private var transactions: [Transaction] = []

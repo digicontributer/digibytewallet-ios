@@ -36,12 +36,12 @@ func getSenderAppInfo(request: DigiIdRequest?) -> (unknownApp: Bool, appURI: Str
 
 class URLController : Trackable {
 
-    init(store: Store, walletManager: WalletManager) {
+    init(store: BRStore, walletManager: WalletManager) {
         self.store = store
         self.walletManager = walletManager
     }
 
-    private let store: Store
+    private let store: BRStore
     private let walletManager: WalletManager
     private var xSource, xSuccess, xError, uri: String?
 

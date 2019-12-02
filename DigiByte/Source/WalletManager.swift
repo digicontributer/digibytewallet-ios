@@ -65,7 +65,7 @@ class WalletManager : BRWalletListener, BRPeerManagerListener {
     private var txEnt: Int32 = 0
     private var blockEnt: Int32 = 0
     private var peerEnt: Int32 = 0
-    internal let store: Store
+    internal let store: BRStore
     var masterPubKey = BRMasterPubKey()
     var earliestKeyTime: TimeInterval = 0 {
         didSet {
@@ -190,7 +190,7 @@ class WalletManager : BRWalletListener, BRPeerManagerListener {
         return wordList.map({ $0.utf8String })
     }
 
-    init(masterPubKey: BRMasterPubKey, earliestKeyTime: TimeInterval, dbPath: String? = nil, store: Store) throws {
+    init(masterPubKey: BRMasterPubKey, earliestKeyTime: TimeInterval, dbPath: String? = nil, store: BRStore) throws {
         self.masterPubKey = masterPubKey
         self.earliestKeyTime = earliestKeyTime
         self.dbPath = try dbPath ??

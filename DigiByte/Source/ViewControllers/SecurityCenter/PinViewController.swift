@@ -26,7 +26,7 @@ class UpdatePinViewController : PINViewController {
     var resetFromDisabledSuccess: (() -> Void)?
     var resetFromDisabledWillSucceed: (() -> Void)?
     
-    init(store: Store, walletManager: WalletManager, type: UpdatePinType, showsBackButton: Bool = true, phrase: String? = nil) {
+    init(store: BRStore, walletManager: WalletManager, type: UpdatePinType, showsBackButton: Bool = true, phrase: String? = nil) {
         self.walletManager = walletManager
         self.phrase = phrase
         self.showsBackButton = showsBackButton
@@ -343,7 +343,7 @@ class LoginViewController: PINViewController, Trackable {
         return view
     }()
     
-    init(store: Store, isPresentedForLock: Bool, walletManager: WalletManager? = nil) {
+    init(store: BRStore, isPresentedForLock: Bool, walletManager: WalletManager? = nil) {
         self.walletManager = walletManager
         self.disabledView = WalletDisabledView(store: store)
         self.isPresentedForLock = isPresentedForLock
@@ -704,7 +704,7 @@ class LoginViewController: PINViewController, Trackable {
 
 // Base class
 class PINViewController: UIViewController, Subscriber {
-    fileprivate let store: Store
+    fileprivate let store: BRStore
     
     fileprivate let header = UILabel.wrapping(font: .customBold(size: 26.0), color: .darkText)
     fileprivate let instruction = UILabel.wrapping(font: .customBody(size: 14.0), color: .darkText)
@@ -715,7 +715,7 @@ class PINViewController: UIViewController, Subscriber {
     
     fileprivate var constraints: [String: NSLayoutConstraint] = [:]
     
-    init(store: Store, style: PinViewStyle = .create) {
+    init(store: BRStore, style: PinViewStyle = .create) {
         self.store = store
         self.pinView = PinView(style: style, length: store.state.pinLength)
         super.init(nibName: nil, bundle: nil)

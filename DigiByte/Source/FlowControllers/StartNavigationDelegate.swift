@@ -10,9 +10,9 @@ import UIKit
 
 class StartNavigationDelegate : NSObject, UINavigationControllerDelegate {
 
-    let store: Store
+    let store: BRStore
 
-    init(store: Store) {
+    init(store: BRStore) {
         self.store = store
     }
 

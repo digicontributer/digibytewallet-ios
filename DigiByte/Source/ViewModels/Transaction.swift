@@ -162,6 +162,10 @@ class Transaction {
     var comment: String? {
         return metaData?.comment
     }
+    
+    var isAssetTx: Bool {
+        return BRTXContainsAsset(tx) != 0
+    }
 
     var hasKvStore: Bool {
         return kvStore != nil

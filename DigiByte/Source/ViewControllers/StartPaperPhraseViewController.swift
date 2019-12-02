@@ -10,7 +10,7 @@ import UIKit
 
 class StartPaperPhraseViewController : UIViewController {
 
-    init(store: Store, callback: @escaping () -> Void) {
+    init(store: BRStore, callback: @escaping () -> Void) {
         self.store = store
         self.callback = callback
         let buttonTitle = UserDefaults.walletRequiresBackup ? S.StartPaperPhrase.buttonTitle : S.StartPaperPhrase.againButtonTitle
@@ -22,7 +22,7 @@ class StartPaperPhraseViewController : UIViewController {
     private let illustration = UIImageView(image: UIImage(named: "PaperKey"))
     private let pencil = UIImageView(image: UIImage(named: "Pencil"))
     private let explanation = UILabel.wrapping(font: UIFont.customBody(size: 16.0), color: C.Colors.text)
-    private let store: Store
+    private let store: BRStore
     private let header = RadialGradientView(backgroundColor: C.Colors.background, offset: 64.0)
     private let footer = UILabel.wrapping(font: .customBody(size: 13.0), color: .secondaryGrayText)
     private let callback: () -> Void

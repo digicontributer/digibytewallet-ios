@@ -135,7 +135,7 @@ func ==(lhs: TriggerName, rhs: TriggerName) -> Bool {
     }
 }
 
-class Store {
+class BRStore {
 
     //MARK: - Public
     func perform(action: Action) {
@@ -178,8 +178,10 @@ class Store {
     }
 
     func unsubscribe(_ subscriber: Subscriber) {
-        subscriptions.removeValue(forKey: subscriber.hashValue)
-        triggers.removeValue(forKey: subscriber.hashValue)
+        DispatchQueue.walletQueue.async {
+            self.subscriptions.removeValue(forKey: subscriber.hashValue)
+            self.triggers.removeValue(forKey: subscriber.hashValue)
+        }
     }
 
     //MARK: - Private

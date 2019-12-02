@@ -44,7 +44,7 @@ fileprivate class BalanceView: UIView, Subscriber {
         return g
     }()
     
-    private let store: Store
+    private let store: BRStore
     private var isBtcSwapped: Bool {
         didSet { updateBalancesAnimated() }
     }
@@ -61,7 +61,7 @@ fileprivate class BalanceView: UIView, Subscriber {
         }
     }
     
-    init(store: Store) {
+    init(store: BRStore) {
         self.store = store
         isBtcSwapped = store.state.isBtcSwapped
         exchangeRate = store.state.currentRate
@@ -376,7 +376,7 @@ fileprivate class CustomSegmentedControl: UIControl {
         let selectorWidth = (frame.width - 2 * padding) / CGFloat(numberOfSegments)
 
         backgroundRect = UIView()
-        backgroundRect.backgroundColor = UIColor(white: 1.0, alpha: 0.2)
+        backgroundRect.backgroundColor = UIColor(white: 1.0, alpha: 0.1)
         backgroundRect.layer.cornerRadius = 4
         
         let buttonTitles = buttonTemplates
@@ -491,17 +491,68 @@ fileprivate class CustomSegmentedControl: UIControl {
     }
 }
 
-fileprivate class HamburgerViewMenu: UIView {
+fileprivate class AssetDrawer: UIView {
+    private var supervc: DrawerControllerProtocol!
+    private let id: String
+    
+    private let digiassetsLogo = UIImageView(image: UIImage(named: "digiassets_logo"))
+    
+    init(id: String) {
+        self.id = id
+        super.init(frame: .zero)
+        
+        addSubviews()
+        addConstraints()
+        setStyle()
+        
+        
+    }
+    
+    private func addSubviews() {
+        addSubview(digiassetsLogo)
+        
+    }
+    
+    private func addConstraints() {
+        digiassetsLogo.constrain([
+            digiassetsLogo.topAnchor.constraint(equalTo: topAnchor, constant: 40 + (E.isIPhoneXOrGreater ? 32 : 15)),
+            digiassetsLogo.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0),
+            digiassetsLogo.heightAnchor.constraint(equalToConstant: 50),
+        ])
+        
+        
+    }
+    
+    private func setStyle() {
+        backgroundColor = UIColor.da.assetBackground
+        
+        digiassetsLogo.contentMode = .scaleAspectFit
+        
+        
+    }
+    
+    func setCloser(supervc: DrawerControllerProtocol?) {
+        self.supervc = supervc
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+fileprivate class NavigationDrawer: UIView {
     private let bgImage = UIImageView(image: UIImage(named: "hamburgerBg"))
     private var digibyteLogo = UIImageView(image: UIImage(named: "DigiByteSymbol"))
     private let walletLabel = UILabel(font: .customMedium(size: 18), color: C.Colors.text)
     private let walletVersionLabel = UILabel(font: .customMedium(size: 11), color: .gray)
     private var y: CGFloat = 0
-    private var supervc: HamburgerViewMenuProtocol? = nil
+    private var supervc: DrawerControllerProtocol? = nil
     private var scrollView = UIScrollView()
     private var scrollInner = UIStackView()
     
     private let buttonHeight: CGFloat = 78.0
+    
+    private let id: String
     
     private struct SideMenuButton {
         let view: UIView
@@ -510,7 +561,8 @@ fileprivate class HamburgerViewMenu: UIView {
     
     private var buttons: [SideMenuButton] = []
     
-    init(walletTitle: String, version: String) {
+    init(id: String, walletTitle: String, version: String) {
+        self.id = id
         super.init(frame: CGRect())
         
         walletLabel.text = walletTitle
@@ -604,14 +656,14 @@ fileprivate class HamburgerViewMenu: UIView {
         fatalError("HamburgerViewMenu aDecoder has not been implemented")
     }
     
-    func setCloser(supervc: HamburgerViewMenuProtocol?) {
+    func setCloser(supervc: DrawerControllerProtocol?) {
         self.supervc = supervc
     }
     
     @objc private func buttonTapped(button: UIButton) {
         for (_, btn) in buttons.enumerated() {
             if (btn.view == button) {
-                self.supervc?.closeHamburgerMenu()
+                self.supervc?.closeDrawer(with: id)
                 self.buttonUp(button: button)
                 btn.callback()
             }
@@ -671,11 +723,11 @@ fileprivate class HamburgerViewMenu: UIView {
     }
 }
 
-fileprivate protocol HamburgerViewMenuProtocol {
-    func closeHamburgerMenu()
+fileprivate protocol DrawerControllerProtocol {
+    func closeDrawer(with id: String)
 }
 
-class AccountViewController: UIViewController, Subscriber, UIPageViewControllerDataSource, UIPageViewControllerDelegate, HamburgerViewMenuProtocol, UIScrollViewDelegate {
+class AccountViewController: UIViewController, Subscriber, UIPageViewControllerDataSource, UIPageViewControllerDelegate, DrawerControllerProtocol, UIScrollViewDelegate {
 
     //MARK: - Public
     var sendCallback: (() -> Void)? {
@@ -738,7 +790,7 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         }
     }
 
-    init(store: Store, didSelectTransaction: @escaping ([Transaction], Int) -> Void) {
+    init(store: BRStore, didSelectTransaction: @escaping ([Transaction], Int) -> Void) {
         self.store = store
         self.syncViewController = SyncViewController(store: store)
         
@@ -761,7 +813,7 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
     }
 
     //MARK: - Private
-    private let store: Store
+    private let store: BRStore
     private let footerView = AccountFooterView()
     private let syncViewController: SyncViewController
     private let transactionsLoadingView = LoadingProgressView()
@@ -774,16 +826,21 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
     private let pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     private var pages = [UIViewController]()
     
-    private let hamburgerMenuView = HamburgerViewMenu(walletTitle: C.applicationTitle, version: C.version)
+    private let navigationDrawer = NavigationDrawer(id: "navigation", walletTitle: C.applicationTitle, version: C.version)
+    private let assetDrawer = AssetDrawer(id: "assets")
+    
     private let fadeView: UIView = {
         let view = BlurView()
         view.isUserInteractionEnabled = true
         return view
     }()
-    private var hamburgerMenuViewIsAnimating = false
+    private var navigationDrawerOpen = false
+    private var assetDrawerOpen = false
     private let edgeGesture: UIScreenEdgePanGestureRecognizer
-    private var menuLeftConstraint: NSLayoutConstraint?
+    private var navigationMenuLeftConstraint: NSLayoutConstraint?
     private var menuWidthConstraint: NSLayoutConstraint?
+    private var assetDrawerRightConstraint: NSLayoutConstraint?
+    private var assetDrawerWidthConstraint: NSLayoutConstraint?
     
     private let footerHeight: CGFloat = 56.0
     private var transactionsLoadingViewTop: NSLayoutConstraint?
@@ -853,7 +910,7 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         addSegmentedView()
         addTransactionsView()
         addSubviews()
-        addHamburgerMenu()
+        addDrawerMenus()
         addConstraints()
         addSubscriptions()
         addAppLifecycleNotificationEvents()
@@ -879,8 +936,8 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
     }
     
     @objc private func gestureScreenEdgePan(_ sender: UIScreenEdgePanGestureRecognizer) {
-        guard let menuLeftConstraint = menuLeftConstraint else { return }
-        let width = hamburgerMenuView.frame.width
+        guard let menuLeftConstraint = navigationMenuLeftConstraint else { return }
+        let width = navigationDrawer.frame.width
         
         if sender.state == .began {
             fadeView.isHidden = false
@@ -906,84 +963,125 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         } else {
             // if the menu was dragged less than half of it's width, close it. Otherwise, open it.
             if menuLeftConstraint.constant < -width / 2 {
-                self.closeHamburgerMenu()
+                self.closeNavigationDrawer()
             } else {
-                self.openHamburgerMenu()
+                self.openNavigationDrawer()
             }
         }
     }
     
     @objc private func gesturePan(_ sender: UIPanGestureRecognizer) {
-        guard let menuLeftConstraint = menuLeftConstraint else { return }
-
-        let width = hamburgerMenuView.frame.width
-        
-        if sender.state == UIGestureRecognizer.State.began {
-            // do nothing
-        } else if sender.state == UIGestureRecognizer.State.changed {
-            let translationX = sender.translation(in: sender.view).x
-            if translationX > 0 {
-                menuLeftConstraint.constant = -15 + sqrt(translationX)
-                hamburgerMenuView.animationStep(progress: 1)
-                fadeView.alpha = MENUBACKGROUND_OPACITY_END
-            } else if translationX < -width - 15 {
-                menuLeftConstraint.constant = -width
-                hamburgerMenuView.animationStep(progress: 0)
-                fadeView.alpha = 0
+        if (navigationDrawerOpen) {
+            guard let menuLeftConstraint = navigationMenuLeftConstraint else { return }
+            let width = navigationDrawer.frame.width
+            
+            if sender.state == UIGestureRecognizer.State.began {
+                // do nothing
+            } else if sender.state == UIGestureRecognizer.State.changed {
+                let translationX = sender.translation(in: sender.view).x
+                if translationX > 0 {
+                    menuLeftConstraint.constant = -15 + sqrt(translationX)
+                    navigationDrawer.animationStep(progress: 1)
+                    fadeView.alpha = MENUBACKGROUND_OPACITY_END
+                } else if translationX < -width - 15 {
+                    menuLeftConstraint.constant = -width
+                    navigationDrawer.animationStep(progress: 0)
+                    fadeView.alpha = 0
+                } else {
+                    menuLeftConstraint.constant = translationX - 15
+                    
+                    let ratio = (width + translationX - 15) / width
+                    let alphaValue = ratio
+                    fadeView.alpha = alphaValue * MENUBACKGROUND_OPACITY_END
+                    navigationDrawer.animationStep(progress: ratio)
+                }
+                view.layoutIfNeeded()
             } else {
-                menuLeftConstraint.constant = translationX - 15
-                
-                let ratio = (width + translationX - 15) / width
-                let alphaValue = ratio
-                fadeView.alpha = alphaValue * MENUBACKGROUND_OPACITY_END
-                hamburgerMenuView.animationStep(progress: ratio)
+                if menuLeftConstraint.constant < -width / 2 {
+                    self.closeNavigationDrawer()
+                } else {
+                    self.openNavigationDrawer()
+                }
             }
-            view.layoutIfNeeded()
-        } else {
-            if menuLeftConstraint.constant < -width / 2 {
-                self.closeHamburgerMenu()
+        } else if assetDrawerOpen {
+            guard let assetDrawerRightConstraint = assetDrawerRightConstraint else { return }
+            let width = assetDrawer.frame.width
+                
+            if sender.state == UIGestureRecognizer.State.began {
+                // do nothing
+            } else if sender.state == UIGestureRecognizer.State.changed {
+                let translationX = sender.translation(in: sender.view).x
+                if translationX < 0 {
+                    assetDrawerRightConstraint.constant = 15 - sqrt(-translationX)
+                    fadeView.alpha = MENUBACKGROUND_OPACITY_END
+                } else if translationX > width - 15 {
+                    assetDrawerRightConstraint.constant = width
+                    fadeView.alpha = 0
+                } else {
+                    assetDrawerRightConstraint.constant = translationX + 15
+                    
+                    let ratio = (width - translationX + 15) / width
+                    let alphaValue = ratio
+                    fadeView.alpha = alphaValue * MENUBACKGROUND_OPACITY_END
+                }
+                view.layoutIfNeeded()
             } else {
-                self.openHamburgerMenu()
+                if assetDrawerRightConstraint.constant > width / 2 {
+                    self.closeAssetDrawer()
+                } else {
+                    self.openAssetDrawer()
+                }
             }
         }
     }
 
     
-    private func addHamburgerMenu() {
+    private func addDrawerMenus() {
         // set closer delegate
-        hamburgerMenuView.setCloser(supervc: self)
+        navigationDrawer.setCloser(supervc: self)
         
-        hamburgerMenuView.addButton(title: S.MenuButton.security, icon: UIImage(named: "hamburger_002Shield")!) {
+        navigationDrawer.addButton(title: S.MenuButton.security, icon: UIImage(named: "hamburger_002Shield")!) {
             self.store.perform(action: HamburgerActions.Present(modal: .securityCenter))
         }
+        
 //        hamburgerMenuView.addButton(title: S.MenuButton.support, icon: UIImage(named: "hamburger_001Info")) {
 //            self.store.perform(action: HamburgerActions.Present(modal: .support))
 //        }
         
-        // YOSHI
-//        hamburgerMenuView.addButton(title: S.MenuButton.digiAssets, icon: UIImage(named: "digiassets")!) {
-//            self.store.perform(action: HamburgerActions.Present(modal: .digiAssets))
-//        }
+        navigationDrawer.addButton(title: S.MenuButton.digiAssets, icon: UIImage(named: "digiassets")!) {
+            self.store.perform(action: HamburgerActions.Present(modal: .digiAssets))
+        }
         
-        hamburgerMenuView.addButton(title: S.MenuButton.settings, icon: UIImage(named: "hamburger_003Settings")!) {
+        navigationDrawer.addButton(title: S.MenuButton.settings, icon: UIImage(named: "hamburger_003Settings")!) {
             self.store.perform(action: HamburgerActions.Present(modal: .settings))
         }
 
-        hamburgerMenuView.addButton(title: S.MenuButton.lock, icon: UIImage(named: "hamburger_004Locked")!) {
+        navigationDrawer.addButton(title: S.MenuButton.lock, icon: UIImage(named: "hamburger_004Locked")!) {
             self.store.perform(action: HamburgerActions.Present(modal: .lockWallet))
         }
         
         view.addSubview(fadeView)
-        view.addSubview(hamburgerMenuView)
+        view.addSubview(navigationDrawer)
+        view.addSubview(assetDrawer)
         
-        menuLeftConstraint = hamburgerMenuView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0)
-        menuWidthConstraint = hamburgerMenuView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9)
+        navigationMenuLeftConstraint = navigationDrawer.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0)
+        menuWidthConstraint = navigationDrawer.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9)
         
-        hamburgerMenuView.constrain([
-            menuLeftConstraint,
+        assetDrawerRightConstraint = assetDrawer.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0)
+        assetDrawerWidthConstraint = assetDrawer.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9)
+        
+        navigationDrawer.constrain([
+            navigationMenuLeftConstraint,
             menuWidthConstraint,
-            hamburgerMenuView.topAnchor.constraint(equalTo: view.topAnchor),
-            hamburgerMenuView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            navigationDrawer.topAnchor.constraint(equalTo: view.topAnchor),
+            navigationDrawer.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
+        
+        assetDrawer.constrain([
+            assetDrawerRightConstraint,
+            assetDrawerWidthConstraint,
+            assetDrawer.topAnchor.constraint(equalTo: view.topAnchor),
+            assetDrawer.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
         
         let tapper = UITapGestureRecognizer()
@@ -1002,46 +1100,84 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         
         fadeView.constrain(toSuperviewEdges: nil)
         footerView.menuCallback = { () -> Void in
-            self.openHamburgerMenu()
+            // YOSHI: restore this
+//            self.openNavigationDrawer()
+//            self.showDigiAssetsConfirmView()
+            self.openAssetDrawer()
         }
     }
     
     @objc private func fadeViewTap() {
-        closeHamburgerMenu()
+        if navigationDrawerOpen { closeNavigationDrawer() }
+        if assetDrawerOpen { closeAssetDrawer() }
     }
     
-    func openHamburgerMenu() {
-        guard !hamburgerMenuViewIsAnimating else { return }
-        hamburgerMenuViewIsAnimating = true
+    func closeDrawer(with id: String) {
+        switch id {
+            case "navigation": closeNavigationDrawer()
+            case "assets": closeAssetDrawer()
+            default:
+                break;
+        }
+    }
+    
+    func openNavigationDrawer() {
+        if assetDrawerOpen { self.closeAssetDrawer() }
         
-        menuLeftConstraint?.constant = -15
-        // fadeView.alpha = 0
+        navigationMenuLeftConstraint?.constant = -15
         fadeView.isHidden = false
         
         UIView.spring(0.3, animations: {
             self.view.layoutIfNeeded()
             self.fadeView.alpha = self.MENUBACKGROUND_OPACITY_END
-            self.hamburgerMenuView.animationStep(progress: 1.0)
+            self.navigationDrawer.animationStep(progress: 1.0)
         }, completion: { (finished) in
             self.edgeGesture.isEnabled = false
-            self.hamburgerMenuViewIsAnimating = false
+            self.navigationDrawerOpen = true
         })
     }
     
-    func closeHamburgerMenu() {
-        guard !hamburgerMenuViewIsAnimating else { return }
-        hamburgerMenuViewIsAnimating = true
-        menuLeftConstraint?.constant = -hamburgerMenuView.frame.width
+    func closeNavigationDrawer() {
+        guard navigationDrawerOpen else { return }
+        navigationMenuLeftConstraint?.constant = -navigationDrawer.frame.width
         
         UIView.spring(0.3, animations: {
-        // UIView.animate(withDuration: 0.3, animations: {
             self.view.layoutIfNeeded()
             self.fadeView.alpha = 0.0
-            self.hamburgerMenuView.animationStep(progress: 0)
+            self.navigationDrawer.animationStep(progress: 0)
         }) { (finished) in
             self.edgeGesture.isEnabled = true
             self.fadeView.isHidden = true
-            self.hamburgerMenuViewIsAnimating = false
+            self.navigationDrawerOpen = false
+        }
+    }
+    
+    func openAssetDrawer() {
+        if navigationDrawerOpen { self.closeNavigationDrawer() }
+        
+        assetDrawerRightConstraint?.constant = 15
+        fadeView.isHidden = false
+        
+        UIView.spring(0.3, animations: {
+            self.view.layoutIfNeeded()
+            self.fadeView.alpha = self.MENUBACKGROUND_OPACITY_END
+        }, completion: { (finished) in
+            self.edgeGesture.isEnabled = false
+            self.assetDrawerOpen = true
+        })
+    }
+    
+    func closeAssetDrawer() {
+        guard assetDrawerOpen else { return }
+        assetDrawerRightConstraint?.constant = assetDrawer.frame.width
+        
+        UIView.spring(0.3, animations: {
+            self.view.layoutIfNeeded()
+            self.fadeView.alpha = 0.0
+        }) { (finished) in
+            self.edgeGesture.isEnabled = true
+            self.fadeView.isHidden = true
+            self.assetDrawerOpen = false
         }
     }
     
@@ -1080,16 +1216,17 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         shouldShowStatusBar = true
-
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
         menu.update()
         
-        menuLeftConstraint?.constant = -hamburgerMenuView.frame.width
-        hamburgerMenuView.layoutIfNeeded()
+        navigationMenuLeftConstraint?.constant = -navigationDrawer.frame.width
+        assetDrawerRightConstraint?.constant = assetDrawer.frame.width
+        navigationDrawer.layoutIfNeeded()
+        assetDrawer.layoutIfNeeded()
+        
         fadeView.alpha = 0
         fadeView.isHidden = true
     }
@@ -1136,6 +1273,22 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
             transactionsTableViewForReceivedTransactions.kvStore = kvStore
         }
     }
+    
+    func showDigiAssetsConfirmView() {
+        let confirmView = DGBConfirmAlert(title: "DigiAssets received", message: "You received one or more DigiAssets. In order to view your assets this app needs to communicate with a metadata server. This will disclose some of your wallet's public addresses.", image: UIImage(named: "privacy"), okTitle: "Resolve Assets", cancelTitle: "Skip")
+        
+        confirmView.confirmCallback = { (close: DGBCallback) in
+            print("ConfirmView: CONFIRMED")
+            close()
+        }
+        
+        confirmView.cancelCallback = { (close: DGBCallback) in
+            print("ConfirmView: CANCELLED")
+            close()
+        }
+        
+        self.present(confirmView, animated: true, completion: nil)
+    }
 
     private func addSubscriptions() {
         store.subscribe(self, selector: { $0.walletState.syncProgress != $1.walletState.syncProgress }, callback: { state in
@@ -1159,6 +1312,13 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
             )
             
             if state.walletState.syncState == .success {
+                if !self.syncViewController.view.isHidden {
+                    // state change from sync to success
+                    if !AssetHelper.resolvedAllAssets() {
+                        // Show confirmation alert (address disclosure)
+                        self.showDigiAssetsConfirmView()
+                    }
+                }
                 self.syncViewController.view.isHidden = true
 				self.syncViewController.hideProgress()
             } else if peerManager.shouldShowSyncingView {

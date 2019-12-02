@@ -10,7 +10,7 @@ import Foundation
 
 class KVStoreCoordinator : Subscriber {
 
-    init(store: Store, kvStore: BRReplicatedKVStore) {
+    init(store: BRStore, kvStore: BRReplicatedKVStore) {
         self.store = store
         self.kvStore = kvStore
     }
@@ -48,7 +48,7 @@ class KVStoreCoordinator : Subscriber {
         }
     }
 
-    private let store: Store
+    private let store: BRStore
     private let kvStore: BRReplicatedKVStore
     private var hasRetreivedInitialWalletInfo = false
 }

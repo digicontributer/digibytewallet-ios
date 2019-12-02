@@ -49,9 +49,9 @@ class SyncViewController: UIViewController, Subscriber {
     private var lastUpdatedEstimatedHeight: TimeInterval = 0
     private var estimatedBlockHeightTimer: Timer?
 
-    private let store: Store
+    private let store: BRStore
     
-    init(store: Store) {
+    init(store: BRStore) {
         self.store = store
         super.init(nibName: nil, bundle: nil)
     }

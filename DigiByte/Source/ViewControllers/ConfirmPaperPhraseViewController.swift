@@ -10,7 +10,7 @@ import UIKit
 
 class ConfirmPaperPhraseViewController : UIViewController {
 
-    init(store: Store, walletManager: WalletManager, pin: String, callback: @escaping () -> Void) {
+    init(store: BRStore, walletManager: WalletManager, pin: String, callback: @escaping () -> Void) {
         self.store = store
         self.pin = pin
         self.walletManager = walletManager
@@ -27,7 +27,7 @@ class ConfirmPaperPhraseViewController : UIViewController {
     lazy private var confirmSecondPhrase: ConfirmPhrase = { ConfirmPhrase(text: String(format:S.ConfirmPaperPhrase.word, "\(self.indices.1 + 1)"), word: self.words[self.indices.1]) }()
     private let submit = ShadowButton(title: S.Button.submit, type: .primary)
     private let header = RadialGradientView(backgroundColor: C.Colors.background)
-    private let store: Store
+    private let store: BRStore
     private let pin: String
     private let walletManager: WalletManager
     private let callback: () -> Void

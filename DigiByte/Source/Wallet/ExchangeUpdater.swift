@@ -11,7 +11,7 @@ import Foundation
 class ExchangeUpdater : Subscriber {
 
     //MARK: - Public
-    init(store: Store, walletManager: WalletManager) {
+    init(store: BRStore, walletManager: WalletManager) {
         self.store = store
         self.walletManager = walletManager
         store.subscribe(self,
@@ -63,6 +63,6 @@ class ExchangeUpdater : Subscriber {
     }
 
     //MARK: - Private
-    let store: Store
+    let store: BRStore
     let walletManager: WalletManager
 }

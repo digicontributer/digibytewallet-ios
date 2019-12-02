@@ -18,7 +18,7 @@ typealias EnterPhraseCallback = (String) -> Void
 
 class EnterPhraseViewController : UIViewController, UIScrollViewDelegate, CustomTitleView, Trackable {
 
-    init(store: Store, walletManager: WalletManager, reason: PhraseEntryReason) {
+    init(store: BRStore, walletManager: WalletManager, reason: PhraseEntryReason) {
         self.store = store
         self.walletManager = walletManager
         self.enterPhrase = EnterPhraseCollectionViewController(walletManager: walletManager)
@@ -40,7 +40,7 @@ class EnterPhraseViewController : UIViewController, UIScrollViewDelegate, Custom
     }
 
     //MARK: - Private
-    private let store: Store
+    private let store: BRStore
     private let walletManager: WalletManager
     private let reason: PhraseEntryReason
     private let enterPhrase: EnterPhraseCollectionViewController

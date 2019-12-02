@@ -59,7 +59,7 @@ class SecurityCenterViewController : UIViewController, Subscriber {
         didSet { paperKeyCell.tap = didTapPaperKey }
     }
 
-    init(store: Store, walletManager: WalletManager) {
+    init(store: BRStore, walletManager: WalletManager) {
         self.store = store
         self.walletManager = walletManager
         self.header = ModalHeaderView(title: S.SecurityCenter.title, style: .light, faqInfo: (store, ArticleIds.securityCenter))
@@ -76,7 +76,7 @@ class SecurityCenterViewController : UIViewController, Subscriber {
     private let biometricsCell = SecurityCenterCell(title: LAContext.biometricType() == .face ? S.SecurityCenter.Cells.faceIdTitle : S.SecurityCenter.Cells.touchIdTitle, descriptionText: S.SecurityCenter.Cells.touchIdDescription)
     private let paperKeyCell = SecurityCenterCell(title: S.SecurityCenter.Cells.paperKeyTitle, descriptionText: S.SecurityCenter.Cells.paperKeyDescription)
     private let separator = UIView(color: .secondaryShadow)
-    private let store: Store
+    private let store: BRStore
     private let walletManager: WalletManager
     fileprivate var didViewAppear = false
 

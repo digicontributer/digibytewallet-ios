@@ -10,7 +10,7 @@ import UIKit
 
 class ReScanViewController : UIViewController, Subscriber {
 
-    init(store: Store) {
+    init(store: BRStore) {
         self.store = store
         self.faq = .buildFaqButton(store: store, articleId: ArticleIds.reScan)
         super.init(nibName: nil, bundle: nil)
@@ -20,7 +20,7 @@ class ReScanViewController : UIViewController, Subscriber {
     private let body = UILabel.wrapping(font: .customBody(size: 15.0), color: C.Colors.text)
     private let button = ShadowButton(title: S.ReScan.buttonTitle, type: .primary)
     private let footer = UILabel.wrapping(font: .customBody(size: 16.0), color: C.Colors.greyBlue)
-    private let store: Store
+    private let store: BRStore
     private let faq: UIButton
 
     deinit {

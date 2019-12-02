@@ -15,7 +15,7 @@ private let logoWidth: CGFloat = 0.22 //percentage of width
 class AccountHeaderView : UIView, GradientDrawable, Subscriber {
 
     //MARK: - Public
-    init(store: Store) {
+    init(store: BRStore) {
         self.store = store
         self.isBtcSwapped = store.state.isBtcSwapped
         if let rate = store.state.currentRate {
@@ -38,7 +38,7 @@ class AccountHeaderView : UIView, GradientDrawable, Subscriber {
     private let primaryBalance: UpdatingLabel
     private let secondaryBalance: UpdatingLabel
     private let currencyTapView = UIView()
-    private let store: Store
+    private let store: BRStore
     private let equals = UILabel(font: .customBody(size: smallFontSize), color: .whiteTint)
     private var regularConstraints: [NSLayoutConstraint] = []
     private var swappedConstraints: [NSLayoutConstraint] = []

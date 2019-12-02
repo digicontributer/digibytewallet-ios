@@ -25,7 +25,7 @@ private let defaultFeePerKB: UInt64 = 50000
 class FeeUpdater : Trackable {
 
     //MARK: - Public
-    init(walletManager: WalletManager, store: Store) {
+    init(walletManager: WalletManager, store: BRStore) {
         self.walletManager = walletManager
         self.store = store
     }
@@ -56,7 +56,7 @@ class FeeUpdater : Trackable {
 
     //MARK: - Private
     private let walletManager: WalletManager
-    private let store: Store
+    private let store: BRStore
     private let feeKey = "FEE_PER_KB"
     private let txFeePerKb: UInt64 = 1000
     private lazy var minFeePerKB: UInt64 = {

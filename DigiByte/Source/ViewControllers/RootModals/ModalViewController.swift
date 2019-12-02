@@ -24,7 +24,7 @@ class ModalViewController : UIViewController, Subscriber {
     var childViewController: UIViewController
     let scrollView = AlwaysScrollableScrollView()
 
-    init<T: UIViewController>(childViewController: T, store: Store) where T: ModalDisplayable {
+    init<T: UIViewController>(childViewController: T, store: BRStore) where T: ModalDisplayable {
         self.childViewController = childViewController
         self.modalInfo = childViewController
         self.store = store
@@ -41,7 +41,7 @@ class ModalViewController : UIViewController, Subscriber {
     private let modalInfo: ModalDisplayable
     private let headerHeight: CGFloat = 49.0
     private let tapGestureRecognizer = UITapGestureRecognizer()
-    private let store: Store
+    private let store: BRStore
     private let scrollViewContent = UIView()
     
     let header: ModalHeaderView

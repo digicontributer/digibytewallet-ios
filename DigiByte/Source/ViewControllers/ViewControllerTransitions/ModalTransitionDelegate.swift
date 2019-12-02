@@ -16,7 +16,7 @@ enum ModalType {
 class ModalTransitionDelegate : NSObject, Subscriber {
     
     //MARK: - Public
-    init(type: ModalType, store: Store) {
+    init(type: ModalType, store: BRStore) {
         self.type = type
         self.store = store
         super.init()
@@ -35,7 +35,7 @@ class ModalTransitionDelegate : NSObject, Subscriber {
     var shouldDismissInteractively = true
     //MARK: - Private
     fileprivate let type: ModalType
-    fileprivate let store: Store
+    fileprivate let store: BRStore
     fileprivate var isInteractive: Bool = false
     fileprivate let interactiveTransition = UIPercentDrivenInteractiveTransition()
     fileprivate var presentedViewController: UIViewController?

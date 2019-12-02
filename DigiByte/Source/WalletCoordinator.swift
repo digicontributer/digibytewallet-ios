@@ -23,7 +23,7 @@ class WalletCoordinator : Subscriber, Trackable {
     }
 
     private let walletManager: WalletManager
-    private let store: Store
+    private let store: BRStore
     private var progressTimer: Timer?
     private var updateTimer: Timer?
     private let defaults = UserDefaults.standard
@@ -31,7 +31,7 @@ class WalletCoordinator : Subscriber, Trackable {
     private var reachability = ReachabilityMonitor()
     private var retryTimer: RetryTimer?
     
-    init(walletManager: WalletManager, store: Store) {
+    init(walletManager: WalletManager, store: BRStore) {
         self.walletManager = walletManager
         self.store = store
         addWalletObservers()
@@ -269,7 +269,7 @@ class WalletCoordinator : Subscriber, Trackable {
             //self.store.perform(action: WalletChange.setIsSyncing(false))
             
             if let w = self.walletManager.wallet {
-                let req = FirstBlockWithWalletTxRequest(w.allAddresses, completion: { (success, hash, height, timestamp) in
+                let req = FirstBlockWithWalletTxRequest(w.allAddressesLimited(limit: 60), completion: { (success, hash, height, timestamp) in
                     var start: Any? = nil
                     
                     if success && timestamp != 0 && height > 0 {

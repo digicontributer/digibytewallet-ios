@@ -13,7 +13,7 @@ class BiometricsSettingsViewController : UIViewController, Subscriber {
 
     var presentSpendingLimit: (() -> Void)?
 
-    init(walletManager: WalletManager, store: Store) {
+    init(walletManager: WalletManager, store: BRStore) {
         self.walletManager = walletManager
         self.store = store
         super.init(nibName: nil, bundle: nil)
@@ -33,7 +33,7 @@ class BiometricsSettingsViewController : UIViewController, Subscriber {
     private let separator = UIView(color: C.Colors.greyBlue)
     private let textView = UnEditableTextView()
     private let walletManager: WalletManager
-    private let store: Store
+    private let store: BRStore
     private var rate: Rate?
     fileprivate var didTapSpendingLimit = false
 

@@ -10,7 +10,7 @@ import UIKit
 
 class DefaultCurrencyViewController : UITableViewController, Subscriber {
 
-    init(walletManager: WalletManager, store: Store) {
+    init(walletManager: WalletManager, store: BRStore) {
         self.walletManager = walletManager
         self.store = store
         self.rates = store.state.rates
@@ -18,7 +18,7 @@ class DefaultCurrencyViewController : UITableViewController, Subscriber {
     }
 
     private let walletManager: WalletManager
-    private let store: Store
+    private let store: BRStore
     private let cellIdentifier = "CellIdentifier"
     private var rates: [Rate] = [] {
         didSet {

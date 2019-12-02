@@ -15,7 +15,7 @@ enum Fee {
 
 class FeeSelector : UIView {
 
-    init(store: Store) {
+    init(store: BRStore) {
         self.store = store
         super.init(frame: .zero)
         setupViews()
@@ -33,7 +33,7 @@ class FeeSelector : UIView {
         NSLayoutConstraint.activate([bottomConstraint])
     }
 
-    private let store: Store
+    private let store: BRStore
     private let header = UILabel(font: .customMedium(size: 16.0), color: C.Colors.text)
     private let subheader = UILabel(font: .customBody(size: 14.0), color: C.Colors.lightText)
     private let warning = UILabel.wrapping(font: .customBody(size: 14.0), color: C.Colors.weirdRed)

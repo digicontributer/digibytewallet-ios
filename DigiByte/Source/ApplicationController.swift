@@ -16,7 +16,7 @@ class ApplicationController : Subscriber, Trackable {
     //Ideally the window would be private, but is unfortunately required
     //by the UIApplicationDelegate Protocol
     let window = UIWindow()
-    fileprivate let store = Store()
+    fileprivate let store = BRStore()
     private var startFlowController: StartFlowPresenter?
     private var modalPresenter: ModalPresenter?
 

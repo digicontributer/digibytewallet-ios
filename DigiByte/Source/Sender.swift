@@ -20,7 +20,7 @@ private let protocolPaymentTimeout: TimeInterval = 20.0
 
 class Sender {
 
-    init(walletManager: WalletManager, kvStore: BRReplicatedKVStore, store: Store) {
+    init(walletManager: WalletManager, kvStore: BRReplicatedKVStore, store: BRStore) {
         self.walletManager = walletManager
         self.kvStore = kvStore
         self.store = store
@@ -28,7 +28,7 @@ class Sender {
 
     private let walletManager: WalletManager
     private let kvStore: BRReplicatedKVStore
-    private let store: Store
+    private let store: BRStore
     var transaction: BRTxRef?
     var protocolRequest: PaymentProtocolRequest?
     var rate: Rate?
