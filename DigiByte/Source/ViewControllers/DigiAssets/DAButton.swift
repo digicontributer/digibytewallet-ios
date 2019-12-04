@@ -13,8 +13,15 @@ fileprivate let DEFAULT_HEIGHT: CGFloat = 23.0
 class DAHapticControl: UIControl {
     private var feedbackGenerator: AnyObject? = nil
     
+    var callback: (() -> Void)? = nil
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        isUserInteractionEnabled = true
+    }
+    
+    @objc private func tapped() {
+        self.callback?()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -39,6 +46,8 @@ class DAHapticControl: UIControl {
                 feedbackGenerator = nil
             }
         }
+        
+        callback?()
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -86,8 +95,8 @@ class DAButton: DAHapticControl {
         backgroundView.layer.cornerRadius = height / 2
         
         label.constrain([
-            label.leftAnchor.constraint(equalTo: self.backgroundView.leftAnchor),
-            label.rightAnchor.constraint(equalTo: self.backgroundView.rightAnchor),
+            label.leftAnchor.constraint(equalTo: self.backgroundView.leftAnchor, constant: 8),
+            label.rightAnchor.constraint(equalTo: self.backgroundView.rightAnchor, constant: -8),
             label.centerYAnchor.constraint(equalTo: self.backgroundView.centerYAnchor, constant: 0),
         ])
         

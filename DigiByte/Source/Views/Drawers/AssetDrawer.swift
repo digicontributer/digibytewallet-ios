@@ -12,9 +12,22 @@ import Kingfisher
 fileprivate class LogoCell: UITableViewCell {
     private let digiassetsLogo = UIImageView(image: UIImage(named: "digiassets_logo"))
     
+    let stackView = UIStackView()
+    let headerLabel = UILabel(font: UIFont.da.customBold(size: 20), color: .white)
+    let dateLabel = UILabel(font: UIFont.da.customMedium(size: 14), color: .white)
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.spacing = 8
+        
+        stackView.addArrangedSubview(headerLabel)
+        stackView.addArrangedSubview(dateLabel)
+        
+        contentView.addSubview(stackView)
         contentView.addSubview(digiassetsLogo)
         digiassetsLogo.contentMode = .scaleAspectFit
         
@@ -22,11 +35,23 @@ fileprivate class LogoCell: UITableViewCell {
             digiassetsLogo.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
             digiassetsLogo.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 0),
             digiassetsLogo.heightAnchor.constraint(equalToConstant: 50),
-            digiassetsLogo.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -50),
+//            digiassetsLogo.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -50),
+        ])
+        
+        stackView.constrain([
+            stackView.topAnchor.constraint(equalTo: digiassetsLogo.bottomAnchor, constant: 50),
+            stackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 15),
+            stackView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -15),
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30),
         ])
         
         backgroundColor = UIColor.clear
         selectionStyle = .none
+        
+        headerLabel.text = "Asset Transaction"
+        headerLabel.textAlignment = .center
+        
+        dateLabel.textAlignment = .center
     }
     
     required init?(coder: NSCoder) {
@@ -39,13 +64,16 @@ class AssetDrawer: UIView {
     private let id: String
     
     private var assets = [AssetModel]()
-    private var tx: Transaction!
+    private var tx: Transaction?
 
     private let tableView: UITableView = UITableView()
     private var contextMenuConstraints = [NSLayoutConstraint]()
     
     private let contextMenu = AssetContextMenu()
     private let contextMenuUnderlay = UIView() // transparent view that closes contextmenu when tapped
+    
+    var callback: ((Transaction) -> Void)? = nil
+    let viewRawTxButton = DAButton(title: "View Raw Transaction".uppercased(), backgroundColor: UIColor.da.darkSkyBlue)
     
     init(id: String) {
         self.id = id
@@ -62,6 +90,8 @@ class AssetDrawer: UIView {
     private func addSubviews() {
         addSubview(tableView)
         
+        addSubview(viewRawTxButton)
+        
         addSubview(contextMenuUnderlay)
         addSubview(contextMenu)
     }
@@ -71,12 +101,20 @@ class AssetDrawer: UIView {
         
         contextMenuUnderlay.constrain(toSuperviewEdges: nil)
         contextMenu.translatesAutoresizingMaskIntoConstraints = false
+        
+        viewRawTxButton.constrain([
+            viewRawTxButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50),
+            viewRawTxButton.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
     }
     
     private func setStyle() {
         backgroundColor = UIColor.da.backgroundColor
         contextMenuUnderlay.isHidden = true
         contextMenu.isHidden = true
+        
+        viewRawTxButton.label.font = UIFont.da.customBold(size: 12)
+        viewRawTxButton.height = 34
     }
     
     private func configureTableView() {
@@ -91,10 +129,20 @@ class AssetDrawer: UIView {
         tableView.contentInset = UIEdgeInsets(top: 40 + (E.isIPhoneXOrGreater ? 32 : 15), left: 0, bottom: 40, right: 0)
     }
     
+    @objc
+    private func viewRawTxButtonTapped() {
+        guard let tx = self.tx else { return }
+        self.callback?(tx)
+    }
+    
     private func addEvents() {
         let gr = UITapGestureRecognizer(target: self, action: #selector(contextBgTapped))
         contextMenuUnderlay.isUserInteractionEnabled = true
         contextMenuUnderlay.addGestureRecognizer(gr)
+        
+        viewRawTxButton.callback = {
+            self.viewRawTxButtonTapped()
+        }
     }
     
     @objc private func contextBgTapped() {
@@ -130,7 +178,7 @@ extension AssetDrawer: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
             case 0:
-                return 1
+                return tx != nil ? 1 : 0
             
             case 1:
                 return assets.count
@@ -144,10 +192,15 @@ extension AssetDrawer: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
+            let tx = self.tx!
             let cell = tableView.dequeueReusableCell(withIdentifier: "logo", for: indexPath) as! LogoCell
+            
+            cell.dateLabel.text = tx.direction == .received ? "Received on: \(tx.timeTimestamp)" : "Sent on: \(tx.timeTimestamp)"
+            
             return cell
             
         default:
+            let tx = self.tx!
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AssetCell
             let assetModel = assets[indexPath.row]
             

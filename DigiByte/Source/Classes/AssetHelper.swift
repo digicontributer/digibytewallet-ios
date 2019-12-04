@@ -189,6 +189,17 @@ struct AssetModel: Codable {
         }
     }
     
+    func getBigImage() -> UrlModel? {
+        guard let urls = getURLs() else { return nil }
+        if let index = urls.firstIndex(where: { $0.name == "large_icon" }) {
+            return urls[index]
+        } else if let index = urls.firstIndex(where: { $0.name == "icon" }) {
+            return urls[index]
+        } else {
+            return nil
+        }
+    }
+    
     func getDescription() -> String? {
         guard let meta = metadataOfIssuence else { return nil }
         guard let data = meta.data else { return nil }

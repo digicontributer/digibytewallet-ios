@@ -595,6 +595,8 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         self.tempLoginView = LoginViewController(store: store, isPresentedForLock: false)
         self.balanceView = BalanceView(store: store)
         
+        self.didSelectTransaction = didSelectTransaction
+        
         self.edgeGesture = UIScreenEdgePanGestureRecognizer()
         super.init(nibName: nil, bundle: nil)
         
@@ -679,6 +681,8 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
     private let tempLoginView: LoginViewController
     private let loginTransitionDelegate = LoginTransitionDelegate()
     private let welcomeTransitingDelegate = PinTransitioningDelegate()
+    
+    private let didSelectTransaction: ([Transaction], Int) -> Void
     
     private var balanceView: BalanceView
     private let menu = CustomSegmentedControl(frame: .zero)
@@ -912,6 +916,14 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
             assetDrawer.topAnchor.constraint(equalTo: view.topAnchor),
             assetDrawer.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
+        
+        assetDrawer.callback = { tx in
+            let transactions = self.store.state.walletState.transactions
+            guard let index = transactions.firstIndex(of: tx) else { return }
+            
+            self.closeAssetDrawer()
+            self.didSelectTransaction(transactions, index)
+        }
         
         let tapper = UITapGestureRecognizer()
         tapper.numberOfTapsRequired = 1
