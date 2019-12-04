@@ -33,7 +33,7 @@ fileprivate class MainAssetHeader: UIView {
     }
 }
 
-fileprivate class PaddedCell: UITableViewCell {
+class PaddedCell: UITableViewCell {
     private var percentage: CGFloat = {
         // ToDo: optimize for iPhone SE and others
         return 0.9
@@ -55,25 +55,113 @@ fileprivate class PaddedCell: UITableViewCell {
     }
 }
 
-fileprivate class AssetCell: PaddedCell {
+class AssetClipboardButton: UIButton {
+    var key: String = "" {
+        didSet {
+            updateText()
+        }
+    }
+    
+    var value: String = "" {
+        didSet {
+            updateText()
+        }
+    }
+    
+    func updateText() {
+        setTitle("\(key): \(value)", for: .normal)
+        setTitleColor(.white, for: .normal)
+    }
+    
+    @objc
+    private func touch() {
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = value
+    }
+    
+    init(key: String, value: String) {
+        self.key = key
+        self.value = value
+        super.init(frame: .zero)
+        
+        addTarget(self, action: #selector(touch), for: .touchUpInside)
+        
+        titleLabel?.font = UIFont.da.customMedium(size: 13)
+        titleLabel?.lineBreakMode = .byTruncatingTail
+        titleLabel?.textAlignment = .left
+        contentHorizontalAlignment = .left
+        
+        contentEdgeInsets = UIEdgeInsets(top: 0.01, left: 0.01, bottom: 0.01, right: 0.01)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+class AssetCell: PaddedCell {
+    static let defaultImage = UIImage(named: "digiassets")
+    
     let backgroundRect = UIView()
+    
+    let stackView = UIStackView()
+    let headerView = UIView()
+    let bottomView = UIView()
+    
+    let bottomViewInner = UIStackView()
+    
     let menuButton = UIButton()
     let assetImage = UIImageView()
     let assetLabel = UILabel(font: UIFont.da.customBold(size: 14), color: .white)
     let amountLabel = UILabel(font: UIFont.da.customBold(size: 14), color: .white)
+    let descriptionLabel = UILabel(font: UIFont.da.customMedium(size: 13), color: .white)
+    let issuerButton = AssetClipboardButton(key: S.Assets.issuer, value: S.Assets.unknown)
+    let assetIdButton = AssetClipboardButton(key: S.Assets.assetID, value: S.Assets.unknown)
+    let addressButton = AssetClipboardButton(key: S.Assets.address, value: S.Assets.unknown)
+    let infoTextLabel = MarqueeLabel(font: UIFont.da.customMedium(size: 13), color: .white) // UILabel(font: UIFont.da.customMedium(size: 13), color: .white)
     
     var menuButtonTapped: ((AssetCell) -> Void)? = nil
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(backgroundRect)
-        contentView.addSubview(assetImage)
-        contentView.addSubview(assetLabel)
-        contentView.addSubview(amountLabel)
-        contentView.addSubview(menuButton)
+        headerView.addSubview(menuButton)
+        headerView.addSubview(assetImage)
+        headerView.addSubview(assetLabel)
+        headerView.addSubview(amountLabel)
+        contentView.addSubview(stackView)
+        
+        bottomView.addSubview(bottomViewInner)
+        bottomViewInner.constrain(toSuperviewEdges: UIEdgeInsets(top: 0, left: 16, bottom: -16, right: -16))
+        bottomViewInner.alignment = .fill
+        bottomViewInner.axis = .vertical
+        bottomViewInner.distribution = .fill
+        bottomViewInner.spacing = 4
+        
+        bottomViewInner.addArrangedSubview(descriptionLabel)
+        bottomViewInner.addArrangedSubview(issuerButton)
+        bottomViewInner.addArrangedSubview(assetIdButton)
+        bottomViewInner.addArrangedSubview(addressButton)
+        bottomViewInner.addArrangedSubview(infoTextLabel)
+        descriptionLabel.textColor = UIColor.da.secondaryGrey
+        
+        infoTextLabel.type = .continuousReverse
+        
+        stackView.constrain(toSuperviewEdges: UIEdgeInsets(top: 0, left: 0, bottom: -8, right: 0))
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.axis = .vertical
+        
+        let h1 = headerView.heightAnchor.constraint(greaterThanOrEqualToConstant: 70)
+        let h2 = headerView.heightAnchor.constraint(lessThanOrEqualToConstant: 150)
+        
+        h1.isActive = true
+        h2.isActive = true
+        
+        headerView.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
         
         // use the bottom 8/80 points to create margin
-        backgroundRect.constrainTopCorners(height: 72.0)
+        backgroundRect.constrain(toSuperviewEdges: UIEdgeInsets(top: 0, left: 0, bottom: -8, right: 0))
         
         backgroundRect.layer.cornerRadius = 4
         backgroundRect.layer.masksToBounds = true
@@ -81,48 +169,54 @@ fileprivate class AssetCell: PaddedCell {
         backgroundColor = .clear
         selectionStyle = .none
         
-        menuButton.setImage(UIImage(named: "da-glyph-menu")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        menuButton.tintColor = UIColor.da.inactiveColor
-        menuButton.constrain([
-            menuButton.centerYAnchor.constraint(equalTo: backgroundRect.centerYAnchor, constant: 0),
-            menuButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -18),
-            menuButton.widthAnchor.constraint(equalToConstant: 30)
-        ])
-        
         assetImage.constrain([
-            assetImage.centerYAnchor.constraint(equalTo: backgroundRect.centerYAnchor),
-            assetImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            assetImage.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
+            assetImage.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16),
             assetImage.widthAnchor.constraint(equalToConstant: 40),
             assetImage.heightAnchor.constraint(equalToConstant: 40),
         ])
         
-        assetImage.backgroundColor = UIColor.black
-        
         assetLabel.constrain([
             assetLabel.leadingAnchor.constraint(equalTo: assetImage.trailingAnchor, constant: 8),
-            assetLabel.centerYAnchor.constraint(equalTo: assetImage.centerYAnchor),
-            assetLabel.trailingAnchor.constraint(lessThanOrEqualTo: amountLabel.leadingAnchor, constant: -10)
+            assetLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 10),
+            assetLabel.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -10),
         ])
         
-        assetLabel.setContentCompressionResistancePriority(UILayoutPriority(1000), for: .horizontal)
+        assetLabel.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .vertical)
+        assetLabel.setContentCompressionResistancePriority(UILayoutPriority.defaultHigh, for: .horizontal)
+        
+        amountLabel.constrain([
+            amountLabel.centerYAnchor.constraint(equalTo: assetImage.centerYAnchor),
+            amountLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 80),
+            amountLabel.leadingAnchor.constraint(equalTo: assetLabel.trailingAnchor, constant: 8),
+        ])
+        
+        menuButton.setImage(UIImage(named: "da-glyph-menu")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        menuButton.tintColor = UIColor.da.inactiveColor
+        menuButton.constrain([
+            menuButton.widthAnchor.constraint(equalToConstant: 30),
+            menuButton.leadingAnchor.constraint(equalTo: amountLabel.trailingAnchor, constant: 5),
+            menuButton.centerYAnchor.constraint(equalTo: headerView.centerYAnchor, constant: 0),
+            menuButton.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -16),
+        ])
+        
+        amountLabel.setContentCompressionResistancePriority(UILayoutPriority.defaultHigh, for: .horizontal)
+        amountLabel.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .vertical)
+        
+        menuButton.addTarget(self, action: #selector(touchUp), for: .touchUpInside)
+        
+        amountLabel.text = S.Assets.unknown
+        amountLabel.lineBreakMode = .byWordWrapping
+        amountLabel.textAlignment = .right
+        
+        assetLabel.text = S.Assets.unknown
         assetLabel.numberOfLines = 0
         assetLabel.lineBreakMode = .byWordWrapping
         assetLabel.textAlignment = .left
         
-        amountLabel.constrain([
-            amountLabel.centerYAnchor.constraint(equalTo: assetImage.centerYAnchor),
-            amountLabel.trailingAnchor.constraint(lessThanOrEqualTo: menuButton.leadingAnchor, constant: -10),
-            amountLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 80)
-        ])
-        
-        amountLabel.setContentCompressionResistancePriority(UILayoutPriority(1000), for: .horizontal)
-        amountLabel.lineBreakMode = .byTruncatingTail
-        
-//        menuButton.addTarget(self, action: #selector(touched), for: .touchDown)
-        menuButton.addTarget(self, action: #selector(touchUp), for: .touchUpInside)
-        
-        amountLabel.text = "17,000,000.50"
-        assetLabel.text = "ShardCoin"
+        assetImage.image = AssetCell.defaultImage
+        assetImage.contentMode = .scaleAspectFit
+        assetImage.backgroundColor = .clear
     }
 
     @objc private func touchUp() {
@@ -131,9 +225,22 @@ fileprivate class AssetCell: PaddedCell {
             feedback.notificationOccurred(.success)
         }
         
-//        menuButton.tintColor = UIColor.da.darkSkyBlue
-        
         menuButtonTapped?(self)
+    }
+    
+    func configure(showContent: Bool) {
+        stackView.removeArrangedSubview(headerView)
+        stackView.removeArrangedSubview(bottomView)
+        headerView.removeFromSuperview()
+        bottomView.removeFromSuperview()
+        
+        stackView.addArrangedSubview(headerView)
+        
+        if showContent {
+            stackView.addArrangedSubview(bottomView)
+        }
+        
+        assetLabel.sizeToFit()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -173,6 +280,8 @@ fileprivate class CreateNewAssetCell: PaddedCell {
         headingLabel.text = "Create a new asset"
         getStartedBtn.label.font = UIFont.da.customBold(size: 12)
         getStartedBtn.height = 34
+        
+        contentView.heightAnchor.constraint(equalToConstant: 128).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -180,7 +289,7 @@ fileprivate class CreateNewAssetCell: PaddedCell {
     }
 }
 
-fileprivate class AssetContextMenuButton: UIControl {
+class AssetContextMenuButton: UIControl {
     let label = UILabel(font: UIFont.customBold(size: 14), color: UIColor.white)
     let glyph = UIImageView()
     
@@ -219,7 +328,7 @@ fileprivate class AssetContextMenuButton: UIControl {
     }
 }
 
-fileprivate class AssetContextMenu: UIView {
+class AssetContextMenu: UIView {
     let roundedView = UIView()
     let stackView = UIStackView()
     
@@ -405,6 +514,8 @@ class DAAssetsViewController: UIViewController {
         tableView.register(CreateNewAssetCell.self, forCellReuseIdentifier: "get_started")
         tableView.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 20, right: 0)
         tableView.separatorInset = UIEdgeInsets.zero
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 80
     }
     
     private func setContent() {
@@ -498,12 +609,6 @@ class DAAssetsViewController: UIViewController {
 }
 
 extension DAAssetsViewController: UITableViewDelegate, UITableViewDataSource {
-    // We have two sections, the first displaying all the user's assets, the second
-    // just shows a get-started item
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.section == 0 ? 80.0 : 128.0
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -521,8 +626,10 @@ extension DAAssetsViewController: UITableViewDelegate, UITableViewDataSource {
         
         // return asset cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "asset") as! AssetCell
+        cell.configure(showContent: false)
         cell.menuButtonTapped = menuButtonTapped
         cell.menuButton.tintColor = UIColor.da.inactiveColor
+        
         return cell
     }
     

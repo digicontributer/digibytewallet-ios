@@ -13,3 +13,12 @@
 [submodule "Modules/VisualEffectView"]
 	path = Modules/VisualEffectView
 	url = https://github.com/efremidze/VisualEffectView.git
+[submodule "Modules/Storez"]
+	path = Modules/Storez
+	url = https://github.com/SwiftKitz/Storez
+[submodule "Modules/Kingfisher"]
+	path = Modules/Kingfisher
+	url = https://github.com/onevcat/Kingfisher.git
+[submodule "Modules/MarqueeLabel"]
+	path = Modules/MarqueeLabel
+	url = https://github.com/cbpowell/MarqueeLabel.git

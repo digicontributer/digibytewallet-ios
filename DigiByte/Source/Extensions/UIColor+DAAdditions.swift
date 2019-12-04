@@ -17,5 +17,7 @@ extension UIColor {
         static let inactiveColor = UIColor(red: 67/255, green: 68/255, blue: 90/255, alpha: 1.0)
         static let contextMenuBackgroundColor = UIColor(red: 67/255, green: 68/255, blue: 90/255, alpha: 1.0)
         static let burnColor = UIColor(red: 220/255, green: 63/255, blue: 78/255, alpha: 1.0)
+        
+        static let backgroundColor = UIColor(red: 15/255, green: 15/255, blue: 43/255, alpha: 1.0)
     }
 }

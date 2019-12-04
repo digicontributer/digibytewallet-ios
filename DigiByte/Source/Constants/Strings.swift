@@ -28,6 +28,36 @@ enum S {
             }
         }
     }
+    
+    enum Assets {
+        static let unresolved = NSLocalizedString("Assets.unresolved", value:"Unresolved asset", comment: "Text that is shown when asset was not resolved yet")
+        static let noMetadata = NSLocalizedString("Assets.noMetadata", value:"DigiAsset", comment: "Text to show if no metadata is available for the asset")
+        static let multipleAssets = NSLocalizedString("Assets.multipleAssets", value:"Multiple assets", comment: "Showing when multiple assets were received")
+        
+        static let receivedAssetsTitle = NSLocalizedString("Assets.receivedAssetsTitle", value: "DigiAssets received", comment: "Title of confirm view")
+        static let receivedAssetsMessage = NSLocalizedString("Assets.receivedAssetsMessage", value: "You received one or more DigiAssets. In order to view your assets this app needs to communicate with a metadata server. This will disclose some of your wallet's public addresses.", comment: "Message will be displayed if assets were received")
+        static let openAssetTitle = NSLocalizedString("Assets.openAssetTitle", value: "View DigiAsset", comment: "Title of confirm view if opening single")
+        static let openAssetMessage = NSLocalizedString("Assets.openAssetMessage", value: "In order to view this asset this app needs to communicate with a metadata server. This will disclose one of your wallet's public addresses.", comment: "Message will be displayed if asset shall be opened")
+        
+        static let fetchingAssetsTitle = NSLocalizedString("Assets.fetchingAssetsTitle", value: "Fetching Assets", comment: "Title to show when assets are being fetched")
+        
+        static let confirmAssetsResolve = NSLocalizedString("Assets.confirmAssetsResolve", value: "Resolve Asset(s)", comment: "Resolve button caption")
+        static let skipAssetsResolve = NSLocalizedString("Assets.skipAssetsResolve", value: "Skip", comment: "Skip button caption")
+        static let cancelAssetsResolve = NSLocalizedString("Assets.cancelAssetsResolve", value: "Cancel", comment: "Cancel button caption")
+        
+        static let totalSupply = NSLocalizedString("Assets.totalSupply", value: "Total Supply", comment: "")
+        static let numberOfHolders = NSLocalizedString("Assets.numberOfHolders", value: "Number of Holders", comment: "")
+        static let lockStatus = NSLocalizedString("Assets.lockStatus", value: "Lock Status", comment: "")
+        
+        static let issuer = NSLocalizedString("Assets.issuer", value: "Issuer", comment: "Issuer key")
+        static let assetID = NSLocalizedString("Assets.assetID", value: "Asset ID", comment: "AssetID key")
+        static let address = NSLocalizedString("Assets.address", value: "Address", comment: "Address key")
+        
+        static let locked = NSLocalizedString("Assets.locked", value: "Locked", comment: "Possible value of Lock Status")
+        static let unlocked = NSLocalizedString("Assets.unlocked", value: "Unlocked", comment: "Possible value of Lock Status")
+        
+        static let unknown = NSLocalizedString("Assets.unknown", value: "Unknown", comment: "Shown if a value is unknown (N/A)")
+    }
 
     enum Button {
         static let ok = NSLocalizedString("Button.ok", value:"OK", comment: "OK button label")

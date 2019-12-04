@@ -61,8 +61,26 @@ class TransactionCardViewCell: UITableViewCell, Subscriber {
     
     func setTransaction(_ transaction: Transaction, isBtcSwapped: Bool, rate: Rate, maxDigits: Int, isSyncing: Bool) {
         self.transaction = transaction
-        //transactionLabel.attributedText = transaction.descriptionString(isBtcSwapped: isBtcSwapped, rate: rate, maxDigits: maxDigits)
-        transactionLabel.text = transaction.amountDescription(isBtcSwapped: isBtcSwapped, rate: rate, maxDigits: maxDigits)
+        
+        if transaction.isAssetTx {
+            if let assetModels = AssetHelper.getAssetMetadata(for: transaction), assetModels.count >= 1 {
+                if assetModels.count == 1 {
+                    // Metadata for this asset is available, use it's name
+                    transactionLabel.text = assetModels[0].getAssetName()
+                } else if assetModels.count > 1 {
+                    // Multiple assets were transferred in one transaction
+                    transactionLabel.text = S.Assets.multipleAssets
+                }
+            } else {
+                // Asset not resolved yet
+                transactionLabel.text = S.Assets.unresolved
+            }
+        } else {
+            // No asset, just a regular transaction:
+            // use amount as preview
+            transactionLabel.text = transaction.amountDescription(isBtcSwapped: isBtcSwapped, rate: rate, maxDigits: maxDigits)
+        }
+        
         address.text = String(format: transaction.direction.addressTextFormat, transaction.toAddress ?? "")
         status.text = transaction.status
         comment.text = transaction.comment

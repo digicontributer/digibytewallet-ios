@@ -491,239 +491,7 @@ fileprivate class CustomSegmentedControl: UIControl {
     }
 }
 
-fileprivate class AssetDrawer: UIView {
-    private var supervc: DrawerControllerProtocol!
-    private let id: String
-    
-    private let digiassetsLogo = UIImageView(image: UIImage(named: "digiassets_logo"))
-    
-    init(id: String) {
-        self.id = id
-        super.init(frame: .zero)
-        
-        addSubviews()
-        addConstraints()
-        setStyle()
-        
-        
-    }
-    
-    private func addSubviews() {
-        addSubview(digiassetsLogo)
-        
-    }
-    
-    private func addConstraints() {
-        digiassetsLogo.constrain([
-            digiassetsLogo.topAnchor.constraint(equalTo: topAnchor, constant: 40 + (E.isIPhoneXOrGreater ? 32 : 15)),
-            digiassetsLogo.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0),
-            digiassetsLogo.heightAnchor.constraint(equalToConstant: 50),
-        ])
-        
-        
-    }
-    
-    private func setStyle() {
-        backgroundColor = UIColor.da.assetBackground
-        
-        digiassetsLogo.contentMode = .scaleAspectFit
-        
-        
-    }
-    
-    func setCloser(supervc: DrawerControllerProtocol?) {
-        self.supervc = supervc
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-fileprivate class NavigationDrawer: UIView {
-    private let bgImage = UIImageView(image: UIImage(named: "hamburgerBg"))
-    private var digibyteLogo = UIImageView(image: UIImage(named: "DigiByteSymbol"))
-    private let walletLabel = UILabel(font: .customMedium(size: 18), color: C.Colors.text)
-    private let walletVersionLabel = UILabel(font: .customMedium(size: 11), color: .gray)
-    private var y: CGFloat = 0
-    private var supervc: DrawerControllerProtocol? = nil
-    private var scrollView = UIScrollView()
-    private var scrollInner = UIStackView()
-    
-    private let buttonHeight: CGFloat = 78.0
-    
-    private let id: String
-    
-    private struct SideMenuButton {
-        let view: UIView
-        let callback: (() -> Void)
-    }
-    
-    private var buttons: [SideMenuButton] = []
-    
-    init(id: String, walletTitle: String, version: String) {
-        self.id = id
-        super.init(frame: CGRect())
-        
-        walletLabel.text = walletTitle
-        walletVersionLabel.text = version
-        
-        addSubviews()
-        addConstraints()
-        setStyles()
-    }
-    
-    func animationStep(progress: CGFloat) {
-        let progress = progress < 0 ? 0 : (progress > 1 ? 1 : progress)
-        
-        if progress < 0.3 {
-            digibyteLogo.transform = CGAffineTransform.init(scaleX: 0.3, y: 0.3)
-        } else {
-            digibyteLogo.transform = CGAffineTransform.init(scaleX: progress, y: progress)
-        }
-    }
-    
-    private func addSubviews() {
-        bgImage.contentMode = .scaleAspectFill
-        
-        addSubview(bgImage)
-        addSubview(digibyteLogo)
-        addSubview(walletLabel)
-        addSubview(walletVersionLabel)
-        addSubview(scrollView)
-        
-        scrollView.addSubview(scrollInner)
-    }
-    
-    private func addConstraints() {
-        bgImage.constrain([
-            bgImage.topAnchor.constraint(equalTo: self.topAnchor),
-            bgImage.leftAnchor.constraint(equalTo: self.leftAnchor),
-            bgImage.rightAnchor.constraint(equalTo: self.rightAnchor),
-        ])
-        
-        digibyteLogo.constrain([
-            digibyteLogo.topAnchor.constraint(equalTo: self.topAnchor, constant: 78),
-            digibyteLogo.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 10),
-            digibyteLogo.widthAnchor.constraint(equalToConstant: 90),
-            digibyteLogo.heightAnchor.constraint(equalToConstant: 90),
-        ])
-        
-        walletLabel.constrain([
-            walletLabel.topAnchor.constraint(equalTo: digibyteLogo.bottomAnchor, constant: 16),
-            walletLabel.centerXAnchor.constraint(equalTo: digibyteLogo.centerXAnchor),
-            //walletLabel.leftAnchor.constraint(equalTo: self.leftAnchor),
-            //walletLabel.rightAnchor.constraint(equalTo: self.rightAnchor),
-        ])
-        
-        walletVersionLabel.constrain([
-            walletVersionLabel.topAnchor.constraint(equalTo: walletLabel.bottomAnchor, constant: 6),
-            walletVersionLabel.centerXAnchor.constraint(equalTo: digibyteLogo.centerXAnchor),
-            //walletVersionLabel.leftAnchor.constraint(equalTo: self.leftAnchor),
-            //walletVersionLabel.rightAnchor.constraint(equalTo: self.rightAnchor),
-            walletVersionLabel.heightAnchor.constraint(equalToConstant: 20),
-        ])
-        
-        scrollView.constrain([
-            scrollView.topAnchor.constraint(equalTo: walletVersionLabel.bottomAnchor, constant: 30),
-            scrollView.leftAnchor.constraint(equalTo: self.leftAnchor),
-            scrollView.rightAnchor.constraint(equalTo: self.rightAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-        ])
-        
-        scrollInner.constrain([
-            scrollInner.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            scrollInner.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
-            scrollInner.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
-            scrollInner.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            scrollInner.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-        ])
-    }
-    
-    private func setStyles() {
-        backgroundColor = .black
-        
-        walletLabel.textAlignment = .center
-        walletVersionLabel.textAlignment = .center
-        
-        scrollInner.axis = .vertical
-        scrollInner.alignment = .top
-        scrollInner.distribution = .equalSpacing
-        scrollInner.spacing = 0
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("HamburgerViewMenu aDecoder has not been implemented")
-    }
-    
-    func setCloser(supervc: DrawerControllerProtocol?) {
-        self.supervc = supervc
-    }
-    
-    @objc private func buttonTapped(button: UIButton) {
-        for (_, btn) in buttons.enumerated() {
-            if (btn.view == button) {
-                self.supervc?.closeDrawer(with: id)
-                self.buttonUp(button: button)
-                btn.callback()
-            }
-        }
-    }
-    
-    @objc private func buttonDown(button: UIButton) {
-        button.backgroundColor = UIColor(white: 1, alpha: 0.2)
-    }
-    
-    @objc private func buttonUp(button: UIButton) {
-        button.backgroundColor = UIColor.clear
-    }
-    
-    func addButton(title: String, icon: UIImage, callback: @escaping (() -> Void)) {
-        
-        let buttonImage = UIImageView(image: icon.withRenderingMode(.alwaysTemplate))
-        buttonImage.tintColor = C.Colors.text
-        buttonImage.contentMode = .scaleAspectFit
-        
-        let buttonText = UILabel(font: .customBody(size: 18), color: C.Colors.text)
-        buttonText.text = title
-        buttonText.lineBreakMode = .byWordWrapping
-        buttonText.numberOfLines = 0
-        
-        let buttonContainer = DAHapticControl()
-        buttonContainer.isUserInteractionEnabled = true
-        buttonContainer.addSubview(buttonImage)
-        buttonContainer.addSubview(buttonText)
-        
-        scrollInner.addArrangedSubview(buttonContainer)
-        
-        buttonImage.constrain([
-            buttonImage.leadingAnchor.constraint(equalTo: buttonContainer.leadingAnchor, constant: 40),
-            buttonImage.widthAnchor.constraint(equalToConstant: 40),
-            buttonImage.centerYAnchor.constraint(equalTo: buttonContainer.centerYAnchor),
-        ])
-        
-        buttonText.constrain([
-            buttonText.leadingAnchor.constraint(equalTo: buttonImage.trailingAnchor, constant: 10),
-            buttonText.trailingAnchor.constraint(equalTo: buttonContainer.trailingAnchor, constant: 10),
-            buttonText.centerYAnchor.constraint(equalTo: buttonContainer.centerYAnchor),
-        ])
-        
-        buttonContainer.constrain([
-            buttonContainer.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 1),
-            buttonContainer.heightAnchor.constraint(equalToConstant: buttonHeight)
-        ])
-        
-        buttonContainer.addTarget(self, action: #selector(buttonDown(button:)), for: .touchDown)
-        buttonContainer.addTarget(self, action: #selector(buttonTapped(button:)), for: .touchUpInside)
-        buttonContainer.addTarget(self, action: #selector(buttonUp(button:)), for: .touchUpOutside)
-        buttonContainer.addTarget(self, action: #selector(buttonUp(button:)), for: .touchCancel)
-        
-        buttons.append(SideMenuButton(view: buttonContainer, callback: callback))
-        y += buttonHeight
-    }
-}
-
-fileprivate protocol DrawerControllerProtocol {
+protocol DrawerControllerProtocol {
     func closeDrawer(with id: String)
 }
 
@@ -789,14 +557,39 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
             transactionsTableViewForReceivedTransactions.walletManager = walletManager
         }
     }
-
+    
+    func assetTxSelected(_ tx: Transaction) {
+        assert(tx.isAssetTx)
+        
+        let showDrawerMenu: (_ assetModels: [AssetModel]) -> Void = { assetModels in
+            self.assetDrawer.setAssets(for: tx, assets: assetModels)
+            self.openAssetDrawer()
+        }
+        
+        if let assetModels = AssetHelper.getAssetMetadata(for: tx) {
+            // Display asset if that the full model already exists
+            showDrawerMenu(assetModels)
+        } else {
+            // Display privacy alert and load asset
+            self.showSingleDigiAssetsConfirmViewIfNeeded(for: tx) { assetModels in
+                guard let assetModels = assetModels else {
+                    // show error message
+                    return
+                }
+                
+                guard assetModels.count > 0 else {
+                    // show error message
+                    return
+                }
+                
+                showDrawerMenu(assetModels)
+            }
+        }
+    }
+    
     init(store: BRStore, didSelectTransaction: @escaping ([Transaction], Int) -> Void) {
         self.store = store
         self.syncViewController = SyncViewController(store: store)
-        
-        self.transactionsTableView = TransactionsTableViewController(store: store, didSelectTransaction: didSelectTransaction)
-        self.transactionsTableViewForSentTransactions = TransactionsTableViewController(store: store, didSelectTransaction: didSelectTransaction, kvStore: nil, filterMode: .showOutgoing)
-        self.transactionsTableViewForReceivedTransactions = TransactionsTableViewController(store: store, didSelectTransaction: didSelectTransaction, kvStore: nil, filterMode: .showIncoming)
         
         self.loginView = LoginViewController(store: store, isPresentedForLock: false)
         self.tempLoginView = LoginViewController(store: store, isPresentedForLock: false)
@@ -805,10 +598,43 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         self.edgeGesture = UIScreenEdgePanGestureRecognizer()
         super.init(nibName: nil, bundle: nil)
         
+//        AssetHelper.reset() // YOSHI
+        
+        // This callback is invoked if a transaction was selected that contains an asset
+        let didSelectAssetTx: (_ tx: Transaction) -> Void = { tx in
+            self.assetTxSelected(tx)
+        }
+        
+        transactionsTableView = TransactionsTableViewController(store: store, didSelectTransaction: didSelectTransaction, didSelectAssetTx: didSelectAssetTx)
+        transactionsTableViewForSentTransactions = TransactionsTableViewController(store: store, didSelectTransaction: didSelectTransaction, didSelectAssetTx: didSelectAssetTx, kvStore: nil, filterMode: .showOutgoing)
+        transactionsTableViewForReceivedTransactions = TransactionsTableViewController(store: store, didSelectTransaction: didSelectTransaction, didSelectAssetTx: didSelectAssetTx, kvStore: nil, filterMode: .showIncoming)
+        
         footerView.debugDigiAssetsCallback = { [unowned self] in
             guard let w = self.walletManager else { return }
             let vc = BRDigiAssetsTestViewController(wallet: w)
             self.present(vc, animated: true, completion: nil)
+        }
+        
+        // Loading view for assets fetcher
+        loadingAssetsModalView = DGBModalLoadingView(title: S.Assets.fetchingAssetsTitle)
+        
+        // New assets stored on device
+        AssetNotificationCenter.instance.addObserver(forName: AssetNotificationCenter.notifications.newAssetData, object: nil, queue: nil) { _ in
+            // Refresh all tableviews
+            self.transactionsTableView.tableView.reloadData()
+            self.transactionsTableViewForSentTransactions.tableView.reloadData()
+            self.transactionsTableViewForReceivedTransactions.tableView.reloadData()
+        }
+        
+        // Fetching new assets
+        AssetNotificationCenter.instance.addObserver(forName: AssetNotificationCenter.notifications.fetchingAssets, object: nil, queue: nil) { _ in
+            
+            self.present(self.loadingAssetsModalView, animated: true, completion: nil)
+        }
+        
+        // Completed fetching new assets
+        AssetNotificationCenter.instance.addObserver(forName: AssetNotificationCenter.notifications.fetchedAssets, object: nil, queue: nil) { _ in
+            self.loadingAssetsModalView.dismiss(animated: true, completion: nil)
         }
     }
 
@@ -817,9 +643,9 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
     private let footerView = AccountFooterView()
     private let syncViewController: SyncViewController
     private let transactionsLoadingView = LoadingProgressView()
-    private let transactionsTableView: TransactionsTableViewController
-    private let transactionsTableViewForSentTransactions: TransactionsTableViewController
-    private let transactionsTableViewForReceivedTransactions: TransactionsTableViewController
+    private var transactionsTableView: TransactionsTableViewController!
+    private var transactionsTableViewForSentTransactions: TransactionsTableViewController!
+    private var transactionsTableViewForReceivedTransactions: TransactionsTableViewController!
     
     private let tempView = UIView(color: C.Colors.background)
     
@@ -828,6 +654,9 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
     
     private let navigationDrawer = NavigationDrawer(id: "navigation", walletTitle: C.applicationTitle, version: C.version)
     private let assetDrawer = AssetDrawer(id: "assets")
+    private var loadingAssetsModalView: UIViewController!
+    
+    private var assetResolver: AssetResolver? = nil
     
     private let fadeView: UIView = {
         let view = BlurView()
@@ -1100,10 +929,7 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         
         fadeView.constrain(toSuperviewEdges: nil)
         footerView.menuCallback = { () -> Void in
-            // YOSHI: restore this
-//            self.openNavigationDrawer()
-//            self.showDigiAssetsConfirmView()
-            self.openAssetDrawer()
+            self.openNavigationDrawer()
         }
     }
     
@@ -1274,17 +1100,56 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         }
     }
     
-    func showDigiAssetsConfirmView() {
-        let confirmView = DGBConfirmAlert(title: "DigiAssets received", message: "You received one or more DigiAssets. In order to view your assets this app needs to communicate with a metadata server. This will disclose some of your wallet's public addresses.", image: UIImage(named: "privacy"), okTitle: "Resolve Assets", cancelTitle: "Skip")
+    func showSingleDigiAssetsConfirmViewIfNeeded(for tx: Transaction, _ callback: (([AssetModel]?) -> Void)? = nil) {
+        if AssetHelper.getAssetMetadata(for: tx) != nil { return }
+            
+        let confirmView = DGBConfirmAlert(title: S.Assets.openAssetTitle, message: S.Assets.openAssetMessage, image: UIImage(named: "privacy"), okTitle: S.Assets.confirmAssetsResolve, cancelTitle: S.Assets.cancelAssetsResolve)
+        
+        let confirmCallback: () -> Void = {
+            if self.assetResolver != nil { self.assetResolver!.cancel() }
+            self.assetResolver = AssetHelper.resolveAsset(for: tx, callback: callback)
+        }
         
         confirmView.confirmCallback = { (close: DGBCallback) in
-            print("ConfirmView: CONFIRMED")
             close()
+            confirmCallback()
         }
         
         confirmView.cancelCallback = { (close: DGBCallback) in
-            print("ConfirmView: CANCELLED")
             close()
+        }
+        
+        guard !UserDefaults.Privacy.alwaysLoadAssets else {
+            confirmCallback()
+            return
+        }
+        
+        self.present(confirmView, animated: true, completion: nil)
+    }
+    
+    func showDigiAssetsConfirmViewIfNeeded(_ callback: ((Bool) -> Void)? = nil) {
+        guard !AssetHelper.resolvedAllAssets(for: self.walletManager?.wallet!.transactions) else { return }
+            
+        let confirmView = DGBConfirmAlert(title: S.Assets.receivedAssetsTitle, message: S.Assets.receivedAssetsMessage, image: UIImage(named: "privacy"), okTitle: S.Assets.confirmAssetsResolve, cancelTitle: S.Assets.skipAssetsResolve)
+        
+        let confirmCallback: () -> Void = {
+            let transactions = self.store.state.walletState.transactions
+            if self.assetResolver != nil { self.assetResolver!.cancel() }
+            self.assetResolver = AssetHelper.resolveAssets(for: transactions, callback: callback)
+        }
+        
+        confirmView.confirmCallback = { (close: DGBCallback) in
+            close()
+            confirmCallback()
+        }
+        
+        confirmView.cancelCallback = { (close: DGBCallback) in
+            close()
+        }
+        
+        guard !UserDefaults.Privacy.alwaysLoadAssets else {
+            confirmCallback()
+            return
         }
         
         self.present(confirmView, animated: true, completion: nil)
@@ -1314,10 +1179,9 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
             if state.walletState.syncState == .success {
                 if !self.syncViewController.view.isHidden {
                     // state change from sync to success
-                    if !AssetHelper.resolvedAllAssets() {
-                        // Show confirmation alert (address disclosure)
-                        self.showDigiAssetsConfirmView()
-                    }
+                    
+                    // Show confirmation alert (address disclosure)
+                    self.showDigiAssetsConfirmViewIfNeeded()
                 }
                 self.syncViewController.view.isHidden = true
 				self.syncViewController.hideProgress()
