@@ -24,10 +24,11 @@ var firstLogin: Bool = true
 class TransactionsTableViewController : UITableViewController, Subscriber, Trackable {
 
     //MARK: - Public
-    init(store: BRStore, didSelectTransaction: @escaping ([Transaction], Int) -> Void, kvStore: BRReplicatedKVStore? = nil, filterMode: TransactionFilterMode = .showAll) {
+    init(store: BRStore, didSelectTransaction: @escaping ([Transaction], Int) -> Void, didSelectAssetTx: @escaping (Transaction) -> Void, kvStore: BRReplicatedKVStore? = nil, filterMode: TransactionFilterMode = .showAll) {
         self.store = store
         self.kvStore = kvStore
         self.didSelectTransaction = didSelectTransaction
+        self.didSelectAssetTx = didSelectAssetTx
         self.isBtcSwapped = store.state.isBtcSwapped
         self.filterMode = filterMode
         super.init(nibName: nil, bundle: nil)
@@ -35,6 +36,7 @@ class TransactionsTableViewController : UITableViewController, Subscriber, Track
 
     let filterMode: TransactionFilterMode
     let didSelectTransaction: ([Transaction], Int) -> Void
+    let didSelectAssetTx: (Transaction) -> Void
     
     var filters: [TransactionFilter] = [] {
         didSet {
@@ -278,7 +280,13 @@ class TransactionsTableViewController : UITableViewController, Subscriber, Track
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        didSelectTransaction(transactions, indexPath.row)
+        let tx = transactions[indexPath.row]
+        
+        if tx.isAssetTx {
+            didSelectAssetTx(tx)
+        } else {
+            didSelectTransaction(transactions, indexPath.row)
+        }
     }
 
     private func reload() {

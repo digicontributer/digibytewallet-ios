@@ -53,7 +53,7 @@ class DAMainViewController: UITabBarController {
     }
     
     private func setStyle() {
-        view.backgroundColor = UIColor(red: 15/255, green: 15/255, blue: 43/255, alpha: 1.0)
+        view.backgroundColor = UIColor.da.backgroundColor
     }
     
     required init?(coder aDecoder: NSCoder) {
