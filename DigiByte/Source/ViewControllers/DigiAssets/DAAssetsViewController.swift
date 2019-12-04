@@ -116,7 +116,7 @@ class AssetCell: PaddedCell {
     let assetImage = UIImageView()
     let assetLabel = UILabel(font: UIFont.da.customBold(size: 14), color: .white)
     let amountLabel = UILabel(font: UIFont.da.customBold(size: 14), color: .white)
-    let descriptionLabel = UILabel(font: UIFont.da.customMedium(size: 13), color: C.Colors.lightText)
+    let descriptionLabel = UILabel(font: UIFont.da.customMedium(size: 13), color: C.Colors.blueGrey)
     let issuerButton = AssetClipboardButton(key: S.Assets.issuer, value: S.Assets.unknown)
     let assetIdButton = AssetClipboardButton(key: S.Assets.assetID, value: S.Assets.unknown)
     let addressButton = AssetClipboardButton(key: S.Assets.address, value: S.Assets.unknown)
@@ -146,7 +146,7 @@ class AssetCell: PaddedCell {
         bottomViewInner.addArrangedSubview(addressButton)
         bottomViewInner.addArrangedSubview(infoTextLabel)
         
-        infoTextLabel.type = .continuousReverse
+        infoTextLabel.type = .leftRight
         
         stackView.constrain(toSuperviewEdges: UIEdgeInsets(top: 0, left: 0, bottom: -8, right: 0))
         stackView.alignment = .fill
