@@ -92,6 +92,8 @@ class AssetClipboardButton: UIButton {
         contentHorizontalAlignment = .left
         
         contentEdgeInsets = UIEdgeInsets(top: 0.01, left: 0.01, bottom: 0.01, right: 0.01)
+        
+        updateText()
     }
     
     required init?(coder: NSCoder) {
@@ -114,7 +116,7 @@ class AssetCell: PaddedCell {
     let assetImage = UIImageView()
     let assetLabel = UILabel(font: UIFont.da.customBold(size: 14), color: .white)
     let amountLabel = UILabel(font: UIFont.da.customBold(size: 14), color: .white)
-    let descriptionLabel = UILabel(font: UIFont.da.customMedium(size: 13), color: .white)
+    let descriptionLabel = UILabel(font: UIFont.da.customMedium(size: 13), color: C.Colors.lightText)
     let issuerButton = AssetClipboardButton(key: S.Assets.issuer, value: S.Assets.unknown)
     let assetIdButton = AssetClipboardButton(key: S.Assets.assetID, value: S.Assets.unknown)
     let addressButton = AssetClipboardButton(key: S.Assets.address, value: S.Assets.unknown)
@@ -143,7 +145,6 @@ class AssetCell: PaddedCell {
         bottomViewInner.addArrangedSubview(assetIdButton)
         bottomViewInner.addArrangedSubview(addressButton)
         bottomViewInner.addArrangedSubview(infoTextLabel)
-        descriptionLabel.textColor = UIColor.da.secondaryGrey
         
         infoTextLabel.type = .continuousReverse
         

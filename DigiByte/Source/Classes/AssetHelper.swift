@@ -166,6 +166,12 @@ struct AssetModel: Codable {
         return res.joined(separator: ", ")
     }
     
+    func getIssuer() -> String {
+        guard let meta = metadataOfIssuence else { return "Asset with no metadata" }
+        guard let data = meta.data else { return "Asset with no data" }
+        return data.issuer ?? "Asset without issuer"
+    }
+    
     func getAssetName() -> String {
         guard let meta = metadataOfIssuence else { return "Asset with no metadata" }
         guard let data = meta.data else { return "Asset with no data" }

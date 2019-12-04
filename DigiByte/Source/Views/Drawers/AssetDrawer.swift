@@ -171,6 +171,7 @@ extension AssetDrawer: UITableViewDelegate, UITableViewDataSource {
             cell.assetIdButton.value = assetModel.assetId
             cell.addressButton.value = tx.toAddress ?? "Unknown"
             cell.infoTextLabel.text = assetModel.getAssetInfo()
+            cell.issuerButton.value = assetModel.getIssuer()
             
             if
                 let urlModel = assetModel.getImage(),
