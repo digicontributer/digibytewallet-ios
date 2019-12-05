@@ -366,6 +366,11 @@ class AssetContextMenu: UIView {
 
 class DAAssetsViewController: UIViewController {
     // MARK: Private
+    private let store: BRStore
+    
+    private var loadingAssetsModalView = DGBModalLoadingView(title: S.Assets.fetchingAssetsTitle)
+    private var assetResolver: AssetResolver? = nil
+    
     private let emptyImage: UIImageView = UIImageView()
     private let emptyContainer = UIView() // will be displayed when there is no asset in the wallet
     private let createNewAssetButton = DAButton(title: "Create new asset", backgroundColor: UIColor.da.darkSkyBlue)
@@ -402,32 +407,44 @@ class DAAssetsViewController: UIViewController {
         }
     }
     
-    // MARK: Public
-    var assets: [DAAssetModel] = []
-    
-    init() {
+    init(store: BRStore) {
+        self.store = store
         super.init(nibName: nil, bundle: nil)
+        
         tabBarItem = UITabBarItem(title: "Assets", image: UIImage(named: "da-assets")?.withRenderingMode(.alwaysTemplate), tag: 0)
         
         emptyImage.image = UIImage(named: "da-empty")
         
         addSubviews()
         setContent()
-        
-        // YOSHI
-        assets.append(DAAssetModel(name: "ShardCoin", amount: 17000000))
-        assets.append(DAAssetModel(name: "DigiCoin", amount: 18000000))
-        assets.append(DAAssetModel(name: "ShardCoin", amount: 17000000))
-        assets.append(DAAssetModel(name: "DigiCoin", amount: 18000000))
-        assets.append(DAAssetModel(name: "ShardCoin", amount: 17000000))
-        assets.append(DAAssetModel(name: "DigiCoin", amount: 18000000))
-        assets.append(DAAssetModel(name: "ShardCoin", amount: 17000000))
-        assets.append(DAAssetModel(name: "DigiCoin", amount: 18000000))
-        assets.append(DAAssetModel(name: "ShardCoin", amount: 17000000))
-        assets.append(DAAssetModel(name: "DigiCoin", amount: 18000000))
-        assets.append(DAAssetModel(name: "ShardCoin", amount: 17000000))
-        assets.append(DAAssetModel(name: "DigiCoin", amount: 18000000))
+        addEvents()
     }
+    
+    func showPrivacyConfirmView(for txs: [Transaction], _ callback: ((Bool) -> Void)? = nil) {
+        let confirmView = DGBConfirmAlert(title: S.Assets.openAssetTitle, message: S.Assets.openAssetMessage, image: UIImage(named: "privacy"), okTitle: S.Assets.confirmAssetsResolve, cancelTitle: S.Assets.cancelAssetsResolve)
+        
+        let confirmCallback: () -> Void = {
+            if self.assetResolver != nil { self.assetResolver!.cancel() }
+            self.assetResolver = AssetHelper.resolveAssets(for: txs, callback: callback)
+        }
+        
+        confirmView.confirmCallback = { (close: DGBCallback) in
+            close()
+            confirmCallback()
+        }
+        
+        confirmView.cancelCallback = { (close: DGBCallback) in
+            close()
+        }
+        
+        guard !UserDefaults.Privacy.alwaysLoadAssets else {
+            confirmCallback()
+            return
+        }
+        
+        self.present(confirmView, animated: true, completion: nil)
+    }
+    
     
     private func addSubviews() {
         emptyContainer.addSubview(emptyImage)
@@ -538,6 +555,24 @@ class DAAssetsViewController: UIViewController {
         contextMenuUnderlay.addGestureRecognizer(gr)
     }
     
+    private func addEvents() {
+        // New assets stored on device
+        AssetNotificationCenter.instance.addObserver(forName: AssetNotificationCenter.notifications.newAssetData, object: nil, queue: nil) { _ in
+            
+            self.tableView.reloadData()
+        }
+        
+        // Fetching new assets
+        AssetNotificationCenter.instance.addObserver(forName: AssetNotificationCenter.notifications.fetchingAssets, object: nil, queue: nil) { _ in
+            self.present(self.loadingAssetsModalView, animated: true, completion: nil)
+        }
+        
+        // Completed fetching new assets
+        AssetNotificationCenter.instance.addObserver(forName: AssetNotificationCenter.notifications.fetchedAssets, object: nil, queue: nil) { _ in
+            self.loadingAssetsModalView.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     @objc private func contextBgTapped() {
         // hide context menu
         contextMenuUnderlay.isHidden = true
@@ -615,7 +650,7 @@ extension DAAssetsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? assets.count : 1
+        return section == 0 ? AssetHelper.allAssets.count : 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -626,10 +661,29 @@ extension DAAssetsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         // return asset cell
+        let assetId = AssetHelper.allAssets[indexPath.row]
+        let assetModel = AssetHelper.getAssetModel(assetID: assetId) ?? AssetModel.dummy()
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "asset") as! AssetCell
         cell.configure(showContent: false)
         cell.menuButtonTapped = menuButtonTapped
         cell.menuButton.tintColor = UIColor.da.inactiveColor
+        
+        cell.assetLabel.text = assetModel.getAssetName()
+        
+        let balance = AssetHelper.allBalances[assetId] ?? 0
+        cell.amountLabel.text = "\(balance)"
+        
+        cell.assetImage.image = AssetCell.defaultImage
+        cell.assetImage.kf.indicatorType = .activity
+        
+        if
+            let urlModel = assetModel.getImage(),
+            let urlStr = urlModel.url,
+            let url = URL(string: urlStr)
+        {
+            cell.assetImage.kf.setImage(with: url)
+        }
         
         return cell
     }
@@ -651,5 +705,47 @@ extension DAAssetsViewController: UITableViewDelegate, UITableViewDataSource {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         self.decelerate = true
 //        showTableViewBorder = false
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.section == 0 else { return }
+        
+        let openDetailView: (AssetModel) -> Void = { assetModel in
+            // ToDo: open detail view
+            
+        }
+        
+        // return asset cell
+        let assetId = AssetHelper.allAssets[indexPath.row]
+        if let assetModel = AssetHelper.getAssetModel(assetID: assetId) {
+            openDetailView(assetModel)
+        } else {
+            var transactions = [Transaction]()
+            
+            store.state.walletState.transactions.forEach { tx in
+                if let utxos = AssetHelper.getAssetUtxos(for: tx) {
+                    var needsTx = false
+                    
+                    utxos.forEach { utxoModel in
+                        guard utxoModel.assets.firstIndex(where: { $0.assetId == assetId }) != nil else { return }
+                        needsTx = true
+                    }
+                    
+                    if needsTx {
+                        transactions.append(tx)
+                    }
+                }
+            }
+            
+            showPrivacyConfirmView(for: transactions) { success in
+                if success, let assetModel = AssetHelper.getAssetModel(assetID: assetId) {
+                    // TableView will autoupdate (NotificationCenter)
+                    openDetailView(assetModel)
+                } else {
+                    // Show error
+                    print("Could not fetch dem assets")
+                }
+            }
+        }
     }
 }

@@ -654,8 +654,8 @@ class ModalPresenter : Subscriber, Trackable {
     private func makeDigiAssets() {
 //        guard let walletManager = walletManager else { return }
         
-        let digiAssetsViewController = DAMainViewController()
-//        let onboarding = DAOnboardingViewController()
+        let digiAssetsViewController = DAMainViewController(store: store)
+        let onboarding = DAOnboardingViewController()
         
         var nextVC: UIViewController!
         
@@ -663,8 +663,8 @@ class ModalPresenter : Subscriber, Trackable {
             // Onboarding shall be displayed.
             // After user has finished introduction, we will display the
             // main DigiAssets view controller
-//            nextVC = onboarding
-//            onboarding.nextVC = digiAssetsViewController
+            nextVC = onboarding
+            onboarding.nextVC = digiAssetsViewController
         } else {
             // Directly display the main view controller for DigiAssets
             nextVC = digiAssetsViewController
@@ -674,7 +674,6 @@ class ModalPresenter : Subscriber, Trackable {
         nc.setDefaultStyle()
         nc.setWhiteStyle()
         nc.isNavigationBarHidden = true
-//        nc.delegate = securityCenterNavigationDelegate
         
         window.rootViewController?.present(nc, animated: true, completion: nil)
     }

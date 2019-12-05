@@ -179,7 +179,7 @@ class DAOnboardingViewController: UIViewController {
                     self.pageViewController.setViewControllers([nextPage], direction: UIPageViewController.NavigationDirection.forward, animated: true, completion: nil)
                 } else {
                     // last page
-                    self.navigationController?.pushViewController(DAMainViewController(), animated: true)
+                    self.navigationController?.pushViewController(self.nextVC, animated: true)
                 }
             }
         }
