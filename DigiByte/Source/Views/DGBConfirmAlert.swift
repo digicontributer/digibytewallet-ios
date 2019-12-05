@@ -137,6 +137,8 @@ typealias DGBCallback = (() -> Void)
 
 class DGBModalLoadingView: DGBModalWindow {
     let ai: UIActivityIndicatorView
+    var gr: UITapGestureRecognizer!
+    var tapCount = 0
     
     override init(title: String) {
         ai = UIActivityIndicatorView(style: .gray)
@@ -144,6 +146,17 @@ class DGBModalLoadingView: DGBModalWindow {
         
         ai.heightAnchor.constraint(equalToConstant: 40).isActive = true
         stackView.addArrangedSubview(ai)
+        
+        gr = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(gr)
+    }
+    
+    @objc
+    private func tapped() {
+        // Safe exit (if no outer vc ever dismissed modalLoadingView)
+        tapCount = tapCount + 1
+        if tapCount >= 3 { self.dismiss(animated: true, completion: nil) }
     }
     
     override func viewWillAppear(_ animated: Bool) {

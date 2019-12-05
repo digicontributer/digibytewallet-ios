@@ -561,28 +561,27 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
     func assetTxSelected(_ tx: Transaction) {
         assert(tx.isAssetTx)
         
-        let showDrawerMenu: (_ assetModels: [AssetModel]) -> Void = { assetModels in
-            self.assetDrawer.setAssets(for: tx, assets: assetModels)
+        let showDrawerMenu: (AssetUtxoModel) -> Void = { utxoModel in
+            self.assetDrawer.setAssetUtxoModel(for: tx, utxoModel: utxoModel)
             self.openAssetDrawer()
         }
         
-        if let assetModels = AssetHelper.getAssetMetadata(for: tx) {
-            // Display asset if that the full model already exists
-            showDrawerMenu(assetModels)
+        if
+            let utxoModels = AssetHelper.getAssetUtxos(for: tx),
+            utxoModels.count > 0,
+            AssetHelper.hasAllAssetModels(for: utxoModels[0])
+        {
+            // Display asset if all required models exist
+            showDrawerMenu(utxoModels[0])
         } else {
-            // Display privacy alert and load asset
-            self.showSingleDigiAssetsConfirmViewIfNeeded(for: tx) { assetModels in
-                guard let assetModels = assetModels else {
+            // Display privacy alert and load asset data and it's asset models
+            self.showSingleDigiAssetsConfirmViewIfNeeded(for: tx) { utxos in
+                guard utxos.count > 0 else {
                     // show error message
                     return
                 }
                 
-                guard assetModels.count > 0 else {
-                    // show error message
-                    return
-                }
-                
-                showDrawerMenu(assetModels)
+                showDrawerMenu(utxos[0])
             }
         }
     }
@@ -599,7 +598,7 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         
         self.edgeGesture = UIScreenEdgePanGestureRecognizer()
         super.init(nibName: nil, bundle: nil)
-        
+//        
 //        AssetHelper.reset() // YOSHI
         
         // This callback is invoked if a transaction was selected that contains an asset
@@ -1112,8 +1111,15 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         }
     }
     
-    func showSingleDigiAssetsConfirmViewIfNeeded(for tx: Transaction, _ callback: (([AssetModel]?) -> Void)? = nil) {
-        if AssetHelper.getAssetMetadata(for: tx) != nil { return }
+    func showSingleDigiAssetsConfirmViewIfNeeded(for tx: Transaction, _ callback: (([AssetUtxoModel]) -> Void)? = nil) {
+        
+        // Check if models already exist in cache
+        if let utxoModels = AssetHelper.getAssetUtxos(for: tx), utxoModels.count >= 1 {
+            let utxoModel = utxoModels[0]
+            
+            // Exit if we have all asset utxos and all required models
+            if AssetHelper.hasAllAssetModels(for: utxoModel) { return }
+        }
             
         let confirmView = DGBConfirmAlert(title: S.Assets.openAssetTitle, message: S.Assets.openAssetMessage, image: UIImage(named: "privacy"), okTitle: S.Assets.confirmAssetsResolve, cancelTitle: S.Assets.cancelAssetsResolve)
         
@@ -1140,7 +1146,7 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
     }
     
     func showDigiAssetsConfirmViewIfNeeded(_ callback: ((Bool) -> Void)? = nil) {
-        guard !AssetHelper.resolvedAllAssets(for: self.walletManager?.wallet!.transactions) else { return }
+//        guard !AssetHelper.resolvedAllAssets(for: self.walletManager?.wallet!.transactions) else { return }
             
         let confirmView = DGBConfirmAlert(title: S.Assets.receivedAssetsTitle, message: S.Assets.receivedAssetsMessage, image: UIImage(named: "privacy"), okTitle: S.Assets.confirmAssetsResolve, cancelTitle: S.Assets.skipAssetsResolve)
         

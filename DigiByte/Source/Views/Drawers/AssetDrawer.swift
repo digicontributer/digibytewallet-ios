@@ -63,7 +63,7 @@ class AssetDrawer: UIView {
     private var supervc: DrawerControllerProtocol!
     private let id: String
     
-    private var assets = [AssetModel]()
+    private var utxoModel: AssetUtxoModel?
     private var tx: Transaction?
 
     private let tableView: UITableView = UITableView()
@@ -71,6 +71,8 @@ class AssetDrawer: UIView {
     
     private let contextMenu = AssetContextMenu()
     private let contextMenuUnderlay = UIView() // transparent view that closes contextmenu when tapped
+    
+    private var assetModels = [String: AssetModel]()
     
     var callback: ((Transaction) -> Void)? = nil
     let viewRawTxButton = DAButton(title: "View Raw Transaction".uppercased(), backgroundColor: UIColor.da.darkSkyBlue)
@@ -158,9 +160,11 @@ class AssetDrawer: UIView {
         }
     }
     
-    func setAssets(for tx: Transaction, assets: [AssetModel]) {
+    func setAssetUtxoModel(for tx: Transaction, utxoModel: AssetUtxoModel) {
         self.tx = tx
-        self.assets = assets
+        self.utxoModel = utxoModel
+        
+        refreshAssetModels(for: utxoModel)
         
         tableView.reloadData()
     }
@@ -181,12 +185,20 @@ extension AssetDrawer: UITableViewDelegate, UITableViewDataSource {
                 return tx != nil ? 1 : 0
             
             case 1:
-                return assets.count
+                return utxoModel?.assets.count ?? 0
             
             default:
                 return 0
         }
         
+    }
+    
+    private func refreshAssetModels(for utxoModel: AssetUtxoModel) {
+        assetModels = [:]
+        utxoModel.assets.forEach { infoModel in
+            guard let model = AssetHelper.getAssetModel(assetID: infoModel.assetId) else { return }
+            self.assetModels[model.assetId] = model
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -201,13 +213,19 @@ extension AssetDrawer: UITableViewDelegate, UITableViewDataSource {
             
         default:
             let tx = self.tx!
+            let utxoModel = self.utxoModel!
+            let assetInfo = utxoModel.assets[indexPath.row]
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AssetCell
-            let assetModel = assets[indexPath.row]
+            
+            let assetId = assetInfo.assetId
+            let amount = assetInfo.amount
+            let assetModel = assetModels[assetId]!
             
             cell.configure(showContent: true)
             
             cell.assetLabel.text = assetModel.getAssetName()
-            cell.amountLabel.text = "1000" // ToDo
+            cell.amountLabel.text = "\(amount)"
             
             cell.menuButtonTapped = menuButtonTapped
             cell.menuButton.tintColor = UIColor.da.inactiveColor

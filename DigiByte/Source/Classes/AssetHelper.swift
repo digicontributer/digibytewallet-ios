@@ -212,6 +212,10 @@ struct AssetModel: Codable {
         guard let urls = data.urls else { return nil }
         return urls
     }
+    
+    static func dummy() -> AssetModel {
+        return AssetModel(assetId: "?", firstBlock: 0, divisibility: 0, aggregationPolicy: "?", lockStatus: false, numOfIssuance: 0, numOfTransfers: 0, totalSupply: 0, numOfHolders: 0, issuanceTxid: nil, issueAddress: nil, metadataOfIssuence: nil, sha2Issue: nil)
+    }
 }
 
 struct AssetInfoModel: Codable {
@@ -336,7 +340,7 @@ class FetchAddressOperation: Operation {
                 utxoModel.assets.forEach { (assetInfoModel) in
                     guard utxoModel.address == self.state.walletAddress else { return }
                     
-                    if self.state.txIDFilter != utxoModel.txid { return }
+                    if self.state.txIDFilter != nil, self.state.txIDFilter != utxoModel.txid { return }
                     
                     print("AssetResolver: Adding MetadataOperation for \(assetInfoModel.assetId) (txID = \(utxoModel.txid):\(utxoModel.index))")
                     let subOperation = FetchMetadataOperation(url: self.urlWrapper, state: self.state, assetID: assetInfoModel.assetId, txID: utxoModel.txid, index: utxoModel.index)
@@ -428,6 +432,7 @@ class FetchMetadataOperation: Operation {
                 self.state.resolvedModels.append(decodedAssetModel)
                 print("AssetResolver: resolved assetModel: \(decodedAssetModel.assetId)")
                 self.state.failed = false
+                self.state.resolved = true
                 
             } else {
                 print("AssetResolver: could not resolve asset: \(self.assetID)/\(self.txID):\(self.index)")
@@ -455,7 +460,7 @@ class FetchMetadataOperation: Operation {
 
 class AssetResolver {
     private var addr = Set<String>()
-    private let callback: ([AssetModel]?) -> Void
+    private let callback: ([AssetResolveState]) -> Void
     private let queue = OperationQueue()
     private let filter: String?
     
@@ -478,7 +483,7 @@ class AssetResolver {
     var states = [AssetResolveState]()
     var stateMap = [String: AssetResolveState]()
     
-    init(publicWalletAddresses: [String], txIDFilter: String?, callback: @escaping ([AssetModel]?) -> Void) {
+    init(publicWalletAddresses: [String], txIDFilter: String?, callback: @escaping ([AssetResolveState]) -> Void) {
         self.callback = callback
         self.filter = txIDFilter
         
@@ -510,15 +515,7 @@ class AssetResolver {
         
         let completionOperation = BlockOperation {
             print("AssetResolver: All operations completed")
-            var assets = [AssetModel]()
-                
-            self.states.forEach({
-                assets.insert(contentsOf: $0.resolvedModels, at: 0)
-            })
-            
-            DispatchQueue.main.async {
-                self.callback(assets)
-            }
+            self.callback(self.states)
         }
         
         for address in self.addr {
@@ -540,123 +537,203 @@ class AssetNotificationCenter {
         static let newAssetData = Notification.Name("newAssetData")
         static let fetchingAssets = Notification.Name("fetchingAssets")
         static let fetchedAssets = Notification.Name("fetchedAssets")
+        static let assetsRecalculated = Notification.Name("assetsRecalculated")
     }
     
     private init() {}
 }
 
 class AssetHelper {
+    typealias AssetBalance = Int
     private static let store = UserDefaultsStore(suite: nil)
     
-    static func resolvedAllAssets(for transactions: [BRTxRef?]?) -> Bool {
-        return false
+    private static var needsReindex = true
+    private static var _allAssets = [String]()
+    private static var _allBalances = [String: AssetBalance]()
+    static var allBalances: [String: AssetBalance] {
+        reindexAssetsIfNeeded()
+        return _allBalances
+    }
+    static var allAssets: [String] {
+        reindexAssetsIfNeeded()
+        return _allAssets
     }
     
-    static func getAssetMetadata(for tx: Transaction) -> [AssetModel]? {
-        guard let address = tx.toAddress else { return nil }
-        let keyID = "\(address):\(tx.hash)"
-        let txKey = Key<GlobalNamespace, [AssetModel]?>(id: keyID, defaultValue: nil)
-        return store.get(txKey)
-    }
+    private static var assetAddressList = pullAssetAddressList()
+    private static var needsAddressListUpdate: Bool = false
+    private static var assetAddressListKey = "da_allAddresses"
     
-    @discardableResult
-    static func saveAssetMetadata(for tx: Transaction, assetModel: [AssetModel]) -> Bool {
-        guard let address = tx.toAddress else { return false }
-        let keyID = "\(address):\(tx.hash)"
-        let txKey = Key<GlobalNamespace, [AssetModel]?>(id: keyID, defaultValue: nil)
-        store.set(txKey, value: assetModel)
-        return true
-    }
-    
-    @discardableResult
-    static func saveAssetMetadata(for tx: Transaction, assetModel: AssetModel) -> Bool {
-        return saveAssetMetadata(for: tx, assetModel: [assetModel])
-    }
-    
-    static func saveAssets(for tx: Transaction, assets: [AssetModel]?) {
-        guard let assets = assets else { return }
+    private static func reindexAssetsIfNeeded() {
+        guard needsReindex else { return }
+        _allAssets = []
+        _allBalances = [:]
         
-        var newAssetArray = [AssetModel]()
-        
-        // Merge assets with existing
-        if let existingAssets = getAssetMetadata(for: tx) {
-            newAssetArray.insert(contentsOf: existingAssets, at: 0)
+        assetAddressList.forEach { (address) in
+            guard let infoModel = getAddressInfoModel(address: address) else { return }
+            infoModel.utxos.forEach { utxo in
+                utxo.assets.forEach { infoModel in
+                    _allBalances[infoModel.assetId] = (_allBalances[infoModel.assetId] ?? 0) + infoModel.amount
+                }
+            }
         }
         
-        newAssetArray.append(contentsOf: assets)
+        _allAssets = _allBalances.keys.map({ return $0 })
+        needsReindex = false
         
-        // ToDo: Filter unique
-        // ...
-        
-        // Save assetModels
-        saveAssetMetadata(for: tx, assetModel: newAssetArray)
-        
-        // Notify observers
-        AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.newAssetData, object: nil)
+        AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.assetsRecalculated, object: nil)
     }
     
-    static func resolveAsset(for tx: Transaction, callback: (([AssetModel]?) -> Void)?) -> AssetResolver? {
-        let assetModels = getAssetMetadata(for: tx)
+    private static func pullAssetAddressList() -> [String] {
+        let key = Key<GlobalNamespace, [String]>(id: assetAddressListKey, defaultValue: [])
+        let ret: [String] = store.get(key)
+        return ret
+    }
+    
+    private static func putAssetAddressList() {
+        let key = Key<GlobalNamespace, [String]>(id: assetAddressListKey, defaultValue: [])
+        store.set(key, value: assetAddressList)
+        needsAddressListUpdate = false
+    }
+    
+    static func getAssetModel(assetID: String) -> AssetModel? {
+        // ToDo: build and check cache
+        let key = Key<GlobalNamespace, AssetModel?>(id: assetID, defaultValue: nil)
+        return store.get(key)
+    }
+    
+    static func getAddressInfoModel(address: String) -> AddressInfoModel? {
+        let key = Key<GlobalNamespace, AddressInfoModel?>(id: address, defaultValue: nil)
+        return store.get(key)
+    }
+    
+    static func saveAssetModel(assetModel: AssetModel) {
+        let key = Key<GlobalNamespace, AssetModel?>(id: assetModel.assetId, defaultValue: nil)
+        store.set(key, value: assetModel)
+    }
+    
+    static func saveAddressInfoModel(addressInfoModel: AddressInfoModel) {
+        let address = addressInfoModel.address
         
-        if assetModels != nil {
-            callback?(assetModels)
-            return nil
+        if !assetAddressList.contains(address) {
+            assetAddressList.append(address)
+            needsAddressListUpdate = true
         }
         
-        guard let address = tx.toAddress else {
-            callback?(assetModels)
-            return nil
-        }
+        let key = Key<GlobalNamespace, AddressInfoModel?>(id: address, defaultValue: nil)
+        store.set(key, value: addressInfoModel)
+    }
+    
+    static func getAssetUtxos(for tx: Transaction) -> [AssetUtxoModel]? {
+        let txHash = tx.hash
+        guard let address = tx.toAddress else { return [] }
         
+        guard let model = getAddressInfoModel(address: address) else { return nil }
+        return model.utxos.filter { utxo -> Bool in
+            return utxo.txid == txHash
+        }
+    }
+    
+    static func hasAllAssetModels(for utxoModel: AssetUtxoModel) -> Bool {
+        return utxoModel.assets.reduce(true) { (res, model) -> Bool in
+            if !res { return false }
+            return getAssetModel(assetID: model.assetId) != nil
+        }
+    }
+    
+    static func resolveAsset(for addresses: [String], txIDFilter: String? = nil, callback: (([AssetUtxoModel]) -> Void)?) -> AssetResolver? {
         AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.fetchingAssets, object: nil)
-        let resolver = AssetResolver(publicWalletAddresses: [address], txIDFilter: tx.hash) { resolvedAssets in
-            saveAssets(for: tx, assets: resolvedAssets)
-            AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.fetchedAssets, object: nil)
-            callback?(resolvedAssets)
+        let resolver = AssetResolver(publicWalletAddresses: addresses, txIDFilter: txIDFilter) { states in
+            states.forEach { state in
+                guard state.resolved, !state.failed else { return }
+                state.resolvedModels.forEach({ saveAssetModel(assetModel: $0) })
+                saveAddressInfoModel(addressInfoModel: state.addressInfoModel!)
+            }
+            
+            var relevantItems = [AssetUtxoModel]()
+                
+            states.forEach { state in
+                // Only add resolved assets
+                guard state.resolved, !state.failed else { return }
+                guard let infoModel = state.addressInfoModel else { return }
+                
+                // Only add the infomodel if it was requested
+                relevantItems.append(contentsOf: infoModel.utxos.filter({ txIDFilter == nil || $0.txid == txIDFilter }))
+            }
+            
+            if needsAddressListUpdate {
+                putAssetAddressList()
+            }
+            
+            DispatchQueue.main.async {
+                AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.newAssetData, object: nil)
+                AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.fetchedAssets, object: nil)
+                callback?(relevantItems)
+            }
         }
         
         return resolver
     }
     
+    static func resolveAsset(for tx: Transaction, callback: (([AssetUtxoModel]) -> Void)?) -> AssetResolver? {
+        guard let address = tx.toAddress else {
+            callback?([])
+            return nil
+        }
+        
+        return resolveAsset(for: [address], txIDFilter: tx.hash, callback: callback)
+    }
+    
     static func resolveAssets(for transactions: [Transaction], callback: ((Bool) -> Void)?) -> AssetResolver? {
         var addresses = [String]()
-        var assets = [AssetModel]()
         
         transactions.forEach({ (tx) in
-            // Check existing (stored) assetData
-            let assetModels = getAssetMetadata(for: tx)
-            
-            if assetModels != nil {
-                // AssetModels exist, use them, do not add address
-                assets.insert(contentsOf: assets, at: 0)
+            if tx.isAssetTx, let address = tx.toAddress {
+                // Append address and load 'dem DigiAssets
+                if !addresses.contains(address) { addresses.append(address) }
             } else {
-                if let address = tx.toAddress {
-                    // Append address and load 'dem DigiAssets
-                    addresses.append(address)
-                } else {
-                    // Ignore transaction as it does not contain an asset
-                    // ...
-                }
+                // Ignore transaction as it does not contain an asset
+                // ...
             }
         })
         
         // No assets to be fetched, return existing assets
         if addresses.count == 0 {
-            callback?(assets.count > 0)
+            callback?(false)
             return nil
         }
         
-        AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.fetchingAssets, object: nil)
-        let resolver = AssetResolver(publicWalletAddresses: addresses, txIDFilter: nil) { resolvedAssets in
-            
-            // ToDo: Restore Tx->Asset information
-            // saveAssets(tx: nil, assets: resolvedAssets)
-            
-            AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.fetchedAssets, object: nil)
-            callback?((resolvedAssets?.count ?? 0) > 0)
+        return resolveAsset(for: addresses) { models in
+            callback?(models.count > 0)
         }
         
-        return resolver
+//        AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.fetchingAssets, object: nil)
+//
+//        let resolver = AssetResolver(publicWalletAddresses: addresses, txIDFilter: nil) { states in
+//            states.forEach { state in
+//                guard state.resolved, !state.failed else { return }
+//                state.resolvedModels.forEach({ saveAssetModel(assetModel: $0) })
+//                saveAddressInfoModel(addressInfoModel: state.addressInfoModel!)
+//            }
+//
+//            var relevantItems = [AssetUtxoModel]()
+//
+//            states.forEach { state in
+//                // Only add resolved assets
+//                guard state.resolved, !state.failed else { return }
+//                guard let infoModel = state.addressInfoModel else { return }
+//
+//                // Add all utxos to result
+//                relevantItems.append(contentsOf: infoModel.utxos)
+//            }
+//
+//            DispatchQueue.main.async {
+//                AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.newAssetData, object: nil)
+//                AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.fetchedAssets, object: nil)
+//                callback?(relevantItems.count > 0)
+//            }
+//        }
+//
+//        return resolver
     }
     
     static func reset() {

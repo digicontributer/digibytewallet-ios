@@ -63,11 +63,15 @@ class TransactionCardViewCell: UITableViewCell, Subscriber {
         self.transaction = transaction
         
         if transaction.isAssetTx {
-            if let assetModels = AssetHelper.getAssetMetadata(for: transaction), assetModels.count >= 1 {
-                if assetModels.count == 1 {
+            if let utxos = AssetHelper.getAssetUtxos(for: transaction), utxos.count >= 1 {
+                let utxo = utxos[0]
+                
+                if utxo.assets.count == 1 {
                     // Metadata for this asset is available, use it's name
-                    transactionLabel.text = assetModels[0].getAssetName()
-                } else if assetModels.count > 1 {
+                    let assetModel = AssetHelper.getAssetModel(assetID: utxo.assets[0].assetId)
+                    transactionLabel.text = assetModel?.getAssetName() ?? S.Assets.noMetadata
+                    
+                } else if utxo.assets.count > 1 {
                     // Multiple assets were transferred in one transaction
                     transactionLabel.text = S.Assets.multipleAssets
                 }

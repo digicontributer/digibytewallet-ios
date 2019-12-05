@@ -13,10 +13,18 @@ class DAMainViewController: UITabBarController {
     
     // MARK: Private properties
     private let header = ModalHeaderView(title: "DigiAssets", style: ModalHeaderViewStyle.light)
+    private let store: BRStore
+    private var tabs: [UIViewController]
     
-    private var tabs = [DAAssetsViewController(), DASendViewController(), DAReceiveViewController(), DACreateViewController(), DABurnViewController()]
-    
-    init() {
+    init(store: BRStore) {
+        self.store = store
+        self.tabs = [
+            DAAssetsViewController(store: store),
+            DASendViewController(),
+            DAReceiveViewController(),
+            DACreateViewController(),
+            DABurnViewController()
+        ]
         super.init(nibName: nil, bundle: nil)
         
         addSubviews()
