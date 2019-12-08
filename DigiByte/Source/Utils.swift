@@ -8,7 +8,7 @@
 
 import UIKit
 
-func placeLogoIntoQR(_ image: UIImage, width: CGFloat, height: CGFloat) -> UIImage? {
+func placeLogoIntoQR(_ image: UIImage, width: CGFloat, height: CGFloat, logo: UIImage? = UIImage(named: "DigiByteSymbol")) -> UIImage? {
     let img = image.resize(CGSize(width: width, height: height))
     UIGraphicsBeginImageContext(CGSize(width: width, height: height))
     img?.draw(at: CGPoint.zero)
@@ -26,7 +26,7 @@ func placeLogoIntoQR(_ image: UIImage, width: CGFloat, height: CGFloat) -> UIIma
     ctx.setFillColor(UIColor.white.cgColor)
     ctx.fillEllipse(in: rect)
     
-    let logo = UIImage(named: "DigiByteSymbol")?.resize(CGSize(width: logoSize, height: logoSize), interpolation: true)
+    let logo = logo?.resize(CGSize(width: logoSize, height: logoSize), interpolation: true)
     logo?.draw(at: CGPoint(x: width / 2 - logoSize / 2, y: height / 2 - logoSize / 2))
     
     ctx.restoreGState()

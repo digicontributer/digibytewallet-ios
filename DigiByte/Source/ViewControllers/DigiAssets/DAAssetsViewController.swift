@@ -20,6 +20,7 @@ fileprivate class MainAssetHeader: UIView {
         
         header.constrain([
             header.leftAnchor.constraint(equalTo: leftAnchor),
+            header.rightAnchor.constraint(equalTo: rightAnchor),
             header.topAnchor.constraint(equalTo: topAnchor),
             header.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
@@ -353,7 +354,7 @@ class AssetContextMenu: UIView {
         
         stackView.addArrangedSubview(AssetContextMenuButton(UIImage(named: "da-glyph-info"), text: "Transactions"))
         stackView.addArrangedSubview(AssetContextMenuButton(UIImage(named: "da-glyph-send"), text: "Send"))
-        stackView.addArrangedSubview(AssetContextMenuButton(UIImage(named: "da-glyph-receive"), text: "Receive"))
+//        stackView.addArrangedSubview(AssetContextMenuButton(UIImage(named: "da-glyph-receive"), text: "Receive"))
         stackView.addArrangedSubview(AssetContextMenuButton(UIImage(named: "da-glyph-burn"), text: "Burn", bgColor: UIColor.da.burnColor))
         
         clipsToBounds = true
@@ -418,6 +419,13 @@ class DAAssetsViewController: UIViewController {
         addSubviews()
         setContent()
         addEvents()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tabBarController?.tabBar.tintColor = UIColor(red: 38 / 255, green: 152 / 255, blue: 237 / 255, alpha: 1.0)
+        
+        tableView.reloadData()
     }
     
     func showPrivacyConfirmView(for txs: [Transaction], _ callback: ((Bool) -> Void)? = nil) {
@@ -573,7 +581,8 @@ class DAAssetsViewController: UIViewController {
         }
     }
     
-    @objc private func contextBgTapped() {
+    @objc
+    private func contextBgTapped() {
         // hide context menu
         contextMenuUnderlay.isHidden = true
         contextMenu.isHidden = true
@@ -650,7 +659,11 @@ extension DAAssetsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? AssetHelper.allAssets.count : 1
+        if section == 0 {
+            return AssetHelper.allAssets.count
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

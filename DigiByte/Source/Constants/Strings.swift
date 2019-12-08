@@ -57,6 +57,8 @@ enum S {
         static let unlocked = NSLocalizedString("Assets.unlocked", value: "Unlocked", comment: "Possible value of Lock Status")
         
         static let unknown = NSLocalizedString("Assets.unknown", value: "Unknown", comment: "Shown if a value is unknown (N/A)")
+        
+        static let totalBalance = NSLocalizedString("Assets.totalBalance", value: "Total balance", comment: "Total Balance: <BALANCE>")
     }
 
     enum Button {

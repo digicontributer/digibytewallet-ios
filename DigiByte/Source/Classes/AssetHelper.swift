@@ -609,6 +609,7 @@ class AssetHelper {
     static func saveAssetModel(assetModel: AssetModel) {
         let key = Key<GlobalNamespace, AssetModel?>(id: assetModel.assetId, defaultValue: nil)
         store.set(key, value: assetModel)
+        needsReindex = true
     }
     
     static func saveAddressInfoModel(addressInfoModel: AddressInfoModel) {
@@ -621,6 +622,7 @@ class AssetHelper {
         
         let key = Key<GlobalNamespace, AddressInfoModel?>(id: address, defaultValue: nil)
         store.set(key, value: addressInfoModel)
+        needsReindex = true
     }
     
     static func getAssetUtxos(for tx: Transaction) -> [AssetUtxoModel]? {

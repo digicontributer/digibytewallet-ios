@@ -142,7 +142,7 @@ class AssetDrawer: UIView {
         contextMenuUnderlay.isUserInteractionEnabled = true
         contextMenuUnderlay.addGestureRecognizer(gr)
         
-        viewRawTxButton.callback = {
+        viewRawTxButton.touchUpInside = {
             self.viewRawTxButtonTapped()
         }
     }

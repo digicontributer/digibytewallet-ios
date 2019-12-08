@@ -16,16 +16,127 @@ fileprivate class ConfirmButton: DGBHapticButton {
     }
 }
 
-class DGBModalWindow: UIViewController {
+class DAModalAssetSelector: DGBModalWindow {
+    var callback: ((AssetModel?) -> Void)? = nil
+    
+    init() {
+        super.init(title: "Select an asset", padding: 0)
+        
+        let tv = UITableView()
+        stackView.addArrangedSubview(tv)
+        
+        let hC = tv.heightAnchor.constraint(equalToConstant: 300)
+        hC.priority = .defaultLow
+        hC.isActive = true
+        
+        tv.delegate = self
+        tv.dataSource = self
+        tv.separatorInset = UIEdgeInsets.zero
+        
+        tv.register(DAModalAssetSelectorCell.self, forCellReuseIdentifier: "cell")
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+class DAModalAssetSelectorCell: UITableViewCell {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+        
+//        guard let iv = imageView else { return }
+//        iv.constrain([
+//            iv.heightAnchor.constraint(equalToConstant: 32),
+//            iv.widthAnchor.constraint(equalToConstant: 32),
+//        ])
+//
+//        iv.contentMode = .scaleAspectFit
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let bounds = CGRect(x: 22, y: 12, width: 32, height: 32)
+        self.imageView?.frame = bounds
+        self.imageView?.contentMode = .scaleAspectFit
+        
+        var tempFrame: CGRect!
+        let targetX: CGFloat = 77
+        var shift: CGFloat!
+        
+        tempFrame = textLabel!.frame
+        shift = tempFrame.origin.x - targetX
+        tempFrame.origin.x = targetX
+        textLabel!.frame = CGRect(x: tempFrame.origin.x, y: tempFrame.origin.y, width: tempFrame.width + shift, height: tempFrame.height)
+        
+        tempFrame = detailTextLabel!.frame
+        shift = tempFrame.origin.x - targetX
+        tempFrame.origin.x = targetX
+        detailTextLabel!.frame = CGRect(x: tempFrame.origin.x, y: tempFrame.origin.y, width: tempFrame.width + shift, height: tempFrame.height)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension DAModalAssetSelector: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return AssetHelper.allAssets.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        
+        let assetId = AssetHelper.allAssets[indexPath.row]
+        let assetModel = AssetHelper.getAssetModel(assetID: assetId) ?? AssetModel.dummy()
+    
+        cell.textLabel?.text = assetModel.getAssetName()
+        
+        let description = assetModel.getDescription()
+        let amount = AssetHelper.allBalances[assetId]
+        let amountStr: String? = amount == nil ? nil : "\(amount!)"
+        let subtitleStr = [amountStr, description].compactMap({ $0 }).joined(separator: " | ")
+        cell.detailTextLabel?.text = subtitleStr
+        
+        if let urlStr = assetModel.getImage()?.url, let url = URL(string: urlStr) {
+            cell.imageView?.kf.setImage(with: url)
+            cell.imageView?.tintColor = .clear
+        } else {
+            cell.imageView?.image = UIImage(named: "digiassets_small")?.withRenderingMode(.alwaysTemplate)
+            cell.imageView?.tintColor = UIColor.black.withAlphaComponent(0.7)
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let assetId = AssetHelper.allAssets[indexPath.row]
+        let assetModel = AssetHelper.getAssetModel(assetID: assetId)
+        callback?(assetModel)
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+class DGBModalWindow: UIViewController, UIGestureRecognizerDelegate {
     private let headerTitle: String
     private let titleView = UIView()
     private let titleLabel = UILabel()
+    private var tap: UITapGestureRecognizer!
+    
+    private let padding: CGFloat
     
     let containerView = UIView()
     let stackView = UIStackView()
     
-    init(title: String) {
+    init(title: String, padding: CGFloat = 8.0) {
         self.headerTitle = title
+        self.padding = padding
         super.init(nibName: nil, bundle: nil)
         
         modalPresentationStyle = .overFullScreen
@@ -34,6 +145,40 @@ class DGBModalWindow: UIViewController {
         addSubviews()
         addConstraints()
         setStyle()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        tap = UITapGestureRecognizer(target: self, action: #selector(onTap(sender:)))
+        tap.numberOfTapsRequired = 1
+        tap.numberOfTouchesRequired = 1
+        tap.cancelsTouchesInView = false
+        tap.delegate = self
+        self.view.window?.addGestureRecognizer(tap)
+    }
+    
+    internal func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+
+    internal func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        let location = touch.location(in: self.containerView)
+        
+        if location.x < 0 || location.x > self.containerView.bounds.width {
+            return true
+        }
+        
+        if location.y < 0 || location.y > self.containerView.bounds.height {
+            return true
+        }
+        
+        return false
+    }
+
+    @objc private func onTap(sender: UITapGestureRecognizer) {
+        self.view.window?.removeGestureRecognizer(sender)
+        self.dismiss(animated: true, completion: nil)
     }
     
     private func addSubviews() {
@@ -57,8 +202,6 @@ class DGBModalWindow: UIViewController {
             titleView.leftAnchor.constraint(equalTo: containerView.leftAnchor),
             titleView.rightAnchor.constraint(equalTo: containerView.rightAnchor),
         ])
-        
-        let padding: CGFloat = 8.0
         
         stackView.constrain([
             stackView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: padding),
@@ -122,7 +265,9 @@ class DGBModalAnimationController: NSObject, UIViewControllerAnimatedTransitioni
         vc.view.alpha = presenting ? 0.0 : 1.0
         vc.view.transform = presenting ? CGAffineTransform(scaleX: 0.9, y: 0.9) : CGAffineTransform.identity
         
-        containerView.addSubview(vc.view)
+        if presenting {
+            containerView.addSubview(vc.view)
+        }
         
         UIView.animate(withDuration: animationDuration, animations: {
             vc.view.alpha = self.presenting ? 1.0 : 0.0
@@ -140,7 +285,7 @@ class DGBModalLoadingView: DGBModalWindow {
     var gr: UITapGestureRecognizer!
     var tapCount = 0
     
-    override init(title: String) {
+    init(title: String) {
         ai = UIActivityIndicatorView(style: .gray)
         super.init(title: title)
         

@@ -49,7 +49,7 @@ class VerifyPinViewController : UIViewController, ContentBoxPresenter {
     override func viewDidLoad() {
         addSubviews()
         addConstraints()
-        setupSubviews()
+        setupSubviews()        
     }
 
     private func addSubviews() {
