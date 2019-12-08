@@ -68,9 +68,11 @@ class TransactionCardViewCell: UITableViewCell, Subscriber {
                 
                 if utxo.assets.count == 1 {
                     // Metadata for this asset is available, use it's name
-                    let assetModel = AssetHelper.getAssetModel(assetID: utxo.assets[0].assetId)
-                    transactionLabel.text = assetModel?.getAssetName() ?? S.Assets.noMetadata
-                    
+                    if let assetModel = AssetHelper.getAssetModel(assetID: utxo.assets[0].assetId) {
+                        transactionLabel.text = assetModel.getAssetName()
+                    } else {
+                        transactionLabel.text = S.Assets.unresolved
+                    }
                 } else if utxo.assets.count > 1 {
                     // Multiple assets were transferred in one transaction
                     transactionLabel.text = S.Assets.multipleAssets

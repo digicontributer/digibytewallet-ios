@@ -541,7 +541,7 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
                     self.tempLoginView.remove()
                     //self.attemptShowWelcomeView()
                 })
-                
+
 //                let pin = UpdatePinViewController(store: store, walletManager: walletManager, type: .update, showsBackButton: false, phrase: "Enter your PIN")
 //                pin.view.backgroundColor = UIColor.txListGreen // DDDDD
 //                pin.transitioningDelegate = loginTransitionDelegate
@@ -598,13 +598,14 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         
         self.edgeGesture = UIScreenEdgePanGestureRecognizer()
         super.init(nibName: nil, bundle: nil)
-//        
-//        AssetHelper.reset() // YOSHI
         
         // This callback is invoked if a transaction was selected that contains an asset
         let didSelectAssetTx: (_ tx: Transaction) -> Void = { tx in
             self.assetTxSelected(tx)
         }
+        
+        // YOSHI
+        AssetHelper.reset()
         
         transactionsTableView = TransactionsTableViewController(store: store, didSelectTransaction: didSelectTransaction, didSelectAssetTx: didSelectAssetTx)
         transactionsTableViewForSentTransactions = TransactionsTableViewController(store: store, didSelectTransaction: didSelectTransaction, didSelectAssetTx: didSelectAssetTx, kvStore: nil, filterMode: .showOutgoing)

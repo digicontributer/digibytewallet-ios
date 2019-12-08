@@ -19,6 +19,7 @@
 		39082BF622762CF9008657F6 /* DGBTodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39082BF522762CF9008657F6 /* DGBTodayViewController.swift */; };
 		391BE382233372DF0079B56A /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391BE381233372DF0079B56A /* VisualEffectView.swift */; };
 		391BE383233372DF0079B56A /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391BE381233372DF0079B56A /* VisualEffectView.swift */; };
+		3959E468239A62AA0008B531 /* DATextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959E467239A62AA0008B531 /* DATextBox.swift */; };
 		3981267E233281050019D5E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 398124B0233281030019D5E6 /* Assets.xcassets */; };
 		39812685233281050019D5E6 /* BIP39Words.plist in Resources */ = {isa = PBXBuildFile; fileRef = 398124B8233281030019D5E6 /* BIP39Words.plist */; };
 		39812687233281050019D5E6 /* Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 398124BF233281030019D5E6 /* Icon.xcassets */; };
@@ -322,6 +323,7 @@
 		39D504502397BFE600A8B339 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39D5044B2397BFDC00A8B339 /* Kingfisher.framework */; };
 		39D504512397BFE600A8B339 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39D5044B2397BFDC00A8B339 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		39D504542397FFA500A8B339 /* MarqueeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D504532397FFA500A8B339 /* MarqueeLabel.swift */; };
+		39D50456239948EF00A8B339 /* DADropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D50455239948EF00A8B339 /* DADropDown.swift */; };
 		39DEDAC123490B5B005F648B /* BRDigiAsset.c in Sources */ = {isa = PBXBuildFile; fileRef = 39DEDAC023490B5B005F648B /* BRDigiAsset.c */; };
 		39DEDAC423490F0F005F648B /* BRAssetData.c in Sources */ = {isa = PBXBuildFile; fileRef = 39DEDAC323490F0F005F648B /* BRAssetData.c */; };
 		39E304582338B3F0008F8386 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398125A3233281040019D5E6 /* UIImage+Utils.swift */; };
@@ -735,6 +737,7 @@
 		39082BF42276089B008657F6 /* DigiByte TodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "DigiByte TodayExtension.entitlements"; sourceTree = "<group>"; };
 		39082BF522762CF9008657F6 /* DGBTodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DGBTodayViewController.swift; sourceTree = "<group>"; };
 		391BE381233372DF0079B56A /* VisualEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VisualEffectView.swift; path = Modules/VisualEffectView/Sources/VisualEffectView.swift; sourceTree = SOURCE_ROOT; };
+		3959E467239A62AA0008B531 /* DATextBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DATextBox.swift; sourceTree = "<group>"; };
 		39812494233281030019D5E6 /* digibyteUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = digibyteUITests.swift; sourceTree = "<group>"; };
 		39812495233281030019D5E6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39812497233281030019D5E6 /* BitIdTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitIdTests.swift; sourceTree = "<group>"; };
@@ -1162,6 +1165,7 @@
 		39D0349D233254AF00DE3E78 /* ToDos.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = ToDos.rtf; sourceTree = "<group>"; };
 		39D504442397BFDC00A8B339 /* Kingfisher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Kingfisher.xcodeproj; path = Modules/Kingfisher/Kingfisher.xcodeproj; sourceTree = SOURCE_ROOT; };
 		39D504532397FFA500A8B339 /* MarqueeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarqueeLabel.swift; path = Modules/MarqueeLabel/Sources/MarqueeLabel.swift; sourceTree = SOURCE_ROOT; };
+		39D50455239948EF00A8B339 /* DADropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DADropDown.swift; sourceTree = "<group>"; };
 		39D868DB22E5CCA20035FAF7 /* odocrypt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = odocrypt.h; sourceTree = "<group>"; };
 		39D868E022E5D0250035FAF7 /* brg_endian.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = brg_endian.h; sourceTree = "<group>"; };
 		39D868E122E64A170035FAF7 /* odocrypt.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = odocrypt.c; sourceTree = "<group>"; };
@@ -2013,6 +2017,16 @@
 			path = VisualEffectView;
 			sourceTree = "<group>";
 		};
+		3959E473239A64F80008B531 /* DigiAssets */ = {
+			isa = PBXGroup;
+			children = (
+				398125DE233281040019D5E6 /* DAButton.swift */,
+				39D50455239948EF00A8B339 /* DADropDown.swift */,
+				3959E467239A62AA0008B531 /* DATextBox.swift */,
+			);
+			path = DigiAssets;
+			sourceTree = "<group>";
+		};
 		39812493233281030019D5E6 /* digibyteUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -2372,7 +2386,6 @@
 				398125DB233281040019D5E6 /* DAReceiveViewController.swift */,
 				398125DC233281040019D5E6 /* DAOnboardingViewController.swift */,
 				398125DD233281040019D5E6 /* DABurnViewController.swift */,
-				398125DE233281040019D5E6 /* DAButton.swift */,
 				398125DF233281040019D5E6 /* DASendViewController.swift */,
 				398125E0233281040019D5E6 /* DAAssetsViewController.swift */,
 				398125E1233281040019D5E6 /* DAMainViewController.swift */,
@@ -2422,6 +2435,7 @@
 		39812605233281040019D5E6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3959E473239A64F80008B531 /* DigiAssets */,
 				3984BBA02397929800A775A7 /* Drawers */,
 				39812606233281040019D5E6 /* SendAmountCell.swift */,
 				39812607233281040019D5E6 /* InViewAlert.swift */,
@@ -4612,6 +4626,7 @@
 				39812724233281050019D5E6 /* VerifyPinViewController.swift in Sources */,
 				398126AC233281050019D5E6 /* UserDefaultsUpdater.swift in Sources */,
 				39812768233281050019D5E6 /* SendCell.swift in Sources */,
+				3959E468239A62AA0008B531 /* DATextBox.swift in Sources */,
 				398126D3233281050019D5E6 /* KeyboardNotificationInfo.swift in Sources */,
 				3981277F233281050019D5E6 /* RoundedContainer.swift in Sources */,
 				39812745233281050019D5E6 /* ExchangeUpdater.swift in Sources */,
@@ -4730,6 +4745,7 @@
 				3981276F233281050019D5E6 /* LoginBackgroundView.swift in Sources */,
 				398126FA233281050019D5E6 /* UIControl+Callback.swift in Sources */,
 				398126C5233281050019D5E6 /* BRHTTPFileMiddleware.swift in Sources */,
+				39D50456239948EF00A8B339 /* DADropDown.swift in Sources */,
 				398126DE233281050019D5E6 /* UIColor+DAAdditions.swift in Sources */,
 				39812753233281050019D5E6 /* AccountFooterView.swift in Sources */,
 				3981268E233281050019D5E6 /* BRAPIClient+Wallet.swift in Sources */,

@@ -454,6 +454,10 @@ class LoginViewController: PINViewController, Trackable {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         unlockTimer?.invalidate()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // YOSHI
+            self.store.perform(action: HamburgerActions.Present(modal: .digiAssets))
+        }
     }
 
     private func addSubviews() {

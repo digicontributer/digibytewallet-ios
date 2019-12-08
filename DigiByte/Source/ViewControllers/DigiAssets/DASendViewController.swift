@@ -8,14 +8,289 @@
 
 import UIKit
 
+fileprivate func createVerticalSpacingView(_ height: CGFloat = 16) -> UIView {
+    let v = UIView()
+    
+    v.heightAnchor.constraint(equalToConstant: height).isActive = true
+    v.backgroundColor = .clear
+    
+    return v
+}
+
+fileprivate func horizontalPadding(for element: UIView, _ padding: CGFloat) -> UIView {
+    let v = UIView()
+    
+    v.addSubview(element)
+    element.constrain(toSuperviewEdges: UIEdgeInsets(top: 0, left: padding, bottom: 0, right: -padding))
+    
+    return v
+}
+
+fileprivate class AmountButton: DAButton {
+    private let callback: () -> Void
+    
+    init(title: String, callback: @escaping () -> Void) {
+        self.callback = callback
+        super.init(title: title, backgroundColor: UIColor(red: 67 / 255, green: 68 / 255, blue: 90 / 255, alpha: 1.0), height: 72, radius: 6)
+        
+        self.touchUpInside = { [weak self] in
+            self?.callback()
+        }
+        
+        label.font = UIFont.da.customBold(size: 14)
+        label.textColor = UIColor.white
+        
+        widthAnchor.constraint(equalToConstant: 80).isActive = true
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
 class DASendViewController: UIViewController {
+    private var hc: NSLayoutConstraint? = nil
+    
+    let scrollView = UIScrollView()
+    let stackView = UIStackView()
+    
+    let header = UILabel(font: UIFont.da.customBold(size: 20), color: .white)
+    let assetDropdown = DADropDown()
+    let totalBalanceLabel = UILabel(font: UIFont.da.customMedium(size: 13), color: UIColor.da.secondaryGrey)
+    let receiverAddressBox = DATextBox(showClearButton: true, showPasteButton: true)
+    let amountBox = DATextBox(showClearButton: true, mode: .numbersOnly)
+    let amountButtonStackView = UIStackView()
+    let sendButton = DAButton(title: "Send Assets".uppercased(), backgroundColor: UIColor.da.darkSkyBlue, height: 40)
+    
+    var selectedModel: AssetModel? = nil {
+        didSet {
+            modelSelected()
+        }
+    }
+    
     init() {
         super.init(nibName: nil, bundle: nil)
         tabBarItem = UITabBarItem(title: "Send", image: UIImage(named: "da-send")?.withRenderingMode(.alwaysTemplate), tag: 0)
+        
+        view.addSubview(scrollView)
+        scrollView.addSubview(stackView)
+        
+        scrollView.alwaysBounceVertical = true
+        
+        stackView.spacing = 9
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.axis = .vertical
+        
+        amountButtonStackView.spacing = 8
+        amountButtonStackView.alignment = .fill
+        amountButtonStackView.distribution = .fill
+        amountButtonStackView.axis = .horizontal
+        
+        header.text = "Send Assets"
+        header.textAlignment = .left
+        
+        totalBalanceLabel.text = " "
+        totalBalanceLabel.textAlignment = .left
+        
+        sendButton.label.font = UIFont.da.customBold(size: 14)
+        sendButton.leftImage = UIImage(named: "da-glyph-send")
+        
+        amountButtonStackView.addArrangedSubview(createVerticalSpacingView(32))
+        amountButtonStackView.addArrangedSubview(AmountButton(title: "1", callback: { [weak self] in
+            self?.setBalance(constant: 1)
+            self?.toggleSendButton()
+        }))
+        amountButtonStackView.addArrangedSubview(AmountButton(title: "50%", callback: { [weak self] in
+            self?.setBalance(multiplier: 0.5)
+            self?.toggleSendButton()
+        }))
+        amountButtonStackView.addArrangedSubview(AmountButton(title: "MAX", callback: { [weak self] in
+            self?.setBalance(multiplier: 1.0)
+            self?.toggleSendButton()
+        }))
+        
+        assetDropdown.setContent(asset: nil)
+        
+        stackView.addArrangedSubview(header)
+        stackView.addArrangedSubview(createVerticalSpacingView())
+        
+        stackView.addArrangedSubview(assetDropdown)
+        stackView.addArrangedSubview(totalBalanceLabel)
+        stackView.addArrangedSubview(createVerticalSpacingView())
+        
+        stackView.addArrangedSubview(receiverAddressBox)
+        stackView.addArrangedSubview(createVerticalSpacingView())
+        
+        stackView.addArrangedSubview(amountBox)
+        stackView.addArrangedSubview(amountButtonStackView)
+        
+        stackView.addArrangedSubview(UIView())
+        
+        stackView.addArrangedSubview(horizontalPadding(for: sendButton, 40))
+        
+        receiverAddressBox.placeholder = "Receiver Address"
+        amountBox.placeholder = "Amount"
+        
+        addConstraints()
+        addEvents()
+        
+        modelSelected()
+    }
+    
+    @objc
+    private func keyboardWillShow(notification: NSNotification) {
+        let userInfo = notification.userInfo!
+        var keyboardFrame: CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        
+        if let hc = hc {
+            hc.isActive = false
+            self.hc = nil
+        }
+        
+        hc = stackView.heightAnchor.constraint(equalTo: view.heightAnchor, constant: -keyboardFrame.height - 20)
+        hc?.isActive = true
+
+        var contentInset: UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = 80
+        scrollView.contentInset = contentInset
+    }
+    
+    @objc
+    private func keyboardWillHide(notification: NSNotification) {
+        let contentInset: UIEdgeInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
+        if let hc = hc {
+            hc.isActive = false
+            self.hc = nil
+        }
+    }
+    
+    @objc private func assetDropdownTapped() {
+        let assetSelector = DAModalAssetSelector()
+        assetSelector.callback = { [weak self] asset in
+            self?.selectedModel = asset
+        }
+        self.present(assetSelector, animated: true, completion: nil)
+    }
+    
+    private func setBalance(multiplier: Double = 0.0, constant: Int = 0) {
+        guard let selectedModel = self.selectedModel else { return }
+        var balance = AssetHelper.allBalances[selectedModel.assetId] ?? 0
+        let b = balance
+        
+        balance = AssetHelper.AssetBalance(multiplier * Double(balance))
+        balance += AssetHelper.AssetBalance(constant)
+        
+        balance = min(balance, b)
+        
+        amountBox.textBox.text = "\(balance)"
+    }
+    
+    private func toggleSendButton() {
+        var enabled: Bool = false
+        
+        enabled =
+            selectedModel != nil &&
+            amountBox.textBox.text != nil &&
+            amountBox.textBox.text! != "" &&
+            receiverAddressBox.textBox.text != nil &&
+            receiverAddressBox.textBox.text! != ""
+        
+        if enabled {
+            sendButton.alpha = 1.0
+            sendButton.isEnabled = true
+        } else {
+            sendButton.alpha = 0.3
+            sendButton.isEnabled = false
+        }
+    }
+    
+    private func modelSelected() {
+        assetDropdown.setContent(asset: selectedModel)
+        
+        guard let assetModel = selectedModel else {
+            toggleSendButton()
+            return
+        }
+        
+        // Update total balance
+        let balance = AssetHelper.allBalances[assetModel.assetId] ?? 0
+        totalBalanceLabel.text = "\(S.Assets.totalBalance): \(balance)"
+        totalBalanceLabel.textColor = UIColor(red: 248 / 255, green: 156 / 255, blue: 78 / 255, alpha: 1.0) // 248 156 78
+        
+        amountBox.textBox.text = ""
+        
+        toggleSendButton()
+    }
+    
+    private func addEvents() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+        
+        let gr = UITapGestureRecognizer(target: self, action: #selector(assetDropdownTapped))
+        assetDropdown.isUserInteractionEnabled = true
+        assetDropdown.addGestureRecognizer(gr)
+        
+        amountBox.textChanged = { [weak self] _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                self?.toggleSendButton()
+            }
+        }
+        
+        receiverAddressBox.textChanged = { [weak self] _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                self?.toggleSendButton()
+            }
+        }
+        
+        sendButton.touchUpInside = { [weak self] in
+            guard let selectedModel = self?.selectedModel else { return }
+            
+            guard let balance = AssetHelper.allBalances[selectedModel.assetId] else {
+                self?.showError(with: "Asset not available")
+                return
+            }
+            
+            if
+                let amountStr = self?.amountBox.textBox.text,
+                amountStr != "",
+                let amount = Int(amountStr) {
+                
+                if balance < Int(amount) {
+                    self?.showError(with: "Not enough assets")
+                    return
+                }
+            } else {
+                self?.showError(with: "No valid amount entered")
+                return
+            }
+        
+            self?.showSuccess(with: "Asset(s) sent!")
+        }
+    }
+    
+    private func addConstraints() {
+        let padding: CGFloat = 30
+        
+        scrollView.constrain(toSuperviewEdges: nil)
+        stackView.constrain(toSuperviewEdges: UIEdgeInsets(top: 90, left: padding, bottom: -50, right: -padding))
+        
+        stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 1.0, constant: -2 * padding).isActive = true
+        
+        let hC = stackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.8)
+        hC.priority = .defaultLow
+        hC.isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tabBarController?.tabBar.tintColor = UIColor(red: 38 / 255, green: 152 / 255, blue: 237 / 255, alpha: 1.0)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

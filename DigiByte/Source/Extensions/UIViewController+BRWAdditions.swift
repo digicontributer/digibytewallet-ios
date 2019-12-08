@@ -32,4 +32,38 @@ extension UIViewController {
         }
         navigationItem.leftBarButtonItems = [UIBarButtonItem.negativePadding, UIBarButtonItem(customView: close)]
     }
+    
+    
+    func showAlert(with message: String, color: UIColor? = nil) {
+        let alert = LightWeightAlert(message: message)
+        
+        if let color = color {
+            alert.container.backgroundColor = color
+        }
+        
+        view.addSubview(alert)
+        
+        alert.constrain([
+            alert.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            alert.centerYAnchor.constraint(equalTo: view.centerYAnchor) ])
+        alert.alpha = 0
+        
+        UIView.animate(withDuration: 0.6, animations: {
+            alert.alpha = 1
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.6, delay: 2.0, options: [], animations: {
+                alert.alpha = 0
+            }, completion: { _ in
+                alert.removeFromSuperview()
+            })
+        })
+    }
+    
+    func showError(with message: String) {
+        showAlert(with: message, color: UIColor.da.burnColor)
+    }
+    
+    func showSuccess(with message: String) {
+        showAlert(with: message, color: C.Colors.weirdGreen)
+    }
 }
