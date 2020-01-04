@@ -605,9 +605,6 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
             self.assetTxSelected(tx)
         }
         
-        // YOSHI
-        AssetHelper.reset()
-        
         transactionsTableView = TransactionsTableViewController(store: store, didSelectTransaction: didSelectTransaction, didSelectAssetTx: didSelectAssetTx)
         transactionsTableViewForSentTransactions = TransactionsTableViewController(store: store, didSelectTransaction: didSelectTransaction, didSelectAssetTx: didSelectAssetTx, kvStore: nil, filterMode: .showOutgoing)
         transactionsTableViewForReceivedTransactions = TransactionsTableViewController(store: store, didSelectTransaction: didSelectTransaction, didSelectAssetTx: didSelectAssetTx, kvStore: nil, filterMode: .showIncoming)
