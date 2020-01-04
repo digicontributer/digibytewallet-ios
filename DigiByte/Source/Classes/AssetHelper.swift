@@ -2,7 +2,7 @@
 //  AssetHelper.swift
 //  DigiByte
 //
-//  Created by Julian Jäger on 01.12.19.
+//  Created by Yoshi Jaeger on 01.12.19.
 //  Copyright © 2019 DigiByte Foundation NZ Limited. All rights reserved.
 //
 
@@ -118,11 +118,9 @@ fileprivate extension SingleValueDecodingContainer {
     }
 }
 
-struct UrlModel: Codable {
-    let name: String?
-    let url: String?
-    let mimeType: String?
-    let dataHash: String?
+struct ScriptSigModel: Codable {
+//    let asm: String
+    let hex: String
 }
 
 struct AssetProperties: Codable {
@@ -131,6 +129,13 @@ struct AssetProperties: Codable {
     let description: String?
     let urls: [UrlModel]?
     let userData: JSON?
+}
+
+struct UrlModel: Codable {
+    let name: String?
+    let url: String?
+    let mimeType: String?
+    let dataHash: String?
 }
 
 struct AssetIssuanceMetadataModel: Codable {
@@ -218,51 +223,152 @@ struct AssetModel: Codable {
     }
 }
 
-struct AssetInfoModel: Codable {
+struct AssetHeaderModel: Codable {
     let assetId: String
     let amount: Int
     let issueTxid: String
+    let divisibility: Int
+    let lockStatus: Bool
+    let aggregationPolicy: String
 }
 
-struct AssetUtxoModel: Codable {
-    let address: String
-    let index: Int
+struct PreviousOutputModel: Codable {
+    let hex: String
+    let type: String
+    let reqSigs: Int
+    let addresses: [String]
+}
+
+struct TransactionInputModel: Codable {
     let txid: String
-    let value: Int // Satoshis
-    let assets: [AssetInfoModel]
+    let vout: Int
+    let scriptSig: ScriptSigModel
+    let value: UInt64 // Satoshis
+    let sequence: Int
+    
+    let previousOutput: PreviousOutputModel
+    
+    let assets: [AssetHeaderModel]
 }
 
-// /addressinfo endpoint response
-struct AddressInfoModel: Codable {
-    let address: String
-    let utxos: [AssetUtxoModel]
+struct TransactionOutputModel: Codable {
+    let n: Int
+    let used: Bool
+    let usedTxid: String?
+    let usedBlockheight: Int?
+    
+    let value: UInt64 // Satoshis
+    
+    let scriptPubKey: ScriptSigModel
+    let assets: [AssetHeaderModel]
+    
+    func wasUsed() -> TransactionOutputModel {
+        return TransactionOutputModel(n: n, used: true, usedTxid: usedTxid, usedBlockheight: usedBlockheight, value: value, scriptPubKey: scriptPubKey, assets: assets)
+    }
+}
+
+// Same as the above but with an additional txid field
+struct ExtendedTransactionOutputModel: Codable {
+    let base: TransactionOutputModel
+    let txid: String
+    
+    init(_ o: TransactionOutputModel, txid: String) {
+        self.base = o
+        self.txid = txid
+    }
+    
+    // Helper functions
+    func hexAsBuffer() -> [UInt8] {
+        return [UInt8](Data(hex: base.scriptPubKey.hex))
+    }
+    
+    // Computed properties (access layer)
+    var assets: [AssetHeaderModel] { return base.assets }
+    var index: Int { return base.n }
+    var value: UInt64 { return base.value }
+    
+    func getAssetIds() -> [String] {
+        return base.assets.map { $0.assetId }
+    }
+}
+
+typealias AssetUtxoModel = ExtendedTransactionOutputModel
+
+struct TransactionInfoModel: Codable {
+    let blockheight: Int
+    let blockhash: String?
+    let txid: String
+    
+    let colored: Bool
+    
+    let vin: [TransactionInputModel]
+    var vout: [TransactionOutputModel]
+    
+    func getAssetIds() -> [String] {
+        var res = Set<String>()
+        
+        vin.forEach { inputModel in
+            inputModel.assets.forEach { (assetModel) in res.insert(assetModel.assetId) }
+        }
+        
+        vout.forEach { outputModel in
+            outputModel.assets.forEach { (assetModel) in res.insert(assetModel.assetId) }
+        }
+        
+        return Array(res)
+    }
+    
+    func getAssets() -> [AssetHeaderModel] {
+        var assets = [AssetHeaderModel]()
+        vout.forEach { v in
+            assets.append(contentsOf: v.assets)
+        }
+        return assets
+    }
 }
 
 class DigiAssetsUrlWrapper {
-    private static let DIGIASSETS_HOST_1: String = "https://api.digiassets.net/v3/"
+    private static let DA_EXPLORER_HOST1: String = "https://explorerapi.digiassets.net/api"
+    private static let DA_API_HOST1: String = "https://api.digiassets.net/v3"
     
-    private var urls: [String] = [
-        DigiAssetsUrlWrapper.DIGIASSETS_HOST_1,
+    private var explorer_urls: [String] = [
+        DigiAssetsUrlWrapper.DA_EXPLORER_HOST1,
     ]
     
-    var currentURL: String = ""
+    private var api_urls: [String] = [
+        DigiAssetsUrlWrapper.DA_API_HOST1
+    ]
+    
+    var currentExplorerURL: String = ""
+    var currentApiURL: String = ""
     
     init() {
-        assert(urls.count > 0)
-        self.currentURL = urls[0]
+        assert(explorer_urls.count > 0)
+        assert(api_urls.count > 0)
+        self.currentExplorerURL = explorer_urls[0]
+        self.currentApiURL = api_urls[0]
     }
     
-    func nextUrl(oldURL: String) {
+    func nextExplorerUrl(oldURL: String) {
         // Change will be seen by all operations.
         // Change will be dependant on the old URL
-        guard oldURL == currentURL else { return }
-        guard let index = urls.firstIndex(of: oldURL) else { return }
-        let newIndex = index + 1;
-        currentURL = urls[newIndex % urls.count]
+        guard oldURL == currentExplorerURL else { return }
+        guard let index = explorer_urls.firstIndex(of: oldURL) else { return }
+        let newIndex = index + 1
+        currentExplorerURL = explorer_urls[newIndex % explorer_urls.count]
+    }
+    
+    func nextApiUrl(oldURL: String) {
+        // Change will be seen by all operations.
+        // Change will be dependant on the old URL
+        guard oldURL == currentApiURL else { return }
+        guard let index = api_urls.firstIndex(of: oldURL) else { return }
+        let newIndex = index + 1
+        currentApiURL = api_urls[newIndex % api_urls.count]
     }
 }
 
-class FetchAddressOperation: Operation {
+class FetchAssetTransactionOperation: Operation {
     private let state: AssetResolver.AssetResolveState
     private let urlWrapper: DigiAssetsUrlWrapper
     
@@ -304,12 +410,14 @@ class FetchAddressOperation: Operation {
     
     func execute() {
         let session = URLSession.shared
-        let urlStr = urlWrapper.currentURL
-        let url = URL(string: "\(urlStr)/addressinfo/\(state.walletAddress)")!
+        let urlStr = urlWrapper.currentExplorerURL
+        
+        let composedURLStr = "\(urlStr)/gettransaction?txid=\(state.txID)"
+        let url = URL(string: composedURLStr)!
         
         let dataTask = session.dataTask(with: url) { (data, resp, err) in
             if err != nil {
-                self.urlWrapper.nextUrl(oldURL: urlStr)
+                self.urlWrapper.nextExplorerUrl(oldURL: urlStr)
                 self.isExecuting = false
                 self.isFinished = true
                 self.state.failed = true
@@ -323,33 +431,39 @@ class FetchAddressOperation: Operation {
                 return
             }
             
-            guard let addressInfoModel = try? JSONDecoder().decode(AddressInfoModel.self, from: data) else {
+            guard let infoModel = try? JSONDecoder().decode(TransactionInfoModel.self, from: data) else {
                 self.isExecuting = false
                 self.isFinished = true
                 return
             }
             
-            self.state.addressInfoModel = addressInfoModel
+            self.state.transactionInfoModel = infoModel
             
             // Create new sub operation queue
             let subqueue = OperationQueue()
             subqueue.maxConcurrentOperationCount = 3
             
-            // Process all utxos that contain assets
-            addressInfoModel.utxos.forEach { (utxoModel) in
-                utxoModel.assets.forEach { (assetInfoModel) in
-                    guard utxoModel.address == self.state.walletAddress else { return }
+            // Process assets of each output
+            var assetDict = [String:Int]()
+            infoModel.vout.forEach { o in
+                o.assets.forEach { assetModel in
+                    let assetId = assetModel.assetId
                     
-                    if self.state.txIDFilter != nil, self.state.txIDFilter != utxoModel.txid { return }
-                    
-                    print("AssetResolver: Adding MetadataOperation for \(assetInfoModel.assetId) (txID = \(utxoModel.txid):\(utxoModel.index))")
-                    let subOperation = FetchMetadataOperation(url: self.urlWrapper, state: self.state, assetID: assetInfoModel.assetId, txID: utxoModel.txid, index: utxoModel.index)
-                    subqueue.addOperation(subOperation)
+                    // Only resolve each assetModel once
+                    let key = "\(assetId)-\(infoModel.txid)"
+                    if assetDict.index(forKey: key) == nil {
+                        print("AssetResolver: Adding MetadataOperation for \(assetId) (txID = \(infoModel.txid):\(o.n))")
+                        assetDict[key] = 1
+                        
+                        let subOperation = FetchMetadataOperation(url: self.urlWrapper, state: self.state, assetID: assetId, txID: infoModel.txid, index: o.n)
+                        subqueue.addOperation(subOperation)
+                    }
                 }
             }
             
+            if subqueue.operationCount == 0 { self.state.resolved = true }
             subqueue.waitUntilAllOperationsAreFinished()
-            print("AssetResolver: Finished FetchAddressOperation for \(self.state.walletAddress)")
+            print("AssetResolver: Finished FetchAssetTransactionOperation for txID=\(self.state.txID)")
             self.isExecuting = false
             self.isFinished = true
         }
@@ -406,14 +520,14 @@ class FetchMetadataOperation: Operation {
     
     func execute() {
         let session = URLSession(configuration: .default)
-        let urlStr = urlWrapper.currentURL
+        let urlStr = urlWrapper.currentApiURL
         
         let url = URL(string: "\(urlStr)/assetmetadata/\(self.assetID)/\(self.txID):\(self.index)")!
         
         let dataTask = session.dataTask(with: url) { (data, resp, err) in
             if err != nil {
                 print("AssetResolver: error in response for asset: \(self.assetID): \(err!)")
-                self.urlWrapper.nextUrl(oldURL: urlStr)
+                self.urlWrapper.nextApiUrl(oldURL: urlStr)
                 self.isExecuting = false
                 self.isFinished = true
                 self.state.failed = true
@@ -431,6 +545,7 @@ class FetchMetadataOperation: Operation {
             if let decodedAssetModel = try? JSONDecoder().decode(AssetModel.self, from: data) {
                 self.state.resolvedModels.append(decodedAssetModel)
                 print("AssetResolver: resolved assetModel: \(decodedAssetModel.assetId)")
+                
                 self.state.failed = false
                 self.state.resolved = true
                 
@@ -447,7 +562,7 @@ class FetchMetadataOperation: Operation {
     }
     
     override func start() {
-        guard !state.failed, state.addressInfoModel != nil else {
+        guard !state.failed, state.transactionInfoModel != nil else {
             print("AssetResolver: FetchMetadataOperation for assetID=\(assetID), txID=\(txID):\(index) can not be launched")
             isFinished = true
             return
@@ -459,43 +574,40 @@ class FetchMetadataOperation: Operation {
 }
 
 class AssetResolver {
-    private var addr = Set<String>()
+    private var txIDSet = Set<String>()
+    private let txIDs: [String]
     private let callback: ([AssetResolveState]) -> Void
     private let queue = OperationQueue()
-    private let filter: String?
     
     class AssetResolveState {
-        let walletAddress: String
+        var txID: String
         var resolved: Bool = false
         var failed: Bool = false
         
-        var txIDFilter: String?
-        
-        var addressInfoModel: AddressInfoModel? = nil
+        var transactionInfoModel: TransactionInfoModel? = nil
         var resolvedModels: [AssetModel] = []
         
-        init(address: String, txIDFilter: String? = nil) {
-            self.txIDFilter = txIDFilter
-            self.walletAddress = address
+        init(txid: String) {
+            self.txID = txid
         }
     }
     
     var states = [AssetResolveState]()
     var stateMap = [String: AssetResolveState]()
     
-    init(publicWalletAddresses: [String], txIDFilter: String?, callback: @escaping ([AssetResolveState]) -> Void) {
+    init(txids: [String], callback: @escaping ([AssetResolveState]) -> Void) {
         self.callback = callback
-        self.filter = txIDFilter
+        self.txIDs = txids
         
-        publicWalletAddresses.filter({ $0 != "" }).forEach({
-            self.addr.insert($0)
+        txids.filter({ $0 != "" }).forEach({
+            self.txIDSet.insert($0)
         })
-    
-        states.reserveCapacity(self.addr.count)
-        self.addr.forEach { (address) in
-            let state = AssetResolveState(address: address, txIDFilter: txIDFilter)
+
+        states.reserveCapacity(self.txIDSet.count)
+        self.txIDSet.forEach { (txid) in
+            let state = AssetResolveState(txid: txid)
             states.append(state)
-            stateMap[address] = state
+            stateMap[txid] = state
         }
         
         configureQueue()
@@ -512,20 +624,20 @@ class AssetResolver {
     
     private func launchFetchers() {
         let urlWrapper = DigiAssetsUrlWrapper()
-        
+            
         let completionOperation = BlockOperation {
             print("AssetResolver: All operations completed")
             self.callback(self.states)
         }
         
-        for address in self.addr {
-            let state = self.stateMap[address]!
-            print("AssetResolver: Launching FetchAddressOperation for walletAddress = \(address) (filter=\(state.txIDFilter ?? "none"))")
-            let fetchAddressOperation = FetchAddressOperation(url: urlWrapper, state: state)
-            completionOperation.addDependency(fetchAddressOperation)
-            queue.addOperation(fetchAddressOperation)
+        for txid in self.txIDSet {
+            let state = self.stateMap[txid]!
+            print("AssetResolver: Launching FetchAssetTransactionOperation for txid = \(txid)")
+            let fetchAssetTransactionOperation = FetchAssetTransactionOperation(url: urlWrapper, state: state)
+            completionOperation.addDependency(fetchAssetTransactionOperation)
+            queue.addOperation(fetchAssetTransactionOperation)
         }
-        
+
         queue.addOperation(completionOperation)
     }
 }
@@ -559,8 +671,8 @@ class AssetHelper {
         return _allAssets
     }
     
-    private static var assetAddressList = pullAssetAddressList()
-    private static var needsAddressListUpdate: Bool = false
+    private static var assetTxIdList = pullAssetTransactionIds()
+    private static var needsTxIdListUpdate: Bool = false
     private static var assetAddressListKey = "da_allAddresses"
     
     private static func reindexAssetsIfNeeded() {
@@ -568,11 +680,14 @@ class AssetHelper {
         _allAssets = []
         _allBalances = [:]
         
-        assetAddressList.forEach { (address) in
-            guard let infoModel = getAddressInfoModel(address: address) else { return }
-            infoModel.utxos.forEach { utxo in
-                utxo.assets.forEach { infoModel in
-                    _allBalances[infoModel.assetId] = (_allBalances[infoModel.assetId] ?? 0) + infoModel.amount
+        assetTxIdList.forEach { (txid) in
+            guard let infoModel = getTransactionInfoModel(txid: txid) else { return }
+            
+            infoModel.vout.forEach { model in
+                guard !model.used else { return }
+                
+                model.assets.forEach { assetModel in
+                    _allBalances[assetModel.assetId] = (_allBalances[assetModel.assetId] ?? 0) + assetModel.amount
                 }
             }
         }
@@ -583,7 +698,7 @@ class AssetHelper {
         AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.assetsRecalculated, object: nil)
     }
     
-    private static func pullAssetAddressList() -> [String] {
+    private static func pullAssetTransactionIds() -> [String] {
         let key = Key<GlobalNamespace, [String]>(id: assetAddressListKey, defaultValue: [])
         let ret: [String] = store.get(key)
         return ret
@@ -591,8 +706,8 @@ class AssetHelper {
     
     private static func putAssetAddressList() {
         let key = Key<GlobalNamespace, [String]>(id: assetAddressListKey, defaultValue: [])
-        store.set(key, value: assetAddressList)
-        needsAddressListUpdate = false
+        store.set(key, value: assetTxIdList)
+        needsTxIdListUpdate = false
     }
     
     static func getAssetModel(assetID: String) -> AssetModel? {
@@ -601,8 +716,8 @@ class AssetHelper {
         return store.get(key)
     }
     
-    static func getAddressInfoModel(address: String) -> AddressInfoModel? {
-        let key = Key<GlobalNamespace, AddressInfoModel?>(id: address, defaultValue: nil)
+    static func getTransactionInfoModel(txid: String) -> TransactionInfoModel? {
+        let key = Key<GlobalNamespace, TransactionInfoModel?>(id: txid, defaultValue: nil)
         return store.get(key)
     }
     
@@ -612,130 +727,119 @@ class AssetHelper {
         needsReindex = true
     }
     
-    static func saveAddressInfoModel(addressInfoModel: AddressInfoModel) {
-        let address = addressInfoModel.address
+    static func saveAssetTransactionModel(assetTransactionModel: TransactionInfoModel) {
+        let id = assetTransactionModel.txid
         
-        if !assetAddressList.contains(address) {
-            assetAddressList.append(address)
-            needsAddressListUpdate = true
+        if !assetTxIdList.contains(id) {
+            assetTxIdList.append(id)
+            needsTxIdListUpdate = true
         }
         
-        let key = Key<GlobalNamespace, AddressInfoModel?>(id: address, defaultValue: nil)
-        store.set(key, value: addressInfoModel)
+        let key = Key<GlobalNamespace, TransactionInfoModel?>(id: id, defaultValue: nil)
+        store.set(key, value: assetTransactionModel)
         needsReindex = true
     }
     
-    static func getAssetUtxos(for tx: Transaction) -> [AssetUtxoModel]? {
-        let txHash = tx.hash
-        guard let address = tx.toAddress else { return [] }
+    
+    static func getAssetUtxos(for assetID: String) -> [ExtendedTransactionOutputModel] {
+        var result = [ExtendedTransactionOutputModel]()
+        for txid in assetTxIdList {
+            guard let model = getTransactionInfoModel(txid: txid) else { continue }
+            model.vout.forEach { utxo in
+                if utxo.assets.contains(where: { $0.assetId == assetID }) {
+                    result.append(ExtendedTransactionOutputModel(utxo, txid: txid))
+                }
+            }
+        }
         
-        guard let model = getAddressInfoModel(address: address) else { return nil }
-        return model.utxos.filter { utxo -> Bool in
-            return utxo.txid == txHash
+        return result
+    }
+    
+    static func getAssetUtxos(for tx: Transaction) -> [ExtendedTransactionOutputModel]? {
+        let txHash = tx.hash
+        
+        guard let model = getTransactionInfoModel(txid: txHash) else { return nil }
+        return model.vout.map { ExtendedTransactionOutputModel($0, txid: txHash) }
+    }
+    
+    static func resolvedAllAssets(for txs: [Transaction]) -> Bool {
+        var hasAll: Bool = true
+        txs.forEach { tx in
+            guard tx.isAssetTx else { return }
+            guard hasAll else { return }
+            
+            guard let infoModel = getTransactionInfoModel(txid: tx.hash) else {
+                hasAll = false
+                return
+            }
+            
+            guard hasAllAssetModels(for: infoModel.getAssetIds()) else {
+                hasAll = false
+                return
+            }
+        }
+        
+        return hasAll
+    }
+    
+    static func hasAllAssetModels(for infoModel: ExtendedTransactionOutputModel) -> Bool {
+        return hasAllAssetModels(for: infoModel.getAssetIds())
+    }
+    
+    static func hasAllAssetModels(for assetIds: [String]) -> Bool {
+        return assetIds.reduce(true) { (res, id) -> Bool in
+            return getAssetModel(assetID: id) != nil
         }
     }
     
-    static func hasAllAssetModels(for utxoModel: AssetUtxoModel) -> Bool {
-        return utxoModel.assets.reduce(true) { (res, model) -> Bool in
-            if !res { return false }
-            return getAssetModel(assetID: model.assetId) != nil
+    static func invalidateUtxos(with txid: String, index: Int) {
+        var changed: Bool = false
+        guard var model = getTransactionInfoModel(txid: txid) else { return }
+        
+        model.vout = model.vout.map({ utxo -> TransactionOutputModel in
+            guard utxo.n == index else { return utxo }
+            changed = true
+            return utxo.wasUsed()
+        })
+        
+        if changed {
+            saveAssetTransactionModel(assetTransactionModel: model)
         }
+        
+        // Should be triggered by saveAddressInfoModel already
+        needsReindex = true
     }
     
-    static func resolveAsset(for addresses: [String], txIDFilter: String? = nil, callback: (([AssetUtxoModel]) -> Void)?) -> AssetResolver? {
+    static func resolveAssetTransaction(for txids: [String], callback: (([TransactionInfoModel]) -> Void)?) -> AssetResolver? {
         AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.fetchingAssets, object: nil)
-        let resolver = AssetResolver(publicWalletAddresses: addresses, txIDFilter: txIDFilter) { states in
+        
+        return AssetResolver(txids: txids) { states in
             states.forEach { state in
                 guard state.resolved, !state.failed else { return }
                 state.resolvedModels.forEach({ saveAssetModel(assetModel: $0) })
-                saveAddressInfoModel(addressInfoModel: state.addressInfoModel!)
+                saveAssetTransactionModel(assetTransactionModel: state.transactionInfoModel!)
             }
-            
-            var relevantItems = [AssetUtxoModel]()
-                
+
+            var relevantItems = [TransactionInfoModel]()
+
             states.forEach { state in
                 // Only add resolved assets
                 guard state.resolved, !state.failed else { return }
-                guard let infoModel = state.addressInfoModel else { return }
-                
-                // Only add the infomodel if it was requested
-                relevantItems.append(contentsOf: infoModel.utxos.filter({ txIDFilter == nil || $0.txid == txIDFilter }))
+                guard let infoModel = state.transactionInfoModel else { return }
+                relevantItems.append(infoModel)
             }
-            
-            if needsAddressListUpdate {
-                putAssetAddressList()
-            }
-            
+
             DispatchQueue.main.async {
                 AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.newAssetData, object: nil)
                 AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.fetchedAssets, object: nil)
                 callback?(relevantItems)
             }
         }
-        
-        return resolver
     }
+
     
-    static func resolveAsset(for tx: Transaction, callback: (([AssetUtxoModel]) -> Void)?) -> AssetResolver? {
-        guard let address = tx.toAddress else {
-            callback?([])
-            return nil
-        }
-        
-        return resolveAsset(for: [address], txIDFilter: tx.hash, callback: callback)
-    }
-    
-    static func resolveAssets(for transactions: [Transaction], callback: ((Bool) -> Void)?) -> AssetResolver? {
-        var addresses = [String]()
-        
-        transactions.forEach({ (tx) in
-            if tx.isAssetTx, let address = tx.toAddress {
-                // Append address and load 'dem DigiAssets
-                if !addresses.contains(address) { addresses.append(address) }
-            } else {
-                // Ignore transaction as it does not contain an asset
-                // ...
-            }
-        })
-        
-        // No assets to be fetched, return existing assets
-        if addresses.count == 0 {
-            callback?(false)
-            return nil
-        }
-        
-        return resolveAsset(for: addresses) { models in
-            callback?(models.count > 0)
-        }
-        
-//        AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.fetchingAssets, object: nil)
-//
-//        let resolver = AssetResolver(publicWalletAddresses: addresses, txIDFilter: nil) { states in
-//            states.forEach { state in
-//                guard state.resolved, !state.failed else { return }
-//                state.resolvedModels.forEach({ saveAssetModel(assetModel: $0) })
-//                saveAddressInfoModel(addressInfoModel: state.addressInfoModel!)
-//            }
-//
-//            var relevantItems = [AssetUtxoModel]()
-//
-//            states.forEach { state in
-//                // Only add resolved assets
-//                guard state.resolved, !state.failed else { return }
-//                guard let infoModel = state.addressInfoModel else { return }
-//
-//                // Add all utxos to result
-//                relevantItems.append(contentsOf: infoModel.utxos)
-//            }
-//
-//            DispatchQueue.main.async {
-//                AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.newAssetData, object: nil)
-//                AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.fetchedAssets, object: nil)
-//                callback?(relevantItems.count > 0)
-//            }
-//        }
-//
-//        return resolver
+    static func resolveAssetTransaction(for tx: Transaction, callback: (([TransactionInfoModel]) -> Void)?) -> AssetResolver? {
+        return resolveAssetTransaction(for: [tx.hash], callback: callback)
     }
     
     static func reset() {

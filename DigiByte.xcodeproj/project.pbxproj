@@ -329,6 +329,8 @@
 		39E304582338B3F0008F8386 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398125A3233281040019D5E6 /* UIImage+Utils.swift */; };
 		39E304592338B413008F8386 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398124F1233281030019D5E6 /* Utils.swift */; };
 		39E3045A2338B434008F8386 /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398125AA233281040019D5E6 /* UserDefaults+Shared.swift */; };
+		39FFD180239D563A00CFB302 /* DADetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FFD17F239D563A00CFB302 /* DADetailViewController.swift */; };
+		39FFD18C239E604500CFB302 /* AssetSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FFD18B239E604500CFB302 /* AssetSender.swift */; };
 		751734B91DAC941E00193C87 /* sec-sub-1.c in Sources */ = {isa = PBXBuildFile; fileRef = 755CD8BE1DAA16820075898E /* sec-sub-1.c */; };
 		752438751DAAC50800844BEC /* alloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 755CD6761DAA0E400075898E /* alloc.c */; };
 		752438761DAAC52700844BEC /* config_file.c in Sources */ = {isa = PBXBuildFile; fileRef = 755CD67A1DAA0E400075898E /* config_file.c */; };
@@ -1173,6 +1175,8 @@
 		39DEDAC023490B5B005F648B /* BRDigiAsset.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = BRDigiAsset.c; sourceTree = "<group>"; };
 		39DEDAC223490F0F005F648B /* BRAssetData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRAssetData.h; sourceTree = "<group>"; };
 		39DEDAC323490F0F005F648B /* BRAssetData.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = BRAssetData.c; sourceTree = "<group>"; };
+		39FFD17F239D563A00CFB302 /* DADetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DADetailViewController.swift; sourceTree = "<group>"; };
+		39FFD18B239E604500CFB302 /* AssetSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetSender.swift; sourceTree = "<group>"; };
 		752FB03B1DF8BE4B009086FB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		752FB03C1DF8BE4B009086FB /* iphone.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = iphone.modulemap; sourceTree = "<group>"; };
 		752FB03D1DF8BE4B009086FB /* iphonesim.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = iphonesim.modulemap; sourceTree = "<group>"; };
@@ -2159,6 +2163,7 @@
 				39812513233281030019D5E6 /* UserDefaultsUpdater.swift */,
 				39812559233281030019D5E6 /* WalletCoordinator.swift */,
 				398125F9233281040019D5E6 /* WalletManager.swift */,
+				39FFD18B239E604500CFB302 /* AssetSender.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -2389,6 +2394,7 @@
 				398125DF233281040019D5E6 /* DASendViewController.swift */,
 				398125E0233281040019D5E6 /* DAAssetsViewController.swift */,
 				398125E1233281040019D5E6 /* DAMainViewController.swift */,
+				39FFD17F239D563A00CFB302 /* DADetailViewController.swift */,
 			);
 			path = DigiAssets;
 			sourceTree = "<group>";
@@ -4617,6 +4623,7 @@
 				3981275F233281050019D5E6 /* UnEditableTextView.swift in Sources */,
 				39812732233281050019D5E6 /* SyncViewController.swift in Sources */,
 				398126DB233281050019D5E6 /* KVStoreCoordinator.swift in Sources */,
+				39FFD180239D563A00CFB302 /* DADetailViewController.swift in Sources */,
 				39812759233281050019D5E6 /* TransactionStatusView.swift in Sources */,
 				39812788233281050019D5E6 /* StartFlowPresenter.swift in Sources */,
 				398126E9233281050019D5E6 /* UIView+BRWAdditions.swift in Sources */,
@@ -4718,6 +4725,7 @@
 				39812725233281050019D5E6 /* ConfirmationViewController.swift in Sources */,
 				398126F0233281050019D5E6 /* CGContext+Additions.swift in Sources */,
 				39812773233281050019D5E6 /* DefaultCurrencyViewController.swift in Sources */,
+				39FFD18C239E604500CFB302 /* AssetSender.swift in Sources */,
 				39812744233281050019D5E6 /* WalletManager.swift in Sources */,
 				3981273E233281050019D5E6 /* DismissModalAnimator.swift in Sources */,
 				398126CF233281050019D5E6 /* BRTar.swift in Sources */,

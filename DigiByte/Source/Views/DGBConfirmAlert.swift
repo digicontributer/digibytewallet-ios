@@ -2,7 +2,7 @@
 //  DGBConfirmAlert.swift
 //  DigiByte
 //
-//  Created by Julian Jäger on 01.12.19.
+//  Created by Yoshi Jaeger on 01.12.19.
 //  Copyright © 2019 DigiByte Foundation NZ Limited. All rights reserved.
 //
 
@@ -327,6 +327,7 @@ class DGBConfirmAlert: DGBModalWindow {
     
     var confirmCallback: ((DGBCallback) -> Void)? = nil
     var cancelCallback: ((DGBCallback) -> Void)? = nil
+    var alternativeCallback: ((DGBCallback) -> Void)? = nil
     
     private let contentLabel = UILabel()
     
@@ -337,17 +338,20 @@ class DGBConfirmAlert: DGBModalWindow {
     private var okButton: ConfirmButton!
     private var cancelButton: ConfirmButton!
     
-    init(title: String, message: String, image: UIImage?, okTitle: String = S.Alerts.defaultConfirmOkCaption, cancelTitle: String = S.Alerts.defaultConfirmCancelCaption) {
+    private let alternativeTitle: String?
+    
+    init(title: String, message: String, image: UIImage?, okTitle: String = S.Alerts.defaultConfirmOkCaption, cancelTitle: String = S.Alerts.defaultConfirmCancelCaption, alternativeButtonTitle: String? = nil) {
         
         self.message = message
         self.image = image
         self.okTitle = okTitle
         self.cancelTitle = cancelTitle
+        self.alternativeTitle = alternativeButtonTitle
         
         super.init(title: title)
         
         imageView = UIImageView(image: image)
-        
+    
         okButton = ConfirmButton()
         cancelButton = ConfirmButton()
         
@@ -369,6 +373,19 @@ class DGBConfirmAlert: DGBModalWindow {
         }
         stackView.addArrangedSubview(contentLabel)
         stackView.addArrangedSubview(buttonsView)
+        
+        if let title = alternativeTitle {
+            let alternativeButton = UIButton()
+            alternativeButton.setTitle(title, for: .normal)
+            alternativeButton.setTitleColor(UIColor.gray, for: .normal)
+            alternativeButton.titleLabel?.textAlignment = .center
+            alternativeButton.titleLabel?.font = UIFont.da.customMedium(size: 12)
+            alternativeButton.tap = { [weak self] in
+                guard let c = self?.closeCallback else { return }
+                self?.alternativeCallback?(c)
+            }
+            stackView.addArrangedSubview(alternativeButton)
+        }
     }
     
     private func addConstraints() {

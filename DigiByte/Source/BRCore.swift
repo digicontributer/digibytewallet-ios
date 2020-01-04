@@ -268,6 +268,11 @@ extension BRTxOutput {
         get { return [UInt8](UnsafeBufferPointer(start: self.script, count: self.scriptLen)) }
         set { BRTxOutputSetScript(&self, newValue, newValue.count) }
     }
+    
+    var swiftAmount: UInt64 {
+        get { return self.amount }
+        set { BRTxOutputSetAmount(&self, newValue) }
+    }
 }
 
 extension UnsafeMutablePointer where Pointee == BRTransaction {
@@ -333,9 +338,18 @@ extension UnsafeMutablePointer where Pointee == BRTransaction {
         BRTransactionAddInput(self, txHash, index, amount, script, script.count, signature, signature?.count ?? 0, [], 0, sequence)
     }
     
+    func addInputBefore(txHash: UInt256, index: UInt32, amount: UInt64, script: [UInt8],
+                  signature: [UInt8]? = nil, sequence: UInt32 = TXIN_SEQUENCE) {
+        BRTransactionAddInputBefore(self, txHash, index, amount, script, script.count, signature, signature?.count ?? 0, [], 0, sequence)
+    }
+    
     // adds an output to tx
     func addOutput(amount: UInt64, script: [UInt8]) {
         BRTransactionAddOutput(self, amount, script, script.count)
+    }
+    
+    func setChangeOutputAmount(index: Int, amount: UInt64) {
+        self.pointee.outputs[index].swiftAmount = amount
     }
     
     // shuffles order of tx outputs
@@ -516,8 +530,13 @@ class BRWallet {
         return BRWalletCreateTransaction(cPtr, forAmount, toAddress)
     }
     
+    func inputAvailable(input: String, index: Int) -> Bool {
+        return BRWalletHasUtxo(cPtr, input, Int32(index)) != 0;
+    }
+    
     // returns an unsigned transaction that satisifes the given transaction outputs
     func createTxForOutputs(_ outputs: [BRTxOutput]) -> BRTxRef {
+        
         return BRWalletCreateTxForOutputs(cPtr, outputs, outputs.count)
     }
     
@@ -592,7 +611,7 @@ class BRWallet {
     }
     
     // returns the fee for the given transaction if all its inputs are from wallet transactions
-    func feeForTx(_ tx: BRTxRef) -> UInt64? {
+    func feeForTx(_ tx: BRTxRef) -> UInt64? {        
         let fee = BRWalletFeeForTx(cPtr, tx)
         return fee == UINT64_MAX ? nil : fee
     }

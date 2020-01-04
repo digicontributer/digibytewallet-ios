@@ -63,19 +63,27 @@ class TransactionCardViewCell: UITableViewCell, Subscriber {
         self.transaction = transaction
         
         if transaction.isAssetTx {
-            if let utxos = AssetHelper.getAssetUtxos(for: transaction), utxos.count >= 1 {
-                let utxo = utxos[0]
-                
-                if utxo.assets.count == 1 {
-                    // Metadata for this asset is available, use it's name
-                    if let assetModel = AssetHelper.getAssetModel(assetID: utxo.assets[0].assetId) {
-                        transactionLabel.text = assetModel.getAssetName()
+            if let utxos = AssetHelper.getAssetUtxos(for: transaction) {
+                if utxos.count > 0 {
+                    let utxo = utxos[0]
+                    
+                    if utxo.assets.count == 1 {
+                        // Metadata for this asset is available, use it's name
+                        if let assetModel = AssetHelper.getAssetModel(assetID: utxo.assets[0].assetId) {
+                            transactionLabel.text = assetModel.getAssetName()
+                        } else {
+                            transactionLabel.text = S.Assets.unresolved
+                        }
+                    } else if utxo.assets.count > 1 {
+                        // Multiple assets were transferred in one transaction
+                        transactionLabel.text = S.Assets.multipleAssets
                     } else {
-                        transactionLabel.text = S.Assets.unresolved
+                        // No assets
+                        transactionLabel.text = S.Assets.noMetadata
                     }
-                } else if utxo.assets.count > 1 {
-                    // Multiple assets were transferred in one transaction
-                    transactionLabel.text = S.Assets.multipleAssets
+                } else {
+                    // No data available
+                    transactionLabel.text = S.Assets.noMetadata
                 }
             } else {
                 // Asset not resolved yet

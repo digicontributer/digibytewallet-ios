@@ -365,9 +365,26 @@ class AssetContextMenu: UIView {
     }
 }
 
+class DAAssetsRootViewController: UINavigationController {
+    init(store: BRStore, wallet: BRWallet) {
+        super.init(nibName: nil, bundle: nil)
+        
+        let vc = DAAssetsViewController(store: store, wallet: wallet)
+        setViewControllers([vc], animated: true)
+        
+        tabBarItem = UITabBarItem(title: "Assets", image: UIImage(named: "da-assets")?.withRenderingMode(.alwaysTemplate), tag: 0)
+        navigationBar.isHidden = true
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
 class DAAssetsViewController: UIViewController {
     // MARK: Private
     private let store: BRStore
+    private let wallet: BRWallet
     
     private var loadingAssetsModalView = DGBModalLoadingView(title: S.Assets.fetchingAssetsTitle)
     private var assetResolver: AssetResolver? = nil
@@ -408,11 +425,10 @@ class DAAssetsViewController: UIViewController {
         }
     }
     
-    init(store: BRStore) {
+    init(store: BRStore, wallet: BRWallet) {
         self.store = store
+        self.wallet = wallet
         super.init(nibName: nil, bundle: nil)
-        
-        tabBarItem = UITabBarItem(title: "Assets", image: UIImage(named: "da-assets")?.withRenderingMode(.alwaysTemplate), tag: 0)
         
         emptyImage.image = UIImage(named: "da-empty")
         
@@ -428,12 +444,13 @@ class DAAssetsViewController: UIViewController {
         tableView.reloadData()
     }
     
-    func showPrivacyConfirmView(for txs: [Transaction], _ callback: ((Bool) -> Void)? = nil) {
+    func showPrivacyConfirmView(for txs: [Transaction], _ callback: (([TransactionInfoModel]) -> Void)? = nil) {
         let confirmView = DGBConfirmAlert(title: S.Assets.openAssetTitle, message: S.Assets.openAssetMessage, image: UIImage(named: "privacy"), okTitle: S.Assets.confirmAssetsResolve, cancelTitle: S.Assets.cancelAssetsResolve)
         
         let confirmCallback: () -> Void = {
             if self.assetResolver != nil { self.assetResolver!.cancel() }
-            self.assetResolver = AssetHelper.resolveAssets(for: txs, callback: callback)
+            
+            self.assetResolver = AssetHelper.resolveAssetTransaction(for: txs.map({ $0.hash }), callback: callback)
         }
         
         confirmView.confirmCallback = { (close: DGBCallback) in
@@ -499,6 +516,7 @@ class DAAssetsViewController: UIViewController {
         /* main view, that is shown if at least one element is shown */
         view.addSubview(mainView)
         mainView.constrain(toSuperviewEdges: UIEdgeInsets(top: 32, left: 0, bottom: 0, right: 0))
+        mainView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: 1.0).isActive = true
         
         mainView.addSubview(mainHeader)
         mainHeader.constrain([
@@ -723,9 +741,10 @@ extension DAAssetsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.section == 0 else { return }
         
-        let openDetailView: (AssetModel) -> Void = { assetModel in
-            // ToDo: open detail view
-            
+        let openDetailView: (AssetModel) -> Void = { [weak self] assetModel in
+            guard let myself = self else { return }
+            let vc = DADetailViewController(store: myself.store, wallet: myself.wallet, assetModel: assetModel)
+            myself.navigationController?.pushViewController(vc, animated: true)
         }
         
         // return asset cell
@@ -750,7 +769,9 @@ extension DAAssetsViewController: UITableViewDelegate, UITableViewDataSource {
                 }
             }
             
-            showPrivacyConfirmView(for: transactions) { success in
+            showPrivacyConfirmView(for: transactions) { models in
+                let success = models.count > 0
+                
                 if success, let assetModel = AssetHelper.getAssetModel(assetID: assetId) {
                     // TableView will autoupdate (NotificationCenter)
                     openDetailView(assetModel)

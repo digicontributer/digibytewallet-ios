@@ -2,7 +2,7 @@
 //  Utils.swift
 //  digibyte
 //
-//  Created by Julian Jäger on 29.04.19.
+//  Created by Yoshi Jaeger on 29.04.19.
 //  Copyright © 2019 DigiByte Foundation NZ Limited. All rights reserved.
 //
 

@@ -35,11 +35,13 @@ enum S {
         static let multipleAssets = NSLocalizedString("Assets.multipleAssets", value:"Multiple assets", comment: "Showing when multiple assets were received")
         
         static let receivedAssetsTitle = NSLocalizedString("Assets.receivedAssetsTitle", value: "DigiAssets received", comment: "Title of confirm view")
-        static let receivedAssetsMessage = NSLocalizedString("Assets.receivedAssetsMessage", value: "You received one or more DigiAssets. In order to view your assets this app needs to communicate with a metadata server. This will disclose some of your wallet's public addresses. Note: This only needs to be done once for each asset.", comment: "Message will be displayed if assets were received")
+        static let receivedAssetsMessage = NSLocalizedString("Assets.receivedAssetsMessage", value: "You received one or more DigiAssets. In order to view your assets this app needs to communicate with a metadata server. This will disclose some of your wallet's public data, such as addresses or transaction hashes.", comment: "Message will be displayed if assets were received")
         static let openAssetTitle = NSLocalizedString("Assets.openAssetTitle", value: "View DigiAsset", comment: "Title of confirm view if opening single")
         static let openAssetMessage = NSLocalizedString("Assets.openAssetMessage", value: "In order to view this asset this app needs to communicate with a metadata server. This will disclose one of your wallet's public addresses.", comment: "Message will be displayed if asset shall be opened")
         
         static let fetchingAssetsTitle = NSLocalizedString("Assets.fetchingAssetsTitle", value: "Fetching Assets", comment: "Title to show when assets are being fetched")
+        
+        static let viewRawTransaction = NSLocalizedString("Assets.viewRawTransaction", value: "View RAW Transaction", comment: "View RAW Transaction button title")
         
         static let confirmAssetsResolve = NSLocalizedString("Assets.confirmAssetsResolve", value: "Resolve Asset(s)", comment: "Resolve button caption")
         static let skipAssetsResolve = NSLocalizedString("Assets.skipAssetsResolve", value: "Skip", comment: "Skip button caption")

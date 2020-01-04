@@ -35,7 +35,12 @@ class Transaction {
         let amountReceived = wallet.amountReceivedFromTx(tx)
         let amountSent = wallet.amountSentByTx(tx)
 
-        if amountSent > 0 && (amountReceived + fee) == amountSent {
+//        if fee > 100000 {
+//        // comment out to bugfix (fee overflow
+//            self.direction = .sent
+//            self.satoshis = amountSent
+//        } else
+        if amountSent > 0, (amountReceived + fee) == amountSent {
             self.direction = .moved
             self.satoshis = amountSent
         } else if amountSent > 0 {

@@ -466,7 +466,7 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
     private func send() {
         guard let rate = store.state.currentRate else { return }
         guard let feePerKb = walletManager.wallet?.feePerKb else { return }
-
+        
         sender.send(biometricsMessage: S.VerifyPin.touchIdMessage,
                     rate: rate,
                     comment: descriptionCell.textView.text,
