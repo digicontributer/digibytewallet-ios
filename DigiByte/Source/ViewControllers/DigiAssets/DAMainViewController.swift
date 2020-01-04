@@ -15,14 +15,16 @@ class DAMainViewController: UITabBarController {
     private let header = ModalHeaderView(title: "DigiAssets", style: ModalHeaderViewStyle.light)
     private let store: BRStore
     private let wallet: BRWallet
+    private let walletManager: WalletManager
     private var tabs: [UIViewController]
     
-    init(store: BRStore, wallet: BRWallet) {
+    init(store: BRStore, walletManager: WalletManager) {
         self.store = store
-        self.wallet = wallet
+        self.wallet = walletManager.wallet!
+        self.walletManager = walletManager
         self.tabs = [
-            DAAssetsViewController(store: store),
-            DASendViewController(),
+            DAAssetsRootViewController(store: store, wallet: wallet),
+            DASendViewController(store: store, wallet: wallet, walletManager: walletManager),
             DAReceiveViewController(store: store, wallet: wallet),
             DACreateViewController(),
             DABurnViewController(store: store, wallet: wallet)
@@ -47,6 +49,8 @@ class DAMainViewController: UITabBarController {
         header.close.tap = { [unowned self] in
             self.dismiss(animated: true, completion: nil)
         }
+        
+        header.backgroundColor = UIColor.da.backgroundColor.withAlphaComponent(0.7)
     }
     
     private func addSubviews() {
@@ -55,10 +59,10 @@ class DAMainViewController: UITabBarController {
     
     private func addConstraints() {
         header.constrain([
-            header.topAnchor.constraint(equalTo: view.topAnchor, constant: E.isIPhoneXOrGreater ? 40.0 : 20.0),
+            header.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
             header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             header.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            header.heightAnchor.constraint(equalToConstant: C.Sizes.headerHeight)
+            header.heightAnchor.constraint(equalToConstant: 96)
         ])
     }
     

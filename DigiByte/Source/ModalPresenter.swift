@@ -654,7 +654,7 @@ class ModalPresenter : Subscriber, Trackable {
     private func makeDigiAssets() {
         guard let walletManager = walletManager, let wallet = walletManager.wallet else { return }
         
-        let digiAssetsViewController = DAMainViewController(store: store, wallet: wallet)
+        let digiAssetsViewController = DAMainViewController(store: store, walletManager: walletManager)
         let onboarding = DAOnboardingViewController()
         
         var nextVC: UIViewController!

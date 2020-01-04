@@ -2,7 +2,7 @@
 //  UserDefaults+PrivacyAdditions.swift
 //  DigiByte
 //
-//  Created by Julian Jäger on 03.12.19.
+//  Created by Yoshi Jaeger on 03.12.19.
 //  Copyright © 2019 DigiByte Foundation NZ Limited. All rights reserved.
 //
 

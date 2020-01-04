@@ -2,7 +2,7 @@
 //  UserDefaults+Shared.swift
 //  digibyte
 //
-//  Created by Julian Jäger on 04.05.19.
+//  Created by Yoshi Jaeger on 04.05.19.
 //  Copyright © 2019 DigiByte Foundation NZ Limited. All rights reserved.
 //
 

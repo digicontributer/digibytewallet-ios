@@ -561,27 +561,28 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
     func assetTxSelected(_ tx: Transaction) {
         assert(tx.isAssetTx)
         
-        let showDrawerMenu: (AssetUtxoModel) -> Void = { utxoModel in
-            self.assetDrawer.setAssetUtxoModel(for: tx, utxoModel: utxoModel)
+        let showDrawerMenu: (TransactionInfoModel) -> Void = { infoModel in
+            self.assetDrawer.setTransactionInfoModel(for: tx, infoModel: infoModel)
             self.openAssetDrawer()
         }
         
         if
-            let utxoModels = AssetHelper.getAssetUtxos(for: tx),
-            utxoModels.count > 0,
-            AssetHelper.hasAllAssetModels(for: utxoModels[0])
+            let infoModel = AssetHelper.getTransactionInfoModel(txid: tx.hash),
+            AssetHelper.hasAllAssetModels(for: infoModel.getAssetIds())
         {
             // Display asset if all required models exist
-            showDrawerMenu(utxoModels[0])
+            showDrawerMenu(infoModel)
         } else {
             // Display privacy alert and load asset data and it's asset models
             self.showSingleDigiAssetsConfirmViewIfNeeded(for: tx) { utxos in
                 guard utxos.count > 0 else {
-                    // show error message
+                    self.didSelectTransaction(hash: tx.hash)
+                    self.showError(with: "No asset data available")
                     return
                 }
                 
-                showDrawerMenu(utxos[0])
+                let infoModel = utxos[0]
+                showDrawerMenu(infoModel)
             }
         }
     }
@@ -882,7 +883,14 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
 //        }
         
         navigationDrawer.addButton(title: S.MenuButton.digiAssets, icon: UIImage(named: "digiassets")!) {
-            self.store.perform(action: HamburgerActions.Present(modal: .digiAssets))
+            // Show confirmation alert (address disclosure)
+            if !self.showDigiAssetsConfirmViewIfNeeded { infoModels in
+                // Models were probably resolved
+                guard infoModels.count > 0 else { return }
+                self.store.perform(action: HamburgerActions.Present(modal: .digiAssets))
+            } {
+                self.store.perform(action: HamburgerActions.Present(modal: .digiAssets))
+            }
         }
         
         navigationDrawer.addButton(title: S.MenuButton.settings, icon: UIImage(named: "hamburger_003Settings")!) {
@@ -917,12 +925,9 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
             assetDrawer.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
         
-        assetDrawer.callback = { tx in
-            let transactions = self.store.state.walletState.transactions
-            guard let index = transactions.firstIndex(of: tx) else { return }
-            
-            self.closeAssetDrawer()
-            self.didSelectTransaction(transactions, index)
+        assetDrawer.callback = { [weak self] tx in
+            self?.closeAssetDrawer()
+            self?.didSelectTransaction(hash: tx.hash)
         }
         
         let tapper = UITapGestureRecognizer()
@@ -1112,21 +1117,35 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         }
     }
     
-    func showSingleDigiAssetsConfirmViewIfNeeded(for tx: Transaction, _ callback: (([AssetUtxoModel]) -> Void)? = nil) {
-        
+    func didSelectTransaction(hash: String) {
+        let txs = store.state.walletState.transactions
+        if
+            let idx = txs.firstIndex(where: { $0.hash == hash }) {
+            self.didSelectTransaction(txs, idx)
+        }
+    }
+    
+    func showSingleDigiAssetsConfirmViewIfNeeded(for tx: Transaction, _ callback: (([TransactionInfoModel]) -> Void)? = nil) {
         // Check if models already exist in cache
-        if let utxoModels = AssetHelper.getAssetUtxos(for: tx), utxoModels.count >= 1 {
-            let utxoModel = utxoModels[0]
-            
+        if let infoModel = AssetHelper.getTransactionInfoModel(txid: tx.hash) {
             // Exit if we have all asset utxos and all required models
-            if AssetHelper.hasAllAssetModels(for: utxoModel) { return }
+            if AssetHelper.hasAllAssetModels(for: infoModel.getAssetIds()) {
+                callback?([infoModel])
+                return
+            }
         }
             
-        let confirmView = DGBConfirmAlert(title: S.Assets.openAssetTitle, message: S.Assets.openAssetMessage, image: UIImage(named: "privacy"), okTitle: S.Assets.confirmAssetsResolve, cancelTitle: S.Assets.cancelAssetsResolve)
+        let confirmView = DGBConfirmAlert(title: S.Assets.openAssetTitle, message: S.Assets.openAssetMessage, image: UIImage(named: "privacy"), okTitle: S.Assets.confirmAssetsResolve, cancelTitle: S.Assets.cancelAssetsResolve, alternativeButtonTitle: S.Assets.viewRawTransaction)
         
         let confirmCallback: () -> Void = {
             if self.assetResolver != nil { self.assetResolver!.cancel() }
-            self.assetResolver = AssetHelper.resolveAsset(for: tx, callback: callback)
+            self.assetResolver = AssetHelper.resolveAssetTransaction(for: tx, callback: callback)
+        }
+        
+        confirmView.alternativeCallback = { [weak self] (close: DGBCallback) in
+            close()
+            
+            self?.didSelectTransaction(hash: tx.hash)
         }
         
         confirmView.confirmCallback = { (close: DGBCallback) in
@@ -1146,15 +1165,16 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         self.present(confirmView, animated: true, completion: nil)
     }
     
-    func showDigiAssetsConfirmViewIfNeeded(_ callback: ((Bool) -> Void)? = nil) {
-//        guard !AssetHelper.resolvedAllAssets(for: self.walletManager?.wallet!.transactions) else { return }
+    @discardableResult
+    func showDigiAssetsConfirmViewIfNeeded(_ callback: (([TransactionInfoModel]) -> Void)? = nil) -> Bool {
+        guard !AssetHelper.resolvedAllAssets(for: self.store.state.walletState.transactions) else { return false }
             
         let confirmView = DGBConfirmAlert(title: S.Assets.receivedAssetsTitle, message: S.Assets.receivedAssetsMessage, image: UIImage(named: "privacy"), okTitle: S.Assets.confirmAssetsResolve, cancelTitle: S.Assets.skipAssetsResolve)
         
         let confirmCallback: () -> Void = {
             let transactions = self.store.state.walletState.transactions
             if self.assetResolver != nil { self.assetResolver!.cancel() }
-            self.assetResolver = AssetHelper.resolveAssets(for: transactions, callback: callback)
+            self.assetResolver = AssetHelper.resolveAssetTransaction(for: transactions.map({ $0.hash }), callback: callback)
         }
         
         confirmView.confirmCallback = { (close: DGBCallback) in
@@ -1168,10 +1188,11 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         
         guard !UserDefaults.Privacy.alwaysLoadAssets else {
             confirmCallback()
-            return
+            return true
         }
         
         self.present(confirmView, animated: true, completion: nil)
+        return true
     }
 
     private func addSubscriptions() {
@@ -1196,12 +1217,6 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
             )
             
             if state.walletState.syncState == .success {
-                if !self.syncViewController.view.isHidden {
-                    // state change from sync to success
-                    
-                    // Show confirmation alert (address disclosure)
-                    self.showDigiAssetsConfirmViewIfNeeded()
-                }
                 self.syncViewController.view.isHidden = true
 				self.syncViewController.hideProgress()
             } else if peerManager.shouldShowSyncingView {

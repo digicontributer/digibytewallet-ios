@@ -2,7 +2,7 @@
 //  AssetDrawer.swift
 //  DigiByte
 //
-//  Created by Julian Jäger on 04.12.19.
+//  Created by Yoshi Jaeger on 04.12.19.
 //  Copyright © 2019 DigiByte Foundation NZ Limited. All rights reserved.
 //
 
@@ -63,7 +63,7 @@ class AssetDrawer: UIView {
     private var supervc: DrawerControllerProtocol!
     private let id: String
     
-    private var utxoModel: AssetUtxoModel?
+    private var infoModel: TransactionInfoModel?
     private var tx: Transaction?
 
     private let tableView: UITableView = UITableView()
@@ -160,11 +160,11 @@ class AssetDrawer: UIView {
         }
     }
     
-    func setAssetUtxoModel(for tx: Transaction, utxoModel: AssetUtxoModel) {
+    func setTransactionInfoModel(for tx: Transaction, infoModel: TransactionInfoModel) {
         self.tx = tx
-        self.utxoModel = utxoModel
+        self.infoModel = infoModel
         
-        refreshAssetModels(for: utxoModel)
+        refreshAssetModels(for: infoModel)
         
         tableView.reloadData()
     }
@@ -185,7 +185,7 @@ extension AssetDrawer: UITableViewDelegate, UITableViewDataSource {
                 return tx != nil ? 1 : 0
             
             case 1:
-                return utxoModel?.assets.count ?? 0
+                return infoModel?.getAssetIds().count ?? 0
             
             default:
                 return 0
@@ -193,10 +193,12 @@ extension AssetDrawer: UITableViewDelegate, UITableViewDataSource {
         
     }
     
-    private func refreshAssetModels(for utxoModel: AssetUtxoModel) {
+    private func refreshAssetModels(for infoModel: TransactionInfoModel) {
         assetModels = [:]
-        utxoModel.assets.forEach { infoModel in
-            guard let model = AssetHelper.getAssetModel(assetID: infoModel.assetId) else { return }
+        
+        let assets = infoModel.getAssets()
+        assets.forEach { AssetHeaderModel in
+            guard let model = AssetHelper.getAssetModel(assetID: AssetHeaderModel.assetId) else { return }
             self.assetModels[model.assetId] = model
         }
     }
@@ -213,8 +215,8 @@ extension AssetDrawer: UITableViewDelegate, UITableViewDataSource {
             
         default:
             let tx = self.tx!
-            let utxoModel = self.utxoModel!
-            let assetInfo = utxoModel.assets[indexPath.row]
+            let utxoModel = self.infoModel!
+            let assetInfo = utxoModel.getAssets()[indexPath.row]
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AssetCell
             

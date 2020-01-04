@@ -62,14 +62,25 @@ class DASendViewController: UIViewController {
     let amountButtonStackView = UIStackView()
     let sendButton = DAButton(title: "Send Assets".uppercased(), backgroundColor: UIColor.da.darkSkyBlue, height: 40)
     
+    private let store: BRStore
+    private let wallet: BRWallet
+    private let walletManager: WalletManager
+    private let assetSender: AssetSender!
+    
     var selectedModel: AssetModel? = nil {
         didSet {
             modelSelected()
         }
     }
     
-    init() {
+    init(store: BRStore, wallet: BRWallet, walletManager: WalletManager) {
+        self.store = store
+        self.wallet = wallet
+        self.walletManager = walletManager
+        assetSender = AssetSender(walletManager: walletManager, store: store)
+        
         super.init(nibName: nil, bundle: nil)
+        
         tabBarItem = UITabBarItem(title: "Send", image: UIImage(named: "da-send")?.withRenderingMode(.alwaysTemplate), tag: 0)
         
         view.addSubview(scrollView)
@@ -253,21 +264,44 @@ class DASendViewController: UIViewController {
                 return
             }
             
-            if
+            guard let address = self?.receiverAddressBox.textBox.text, address != "", address.isValidAddress else {
+                self?.showError(with: "Invalid address")
+                return
+            }
+            
+            guard
                 let amountStr = self?.amountBox.textBox.text,
                 amountStr != "",
-                let amount = Int(amountStr) {
-                
-                if balance < Int(amount) {
-                    self?.showError(with: "Not enough assets")
+                let amount = Int(amountStr) else {
+                    self?.showError(with: "No valid amount entered")
                     return
-                }
-            } else {
-                self?.showError(with: "No valid amount entered")
+            }
+                
+            if balance < Int(amount) {
+                self?.showError(with: "Not enough assets")
                 return
             }
         
-            self?.showSuccess(with: "Asset(s) sent!")
+            guard let assetSender = self?.assetSender, assetSender.createTransaction(assetModel: selectedModel, amount: amount, to: address) else {
+                self?.showError(with: "Could not create transaction")
+                return;
+            }
+            
+            self!.walletManager.signTransaction(assetSender.transaction!, pin: "222222")
+            
+            if let bytes = assetSender.transaction?.bytes {
+                print(Data(bytes: bytes).hexString)
+                
+                let tx = assetSender.transaction!.pointee
+                print(tx.outCount)
+            }
+            
+            assetSender.send(biometricsMessage: "Hi there", rate: nil, comment: nil, feePerKb: 0, verifyPinFunction: { (callback) in
+                return callback("222222")
+            }) { (res) in
+                print(res)
+                self?.showSuccess(with: "Asset(s) sent!")
+            }
         }
     }
     

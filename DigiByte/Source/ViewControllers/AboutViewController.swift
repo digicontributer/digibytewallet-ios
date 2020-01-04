@@ -143,12 +143,14 @@ class AboutViewController : UIViewController {
         
         res.append(createHeading("UI\n"))
         res.append(createLine("Damir Čengić\n"))
+        res.append(createLine("Antonela Bender\n"))
         res.append(NSAttributedString(string: "\n"))
         
         res.append(createHeading("Special Thanks\n"))
         res.append(createLine("Nigel Borreman\n"))
         res.append(createLine("Murat Akyurt\n"))
         res.append(createLine("Josiah Spackman\n"))
+        res.append(createLine("Also special thanks to BRD\n"))
         res.append(NSAttributedString(string: "\n"))
         
         res.append(createHeading("Translations\n"))
