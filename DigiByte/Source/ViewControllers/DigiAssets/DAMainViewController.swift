@@ -25,8 +25,8 @@ class DAMainViewController: UITabBarController {
         self.tabs = [
             DAAssetsRootViewController(store: store, wallet: wallet),
             DASendViewController(store: store, wallet: wallet, walletManager: walletManager),
-            DAReceiveViewController(store: store, wallet: wallet),
-            DACreateViewController(),
+//            DAReceiveViewController(store: store, wallet: wallet),
+//            DACreateViewController(),
             DABurnViewController(store: store, wallet: wallet)
         ]
         super.init(nibName: nil, bundle: nil)
