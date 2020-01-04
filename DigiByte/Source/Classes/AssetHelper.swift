@@ -848,5 +848,7 @@ class AssetHelper {
         assetTxIdList = []
         _allBalances = [:]
         _allAssets = []
+        
+        AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.newAssetData, object: nil)
     }
 }
