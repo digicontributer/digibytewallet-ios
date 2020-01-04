@@ -657,7 +657,7 @@ class AssetNotificationCenter {
 
 class AssetHelper {
     typealias AssetBalance = Int
-    private static let store = UserDefaultsStore(suite: nil)
+    private static let store = UserDefaultsStore(suite: "AssetHelper")
     
     private static var needsReindex = true
     private static var _allAssets = [String]()
@@ -844,5 +844,9 @@ class AssetHelper {
     
     static func reset() {
         store.clear()
+        
+        assetTxIdList = []
+        _allBalances = [:]
+        _allAssets = []
     }
 }

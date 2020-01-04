@@ -8,6 +8,7 @@
 
 import UIKit
 import LocalAuthentication
+import Kingfisher
 
 typealias PresentDigiIdScan = ((@escaping DigiIDScanCompletion) -> Void)
 
@@ -434,7 +435,34 @@ class ModalPresenter : Subscriber, Trackable {
         guard let top = topViewController else { return }
 //        guard let walletManager = self.walletManager else { return }
         let settingsNav = UINavigationController()
-        let sections = ["Wallet", "Manage", "Advanced"]
+        
+        var usage: UInt = 0
+        let updateImageCacheUsage = { (callback: @escaping (() -> Void)) in
+            let group = DispatchGroup()
+            
+            group.enter()
+            ImageCache.default.calculateDiskStorageSize { result in
+                switch result {
+                case .success(let size):
+                    usage = size
+                case .failure(let error):
+                    print(error)
+                    usage = 0
+                }
+                group.leave()
+            }
+            
+            group.notify(queue: DispatchQueue.main) {
+                print(usage)
+                callback()
+            }
+        }
+        
+        updateImageCacheUsage {}
+        
+        var settingsVC: SettingsViewController? = nil
+        
+        let sections = ["Wallet", "DigiAssets", "Manage", "Advanced"]
         let rows = [
             "Wallet": [/*Setting(title: S.Settings.importTile, callback: { [weak self] in
                     guard let myself = self else { return }
@@ -503,7 +531,7 @@ class ModalPresenter : Subscriber, Trackable {
 //                }, callback: {
 //                    self.pushBiometricsSpendingLimit(onNc: settingsNav)
 //                }),
-                Setting(title: S.Settings.currency, accessoryText: {
+                Setting(title: S.Settings.currency, accessoryText: { [unowned self] in
                     let code = self.store.state.defaultCurrencyCode
                     let components: [String : String] = [NSLocale.Key.currencyCode.rawValue : code]
                     let identifier = Locale.identifier(fromComponents: components)
@@ -526,6 +554,33 @@ class ModalPresenter : Subscriber, Trackable {
 //                }),*/
 //
 //            ],
+            
+            "DigiAssets": [
+                Setting(switchWithTitle: "Automatically resolve Assets", initial: UserDefaults.Privacy.automaticallyResolveAssets, callback: { (active) in
+                    UserDefaults.Privacy.automaticallyResolveAssets = active
+                }),
+                
+                Setting(title: "Clear Asset Cache", callback: { [weak self] in
+                    AssetHelper.reset()
+                    self?.showLightWeightAlert(message: "Asset Cache cleared")
+                }),
+                
+                Setting(title: "Clear Image Cache", accessoryText: {
+                    let calc = Double(usage) / 1024 / 1024
+                    let rounded = round(calc * 1000.0) / 1000
+                    return "\(rounded) MB"
+                }, callback: { [weak self] in
+                    let cache = ImageCache.default
+                    cache.clearMemoryCache()
+                    cache.clearDiskCache {
+                        self?.showLightWeightAlert(message: "Image Cache cleared")
+                        updateImageCacheUsage {
+                            settingsVC?.tableView.reloadData()
+                        }
+                    }
+                }),
+            ],
+            
             "Advanced": [
                 Setting(title: "Advanced", callback: { [weak self] in
                     guard let myself = self else { return }
@@ -596,6 +651,7 @@ class ModalPresenter : Subscriber, Trackable {
         )*/
 
         let settings = SettingsViewController(sections: sections, rows: rows)
+        settingsVC = settings
         settings.addCloseNavigationItem(tintColor: .white)
         settingsNav.viewControllers = [settings]
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
@@ -607,7 +663,6 @@ class ModalPresenter : Subscriber, Trackable {
         settingsNav.navigationBar.tintColor = .clear
         top.present(settingsNav, animated: true, completion: nil)
     }
-
 
     func presentScan(parent: UIViewController) -> PresentScan {
         return { [weak parent] scanCompletion in

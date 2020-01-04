@@ -462,7 +462,7 @@ class DAAssetsViewController: UIViewController {
             close()
         }
         
-        guard !UserDefaults.Privacy.alwaysLoadAssets else {
+        guard !UserDefaults.Privacy.automaticallyResolveAssets else {
             confirmCallback()
             return
         }
