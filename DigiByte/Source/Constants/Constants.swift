@@ -46,6 +46,7 @@ struct C {
         static let weirdGreen = UIColor(red: 63.0 / 255.0, green: 231.0 / 255.0, blue: 123.0 / 255.0, alpha: 1.0) //#3fe77b
 		static let weirdRed = UIColor(red: 0xFF / 255, green: 0x74 / 255, blue: 0x16 / 255, alpha: 1)
         static let favoriteYellow = UIColor(red: 0xEA / 255, green: 0xD3 / 255, blue: 0x34 / 255, alpha: 1) // #EAD334
+        static let separator = UIColor.white.withAlphaComponent(0.1)
     }
     
     static let animationDuration: TimeInterval = 0.3

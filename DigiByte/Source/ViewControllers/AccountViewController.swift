@@ -1157,7 +1157,7 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
             close()
         }
         
-        guard !UserDefaults.Privacy.alwaysLoadAssets else {
+        guard !UserDefaults.Privacy.automaticallyResolveAssets else {
             confirmCallback()
             return
         }
@@ -1186,7 +1186,7 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
             close()
         }
         
-        guard !UserDefaults.Privacy.alwaysLoadAssets else {
+        guard !UserDefaults.Privacy.automaticallyResolveAssets else {
             confirmCallback()
             return true
         }

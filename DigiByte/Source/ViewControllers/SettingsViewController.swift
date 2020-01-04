@@ -70,16 +70,15 @@ class SettingsViewController : UITableViewController, CustomTitleView {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-
+        
         if let setting = rows[sections[indexPath.section]]?[indexPath.row] {
             cell.textLabel?.text = setting.title
             cell.textLabel?.font = .customBody(size: 16.0)
             cell.textLabel?.textColor = C.Colors.text
-            cell.backgroundColor = C.Colors.background
+            cell.backgroundColor = UIColor.white.withAlphaComponent(0.05)
             
             if setting.switchViewMode {
                 let switchView = UISwitch()
-//                switchView.tintColor = UIColor.blueGradientEnd
                 switchView.onTintColor = UIColor.da.darkSkyBlue
                 switchView.isOn = setting.initialSwitchValue
                 switchView.valueChanged = { () in setting.callback(switchView.isOn) }
@@ -96,35 +95,59 @@ class SettingsViewController : UITableViewController, CustomTitleView {
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 44))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 55))
         view.backgroundColor = C.Colors.background
+        
+        let iv = UIImageView()
+        iv.contentMode = .scaleAspectFit
+        iv.tintColor = UIColor.white
+        view.addSubview(iv)
+        
         let label = UILabel(font: .customMedium(size: 14.0), color: UIColor.white)
         view.addSubview(label)
         switch sections[section] {
         case "Wallet":
             label.text = S.Settings.wallet
+            iv.image = UIImage(named: "wallet")?.withRenderingMode(.alwaysTemplate)
+            
         case "Manage":
             label.text = S.Settings.manage
+            iv.image = UIImage(named: "hamburger_003Settings")?.withRenderingMode(.alwaysTemplate)
+            
+        case "DigiAssets":
+            label.text = "DigiAssets"
+            iv.image = UIImage(named: "digiassets_glyph")?.withRenderingMode(.alwaysTemplate)
         default:
             label.text = ""
         }
         let separator = UIView()
-        separator.backgroundColor = C.Colors.greyBlue
+        separator.backgroundColor = C.Colors.separator
         view.addSubview(separator)
         separator.constrain([
             separator.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             separator.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             separator.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             separator.heightAnchor.constraint(equalToConstant: 1.0) ])
+        
+        iv.constrain([
+            iv.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[2]),
+            iv.bottomAnchor.constraint(equalTo: separator.topAnchor, constant: -8.0),
+            iv.widthAnchor.constraint(equalToConstant: 20),
+            iv.heightAnchor.constraint(equalToConstant: 20),
+        ])
 
         label.constrain([
-            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: C.padding[2]),
-            label.bottomAnchor.constraint(equalTo: separator.topAnchor, constant: -4.0) ])
+            label.leadingAnchor.constraint(equalTo: iv.trailingAnchor, constant: C.padding[1]),
+            label.centerYAnchor.constraint(equalTo: iv.centerYAnchor, constant: 0)
+        ])
 
         return view
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Automatic deselection of that tapped row
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         if let setting = rows[sections[indexPath.section]]?[indexPath.row] {
             if !setting.switchViewMode {
                 setting.callback(true)
