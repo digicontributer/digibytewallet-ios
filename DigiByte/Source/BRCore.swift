@@ -348,7 +348,7 @@ extension UnsafeMutablePointer where Pointee == BRTransaction {
         BRTransactionAddOutput(self, amount, script, script.count)
     }
     
-    func setChangeOutputAmount(index: Int, amount: UInt64) {
+    func setOutputAmount(index: Int, amount: UInt64) {
         self.pointee.outputs[index].swiftAmount = amount
     }
     
@@ -385,6 +385,11 @@ extension UnsafeMutablePointer where Pointee == BRTransaction {
     
     static public func == (l: UnsafeMutablePointer<Pointee>, r: UnsafeMutablePointer<Pointee>) -> Bool {
         return BRTransactionEq(l, r) != 0
+    }
+    
+    public var debugDescription: String {
+        guard let bytes = bytes else { return "<empty>" }
+        return Data(bytes).hexString
     }
 }
 
@@ -530,10 +535,6 @@ class BRWallet {
         return BRWalletCreateTransaction(cPtr, forAmount, toAddress)
     }
     
-    func inputAvailable(input: String, index: Int) -> Bool {
-        return BRWalletHasUtxo(cPtr, input, Int32(index)) != 0;
-    }
-    
     // returns an unsigned transaction that satisifes the given transaction outputs
     func createTxForOutputs(_ outputs: [BRTxOutput]) -> BRTxRef {
         
@@ -624,6 +625,10 @@ class BRWallet {
     // fee that will be added for a transaction of the given size in bytes
     func feeForTxSize(_ size: Int) -> UInt64 {
         return BRWalletFeeForTxSize(cPtr, size)
+    }
+    
+    func hasUtxo(txid: String, n: Int) -> Bool {
+        return BRWalletHasAssetUtxo(cPtr, txid, Int32(n)) != 0;
     }
     
     // outputs below this amount are uneconomical due to fees (TX_MIN_OUTPUT_AMOUNT is the absolute min output amount)

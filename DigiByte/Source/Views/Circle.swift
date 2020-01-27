@@ -31,7 +31,7 @@ class Circle: UIView {
         
         if (isFilled) {
             context.addEllipse(in: rect)
-            context.setFillColor(C.Colors.blue.cgColor)
+            context.setFillColor(color.cgColor)
             context.fillPath()
         }
         

@@ -8,6 +8,91 @@
 
 import UIKit
 
+fileprivate class DAPinView: DGBModalWindow {
+    private let callback: VerifyPinCallback
+    private let textDescription: String
+    
+    private var roadblock: Bool = false
+
+    private var input: String = "" {
+        didSet {
+            refreshUI()
+            
+            let length = input.lengthOfBytes(using: .ascii)
+            if length >= 6 {
+                if !callback(input, self) {
+                    // PIN attempt failed
+                    roadblock = true
+                    
+                    pinView.shake()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + pinView.shakeDuration) {
+                        self.input = ""
+                        self.hiddenNumberTextField.text = ""
+                        self.roadblock = false
+                    }
+                }
+            }
+        }
+    }
+    
+    private let pinView = PinView(style: .assets, length: 6)
+    private let hiddenNumberTextField = UITextField()
+    
+    init(title: String, description: String, callback: @escaping VerifyPinCallback) {
+        self.callback = callback
+        self.textDescription = description
+        super.init(title: title, padding: 8.0)
+        
+        hiddenNumberTextField.translatesAutoresizingMaskIntoConstraints = false
+        hiddenNumberTextField.widthAnchor.constraint(equalToConstant: 0).isActive = true
+        hiddenNumberTextField.heightAnchor.constraint(equalToConstant: 0).isActive = true
+        hiddenNumberTextField.keyboardType = .numberPad
+        hiddenNumberTextField.keyboardAppearance = .dark
+        view.addSubview(hiddenNumberTextField)
+        
+        hiddenNumberTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        
+        refreshUI()
+    }
+    
+    private func refreshUI() {
+        stackView.arrangedSubviews.forEach { v in
+            stackView.removeArrangedSubview(v)
+            v.removeFromSuperview()
+        }
+        
+        stackView.spacing = 8
+        
+        let descriptionLabel = UILabel(font: UIFont.da.customBody(size: 14))
+        descriptionLabel.text = textDescription
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.lineBreakMode = .byWordWrapping
+        
+        pinView.fill(input.count)
+        pinView.translatesAutoresizingMaskIntoConstraints = false
+        pinView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        stackView.addArrangedSubview(descriptionLabel)
+        stackView.addArrangedSubview(pinView)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        hiddenNumberTextField.becomeFirstResponder()
+    }
+    
+    @objc private func textFieldDidChange() {
+        guard !roadblock else { return }
+        guard let text = hiddenNumberTextField.text else { return }
+        input = text
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
 fileprivate func createVerticalSpacingView(_ height: CGFloat = 16) -> UIView {
     let v = UIView()
     
@@ -236,6 +321,11 @@ class DASendViewController: UIViewController {
         toggleSendButton()
     }
     
+    private func presentVerifyPin(_ str: String, callback: @escaping VerifyPinCallback) {
+        let wnd = DAPinView(title: "Enter your PIN", description: str, callback: callback)
+        present(wnd, animated: true, completion: nil)
+    }
+    
     private func addEvents() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
@@ -282,26 +372,45 @@ class DASendViewController: UIViewController {
                 return
             }
         
-            guard let assetSender = self?.assetSender, assetSender.createTransaction(assetModel: selectedModel, amount: amount, to: address) else {
+            guard
+                let assetSender = self?.assetSender,
+                assetSender.createTransaction(assetModel: selectedModel, amount: amount, to: address) else {
                 self?.showError(with: "Could not create transaction")
                 return;
             }
             
-            self!.walletManager.signTransaction(assetSender.transaction!, pin: "222222")
+            guard let rate = self!.store.state.currentRate else { return }
+            guard let feePerKb = self!.walletManager.wallet?.feePerKb else { return }
             
-            if let bytes = assetSender.transaction?.bytes {
-                print(Data(bytes: bytes).hexString)
-                
-                let tx = assetSender.transaction!.pointee
-                print(tx.outCount)
-            }
+            assetSender.send(biometricsMessage: S.VerifyPin.touchIdMessage,
+                        rate: rate,
+                        feePerKb: feePerKb,
+                        verifyPinFunction: { [weak self] pinValidationCallback in
+                            self?.presentVerifyPin(S.VerifyPin.authorize) { [weak self] pin, vc in
+                                if pinValidationCallback(pin) {
+                                    vc.dismiss(animated: true, completion: {
+                                        self?.parent?.view.isFrameChangeBlocked = false
+                                    })
+                                    return true
+                                } else {
+                                    return false
+                                }
+                            }
+                }, completion: { [weak self] result in
+                    switch result {
+                    case .success:
+                        self?.showSuccess(with: "Asset(s) sent!")
+                        self?.dismiss(animated: true)
+                        
+                    case .creationError(let message):
+                        self?.showError(with: "Transaction could not be created: \(message)")
+                        
+                    case .publishFailure(let error):
+                        self?.showError(with: "Transaction could not be broadcasted: \(error)")
+                    }
+            })
             
-            assetSender.send(biometricsMessage: "Hi there", rate: nil, comment: nil, feePerKb: 0, verifyPinFunction: { (callback) in
-                return callback("222222")
-            }) { (res) in
-                print(res)
-                self?.showSuccess(with: "Asset(s) sent!")
-            }
+            
         }
     }
     

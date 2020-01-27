@@ -442,6 +442,34 @@ class DAAssetsViewController: UIViewController {
         tabBarController?.tabBar.tintColor = UIColor(red: 38 / 255, green: 152 / 255, blue: 237 / 255, alpha: 1.0)
         
         tableView.reloadData()
+        
+        self.becomeFirstResponder()
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
+    
+   
+    // Asset sent to op_return output
+    // http://explorer-1.us.digibyteservers.io:3000/tx/65047ad1438e65d50c18fc9bd4e621afb94baa9f459cdbe0b97f9a58ad05b3c6
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            AssetHelper.allAssets.forEach { (assetId) in
+                print(" - - - \(assetId) - - -")
+                let utxos = AssetHelper.getAssetUtxos(for: assetId)
+                
+                utxos.forEach { (output) in
+                    print("  \(output.txid):\(output.base.n) => \(output.base.value) sats, used = \(output.base.used)")
+                    
+                    output.base.assets.forEach { (assetHeader) in
+                        print("    \(assetHeader.amount) units of \(assetHeader.assetId)")
+                    }
+                    
+                    print("")
+                }
+            }
+        }
     }
     
     func showPrivacyConfirmView(for txs: [Transaction], _ callback: (([TransactionInfoModel]) -> Void)? = nil) {
