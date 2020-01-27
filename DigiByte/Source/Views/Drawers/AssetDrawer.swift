@@ -73,7 +73,10 @@ class AssetDrawer: UIView {
     private let contextMenuUnderlay = UIView() // transparent view that closes contextmenu when tapped
     
     private var assetModels = [String: AssetModel]()
+    private var assetUtxos = [TransactionOutputModel]()
+    private var walletsAssetModels = [AssetHeaderModel]()
     
+    var walletManager: WalletManager? = nil
     var callback: ((Transaction) -> Void)? = nil
     let viewRawTxButton = DAButton(title: "View Raw Transaction".uppercased(), backgroundColor: UIColor.da.darkSkyBlue)
     
@@ -185,7 +188,7 @@ extension AssetDrawer: UITableViewDelegate, UITableViewDataSource {
                 return tx != nil ? 1 : 0
             
             case 1:
-                return infoModel?.getAssetIds().count ?? 0
+                return walletsAssetModels.count
             
             default:
                 return 0
@@ -194,11 +197,28 @@ extension AssetDrawer: UITableViewDelegate, UITableViewDataSource {
     }
     
     private func refreshAssetModels(for infoModel: TransactionInfoModel) {
+        let txid = infoModel.txid
+        
+        // Reset internal data
+        assetUtxos = []
+        walletsAssetModels = []
         assetModels = [:]
         
-        let assets = infoModel.getAssets()
-        assets.forEach { AssetHeaderModel in
-            guard let model = AssetHelper.getAssetModel(assetID: AssetHeaderModel.assetId) else { return }
+        guard let tx = tx else { return }
+        let received = (tx.direction == .received)
+        
+        // Check if asset utxo is part of wallet
+        infoModel.vout.forEach { (utxo) in
+            // Received transactions should be
+            if walletManager?.wallet?.hasUtxo(txid: txid, n: utxo.n) == received {
+                assetUtxos.append(utxo)
+                walletsAssetModels.append(contentsOf: utxo.assets)
+            }
+        }
+        
+        // Index the full models of the wallet's assets
+        walletsAssetModels.forEach { assetHeaderModel in
+            guard let model = AssetHelper.getAssetModel(assetID: assetHeaderModel.assetId) else { return }
             self.assetModels[model.assetId] = model
         }
     }
@@ -215,8 +235,7 @@ extension AssetDrawer: UITableViewDelegate, UITableViewDataSource {
             
         default:
             let tx = self.tx!
-            let utxoModel = self.infoModel!
-            let assetInfo = utxoModel.getAssets()[indexPath.row]
+            let assetInfo = self.walletsAssetModels[indexPath.row]
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AssetCell
             

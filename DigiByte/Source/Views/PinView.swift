@@ -12,6 +12,7 @@ enum PinViewStyle {
     case create
     case modal
     case login
+    case assets
 }
 
 class PinView : UIView {
@@ -26,6 +27,9 @@ class PinView : UIView {
             return 16.0
             
         case .modal:
+            return E.is320wDevice ? 35.0 : 40.0
+            
+        case .assets:
             return E.is320wDevice ? 35.0 : 40.0
         }
     }
@@ -42,13 +46,16 @@ class PinView : UIView {
         switch style {
         case .create:
             unFilled = (0...(length-1)).map { _ in Circle(color: C.Colors.dark3) }
-            filled = (0...(length-1)).map { _ in return Circle(color: .black).filled() }
+            filled = (0...(length-1)).map { _ in return Circle(color: UIColor.blue).filled() }
         case .modal:
             unFilled = (0...(length-1)).map { _ in Circle(color: C.Colors.dark3) }
-            filled = (0...(length-1)).map { _ in return Circle(color: .black).filled() }
+            filled = (0...(length-1)).map { _ in return Circle(color: UIColor.blue).filled() }
         case .login:
             unFilled = (0...(length-1)).map { _ in Circle(color: .white) }
-            filled = (0...(length-1)).map { _ in Circle(color: .gradientStart) }
+            filled = (0...(length-1)).map { _ in Circle(color: UIColor.blue) }
+        case .assets:
+            unFilled = (0...(length-1)).map { _ in Circle(color: UIColor.gray.withAlphaComponent(0.7)) }
+            filled = (0...(length-1)).map { _ in return Circle(color:  UIColor.da.darkSkyBlue).filled() }
         }
         super.init(frame: CGRect())
         setupSubviews()

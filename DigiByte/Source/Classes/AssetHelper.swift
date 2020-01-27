@@ -806,6 +806,10 @@ class AssetHelper {
             saveAssetTransactionModel(assetTransactionModel: model)
         }
         
+        if needsTxIdListUpdate {
+            putAssetAddressList()
+        }
+        
         // Should be triggered by saveAddressInfoModel already
         needsReindex = true
     }
@@ -818,6 +822,10 @@ class AssetHelper {
                 guard state.resolved, !state.failed else { return }
                 state.resolvedModels.forEach({ saveAssetModel(assetModel: $0) })
                 saveAssetTransactionModel(assetTransactionModel: state.transactionInfoModel!)
+            }
+            
+            if needsTxIdListUpdate {
+                putAssetAddressList()
             }
 
             var relevantItems = [TransactionInfoModel]()

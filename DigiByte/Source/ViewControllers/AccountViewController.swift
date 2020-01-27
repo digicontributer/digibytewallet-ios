@@ -555,6 +555,7 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
             transactionsTableView.walletManager = walletManager
             transactionsTableViewForSentTransactions.walletManager = walletManager
             transactionsTableViewForReceivedTransactions.walletManager = walletManager
+            assetDrawer.walletManager = walletManager
         }
     }
     
