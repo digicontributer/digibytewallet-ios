@@ -474,6 +474,10 @@ class BRWallet {
         return BRWalletReceiveAddress(cPtr, useSegwit ? 1 : 0).description
     }
     
+    func internalChangeAddress() -> String {
+        return BRWalletInternalChangeAddress(cPtr).description
+    }
+    
     // all previously genereated internal and external addresses
     var allAddresses: [String] {
         var addrs = [BRAddress](repeating: BRAddress(), count: BRWalletAllAddrs(cPtr, nil, 0))
@@ -774,7 +778,8 @@ class BRPeerManager {
     
     // current proof-of-work verified best block height
     var lastBlockHeight: UInt32 {
-        return BRPeerManagerLastBlockHeight(cPtr)
+        let blockHeight = BRPeerManagerLastBlockHeight(cPtr)
+        return blockHeight
     }
 
     // current proof-of-work verified best block timestamp (time interval since unix epoch)

@@ -19,6 +19,9 @@ class DATextBox: UIView {
     private let showClearButton: Bool
     private let mode: TextBoxMode
     
+    var clipboardButtonTapped: (() -> Void)? = nil
+    var clearButtonTapped: (() -> Void)? = nil
+    
     var textChanged: ((String) -> Void)? = nil
     var copyMode: Bool = false
     
@@ -62,7 +65,12 @@ class DATextBox: UIView {
     }
     
     @objc
-    private func clipboardButtonTapped() {
+    private func clipboardButtonTappedInternal() {
+        if let callback = clipboardButtonTapped {
+            callback()
+            return
+        }
+        
         let cb = UIPasteboard.general
         
         if copyMode, let t = textBox.text {
@@ -73,13 +81,18 @@ class DATextBox: UIView {
     }
     
     @objc
-    private func clearButtonTapped() {
+    private func clearButtonTappedInternal() {
+        if let callback = clearButtonTapped {
+            callback()
+            return
+        }
+        
         textBox.text = ""
     }
     
     private func addEvents() {
-        clipboardButton.addTarget(self, action: #selector(clipboardButtonTapped), for: .touchUpInside)
-        asteriskButton.addTarget(self, action: #selector(clearButtonTapped), for: .touchUpInside)
+        clipboardButton.addTarget(self, action: #selector(clipboardButtonTappedInternal), for: .touchUpInside)
+        asteriskButton.addTarget(self, action: #selector(clearButtonTappedInternal), for: .touchUpInside)
         textBox.delegate = self
     }
     

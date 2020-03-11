@@ -12,6 +12,7 @@ import MachO
 import QuartzCore
 
 let accountHeaderHeight: CGFloat = 136.0
+let assetDrawerMarginRight: CGFloat = 15.0
 private let transactionsLoadingViewHeightConstant: CGFloat = 48.0
 
 fileprivate let balanceHeaderLabelTopVisible: CGFloat = 12
@@ -31,6 +32,8 @@ fileprivate class BalanceView: UIView, Subscriber {
     
     private var currencyLabelTop: NSLayoutConstraint? = nil
     private var balanceHeaderLabelTop: NSLayoutConstraint? = nil
+    
+    private var topRightImage = UIImageView(image: nil)
     
     private let grUp: UISwipeGestureRecognizer = {
        let g = UISwipeGestureRecognizer()
@@ -90,6 +93,8 @@ fileprivate class BalanceView: UIView, Subscriber {
         } else {
             viewMode = .normal
         }
+        
+        updateSyncIcon(syncState: .connecting, isConnected: false)
     }
     
     private func resizeView(_ viewMode: ViewMode) {
@@ -103,6 +108,7 @@ fileprivate class BalanceView: UIView, Subscriber {
     
     private var viewOpen: Bool = true
     private var animating: Bool = false
+    private var lastKnownConnectionState: String = "Connecting..."
     
     private func openView() {
         //guard !viewOpen else { return }
@@ -115,6 +121,7 @@ fileprivate class BalanceView: UIView, Subscriber {
             
             self.balanceHeaderLabel.alpha = 1
             self.currencyLabel.alpha = 1
+            self.topRightImage.alpha = 1
             
             self.currencyLabel.layoutIfNeeded()
             self.balanceHeaderLabel.layoutIfNeeded()
@@ -140,10 +147,12 @@ fileprivate class BalanceView: UIView, Subscriber {
             
             self.balanceHeaderLabel.alpha = 0
             self.currencyLabel.alpha = 0
+            self.topRightImage.alpha = 0
             
             self.currencyLabel.layoutIfNeeded()
             self.balanceHeaderLabel.layoutIfNeeded()
             self.balanceLabel.layoutIfNeeded()
+            
             self.layoutIfNeeded()
             
             self.superview?.layoutIfNeeded()
@@ -187,6 +196,16 @@ fileprivate class BalanceView: UIView, Subscriber {
         self.addGestureRecognizer(grUp)
         self.addGestureRecognizer(grDown)
         self.addGestureRecognizer(gr)
+        
+        let signalgr = UITapGestureRecognizer()
+        signalgr.addTarget(self, action: #selector(signalTapped))
+        topRightImage.isUserInteractionEnabled = true
+        topRightImage.addGestureRecognizer(signalgr)
+    }
+    
+    @objc
+    private func signalTapped() {
+        store.trigger(name: .lightWeightAlert(lastKnownConnectionState))
     }
     
     private func addSubscriptions() {
@@ -222,8 +241,61 @@ fileprivate class BalanceView: UIView, Subscriber {
                                     self.balance = balance
                                 }
                             } })
+        
+        store.lazySubscribe(self, selector: { $0.walletState.syncState != $1.walletState.syncState || $0.walletState.isConnected != $1.walletState.isConnected }, callback: { [weak self] state in
+            self?.updateSyncIcon(syncState: state.walletState.syncState, isConnected: state.walletState.isConnected)
+        })
     }
+    
+    private func updateSyncIcon(syncState: SyncState, isConnected: Bool) {
+        topRightImage.stopAnimating()
+        topRightImage.animationImages = []
+        
+        // Update connection status image
+        if syncState == .connecting {
+            // Show: Connecting...
+            lastKnownConnectionState = "Connecting..."
+            topRightImage.image = nil
+            
+            topRightImage.animationImages = [
+                imageWithColor(UIImage(named: "connecting1")!, color: UIColor.gray),
+                imageWithColor(UIImage(named: "connecting2")!, color: UIColor.gray),
+                imageWithColor(UIImage(named: "connecting3")!, color: UIColor.gray),
+            ]
+            
+            topRightImage.animationDuration = 3
+            topRightImage.startAnimating()
+            return
+        }
+        
+        if !isConnected {
+            // Show: Not connected
+            lastKnownConnectionState = "Not connected"
+            topRightImage.image = UIImage(named: "disconnected")?.withRenderingMode(.alwaysTemplate)
+            topRightImage.tintColor = C.Colors.weirdRed
+        } else {
+            // Show: connected
+            lastKnownConnectionState = "Connected to network"
+            topRightImage.image = UIImage(named: "connected")?.withRenderingMode(.alwaysTemplate)
+            topRightImage.tintColor = C.Colors.weirdGreen
+        }
+    }
+    
+    private func imageWithColor(_ img: UIImage, color: UIColor) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(img.size, false, img.scale)
+        let context = UIGraphicsGetCurrentContext()!
+        context.translateBy(x: 0, y: img.size.height)
+        context.scaleBy(x: 1.0, y: -1.0)
+        context.setBlendMode(.normal)
+        let rect = CGRect(x: 0, y: 0, width: img.size.width, height: img.size.height)
+        context.clip(to: rect, mask: img.cgImage!)
+        color.setFill()
+        context.fill(rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
 
+        return newImage!
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("Not implemented")
@@ -233,6 +305,7 @@ fileprivate class BalanceView: UIView, Subscriber {
         addSubview(balanceHeaderLabel)
         addSubview(balanceLabel)
         addSubview(currencyLabel)
+        addSubview(topRightImage)
     }
     
     private func addConstraints() {
@@ -253,6 +326,13 @@ fileprivate class BalanceView: UIView, Subscriber {
             currencyLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             currencyLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -25)
         ])
+        
+        topRightImage.constrain([
+            topRightImage.topAnchor.constraint(equalTo: topAnchor, constant: 12),
+            topRightImage.rightAnchor.constraint(equalTo: rightAnchor, constant: -12),
+            topRightImage.widthAnchor.constraint(equalToConstant: 20),
+            topRightImage.heightAnchor.constraint(equalToConstant: 20),
+        ])
     }
     
     private func addStyles() {
@@ -272,6 +352,9 @@ fileprivate class BalanceView: UIView, Subscriber {
         //balanceLabel.text = "D 132 293.787"
         //currencyLabel.text = "$USD 3988.33"
         backgroundColor = .clear
+        
+        topRightImage.contentMode = .scaleAspectFit
+        topRightImage.tintColor = .white
     }
     
     private func updateBalances(animatedValue: Bool = true) {
@@ -529,6 +612,12 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
     var walletManager: WalletManager? {
         didSet {
             guard let walletManager = walletManager else { return }
+            
+            AssetHelper.addressPartOfWalletCallback = { [weak self] address in
+                guard let walletManager = self?.walletManager else { return false }
+                return walletManager.wallet?.containsAddress(address) ?? false
+            }
+            
             if !walletManager.noWallet {
                 loginView.walletManager = walletManager
                 loginView.transitioningDelegate = loginTransitionDelegate
@@ -838,21 +927,22 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         } else if assetDrawerOpen {
             guard let assetDrawerRightConstraint = assetDrawerRightConstraint else { return }
             let width = assetDrawer.frame.width
+            
                 
             if sender.state == UIGestureRecognizer.State.began {
                 // do nothing
             } else if sender.state == UIGestureRecognizer.State.changed {
                 let translationX = sender.translation(in: sender.view).x
                 if translationX < 0 {
-                    assetDrawerRightConstraint.constant = 15 - sqrt(-translationX)
+                    assetDrawerRightConstraint.constant = assetDrawerMarginRight - sqrt(-translationX)
                     fadeView.alpha = MENUBACKGROUND_OPACITY_END
-                } else if translationX > width - 15 {
+                } else if translationX > width - assetDrawerMarginRight {
                     assetDrawerRightConstraint.constant = width
                     fadeView.alpha = 0
                 } else {
-                    assetDrawerRightConstraint.constant = translationX + 15
+                    assetDrawerRightConstraint.constant = translationX + assetDrawerMarginRight
                     
-                    let ratio = (width - translationX + 15) / width
+                    let ratio = (width - translationX + assetDrawerMarginRight) / width
                     let alphaValue = ratio
                     fadeView.alpha = alphaValue * MENUBACKGROUND_OPACITY_END
                 }
@@ -869,8 +959,9 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
 
     
     private func addDrawerMenus() {
-        // set closer delegate
+        // set closer delegates
         navigationDrawer.setCloser(supervc: self)
+        assetDrawer.setCloser(supervc: self)
         
         navigationDrawer.addButton(title: S.MenuButton.security, icon: UIImage(named: "hamburger_002Shield")!) {
             self.store.perform(action: HamburgerActions.Present(modal: .securityCenter))
@@ -885,9 +976,9 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
             if !self.showDigiAssetsConfirmViewIfNeeded { infoModels in
                 // Models were probably resolved
                 guard infoModels.count > 0 else { return }
-                self.store.perform(action: HamburgerActions.Present(modal: .digiAssets))
+                self.store.perform(action: HamburgerActions.Present(modal: .digiAssets(nil)))
             } {
-                self.store.perform(action: HamburgerActions.Present(modal: .digiAssets))
+                self.store.perform(action: HamburgerActions.Present(modal: .digiAssets(nil)))
             }
         }
         
@@ -926,6 +1017,10 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         assetDrawer.callback = { [weak self] tx in
             self?.closeAssetDrawer()
             self?.didSelectTransaction(hash: tx.hash)
+        }
+        
+        assetDrawer.assetNavigatorCallback = { [weak self] action in
+            self?.store.perform(action: HamburgerActions.Present(modal: .digiAssets(action)))
         }
         
         let tapper = UITapGestureRecognizer()
@@ -996,7 +1091,7 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
     func openAssetDrawer() {
         if navigationDrawerOpen { self.closeNavigationDrawer() }
         
-        assetDrawerRightConstraint?.constant = 15
+        assetDrawerRightConstraint?.constant = assetDrawerMarginRight
         fadeView.isHidden = false
         
         UIView.spring(0.3, animations: {
@@ -1195,7 +1290,6 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
 
     private func addSubscriptions() {
         store.subscribe(self, selector: { $0.walletState.syncProgress != $1.walletState.syncProgress }, callback: { state in
-            
             self.syncViewController.updateSyncState(
                 state: nil,
                 percentage: state.walletState.syncProgress * 100.0,

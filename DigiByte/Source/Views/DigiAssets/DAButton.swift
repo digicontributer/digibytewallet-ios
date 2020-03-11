@@ -213,7 +213,7 @@ extension DAButton: UIGestureRecognizerDelegate {
     }
 }
 
-fileprivate class DAButtonGestureRecognizer: UIGestureRecognizer {
+class DAButtonGestureRecognizer: UIGestureRecognizer {
     var touchDownCallback: (() -> Void)? = nil
     var touchUpCallback: ((Bool) -> Void)? = nil
     

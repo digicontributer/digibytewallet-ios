@@ -121,6 +121,7 @@ fileprivate extension SingleValueDecodingContainer {
 struct ScriptSigModel: Codable {
 //    let asm: String
     let hex: String
+    let addresses: [String]?
 }
 
 struct AssetProperties: Codable {
@@ -192,6 +193,15 @@ struct AssetModel: Codable {
         } else {
             return nil
         }
+    }
+    
+    func getVideoUrl() -> UrlModel? {
+        guard let urls = getURLs() else { return nil }
+        if let index = urls.firstIndex(where: { $0.name == "video" }) {
+            return urls[index]
+        }
+        
+        return nil
     }
     
     func getBigImage() -> UrlModel? {
@@ -414,6 +424,7 @@ class FetchAssetTransactionOperation: Operation {
         
         let composedURLStr = "\(urlStr)/gettransaction?txid=\(state.txID)"
         let url = URL(string: composedURLStr)!
+        print(url)
         
         let dataTask = session.dataTask(with: url) { (data, resp, err) in
             if err != nil {
@@ -523,7 +534,7 @@ class FetchMetadataOperation: Operation {
         let urlStr = urlWrapper.currentApiURL
         
         let url = URL(string: "\(urlStr)/assetmetadata/\(self.assetID)/\(self.txID):\(self.index)")!
-        
+        print(url)
         let dataTask = session.dataTask(with: url) { (data, resp, err) in
             if err != nil {
                 print("AssetResolver: error in response for asset: \(self.assetID): \(err!)")
@@ -542,15 +553,15 @@ class FetchMetadataOperation: Operation {
                 return
             }
                 
-            if let decodedAssetModel = try? JSONDecoder().decode(AssetModel.self, from: data) {
+            do {
+                let decodedAssetModel = try JSONDecoder().decode(AssetModel.self, from: data)
                 self.state.resolvedModels.append(decodedAssetModel)
                 print("AssetResolver: resolved assetModel: \(decodedAssetModel.assetId)")
                 
                 self.state.failed = false
                 self.state.resolved = true
-                
-            } else {
-                print("AssetResolver: could not resolve asset: \(self.assetID)/\(self.txID):\(self.index)")
+            } catch {
+                print("AssetResolver: could not resolve asset: \(self.assetID)/\(self.txID):\(self.index). Error message = \(error)")
                 self.state.failed = true
             }
             
@@ -671,6 +682,11 @@ class AssetHelper {
         return _allAssets
     }
     
+    static var addressPartOfWalletCallback: ((String) -> Bool) = { _ in
+        assert(false) // Not assigned
+        return false
+    }
+    
     private static var assetTxIdList = pullAssetTransactionIds()
     private static var needsTxIdListUpdate: Bool = false
     private static var assetAddressListKey = "da_allAddresses"
@@ -685,9 +701,18 @@ class AssetHelper {
             
             infoModel.vout.forEach { model in
                 guard !model.used else { return }
-                
                 model.assets.forEach { assetModel in
-                    _allBalances[assetModel.assetId] = (_allBalances[assetModel.assetId] ?? 0) + assetModel.amount
+                    guard let addresses = model.scriptPubKey.addresses else { return }
+                    
+                    // Assuming one address
+                    guard addresses.count == 1 else { return }
+                    
+                    let address = addresses[0]
+                    
+                    // Check if address is part of wallet
+                    if addressPartOfWalletCallback(address) {
+                        _allBalances[assetModel.assetId] = (_allBalances[assetModel.assetId] ?? 0) + assetModel.amount
+                    }
                 }
             }
         }

@@ -53,7 +53,19 @@ class WalletCoordinator : Subscriber, Trackable {
 
     @objc private func updateProgress() {
         DispatchQueue.walletQueue.async {
-            guard let progress = self.walletManager.peerManager?.syncProgress(fromStartHeight: self.lastBlockHeight), let timestamp = self.walletManager.peerManager?.lastBlockTimestamp, let blockHeight = self.walletManager.peerManager?.lastBlockHeight else { return }
+            // Workaround: If lastBlockHeight is in future, we gonna override the saved lastBlockHeight
+            if let lastBlockHeight = self.walletManager.peerManager?.lastBlockHeight {
+                if self.lastBlockHeight > lastBlockHeight {
+                    self.lastBlockHeight = lastBlockHeight
+                }
+            }
+            
+            guard
+                let progress = self.walletManager.peerManager?.syncProgress(fromStartHeight: self.lastBlockHeight),
+                let timestamp = self.walletManager.peerManager?.lastBlockTimestamp,
+                let blockHeight = self.walletManager.peerManager?.lastBlockHeight else {
+                    return
+            }
             DispatchQueue.main.async {
                 self.store.perform(action: WalletChange.setProgress(progress: progress, timestamp: timestamp, blockHeight: blockHeight))
             }
@@ -64,7 +76,9 @@ class WalletCoordinator : Subscriber, Trackable {
     private func onSyncStart() {
         endBackgroundTask()
         startBackgroundTask()
+        
         progressTimer = Timer.scheduledTimer(timeInterval: progressUpdateInterval, target: self, selector: #selector(WalletCoordinator.updateProgress), userInfo: nil, repeats: true)
+        store.perform(action: WalletChange.setIsConnected(walletManager.peerManager?.isConnected ?? false))
         store.perform(action: WalletChange.setSyncingState(.syncing))
         startActivity()
     }
@@ -79,6 +93,7 @@ class WalletCoordinator : Subscriber, Trackable {
         if notification.userInfo != nil {
 //            guard let code = notification.userInfo?["errorCode"] else { return }
 //            guard let message = notification.userInfo?["errorDescription"] else { return }
+            store.perform(action: WalletChange.setIsConnected(walletManager.peerManager?.isConnected ?? false))
             store.perform(action: WalletChange.setSyncingState(.connecting))
             //saveEvent("event.syncErrorMessage", attributes: ["message": "\(message) (\(code))"])
             endActivity()
@@ -100,6 +115,7 @@ class WalletCoordinator : Subscriber, Trackable {
         }
         progressTimer?.invalidate()
         progressTimer = nil
+        store.perform(action: WalletChange.setIsConnected(walletManager.peerManager?.isConnected ?? false))
         store.perform(action: WalletChange.setSyncingState(.success))
         endActivity()
     }
@@ -248,6 +264,9 @@ class WalletCoordinator : Subscriber, Trackable {
             DispatchQueue.walletQueue.async {
                 self.walletManager.peerManager?.disconnect()
                 DispatchQueue.main.async {
+                    let isConnected = self.walletManager.peerManager?.isConnected ?? false
+                    
+                    self.store.perform(action: WalletChange.setIsConnected(isConnected))
                     self.store.perform(action: WalletChange.setSyncingState(.connecting))
                 }
             }
@@ -257,6 +276,7 @@ class WalletCoordinator : Subscriber, Trackable {
     private func addSubscriptions() {
         store.subscribe(self, name: .retrySync, callback: { _ in 
             DispatchQueue.walletQueue.async {
+                self.store.perform(action: WalletChange.setSyncingState(.connecting))
                 self.walletManager.peerManager?.connect()
             }
         })
@@ -268,8 +288,8 @@ class WalletCoordinator : Subscriber, Trackable {
             //we need to make sure it's false before a rescan starts
             //self.store.perform(action: WalletChange.setIsSyncing(false))
             
-            if let w = self.walletManager.wallet {
-                let req = FirstBlockWithWalletTxRequest(w.allAddressesLimited(limit: 60), completion: { (success, hash, height, timestamp) in
+            if let w = self.walletManager.wallet, UserDefaults.fastSyncEnabled {
+                let req = FirstBlockWithWalletTxRequest(w.allAddressesLimited(limit: 30), completion: { (success, hash, height, timestamp) in
                     var start: Any? = nil
                     
                     if success && timestamp != 0 && height > 0 {

@@ -12,7 +12,9 @@ extension UINavigationController {
 
     func setDefaultStyle() {
         setClearNavbar()
-        setBlackBackArrow()
+        setTintableBackArrow()
+        
+        self.navigationBar.tintColor = UIColor.white
     }
 
     func setWhiteStyle() {
@@ -43,8 +45,19 @@ extension UINavigationController {
     }
 
     func setTintableBackArrow() {
-        navigationBar.backIndicatorImage = UIImage(named: "arrow_back")
-        navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "arrow_back")
+//        let image = UIImage(named: "arrow_back")?.withRenderingMode(.alwaysTemplate).resize(CGSize(width: 44, height: 44))
+        let btn = UIButton.icon(image: UIImage(named: "arrow_back")!.withRenderingMode(.alwaysTemplate), accessibilityLabel: "Go Back")
+        let barButton = UIBarButtonItem(customView: btn)
+        barButton.action = #selector(backPressed)
+        barButton.target = self
+        
+        navigationItem.leftBarButtonItem = barButton
+        navigationBar.backItem?.backBarButtonItem = nil
+//        navigationBar.backIndicatorTransitionMaskImage = barButton
+    }
+    
+    @objc func backPressed() {
+        popViewController(animated: true)
     }
     
     open override var preferredStatusBarStyle: UIStatusBarStyle {

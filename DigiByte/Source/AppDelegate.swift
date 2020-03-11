@@ -88,6 +88,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UIView.swizzleSetFrame()
         applicationController.launch(application: application, options: launchOptions)
+        
+        NSSetUncaughtExceptionHandler { exception in
+           print(exception)
+           print(exception.callStackSymbols)
+        }
+        
         return true
     }
     

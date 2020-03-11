@@ -59,13 +59,17 @@ class TransactionCardViewCell: UITableViewCell, Subscriber {
         }
     }
     
+    private func findAssetIndex(_ utxos: [ExtendedTransactionOutputModel]) -> Int {
+        return utxos.firstIndex { $0.assets.count > 0 } ?? 0
+    }
+    
     func setTransaction(_ transaction: Transaction, isBtcSwapped: Bool, rate: Rate, maxDigits: Int, isSyncing: Bool) {
         self.transaction = transaction
         
         if transaction.isAssetTx {
             if let utxos = AssetHelper.getAssetUtxos(for: transaction) {
                 if utxos.count > 0 {
-                    let utxo = utxos[0]
+                    let utxo = utxos[findAssetIndex(utxos)]
                     
                     if utxo.assets.count == 1 {
                         // Metadata for this asset is available, use it's name
@@ -174,16 +178,18 @@ class TransactionCardViewCell: UITableViewCell, Subscriber {
             overlay.heightAnchor.constraint(equalToConstant: 35),
         ])
         
-        let maxWidth = container.widthAnchor.constraint(lessThanOrEqualToConstant: 300)
-        maxWidth.priority = .defaultHigh
+//        let maxWidth = container.widthAnchor.constraint(lessThanOrEqualToConstant: 300)
+//        maxWidth.priority = .defaultHigh
+//
+//        let width = container.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8)
+//        width.priority = .defaultLow
         
-        let width = container.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8)
-        width.priority = .defaultLow
+        let width = container.widthAnchor.constraint(equalToConstant: 300)
         
         container.constrain([
             container.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             container.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
-            maxWidth,
+//            maxWidth,
             width,
             container.heightAnchor.constraint(equalToConstant: 68),
             container.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
@@ -262,8 +268,9 @@ class TransactionCardViewCell: UITableViewCell, Subscriber {
         
         innerShadow.backgroundColor = .secondaryShadow
         
-        transactionLabel.numberOfLines = 0
+        transactionLabel.numberOfLines = 2
         transactionLabel.lineBreakMode = .byWordWrapping
+        transactionLabel.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
         
         address.lineBreakMode = .byTruncatingMiddle
         address.numberOfLines = 1

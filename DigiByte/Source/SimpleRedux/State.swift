@@ -65,13 +65,46 @@ enum RootModal {
     case requestAmount
 }
 
-enum HamburgerMenuModal {
+enum AssetMenuAction: Equatable {
+    case showTx(AssetId, Transaction?)
+    case send(AssetId)
+    case burn(AssetId)
+
+    static func ==(lhs: AssetMenuAction, rhs: AssetMenuAction) -> Bool {
+        switch (lhs, rhs) {
+        case (let .showTx(a1, t1), let .showTx(a2, t2)):
+            return a1 == a2 && t1 == t2
+        case (let .send(str1), let .send(str2)):
+            return str1 == str2
+        case (let .burn(str1), let .burn(str2)):
+            return str1 == str2
+        default:
+            return false
+        }
+    }
+}
+
+enum HamburgerMenuModal: Equatable {
     case none
     case securityCenter
     case support
     case settings
-    case digiAssets
+    case digiAssets(AssetMenuAction? = nil)
     case lockWallet
+    
+    static func ==(lhs: HamburgerMenuModal, rhs: HamburgerMenuModal) -> Bool {
+        switch (lhs, rhs) {
+        case (.none, .none): return true
+        case (.securityCenter, .securityCenter): return true
+        case (.support, .support): return true
+        case (.settings, .settings): return true
+        case (.lockWallet, .lockWallet): return true
+        case (let .digiAssets(a1), let .digiAssets(a2)):
+            return a1 == a2
+        default:
+            return false
+        }
+    }
 }
 
 enum SyncState {
@@ -93,7 +126,7 @@ struct WalletState {
     let blockHeight: UInt32
     
     static var initial: WalletState {
-        return WalletState(isConnected: false, syncProgress: 0.0, syncState: .success, balance: nil, transactions: [], lastBlockTimestamp: 0, name: S.AccountHeader.defaultWalletName, creationDate: Date.zeroValue(), isRescanning: false, blockHeight: 0)
+        return WalletState(isConnected: false, syncProgress: 0.0, syncState: .connecting, balance: nil, transactions: [], lastBlockTimestamp: 0, name: S.AccountHeader.defaultWalletName, creationDate: Date.zeroValue(), isRescanning: false, blockHeight: 0)
     }
 }
 

@@ -18,16 +18,25 @@ class DAMainViewController: UITabBarController {
     private let walletManager: WalletManager
     private var tabs: [UIViewController]
     
-    init(store: BRStore, walletManager: WalletManager) {
+    private let assetOverview: DAAssetsViewController
+    private let assetSend: DASendViewController
+    private let assetBurn: DABurnViewController
+    
+    init(store: BRStore, walletManager: WalletManager, action: AssetMenuAction? = nil) {
         self.store = store
         self.wallet = walletManager.wallet!
         self.walletManager = walletManager
+        
+        assetOverview = DAAssetsViewController(store: store, wallet: wallet)
+        assetSend = DASendViewController(store: store, wallet: wallet, walletManager: walletManager)
+        assetBurn = DABurnViewController(store: store, wallet: wallet, walletManager: walletManager)
+        
         self.tabs = [
-            DAAssetsRootViewController(store: store, wallet: wallet),
-            DASendViewController(store: store, wallet: wallet, walletManager: walletManager),
+            assetOverview,
+            assetSend,
 //            DAReceiveViewController(store: store, wallet: wallet),
 //            DACreateViewController(),
-            DABurnViewController(store: store, wallet: wallet)
+            assetBurn
         ]
         super.init(nibName: nil, bundle: nil)
         
@@ -51,6 +60,36 @@ class DAMainViewController: UITabBarController {
         }
         
         header.backgroundColor = UIColor.da.backgroundColor.withAlphaComponent(0.7)
+        
+        actionHandler(action)
+    }
+    
+    func actionHandler(_ action: AssetMenuAction? = nil) {
+        switch (action) {
+        case .showTx(let assetId, let tx):
+            guard let idx = self.tabs.firstIndex(of: assetOverview) else { return }
+            self.selectedIndex = idx
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.assetOverview.openDetailView(assetId: assetId)
+            }
+            break
+            
+        case .send(let assetId):
+            guard let idx = self.tabs.firstIndex(of: assetSend) else { return }
+            self.selectedIndex = idx
+            assetSend.selectedModel = AssetHelper.getAssetModel(assetID: assetId)
+            break
+            
+        case .burn(let assetId):
+            guard let idx = self.tabs.firstIndex(of: assetBurn) else { return }
+            assetBurn.selectedModel = AssetHelper.getAssetModel(assetID: assetId)
+            self.selectedIndex = idx
+            break
+            
+        default:
+            break
+        }
     }
     
     private func addSubviews() {

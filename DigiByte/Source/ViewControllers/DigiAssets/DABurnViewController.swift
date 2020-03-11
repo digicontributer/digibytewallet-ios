@@ -50,6 +50,8 @@ class DABurnViewController: UIViewController {
     private var hc: NSLayoutConstraint? = nil
     private let store: BRStore
     private let wallet: BRWallet
+    private let walletManager: WalletManager
+    private let assetSender: AssetSender!
     
     let scrollView = UIScrollView()
     let stackView = UIStackView()
@@ -62,7 +64,7 @@ class DABurnViewController: UIViewController {
     
     let assetDropdown = DADropDown()
     let totalBalanceLabel = UILabel(font: UIFont.da.customMedium(size: 13), color: UIColor.da.secondaryGrey)
-    let amountBox = DATextBox(showClearButton: true)
+    let amountBox = DATextBox(showClearButton: true, mode: .numbersOnly)
     let burnButton = DAButton(title: "Burn Assets".uppercased(), backgroundColor: UIColor.da.burnColor, height: 40)
     
     var selectedModel: AssetModel? = nil {
@@ -71,9 +73,11 @@ class DABurnViewController: UIViewController {
         }
     }
     
-    init(store: BRStore, wallet: BRWallet) {
+    init(store: BRStore, wallet: BRWallet, walletManager: WalletManager) {
         self.store = store
         self.wallet = wallet
+        self.walletManager = walletManager
+        self.assetSender = AssetSender(walletManager: walletManager, store: store)
         super.init(nibName: nil, bundle: nil)
         
         tabBarItem = UITabBarItem(title: "Burn", image: UIImage(named: "da-burn")?.withRenderingMode(.alwaysTemplate), tag: 0)
@@ -215,6 +219,11 @@ class DABurnViewController: UIViewController {
         amountBox.isUserInteractionEnabled = true
     }
     
+    private func presentVerifyPin(_ str: String, callback: @escaping VerifyPinCallback) {
+        let wnd = DAPinView(title: "Enter your PIN", description: str, callback: callback)
+        present(wnd, animated: true, completion: nil)
+    }
+    
     private func addEvents() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
@@ -237,22 +246,61 @@ class DABurnViewController: UIViewController {
                 return
             }
             
-            if
+            guard
                 let amountStr = self?.amountBox.textBox.text,
                 amountStr != "",
-                let amount = Int(amountStr) {
-                
-                if balance < Int(amount) {
-                    self?.showError(with: "Not enough assets")
+                let amount = Int(amountStr) else {
+                    self?.showError(with: "No valid amount entered")
                     return
-                }
-            } else {
-                self?.showError(with: "No valid amount entered")
+            }
+                
+            if balance < Int(amount) {
+                self?.showError(with: "Not enough assets")
                 return
             }
-        
-            self?.showSuccess(with: "Asset(s) burned!")
+            
+            guard let rate = self!.store.state.currentRate else { return }
+            guard let feePerKb = self!.walletManager.wallet?.feePerKb else { return }
+            
+            guard
+                let assetSender = self?.assetSender,
+                assetSender.createBurnTransaction(assetModel: selectedModel, amount: amount) else {
+                self?.showError(with: "Could not create transaction")
+                return;
+            }
+            
+            assetSender.send(biometricsMessage: S.VerifyPin.touchIdMessage,
+                        rate: rate,
+                        feePerKb: feePerKb,
+                        verifyPinFunction: { [weak self] pinValidationCallback in
+                            self?.presentVerifyPin(S.VerifyPin.authorize) { [weak self] pin, vc in
+                                if pinValidationCallback(pin) {
+                                    vc.dismiss(animated: true, completion: {
+                                        self?.parent?.view.isFrameChangeBlocked = false
+                                    })
+                                    return true
+                                } else {
+                                    return false
+                                }
+                            }
+                }, completion: { [weak self] result in
+                    switch result {
+                    case .success:
+                        self?.showSuccess(with: "Asset(s) burned!")
+                        self?.dismiss(animated: true)
+                        
+                    case .creationError(let message):
+                        self?.showError(with: "Transaction could not be created: \(message)")
+                        
+                    case .publishFailure(let error):
+                        self?.showError(with: "Transaction could not be broadcasted: \(error)")
+                    }
+            })
         }
+    }
+    
+    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        UIPasteboard.general.string = assetSender.debug // YOSHI, remove before RELEASE
     }
     
     private func toggleBurnButton() {
