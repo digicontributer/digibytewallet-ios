@@ -22,3 +22,6 @@
 [submodule "Modules/MarqueeLabel"]
 	path = Modules/MarqueeLabel
 	url = https://github.com/cbpowell/MarqueeLabel.git
+[submodule "Modules/UserDefaultsStore"]
+	path = Modules/UserDefaultsStore
+	url = https://github.com/omaralbeik/UserDefaultsStore.git
