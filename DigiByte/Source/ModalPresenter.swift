@@ -233,8 +233,8 @@ class ModalPresenter : Subscriber, Trackable {
                 return
             case .securityCenter:
                 return makeSecurityCenter()
-            case .digiAssets:
-                return makeDigiAssets()
+            case .digiAssets(let action):
+                return makeDigiAssets(action)
             case .support:
                 return makeFaq()
             case .settings:
@@ -556,7 +556,7 @@ class ModalPresenter : Subscriber, Trackable {
 //            ],
             
             "DigiAssets": [
-                Setting(switchWithTitle: "Automatically resolve Assets", initial: UserDefaults.Privacy.automaticallyResolveAssets, callback: { (active) in
+                Setting(switchWithTitle: "Resolve assets without prompt", initial: UserDefaults.Privacy.automaticallyResolveAssets, callback: { (active) in
                     UserDefaults.Privacy.automaticallyResolveAssets = active
                 }),
                 
@@ -585,11 +585,12 @@ class ModalPresenter : Subscriber, Trackable {
                 Setting(title: "Advanced", callback: { [weak self] in
                     guard let myself = self else { return }
                     guard let walletManager = myself.walletManager else { return }
+                    guard let store = self?.store else { return }
                     let sections = ["Network"]
                     let advancedSettings = [
                         "Network": [
                             Setting(title: "DigiByte Nodes", callback: {
-                                let nodeSelector = NodeSelectorViewController(walletManager: walletManager)
+                                let nodeSelector = NodeSelectorViewController(walletManager: walletManager, store: store)
                                 settingsNav.pushViewController(nodeSelector, animated: true)
                             }),
                             Setting(title: "Use Digi-ID Legacy", accessoryText: { () -> String in
@@ -599,7 +600,7 @@ class ModalPresenter : Subscriber, Trackable {
                                 let vc = DigiIDExceptionViewController()
                                 vc.presentScan = myself.presentDigiIdScan(parent: vc)
                                 settingsNav.pushViewController(vc, animated: true)
-
+                                
                                 DispatchQueue.main.async {
                                     self?.showLightWeightWarning(message: "Adding exceptions is not recommended. Digi-ID Legacy will be removed a future release")
                                 }
@@ -659,11 +660,11 @@ class ModalPresenter : Subscriber, Trackable {
         settingsNav.navigationBar.setBackgroundImage(view.imageRepresentation, for: .default)
         settingsNav.navigationBar.shadowImage = UIImage()
         settingsNav.navigationBar.isTranslucent = true
-        settingsNav.setBlackBackArrow()
-        settingsNav.navigationBar.tintColor = .clear
+        settingsNav.setTintableBackArrow()
+        settingsNav.navigationBar.tintColor = .white
         top.present(settingsNav, animated: true, completion: nil)
     }
-
+    
     func presentScan(parent: UIViewController) -> PresentScan {
         return { [weak parent] scanCompletion in
             guard ScanViewController.isCameraAllowed else {
@@ -706,18 +707,17 @@ class ModalPresenter : Subscriber, Trackable {
         }
     }
     
-    private func makeDigiAssets() {
-        guard let walletManager = walletManager, let wallet = walletManager.wallet else { return }
+    private func makeDigiAssets(_ action: AssetMenuAction? = nil) {
+        guard let walletManager = walletManager else { return }
         
-        let digiAssetsViewController = DAMainViewController(store: store, walletManager: walletManager)
-        let onboarding = DAOnboardingViewController()
-        
+        let digiAssetsViewController = DAMainViewController(store: store, walletManager: walletManager, action: action)
         var nextVC: UIViewController!
         
-        if !UserDefaults.digiAssetsOnboardingShown, false /* YOSHI */{
+        if !UserDefaults.digiAssetsOnboardingShown {
             // Onboarding shall be displayed.
             // After user has finished introduction, we will display the
             // main DigiAssets view controller
+            let onboarding = DAOnboardingViewController()
             nextVC = onboarding
             onboarding.nextVC = digiAssetsViewController
         } else {

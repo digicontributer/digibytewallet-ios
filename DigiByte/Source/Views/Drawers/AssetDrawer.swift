@@ -71,6 +71,7 @@ class AssetDrawer: UIView {
     
     private let contextMenu = AssetContextMenu()
     private let contextMenuUnderlay = UIView() // transparent view that closes contextmenu when tapped
+    private var contextMenuCtx: String? = nil
     
     private var assetModels = [String: AssetModel]()
     private var assetUtxos = [TransactionOutputModel]()
@@ -78,6 +79,7 @@ class AssetDrawer: UIView {
     
     var walletManager: WalletManager? = nil
     var callback: ((Transaction) -> Void)? = nil
+    var assetNavigatorCallback: ((AssetMenuAction) -> Void)? = nil /* AssetId, Transaction */
     let viewRawTxButton = DAButton(title: "View Raw Transaction".uppercased(), backgroundColor: UIColor.da.darkSkyBlue)
     
     init(id: String) {
@@ -148,12 +150,43 @@ class AssetDrawer: UIView {
         viewRawTxButton.touchUpInside = {
             self.viewRawTxButtonTapped()
         }
+        
+        contextMenu.txBtn.touchUpInside = { [weak self] in
+            self?.hideContextMenu()
+            self?.supervc.closeDrawer(with: "assets")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                guard let tx = self?.tx, let assetId = self?.contextMenuCtx else { return }
+                self?.assetNavigatorCallback?(.showTx(assetId, tx))
+            }
+        }
+        
+        contextMenu.sendBtn.touchUpInside = { [weak self] in
+            self?.hideContextMenu()
+            self?.supervc.closeDrawer(with: "assets")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                guard let assetId = self?.contextMenuCtx else { return }
+                self?.assetNavigatorCallback?(.send(assetId))
+            }
+        }
+        
+        contextMenu.burnBtn.touchUpInside = { [weak self] in
+            self?.hideContextMenu()
+            self?.supervc.closeDrawer(with: "assets")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                guard let assetId = self?.contextMenuCtx else { return }
+                self?.assetNavigatorCallback?(.burn(assetId))
+            }
+        }
+    }
+    
+    func hideContextMenu() {
+        contextMenuUnderlay.isHidden = true
+        contextMenu.isHidden = true
     }
     
     @objc private func contextBgTapped() {
         // hide context menu
-        contextMenuUnderlay.isHidden = true
-        contextMenu.isHidden = true
+        hideContextMenu()
         
         // reset all button states
         tableView.visibleCells.forEach { (cell) in
@@ -239,10 +272,30 @@ extension AssetDrawer: UITableViewDelegate, UITableViewDataSource {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AssetCell
             
+            cell.margins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16 + assetDrawerMarginRight)
+            
             let assetId = assetInfo.assetId
             let amount = assetInfo.amount
             let assetModel = assetModels[assetId]!
             
+            cell.imageTappedCallback = { cell in
+                guard
+                    let id = cell.assetId,
+                    let model = AssetHelper.getAssetModel(assetID: id)
+                else {
+                    return
+                }
+                
+                let vc = DAAssetMediaViewer(assetModel: model)
+                guard vc.initialized else {
+                    return
+                }
+                
+                guard let viewController = UIApplication.shared.windows.first?.rootViewController else { return }
+                viewController.present(vc, animated: true)
+            }
+            
+            cell.assetId = assetId
             cell.configure(showContent: true)
             
             cell.assetLabel.text = assetModel.getAssetName()
@@ -285,6 +338,8 @@ extension AssetDrawer: UITableViewDelegate, UITableViewDataSource {
     private func menuButtonTapped(cell: AssetCell) {
         if let idx = tableView.indexPath(for: cell) {
             let pos = tableView.rectForRow(at: idx)
+            
+            contextMenuCtx = cell.assetId
             
             // get global position
             let gpos = tableView.convert(pos, to: self)

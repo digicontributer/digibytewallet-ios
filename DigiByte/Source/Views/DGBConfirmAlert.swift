@@ -98,10 +98,10 @@ extension DAModalAssetSelector: UITableViewDelegate, UITableViewDataSource {
     
         cell.textLabel?.text = assetModel.getAssetName()
         
-        let description = assetModel.getDescription()
-        let amount = AssetHelper.allBalances[assetId]
-        let amountStr: String? = amount == nil ? nil : "\(amount!)"
-        let subtitleStr = [amountStr, description].compactMap({ $0 }).joined(separator: " | ")
+        let amount = AssetHelper.allBalances[assetId] ?? 0
+//        let amountStr: String? = amount == nil ? nil : "\(amount!)"
+//        let subtitleStr = [amountStr].compactMap({ $0 }).joined(separator: " | ")
+        let subtitleStr = "Balance: \(amount)"
         cell.detailTextLabel?.text = subtitleStr
         
         if let urlStr = assetModel.getImage()?.url, let url = URL(string: urlStr) {
@@ -120,6 +120,243 @@ extension DAModalAssetSelector: UITableViewDelegate, UITableViewDataSource {
         let assetModel = AssetHelper.getAssetModel(assetID: assetId)
         callback?(assetModel)
         dismiss(animated: true, completion: nil)
+    }
+}
+
+class DGBModalMediaOptionButton: UIView {
+    let imageView = UIImageView()
+    let titleLabel = UILabel(font: UIFont.da.customBold(size: 14), color: UIColor.black)
+    let accessoryLabel = UILabel(font: UIFont.da.customMedium(size: 12), color: UIColor.lightGray)
+    
+    var callback: (() -> Void)? = nil
+    var isEnabled: Bool {
+        didSet {
+            updateEnabledState()
+        }
+    }
+    
+    init(_ title: String, accessory: String, image: UIImage? = nil, isEnabled: Bool = true) {
+        self.isEnabled = isEnabled
+        super.init(frame: .zero)
+        
+        imageView.image = image
+        titleLabel.text = title
+        accessoryLabel.text = accessory
+        
+        accessoryLabel.numberOfLines = 3
+        accessoryLabel.lineBreakMode = .byWordWrapping
+        titleLabel.numberOfLines = 2
+        titleLabel.lineBreakMode = .byWordWrapping
+        
+        let gr = UITapGestureRecognizer(target: self, action: #selector(onTap))
+        isUserInteractionEnabled = true
+        addGestureRecognizer(gr)
+        
+        let group = UIView()
+        group.addSubview(titleLabel)
+        group.addSubview(accessoryLabel)
+        
+        addSubview(imageView)
+        addSubview(group)
+        
+        imageView.constrain([
+            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            imageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 10),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
+            
+            imageView.widthAnchor.constraint(equalToConstant: 32),
+            imageView.heightAnchor.constraint(equalToConstant: 32),
+        ])
+        
+        titleLabel.constrain([
+            titleLabel.topAnchor.constraint(equalTo: group.topAnchor, constant: 0),
+            titleLabel.leftAnchor.constraint(equalTo: group.leftAnchor, constant: 0),
+            titleLabel.rightAnchor.constraint(equalTo: group.rightAnchor, constant: 0),
+        ])
+        
+        accessoryLabel.constrain([
+            accessoryLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 3),
+            accessoryLabel.leftAnchor.constraint(equalTo: group.leftAnchor, constant: 0),
+            accessoryLabel.rightAnchor.constraint(equalTo: group.rightAnchor, constant: 0),
+            accessoryLabel.bottomAnchor.constraint(equalTo: group.bottomAnchor, constant: 0),
+        ])
+        
+        group.constrain([
+            group.centerYAnchor.constraint(equalTo: imageView.centerYAnchor, constant: 0),
+            group.leftAnchor.constraint(equalTo: imageView.rightAnchor, constant: 10),
+            group.rightAnchor.constraint(equalTo: rightAnchor, constant: -10),
+        ])
+        
+        updateEnabledState()
+    }
+    
+    private func updateEnabledState() {
+        if isEnabled {
+            alpha = 1.0
+        } else {
+            alpha = 0.3
+        }
+    }
+    
+    @objc
+    private func onTap() {
+        guard isEnabled else { return }
+        backgroundColor = UIColor.gray.withAlphaComponent(0.3)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.backgroundColor = .clear
+        }
+        callback?()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+class DGBModalMediaOptions: DGBModalWindow {
+    let callback: ((String) -> Void)
+    
+    let addressBookBtn: DGBModalMediaOptionButton
+    let pasteBtn: DGBModalMediaOptionButton
+    let scanBtn: DGBModalMediaOptionButton
+    let galleryBtn: DGBModalMediaOptionButton
+    
+    init(callback: @escaping (String) -> Void) {
+        self.callback = callback
+        
+        if let previewText = UIPasteboard.general.string {
+            pasteBtn = DGBModalMediaOptionButton("Paste from clipboard", accessory: previewText, image: UIImage(named: "paste-colored"))
+        } else {
+            pasteBtn = DGBModalMediaOptionButton("Paste from clipboard", accessory: "No data", image: UIImage(named: "paste-colored"), isEnabled: false)
+        }
+        
+        addressBookBtn = DGBModalMediaOptionButton("Address Book", accessory: "Use an address of your Address Book", image: UIImage(named: "address-book-colored"))
+        scanBtn = DGBModalMediaOptionButton("Scan QR code", accessory: "Use your camera to scan a QR code containing an address", image: UIImage(named: "scan-colored"))
+        galleryBtn = DGBModalMediaOptionButton("Browse gallery", accessory: "Import image from gallery", image: UIImage(named: "gallery-colored"))
+        
+        super.init(title: "Import address", padding: 0)
+    
+        stackView.addArrangedSubview(addressBookBtn)
+        stackView.addArrangedSubview(pasteBtn)
+        stackView.addArrangedSubview(scanBtn)
+        stackView.addArrangedSubview(galleryBtn)
+        
+        addressBookBtn.callback = { [weak self] in
+            self?.addressBookTapped()
+        }
+        
+        pasteBtn.callback = { [weak self] in
+            self?.pasteTapped()
+        }
+        
+        scanBtn.callback = { [weak self] in
+            self?.scanTapped()
+        }
+        
+        galleryBtn.callback = { [weak self] in
+            self?.galleryTapped()
+        }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc private func addressBookTapped() {
+        let vc = AddressBookOverviewViewController()
+        vc.view.backgroundColor = UIColor(red: 21/255, green: 21/255, blue: 31/255, alpha: 1.0)
+        vc.contactSelectedCallback = { [weak self, weak vc] contact in
+            self?.callback(contact.address)
+            vc?.dismiss(animated: true) {
+                self?.dismiss(animated: true)
+            }
+        }
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    @objc private func pasteTapped() {
+        guard let pasteboard = UIPasteboard.general.string, pasteboard.utf8.count > 0 else {
+            return showAlert(title: S.Alert.error, message: S.Send.emptyPasteboard, buttonLabel: S.Button.ok)
+        }
+        guard let request = PaymentRequest(string: pasteboard) else {
+            return showAlert(title: S.Send.invalidAddressTitle, message: S.Send.invalidAddressOnPasteboard, buttonLabel: S.Button.ok)
+        }
+        
+        if let address = request.toAddress {
+            callback(address)
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+
+    @objc private func scanTapped() {
+        guard ScanViewController.isCameraAllowed else {
+            //self.saveEvent("scan.cameraDenied")
+            if let parent = parent {
+                ScanViewController.presentCameraUnavailableAlert(fromRoot: parent)
+            }
+            return
+        }
+        
+        let vc = ScanViewController(completion: { [weak self] paymentRequest in
+            guard let address = paymentRequest?.toAddress else { return }
+            self?.callback(address)
+            self?.parent?.view.isFrameChangeBlocked = false
+            self?.dismiss(animated: true, completion: nil)
+        }, isValidURI: { address in
+            return address.isValidAddress
+        })
+        
+        self.present(vc, animated: true, completion: nil)
+    }
+
+    @objc private func galleryTapped() {
+        let imagePicker = UIImagePickerController()
+
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum;
+            imagePicker.allowsEditing = false
+
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+}
+
+extension DGBModalMediaOptions: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        self.dismiss(animated: true, completion: nil)
+
+        if
+            let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
+            let cgImage = originalImage.cgImage {
+
+            let ciImage = CIImage(cgImage:cgImage)
+
+            if
+                let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: CIContext(), options: [CIDetectorAccuracy : CIDetectorAccuracyHigh]) {
+                let features = detector.features(in: ciImage)
+
+                if features.count == 1 {
+                    if let qrCode = features.first as? CIQRCodeFeature {
+                        if let decode = qrCode.messageString {
+                            if
+                                let payRequest = PaymentRequest(string: decode),
+                                let address = payRequest.toAddress {
+                                    self.dismiss(animated: true, completion: nil)
+                                    self.callback(address)
+                                    return
+                            }
+                        }
+                    }
+                } else if features.count > 1 {
+                    return showAlert(title: S.QRImageReader.title, message: S.QRImageReader.TooManyFoundMessage, buttonLabel: S.Button.ok)
+                } else {
+                    return showAlert(title: S.QRImageReader.title, message: S.QRImageReader.NotFoundMessage, buttonLabel: S.Button.ok)
+                }
+
+            }
+        }
+
     }
 }
 
@@ -163,6 +400,8 @@ class DGBModalWindow: UIViewController, UIGestureRecognizerDelegate {
     }
 
     internal func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        guard presentedViewController == nil else { return false }
+        
         let location = touch.location(in: self.containerView)
         
         if location.x < 0 || location.x > self.containerView.bounds.width {
@@ -227,6 +466,10 @@ class DGBModalWindow: UIViewController, UIGestureRecognizerDelegate {
         titleLabel.text = headerTitle
         titleLabel.font = UIFont.da.customBold(size: 18)
         titleLabel.lineBreakMode = .byWordWrapping
+        
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -323,7 +566,7 @@ class DGBConfirmAlert: DGBModalWindow {
     let message: String
     let image: UIImage?
     let okTitle: String
-    let cancelTitle: String
+    let cancelTitle: String?
     
     var confirmCallback: ((DGBCallback) -> Void)? = nil
     var cancelCallback: ((DGBCallback) -> Void)? = nil
@@ -340,7 +583,7 @@ class DGBConfirmAlert: DGBModalWindow {
     
     private let alternativeTitle: String?
     
-    init(title: String, message: String, image: UIImage?, okTitle: String = S.Alerts.defaultConfirmOkCaption, cancelTitle: String = S.Alerts.defaultConfirmCancelCaption, alternativeButtonTitle: String? = nil) {
+    init(title: String, message: String, image: UIImage?, okTitle: String = S.Alerts.defaultConfirmOkCaption, cancelTitle: String? = S.Alerts.defaultConfirmCancelCaption, alternativeButtonTitle: String? = nil) {
         
         self.message = message
         self.image = image
@@ -364,7 +607,10 @@ class DGBConfirmAlert: DGBModalWindow {
     private func addSubviews() {
         // add buttons
         buttonsView.addArrangedSubview(okButton)
-        buttonsView.addArrangedSubview(cancelButton)
+        
+        if cancelTitle != nil {
+            buttonsView.addArrangedSubview(cancelButton)
+        }
         
         // add vertical views
         if image != nil {
@@ -396,8 +642,11 @@ class DGBConfirmAlert: DGBModalWindow {
             imageView.centerXAnchor.constraint(equalTo: imageContainer.centerXAnchor),
         ])
         
-        okButton.widthAnchor.constraint(equalTo: cancelButton.widthAnchor, multiplier: 1.0).isActive = true
-        okButton.heightAnchor.constraint(equalTo: cancelButton.heightAnchor, multiplier: 1.0).isActive = true
+        if cancelTitle != nil {
+            okButton.widthAnchor.constraint(equalTo: cancelButton.widthAnchor, multiplier: 1.0).isActive = true
+            okButton.heightAnchor.constraint(equalTo: cancelButton.heightAnchor, multiplier: 1.0).isActive = true
+        }
+        
         okButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
     }
     
@@ -419,11 +668,16 @@ class DGBConfirmAlert: DGBModalWindow {
         contentLabel.textColor = UIColor.black
         
         okButton.setTitle(okTitle, for: .normal)
-        cancelButton.setTitle(cancelTitle, for: .normal)
         okButton.setTitleColor(UIColor.white, for: .normal)
-        cancelButton.setTitleColor(UIColor.black, for: .normal)
         okButton.titleLabel?.font = UIFont.da.customBody(size: 16)
-        cancelButton.titleLabel?.font = UIFont.da.customBody(size: 16)
+        
+        if let cancelTitle = self.cancelTitle {
+            cancelButton.setTitleColor(UIColor.black, for: .normal)
+            cancelButton.setTitle(cancelTitle, for: .normal)
+            cancelButton.titleLabel?.font = UIFont.da.customBody(size: 16)
+        } else {
+            cancelButton.isHidden = true
+        }
         
         okButton.backgroundColor = UIColor.da.darkSkyBlue
         okButton.layer.cornerRadius = 8
@@ -456,5 +710,9 @@ class DGBConfirmAlert: DGBModalWindow {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        print("proper deallocation")
     }
 }

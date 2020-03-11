@@ -85,6 +85,7 @@ class StartFlowPresenter : Subscriber {
                 // myself.navigationController?.setNavigationBarHidden(false, animated: false)
                 // myself.navigationController?.pushViewController(recoverIntro, animated: true)
                 myself.navigationController?.setNavigationBarHidden(false, animated: false)
+                myself.navigationController?.navigationBar.tintColor = UIColor.white
                 myself.navigationController?.setTintableBackArrow()
                 myself.navigationController?.setClearNavbar()
                 myself.pushRecoverWalletView()
@@ -130,14 +131,51 @@ class StartFlowPresenter : Subscriber {
     private var pushPinCreationViewForRecoveredWallet: (String) -> Void {
         return { [weak self] phrase in
             guard let myself = self else { return }
-            let pinCreationView = UpdatePinViewController(store: myself.store, walletManager: myself.walletManager, type: .creationWithPhrase, showsBackButton: false, phrase: phrase)
             
-            pinCreationView.setPinSuccess = { _ in
-                let req = FirstBlockWithWalletTxRequest(myself.walletManager.wallet!.allAddresses, completion: { (success, hash, height, timestamp) in
-                    // check whether we got the latest data
-                    if success && height > 0 && timestamp > 0 {
-                        // set first block to start from
-                        myself.walletManager.startBlock = StartBlock(hash: hash, timestamp: timestamp, startHeight: height)
+            // Show privacy window
+            let wnd = DGBConfirmAlert(title: "Fast sync", message: "This wallet can communicate with a blockexplorer. Note that this will leak some public wallet addresses in order to speed up the sync.", image: UIImage(named: "privacy"), okTitle: "Fast sync", cancelTitle: nil, alternativeButtonTitle: "Regular sync (slow)")
+            
+            wnd.confirmCallback = { (close: DGBCallback) in
+                let pinCreationView = UpdatePinViewController(store: myself.store, walletManager: myself.walletManager, type: .creationWithPhrase, showsBackButton: false, phrase: phrase)
+                
+                pinCreationView.setPinSuccess = { _ in
+                    UserDefaults.fastSyncEnabled = true
+                    
+                    let req = FirstBlockWithWalletTxRequest(myself.walletManager.wallet!.allAddressesLimited(limit: 20), useBestBlockAlternatively: true, completion: { (success, hash, height, timestamp) in
+                        
+                        if success && height > 0 && timestamp > 0 {
+                            // set first block to start from
+                            myself.walletManager.startBlock = StartBlock(hash: hash, timestamp: timestamp, startHeight: height)
+                        }
+                        
+                        DispatchQueue.main.async {
+                            myself.store.perform(action: WalletChange.setSyncingState(.connecting))
+                        }
+                        
+                        DispatchQueue.walletQueue.async {
+                            myself.walletManager.peerManager?.connect()
+                            DispatchQueue.main.async {
+                                myself.store.trigger(name: .didCreateOrRecoverWallet)
+                            }
+                        }
+                    })
+                
+                    req.start()
+                }
+                
+                close()
+                myself.navigationController?.pushViewController(pinCreationView, animated: true)
+            }
+            
+            wnd.alternativeCallback = { (close: DGBCallback) in
+                UserDefaults.fastSyncEnabled = false
+                
+                let pinCreationView = UpdatePinViewController(store: myself.store, walletManager: myself.walletManager, type: .creationWithPhrase, showsBackButton: false, phrase: phrase)
+                
+                pinCreationView.setPinSuccess = { _ in
+                    // Regular sync
+                    DispatchQueue.main.async {
+                        myself.store.perform(action: WalletChange.setSyncingState(.connecting))
                     }
                     
                     DispatchQueue.walletQueue.async {
@@ -146,12 +184,13 @@ class StartFlowPresenter : Subscriber {
                             myself.store.trigger(name: .didCreateOrRecoverWallet)
                         }
                     }
-                })
-            
-                req.start()
+                }
+                
+                close()
+                myself.navigationController?.pushViewController(pinCreationView, animated: true)
             }
             
-            myself.navigationController?.pushViewController(pinCreationView, animated: true)
+            myself.navigationController?.present(wnd, animated: true, completion: nil)
         }
     }
 
@@ -179,6 +218,11 @@ class StartFlowPresenter : Subscriber {
                 self?.blockReq = nil
                 
                 self?.store.perform(action: WalletChange.setWalletCreationDate(Date()))
+                
+                DispatchQueue.main.async {
+                    self?.store.perform(action: WalletChange.setSyncingState(.connecting))
+                }
+                
                 DispatchQueue.walletQueue.async {
                     self?.walletManager.peerManager?.connect()
                     DispatchQueue.main.async {
@@ -193,6 +237,7 @@ class StartFlowPresenter : Subscriber {
         navigationController?.setNavigationBarHidden(false, animated: false)
         navigationController?.setTintableBackArrow()
         navigationController?.setClearNavbar()
+        navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.pushViewController(pinCreationViewController, animated: true)
     }
 

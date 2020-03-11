@@ -60,7 +60,7 @@ class ApplicationController : Subscriber, Trackable {
     
     func firstBlockSyncInit(_ w: BRWallet) {
         print("No blocks in database found. Trying to fetch first block of interest to start the sync at.")
-        blockReq = FirstBlockWithWalletTxRequest(w.allAddresses, completion: { [weak self] (success, hash, height, timestamp) in
+        blockReq = FirstBlockWithWalletTxRequest(w.allAddressesLimited(limit: 20), useBestBlockAlternatively: true, completion: { [weak self] (success, hash, height, timestamp) in
             if success && timestamp != 0 && height > 0 {
                 guard let walletManager = self?.walletManager else { return }
                 
@@ -98,8 +98,7 @@ class ApplicationController : Subscriber, Trackable {
             }
         }
         
-        if firstInit {
-            print("No blocks in database found. Trying to fetch first block of interest to start the sync at.")
+        if firstInit, UserDefaults.fastSyncEnabled {
             firstBlockSyncInit(wallet!)
         } else {
             // Just start or resume the sync
@@ -180,6 +179,11 @@ class ApplicationController : Subscriber, Trackable {
         if shouldRequireLogin() {
             store.perform(action: RequireLogin())
         }
+        
+        DispatchQueue.main.async {
+            self.store.perform(action: WalletChange.setSyncingState(.connecting))
+        }
+        
         DispatchQueue.walletQueue.async {
             walletManager.peerManager?.connect()
         }
@@ -195,9 +199,15 @@ class ApplicationController : Subscriber, Trackable {
     func retryAfterIsReachable() {
         guard let walletManager = walletManager else { return }
         guard !walletManager.noWallet else { return }
+        
+        DispatchQueue.main.async {
+            self.store.perform(action: WalletChange.setSyncingState(.connecting))
+        }
+        
         DispatchQueue.walletQueue.async {
             walletManager.peerManager?.connect()
         }
+        
         exchangeUpdater?.refresh(completion: {})
         feeUpdater?.refresh()
         walletManager.apiClient?.kv?.syncAllKeys { print("KV finished syncing. err: \(String(describing: $0))") }
@@ -261,6 +271,10 @@ class ApplicationController : Subscriber, Trackable {
                 store.perform(action: ShowStartFlow())
             } else {
                 modalPresenter?.walletManager = walletManager
+                DispatchQueue.main.async {
+                    self.store.perform(action: WalletChange.setSyncingState(.connecting))
+                }
+                
                 DispatchQueue.walletQueue.async {
                     walletManager.peerManager?.connect()
                 }
@@ -269,6 +283,10 @@ class ApplicationController : Subscriber, Trackable {
 
         //For when watch app launches app in background
         } else {
+            DispatchQueue.main.async {
+                self.store.perform(action: WalletChange.setSyncingState(.connecting))
+            }
+            
             DispatchQueue.walletQueue.async { [weak self] in
                 walletManager.peerManager?.connect()
                 if self?.fetchCompletionHandler != nil {

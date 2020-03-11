@@ -201,9 +201,11 @@ class FirstBlockWithWalletTxRequest {
     private var oldestBlock: Block?
     let onCompletion: (Bool, String, Int, Int) -> Void // success, hash, blockHeight, blockTime
     let addresses: [String]
+    let useBestBlockAlternatively: Bool
     
     var completed = false
     var callbackCalled = false
+    var bestBlockRequest: BestBlockRequest? = nil
     // var lock = DispatchSemaphore(value: 1)
     
     private func next(_ callback: @escaping () -> Void) {
@@ -268,7 +270,13 @@ class FirstBlockWithWalletTxRequest {
         if let b = oldestBlock {
             self.onCompletion(true, b.hash, b.blockHeight, b.blockTime)
         } else {
-            self.onCompletion(false, "", 0, 0)
+            if self.useBestBlockAlternatively {
+                self.bestBlockRequest = BestBlockRequest { (success, blockHash, blockHeight, blockTimestamp) in
+                    self.onCompletion(success, blockHash, blockHeight, blockTimestamp)
+                }
+            } else {
+                self.onCompletion(true, "", 0, 0)
+            }
         }
     }
     
@@ -333,10 +341,15 @@ class FirstBlockWithWalletTxRequest {
         }
     }
     
-    init(_ addr: [String], completion: @escaping (Bool, String, Int, Int) -> Void) {
+    init(_ addr: [String], useBestBlockAlternatively: Bool = false, completion: @escaping (Bool, String, Int, Int) -> Void) {
         onCompletion = completion
         
         // create session
         self.addresses = addr
+        self.useBestBlockAlternatively = useBestBlockAlternatively
+    }
+    
+    deinit {
+        bestBlockRequest = nil
     }
 }

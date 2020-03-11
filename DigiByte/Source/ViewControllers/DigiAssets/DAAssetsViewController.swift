@@ -8,6 +8,11 @@
 
 import UIKit
 
+typealias AssetId = String
+
+import AVKit
+import AVFoundation
+
 fileprivate class MainAssetHeader: UIView {
     let header = UILabel(font: UIFont.da.customBold(size: 20), color: .white)
     let searchBar = UITextField()
@@ -34,25 +39,134 @@ fileprivate class MainAssetHeader: UIView {
     }
 }
 
-class PaddedCell: UITableViewCell {
-    private var percentage: CGFloat = {
-        // ToDo: optimize for iPhone SE and others
-        return 0.9
-    }()
+class DAAssetMediaViewer: UIViewController {
+    enum MediaType {
+        case image
+        case video
+    }
     
-    override var frame: CGRect {
-        get {
-            return super.frame
+    var mediaType: MediaType!
+    var mimeType: String!
+    var url: URL!
+    var initialized: Bool = false
+    
+    let imageView = UIImageView(image: nil)
+    var playerController: AVPlayerViewController!
+    var player: AVPlayer!
+    
+    func getUrlModel() -> UrlModel? {
+        return assetModel.getVideoUrl() ?? assetModel.getBigImage()
+    }
+     
+    func getMediaType() -> MediaType? {
+        if assetModel.getVideoUrl() != nil { return .video }
+        if assetModel.getBigImage() != nil { return .image }
+        return nil
+    }
+    
+    let assetModel: AssetModel
+    
+    init(assetModel: AssetModel) {
+        self.assetModel = assetModel
+        super.init(nibName: nil, bundle: nil)
+        
+        guard
+            let urlModel = getUrlModel(),
+            let mediaType = getMediaType(),
+            let urlString = urlModel.url,
+            let url = URL(string: urlString),
+            let mimeType = urlModel.mimeType
+        else {
+            return
         }
-        set (n) {
-            var frame = n
-            let newWidth = frame.width * percentage
-            let space = (frame.width - newWidth) / 2
-            frame.size.width = newWidth
-            frame.origin.x += space
+        
+        self.initialized = true
+        
+        self.mediaType = mediaType
+        self.mimeType = mimeType
+        self.url = url
+        
+        addSubviews()
+        setStyle()
+        setContent()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        switch mediaType {
+        case .video:
+            player.play()
+        
+        default:
+            break
+        }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setStyle() {
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+    }
+    
+    private func addSubviews() {
+        switch mediaType {
+        case .video:
+            player = AVPlayer(url: url)
+            playerController = AVPlayerViewController()
+            playerController.player = player
+            addChildViewController(playerController) {
+                playerController.view.constrain(toSuperviewEdges: nil)
+            }
             
-            super.frame = frame
+        case .image:
+            view.addSubview(imageView)
+            imageView.constrain(toSuperviewEdges: nil)
+            imageView.contentMode = .scaleAspectFit
+            
+        default:
+            break
         }
+        
+        if #available(iOS 13, *) {
+        } else {
+            let closeButton = UIButton.close
+            closeButton.tap = { [weak self] in
+                self?.dismiss(animated: true, completion: nil)
+            }
+            view.addSubview(closeButton)
+            
+            closeButton.constrain([
+                closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
+                closeButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15),
+                closeButton.widthAnchor.constraint(equalToConstant: 48),
+                closeButton.heightAnchor.constraint(equalToConstant: 48),
+            ])
+        }
+    }
+    
+    private func setContent() {
+        switch mediaType {
+        case .video:
+            break
+            
+        case .image:
+            imageView.kf.setImage(with: url)
+            
+        default:
+            break
+        }
+    }
+}
+
+class PaddedCell: UITableViewCell {
+    var margins: UIEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: margins)
     }
 }
 
@@ -124,6 +238,8 @@ class AssetCell: PaddedCell {
     let infoTextLabel = MarqueeLabel(font: UIFont.da.customMedium(size: 13), color: .white) // UILabel(font: UIFont.da.customMedium(size: 13), color: .white)
     
     var menuButtonTapped: ((AssetCell) -> Void)? = nil
+    var imageTappedCallback: ((AssetCell) -> Void)? = nil
+    var assetId: String?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -212,13 +328,21 @@ class AssetCell: PaddedCell {
         amountLabel.textAlignment = .right
         
         assetLabel.text = S.Assets.unknown
-        assetLabel.numberOfLines = 0
-        assetLabel.lineBreakMode = .byWordWrapping
+        assetLabel.numberOfLines = 3
+        assetLabel.lineBreakMode = .byTruncatingTail
         assetLabel.textAlignment = .left
         
         assetImage.image = AssetCell.defaultImage
         assetImage.contentMode = .scaleAspectFit
         assetImage.backgroundColor = .clear
+        
+        let gr = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        assetImage.isUserInteractionEnabled = true
+        assetImage.addGestureRecognizer(gr)
+    }
+    
+    @objc private func imageTapped() {
+        self.imageTappedCallback?(self)
     }
 
     @objc private func touchUp() {
@@ -283,6 +407,11 @@ fileprivate class CreateNewAssetCell: PaddedCell {
         getStartedBtn.label.font = UIFont.da.customBold(size: 12)
         getStartedBtn.height = 34
         
+        getStartedBtn.touchUpInside = {
+            let url = URL(string: "https://createdigiassets.com")!
+            UIApplication.shared.open(url)
+        }
+        
         contentView.heightAnchor.constraint(equalToConstant: 128).isActive = true
     }
     
@@ -294,6 +423,9 @@ fileprivate class CreateNewAssetCell: PaddedCell {
 class AssetContextMenuButton: UIControl {
     let label = UILabel(font: UIFont.customBold(size: 14), color: UIColor.white)
     let glyph = UIImageView()
+    
+    // TouchUpInside
+    var touchUpInside: (() -> Void)? = nil
     
     init(_ image: UIImage?, text: String, bgColor: UIColor = UIColor.da.contextMenuBackgroundColor) {
         super.init(frame: .zero)
@@ -323,6 +455,17 @@ class AssetContextMenuButton: UIControl {
         glyph.tintColor = UIColor.white
         
         backgroundColor = bgColor
+        
+        let gr = DAButtonGestureRecognizer(target: self, action: nil)
+//        gr.touchDownCallback = { [weak self] in self?.frame.origin.y = 2 }
+        gr.touchUpCallback = { [weak self] withinButton in
+//            view?.frame.origin.y = 0
+            if withinButton { self?.touchUpInside?() }
+        }
+        gr.cancelsTouchesInView = false
+        gr.delegate = self
+        gr.delaysTouchesBegan = false
+        self.addGestureRecognizer(gr)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -330,9 +473,20 @@ class AssetContextMenuButton: UIControl {
     }
 }
 
+extension AssetContextMenuButton: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        return true
+    }
+}
+
 class AssetContextMenu: UIView {
     let roundedView = UIView()
     let stackView = UIStackView()
+    
+    let txBtn = AssetContextMenuButton(UIImage(named: "da-glyph-info"), text: "Transactions")
+    let sendBtn = AssetContextMenuButton(UIImage(named: "da-glyph-send"), text: "Send")
+//        let receiveBtn = AssetContextMenuButton(UIImage(named: "da-glyph-receive"), text: "Receive"))
+    let burnBtn = AssetContextMenuButton(UIImage(named: "da-glyph-burn"), text: "Burn", bgColor: UIColor.da.burnColor)
     
     init() {
         super.init(frame: .zero)
@@ -351,11 +505,11 @@ class AssetContextMenu: UIView {
         stackView.alignment = .fill
         stackView.distribution = .fill
         stackView.axis = .vertical
-        
-        stackView.addArrangedSubview(AssetContextMenuButton(UIImage(named: "da-glyph-info"), text: "Transactions"))
-        stackView.addArrangedSubview(AssetContextMenuButton(UIImage(named: "da-glyph-send"), text: "Send"))
-//        stackView.addArrangedSubview(AssetContextMenuButton(UIImage(named: "da-glyph-receive"), text: "Receive"))
-        stackView.addArrangedSubview(AssetContextMenuButton(UIImage(named: "da-glyph-burn"), text: "Burn", bgColor: UIColor.da.burnColor))
+
+        stackView.addArrangedSubview(txBtn)
+        stackView.addArrangedSubview(sendBtn)
+//        stackView.addArrangedSubview(receiveBtn)
+        stackView.addArrangedSubview(burnBtn)
         
         clipsToBounds = true
     }
@@ -365,21 +519,20 @@ class AssetContextMenu: UIView {
     }
 }
 
-class DAAssetsRootViewController: UINavigationController {
-    init(store: BRStore, wallet: BRWallet) {
-        super.init(nibName: nil, bundle: nil)
-        
-        let vc = DAAssetsViewController(store: store, wallet: wallet)
-        setViewControllers([vc], animated: true)
-        
-        tabBarItem = UITabBarItem(title: "Assets", image: UIImage(named: "da-assets")?.withRenderingMode(.alwaysTemplate), tag: 0)
-        navigationBar.isHidden = true
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
+//class DAAssetsRootViewController: UINavigationController {
+//    init(store: BRStore, wallet: BRWallet) {
+//        super.init(nibName: nil, bundle: nil)
+//        
+//        let vc = DAAssetsViewController(store: store, wallet: wallet)
+//        setViewControllers([vc], animated: true)
+//        
+//
+//    }
+//    
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//}
 
 class DAAssetsViewController: UIViewController {
     // MARK: Private
@@ -403,6 +556,7 @@ class DAAssetsViewController: UIViewController {
     private let tableViewBorder = UIView()
     
     private let emptyLabel = UILabel(font: UIFont.da.customBold(size: 22), color: .white)
+    private var contextMenuCtx: String? = nil
     
     private var decelerate: Bool = false
     private var showTableViewBorder: Bool = false {
@@ -431,6 +585,8 @@ class DAAssetsViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         
         emptyImage.image = UIImage(named: "da-empty")
+        
+        tabBarItem = UITabBarItem(title: "Assets", image: UIImage(named: "da-assets")?.withRenderingMode(.alwaysTemplate), tag: 0)
         
         addSubviews()
         setContent()
@@ -625,6 +781,43 @@ class DAAssetsViewController: UIViewController {
         AssetNotificationCenter.instance.addObserver(forName: AssetNotificationCenter.notifications.fetchedAssets, object: nil, queue: nil) { _ in
             self.loadingAssetsModalView.dismiss(animated: true, completion: nil)
         }
+        
+        contextMenu.txBtn.touchUpInside = { [weak self] in
+            self?.contextMenu.isHidden = true
+            self?.contextMenuUnderlay.isHidden = true
+            
+            guard let assetModelId = self?.contextMenuCtx else { return }
+            self?.openDetailView(assetId: assetModelId)
+        }
+        
+        contextMenu.sendBtn.touchUpInside = { [weak self] in
+            self?.contextMenu.isHidden = true
+            self?.contextMenuUnderlay.isHidden = true
+            
+            guard let assetId = self?.contextMenuCtx else { return }
+            guard let tabBarController = self?.tabBarController else { return }
+            (tabBarController as! DAMainViewController).actionHandler(.send(assetId))
+        }
+        
+        contextMenu.burnBtn.touchUpInside = { [weak self] in
+            self?.contextMenu.isHidden = true
+            self?.contextMenuUnderlay.isHidden = true
+            
+            guard let assetId = self?.contextMenuCtx else { return }
+            guard let tabBarController = self?.tabBarController else { return }
+            (tabBarController as! DAMainViewController).actionHandler(.burn(assetId))
+        }
+    }
+    
+    func openDetailView(assetId: String) {
+        guard
+            let assetModel = AssetHelper.getAssetModel(assetID: assetId)
+        else {
+            return
+        }
+        
+        let vc = DADetailViewController(store: store, wallet: wallet, assetModel: assetModel)
+        self.present(vc, animated: true, completion: nil)
     }
     
     @objc
@@ -647,6 +840,8 @@ class DAAssetsViewController: UIViewController {
             
             // get global position
             let gpos = tableView.convert(pos, to: view)
+            
+            contextMenuCtx = cell.assetId
             
             // deactivate and remove each constraint
             contextMenuConstraints.forEach { c in
@@ -724,10 +919,26 @@ extension DAAssetsViewController: UITableViewDelegate, UITableViewDataSource {
         let assetModel = AssetHelper.getAssetModel(assetID: assetId) ?? AssetModel.dummy()
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "asset") as! AssetCell
+        cell.assetId = assetId
         cell.configure(showContent: false)
         cell.menuButtonTapped = menuButtonTapped
         cell.menuButton.tintColor = UIColor.da.inactiveColor
         
+        cell.imageTappedCallback = { [weak self] cell in
+            guard
+                let id = cell.assetId,
+                let model = AssetHelper.getAssetModel(assetID: id)
+            else {
+                return
+            }
+            
+            let vc = DAAssetMediaViewer(assetModel: model)
+            guard vc.initialized else {
+                return
+            }
+            
+            self?.present(vc, animated: true)
+        }
         cell.assetLabel.text = assetModel.getAssetName()
         
         let balance = AssetHelper.allBalances[assetId] ?? 0
@@ -772,7 +983,7 @@ extension DAAssetsViewController: UITableViewDelegate, UITableViewDataSource {
         let openDetailView: (AssetModel) -> Void = { [weak self] assetModel in
             guard let myself = self else { return }
             let vc = DADetailViewController(store: myself.store, wallet: myself.wallet, assetModel: assetModel)
-            myself.navigationController?.pushViewController(vc, animated: true)
+            myself.present(vc, animated: true, completion: nil)
         }
         
         // return asset cell

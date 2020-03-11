@@ -8,7 +8,7 @@
 
 import UIKit
 
-fileprivate class DAPinView: DGBModalWindow {
+class DAPinView: DGBModalWindow {
     private let callback: VerifyPinCallback
     private let textDescription: String
     
@@ -143,6 +143,7 @@ class DASendViewController: UIViewController {
     let assetDropdown = DADropDown()
     let totalBalanceLabel = UILabel(font: UIFont.da.customMedium(size: 13), color: UIColor.da.secondaryGrey)
     let receiverAddressBox = DATextBox(showClearButton: true, showPasteButton: true)
+    let receiverNameLabel = UILabel(font: UIFont.da.customMedium(size: 13), color: UIColor.da.secondaryGrey)
     let amountBox = DATextBox(showClearButton: true, mode: .numbersOnly)
     let amountButtonStackView = UIStackView()
     let sendButton = DAButton(title: "Send Assets".uppercased(), backgroundColor: UIColor.da.darkSkyBlue, height: 40)
@@ -152,10 +153,16 @@ class DASendViewController: UIViewController {
     private let walletManager: WalletManager
     private let assetSender: AssetSender!
     
+    private var indexedContacts: [String: AddressBookContact] = [:]
+    
     var selectedModel: AssetModel? = nil {
         didSet {
             modelSelected()
         }
+    }
+    
+    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        UIPasteboard.general.string = assetSender.debug // YOSHI, remove before RELEASE
     }
     
     init(store: BRStore, wallet: BRWallet, walletManager: WalletManager) {
@@ -188,6 +195,11 @@ class DASendViewController: UIViewController {
         
         totalBalanceLabel.text = " "
         totalBalanceLabel.textAlignment = .left
+        totalBalanceLabel.textColor = UIColor(red: 248 / 255, green: 156 / 255, blue: 78 / 255, alpha: 1.0) // 248 156 78
+        
+        receiverNameLabel.text = " "
+        receiverNameLabel.textAlignment = .left
+        receiverNameLabel.textColor = UIColor(red: 248 / 255, green: 156 / 255, blue: 78 / 255, alpha: 1.0) // 248 156 78
         
         sendButton.label.font = UIFont.da.customBold(size: 14)
         sendButton.leftImage = UIImage(named: "da-glyph-send")
@@ -216,6 +228,7 @@ class DASendViewController: UIViewController {
         stackView.addArrangedSubview(createVerticalSpacingView())
         
         stackView.addArrangedSubview(receiverAddressBox)
+        stackView.addArrangedSubview(receiverNameLabel)
         stackView.addArrangedSubview(createVerticalSpacingView())
         
         stackView.addArrangedSubview(amountBox)
@@ -231,7 +244,45 @@ class DASendViewController: UIViewController {
         addConstraints()
         addEvents()
         
+        configureReceiverAddressBox()
+        indexContacts()
+        
         modelSelected()
+    }
+    
+    private func indexContacts() {
+        indexedContacts = [:]
+        
+        let contacts = AddressBookContact.loadContacts()
+        for contact in contacts {
+            indexedContacts[contact.address] = contact
+        }
+    }
+    
+    private func configureReceiverAddressBox() {
+        receiverAddressBox.clipboardButton.setImage(UIImage(named: "more")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        receiverAddressBox.clipboardButtonTapped = { [weak self] in
+            // Show modal window (gallery, image, scanner)
+            let modalWindow = DGBModalMediaOptions { (address) in
+                self?.receiverAddressBox.textBox.text = address
+                self?.indexContacts()
+                self?.updateReceiverName(address)
+            }
+            
+            self?.present(modalWindow, animated: true, completion: nil)
+        }
+        receiverAddressBox.textChanged = { [weak self] text in
+            self?.updateReceiverName(text)
+        }
+    }
+    
+    private func updateReceiverName(_ text: String) {
+        guard let contact = indexedContacts[text] else {
+            receiverNameLabel.text = " "
+            return
+        }
+        
+        receiverNameLabel.text = contact.name
     }
     
     @objc
@@ -314,7 +365,6 @@ class DASendViewController: UIViewController {
         // Update total balance
         let balance = AssetHelper.allBalances[assetModel.assetId] ?? 0
         totalBalanceLabel.text = "\(S.Assets.totalBalance): \(balance)"
-        totalBalanceLabel.textColor = UIColor(red: 248 / 255, green: 156 / 255, blue: 78 / 255, alpha: 1.0) // 248 156 78
         
         amountBox.textBox.text = ""
         
@@ -409,8 +459,6 @@ class DASendViewController: UIViewController {
                         self?.showError(with: "Transaction could not be broadcasted: \(error)")
                     }
             })
-            
-            
         }
     }
     

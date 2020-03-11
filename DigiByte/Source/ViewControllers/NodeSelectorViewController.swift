@@ -18,11 +18,13 @@ class NodeSelectorViewController : UIViewController, Trackable {
     private let status = UILabel(font: .customMedium(size: 14.0), color: C.Colors.text)
     private let button: ShadowButton
     private let walletManager: WalletManager
+    private let store: BRStore
     private var okAction: UIAlertAction?
     private var timer: Timer?
 
-    init(walletManager: WalletManager) {
+    init(walletManager: WalletManager, store: BRStore) {
         self.walletManager = walletManager
+        self.store = store
         if UserDefaults.customNodeIP == nil {
             button = ShadowButton(title: S.NodeSelector.manualButton, type: .primary)
         } else {
@@ -94,6 +96,11 @@ class NodeSelectorViewController : UIViewController, Trackable {
         UserDefaults.customNodeIP = nil
         UserDefaults.customNodePort = nil
         button.title = S.NodeSelector.manualButton
+        
+        DispatchQueue.main.async {
+            self.store.perform(action: WalletChange.setSyncingState(.connecting))
+        }
+        
         DispatchQueue.walletQueue.async {
             self.walletManager.peerManager?.setFixedPeer(address: 0, port: 0)
             self.walletManager.peerManager?.connect()
@@ -126,6 +133,10 @@ class NodeSelectorViewController : UIViewController, Trackable {
                 var address = in_addr()
                 ascii2addr(AF_INET, addressText, &address)
                 UserDefaults.customNodeIP = Int(address.s_addr)
+                
+                DispatchQueue.main.async {
+                    self.store.perform(action: WalletChange.setSyncingState(.connecting))
+                }
                 
                 DispatchQueue.walletQueue.async {
                     self.walletManager.peerManager?.connect()

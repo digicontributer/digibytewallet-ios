@@ -89,6 +89,12 @@ enum WalletChange {
             reduce = { $0.clone(syncState: syncState) }
         }
     }
+    struct setIsConnected: Action {
+        let reduce: Reducer
+        init(_ isConnected: Bool) {
+            reduce = { $0.clone(isConnected: isConnected) }
+        }
+    }
     struct setBalance: Action {
         let reduce: Reducer
         init(_ balance: UInt64) {
@@ -338,6 +344,26 @@ extension State {
                      rootModal: rootModal,
                      hamburgerModal: hamburgerModal,
                      walletState: WalletState(isConnected: walletState.isConnected, syncProgress: walletSyncProgress, syncState: walletState.syncState, balance: walletState.balance, transactions: walletState.transactions, lastBlockTimestamp: timestamp, name: walletState.name, creationDate: walletState.creationDate, isRescanning: walletState.isRescanning, blockHeight: blockHeight),
+                     isBtcSwapped: isBtcSwapped,
+                     currentRate: currentRate,
+                     rates: rates,
+                     alert: alert,
+                     isBiometricsEnabled: isBiometricsEnabled,
+                     defaultCurrencyCode: defaultCurrencyCode,
+                     recommendRescan: recommendRescan,
+                     isLoadingTransactions: isLoadingTransactions,
+                     maxDigits: maxDigits,
+                     isPushNotificationsEnabled: isPushNotificationsEnabled,
+                     isPromptingBiometrics: isPromptingBiometrics,
+                     pinLength: pinLength,
+                     fees: fees)
+    }
+    func clone(isConnected: Bool) -> State {
+        return State(isStartFlowVisible: isStartFlowVisible,
+                     isLoginRequired: isLoginRequired,
+                     rootModal: rootModal,
+                     hamburgerModal: hamburgerModal,
+                     walletState: WalletState(isConnected: isConnected, syncProgress: walletState.syncProgress, syncState: walletState.syncState, balance: walletState.balance, transactions: walletState.transactions, lastBlockTimestamp: walletState.lastBlockTimestamp, name: walletState.name, creationDate: walletState.creationDate, isRescanning: walletState.isRescanning, blockHeight: walletState.blockHeight),
                      isBtcSwapped: isBtcSwapped,
                      currentRate: currentRate,
                      rates: rates,

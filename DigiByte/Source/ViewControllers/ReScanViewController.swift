@@ -77,13 +77,28 @@ class ReScanViewController : UIViewController, Subscriber {
     }
 
     private func presentRescanAlert() {
-        let alert = AlertController(title: S.ReScan.alertTitle, message: S.ReScan.alertMessage, preferredStyle: .alert)
-        alert.addAction(AlertAction(title: S.Button.cancel, style: .default, handler: nil))
-        alert.addAction(AlertAction(title: S.ReScan.alertAction, style: .default, handler: { _ in
+        // Show privacy window
+        let wnd = DGBConfirmAlert(title: "Fast resync", message: "In order to optimize the sync, this wallet can communicate with a blockexplorer. Note that this will leak some public wallet addresses in order to speed up the sync.", image: UIImage(named: "privacy"), okTitle: "Fast resync", cancelTitle: "Cancel", alternativeButtonTitle: "Regular resync (slow)")
+        
+        wnd.confirmCallback = { (close: DGBCallback) in
+            UserDefaults.fastSyncEnabled = true
+            close()
+            
             self.store.trigger(name: .rescan)
-            self.showSyncView()
-        }))
-        present(alert, animated: true, completion: nil)
+        }
+        
+        wnd.cancelCallback = { (close: DGBCallback) in
+            close()
+        }
+        
+        wnd.alternativeCallback = { (close: DGBCallback) in
+            UserDefaults.fastSyncEnabled = false
+            close()
+            
+            self.store.trigger(name: .rescan)
+        }
+            
+        self.present(wnd, animated: true, completion: nil)
     }
 
     private func showSyncView() {

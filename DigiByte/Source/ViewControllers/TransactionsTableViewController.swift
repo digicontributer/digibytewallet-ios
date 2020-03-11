@@ -131,7 +131,9 @@ class TransactionsTableViewController : UITableViewController, Subscriber, Track
         store.subscribe(self, selector: { $0.walletState.transactions != $1.walletState.transactions },
                         callback: { state in
                             self.allTransactions = state.walletState.transactions
-                            self.reload()
+                            DispatchQueue.main.async {
+                                self.reload()
+                            }
         })
         
         store.subscribe(self, selector: { $0.isLoginRequired != $1.isLoginRequired },
@@ -290,7 +292,8 @@ class TransactionsTableViewController : UITableViewController, Subscriber, Track
     }
 
     private func reload() {
-        tableView.reloadData()
+        self.tableView.reloadData()
+        
         if transactions.count == 0 {
             if emptyMessage.superview == nil {
                 tableView.addSubview(emptyMessage)

@@ -39,7 +39,7 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
     
     private let segwitSwitch: UISwitch = {
         let v = UISwitch()
-        v.isOn = true
+        v.isOn = false
         v.isHidden = true // Pre Segwit Release
         return v
     }()
@@ -50,6 +50,7 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
         btn.setBackgroundImage(UIImage(named: "shareButton"), for: .normal)
         return btn
     }()
+    
     private let crShare: UIButton = {
         let btn = UIButton(type: .system)
         btn.backgroundColor = .clear

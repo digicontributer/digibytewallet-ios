@@ -207,6 +207,11 @@ class DAOnboardingViewController: UIViewController {
         setEvents()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        UserDefaults.digiAssetsOnboardingShown = true
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }

@@ -8,6 +8,12 @@
 
 import UIKit
 
+fileprivate class FaqButton: UIButton {
+    override var alignmentRectInsets: UIEdgeInsets {
+        return UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 16)
+    }
+}
+
 class DigiIDExceptionViewController: UITableViewController {
     var presentScan: PresentDigiIdScan!
     
@@ -19,8 +25,27 @@ class DigiIDExceptionViewController: UITableViewController {
         tableView.backgroundColor = C.Colors.background
         tableView.separatorColor = C.Colors.blueGrey
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        
+        let positiveSeparator = UIBarButtonItem(barButtonSystemItem:.fixedSpace, target: nil, action: nil)
+        positiveSeparator.width = 16
+        
+        let faqbtn = FaqButton(type: .system)
+        
+        faqbtn.setImage(UIImage(named: "Faq"), for: .normal)
+        
+        faqbtn.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        faqbtn.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        faqbtn.translatesAutoresizingMaskIntoConstraints = false
+        faqbtn.addTarget(self, action: #selector(self.digiIDLegacyHelpTapped), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: faqbtn)
     }
     
+    
+    @objc
+    private func digiIDLegacyHelpTapped() {
+        showAlert(title: "Digi-ID Legacy", message: "Digi-ID Legacy refers to an outdated authentication variant of Digi-ID, which was not compatible with DigiByte Android. It is not recommended to use Digi-ID Legacy for new logins.", buttonLabel: "Understood!")
+    }
+
     @objc
     private func addSite() {
         presentScan({ [weak self] digiIdRequest in
