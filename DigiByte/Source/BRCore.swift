@@ -635,6 +635,10 @@ class BRWallet {
         return BRWalletHasAssetUtxo(cPtr, txid, Int32(n)) != 0;
     }
     
+    func utxoIsSpendable(txid: String, n: Int) -> Bool {
+        return BRWalletUtxoSpendable(cPtr, txid, Int32(n)) != 0;
+    }
+    
     // outputs below this amount are uneconomical due to fees (TX_MIN_OUTPUT_AMOUNT is the absolute min output amount)
     var minOutputAmount: UInt64 {
         return BRWalletMinOutputAmount(cPtr)

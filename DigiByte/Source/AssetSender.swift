@@ -149,13 +149,21 @@ class AssetSender {
             var singleSum: Int = 0
             
             // Check if input was registered by wallet
-            guard wallet.hasUtxo(txid: utxo.txid, n: utxo.index) else { continue }
+            guard wallet.hasUtxo(txid: utxo.txid, n: utxo.index) else {
+                addDebug("Utxo \(utxo.txid):\(utxo.index) not available")
+                continue
+            }
+            guard wallet.utxoIsSpendable(txid: utxo.txid, n: utxo.index) else {
+                addDebug("Utxo \(utxo.txid):\(utxo.index) already spent")
+                continue
+            }
             
             utxo.assets.forEach { (infoModel) in
-                // Only add amount if it's the amount if the specific asset
+                // Only add amount if it's the amount of the specific asset
                 if infoModel.assetId == assetModel.assetId {
                     singleSum += infoModel.amount
-                    addDebug("Select Asset Utxo with amount=\(infoModel.amount), total=\(singleSum)\n")
+                    addDebug("Select Asset Utxo with amount=\(infoModel.amount), TOTAL_FROM_THIS_UTXO=\(singleSum) TOTAL=\(selectedAmountSum)\n")
+                    
                 }
             }
             
@@ -352,6 +360,11 @@ class AssetSender {
     // Only supports v2
     private func transferInstruction(skip: Bool, range: Bool = false, percent: Bool = false, outputIndex: Int, amount: Int) -> [UInt8] {
         
+        if amount == 0 {
+            addDebug("tx-instruction skip instruction outputIndex=\(outputIndex)")
+            return []
+        }
+        
         addDebug("tx-instruction skip=\(skip) range=\(range) percent=\(percent) outputIndex=\(outputIndex) amount=\(amount)\n")
         
         var ret = [UInt8]()
@@ -402,7 +415,7 @@ class AssetSender {
                 guard let myself = self else { return }
                 myself.walletManager.signTransaction(tx, biometricsPrompt: biometricsMessage, completion: { result in
                     
-                    print(tx.debugDescription)
+                    myself.addDebug(tx.debugDescription)
                     
                     if result == .success {
                         myself.publish(completion: completion)
@@ -425,6 +438,7 @@ class AssetSender {
             group.enter()
             DispatchQueue.walletQueue.async {
                 if self.walletManager.signTransaction(tx, pin: pin) {
+                    self.addDebug(tx.debugDescription)
                     self.publish(completion: completion)
                     success = true
                 }

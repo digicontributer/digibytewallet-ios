@@ -67,6 +67,7 @@ class DAPinView: DGBModalWindow {
         descriptionLabel.text = textDescription
         descriptionLabel.numberOfLines = 0
         descriptionLabel.lineBreakMode = .byWordWrapping
+        descriptionLabel.textAlignment = .center
         
         pinView.fill(input.count)
         pinView.translatesAutoresizingMaskIntoConstraints = false
@@ -317,7 +318,9 @@ class DASendViewController: UIViewController {
         assetSelector.callback = { [weak self] asset in
             self?.selectedModel = asset
         }
-        self.present(assetSelector, animated: true, completion: nil)
+        self.present(assetSelector, animated: true, completion: {
+            assetSelector.tableView.reloadData()
+        })
     }
     
     private func setBalance(multiplier: Double = 0.0, constant: Int = 0) {
