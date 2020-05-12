@@ -537,7 +537,7 @@ class AssetContextMenu: UIView {
 class DAAssetsViewController: UIViewController {
     // MARK: Private
     private let store: BRStore
-    private let wallet: BRWallet
+    private let walletManager: WalletManager
     
     private var loadingAssetsModalView = DGBModalLoadingView(title: S.Assets.fetchingAssetsTitle)
     private var assetResolver: AssetResolver? = nil
@@ -579,9 +579,9 @@ class DAAssetsViewController: UIViewController {
         }
     }
     
-    init(store: BRStore, wallet: BRWallet) {
+    init(store: BRStore, walletManager: WalletManager) {
         self.store = store
-        self.wallet = wallet
+        self.walletManager = walletManager
         super.init(nibName: nil, bundle: nil)
         
         emptyImage.image = UIImage(named: "da-empty")
@@ -811,7 +811,8 @@ class DAAssetsViewController: UIViewController {
     
     func openDetailView(assetId: String) {
         guard
-            let assetModel = AssetHelper.getAssetModel(assetID: assetId)
+            let assetModel = AssetHelper.getAssetModel(assetID: assetId),
+            let wallet = walletManager.wallet
         else {
             return
         }
@@ -974,15 +975,19 @@ extension DAAssetsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         self.decelerate = true
-//        showTableViewBorder = false
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.section == 0 else { return }
         
         let openDetailView: (AssetModel) -> Void = { [weak self] assetModel in
-            guard let myself = self else { return }
-            let vc = DADetailViewController(store: myself.store, wallet: myself.wallet, assetModel: assetModel)
+            guard
+                let myself = self,
+                let wallet = myself.walletManager.wallet
+            else {
+                return
+            }
+            let vc = DADetailViewController(store: myself.store, wallet: wallet, assetModel: assetModel)
             myself.present(vc, animated: true, completion: nil)
         }
         

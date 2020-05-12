@@ -149,7 +149,6 @@ class DASendViewController: UIViewController {
     let sendButton = DAButton(title: "Send Assets".uppercased(), backgroundColor: UIColor.da.darkSkyBlue, height: 40)
     
     private let store: BRStore
-    private let wallet: BRWallet
     private let walletManager: WalletManager
     private let assetSender: AssetSender!
     
@@ -165,9 +164,8 @@ class DASendViewController: UIViewController {
         UIPasteboard.general.string = assetSender.debug // YOSHI, remove before RELEASE
     }
     
-    init(store: BRStore, wallet: BRWallet, walletManager: WalletManager) {
+    init(store: BRStore, walletManager: WalletManager) {
         self.store = store
-        self.wallet = wallet
         self.walletManager = walletManager
         assetSender = AssetSender(walletManager: walletManager, store: store)
         

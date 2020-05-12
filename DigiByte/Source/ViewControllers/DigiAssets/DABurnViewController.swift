@@ -49,7 +49,6 @@ fileprivate func pad(_ pad: CGFloat, _ view: UIView) -> UIView {
 class DABurnViewController: UIViewController {
     private var hc: NSLayoutConstraint? = nil
     private let store: BRStore
-    private let wallet: BRWallet
     private let walletManager: WalletManager
     private let assetSender: AssetSender!
     
@@ -73,9 +72,8 @@ class DABurnViewController: UIViewController {
         }
     }
     
-    init(store: BRStore, wallet: BRWallet, walletManager: WalletManager) {
+    init(store: BRStore, walletManager: WalletManager) {
         self.store = store
-        self.wallet = wallet
         self.walletManager = walletManager
         self.assetSender = AssetSender(walletManager: walletManager, store: store)
         super.init(nibName: nil, bundle: nil)
