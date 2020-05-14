@@ -520,6 +520,7 @@ typealias DGBCallback = (() -> Void)
 
 class DGBModalLoadingView: DGBModalWindow {
     let ai: UIActivityIndicatorView
+    let label = UILabel()
     var gr: UITapGestureRecognizer!
     var tapCount = 0
     
@@ -529,10 +530,21 @@ class DGBModalLoadingView: DGBModalWindow {
         
         ai.heightAnchor.constraint(equalToConstant: 40).isActive = true
         stackView.addArrangedSubview(ai)
+        stackView.addArrangedSubview(label)
         
         gr = UITapGestureRecognizer(target: self, action: #selector(tapped))
         view.isUserInteractionEnabled = true
         view.addGestureRecognizer(gr)
+        
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.font = UIFont.da.customBody(size: 14)
+        label.lineBreakMode = .byWordWrapping
+        label.textColor = UIColor.gray
+    }
+    
+    func updateStep(current: Int, total: Int) {
+        label.text = "\(current) / \(total)"
     }
     
     @objc
