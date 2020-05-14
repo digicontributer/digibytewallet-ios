@@ -635,6 +635,10 @@ class BRWallet {
         return BRWalletHasAssetUtxo(cPtr, txid, Int32(n)) != 0;
     }
     
+    func printUtxos() {
+        return BRWalletPrintUtxos(cPtr)
+    }
+    
     func utxoIsSpendable(txid: String, n: Int) -> Bool {
         return BRWalletUtxoSpendable(cPtr, txid, Int32(n)) != 0;
     }
