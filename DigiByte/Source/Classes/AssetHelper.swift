@@ -427,6 +427,9 @@ class FetchAssetTransactionOperation: Operation {
     
     override var isFinished: Bool {
         set {
+            if newValue {
+                self.finished()
+            }
             willChangeValue(forKey: "isFinished")
             _isFinished = newValue
             didChangeValue(forKey: "isFinished")
@@ -446,6 +449,13 @@ class FetchAssetTransactionOperation: Operation {
         
         get {
             return _isExecuting
+        }
+    }
+    
+    func finished() {
+        DispatchQueue.main.async {
+            self.state.progress.current = self.state.progress.current + 1
+            AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.updateProgress, object: nil, userInfo: self.state.progress.getUserInfo())
         }
     }
     
@@ -621,21 +631,37 @@ class AssetResolver {
     private let callback: ([AssetResolveState]) -> Void
     private let queue = OperationQueue()
     
+    class ProgressState {
+        var current: Int = 0
+        var total: Int = 0
+        
+        func getUserInfo() -> [String: Int] {
+            var ret = [String: Int]()
+            ret["current"] = current
+            ret["total"] = total
+            return ret
+        }
+    }
+    
     class AssetResolveState {
         var txID: String
         var resolved: Bool = false
         var failed: Bool = false
         
+        let progress: ProgressState
+        
         var transactionInfoModel: TransactionInfoModel? = nil
         var resolvedModels: [AssetModel] = []
         
-        init(txid: String) {
+        init(txid: String, progressState: ProgressState) {
             self.txID = txid
+            self.progress = progressState
         }
     }
     
     var states = [AssetResolveState]()
     var stateMap = [String: AssetResolveState]()
+    var progress = ProgressState()
     
     init(txids: [String], callback: @escaping ([AssetResolveState]) -> Void) {
         self.callback = callback
@@ -647,7 +673,7 @@ class AssetResolver {
 
         states.reserveCapacity(self.txIDSet.count)
         self.txIDSet.forEach { (txid) in
-            let state = AssetResolveState(txid: txid)
+            let state = AssetResolveState(txid: txid, progressState: progress)
             states.append(state)
             stateMap[txid] = state
         }
@@ -661,7 +687,7 @@ class AssetResolver {
     }
     
     private func configureQueue() {
-        queue.maxConcurrentOperationCount = 2
+        queue.maxConcurrentOperationCount = 5
     }
     
     private func launchFetchers() {
@@ -671,6 +697,9 @@ class AssetResolver {
             print("AssetResolver: All operations completed")
             self.callback(self.states)
         }
+        
+        progress.total = self.txIDSet.count
+        AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.updateProgress, object: nil, userInfo: progress.getUserInfo())
         
         for txid in self.txIDSet {
             let state = self.stateMap[txid]!
@@ -690,6 +719,7 @@ class AssetNotificationCenter {
     enum notifications {
         static let newAssetData = Notification.Name("newAssetData")
         static let fetchingAssets = Notification.Name("fetchingAssets")
+        static let updateProgress = Notification.Name("updateProgress")
         static let fetchedAssets = Notification.Name("fetchedAssets")
         static let assetsRecalculated = Notification.Name("assetsRecalculated")
     }
@@ -873,7 +903,12 @@ class AssetHelper {
     static func resolveAssetTransaction(for txids: [String], callback: (([TransactionInfoModel]) -> Void)?) -> AssetResolver? {
         AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.fetchingAssets, object: nil)
         
-        return AssetResolver(txids: txids) { states in
+        let filtered = txids.filter { (txid) -> Bool in
+            guard let infoModel = self.getTransactionInfoModel(txid: txid) else { return true }
+            return (infoModel.temporary == true)
+        }
+        
+        return AssetResolver(txids: filtered) { states in
             states.forEach { state in
                 guard state.resolved, !state.failed else { return }
                 state.resolvedModels.forEach({ saveAssetModel(assetModel: $0) })
