@@ -342,6 +342,23 @@ struct TransactionInfoModel: Codable {
         return Array(res)
     }
     
+    // Returns input for a specific
+    func getBurnAmount(input: Int) -> Int? {
+        guard let dadata = dadata else { return nil }
+        // ToDo: Loop through all indexes
+        guard let index = dadata.firstIndex(where: { $0.type == "burn" }) else { return nil }
+        guard let payments = dadata[index].payments else { return nil }
+        
+        guard
+            let burnIndex = payments.firstIndex(where: { $0.input == input && $0.burn == true })
+        else {
+            return nil
+        }
+        
+        let payment = payments[burnIndex]
+        return payment.amount
+    }
+    
     func getAssets() -> [AssetHeaderModel] {
         var assets = [AssetHeaderModel]()
         vout.forEach { v in
