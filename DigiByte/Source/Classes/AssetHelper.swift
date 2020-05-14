@@ -253,7 +253,7 @@ struct TransactionInputModel: Codable {
     let txid: String
     let vout: Int
     let scriptSig: ScriptSigModel
-    let value: UInt64 // Satoshis
+    let value: UInt64? // Satoshis
     let sequence: Int
     
     let previousOutput: PreviousOutputModel
