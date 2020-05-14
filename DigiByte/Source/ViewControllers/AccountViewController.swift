@@ -718,8 +718,15 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         
         // Fetching new assets
         AssetNotificationCenter.instance.addObserver(forName: AssetNotificationCenter.notifications.fetchingAssets, object: nil, queue: nil) { _ in
-            
             self.present(self.loadingAssetsModalView, animated: true, completion: nil)
+        }
+        
+        AssetNotificationCenter.instance.addObserver(forName: AssetNotificationCenter.notifications.updateProgress, object: nil, queue: nil) { notification in
+            if
+                let current = notification.userInfo?["current"] as? Int,
+                let total = notification.userInfo?["total"] as? Int {
+                self.loadingAssetsModalView.updateStep(current: current, total: total)
+            }
         }
         
         // Completed fetching new assets
@@ -744,7 +751,7 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
     
     private let navigationDrawer = NavigationDrawer(id: "navigation", walletTitle: C.applicationTitle, version: C.version)
     private let assetDrawer = AssetDrawer(id: "assets")
-    private var loadingAssetsModalView: UIViewController!
+    private var loadingAssetsModalView: DGBModalLoadingView!
     
     private var assetResolver: AssetResolver? = nil
     
