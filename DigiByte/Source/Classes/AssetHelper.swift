@@ -162,14 +162,14 @@ struct AssetModel: Codable {
     
     let sha2Issue: String?
     
-    func getAssetInfo() -> String {
+    func getAssetInfo(separator: String = ", ") -> String {
         var res = [String]()
         
         res.append("\(S.Assets.totalSupply): \(totalSupply)")
         res.append("\(S.Assets.numberOfHolders): \(numOfHolders)")
         res.append("\(S.Assets.lockStatus): \(lockStatus ? S.Assets.locked : S.Assets.unlocked)")
         
-        return res.joined(separator: ", ")
+        return res.joined(separator: separator)
     }
     
     func getIssuer() -> String {
