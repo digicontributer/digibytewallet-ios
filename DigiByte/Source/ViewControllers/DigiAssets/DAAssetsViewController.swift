@@ -811,13 +811,12 @@ class DAAssetsViewController: UIViewController {
     
     func openDetailView(assetId: String) {
         guard
-            let assetModel = AssetHelper.getAssetModel(assetID: assetId),
-            let wallet = walletManager.wallet
+            let assetModel = AssetHelper.getAssetModel(assetID: assetId)
         else {
             return
         }
         
-        let vc = DADetailViewController(store: store, wallet: wallet, assetModel: assetModel)
+        let vc = DADetailViewController(store: store, walletManager: walletManager, assetModel: assetModel)
         self.present(vc, animated: true, completion: nil)
     }
     
@@ -982,12 +981,11 @@ extension DAAssetsViewController: UITableViewDelegate, UITableViewDataSource {
         
         let openDetailView: (AssetModel) -> Void = { [weak self] assetModel in
             guard
-                let myself = self,
-                let wallet = myself.walletManager.wallet
+                let myself = self
             else {
                 return
             }
-            let vc = DADetailViewController(store: myself.store, wallet: wallet, assetModel: assetModel)
+            let vc = DADetailViewController(store: myself.store, walletManager: myself.walletManager, assetModel: assetModel)
             myself.present(vc, animated: true, completion: nil)
         }
         

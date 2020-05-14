@@ -265,7 +265,7 @@ class DABurnViewController: UIViewController {
             guard
                 let assetSender = self?.assetSender,
                 assetSender.createBurnTransaction(assetModel: selectedModel, amount: amount) else {
-                self?.showError(with: "Could not create transaction")
+                    self?.showError(with: "Could not create transaction (code=\(self!.assetSender.errorCode ?? 0))")
                 return;
             }
             
@@ -286,11 +286,15 @@ class DABurnViewController: UIViewController {
                 }, completion: { [weak self] result in
                     switch result {
                     case .success:
+                        if let txid = assetSender.transaction?.txHash.description {
+                            AssetHelper.createTemporaryAssetModel(for: txid, mode: .send, assetModel: selectedModel, amount: amount, to: "")
+                        }
+                        
                         self?.showSuccess(with: "Asset(s) burned!")
                         self?.dismiss(animated: true)
                         
-                    case .creationError(let message):
-                        self?.showError(with: "Transaction could not be created: \(message)")
+                    case .creationError(let message, let code):
+                        self?.showError(with: "Transaction could not be created: \(message) (code=\(code ?? -1))")
                         
                     case .publishFailure(let error):
                         self?.showError(with: "Transaction could not be broadcasted: \(error)")
