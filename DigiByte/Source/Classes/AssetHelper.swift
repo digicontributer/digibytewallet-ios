@@ -304,15 +304,29 @@ struct ExtendedTransactionOutputModel: Codable {
 
 typealias AssetUtxoModel = ExtendedTransactionOutputModel
 
+struct Payment: Codable {
+    let burn: Bool?
+    let amount: Int
+    let input: Int
+}
+
+struct DaData: Codable {
+    let type: String
+    let payments: [Payment]?
+}
+
 struct TransactionInfoModel: Codable {
     let blockheight: Int
     let blockhash: String?
     let txid: String
+    let dadata: [DaData]?
     
     let colored: Bool
     
     let vin: [TransactionInputModel]
     var vout: [TransactionOutputModel]
+    
+    var temporary: Bool? = false
     
     func getAssetIds() -> [String] {
         var res = Set<String>()
@@ -873,6 +887,33 @@ class AssetHelper {
     
     static func resolveAssetTransaction(for tx: Transaction, callback: (([TransactionInfoModel]) -> Void)?) -> AssetResolver? {
         return resolveAssetTransaction(for: [tx.hash], callback: callback)
+    }
+    
+    enum Operation {
+        case send
+        case burn
+    }
+    
+    static func createTemporaryAssetModel(for txid: String, mode: Operation, assetModel: AssetModel, amount: Int, to: String) {
+        if self.getTransactionInfoModel(txid: txid) != nil { return }
+        
+        var dadata: [DaData]? = nil
+        if mode == .burn {
+            let payment = Payment(burn: true, amount: amount, input: 0)
+            let burnData = DaData(type: "burn", payments: [payment])
+            dadata = [burnData]
+        }
+        
+        let headerModels = AssetHeaderModel(assetId: assetModel.assetId, amount: amount, issueTxid: assetModel.issuanceTxid ?? "", divisibility: assetModel.divisibility, lockStatus: assetModel.lockStatus, aggregationPolicy: assetModel.aggregationPolicy)
+        
+        let output = TransactionOutputModel(n: 0, used: false, usedTxid: nil, usedBlockheight: nil, value: 0, scriptPubKey: ScriptSigModel(hex: "", addresses: [to]), assets: [headerModels])
+        
+        var newModel = TransactionInfoModel(blockheight: -1, blockhash: nil, txid: txid, dadata: dadata, colored: true, vin: [], vout: [output])
+        newModel.temporary = true
+        
+        self.saveAssetTransactionModel(assetTransactionModel: newModel)
+        
+        AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.newAssetData, object: nil)
     }
     
     static func reset() {
