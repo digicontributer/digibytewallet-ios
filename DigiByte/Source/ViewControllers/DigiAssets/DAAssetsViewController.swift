@@ -483,7 +483,7 @@ class AssetContextMenu: UIView {
     let roundedView = UIView()
     let stackView = UIStackView()
     
-    let txBtn = AssetContextMenuButton(UIImage(named: "da-glyph-info"), text: "Transactions")
+    let txBtn = AssetContextMenuButton(UIImage(named: "da-glyph-info"), text: "Info")
     let sendBtn = AssetContextMenuButton(UIImage(named: "da-glyph-send"), text: "Send")
 //        let receiveBtn = AssetContextMenuButton(UIImage(named: "da-glyph-receive"), text: "Receive"))
     let burnBtn = AssetContextMenuButton(UIImage(named: "da-glyph-burn"), text: "Burn", bgColor: UIColor.da.burnColor)
