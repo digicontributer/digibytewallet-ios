@@ -11,7 +11,8 @@ import UIKit
 fileprivate class DAAssetPropertyMultilineView: UIView {
     let titleLabel = UILabel(font: UIFont.da.customMedium(size: 18), color: UIColor.da.darkSkyBlue)
     let textView = UITextView(frame: .zero)
-    let button = DAButton(title: "Tap to show", backgroundColor: UIColor.da.darkSkyBlue)
+    let showContentButton = DAButton(title: "Tap to show", backgroundColor: UIColor.da.darkSkyBlue)
+    let hideContentButton = DAButton(title: "Tap to hide", backgroundColor: UIColor.da.darkSkyBlue)
     let callback: (() -> Void)
     
     var heightConstraint: NSLayoutConstraint!
@@ -22,7 +23,8 @@ fileprivate class DAAssetPropertyMultilineView: UIView {
         
         addSubview(titleLabel)
         addSubview(textView)
-        addSubview(button)
+        addSubview(showContentButton)
+        addSubview(hideContentButton)
         
         titleLabel.constrain([
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 0),
@@ -30,13 +32,18 @@ fileprivate class DAAssetPropertyMultilineView: UIView {
             titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: 0),
         ])
         
-        button.constrain([
-            button.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-            button.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0),
+        hideContentButton.constrain([
+            hideContentButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            hideContentButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0),
+        ])
+        
+        showContentButton.constrain([
+            showContentButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            showContentButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0),
         ])
         
         textView.constrain([
-            textView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            textView.topAnchor.constraint(equalTo: showContentButton.bottomAnchor, constant: 8),
             textView.leftAnchor.constraint(equalTo: leftAnchor, constant: 0),
             textView.rightAnchor.constraint(equalTo: rightAnchor, constant: 0),
             textView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
@@ -58,11 +65,26 @@ fileprivate class DAAssetPropertyMultilineView: UIView {
         textView.isEditable = false
         textView.dataDetectorTypes = .all
         textView.alpha = 0
+        textView.font = UIFont.da.customBody(size: 12)
+        textView.textColor = UIColor.whiteTint
         
-        button.label.font = UIFont.da.customBold(size: 12)
+        showContentButton.label.font = UIFont.da.customBold(size: 12)
+        hideContentButton.label.font = UIFont.da.customBold(size: 12)
+        hideContentButton.alpha = 0
         
-        button.touchUpInside = { [weak self] in
-            self?.button.isHidden = true
+        hideContentButton.touchUpInside = { [weak self] in
+            self?.hideContentButton.alpha = 0
+            self?.showContentButton.alpha = 1
+            self?.textView.alpha = 0
+            self?.heightConstraint.isActive = true
+            
+            self?.textView.sizeToFit()
+            self?.callback()
+        }
+        
+        showContentButton.touchUpInside = { [weak self] in
+            self?.hideContentButton.alpha = 1
+            self?.showContentButton.alpha = 0
             self?.textView.alpha = 1
             self?.heightConstraint.isActive = false
             
