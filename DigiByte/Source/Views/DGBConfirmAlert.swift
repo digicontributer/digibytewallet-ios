@@ -63,7 +63,7 @@ class DAModalAssetSelectorCell: UITableViewCell {
         tempFrame = textLabel!.frame
         shift = tempFrame.origin.x - targetX
         tempFrame.origin.x = targetX
-        textLabel!.frame = CGRect(x: tempFrame.origin.x, y: tempFrame.origin.y, width: totalWidth - shift, height: tempFrame.height)
+        textLabel!.frame = CGRect(x: tempFrame.origin.x, y: tempFrame.origin.y, width: totalWidth - targetX - 20, height: tempFrame.height)
         
         tempFrame = detailTextLabel!.frame
         shift = tempFrame.origin.x - targetX
