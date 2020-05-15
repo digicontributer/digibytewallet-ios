@@ -256,7 +256,7 @@ struct TransactionInputModel: Codable {
     let value: UInt64? // Satoshis
     let sequence: Int
     
-    let previousOutput: PreviousOutputModel
+    let previousOutput: PreviousOutputModel?
     
     let assets: [AssetHeaderModel]
 }
