@@ -264,6 +264,7 @@ class DASendViewController: UIViewController {
             // Show modal window (gallery, image, scanner)
             let modalWindow = DGBModalMediaOptions { (address) in
                 self?.receiverAddressBox.textBox.text = address
+                self?.toggleSendButton()
                 self?.indexContacts()
                 self?.updateReceiverName(address)
             }
