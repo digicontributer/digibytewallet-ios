@@ -743,7 +743,7 @@ class AssetHelper {
         return _allAssets
     }
     
-    static var addressPartOfWalletCallback: ((String) -> Bool) = { _ in
+    static var assetWasNotSpentCallback: ((String, Int) -> Bool) = { (_, _) in
         assert(false) // Not assigned
         return false
     }
@@ -768,10 +768,8 @@ class AssetHelper {
                     // Assuming one address
                     guard addresses.count == 1 else { return }
                     
-                    let address = addresses[0]
-                    
                     // Check if address is part of wallet
-                    if addressPartOfWalletCallback(address) {
+                    if assetWasNotSpentCallback(infoModel.txid, model.n) {
                         _allBalances[assetModel.assetId] = (_allBalances[assetModel.assetId] ?? 0) + assetModel.amount
                     }
                 }

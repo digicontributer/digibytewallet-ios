@@ -613,9 +613,9 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         didSet {
             guard let walletManager = walletManager else { return }
             
-            AssetHelper.addressPartOfWalletCallback = { [weak self] address in
-                guard let walletManager = self?.walletManager else { return false }
-                return walletManager.wallet?.containsAddress(address) ?? false
+            AssetHelper.assetWasNotSpentCallback = { [weak self] (txid, n) -> Bool in
+                guard let wallet = self?.walletManager?.wallet else { return false }
+                return wallet.hasUtxo(txid: txid, n: n) && wallet.utxoIsSpendable(txid: txid, n: n)
             }
             
             if !walletManager.noWallet {
