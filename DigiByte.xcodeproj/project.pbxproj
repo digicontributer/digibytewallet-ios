@@ -309,6 +309,7 @@
 		39A4EB232393E3B500B5664F /* AssetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A4EB222393E3B500B5664F /* AssetHelper.swift */; };
 		39A4EB712393E70400B5664F /* DGBConfirmAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A4EB702393E70400B5664F /* DGBConfirmAlert.swift */; };
 		39A4EB7323940D5400B5664F /* BRDigiAsset.c in Sources */ = {isa = PBXBuildFile; fileRef = 39DEDAC023490B5B005F648B /* BRDigiAsset.c */; };
+		39C2F8AE247007970053518A /* Sequence+Unique.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C2F8AD247007970053518A /* Sequence+Unique.swift */; };
 		39C4A7762339104A00D84AF6 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 398124BA233281030019D5E6 /* Lato-Italic.ttf */; };
 		39C4A7772339104A00D84AF6 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 398124C4233281030019D5E6 /* Rubik-Bold.ttf */; };
 		39C4A7782339104A00D84AF6 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 398124C6233281030019D5E6 /* Lato-Bold.ttf */; };
@@ -1163,6 +1164,7 @@
 		398A85C12330E9D100119827 /* brg_endian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = brg_endian.h; sourceTree = "<group>"; };
 		39A4EB222393E3B500B5664F /* AssetHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetHelper.swift; sourceTree = "<group>"; };
 		39A4EB702393E70400B5664F /* DGBConfirmAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DGBConfirmAlert.swift; sourceTree = "<group>"; };
+		39C2F8AD247007970053518A /* Sequence+Unique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Unique.swift"; sourceTree = "<group>"; };
 		39CD011B233A355400FCF02C /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		39D0349D233254AF00DE3E78 /* ToDos.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = ToDos.rtf; sourceTree = "<group>"; };
 		39D504442397BFDC00A8B339 /* Kingfisher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Kingfisher.xcodeproj; path = Modules/Kingfisher/Kingfisher.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -2301,6 +2303,7 @@
 				398125AB233281040019D5E6 /* String+Keys.swift */,
 				398125AC233281040019D5E6 /* UserDefaults+Additions.swift */,
 				3984BB9C2396684A00A775A7 /* UserDefaults+PrivacyAdditions.swift */,
+				39C2F8AD247007970053518A /* Sequence+Unique.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -4800,6 +4803,7 @@
 				3981278A233281050019D5E6 /* FirstBlockWithWalletTxRequest.swift in Sources */,
 				398126B3233281050019D5E6 /* FeeUpdater.swift in Sources */,
 				3984BB9F2397927800A775A7 /* AssetDrawer.swift in Sources */,
+				39C2F8AE247007970053518A /* Sequence+Unique.swift in Sources */,
 				3981273B233281050019D5E6 /* PresentModalAnimator.swift in Sources */,
 				3984BB9D2396684A00A775A7 /* UserDefaults+PrivacyAdditions.swift in Sources */,
 				398126F4233281050019D5E6 /* CGRect+Additions.swift in Sources */,
