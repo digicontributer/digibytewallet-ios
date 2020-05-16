@@ -648,6 +648,12 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         }
     }
     
+    func assetTxSelected(by hash: String) {
+        guard let txIdx = store.state.walletState.transactions.firstIndex(where: { $0.hash == hash }) else { return }
+        let tx = store.state.walletState.transactions[txIdx]
+        assetTxSelected(tx)        
+    }
+    
     func assetTxSelected(_ tx: Transaction) {
         assert(tx.isAssetTx)
         
@@ -722,6 +728,7 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
             self.present(self.loadingAssetsModalView, animated: true, completion: nil)
         }
         
+        // Update progress when resolving Assets
         AssetNotificationCenter.instance.addObserver(forName: AssetNotificationCenter.notifications.updateProgress, object: nil, queue: nil) { notification in
             if
                 let current = notification.userInfo?["current"] as? Int,
@@ -733,6 +740,13 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         // Completed fetching new assets
         AssetNotificationCenter.instance.addObserver(forName: AssetNotificationCenter.notifications.fetchedAssets, object: nil, queue: nil) { _ in
             self.loadingAssetsModalView.dismiss(animated: true, completion: nil)
+        }
+        
+        // A Tx was selected in the Asset's Detail View. Show the drawer menu, if the txhash exists.
+        AssetNotificationCenter.instance.addObserver(forName: AssetNotificationCenter.notifications.assetTxSelected, object: nil, queue: nil) { notification in
+            if let hash = notification.userInfo?["tx"] as? String {
+                self.assetTxSelected(by: hash)
+            }
         }
     }
 

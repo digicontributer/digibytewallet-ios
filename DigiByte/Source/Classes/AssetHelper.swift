@@ -722,6 +722,7 @@ class AssetNotificationCenter {
         static let updateProgress = Notification.Name("updateProgress")
         static let fetchedAssets = Notification.Name("fetchedAssets")
         static let assetsRecalculated = Notification.Name("assetsRecalculated")
+        static let assetTxSelected = Notification.Name("assetTxSelected")
     }
     
     private init() {}

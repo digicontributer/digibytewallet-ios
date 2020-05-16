@@ -193,7 +193,10 @@ fileprivate class DATransactionView: UIView {
     let amountLabel = UILabel(font: UIFont.da.customBody(size: 14), color: UIColor.white)
     let dateLabel = UILabel(font: UIFont.da.customBody(size: 14), color: UIColor.gray)
     
-    init() {
+    let txHash: String
+    
+    init(hash: String) {
+        self.txHash = hash
         super.init(frame: .zero)
         
         addSubview(iconContainer)
@@ -253,6 +256,7 @@ class DADetailViewController: UIViewController {
     }
     
     struct AssetTransaction {
+        let hash: String
         var type: Transaction.AssetTransactionType
         var amount: Int
         var timestamp: Int
@@ -462,6 +466,26 @@ class DADetailViewController: UIViewController {
         }
     }
     
+    @objc
+    private func showTransaction(_ sender: UITapGestureRecognizer) {
+        guard let selectedTxView = sender.view as? DATransactionView else { return }
+        var data = [String: String]()
+        data["tx"] = selectedTxView.txHash
+        
+        if let presenter = presentingViewController {
+            dismiss(animated: true) {
+                presenter.dismiss(animated: true, completion: {
+                    // Open Drawer in Account View Controller
+                    AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.assetTxSelected, object: nil, userInfo: data)
+                })
+            }
+        } else {
+            dismiss(animated: true) {
+                AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.assetTxSelected, object: nil, userInfo: data)
+            }
+        }
+    }
+    
     private func addTransactions() {
         transactionListView.arrangedSubviews.forEach { (view) in
             transactionListView.removeArrangedSubview(view)
@@ -486,7 +510,7 @@ class DADetailViewController: UIViewController {
                     }
                     
                     guard assetHeaderModel.assetId == assetModel.assetId else { return }
-                    var atx = AssetTransaction(type: .burned, amount: 0, timestamp: 0)
+                    var atx = AssetTransaction(hash: tx.hash, type: .burned, amount: 0, timestamp: 0)
                     
                     if tx.direction == .moved {
                         atx.type = .burned
@@ -509,7 +533,11 @@ class DADetailViewController: UIViewController {
         transactions.sorted(by: { (a, b) -> Bool in
             return a.timestamp > b.timestamp
         }).forEach { (tx) in
-            let view = DATransactionView()
+            let view = DATransactionView(hash: tx.hash)
+            view.isUserInteractionEnabled = true
+            
+            let tapGr = UITapGestureRecognizer(target: self, action: #selector(showTransaction(_:)))
+            view.addGestureRecognizer(tapGr)
             
             switch (tx.type) {
                 case .burned:
