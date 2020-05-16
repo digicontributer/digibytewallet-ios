@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 fileprivate class ConfirmButton: DGBHapticButton {
     override var isHighlighted: Bool {
@@ -94,13 +95,15 @@ extension DAModalAssetSelector: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = assetModel.getAssetName()
         
         let amount = AssetHelper.allBalances[assetId] ?? 0
-//        let amountStr: String? = amount == nil ? nil : "\(amount!)"
-//        let subtitleStr = [amountStr].compactMap({ $0 }).joined(separator: " | ")
         let subtitleStr = "Balance: \(amount)"
         cell.detailTextLabel?.text = subtitleStr
         
         if let urlStr = assetModel.getImage()?.url, let url = URL(string: urlStr) {
-            cell.imageView?.kf.setImage(with: url)
+            cell.imageView?.kf.setImage(with: url, placeholder: nil, options: [
+                .processor(DownsamplingImageProcessor(size: CGSize(width: cell.imageView?.bounds.width ?? 30, height: cell.imageView?.bounds.height ?? 30) )),
+                .scaleFactor(UIScreen.main.scale),
+                .cacheOriginalImage
+            ])
             cell.imageView?.tintColor = .clear
         } else {
             cell.imageView?.image = UIImage(named: "digiassets_small")?.withRenderingMode(.alwaysTemplate)
