@@ -579,16 +579,14 @@ class DGBConfirmAlert: DGBModalWindow {
     var cancelCallback: ((DGBCallback) -> Void)? = nil
     var alternativeCallback: ((DGBCallback) -> Void)? = nil
     
-    private let contentLabel = UILabel()
+    let contentLabel = UILabel()
+    var imageView: UIImageView!
+    let alternativeTitle: String?
     
     private let buttonsView = UIStackView()
-    
     private var imageContainer = UIView()
-    private var imageView: UIImageView!
     private var okButton: ConfirmButton!
     private var cancelButton: ConfirmButton!
-    
-    private let alternativeTitle: String?
     
     init(title: String, message: String, image: UIImage?, okTitle: String = S.Alerts.defaultConfirmOkCaption, cancelTitle: String? = S.Alerts.defaultConfirmCancelCaption, alternativeButtonTitle: String? = nil) {
         
@@ -642,13 +640,15 @@ class DGBConfirmAlert: DGBModalWindow {
     }
     
     private func addConstraints() {
-        imageView.constrain([
-            imageView.topAnchor.constraint(equalTo: imageContainer.topAnchor, constant: 0),
-            imageView.bottomAnchor.constraint(equalTo: imageContainer.bottomAnchor, constant: 0),
-            imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 180),
-            imageView.centerXAnchor.constraint(equalTo: imageContainer.centerXAnchor),
-        ])
-        
+        if image != nil {
+            imageView.constrain([
+                imageView.topAnchor.constraint(equalTo: imageContainer.topAnchor, constant: 0),
+                imageView.bottomAnchor.constraint(equalTo: imageContainer.bottomAnchor, constant: 0),
+                imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 180),
+                imageView.centerXAnchor.constraint(equalTo: imageContainer.centerXAnchor),
+            ])
+        }
+            
         if cancelTitle != nil {
             okButton.widthAnchor.constraint(equalTo: cancelButton.widthAnchor, multiplier: 1.0).isActive = true
             okButton.heightAnchor.constraint(equalTo: cancelButton.heightAnchor, multiplier: 1.0).isActive = true
