@@ -556,6 +556,10 @@ class ModalPresenter : Subscriber, Trackable {
 //            ],
             
             "DigiAssets": [
+                Setting(switchWithTitle: S.Settings.showRawTransactions, initial: UserDefaults.showRawTransactionsOnly, callback: { (a) in
+                    UserDefaults.showRawTransactionsOnly = a
+                    AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.newAssetData, object: nil) // Refresh Table View
+                }),
                 Setting(switchWithTitle: "Resolve assets without prompt", initial: UserDefaults.Privacy.automaticallyResolveAssets, callback: { (active) in
                     UserDefaults.Privacy.automaticallyResolveAssets = active
                 }),

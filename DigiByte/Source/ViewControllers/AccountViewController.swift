@@ -980,6 +980,19 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
 //        }
         
         navigationDrawer.addButton(title: S.MenuButton.digiAssets, icon: UIImage(named: "digiassets")!) {
+            guard !UserDefaults.showRawTransactionsOnly else {
+                // Please Enable DigiAsset Support in Settings
+                let vc = DGBConfirmAlert(title: "DigiAssets Protocol Disabled", message: "Enable DigiAsset Support in Settings", image: nil, okTitle: "OK", cancelTitle: nil, alternativeButtonTitle: nil)
+                vc.contentLabel.textAlignment = .center
+                
+                vc.confirmCallback = { close in
+                    close()
+                }
+                
+                self.present(vc, animated: true, completion: nil)
+                return
+            }
+            
             // Show confirmation alert (address disclosure)
             if !self.showDigiAssetsConfirmViewIfNeeded({ infoModels in
                 // Models were probably resolved
