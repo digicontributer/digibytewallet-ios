@@ -12,12 +12,13 @@ typealias AssetId = String
 
 import AVKit
 import AVFoundation
+import Kingfisher
 
-fileprivate class MainAssetHeader: UIView {
+class DAMainAssetHeader: UIView {
     let header = UILabel(font: UIFont.da.customBold(size: 20), color: .white)
     let searchBar = UITextField()
     
-    init() {
+    init(_ text: String) {
         super.init(frame: .zero)
         
         addSubview(header)
@@ -30,7 +31,7 @@ fileprivate class MainAssetHeader: UIView {
             header.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
         
-        header.text = "Assets you own"
+        header.text = text
         searchBar.leftView = UIImageView(image: UIImage(named: "da-glyph-search"))
     }
     
@@ -241,6 +242,8 @@ class AssetCell: PaddedCell {
     var imageTappedCallback: ((AssetCell) -> Void)? = nil
     var assetId: String?
     
+    static let AssetSize: CGFloat = 40.0
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(backgroundRect)
@@ -290,8 +293,8 @@ class AssetCell: PaddedCell {
         assetImage.constrain([
             assetImage.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
             assetImage.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16),
-            assetImage.widthAnchor.constraint(equalToConstant: 40),
-            assetImage.heightAnchor.constraint(equalToConstant: 40),
+            assetImage.widthAnchor.constraint(equalToConstant: AssetCell.AssetSize),
+            assetImage.heightAnchor.constraint(equalToConstant: AssetCell.AssetSize),
         ])
         
         assetLabel.constrain([
@@ -367,52 +370,6 @@ class AssetCell: PaddedCell {
         }
         
         assetLabel.sizeToFit()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-fileprivate class CreateNewAssetCell: PaddedCell {
-    
-    let backgroundImage = UIImageView(image: UIImage(named: "da-new-asset-bg"))
-    let headingLabel = UILabel(font: UIFont.da.customBold(size: 20), color: .white)
-    let getStartedBtn = DAButton(title: "Get started".uppercased(), backgroundColor: UIColor.da.darkSkyBlue)
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        backgroundView = backgroundImage
-        backgroundColor = .clear
-        selectionStyle = .none
-        
-        // add elements
-        contentView.addSubview(headingLabel)
-        contentView.addSubview(getStartedBtn)
-        
-        headingLabel.constrain([
-            headingLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),
-            headingLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
-        ])
-        
-        getStartedBtn.constrain([
-            getStartedBtn.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
-            getStartedBtn.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -24),
-            getStartedBtn.widthAnchor.constraint(equalToConstant: 122)
-        ])
-        
-        headingLabel.textAlignment = .right
-        headingLabel.text = "Create a new asset"
-        getStartedBtn.label.font = UIFont.da.customBold(size: 12)
-        getStartedBtn.height = 34
-        
-        getStartedBtn.touchUpInside = {
-            let url = URL(string: "https://createdigiassets.com")!
-            UIApplication.shared.open(url)
-        }
-        
-        contentView.heightAnchor.constraint(equalToConstant: 128).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -548,7 +505,7 @@ class DAAssetsViewController: UIViewController {
     private let receiveAssetsButton = DAButton(title: "Receive assets", backgroundColor: UIColor.da.secondaryGrey)
     
     private let mainView = UIView()
-    private let mainHeader = MainAssetHeader()
+    private let mainHeader = DAMainAssetHeader("Assets you own")
     private let tableView = UITableView(frame: .zero)
     private let contextMenu = AssetContextMenu()
     private let contextMenuUnderlay = UIView() // transparent view that closes contextmenu when tapped
@@ -593,9 +550,13 @@ class DAAssetsViewController: UIViewController {
         addEvents()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.tintColor = UIColor(red: 0xDE / 255, green: 0x88 / 255, blue: 0x3C / 255, alpha: 1.0)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tabBarController?.tabBar.tintColor = UIColor(red: 38 / 255, green: 152 / 255, blue: 237 / 255, alpha: 1.0)
         
         tableView.reloadData()
         
@@ -739,7 +700,6 @@ class DAAssetsViewController: UIViewController {
         
         tableView.backgroundColor = .clear
         tableView.register(AssetCell.self, forCellReuseIdentifier: "asset")
-        tableView.register(CreateNewAssetCell.self, forCellReuseIdentifier: "get_started")
         tableView.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 20, right: 0)
         tableView.separatorInset = UIEdgeInsets.zero
         tableView.rowHeight = UITableView.automaticDimension
@@ -896,24 +856,14 @@ class DAAssetsViewController: UIViewController {
 
 extension DAAssetsViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return AssetHelper.allAssets.count
-        } else {
-            return 1
-        }
+        return AssetHelper.allAssets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // return get-started cell
-        guard indexPath.section == 0 else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "get_started") as! CreateNewAssetCell
-            return cell
-        }
-        
         // return asset cell
         let assetId = AssetHelper.allAssets[indexPath.row]
         let assetModel = AssetHelper.getAssetModel(assetID: assetId) ?? AssetModel.dummy()
@@ -952,7 +902,11 @@ extension DAAssetsViewController: UITableViewDelegate, UITableViewDataSource {
             let urlStr = urlModel.url,
             let url = URL(string: urlStr)
         {
-            cell.assetImage.kf.setImage(with: url)
+            cell.assetImage.kf.setImage(with: url, placeholder: nil, options: [
+                .processor(DownsamplingImageProcessor(size: CGSize(width: AssetCell.AssetSize, height: AssetCell.AssetSize) )),
+                .scaleFactor(UIScreen.main.scale),
+                .cacheOriginalImage
+            ])
         }
         
         return cell

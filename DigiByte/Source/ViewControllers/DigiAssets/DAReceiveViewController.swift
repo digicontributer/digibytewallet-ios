@@ -40,7 +40,7 @@ fileprivate func pad(_ pad: CGFloat, _ view: UIView) -> UIView {
 class DAReceiveViewController: UIViewController {
     private var hc: NSLayoutConstraint? = nil
     private let store: BRStore
-    private let wallet: BRWallet
+    private let walletManager: WalletManager
     
     let scrollView = UIScrollView()
     let stackView = UIStackView()
@@ -59,9 +59,9 @@ class DAReceiveViewController: UIViewController {
         }
     }
     
-    init(store: BRStore, wallet: BRWallet) {
+    init(store: BRStore, walletManager: WalletManager) {
         self.store = store
-        self.wallet = wallet
+        self.walletManager = walletManager
         super.init(nibName: nil, bundle: nil)
         
         tabBarItem = UITabBarItem(title: "Receive", image: UIImage(named: "da-receive")?.withRenderingMode(.alwaysTemplate), tag: 0)
@@ -103,7 +103,6 @@ class DAReceiveViewController: UIViewController {
         
         qrCode.image = UIImage.qrCode(data: "Select an asset".data(using: .ascii)!, color: CIColor(color: .black))?.resize(CGSize(width: qrSize, height: qrSize))
         
-        
         if !UserDefaults.excludeLogoInQR {
             qrCode.image = placeLogoIntoQR(qrCode.image!, width: qrSize, height: qrSize, logo: UIImage(named: "da_filled"))
         }
@@ -115,9 +114,9 @@ class DAReceiveViewController: UIViewController {
         stackView.addArrangedSubview(header)
         stackView.addArrangedSubview(createVerticalSpacingView())
         
-        stackView.addArrangedSubview(assetDropdown)
-        stackView.addArrangedSubview(totalBalanceLabel)
-        stackView.addArrangedSubview(createVerticalSpacingView())
+//        stackView.addArrangedSubview(assetDropdown)
+//        stackView.addArrangedSubview(totalBalanceLabel)
+//        stackView.addArrangedSubview(createVerticalSpacingView())
         
         stackView.addArrangedSubview(qrCodeContainer)
         stackView.addArrangedSubview(createVerticalSpacingView())
@@ -130,12 +129,12 @@ class DAReceiveViewController: UIViewController {
         receivingAddressBox.placeholder = "Receiving Address"
         receivingAddressBox.copyMode = true
         receivingAddressBox.textBox.isEnabled = false
-        receivingAddressBox.textBox.text = wallet.receiveAddress
+        receivingAddressBox.textBox.text = walletManager.wallet?.receiveAddress ?? "N/A"
         
         addConstraints()
         addEvents()
         
-        modelSelected()
+        updateQr(enabled: true)
     }
     
     @objc private func assetDropdownTapped() {
@@ -148,10 +147,28 @@ class DAReceiveViewController: UIViewController {
         })
     }
     
+    private func updateQr(enabled: Bool) {
+        guard
+            let wallet = walletManager.wallet
+        else {
+            return
+        }
+        
+        let pr = "\(wallet.receiveAddress)"
+        qrCode.image = UIImage.qrCode(data: pr.data(using: .ascii)!, color: CIColor(color: .black))?.resize(CGSize(width: qrSize, height: qrSize))
+        qrCodeContainer.alpha = enabled ? 1.0 : 0.3
+        
+        if !UserDefaults.excludeLogoInQR {
+            qrCode.image = placeLogoIntoQR(qrCode.image!, width: qrSize, height: qrSize, logo: UIImage(named: "da_filled"))
+        }
+    }
+    
     private func modelSelected() {
         assetDropdown.setContent(asset: selectedModel)
         
-        guard let assetModel = selectedModel else {
+        guard
+            let assetModel = selectedModel
+        else {
             return
         }
         
@@ -160,14 +177,7 @@ class DAReceiveViewController: UIViewController {
         totalBalanceLabel.text = "\(S.Assets.totalBalance): \(balance)"
         totalBalanceLabel.textColor = UIColor(red: 248 / 255, green: 156 / 255, blue: 78 / 255, alpha: 1.0) // 248 156 78
         
-        let pr = "\(wallet.receiveAddress)"
-        
-        qrCode.image = UIImage.qrCode(data: pr.data(using: .ascii)!, color: CIColor(color: .black))?.resize(CGSize(width: qrSize, height: qrSize))
-        qrCodeContainer.alpha = 1.0
-        
-        if !UserDefaults.excludeLogoInQR {
-            qrCode.image = placeLogoIntoQR(qrCode.image!, width: qrSize, height: qrSize, logo: UIImage(named: "da_filled"))
-        }
+        updateQr(enabled: true)
     }
     
     private func addEvents() {
@@ -195,7 +205,7 @@ class DAReceiveViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tabBarController?.tabBar.tintColor = UIColor(red: 38 / 255, green: 152 / 255, blue: 237 / 255, alpha: 1.0)
+        tabBarController?.tabBar.tintColor = UIColor.da.greenApple
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
