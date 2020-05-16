@@ -252,14 +252,8 @@ class DADetailViewController: UIViewController {
         case label
     }
     
-    enum AssetTransactionType {
-        case burned
-        case sent
-        case received
-    }
-    
     struct AssetTransaction {
-        var type: AssetTransactionType
+        var type: Transaction.AssetTransactionType
         var amount: Int
         var timestamp: Int
     }
@@ -530,6 +524,11 @@ class DADetailViewController: UIViewController {
                 
                 case .received:
                     view.icon.image = UIImage(named: "da-receive")?.withRenderingMode(.alwaysTemplate)
+                    view.iconContainer.backgroundColor = UIColor.da.greenApple
+                    view.amountLabel.text = "+\(tx.amount)"
+                
+                case .none:
+                    view.icon.image = UIImage(named: "da-unknown")?.withRenderingMode(.alwaysTemplate)
                     view.iconContainer.backgroundColor = UIColor.da.greenApple
                     view.amountLabel.text = "+\(tx.amount)"
             }

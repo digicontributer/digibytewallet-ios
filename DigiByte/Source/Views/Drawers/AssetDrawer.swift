@@ -297,22 +297,24 @@ extension AssetDrawer: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let tx = self.tx!
             let cell = tableView.dequeueReusableCell(withIdentifier: "logo", for: indexPath) as! LogoCell
-            
-            if tx.direction == .received {
+    
+            switch (tx.assetType) {
+            case .received:
                 cell.dateLabel.text = "Received on: \(tx.longTimestamp)"
                 cell.iconIV.image = UIImage(named: "da-receive")?.withRenderingMode(.alwaysTemplate)
                 cell.iconInner.backgroundColor = UIColor.da.greenApple
-                
-            } else if tx.direction == .sent {
+            case .sent:
                 cell.dateLabel.text = "Sent on: \(tx.longTimestamp)"
                 cell.iconIV.image = UIImage(named: "da-send")?.withRenderingMode(.alwaysTemplate)
                 cell.iconInner.backgroundColor = UIColor.da.darkSkyBlue
-                
-            } else {
-                // moved (burnt
+            case .burned:
                 cell.dateLabel.text = "Burned on: \(tx.longTimestamp)"
                 cell.iconIV.image = UIImage(named: "da-burn")?.withRenderingMode(.alwaysTemplate)
                 cell.iconInner.backgroundColor = UIColor.da.burnColor
+            case .none:
+                cell.dateLabel.text = "Processed on: \(tx.longTimestamp)"
+                cell.iconIV.image = UIImage(named: "da-unknown")?.withRenderingMode(.alwaysTemplate)
+                cell.iconInner.backgroundColor = UIColor.white.withAlphaComponent(0.4)
             }
             
             return cell

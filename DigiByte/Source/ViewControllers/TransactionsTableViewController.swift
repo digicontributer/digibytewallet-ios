@@ -284,7 +284,7 @@ class TransactionsTableViewController : UITableViewController, Subscriber, Track
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tx = transactions[indexPath.row]
         
-        if tx.isAssetTx {
+        if !UserDefaults.showRawTransactionsOnly, tx.isAssetTx {
             didSelectAssetTx(tx)
         } else {
             didSelectTransaction(transactions, indexPath.row)

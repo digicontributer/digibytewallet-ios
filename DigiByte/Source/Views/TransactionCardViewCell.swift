@@ -26,7 +26,36 @@ fileprivate class CardView: UIView {
 
 class TransactionCardViewCell: UITableViewCell, Subscriber {
     
+    let container: UIView = CardView()
+    
+    //MARK: - Private
     private let overlay = WalletOverlayView()
+    private let transactionLabel = UILabel(font: UIFont.customBody(size: 13.0))
+    private let address = UILabel(font: UIFont.customBody(size: 13.0), color: C.Colors.text)
+    private let status = UILabel(font: UIFont.customBody(size: 13.0), color: C.Colors.text)
+    private let comment = UILabel.wrapping(font: UIFont.customBody(size: 13.0), color: C.Colors.text)
+    private let timestamp = UILabel(font: UIFont.customMedium(size: 13.0), color: C.Colors.text)
+    private let shadowView = MaskedShadow()
+    private let innerShadow = UIView()
+    private let topPadding: CGFloat = 19.0
+    private var style: TransactionCellStyle = .first
+    private var transaction: Transaction?
+    private let availability = UILabel(font: .customBold(size: 13.0), color: .txListGreen)
+    private var timer: Timer? = nil
+    private let receivedImage = UIImage(named: "receivedTransaction")
+    private let sentImage = UIImage(named: "sentTransaction")
+    
+    private let glyphContainer = UIView()
+    private let glyph = UIImageView()
+    private let assetReceivedImage = UIImage(named: "da-receive")?.withRenderingMode(.alwaysTemplate)
+    private let assetSentImage = UIImage(named: "da-send")?.withRenderingMode(.alwaysTemplate)
+    private let assetBurnedImage = UIImage(named: "da-burn")?.withRenderingMode(.alwaysTemplate)
+    private let assetUnknownImage = UIImage(named: "da-unknown")?.withRenderingMode(.alwaysTemplate)
+    
+    private let arrow = UIImageView(image: UIImage(named: "receivedTransaction"))
+    private let amountCommentContainer = UIView()
+    
+    private static let GlyphSize: CGFloat = 26.0
     
     private class TransactionCardViewCellWrapper {
         weak var target: TransactionCardViewCell?
@@ -59,65 +88,21 @@ class TransactionCardViewCell: UITableViewCell, Subscriber {
         }
     }
     
-    private func findAssetIndex(_ utxos: [ExtendedTransactionOutputModel]) -> Int {
-        return utxos.firstIndex { $0.assets.count > 0 } ?? 0
-    }
-    
-    func tryReduce(_ assets: [AssetHeaderModel]) -> String? {
-        var assetName: String? = nil
-        for asset in assets {
-            guard let model = AssetHelper.getAssetModel(assetID: asset.assetId) else { return nil }
-            let current = model.getAssetName()
-            
-            if assetName != nil, assetName != current {
-                return nil
-            }
-            
-            assetName = current
-        }
-        
-        return assetName
-    }
-    
     func setTransaction(_ transaction: Transaction, isBtcSwapped: Bool, rate: Rate, maxDigits: Int, isSyncing: Bool) {
         self.transaction = transaction
         
-        if transaction.isAssetTx {
-            if let utxos = AssetHelper.getAssetUtxos(for: transaction) {
-                if utxos.count > 0 {
-                    let utxo = utxos[findAssetIndex(utxos)]
-                    
-                    if utxo.assets.count == 1 {
-                        // Metadata for this asset is available, use it's name
-                        if let assetModel = AssetHelper.getAssetModel(assetID: utxo.assets[0].assetId) {
-                            transactionLabel.text = assetModel.getAssetName()
-                        } else {
-                            transactionLabel.text = S.Assets.unresolved
-                        }
-                    } else if utxo.assets.count > 1 {
-                        // Multiple assets were transferred in one transaction.
-                        // Show the title of them, if all assets have an equal title
-                        if let reduced = tryReduce(utxo.assets) {
-                            transactionLabel.text = reduced
-                        } else {
-                            transactionLabel.text = S.Assets.multipleAssets
-                        }
-                    } else {
-                        // No assets
-                        transactionLabel.text = S.Assets.noMetadata
-                    }
-                } else {
-                    // No data available
-                    transactionLabel.text = S.Assets.noMetadata
-                }
-            } else {
-                // Asset not resolved yet
-                transactionLabel.text = S.Assets.unresolved
+        if
+            !UserDefaults.showRawTransactionsOnly,
+            let assetTitle = transaction.assetTitle
+        {
+            // Get Asset Preview Text
+            var previewText: String = assetTitle
+            if let amountPreview = transaction.assetAmount {
+                previewText = "\(previewText) (\(amountPreview))"
             }
+            transactionLabel.text = previewText
         } else {
-            // No asset, just a regular transaction:
-            // use amount as preview
-            transactionLabel.text = transaction.amountDescription(isBtcSwapped: isBtcSwapped, rate: rate, maxDigits: maxDigits)
+            transactionLabel.text = transaction.assetTitle ?? transaction.amountDescription(isBtcSwapped: isBtcSwapped, rate: rate, maxDigits: maxDigits)
         }
         
         address.text = String(format: transaction.direction.addressTextFormat, transaction.toAddress ?? "")
@@ -140,34 +125,40 @@ class TransactionCardViewCell: UITableViewCell, Subscriber {
         }
         timestamp.isHidden = !transaction.isValid
         
-        if transaction.direction == .received {
-            arrow.image = receivedImage
-            transactionLabel.textColor = C.Colors.weirdGreen
+        if !UserDefaults.showRawTransactionsOnly, transaction.isAssetTx {
+            // Choose image by asset direction type
+            transactionLabel.textColor = UIColor.da.darkSkyBlue
+            glyphContainer.isHidden = false
+            arrow.isHidden = true
+            
+            switch (transaction.assetType) {
+            case .received:
+                glyph.image = assetReceivedImage
+                glyphContainer.backgroundColor = UIColor.da.greenApple
+            case .sent:
+                glyph.image = assetSentImage
+                glyphContainer.backgroundColor = UIColor.da.darkSkyBlue
+            case .burned:
+                glyph.image = assetBurnedImage
+                glyphContainer.backgroundColor = UIColor.da.burnColor
+            case .none:
+                glyph.image = assetUnknownImage
+                glyphContainer.backgroundColor = UIColor.white.withAlphaComponent(0.4)
+            }
         } else {
-            arrow.image = sentImage
-            transactionLabel.textColor = C.Colors.weirdRed
+            glyphContainer.isHidden = true
+            arrow.isHidden = false
+            
+            // Choose image by (raw-)transaction direction
+            if transaction.direction == .received {
+                arrow.image = receivedImage
+                transactionLabel.textColor = C.Colors.weirdGreen
+            } else {
+                arrow.image = sentImage
+                transactionLabel.textColor = C.Colors.weirdRed
+            }
         }
     }
-    
-    let container: UIView = CardView()
-    
-    //MARK: - Private
-    private let transactionLabel = UILabel(font: UIFont.customBody(size: 13.0))
-    private let address = UILabel(font: UIFont.customBody(size: 13.0), color: C.Colors.text)
-    private let status = UILabel(font: UIFont.customBody(size: 13.0), color: C.Colors.text)
-    private let comment = UILabel.wrapping(font: UIFont.customBody(size: 13.0), color: C.Colors.text)
-    private let timestamp = UILabel(font: UIFont.customMedium(size: 13.0), color: C.Colors.text)
-    private let shadowView = MaskedShadow()
-    private let innerShadow = UIView()
-    private let topPadding: CGFloat = 19.0
-    private var style: TransactionCellStyle = .first
-    private var transaction: Transaction?
-    private let availability = UILabel(font: .customBold(size: 13.0), color: .txListGreen)
-    private var timer: Timer? = nil
-    private let receivedImage = UIImage(named: "receivedTransaction")
-    private let sentImage = UIImage(named: "sentTransaction")
-    private let arrow = UIImageView(image: UIImage(named: "receivedTransaction"))
-    private let amountCommentContainer = UIView()
     
     private func setupViews() {
         addSubviews()
@@ -178,6 +169,10 @@ class TransactionCardViewCell: UITableViewCell, Subscriber {
     private func addSubviews() {
         contentView.addSubview(container)
         container.addSubview(arrow)
+        
+        container.addSubview(glyphContainer)
+        glyphContainer.addSubview(glyph)
+        
         container.addSubview(timestamp)
         
         container.addSubview(amountCommentContainer)
@@ -188,9 +183,6 @@ class TransactionCardViewCell: UITableViewCell, Subscriber {
     }
     
     private func addConstraints() {
-//        contentView.layer.borderColor = UIColor.red.cgColor
-//        contentView.layer.borderWidth = 1
-        
         contentView.clipsToBounds = true
         overlay.constrain([
             overlay.leftAnchor.constraint(equalTo: container.leftAnchor, constant: -25),
@@ -199,18 +191,11 @@ class TransactionCardViewCell: UITableViewCell, Subscriber {
             overlay.heightAnchor.constraint(equalToConstant: 35),
         ])
         
-//        let maxWidth = container.widthAnchor.constraint(lessThanOrEqualToConstant: 300)
-//        maxWidth.priority = .defaultHigh
-//
-//        let width = container.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8)
-//        width.priority = .defaultLow
-        
         let width = container.widthAnchor.constraint(equalToConstant: 300)
         
         container.constrain([
             container.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             container.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
-//            maxWidth,
             width,
             container.heightAnchor.constraint(equalToConstant: 68),
             container.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
@@ -219,9 +204,19 @@ class TransactionCardViewCell: UITableViewCell, Subscriber {
         arrow.constrain([
             arrow.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 20.0),
             arrow.topAnchor.constraint(equalTo: container.topAnchor, constant: 15.0),
-            arrow.heightAnchor.constraint(equalToConstant: 26.0),
-            arrow.widthAnchor.constraint(equalToConstant: 26.0)
+            arrow.heightAnchor.constraint(equalToConstant: TransactionCardViewCell.GlyphSize),
+            arrow.widthAnchor.constraint(equalToConstant: TransactionCardViewCell.GlyphSize)
         ])
+        
+        glyphContainer.constrain([
+            glyphContainer.topAnchor.constraint(equalTo: arrow.topAnchor),
+            glyphContainer.leftAnchor.constraint(equalTo: arrow.leftAnchor),
+            glyphContainer.rightAnchor.constraint(equalTo: arrow.rightAnchor),
+            glyphContainer.bottomAnchor.constraint(equalTo: arrow.bottomAnchor),
+        ])
+        
+        let padding: CGFloat = 6.0
+        glyph.constrain(toSuperviewEdges: UIEdgeInsets(top: padding, left: padding, bottom: -padding, right: -padding))
         
         timestamp.setContentCompressionResistancePriority(UILayoutPriority.required, for: .horizontal)
         timestamp.constrain([
@@ -248,30 +243,8 @@ class TransactionCardViewCell: UITableViewCell, Subscriber {
             amountCommentContainer.centerYAnchor.constraint(equalTo: arrow.centerYAnchor, constant: 0),
         ])
         
-//        transactionLabel.layer.borderColor = UIColor.green.cgColor
-//        transactionLabel.layer.borderWidth = 1
-//                comment.layer.borderColor = UIColor.red.cgColor
-//                comment.layer.borderWidth = 1
-        
         comment.numberOfLines = 1
         comment.lineBreakMode = .byTruncatingTail
-        
-        /*
-         address.constrain([
-         address.leadingAnchor.constraint(equalTo: transactionLabel.leadingAnchor),
-         address.topAnchor.constraint(equalTo: transactionLabel.bottomAnchor),
-         address.trailingAnchor.constraint(lessThanOrEqualTo: timestamp.leadingAnchor, constant: -C.padding[4])])
-         address.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .horizontal) */
-        /*
-         status.constrain([
-         status.constraint(.leading, toView: container, constant: C.padding[2]),
-         status.constraint(toBottom: comment, constant: C.padding[1]),
-         status.constraint(.trailing, toView: container, constant: -C.padding[2]) ]) */
-        /*
-         availability.constrain([
-         availability.leadingAnchor.constraint(equalTo: status.leadingAnchor),
-         availability.topAnchor.constraint(equalTo: status.bottomAnchor),
-         availability.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -C.padding[2]) ]) */
     }
     
     private func setupStyle() {
@@ -297,6 +270,13 @@ class TransactionCardViewCell: UITableViewCell, Subscriber {
         address.numberOfLines = 1
         
         transactionLabel.textColor = C.Colors.weirdGreen
+        
+        glyphContainer.layer.cornerRadius = TransactionCardViewCell.GlyphSize / 2
+        glyphContainer.layer.masksToBounds = true
+        
+        arrow.contentMode = .scaleAspectFit
+        glyph.contentMode = .scaleAspectFit
+        glyph.tintColor = .white
     }
     
     func updateTimestamp() {
