@@ -39,7 +39,7 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
     
     private let segwitSwitch: UISwitch = {
         let v = UISwitch()
-        v.isOn = false
+        v.isOn = true
         v.isHidden = true // Pre Segwit Release
         return v
     }()
