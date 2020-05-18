@@ -37,7 +37,7 @@ class DAMainViewController: UITabBarController {
             assetOverview,
             assetCreate,
             assetSend,
-            assetReceive,
+//            assetReceive,
             assetBurn
         ]
         super.init(nibName: nil, bundle: nil)
