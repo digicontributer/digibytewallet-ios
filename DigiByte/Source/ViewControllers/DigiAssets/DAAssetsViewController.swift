@@ -16,23 +16,39 @@ import Kingfisher
 
 class DAMainAssetHeader: UIView {
     let header = UILabel(font: UIFont.da.customBold(size: 20), color: .white)
+    let additionalInfo = UILabel(font: UIFont.da.customMedium(size: 16), color: UIColor.da.orange)
     let searchBar = UITextField()
     
+    let text: String
+    
     init(_ text: String) {
+        self.text = text
         super.init(frame: .zero)
         
         addSubview(header)
+        addSubview(additionalInfo)
         addSubview(searchBar)
         
         header.constrain([
             header.leftAnchor.constraint(equalTo: leftAnchor),
             header.rightAnchor.constraint(equalTo: rightAnchor),
             header.topAnchor.constraint(equalTo: topAnchor),
-            header.bottomAnchor.constraint(equalTo: bottomAnchor),
+        ])
+        
+        additionalInfo.constrain([
+            additionalInfo.leftAnchor.constraint(equalTo: leftAnchor),
+            additionalInfo.rightAnchor.constraint(equalTo: rightAnchor),
+            additionalInfo.topAnchor.constraint(equalTo: header.bottomAnchor),
+            additionalInfo.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
         
         header.text = text
+        additionalInfo.text = " "
         searchBar.leftView = UIImageView(image: UIImage(named: "da-glyph-search"))
+    }
+    
+    func setAdditionalText(info: String) {
+        additionalInfo.text = "Total number of unique Assets:" + " " + info
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -552,7 +568,7 @@ class DAAssetsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tabBarController?.tabBar.tintColor = UIColor(red: 0xDE / 255, green: 0x88 / 255, blue: 0x3C / 255, alpha: 1.0)
+        tabBarController?.tabBar.tintColor = UIColor.da.orange
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -668,7 +684,7 @@ class DAAssetsViewController: UIViewController {
             mainHeader.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 58),
             mainHeader.leftAnchor.constraint(equalTo: mainView.leftAnchor, constant: 32),
             mainHeader.rightAnchor.constraint(equalTo: mainView.rightAnchor, constant: 0),
-            mainHeader.heightAnchor.constraint(equalToConstant: 32) /* YOSHI */
+//            mainHeader.heightAnchor.constraint(equalToConstant: 32) /* YOSHI */
         ])
         
         mainView.addSubview(tableViewBorder)
@@ -860,6 +876,7 @@ extension DAAssetsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.mainHeader.setAdditionalText(info: "\(AssetHelper.allAssets.count)")
         return AssetHelper.allAssets.count
     }
     
