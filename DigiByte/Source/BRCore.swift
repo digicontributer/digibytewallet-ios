@@ -500,6 +500,10 @@ class BRWallet {
         return BRWalletAddressIsUsed(cPtr, address) != 0
     }
     
+    func keyForAddress(_ address: String, key: inout BRKey, seed: inout UInt512) -> Bool {
+        return BRWalletGetAddressPrivateKey(cPtr, &key, address, address.count, &seed, MemoryLayout<UInt512>.stride) != 0
+    }
+    
     // transactions registered in the wallet, sorted by date, oldest first
     var transactions: [BRTxRef?] {
         var transactions = [BRTxRef?](repeating: nil, count: BRWalletTransactions(cPtr, nil, 0))

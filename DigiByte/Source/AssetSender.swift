@@ -153,11 +153,10 @@ class AssetSender {
             // Check if input was registered by wallet
             guard wallet.hasUtxo(txid: utxo.txid, n: utxo.index) else {
                 addDebug("Utxo \(utxo.txid):\(utxo.index) not available\n")
-                
                 wallet.printUtxos()
-                
                 continue
             }
+            
             guard wallet.utxoIsSpendable(txid: utxo.txid, n: utxo.index) else {
                 addDebug("Utxo \(utxo.txid):\(utxo.index) already spent\n")
                 continue

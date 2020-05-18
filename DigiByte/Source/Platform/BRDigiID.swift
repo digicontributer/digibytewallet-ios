@@ -84,6 +84,7 @@ open class BRDigiID : NSObject, BRDigiIDProtocol {
     static let SCHEME = "digiid"
     static let PARAM_NONCE = "x"
     static let PARAM_UNSECURE = "u"
+    static let PARAM_ASSETS = "assetid"
     static let USER_DEFAULTS_NONCE_KEY = "BRDigiID_nonces"
     static let DEFAULT_INDEX: UInt32 = 0
     
@@ -194,6 +195,10 @@ open class BRDigiID : NSObject, BRDigiIDProtocol {
             // Request id / ad-hoc token
             var nonce: String
             
+            var assetId: String? = nil
+            var dualAsset: Bool? = nil
+            var agreement: String? = nil
+            
             // First we check, if a valid URL was passed
             guard url.query != nil else {
                 DispatchQueue.main.async {
@@ -223,6 +228,12 @@ open class BRDigiID : NSObject, BRDigiIDProtocol {
                 nonce = newNonce() // we are generating our own nonce
             }
             
+            // Asset Signing
+            if let aids = query[BRDigiID.PARAM_ASSETS], aids.count == 1 {
+                assetId = aids[0]
+                dualAsset = query["assetdualsubmit"] != nil
+            }
+            
             // ToDo: Use nonce
             nonce = nonce + "" // silent warning
             
@@ -244,11 +255,51 @@ open class BRDigiID : NSObject, BRDigiIDProtocol {
             //                      which should result in the value of the field uri
             let uriWithNonce = url.absoluteString
             let signature = BRDigiID.signMessage(uriWithNonce, usingKey: priv)
-            let payload: [String: String] = [
+            var payload: [String: String] = [
                 "address": priv.address()!,
                 "signature": signature,
                 "uri": uriWithNonce
             ]
+            
+            if let assetId = assetId {
+                let utxos = AssetHelper.getAssetUtxos(for: assetId)
+                var walletAddress: String? = nil
+                
+                utxos.forEach { (outputModel) in
+                    guard AssetHelper.assetWasNotSpentCallback(outputModel.txid, outputModel.index) else { return }
+                    guard let addresses = outputModel.base.scriptPubKey.addresses else { return }
+                    guard addresses.count > 0 else { return }
+                    walletAddress = addresses[0]
+                }
+                
+                guard let address = walletAddress else {
+                    DispatchQueue.main.async {
+                        completionHandler(nil, nil, NSError(domain: "", code: -1001, userInfo:
+                        [NSLocalizedDescriptionKey: NSLocalizedString("Asset not available", comment: "")]))
+                    }
+                    return
+                }
+                
+                // Build asset holder address signature
+                
+                guard let privKey = walletManager.getAddressPrivateKey(address: address) else {
+                    DispatchQueue.main.async {
+                        completionHandler(nil, nil, NSError(domain: "", code: -1001, userInfo:
+                        [NSLocalizedDescriptionKey: NSLocalizedString("No private key for this address", comment: "")]))
+                    }
+                    return
+                }
+                
+                let signature = BRDigiID.signMessage(uriWithNonce, usingKey: privKey)
+                
+                if dualAsset == true {
+                    payload["assetaddress"] = walletAddress
+                    payload["assetsignature"] = signature
+                } else {
+                    payload["address"] = walletAddress
+                    payload["signature"] = signature
+                }
+            }
             
             // Encode the payload to JSON
             let json = try! JSONSerialization.data(withJSONObject: payload, options: [])
