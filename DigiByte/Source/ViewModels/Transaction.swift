@@ -229,20 +229,22 @@ class Transaction {
         let received = (direction == .received)
         var amount: Int = 0
         
-        infoModel.vout.forEach { (utxo) in
-            utxo.assets.forEach { (assetHeaderModel) in
-                guard
-                    wallet.hasUtxo(txid: hash, n: utxo.n) == received ||
-                    direction == .moved
-                else {
-                    return
-                }
-                
-                guard assetHeaderModel.assetId == assetId else { return }
-                
-                if direction == .moved {
-                    amount += infoModel.getBurnAmount(input: 0) ?? 0
-                } else if direction == .received || direction == .sent {
+        if direction == .moved {
+            // Use burn amount in da-data.
+            // Since this wallet only supports burning one wallet simultanenously,
+            // we will just acccess the first dadata item.
+            amount = infoModel.getBurnAmount(input: 0) ?? 0
+        } else {
+            // TX-Direction is sent|received, sum up the amount.
+            infoModel.vout.forEach { (utxo) in
+                utxo.assets.forEach { (assetHeaderModel) in
+                    guard
+                        wallet.hasUtxo(txid: hash, n: utxo.n) == received
+                    else {
+                        return
+                    }
+                    
+                    guard assetHeaderModel.assetId == assetId else { return }
                     amount += assetHeaderModel.amount
                 }
             }
@@ -275,8 +277,20 @@ class Transaction {
                             ret = S.Assets.multipleAssets
                         }
                     } else {
-                        // No assets
-                        ret = S.Assets.noMetadata
+                        // No assets, try once more in txin
+                        guard
+                            let infoModel = AssetHelper.getTransactionInfoModel(txid: hash),
+                            let index = infoModel.vin.firstIndex(where: { $0.assets.count > 0 })
+                        else {
+                            ret = S.Assets.noMetadata
+                            return ret
+                        }
+                        
+                        if let reduced = tryReduce(infoModel.vin[index].assets) {
+                            ret = reduced
+                        } else {
+                            ret = S.Assets.multipleAssets
+                        }
                     }
                 } else {
                     // No data available

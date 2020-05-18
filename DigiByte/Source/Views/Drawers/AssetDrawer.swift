@@ -285,6 +285,13 @@ extension AssetDrawer: UITableViewDelegate, UITableViewDataSource {
             }
         }
         
+        // Workaround: In case of some BURN-ALL transactions, no models were specified in the outputs.
+        // Check if there is one in the inputs
+        if walletsAssetModels.count == 0 {
+            // Retry with models that were specified in vin
+            infoModel.vin.forEach { walletsAssetModels.append(contentsOf: $0.assets) }
+        }
+        
         // Index the full models of the wallet's assets
         walletsAssetModels.forEach { assetHeaderModel in
             guard let model = AssetHelper.getAssetModel(assetID: assetHeaderModel.assetId) else { return }

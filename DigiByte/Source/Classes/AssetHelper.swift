@@ -513,6 +513,22 @@ class FetchAssetTransactionOperation: Operation {
                 }
             }
             
+            infoModel.vin.forEach { i in
+                i.assets.forEach { assetModel in
+                    let assetId = assetModel.assetId
+                    
+                    // Only resolve each assetModel once
+                    let key = "\(assetId)-\(infoModel.txid)"
+                    if assetDict.index(forKey: key) == nil {
+                        print("AssetResolver: Adding MetadataOperation for \(assetId) (txID = \(i.txid):\(i.vout))")
+                        assetDict[key] = 1
+                        
+                        let subOperation = FetchMetadataOperation(url: self.urlWrapper, state: self.state, assetID: assetId, txID: i.txid, index: i.vout)
+                        subqueue.addOperation(subOperation)
+                    }
+                }
+            }
+            
             if subqueue.operationCount == 0 { self.state.resolved = true }
             subqueue.waitUntilAllOperationsAreFinished()
             print("AssetResolver: Finished FetchAssetTransactionOperation for txID=\(self.state.txID)")
@@ -902,9 +918,14 @@ class AssetHelper {
     static func resolveAssetTransaction(for txids: [String], callback: (([TransactionInfoModel]) -> Void)?) -> AssetResolver? {
         AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.fetchingAssets, object: nil)
         
-        let filtered = txids.filter { (txid) -> Bool in
+        var filtered = txids.filter { (txid) -> Bool in
             guard let infoModel = self.getTransactionInfoModel(txid: txid) else { return true }
             return (infoModel.temporary == true)
+        }
+        
+        if filtered.count == 0 {
+            // Workaround: If all transaction info models already exist, refetch!
+            filtered = txids
         }
         
         return AssetResolver(txids: filtered) { states in
