@@ -92,6 +92,7 @@ class AssetDrawer: UIView {
     private var tx: Transaction?
 
     private let tableView: UITableView = UITableView()
+    private let refreshControl = UIRefreshControl()
     private var contextMenuConstraints = [NSLayoutConstraint]()
     
     private let contextMenu = AssetContextMenu()
@@ -143,6 +144,8 @@ class AssetDrawer: UIView {
             viewRawTxButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50),
             viewRawTxButton.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
+        
+        tableView.refreshControl = refreshControl
     }
     
     private func setStyle() {
@@ -152,6 +155,8 @@ class AssetDrawer: UIView {
         
         viewRawTxButton.label.font = UIFont.da.customBold(size: 12)
         viewRawTxButton.height = 34
+        
+        refreshControl.tintColor = UIColor.whiteTint
     }
     
     private func configureTableView() {
@@ -205,6 +210,32 @@ class AssetDrawer: UIView {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 guard let assetId = self?.contextMenuCtx else { return }
                 self?.assetNavigatorCallback?(.burn(assetId))
+            }
+        }
+        
+        refreshControl.addTarget(self, action: #selector(refreshTransactionModel), for: .valueChanged)
+    }
+    
+    @objc
+    private func refreshTransactionModel() {
+        guard let tx = tx else {
+            refreshControl.endRefreshing()
+            return
+        }
+        
+        let _ = AssetResolver.init(txids: [tx.hash]) { (states) in
+            DispatchQueue.main.async {
+                guard
+                    states.count > 0,
+                    !states[0].failed,
+                    let infoModel = states[0].transactionInfoModel
+                else {
+                    self.refreshControl.endRefreshing()
+                    return
+                }
+                
+                self.setTransactionInfoModel(for: tx, infoModel: infoModel)
+                self.refreshControl.endRefreshing()
             }
         }
     }
