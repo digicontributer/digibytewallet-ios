@@ -239,12 +239,15 @@ class Transaction {
             infoModel.vout.forEach { (utxo) in
                 utxo.assets.forEach { (assetHeaderModel) in
                     guard
+                        assetHeaderModel.assetId == assetId,
+                        // Only include in sum, if utxo is still available
                         wallet.hasUtxo(txid: hash, n: utxo.n) == received
+                            // .. or if it was spent already.
+                            || wallet.utxoWasSpent(txid: hash, n: utxo.n)
                     else {
                         return
                     }
                     
-                    guard assetHeaderModel.assetId == assetId else { return }
                     amount += assetHeaderModel.amount
                 }
             }
