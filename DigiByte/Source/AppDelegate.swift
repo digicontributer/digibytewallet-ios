@@ -139,6 +139,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     self.applicationController.showAddressBook()
                     break
                 
+                case "App.Shortcuts.DigiAssets":
+                    self.applicationController.showDigiAssets()
+                    break
+                
                 default:
                     senderApp = ""
                     break
