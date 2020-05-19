@@ -341,6 +341,8 @@ class ModalPresenter : Subscriber, Trackable {
         return root
     }
     
+    
+    
     private func showAddressView() -> UIViewController? {
         guard let wallet = walletManager?.wallet else { return nil }
         let receiveVC = ShowAddressViewController(wallet: wallet, store: store)
