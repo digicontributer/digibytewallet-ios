@@ -100,8 +100,9 @@ extension DAModalAssetSelector: UITableViewDelegate, UITableViewDataSource {
         
         if let urlStr = assetModel.getImage()?.url, let url = URL(string: urlStr) {
             cell.imageView?.kf.setImage(with: url, placeholder: nil, options: [
-                .processor(DownsamplingImageProcessor(size: CGSize(width: cell.imageView?.bounds.width ?? 30, height: cell.imageView?.bounds.height ?? 30) )),
+                .processor(DownsamplingImageProcessor(size: CGSize(width: 32, height: 32) )),
                 .scaleFactor(UIScreen.main.scale),
+                .transition(ImageTransition.fade(0.2)),
                 .cacheOriginalImage
             ])
             cell.imageView?.tintColor = .clear

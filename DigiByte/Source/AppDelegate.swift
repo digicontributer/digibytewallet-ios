@@ -26,6 +26,7 @@
 import UIKit
 import LocalAuthentication
 import UserNotifications
+import Kingfisher
 
 var _senderApp: String = "";
 
@@ -78,8 +79,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 
+        ImageCache.default.diskStorage.config.expiration = .never
+        
 #if Debug
-
         if false {
             UserDefaults.hasShownWelcome = false
             resetKeychain()
