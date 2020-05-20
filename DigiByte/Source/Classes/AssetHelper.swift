@@ -153,8 +153,8 @@ struct AssetModel: Codable {
     let lockStatus: Bool
     let numOfIssuance: Int
     let numOfTransfers: Int
-    let totalSupply: Int
-    let numOfHolders: Int
+    let totalSupply: Int?
+    let numOfHolders: Int?
     
     let issuanceTxid: String?
     let issueAddress: String?
@@ -165,8 +165,8 @@ struct AssetModel: Codable {
     func getAssetInfo(separator: String = ", ") -> String {
         var res = [String]()
         
-        res.append("\(S.Assets.totalSupply): \(totalSupply)")
-        res.append("\(S.Assets.numberOfHolders): \(numOfHolders)")
+        res.append("\(S.Assets.totalSupply): \(totalSupply ?? 0)")
+        res.append("\(S.Assets.numberOfHolders): \(numOfHolders ?? 0)")
         res.append("\(S.Assets.lockStatus): \(lockStatus ? S.Assets.locked : S.Assets.unlocked)")
         
         return res.joined(separator: separator)
