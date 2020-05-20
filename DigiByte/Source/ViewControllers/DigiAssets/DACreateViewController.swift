@@ -67,7 +67,7 @@ class DACreateViewController: UIViewController, UITableViewDelegate, UITableView
     private let receiveAssetsButton = DAButton(title: "Receive assets", backgroundColor: UIColor.da.secondaryGrey)
     
     private let mainView = UIView()
-    private let mainHeader = DAMainAssetHeader("Create DigiAssets")
+    private let mainHeader = DAMainAssetHeader("Create Assets")
     private let tableView = UITableView(frame: .zero)
     private let tableViewBorder = UIView()
     
