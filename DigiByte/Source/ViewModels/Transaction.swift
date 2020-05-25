@@ -237,13 +237,20 @@ class Transaction {
         } else {
             // TX-Direction is sent|received, sum up the amount.
             infoModel.vout.forEach { (utxo) in
+                let addresses = utxo.scriptPubKey.addresses
+                
                 utxo.assets.forEach { (assetHeaderModel) in
+                    // Skip if not asset of interest.
                     guard
                         assetHeaderModel.assetId == assetId,
-                        // Only include in sum, if utxo is still available
-                        wallet.hasUtxo(txid: hash, n: utxo.n) == received
-                            // .. or if it was spent already.
-                            || wallet.utxoWasSpent(txid: hash, n: utxo.n)
+                        (addresses?.count ?? 0) > 0
+                    else {
+                        return
+                    }
+                    
+                    // Only include in sum, if utxo is still available
+                    guard
+                        wallet.containsAddress(addresses![0]) == received
                     else {
                         return
                     }

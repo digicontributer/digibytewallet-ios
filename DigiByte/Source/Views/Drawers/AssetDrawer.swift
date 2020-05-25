@@ -309,8 +309,13 @@ extension AssetDrawer: UITableViewDelegate, UITableViewDataSource {
                 assetUtxos.append(utxo)
                 walletsAssetModels.append(contentsOf: utxo.assets)
                 
-            } else if walletManager?.wallet?.hasUtxo(txid: txid, n: utxo.n) == received {
-                // Show appropriate direction
+            }
+            
+            guard (utxo.scriptPubKey.addresses?.count ?? 0) > 0 else { return }
+            let addresses = utxo.scriptPubKey.addresses!
+            
+            // Only show appropriate direction
+            if walletManager?.wallet?.containsAddress(addresses[0]) == received {
                 assetUtxos.append(utxo)
                 walletsAssetModels.append(contentsOf: utxo.assets)
             }
