@@ -77,7 +77,6 @@ enum S {
         static let createNewAsset = NSLocalizedString("Assets.createNewAsset", value: "Create new Asset", comment: "Button title for create new asset")
         static let receiveAssets = NSLocalizedString("Assets.receiveAssets", value: "Receive Assets", comment: "Heading for Receive assets")
         static let createAssets = NSLocalizedString("Assets.createAssets", value: "Create Assets", comment: "Heading for create new assets")
-        static let createNewAsset = NSLocalizedString("Assets.createNewAsset", value: "Create a new Asset", comment: "Heading")
         static let burnAssets = NSLocalizedString("Assets.burnAssets", value: "Burn Assets", comment: "Heading for burn assets")
         static let sendAssets = NSLocalizedString("Assets.sendAssets", value: "Send Assets", comment: "Button title for send assets")
         
