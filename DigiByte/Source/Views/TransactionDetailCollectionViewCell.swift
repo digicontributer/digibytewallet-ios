@@ -518,6 +518,7 @@ class TransactionDetailCollectionViewCell : UICollectionViewCell {
             comment.topAnchor.constraint(equalTo: commentsHeader.bottomAnchor, constant: 0),
             comment.leftAnchor.constraint(equalTo: commentsHeader.leftAnchor, constant: 0),
             comment.rightAnchor.constraint(equalTo: timeSinceTransactionLabel.rightAnchor, constant: 0),
+            comment.heightAnchor.constraint(equalToConstant: 30),
         ])
         
         let commentBottomBorder = UIView(color: C.Colors.greyBlue)
