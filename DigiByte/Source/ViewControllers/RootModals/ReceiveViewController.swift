@@ -102,7 +102,8 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
                     self.crShare.layer.opacity = 1
                     self.descriptionLabel.alpha = 0
                     let amountStr: CGFloat = CGFloat(amount.rawValue) / 100000000.0
-                    self.requestString.text = "Receive \(amountStr) \(C.btcCurrencyCode) \(S.Confirmation.to.lowercased())\n\(address)"
+                    
+                    self.requestString.text = String(format: S.Receive.receiveAmountTo, "\(amountStr) \(C.btcCurrencyCode)", address)
                     self.setQrCode()
                 } else {
                     self.addressButton.isUserInteractionEnabled = true
@@ -111,7 +112,7 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
                     self.requestString.layer.opacity = 1.0
                     self.descriptionLabel.alpha = 1
                     self.share.isUserInteractionEnabled = true
-                    self.requestString.text = "Receive to\n\(address)" // ToDo: Export language
+                    self.requestString.text = String(format: S.Receive.receiveTo, address)
                     self.setReceiveAddress()
                     self.crShare.layer.opacity = 0.1
                     self.crShare.isUserInteractionEnabled = false
@@ -257,9 +258,9 @@ class ReceiveViewController : UIViewController, Subscriber, Trackable {
     
     private func updateAlternativeAddressButton() {
         if useSegwit {
-            requestLegacyAddressButton.setTitle("Show a Legacy Address instead", for: .normal)
+            requestLegacyAddressButton.setTitle(S.Receive.showLegacyAddress, for: .normal)
         } else {
-            requestLegacyAddressButton.setTitle("Show a Segwit Address instead", for: .normal)
+            requestLegacyAddressButton.setTitle(S.Receive.showSegwitAddress, for: .normal)
         }
     }
     

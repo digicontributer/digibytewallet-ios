@@ -173,15 +173,15 @@ struct AssetModel: Codable {
     }
     
     func getIssuer() -> String {
-        guard let meta = metadataOfIssuence else { return "Asset with no metadata" }
-        guard let data = meta.data else { return "Asset with no data" }
-        return data.issuer ?? "Asset without issuer"
+        guard let meta = metadataOfIssuence else { return S.Assets.unknown }
+        guard let data = meta.data else { return S.Assets.unknown }
+        return data.issuer ?? S.Assets.unknown
     }
     
     func getAssetName() -> String {
-        guard let meta = metadataOfIssuence else { return "Asset with no metadata" }
-        guard let data = meta.data else { return "Asset with no data" }
-        return data.assetName ?? "Asset without name"
+        guard let meta = metadataOfIssuence else { return S.Assets.unknown }
+        guard let data = meta.data else { return S.Assets.unknown }
+        return data.assetName ?? S.Assets.unknown
     }
     
     func getImage() -> UrlModel? {

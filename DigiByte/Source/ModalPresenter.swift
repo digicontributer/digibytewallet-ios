@@ -562,16 +562,16 @@ class ModalPresenter : Subscriber, Trackable {
                     UserDefaults.showRawTransactionsOnly = a
                     AssetNotificationCenter.instance.post(name: AssetNotificationCenter.notifications.newAssetData, object: nil) // Refresh Table View
                 }),
-                Setting(switchWithTitle: "Resolve assets without prompt", initial: UserDefaults.Privacy.automaticallyResolveAssets, callback: { (active) in
+                Setting(switchWithTitle: S.Settings.resolveAssetsWithoutPrompt, initial: UserDefaults.Privacy.automaticallyResolveAssets, callback: { (active) in
                     UserDefaults.Privacy.automaticallyResolveAssets = active
                 }),
                 
-                Setting(title: "Clear Asset Cache", callback: { [weak self] in
+                Setting(title: S.Settings.clearAssetCache, callback: { [weak self] in
                     AssetHelper.reset()
-                    self?.showLightWeightAlert(message: "Asset Cache cleared")
+                    self?.showLightWeightAlert(message: S.Settings.cacheCleared)
                 }),
                 
-                Setting(title: "Clear Image Cache", accessoryText: {
+                Setting(title: S.Settings.clearImageCache, accessoryText: {
                     let calc = Double(usage) / 1024 / 1024
                     let rounded = round(calc * 1000.0) / 1000
                     return "\(rounded) MB"
@@ -579,7 +579,7 @@ class ModalPresenter : Subscriber, Trackable {
                     let cache = ImageCache.default
                     cache.clearMemoryCache()
                     cache.clearDiskCache {
-                        self?.showLightWeightAlert(message: "Image Cache cleared")
+                        self?.showLightWeightAlert(message: S.Settings.cacheCleared)
                         updateImageCacheUsage {
                             settingsVC?.tableView.reloadData()
                         }
@@ -588,27 +588,27 @@ class ModalPresenter : Subscriber, Trackable {
             ],
             
             "Advanced": [
-                Setting(title: "Advanced", callback: { [weak self] in
+                Setting(title: S.Settings.advancedTitle, callback: { [weak self] in
                     guard let myself = self else { return }
                     guard let walletManager = myself.walletManager else { return }
                     guard let store = self?.store else { return }
                     let sections = ["Network"]
                     let advancedSettings = [
                         "Network": [
-                            Setting(title: "DigiByte Nodes", callback: {
+                            Setting(title: S.Settings.nodes, callback: {
                                 let nodeSelector = NodeSelectorViewController(walletManager: walletManager, store: store)
                                 settingsNav.pushViewController(nodeSelector, animated: true)
                             }),
-                            Setting(title: "Use Digi-ID Legacy", accessoryText: { () -> String in
+                            Setting(title: S.Settings.useDigiIDLegacy, accessoryText: { () -> String in
                                 let count = DigiIDLegacySites.default.sites.count
-                                return "\(count) site(s)"
+                                return String(format: S.WritePaperPhrase.step, count)
                             }, callback: {
                                 let vc = DigiIDExceptionViewController()
                                 vc.presentScan = myself.presentDigiIdScan(parent: vc)
                                 settingsNav.pushViewController(vc, animated: true)
                                 
                                 DispatchQueue.main.async {
-                                    self?.showLightWeightWarning(message: "Adding exceptions is not recommended. Digi-ID Legacy will be removed a future release")
+                                    self?.showLightWeightWarning(message: S.Settings.digiIdLegacyWarning)
                                 }
                             })
                             /*,
@@ -624,7 +624,7 @@ class ModalPresenter : Subscriber, Trackable {
                     settingsNav.pushViewController(advancedSettingsVC, animated: true)
                 }),
                 
-                Setting(title: "Support", callback: {
+                Setting(title: S.MenuButton.support, callback: {
                     let screenName =  "DGBSupport"
                     let appURL = URL(string: "tg://resolve?domain=\(screenName)")!
                     let webURL = URL(string: "https://t.me/\(screenName)")!

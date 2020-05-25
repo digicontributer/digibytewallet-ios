@@ -12,7 +12,7 @@ class DAMainViewController: UITabBarController {
     // MARK: Public properties
     
     // MARK: Private properties
-    private let header = ModalHeaderView(title: "DigiAssets", style: ModalHeaderViewStyle.light)
+    private let header = ModalHeaderView(title: S.MenuButton.digiAssets, style: ModalHeaderViewStyle.light)
     private let store: BRStore
     private let walletManager: WalletManager
     private var tabs: [UIViewController]

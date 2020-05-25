@@ -132,7 +132,7 @@ class DAReceiveViewController: UIViewController {
         self.walletManager = walletManager
         super.init(nibName: nil, bundle: nil)
         
-        tabBarItem = UITabBarItem(title: "Receive", image: UIImage(named: "da-receive")?.withRenderingMode(.alwaysTemplate), tag: 0)
+        tabBarItem = UITabBarItem(title: S.Assets.tabReceive, image: UIImage(named: "da-receive")?.withRenderingMode(.alwaysTemplate), tag: 0)
         
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
@@ -144,7 +144,7 @@ class DAReceiveViewController: UIViewController {
         stackView.distribution = .fill
         stackView.axis = .vertical
         
-        header.text = "Receive Assets"
+        header.text = S.Assets.receiveAssets
         header.textAlignment = .left
         
         totalBalanceLabel.text = " "
@@ -199,7 +199,7 @@ class DAReceiveViewController: UIViewController {
         q.layer.cornerRadius = 12
         q.layer.masksToBounds = true
         
-        qrCode.image = UIImage.qrCode(data: "Select an asset".data(using: .ascii)!, color: CIColor(color: .black))?.resize(CGSize(width: qrSize, height: qrSize))
+        qrCode.image = UIImage.qrCode(data: S.Assets.selectAnAsset.data(using: .ascii)!, color: CIColor(color: .black))?.resize(CGSize(width: qrSize, height: qrSize))
         
         if !UserDefaults.excludeLogoInQR {
             qrCode.image = placeLogoIntoQR(qrCode.image!, width: qrSize, height: qrSize, logo: UIImage(named: "da_filled"))
@@ -234,10 +234,10 @@ class DAReceiveViewController: UIViewController {
         
         stackView.addArrangedSubview(UIView())
         
-        receivingAddressBox.placeholder = "Receiving Address"
+        receivingAddressBox.placeholder = S.Receive.receiveAddress
         receivingAddressBox.copyMode = true
         receivingAddressBox.textBox.isEnabled = false
-        receivingAddressBox.textBox.text = "N/A"
+        receivingAddressBox.textBox.text = S.Assets.unknown
         
         stackView.addArrangedSubview(requestLegacyAddressButton)
         
@@ -266,9 +266,9 @@ class DAReceiveViewController: UIViewController {
     
     private func updateAlternativeAddressButton() {
         if useSegwit {
-            requestLegacyAddressButton.setTitle("Show a Legacy Address instead", for: .normal)
+            requestLegacyAddressButton.setTitle(S.Receive.showLegacyAddress, for: .normal)
         } else {
-            requestLegacyAddressButton.setTitle("Show a Segwit Address instead", for: .normal)
+            requestLegacyAddressButton.setTitle(S.Receive.showSegwitAddress, for: .normal)
         }
     }
     

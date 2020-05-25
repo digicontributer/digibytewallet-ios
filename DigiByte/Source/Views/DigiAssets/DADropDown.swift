@@ -31,7 +31,7 @@ class DADropDown: UIView {
         imageView.alpha = 0.7
         
         titleLabel.textColor = .gray
-        titleLabel.text = "Select asset ..."
+        titleLabel.text = S.Assets.select
     }
     
     func setContent(asset: AssetModel?) {

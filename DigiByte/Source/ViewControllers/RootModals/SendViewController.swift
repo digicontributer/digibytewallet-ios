@@ -118,7 +118,7 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
         view.addSubview(sendButton)
         view.addSubview(dandelionSwitchContainer)
         
-        dandelionLabel.text = "Use the Dandelion Protocol for enhanced privacy"
+        dandelionLabel.text = S.Send.useDandelion
         dandelionLabel.numberOfLines = 0
         dandelionLabel.lineBreakMode = .byWordWrapping
         dandelionLabel.textColor = UIColor.white

@@ -51,7 +51,7 @@ fileprivate class LogoCell: UITableViewCell {
         backgroundColor = UIColor.clear
         selectionStyle = .none
         
-        headerLabel.text = "Asset Transaction"
+        headerLabel.text = S.Assets.tx
         headerLabel.textAlignment = .center
     
         let padding: CGFloat = 15
@@ -111,7 +111,7 @@ class AssetDrawer: UIView {
     // Callback to show the asset transaction details (opens up DigiAssets submenu)
     var assetNavigatorCallback: ((AssetMenuAction) -> Void)? = nil /* AssetId, Transaction */
     
-    let viewRawTxButton = DAButton(title: "View Raw Transaction".uppercased(), backgroundColor: UIColor.da.darkSkyBlue)
+    let viewRawTxButton = DAButton(title: S.Assets.rawTx.uppercased(), backgroundColor: UIColor.da.darkSkyBlue)
     
     init(id: String) {
         self.id = id

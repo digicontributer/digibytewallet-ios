@@ -95,7 +95,7 @@ extension DAModalAssetSelector: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = assetModel.getAssetName()
         
         let amount = AssetHelper.allBalances[assetId] ?? 0
-        let subtitleStr = "Balance: \(amount)"
+        let subtitleStr = String(format: S.Send.balance, amount)
         cell.detailTextLabel?.text = subtitleStr
         
         if let urlStr = assetModel.getImage()?.url, let url = URL(string: urlStr) {

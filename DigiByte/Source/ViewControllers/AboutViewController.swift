@@ -91,7 +91,7 @@ class AboutViewController : UIViewController {
         credits.textColor = C.Colors.blueGrey
         
         versionLabel.text = "Version \(C.version)"
-        introductionLabel.text = "This app was built by DigiByte & Blockchain enthusiasts, unpaid volunteers who devoted their time and skills to a project they believe in."
+        introductionLabel.text = S.About.introduction
         credits.attributedText = creditText()
         credits.backgroundColor = .clear
         credits.isScrollEnabled = false

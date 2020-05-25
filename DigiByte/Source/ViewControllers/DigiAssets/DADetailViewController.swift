@@ -11,8 +11,8 @@ import UIKit
 fileprivate class DAAssetPropertyMultilineView: UIView {
     let titleLabel = UILabel(font: UIFont.da.customMedium(size: 18), color: UIColor.da.darkSkyBlue)
     let textView = UITextView(frame: .zero)
-    let showContentButton = DAButton(title: "Tap to show", backgroundColor: UIColor.da.darkSkyBlue)
-    let hideContentButton = DAButton(title: "Tap to hide", backgroundColor: UIColor.da.darkSkyBlue)
+    let showContentButton = DAButton(title: S.Assets.tapToShow, backgroundColor: UIColor.da.darkSkyBlue)
+    let hideContentButton = DAButton(title: S.Assets.tapToHide, backgroundColor: UIColor.da.darkSkyBlue)
     let callback: (() -> Void)
     
     var heightConstraint: NSLayoutConstraint!
@@ -414,11 +414,11 @@ class DADetailViewController: UIViewController {
         var properties = [String: String?]()
         var type = [String: PropertyType]()
         
-        let AssetIdKey = "Asset ID"
-        let BalanceKey = "Total Balance"
-        let IssuerKey = "Issuer"
-        let AssetInfoKey = "Asset Info"
-        let DescriptionKey = "Description"
+        let AssetIdKey = S.Assets.assetIdKey
+        let BalanceKey = S.Assets.balanceKey
+        let IssuerKey = S.Assets.issuerKey
+        let AssetInfoKey = S.Assets.assetInfoKey
+        let DescriptionKey = S.Assets.descriptionKey
         
         let keys: [String] = [AssetIdKey, BalanceKey, IssuerKey, AssetInfoKey, DescriptionKey]
         
@@ -446,7 +446,7 @@ class DADetailViewController: UIViewController {
             switch(type[key]) {
                 case .copyable:
                     stackView.addArrangedSubview(DACopyableAssetPropertyView(title: key, value: value, callback: { [weak self] val in
-                        self?.showAlert(with: "Copied")
+                        self?.showAlert(with: S.Receive.copied)
                         UIPasteboard.general.string = val
                     }))
                 

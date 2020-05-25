@@ -254,7 +254,7 @@ fileprivate class BalanceView: UIView, Subscriber {
         // Update connection status image
         if syncState == .connecting {
             // Show: Connecting...
-            lastKnownConnectionState = "Connecting..."
+            lastKnownConnectionState = S.SyncingView.connecting
             topRightImage.image = nil
             
             topRightImage.animationImages = [
@@ -270,12 +270,12 @@ fileprivate class BalanceView: UIView, Subscriber {
         
         if !isConnected {
             // Show: Not connected
-            lastKnownConnectionState = "Not connected"
+            lastKnownConnectionState = S.NodeSelector.notConnected
             topRightImage.image = UIImage(named: "disconnected")?.withRenderingMode(.alwaysTemplate)
             topRightImage.tintColor = C.Colors.weirdRed
         } else {
             // Show: connected
-            lastKnownConnectionState = "Connected to network"
+            lastKnownConnectionState = S.SyncingView.syncing
             topRightImage.image = UIImage(named: "connected")?.withRenderingMode(.alwaysTemplate)
             topRightImage.tintColor = C.Colors.weirdGreen
         }
@@ -674,7 +674,7 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
             self.showSingleDigiAssetsConfirmViewIfNeeded(for: tx) { utxos in
                 guard utxos.count > 0 else {
                     self.didSelectTransaction(hash: tx.hash)
-                    self.showError(with: "No asset data available")
+                    self.showError(with: S.Assets.NoAssetData)
                     return
                 }
                 
@@ -996,7 +996,7 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
         navigationDrawer.addButton(title: S.MenuButton.digiAssets, icon: UIImage(named: "digiassets")!) {
             guard !UserDefaults.showRawTransactionsOnly else {
                 // Please Enable DigiAsset Support in Settings
-                let vc = DGBConfirmAlert(title: "DigiAssets Protocol Disabled", message: "Enable DigiAsset Support in Settings", image: nil, okTitle: "OK", cancelTitle: nil, alternativeButtonTitle: nil)
+                let vc = DGBConfirmAlert(title: S.Assets.protocolDisabled, message: S.Assets.protocolDisabledDescription, image: nil, okTitle: S.Button.ok, cancelTitle: nil, alternativeButtonTitle: nil)
                 vc.contentLabel.textAlignment = .center
                 
                 vc.confirmCallback = { close in

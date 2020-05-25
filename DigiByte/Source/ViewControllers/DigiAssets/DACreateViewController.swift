@@ -11,7 +11,7 @@ import UIKit
 fileprivate class CreateNewAssetCell: PaddedCell {
     let backgroundImage = UIImageView(image: UIImage(named: "da-new-asset-bg"))
     let headingLabel = UILabel(font: UIFont.da.customBold(size: 20), color: .white)
-    let getStartedBtn = DAButton(title: "Get started".uppercased(), backgroundColor: UIColor.da.darkSkyBlue)
+    let getStartedBtn = DAButton(title: S.Assets.getStarted.uppercased(), backgroundColor: UIColor.da.darkSkyBlue)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -36,7 +36,7 @@ fileprivate class CreateNewAssetCell: PaddedCell {
         ])
         
         headingLabel.textAlignment = .right
-        headingLabel.text = "Create a new asset"
+        headingLabel.text = S.Assets.createNewAsset
         getStartedBtn.label.font = UIFont.da.customBold(size: 12)
         getStartedBtn.height = 34
         
@@ -63,11 +63,11 @@ class DACreateViewController: UIViewController, UITableViewDelegate, UITableView
     
     private let emptyImage: UIImageView = UIImageView()
     private let emptyContainer = UIView() // will be displayed when there is no asset in the wallet
-    private let createNewAssetButton = DAButton(title: "Create new asset", backgroundColor: UIColor.da.darkSkyBlue)
-    private let receiveAssetsButton = DAButton(title: "Receive assets", backgroundColor: UIColor.da.secondaryGrey)
+    private let createNewAssetButton = DAButton(title: S.Assets.createNewAsset, backgroundColor: UIColor.da.darkSkyBlue)
+    private let receiveAssetsButton = DAButton(title: S.Assets.receiveAssets, backgroundColor: UIColor.da.secondaryGrey)
     
     private let mainView = UIView()
-    private let mainHeader = DAMainAssetHeader("Create Assets")
+    private let mainHeader = DAMainAssetHeader(S.Assets.createAssets)
     private let tableView = UITableView(frame: .zero)
     private let tableViewBorder = UIView()
     
@@ -101,7 +101,7 @@ class DACreateViewController: UIViewController, UITableViewDelegate, UITableView
         
         emptyImage.image = UIImage(named: "da-empty")
         
-        tabBarItem = UITabBarItem(title: "Create", image: UIImage(named: "da-create")?.withRenderingMode(.alwaysTemplate), tag: 0)
+        tabBarItem = UITabBarItem(title: S.Assets.tabCreate, image: UIImage(named: "da-create")?.withRenderingMode(.alwaysTemplate), tag: 0)
         
         addSubviews()
         setContent()
@@ -113,7 +113,7 @@ class DACreateViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     private func setContent() {
-        emptyLabel.text = "Nothing found here"
+        emptyLabel.text = S.Assets.nothingFoundHere
         emptyLabel.text = ""
         
         createNewAssetButton.height = 46.0

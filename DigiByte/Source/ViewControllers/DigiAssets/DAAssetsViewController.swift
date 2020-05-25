@@ -48,7 +48,7 @@ class DAMainAssetHeader: UIView {
     }
     
     func setAdditionalText(info: String) {
-        additionalInfo.text = "Total number of unique Assets:" + " " + info
+        additionalInfo.text = String(format: S.Assets.totalUnique, info)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -456,10 +456,10 @@ class AssetContextMenu: UIView {
     let roundedView = UIView()
     let stackView = UIStackView()
     
-    let txBtn = AssetContextMenuButton(UIImage(named: "da-glyph-info"), text: "Info")
-    let sendBtn = AssetContextMenuButton(UIImage(named: "da-glyph-send"), text: "Send")
-//        let receiveBtn = AssetContextMenuButton(UIImage(named: "da-glyph-receive"), text: "Receive"))
-    let burnBtn = AssetContextMenuButton(UIImage(named: "da-glyph-burn"), text: "Burn", bgColor: UIColor.da.burnColor)
+    let txBtn = AssetContextMenuButton(UIImage(named: "da-glyph-info"), text: S.Assets.Context.info)
+    let sendBtn = AssetContextMenuButton(UIImage(named: "da-glyph-send"), text: S.Assets.Context.send)
+//        let receiveBtn = AssetContextMenuButton(UIImage(named: "da-glyph-receive"), text: S.Assets.Context.receive))
+    let burnBtn = AssetContextMenuButton(UIImage(named: "da-glyph-burn"), text: S.Assets.Context.burn, bgColor: UIColor.da.burnColor)
     
     init() {
         super.init(frame: .zero)
@@ -517,11 +517,11 @@ class DAAssetsViewController: UIViewController {
     
     private let emptyImage: UIImageView = UIImageView()
     private let emptyContainer = UIView() // will be displayed when there is no asset in the wallet
-    private let createNewAssetButton = DAButton(title: "Create new asset", backgroundColor: UIColor.da.darkSkyBlue)
-    private let receiveAssetsButton = DAButton(title: "Receive assets", backgroundColor: UIColor.da.secondaryGrey)
+    private let createNewAssetButton = DAButton(title: S.Assets.createNewAsset, backgroundColor: UIColor.da.darkSkyBlue)
+    private let receiveAssetsButton = DAButton(title: S.Assets.receiveAssets, backgroundColor: UIColor.da.secondaryGrey)
     
     private let mainView = UIView()
-    private let mainHeader = DAMainAssetHeader("Assets you own")
+    private let mainHeader = DAMainAssetHeader(S.Assets.yourAssets)
     private let tableView = UITableView(frame: .zero)
     private let contextMenu = AssetContextMenu()
     private let contextMenuUnderlay = UIView() // transparent view that closes contextmenu when tapped
@@ -559,7 +559,7 @@ class DAAssetsViewController: UIViewController {
         
         emptyImage.image = UIImage(named: "da-empty")
         
-        tabBarItem = UITabBarItem(title: "Assets", image: UIImage(named: "da-assets")?.withRenderingMode(.alwaysTemplate), tag: 0)
+        tabBarItem = UITabBarItem(title: S.Assets.tabOverview, image: UIImage(named: "da-assets")?.withRenderingMode(.alwaysTemplate), tag: 0)
         
         addSubviews()
         setContent()
@@ -723,7 +723,7 @@ class DAAssetsViewController: UIViewController {
     }
     
     private func setContent() {
-        emptyLabel.text = "Nothing found here"
+        emptyLabel.text = S.Assets.nothingFoundHere
         emptyLabel.text = ""
         
         createNewAssetButton.height = 46.0
