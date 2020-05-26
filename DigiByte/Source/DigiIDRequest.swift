@@ -46,17 +46,17 @@ struct DigiIdRequest {
                         case "u":
                             // unsecure
                             self.https = (value == "0")
-                        case "agree":
+                        case "tos":
                             // contract
                             if let decodedData = Data(base64Encoded: value)  {
                                 self.contract = String(data: decodedData, encoding: .utf8)
                             } else {
                                 self.error = "Invalid Contract"
                             }
-                        case "assetid":
+                        case "assetId":
                             // Asset signer
                             self.assetId = value
-                            if string.contains("&assetdualsubmit") { self.dualAsset = true }
+                            if string.contains("&dual") { self.dualAsset = true }
                             
                         default:
                             print("Keys in DigiId url scheme not found: \(key)")

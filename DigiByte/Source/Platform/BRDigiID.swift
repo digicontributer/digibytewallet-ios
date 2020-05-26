@@ -197,7 +197,6 @@ open class BRDigiID : NSObject, BRDigiIDProtocol {
             
             var assetId: String? = nil
             var dualAsset: Bool? = nil
-            var agreement: String? = nil
             
             // First we check, if a valid URL was passed
             guard url.query != nil else {
@@ -231,7 +230,7 @@ open class BRDigiID : NSObject, BRDigiIDProtocol {
             // Asset Signing
             if let aids = query[BRDigiID.PARAM_ASSETS], aids.count == 1 {
                 assetId = aids[0]
-                dualAsset = query["assetdualsubmit"] != nil
+                dualAsset = query["dual"] != nil
             }
             
             // ToDo: Use nonce
