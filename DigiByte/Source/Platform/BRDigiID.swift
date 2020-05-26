@@ -84,7 +84,7 @@ open class BRDigiID : NSObject, BRDigiIDProtocol {
     static let SCHEME = "digiid"
     static let PARAM_NONCE = "x"
     static let PARAM_UNSECURE = "u"
-    static let PARAM_ASSETS = "assetid"
+    static let PARAM_ASSETS = "assetId"
     static let USER_DEFAULTS_NONCE_KEY = "BRDigiID_nonces"
     static let DEFAULT_INDEX: UInt32 = 0
     
@@ -218,7 +218,7 @@ open class BRDigiID : NSObject, BRDigiIDProtocol {
             //       must enable a switch in the wallet settings. We need to discuss that in the
             //       future.
             if let u = query[BRDigiID.PARAM_UNSECURE], u.count == 1 && u[0] == "1" {
-                scheme = "http"
+                print("Digi-ID: HTTP SUPPORT REMOVED")
             }
             
             // Check if service is providing a nonce, or if we should generate one.
