@@ -172,7 +172,7 @@ class DASendViewController: UIViewController {
         
         super.init(nibName: nil, bundle: nil)
         
-        tabBarItem = UITabBarItem(title: S.Button.send, image: UIImage(named: "da-send")?.withRenderingMode(.alwaysTemplate), tag: 0)
+        tabBarItem = UITabBarItem(title: S.Assets.tabSend, image: UIImage(named: "da-send")?.withRenderingMode(.alwaysTemplate), tag: 0)
         
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)

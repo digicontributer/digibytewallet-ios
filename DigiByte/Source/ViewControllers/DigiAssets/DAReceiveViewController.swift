@@ -199,7 +199,7 @@ class DAReceiveViewController: UIViewController {
         q.layer.cornerRadius = 12
         q.layer.masksToBounds = true
         
-        qrCode.image = UIImage.qrCode(data: S.Assets.selectAnAsset.data(using: .ascii)!, color: CIColor(color: .black))?.resize(CGSize(width: qrSize, height: qrSize))
+        qrCode.image = UIImage.qrCode(data: "NO DATA ENCODED HERE, DAWG!".data(using: .ascii)!, color: CIColor(color: .black))?.resize(CGSize(width: qrSize, height: qrSize))
         
         if !UserDefaults.excludeLogoInQR {
             qrCode.image = placeLogoIntoQR(qrCode.image!, width: qrSize, height: qrSize, logo: UIImage(named: "da_filled"))

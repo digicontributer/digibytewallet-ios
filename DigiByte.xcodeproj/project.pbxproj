@@ -330,6 +330,7 @@
 		39E304582338B3F0008F8386 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398125A3233281040019D5E6 /* UIImage+Utils.swift */; };
 		39E304592338B413008F8386 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398124F1233281030019D5E6 /* Utils.swift */; };
 		39E3045A2338B434008F8386 /* UserDefaults+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398125AA233281040019D5E6 /* UserDefaults+Shared.swift */; };
+		39F76DBD247C528800BF3241 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F76DBC247C528800BF3241 /* Symbols.swift */; };
 		39FA0F59246808E500A0742D /* BRBSPatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3981256D233281040019D5E6 /* BRBSPatch.swift */; };
 		39FFD180239D563A00CFB302 /* DADetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FFD17F239D563A00CFB302 /* DADetailViewController.swift */; };
 		39FFD18C239E604500CFB302 /* AssetSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FFD18B239E604500CFB302 /* AssetSender.swift */; };
@@ -1177,6 +1178,7 @@
 		39DEDAC023490B5B005F648B /* BRDigiAsset.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = BRDigiAsset.c; sourceTree = "<group>"; };
 		39DEDAC223490F0F005F648B /* BRAssetData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRAssetData.h; sourceTree = "<group>"; };
 		39DEDAC323490F0F005F648B /* BRAssetData.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = BRAssetData.c; sourceTree = "<group>"; };
+		39F76DBC247C528800BF3241 /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		39FFD17F239D563A00CFB302 /* DADetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DADetailViewController.swift; sourceTree = "<group>"; };
 		39FFD18B239E604500CFB302 /* AssetSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetSender.swift; sourceTree = "<group>"; };
 		752FB03B1DF8BE4B009086FB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -2204,6 +2206,7 @@
 				3981255E233281030019D5E6 /* Strings.swift */,
 				3981255F233281030019D5E6 /* Functions.swift */,
 				39812560233281030019D5E6 /* ArticleIds.swift */,
+				39F76DBC247C528800BF3241 /* Symbols.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -4632,6 +4635,7 @@
 				398126E9233281050019D5E6 /* UIView+BRWAdditions.swift in Sources */,
 				398126B5233281050019D5E6 /* Strings.swift in Sources */,
 				398126FE233281050019D5E6 /* UserDefaults+Additions.swift in Sources */,
+				39F76DBD247C528800BF3241 /* Symbols.swift in Sources */,
 				39A4EB232393E3B500B5664F /* AssetHelper.swift in Sources */,
 				39812724233281050019D5E6 /* VerifyPinViewController.swift in Sources */,
 				398126AC233281050019D5E6 /* UserDefaultsUpdater.swift in Sources */,

@@ -8,27 +8,7 @@
 
 import Foundation
 
-enum S {
-    enum Symbols {
-        static let bits = "\u{018A}"
-		static let btc = "\u{018A}"
-        static let narrowSpace = " "
-        static let lock = "\u{1F512}"
-        static let redX = "\u{274C}"
-        static func currencyButtonTitle(maxDigits: Int) -> String {
-            switch maxDigits {
-            case 2:
-                return "dgBits\(S.Symbols.narrowSpace)(m\(S.Symbols.bits))"
-            case 5:
-                return "mDGB\(S.Symbols.narrowSpace)(m\(S.Symbols.bits))"
-            case 8:
-                return "DGB\(S.Symbols.narrowSpace)(\(S.Symbols.btc))"
-            default:
-                return "mDGB\(S.Symbols.narrowSpace)(m\(S.Symbols.bits))"
-            }
-        }
-    }
-    
+enum S {    
     enum Assets {
         static let unresolved = NSLocalizedString("Assets.unresolved", value:"Unresolved asset", comment: "Text that is shown when asset was not resolved yet")
         static let noMetadata = NSLocalizedString("Assets.noMetadata", value:"DigiAsset", comment: "Text to show if no metadata is available for the asset")
@@ -48,9 +28,9 @@ enum S {
         static let cancelAssetsResolve = NSLocalizedString("Assets.cancelAssetsResolve", value: "Cancel", comment: "Cancel button caption")
         static let continueWithoutSync = NSLocalizedString("Assets.continueWithoutSync", value: "Skip Sync", comment: "Skip button caption")
         
-        static let totalSupply = NSLocalizedString("Assets.totalSupply", value: "Total Supply", comment: "")
-        static let numberOfHolders = NSLocalizedString("Assets.numberOfHolders", value: "Number of Holders", comment: "")
-        static let lockStatus = NSLocalizedString("Assets.lockStatus", value: "Lock Status", comment: "")
+        static let totalSupply = NSLocalizedString("Assets.totalSupply", value: "Total Supply", comment: "Total supply of asset")
+        static let numberOfHolders = NSLocalizedString("Assets.numberOfHolders", value: "Number of Holders", comment: "Number of total holders of an asset")
+        static let lockStatus = NSLocalizedString("Assets.lockStatus", value: "Lock Status", comment: "lock status of an asset")
         
         static let issuer = NSLocalizedString("Assets.issuer", value: "Issuer", comment: "Issuer key")
         static let assetID = NSLocalizedString("Assets.assetID", value: "Asset ID", comment: "AssetID key")

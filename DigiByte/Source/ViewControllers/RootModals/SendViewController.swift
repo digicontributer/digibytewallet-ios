@@ -39,7 +39,7 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
         self.walletManager = walletManager
         self.initialAddress = initialAddress
         self.initialRequest = initialRequest
-        self.currency = ShadowButton(title: S.Symbols.currencyButtonTitle(maxDigits: store.state.maxDigits), type: .tertiary)
+        self.currency = ShadowButton(title: Symbols.currencyButtonTitle(maxDigits: store.state.maxDigits), type: .tertiary)
         amountView = AmountViewController(store: store, isPinPadExpandedAtLaunch: false, scrollDownOnTap: false)
         super.init(nibName: nil, bundle: nil)
         
@@ -551,7 +551,7 @@ class SendViewController : UIViewController, UIImagePickerControllerDelegate, UI
         }
 
         if let name = protoReq.commonName {
-            addressCell.setContent(protoReq.pkiType != "none" ? "\(S.Symbols.lock) \(name.sanitized)" : name.sanitized)
+            addressCell.setContent(protoReq.pkiType != "none" ? "\(Symbols.lock) \(name.sanitized)" : name.sanitized)
         }
 
         if requestAmount > 0 {
