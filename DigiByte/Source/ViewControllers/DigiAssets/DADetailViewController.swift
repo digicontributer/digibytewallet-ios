@@ -334,7 +334,7 @@ class DADetailViewController: UIViewController {
         titleLabel.constrain([
             titleLabel.centerYAnchor.constraint(equalTo: closeButton.centerYAnchor, constant: 0),
             titleLabel.rightAnchor.constraint(equalTo: headerBackgroundView.rightAnchor, constant: -30),
-            titleLabel.leftAnchor.constraint(equalTo: headerBackgroundView.leftAnchor, constant: 65),
+            titleLabel.leftAnchor.constraint(equalTo: headerBackgroundView.leftAnchor, constant: 30),
         ])
         
         imageView.constrain([
