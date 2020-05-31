@@ -5666,7 +5666,7 @@
 				CODE_SIGN_ENTITLEMENTS = DigiByte/digibyte.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2501;
+				CURRENT_PROJECT_VERSION = 2502;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5680,7 +5680,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.13;
+				MARKETING_VERSION = 2.0.0;
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5702,7 +5702,7 @@
 				CODE_SIGN_ENTITLEMENTS = DigiByte/digibyte.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2501;
+				CURRENT_PROJECT_VERSION = 2502;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				ENABLE_TESTABILITY = NO;
@@ -5717,7 +5717,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.13;
+				MARKETING_VERSION = 2.0.0;
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -6362,7 +6362,7 @@
 				CODE_SIGN_ENTITLEMENTS = DigiByte/digibyte.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2501;
+				CURRENT_PROJECT_VERSION = 2502;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6376,7 +6376,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.13;
+				MARKETING_VERSION = 2.0.0;
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -6658,7 +6658,7 @@
 				CODE_SIGN_ENTITLEMENTS = DigiByte/digibyte.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2501;
+				CURRENT_PROJECT_VERSION = 2502;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6672,7 +6672,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.13;
+				MARKETING_VERSION = 2.0.0;
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -6948,7 +6948,7 @@
 				CODE_SIGN_ENTITLEMENTS = DigiByte/digibyte.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2501;
+				CURRENT_PROJECT_VERSION = 2502;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = G49J8N7X2F;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6962,7 +6962,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.13;
+				MARKETING_VERSION = 2.0.0;
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.digibytefoundation.DigiByte;
 				PRODUCT_NAME = "$(TARGET_NAME)";
