@@ -1539,5 +1539,5 @@
 /* Import Address Description: QR Scanner */
 "Assets.Send.scanQRDescription" = "Gebruik jouw camera om een QR-code te scannen die een adres bevat";
 
-/* Import Address Heading*/;
+/* Import Address Heading*/
 "Assets.Send.browseGalleryDescription" = "Importeer een afbeelding uit Galerij";

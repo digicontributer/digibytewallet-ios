@@ -111,7 +111,7 @@ enum S {
 
             static let scanQRDescription = NSLocalizedString("Assets.Send.scanQRDescription", value: "Use your Camera to scan a QR Code containing an Address", comment: "Import Address Description: Gallery");
 
-            static let browseGalleryDescription = NSLocalizedString("Assets.Send.browseGalleryDescription", value: "Import an Image from Gallery", comment: "Wipe wallet navigation item title.")
+            static let browseGalleryDescription = NSLocalizedString("Assets.Send.browseGalleryDescription", value: "Import an Image from Gallery", comment: "Import Address Description: Gallery.");
         }
         
         static let yourAssets = NSLocalizedString("Assets.yourAssets", value: "Assets you own", comment: "Assets you own (heading)")
