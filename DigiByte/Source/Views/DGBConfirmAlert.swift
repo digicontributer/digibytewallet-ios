@@ -104,7 +104,9 @@ extension DAModalAssetSelector: UITableViewDelegate, UITableViewDataSource {
                 .scaleFactor(UIScreen.main.scale),
                 .transition(ImageTransition.fade(0.2)),
                 .cacheOriginalImage
-            ])
+            ], progressBlock: nil, completionHandler: { (result) in
+                cell.setNeedsLayout()
+            })
             cell.imageView?.tintColor = .clear
         } else {
             cell.imageView?.image = UIImage(named: "digiassets_small")?.withRenderingMode(.alwaysTemplate)
