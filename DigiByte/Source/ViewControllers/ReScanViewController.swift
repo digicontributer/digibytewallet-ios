@@ -85,6 +85,7 @@ class ReScanViewController : UIViewController, Subscriber {
             close()
             
             self.store.trigger(name: .rescan)
+            self.dismiss(animated: true, completion: nil)
         }
         
         wnd.cancelCallback = { (close: DGBCallback) in
@@ -96,6 +97,7 @@ class ReScanViewController : UIViewController, Subscriber {
             close()
             
             self.store.trigger(name: .rescan)
+            self.dismiss(animated: true, completion: nil)
         }
             
         self.present(wnd, animated: true, completion: nil)
