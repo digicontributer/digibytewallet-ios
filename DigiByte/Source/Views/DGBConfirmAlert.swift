@@ -22,7 +22,7 @@ class DAModalAssetSelector: DGBModalWindow {
     let tableView: UITableView = UITableView()
     
     init() {
-        super.init(title: "Select an asset", padding: 0)
+        super.init(title: S.Assets.selectAnAsset, padding: 0)
         
         let tv = tableView
         stackView.addArrangedSubview(tv)
@@ -226,16 +226,16 @@ class DGBModalMediaOptions: DGBModalWindow {
         self.callback = callback
         
         if let previewText = UIPasteboard.general.string {
-            pasteBtn = DGBModalMediaOptionButton("Paste from clipboard", accessory: previewText, image: UIImage(named: "paste-colored"))
+            pasteBtn = DGBModalMediaOptionButton(S.Assets.Send.pasteFromClipboard, accessory: previewText, image: UIImage(named: "paste-colored"))
         } else {
-            pasteBtn = DGBModalMediaOptionButton("Paste from clipboard", accessory: "No data", image: UIImage(named: "paste-colored"), isEnabled: false)
+            pasteBtn = DGBModalMediaOptionButton(S.Assets.Send.pasteFromClipboard, accessory: S.Send.emptyPasteboard, image: UIImage(named: "paste-colored"), isEnabled: false)
         }
         
-        addressBookBtn = DGBModalMediaOptionButton("Address Book", accessory: "Use an address of your Address Book", image: UIImage(named: "address-book-colored"))
-        scanBtn = DGBModalMediaOptionButton("Scan QR code", accessory: "Use your camera to scan a QR code containing an address", image: UIImage(named: "scan-colored"))
-        galleryBtn = DGBModalMediaOptionButton("Browse gallery", accessory: "Import image from gallery", image: UIImage(named: "gallery-colored"))
+        addressBookBtn = DGBModalMediaOptionButton(S.Assets.Send.addressBook, accessory: S.Assets.Send.addressBookDescription, image: UIImage(named: "address-book-colored"))
+        scanBtn = DGBModalMediaOptionButton(S.Assets.Send.scanQR, accessory: S.Assets.Send.scanQRDescription, image: UIImage(named: "scan-colored"))
+        galleryBtn = DGBModalMediaOptionButton(S.Assets.Send.browseGallery, accessory: S.Assets.Send.browseGalleryDescription, image: UIImage(named: "gallery-colored"))
         
-        super.init(title: "Import address", padding: 0)
+        super.init(title: S.Assets.Send.importAddress, padding: 0)
     
         stackView.addArrangedSubview(addressBookBtn)
         stackView.addArrangedSubview(pasteBtn)
@@ -637,6 +637,8 @@ class DGBConfirmAlert: DGBModalWindow {
             alternativeButton.setTitleColor(UIColor.gray, for: .normal)
             alternativeButton.titleLabel?.textAlignment = .center
             alternativeButton.titleLabel?.font = UIFont.da.customMedium(size: 12)
+            alternativeButton.titleLabel?.numberOfLines = 0
+            alternativeButton.titleLabel?.lineBreakMode = .byWordWrapping
             alternativeButton.tap = { [weak self] in
                 guard let c = self?.closeCallback else { return }
                 self?.alternativeCallback?(c)
@@ -695,10 +697,14 @@ class DGBConfirmAlert: DGBModalWindow {
         okButton.backgroundColor = UIColor.da.darkSkyBlue
         okButton.layer.cornerRadius = 8
         okButton.layer.masksToBounds = true
+        okButton.titleLabel?.numberOfLines = 0
+        okButton.titleLabel?.lineBreakMode = .byWordWrapping
         
         cancelButton.backgroundColor = UIColor(red: 228/255, green: 229/255, blue: 228/255, alpha: 1.0) // grey
         cancelButton.layer.cornerRadius = 8
         cancelButton.layer.masksToBounds = true
+        cancelButton.titleLabel?.numberOfLines = 0
+        cancelButton.titleLabel?.lineBreakMode = .byWordWrapping
     }
     
     private func addEvents() {

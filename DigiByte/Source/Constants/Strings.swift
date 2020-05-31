@@ -96,6 +96,24 @@ enum S {
             static let burn = NSLocalizedString("Assets.Context.burn", value: "Burn", comment: "Context menu button caption")
         }
         
+        enum Send {
+            static let importAddress = NSLocalizedString("Assets.Send.importAddress", value: "Import Address", comment: "Import Address Option: Address Book");
+
+            static let addressBook = NSLocalizedString("Assets.Send.addressBook", value: "Address Book", comment: "Import Address Option: Import Address from Clipboard");
+
+            static let pasteFromClipboard = NSLocalizedString("Assets.Send.pasteFromClipboard", value: "Paste from Clipboard", comment: "Import Address Option: Scan QR");
+
+            static let scanQR = NSLocalizedString("Assets.Send.scanQR", value: "Scan QR Code", comment: "Import Address Option: Browse Gallery");
+
+            static let browseGallery = NSLocalizedString("Assets.Send.browseGallery", value: "Browse Gallery", comment: "Import Address Description: Address Book");
+
+            static let addressBookDescription = NSLocalizedString("Assets.Send.addressBookDescription", value: "Use an Address of your Address Book", comment: "Import Address Description: QR Scanner");
+
+            static let scanQRDescription = NSLocalizedString("Assets.Send.scanQRDescription", value: "Use your Camera to scan a QR Code containing an Address", comment: "Import Address Description: Gallery");
+
+            static let browseGalleryDescription = NSLocalizedString("Assets.Send.browseGalleryDescription", value: "Import an Image from Gallery", comment: "Wipe wallet navigation item title.")
+        }
+        
         static let yourAssets = NSLocalizedString("Assets.yourAssets", value: "Assets you own", comment: "Assets you own (heading)")
         
         static let protocolDisabled = NSLocalizedString("Assets.protocolDisabled", value: "DigiAssets Protocol Disabled", comment: "Message heading")
