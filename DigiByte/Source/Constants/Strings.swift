@@ -162,6 +162,7 @@ enum S {
         static let name = NSLocalizedString("AddressBook.name", value: "Name", comment: "Name of contact")
         static let searchPlaceholder = NSLocalizedString("AddressBook.searchPlaceholder", value:"Search contacts", comment: "Placeholder for searchbar")
         static let favorites = NSLocalizedString("AddressBook.favorites", value:"Favorites", comment: "Favorites header title")
+        static let favorite = NSLocalizedString("AddressBook.favorite", value:"Favorite", comment: "Favorite Switch Title (as favorite)-option")
         
         static let addContact = NSLocalizedString("AddressBook.addContact", value:"Add a new contact", comment: "Header title in address book")
         
@@ -499,6 +500,12 @@ enum S {
         static let privacy = NSLocalizedString("About.privacy", value:"Privacy Policy", comment: "Privay Policy button label")
         static let footer = NSLocalizedString("About.footer", value:"Made by the global DigiByte team. Version %1$@", comment: "About screen footer")
         static let introduction = NSLocalizedString("About.introduction", value: "This app was built by DigiByte & Blockchain enthusiasts, unpaid volunteers who devoted their time and skills to a project they believe in.", comment: "Introduction in About Screen")
+        
+        static let version = NSLocalizedString("Abput.version", value: "Version: #%1$@", comment: "Version: 2.0.0")
+        static let development = NSLocalizedString("Abput.development", value: "Development", comment: "Development Heading in About Section")
+        static let ui = NSLocalizedString("About.ui", value: "UI", comment: "UI Heading in About Section")
+        static let specialThanks = NSLocalizedString("About.specialThanks", value: "Special Thanks", comment: "Special Thanks Heading in About Section")
+        static let translations = NSLocalizedString("About.translations", value: "Translations", comment: "Translations Heading in About Section")
     }
 
     enum PushNotifications {

@@ -107,7 +107,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "-AppleLanguages &quot;(Dutch)&quot;"
+            argument = "-AppleLanguages &quot;(German)&quot;"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
