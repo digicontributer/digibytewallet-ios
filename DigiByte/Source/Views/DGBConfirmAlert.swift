@@ -698,11 +698,13 @@ class DGBConfirmAlert: DGBModalWindow {
         okButton.layer.cornerRadius = 8
         okButton.layer.masksToBounds = true
         okButton.titleLabel?.numberOfLines = 0
+        okButton.titleLabel?.textAlignment = .center
         okButton.titleLabel?.lineBreakMode = .byWordWrapping
         
         cancelButton.backgroundColor = UIColor(red: 228/255, green: 229/255, blue: 228/255, alpha: 1.0) // grey
         cancelButton.layer.cornerRadius = 8
         cancelButton.layer.masksToBounds = true
+        cancelButton.titleLabel?.textAlignment = .center
         cancelButton.titleLabel?.numberOfLines = 0
         cancelButton.titleLabel?.lineBreakMode = .byWordWrapping
     }
