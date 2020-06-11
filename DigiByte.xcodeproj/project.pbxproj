@@ -19,6 +19,7 @@
 		39082BF622762CF9008657F6 /* DGBTodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39082BF522762CF9008657F6 /* DGBTodayViewController.swift */; };
 		391BE382233372DF0079B56A /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391BE381233372DF0079B56A /* VisualEffectView.swift */; };
 		391BE383233372DF0079B56A /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391BE381233372DF0079B56A /* VisualEffectView.swift */; };
+		3930DBF924922AEC00167D09 /* GlobalDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3930DBF824922AEC00167D09 /* GlobalDebug.swift */; };
 		3959E468239A62AA0008B531 /* DATextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959E467239A62AA0008B531 /* DATextBox.swift */; };
 		3981267E233281050019D5E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 398124B0233281030019D5E6 /* Assets.xcassets */; };
 		39812685233281050019D5E6 /* BIP39Words.plist in Resources */ = {isa = PBXBuildFile; fileRef = 398124B8233281030019D5E6 /* BIP39Words.plist */; };
@@ -741,6 +742,7 @@
 		39082BF42276089B008657F6 /* DigiByte TodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "DigiByte TodayExtension.entitlements"; sourceTree = "<group>"; };
 		39082BF522762CF9008657F6 /* DGBTodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DGBTodayViewController.swift; sourceTree = "<group>"; };
 		391BE381233372DF0079B56A /* VisualEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VisualEffectView.swift; path = Modules/VisualEffectView/Sources/VisualEffectView.swift; sourceTree = SOURCE_ROOT; };
+		3930DBF824922AEC00167D09 /* GlobalDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalDebug.swift; sourceTree = "<group>"; };
 		3959E467239A62AA0008B531 /* DATextBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DATextBox.swift; sourceTree = "<group>"; };
 		39812494233281030019D5E6 /* digibyteUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = digibyteUITests.swift; sourceTree = "<group>"; };
 		39812495233281030019D5E6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -2636,6 +2638,7 @@
 			isa = PBXGroup;
 			children = (
 				39A4EB222393E3B500B5664F /* AssetHelper.swift */,
+				3930DBF824922AEC00167D09 /* GlobalDebug.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -4595,6 +4598,7 @@
 				398126B8233281050019D5E6 /* BRCameraPlugin.swift in Sources */,
 				3984BBA2239792BD00A775A7 /* NavigationDrawer.swift in Sources */,
 				398126FD233281050019D5E6 /* String+Keys.swift in Sources */,
+				3930DBF924922AEC00167D09 /* GlobalDebug.swift in Sources */,
 				398126C6233281050019D5E6 /* BRHTTPRouter.swift in Sources */,
 				3981271F233281050019D5E6 /* ScanViewController.swift in Sources */,
 				39812694233281050019D5E6 /* BRAPIClient+Events.swift in Sources */,

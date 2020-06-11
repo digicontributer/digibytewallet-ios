@@ -615,7 +615,13 @@ class AccountViewController: UIViewController, Subscriber, UIPageViewControllerD
             
             AssetHelper.assetWasNotSpentCallback = { [weak self] (txid, n) -> Bool in
                 guard let wallet = self?.walletManager?.wallet else { return false }
-                return wallet.hasUtxo(txid: txid, n: n) && wallet.utxoIsSpendable(txid: txid, n: n)
+                
+                let hasUtxo = wallet.hasUtxo(txid: txid, n: n)
+                let isSpendable =  wallet.utxoIsSpendable(txid: txid, n: n)
+                
+                GlobalDebug.default.add("\(txid):\(n) => hasUtxo=\(hasUtxo), isSpendable=\(isSpendable)")
+                
+                return hasUtxo && isSpendable
             }
             
             if !walletManager.noWallet {

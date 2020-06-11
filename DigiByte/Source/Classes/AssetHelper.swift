@@ -465,7 +465,8 @@ class FetchAssetTransactionOperation: Operation {
         
         let composedURLStr = "\(urlStr)/gettransaction?txid=\(state.txID)"
         let url = URL(string: composedURLStr)!
-        print(url)
+        
+        GlobalDebug.default.add(url.absoluteString)
         
         let dataTask = session.dataTask(with: url) { (data, resp, err) in
             if err != nil {
@@ -483,7 +484,11 @@ class FetchAssetTransactionOperation: Operation {
                 return
             }
             
-            guard let infoModel = try? JSONDecoder().decode(TransactionInfoModel.self, from: data) else {
+            var infoModel: TransactionInfoModel!
+            do {
+                infoModel = try JSONDecoder().decode(TransactionInfoModel.self, from: data)
+            } catch let error {
+                GlobalDebug.default.add("\(error)")
                 self.isExecuting = false
                 self.isFinished = true
                 return
@@ -504,7 +509,7 @@ class FetchAssetTransactionOperation: Operation {
                     // Only resolve each assetModel once
                     let key = "\(assetId)-\(infoModel.txid)"
                     if assetDict.index(forKey: key) == nil {
-                        print("AssetResolver: Adding MetadataOperation for \(assetId) (txID = \(infoModel.txid):\(o.n))")
+                        GlobalDebug.default.add("AssetResolver: Adding MetadataOperation for \(assetId) (txID = \(infoModel.txid):\(o.n))")
                         assetDict[key] = 1
                         
                         let subOperation = FetchMetadataOperation(url: self.urlWrapper, state: self.state, assetID: assetId, txID: infoModel.txid, index: o.n)
@@ -520,7 +525,7 @@ class FetchAssetTransactionOperation: Operation {
                     // Only resolve each assetModel once
                     let key = "\(assetId)-\(infoModel.txid)"
                     if assetDict.index(forKey: key) == nil {
-                        print("AssetResolver: Adding MetadataOperation for \(assetId) (txID = \(i.txid):\(i.vout))")
+                        GlobalDebug.default.add("AssetResolver: Adding MetadataOperation for \(assetId) (txID = \(i.txid):\(i.vout))")
                         assetDict[key] = 1
                         
                         let subOperation = FetchMetadataOperation(url: self.urlWrapper, state: self.state, assetID: assetId, txID: i.txid, index: i.vout)
@@ -531,7 +536,7 @@ class FetchAssetTransactionOperation: Operation {
             
             if subqueue.operationCount == 0 { self.state.resolved = true }
             subqueue.waitUntilAllOperationsAreFinished()
-            print("AssetResolver: Finished FetchAssetTransactionOperation for txID=\(self.state.txID)")
+            GlobalDebug.default.add("AssetResolver: Finished FetchAssetTransactionOperation for txID=\(self.state.txID)")
             self.isExecuting = false
             self.isFinished = true
         }
@@ -591,10 +596,11 @@ class FetchMetadataOperation: Operation {
         let urlStr = urlWrapper.currentApiURL
         
         let url = URL(string: "\(urlStr)/assetmetadata/\(self.assetID)/\(self.txID):\(self.index)")!
-        print(url)
+        GlobalDebug.default.add(url.absoluteString)
+        
         let dataTask = session.dataTask(with: url) { (data, resp, err) in
             if err != nil {
-                print("AssetResolver: error in response for asset: \(self.assetID): \(err!)")
+                GlobalDebug.default.add("AssetResolver: error in response for asset: \(self.assetID): \(err!)")
                 self.urlWrapper.nextApiUrl(oldURL: urlStr)
                 self.isExecuting = false
                 self.isFinished = true
@@ -603,7 +609,7 @@ class FetchMetadataOperation: Operation {
             }
             
             guard let data = data else {
-                print("AssetResolver: No data in response for asset: \(self.assetID)")
+                GlobalDebug.default.add("AssetResolver: No data in response for asset: \(self.assetID)")
                 self.isExecuting = false
                 self.isFinished = true
                 self.state.failed = true
@@ -613,12 +619,12 @@ class FetchMetadataOperation: Operation {
             do {
                 let decodedAssetModel = try JSONDecoder().decode(AssetModel.self, from: data)
                 self.state.resolvedModels.append(decodedAssetModel)
-                print("AssetResolver: resolved assetModel: \(decodedAssetModel.assetId)")
+                GlobalDebug.default.add("AssetResolver: resolved assetModel: \(decodedAssetModel.assetId)")
                 
                 self.state.failed = false
                 self.state.resolved = true
             } catch {
-                print("AssetResolver: could not resolve asset: \(self.assetID)/\(self.txID):\(self.index). Error message = \(error)")
+                GlobalDebug.default.add("AssetResolver: could not resolve asset: \(self.assetID)/\(self.txID):\(self.index). Error message = \(error)")
                 self.state.failed = true
             }
             
@@ -631,7 +637,7 @@ class FetchMetadataOperation: Operation {
     
     override func start() {
         guard !state.failed, state.transactionInfoModel != nil else {
-            print("AssetResolver: FetchMetadataOperation for assetID=\(assetID), txID=\(txID):\(index) can not be launched")
+            GlobalDebug.default.add("AssetResolver: FetchMetadataOperation for assetID=\(assetID), txID=\(txID):\(index) can not be launched")
             isFinished = true
             return
         }
@@ -710,7 +716,7 @@ class AssetResolver {
         let urlWrapper = DigiAssetsUrlWrapper()
             
         let completionOperation = BlockOperation {
-            print("AssetResolver: All operations completed")
+            GlobalDebug.default.add("AssetResolver: All operations completed")
             self.callback(self.states)
         }
         
@@ -719,7 +725,7 @@ class AssetResolver {
         
         for txid in self.txIDSet {
             let state = self.stateMap[txid]!
-            print("AssetResolver: Launching FetchAssetTransactionOperation for txid = \(txid)")
+            GlobalDebug.default.add("AssetResolver: Launching FetchAssetTransactionOperation for txid = \(txid)")
             let fetchAssetTransactionOperation = FetchAssetTransactionOperation(url: urlWrapper, state: state)
             completionOperation.addDependency(fetchAssetTransactionOperation)
             queue.addOperation(fetchAssetTransactionOperation)
@@ -778,13 +784,11 @@ class AssetHelper {
             guard let infoModel = getTransactionInfoModel(txid: txid) else { return }
             
             infoModel.vout.forEach { model in
-                guard !model.used else { return }
+                guard !model.used else {
+                    GlobalDebug.default.add("Not adding \(infoModel.txid):\(model.n) to balance because it was already spent")
+                    return
+                }
                 model.assets.forEach { assetModel in
-                    guard let addresses = model.scriptPubKey.addresses else { return }
-                    
-                    // Assuming one address
-                    guard addresses.count == 1 else { return }
-                    
                     // Check if address is part of wallet
                     if assetWasNotSpentCallback(infoModel.txid, model.n) {
                         _allBalances[assetModel.assetId] = (_allBalances[assetModel.assetId] ?? 0) + assetModel.amount
@@ -875,6 +879,11 @@ class AssetHelper {
             }
             
             guard hasAllAssetModels(for: infoModel.getAssetIds()) else {
+                hasAll = false
+                return
+            }
+            
+            guard infoModel.temporary != true else {
                 hasAll = false
                 return
             }

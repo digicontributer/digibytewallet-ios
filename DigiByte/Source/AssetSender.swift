@@ -133,7 +133,7 @@ class AssetSender {
         errorCode = nil
         guard let wallet = walletManager.wallet else { errorCode = 1; return false }
         
-        addDebug("\ncreateTransaction extra=\(extra) amount=\(amount) address=\(address) burn=\(burn)\n")
+        addDebug("\ncreateTransaction extra=\(extra) amount=\(amount) address=\(address) burn=\(burn)")
         
         // Clear used utxos array
         usedUtxos = []
@@ -152,13 +152,13 @@ class AssetSender {
             
             // Check if input was registered by wallet
             guard wallet.hasUtxo(txid: utxo.txid, n: utxo.index) else {
-                addDebug("Utxo \(utxo.txid):\(utxo.index) not available\n")
+                addDebug("Utxo \(utxo.txid):\(utxo.index) not available")
                 wallet.printUtxos()
                 continue
             }
             
             guard wallet.utxoIsSpendable(txid: utxo.txid, n: utxo.index) else {
-                addDebug("Utxo \(utxo.txid):\(utxo.index) already spent\n")
+                addDebug("Utxo \(utxo.txid):\(utxo.index) already spent")
                 continue
             }
             
@@ -166,7 +166,7 @@ class AssetSender {
                 // Only add amount if it's the amount of the specific asset
                 if infoModel.assetId == assetModel.assetId {
                     singleSum += infoModel.amount
-                    addDebug("Select Asset Utxo with amount=\(infoModel.amount), TOTAL_FROM_THIS_UTXO=\(singleSum) TOTAL=\(selectedAmountSum)\n")
+                    addDebug("Select Asset Utxo with amount=\(infoModel.amount), TOTAL_FROM_THIS_UTXO=\(singleSum) TOTAL=\(selectedAmountSum)")
                     
                 }
             }
@@ -199,6 +199,11 @@ class AssetSender {
             return false
         }
         
+        if let index = transaction.outputs.firstIndex(where: { $0.amount == 600 }) {
+            errorCode = 10
+            return false;
+        }
+        
         // Remember input count
         var transactionInputAmountSum: UInt64 = 0
         for input in transaction.inputs {
@@ -210,7 +215,7 @@ class AssetSender {
         for utxo in selectedUtxos.reversed() {
             guard let hash = utxo.txid.hexToData?.reverse.uInt256 else { errorCode = 4; return false }
             transaction.addInputBefore(txHash: hash, index: UInt32(utxo.index), amount: UInt64(utxo.value), script: utxo.hexAsBuffer())
-            addDebug("Adding input before hash=\(hash) index=\(utxo.index) amount=\(utxo.value)\n")
+            addDebug("Adding input before hash=\(hash) index=\(utxo.index) amount=\(utxo.value)")
             transactionInputAmountSum += utxo.value
         }
         
@@ -218,7 +223,7 @@ class AssetSender {
         let TARGET_OUTPUT: Int = transaction.outputs.firstIndex { $0.swiftAddress == address }!
         let CHANGE_OUTPUT: Int = TARGET_OUTPUT == 0 ? 1 : 0
         let ASSET_CHANGE_OUTPUT: Int = transaction.outputs.count
-        addDebug("TARGET_OUTPUT=\(TARGET_OUTPUT), CHANGE_OUTPUT=\(CHANGE_OUTPUT), ASSET_CHANGE_OUTPUT=\(ASSET_CHANGE_OUTPUT)\n")
+        addDebug("TARGET_OUTPUT=\(TARGET_OUTPUT), CHANGE_OUTPUT=\(CHANGE_OUTPUT), ASSET_CHANGE_OUTPUT=\(ASSET_CHANGE_OUTPUT)")
         
         // Create transfer instructions
         var transferInstructions = [UInt8]()
@@ -364,10 +369,8 @@ class AssetSender {
         usedUtxos = []
     }
     
-    var debug: String = "" // YOSHI REMOVE BEFORE RELEASE
     private func addDebug(_ str: String) {
-        debug += str
-        print(str)
+        GlobalDebug.default.add(str)
     }
     
     // Only supports v2
@@ -378,7 +381,7 @@ class AssetSender {
             return []
         }
         
-        addDebug("tx-instruction skip=\(skip) range=\(range) percent=\(percent) outputIndex=\(outputIndex) amount=\(amount)\n")
+        addDebug("tx-instruction skip=\(skip) range=\(range) percent=\(percent) outputIndex=\(outputIndex) amount=\(amount)")
         
         var ret = [UInt8]()
         ret.append(UInt8(outputIndex))
@@ -429,7 +432,6 @@ class AssetSender {
                 myself.walletManager.signTransaction(tx, biometricsPrompt: biometricsMessage, completion: { result in
                     
                     myself.addDebug(tx.debugDescription)
-                    myself.addDebug("\n")
                     
                     if result == .success {
                         myself.publish(completion: completion)
@@ -453,7 +455,6 @@ class AssetSender {
             DispatchQueue.walletQueue.async {
                 if self.walletManager.signTransaction(tx, pin: pin) {
                     self.addDebug(tx.debugDescription)
-                    self.addDebug("\n")
                     self.publish(completion: completion)
                     success = true
                 }

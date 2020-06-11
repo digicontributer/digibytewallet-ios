@@ -161,10 +161,6 @@ class DASendViewController: UIViewController {
         }
     }
     
-    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        UIPasteboard.general.string = assetSender.debug // YOSHI, remove before RELEASE
-    }
-    
     init(store: BRStore, walletManager: WalletManager) {
         self.store = store
         self.walletManager = walletManager

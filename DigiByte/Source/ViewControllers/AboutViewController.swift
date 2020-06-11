@@ -165,9 +165,9 @@ class AboutViewController : UIViewController {
 
     private func setActions() {
     }
-
-//    private func presentURL(string: String) {
-//        let vc = SFSafariViewController(url: URL(string: string)!)
-//        self.present(vc, animated: true, completion: nil)
-//    }
+    
+    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        let debugStr = GlobalDebug.default.serialize()
+        UIPasteboard.general.string = debugStr
+    }
 }
