@@ -1,8 +1,8 @@
-[![DigiWallet](/images/top-logo.jpg)](https://itunes.apple.com/us/app/digiwallet-digibyte-wallet/id1328006562)
+[![DigiByte](/images/top-logo.jpg)](https://apps.apple.com/app/digibyte/id1378061425)
 
 ## Fast, simple and safe!
 
-DigiWallet for iOS and Android is the easiest way to get started sending and receiving digibyte. Designed with both new and experienced users in-mind, DigiWallet for iOS and Android is simple enough for a first-time novice to use, yet powerful enough for regular power-users.
+DigiByte for iOS and Android is the easiest way to get started sending and receiving digibyte. Designed with both new and experienced users in-mind, DigiWallet for iOS and Android is simple enough for a first-time novice to use, yet powerful enough for regular power-users.
 
 ### Part of the DigiByte Network
 
@@ -68,9 +68,3 @@ We appreciate your support!
 ***Installation on jailbroken devices is strongly discouraged.***
 
 Any jailbreak app can grant itself access to every other app's keychain data. This means it can access your wallet and steal your bitcoin by self-signing as described [here](http://www.saurik.com/id/8) and including `<key>application-identifier</key><string>*</string>` in its .entitlements file.
-
----
-
-**DigiWallet for iOS** is open source and available under the terms of the MIT license.
-
-Source code is available at https://github.com/DigiByte-Core/digibytewallet-ios
