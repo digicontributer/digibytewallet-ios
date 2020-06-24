@@ -28,6 +28,8 @@ DigiByte for iOS and Android was engineered from the ground-up to be as friendly
 - Your secure / private keys never leave your phone and are never transmitted to any 3rd party, ensuring you maintain total control of your DigiByte
 - QR Code scanning to save you time and effort
 - Currency conversion, to quickly and easily see the value of your DigiByte in other fiat currencies
+- [Digi-ID](https://digibyte.io/#digi-id)
+- [DigiAssets](https://digibyte.io/#digiassets)
 
 ### Localization
 
