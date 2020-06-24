@@ -39,7 +39,7 @@ English, Afrikaans, Albanian, Arabic, Bengali, Bosnian, Bulgarian, Catalan, Croa
 
 We manage all translations with:
 
-[POEditor is an online localization service, perfect to manage collaborative or crowdsourced translation projects](https://poeditor.com)
+[POEditor](https://poeditor.com)
 
 ## Donate
 
