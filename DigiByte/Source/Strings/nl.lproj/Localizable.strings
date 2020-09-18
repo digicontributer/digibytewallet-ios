@@ -75,7 +75,7 @@
 "ApiClient.tokenError" = "Kan API-token niet ophalen";
 
 /*Send BCH view body.*/
-"BCH.body" = "Voer hieronder een DigiByte-bestemmingsadres in. Alle DigiByte in jouw portemonnee op het moment van de splitsing (% 1 $ @) wordt verzonden.";
+"BCH.body" = "Voer hieronder een DigiByte-bestemmingsadres in. Alle DigiByte in jouw portemonnee op het moment van de splitsing (%1$@) wordt verzonden.";
 
 /*Confirm sending <$5.00> to <address>?*/
 "BCH.confirmationMessage" = "Bevestig het verzenden van %1$@ to %2$@";
@@ -186,7 +186,7 @@
 "ConfirmPaperPhrase.word" = "Woord #%1$@";
 
 /*Bitcoin denomination picker label*/
-"DefaultCurrency.bitcoinLabel" = "DigiByte display-eenheid";
+"DefaultCurrency.bitcoinLabel" = "DigiByte scherm-eenheid";
 
 /*Exchange rate label*/
 "DefaultCurrency.rateLabel" = "Wisselkoers";
@@ -378,7 +378,7 @@
 "NodeSelector.manualButton" = "Schakel over naar handmatige modus";
 
 /*Node address label*/
-"NodeSelector.nodeLabel" = "Huidige primaire knoop";
+"NodeSelector.nodeLabel" = "Huidige primaire knooppunt";
 
 /*Node is not connected label*/
 "NodeSelector.notConnected" = "Niet verbonden";
@@ -1087,34 +1087,34 @@
 "FeeSelector.regularTime" = "15-30 seconden";
 
 /*Text that is shown when asset was not resolved yet*/
-"Assets.unresolved" = "Onopgeloste activa";
+"Assets.unresolved" = "Onopgeloste assets";
 
 /*Text to show if no metadata is available for the asset*/
 "Assets.noMetadata" = "DigiAsset";
 
 /*Showing when multiple assets were received*/
-"Assets.multipleAssets" = "Meerdere activa";
+"Assets.multipleAssets" = "Meerdere assets";
 
 /*Title of confirm view*/
 "Assets.receivedAssetsTitle" = "DigiAssets ontvangen";
 
 /*Message will be displayed if assets were received*/
-"Assets.receivedAssetsMessage" = "Je hebt een of meer DigiAssets ontvangen. Om jouw activa te kunnen zien, moet deze app communiceren met een metadataserver. Hierdoor worden enkele van de openbare gegevens van jouw portemonnee bekendgemaakt, zoals adressen of transactie-hashes.";
+"Assets.receivedAssetsMessage" = "Je hebt een of meer DigiAssets ontvangen. Om jouw assets te kunnen zien, moet deze app communiceren met een metadataserver. Hierdoor worden enkele van de openbare gegevens van jouw portemonnee bekendgemaakt, zoals adressen of transactie-hashes.";
 
 /*Title of confirm view if opening single*/
 "Assets.openAssetTitle" = "Bekijk DigiAsset";
 
 /*Message will be displayed if asset shall be opened*/
-"Assets.openAssetMessage" = "Om deze activa te kunnen bekijken, moet deze app communiceren met een metadataserver. Hiermee wordt een van de openbare adressen van jouw portemonnee bekendgemaakt.";
+"Assets.openAssetMessage" = "Om deze assets te kunnen bekijken, moet deze app communiceren met een metadataserver. Hiermee wordt een van de openbare adressen van jouw portemonnee bekendgemaakt.";
 
 /*Title to show when assets are being fetched*/
-"Assets.fetchingAssetsTitle" = "Activa ophalen";
+"Assets.fetchingAssetsTitle" = "Assets ophalen";
 
 /*View RAW Transaction button title*/
 "Assets.viewRawTransaction" = "Bekijk RAW-transactie";
 
 /*Resolve button caption*/
-"Assets.confirmAssetsResolve" = "Los activa op";
+"Assets.confirmAssetsResolve" = "Los asset(s) op";
 
 /*Skip button caption*/
 "Assets.skipAssetsResolve" = "Overslaan";
@@ -1138,7 +1138,7 @@
 "Assets.issuer" = "Uitgever";
 
 /*AssetID key*/
-"Assets.assetID" = "Activa ID";
+"Assets.assetID" = "Asset ID";
 
 /*Address key*/
 "Assets.address" = "Adres";
@@ -1153,7 +1153,7 @@
 "Assets.unknown" = "Onbekend";
 
 /*Total Balance: <BALANCE>*/
-"Assets.totalBalance" = "Eindbalans";
+"Assets.totalBalance" = "Saldo";
 
 /*Tap to show button*/
 "Assets.tapToShow" = "Tik om weer te geven";
@@ -1162,16 +1162,16 @@
 "Assets.tapToHide" = "Tik om te verbergen";
 
 /*Asset ID: XXXXXX*/
-"Assets.assetIdKey" = "Activa ID";
+"Assets.assetIdKey" = "Asset ID";
 
 /*Total Balance: 1000*/
-"Assets.balanceKey" = "Eindbalans";
+"Assets.balanceKey" = "Saldo";
 
 /*Issuer: CreateDigiAssets.com*/
 "Assets.issuerKey" = "Uitgever";
 
 /*Asset Info: YYYY*/
-"Assets.assetInfoKey" = "Informatie over activa";
+"Assets.assetInfoKey" = "Informatie over asset";
 
 /*Description: ZZZZ*/
 "Assets.descriptionKey" = "Omschrijving";
@@ -1180,25 +1180,25 @@
 "Assets.getStarted" = "Begin";
 
 /*Button title for create new asset*/
-"Assets.createNewAsset" = "Maak een nieuw activa";
+"Assets.createNewAsset" = "Maak een nieuw asset";
 
 /*Heading for Receive assets*/
-"Assets.receiveAssets" = "Activa ontvangen";
+"Assets.receiveAssets" = "Assets ontvangen";
 
 /*Heading for create new assets*/
-"Assets.createAssets" = "Activa maken";
+"Assets.createAssets" = "Assets maken";
 
 /*Heading for burn assets*/
-"Assets.burnAssets" = "Verbrand activa";
+"Assets.burnAssets" = "Verbrand assets";
 
 /*Button title for send assets*/
-"Assets.sendAssets" = "Stuur activa";
+"Assets.sendAssets" = "Stuur assets";
 
 /*Tab title*/
-"Assets.tabOverview" = "Activa";
+"Assets.tabOverview" = "Assets";
 
 /*Tab title*/
-"Assets.tabCreate" = "Creëer";
+"Assets.tabCreate" = "Creëren";
 
 /*Tab title*/
 "Assets.tabSend" = "Sturen";
@@ -1213,28 +1213,28 @@
 "Assets.nothingFoundHere" = "Niets gevonden hier";
 
 /*Asset selector placeholder text*/
-"Assets.selectAnAsset" = "Selecteer een activa";
+"Assets.selectAnAsset" = "Selecteer een asset";
 
 /*Danger Title*/
 "Assets.dangerTitle" = "GEVARENZONE";
 
 /*Danger description*/
-"Assets.dangerText" = "Het verbranden van activa vernietigt ze onomkeerbaar. Je kan ze nooit meer terugkrijgen.";
+"Assets.dangerText" = "Het verbranden van assets vernietigt ze onomkeerbaar. Je kan ze nooit meer terugkrijgen.";
 
 /*Asset not available*/
-"Assets.AssetNotAvailable" = "Activa niet beschikbaar";
+"Assets.AssetNotAvailable" = "Asset niet beschikbaar";
 
 /*Displayed as a message when not enough assets are available*/
-"Assets.NotEnoughAssets" = "Niet genoeg activa";
+"Assets.NotEnoughAssets" = "Niet genoeg assets";
 
 /*No asset data error message*/
-"Assets.NoAssetData" = "Geen activagegevens beschikbaar";
+"Assets.NoAssetData" = "Geen assetgegevens beschikbaar";
 
 /*Displayed as a message when assets were burned*/
-"Assets.AssetsBurned" = "Activa verbrand!";
+"Assets.AssetsBurned" = "Asset(s) verbrand!";
 
 /*Displayed as a message when assets were sent*/
-"Assets.AssetsSent" = "Activa verzonden!";
+"Assets.AssetsSent" = "Asset(s) verzonden!";
 
 /*Transaction could not be broadcasted: <MESSAGE>*/
 "Assets.couldNotBeBroadcasted" = "Transactie kan niet worden uitgezonden: %1$@";
@@ -1258,7 +1258,7 @@
 "Assets.Context.burn" = "Verbranden";
 
 /*Assets you own (heading)*/
-"Assets.yourAssets" = "Activa die je bezit";
+"Assets.yourAssets" = "Assets die je bezit";
 
 /*Message heading*/
 "Assets.protocolDisabled" = "DigiAssets-protocol uitgeschakeld";
@@ -1267,10 +1267,10 @@
 "Assets.protocolDisabledDescription" = "DigiAssets-protocol uitgeschakeld";
 
 /*Select an asset (default dropdown)*/
-"Assets.select" = "Selecteer activa...";
+"Assets.select" = "Selecteer asset...";
 
 /*(Underlying) Asset Transaction*/
-"Assets.tx" = "Activatransactie";
+"Assets.tx" = "Asset transactie";
 
 /*View RAW Asset Transaction*/
 "Assets.rawTx" = "Bekijk RAW-transactie";
@@ -1426,10 +1426,10 @@
 "Settings.showRawTransactions" = "Schakel DigiAssets uit";
 
 /*Resolve Assets without a prompt*/
-"Settings.resolveAssetsWithoutPrompt" = "Los activa zonder prompt op";
+"Settings.resolveAssetsWithoutPrompt" = "Los assets zonder prompt op";
 
 /*Clear Asset Cache*/
-"Settings.clearAssetCache" = "Activacache wissen";
+"Settings.clearAssetCache" = "Assetcache wissen";
 
 /*Clear Assets Image cache*/
 "Settings.clearImageCache" = "Afbeeldingscache wissen";
@@ -1516,28 +1516,46 @@
 "FeeSelector.estimatedDeliver" = "Geschatte levering: %1$@";
 
 /*E.g. [This transaction is predicted to complete in] 1+ minutes*/
-"FeeSelector.economyTime" = "1+ minutes";
+"FeeSelector.economyTime" = "1+ minuten";
 
-/* Import Address Heading */
+/*Import Address Heading*/
 "Assets.Send.importAddress" = "Adres importeren";
 
-/* Import Address Option: Address Book */
+/*Import Address Option: Address Book*/
 "Assets.Send.addressBook" = "Adresboek";
 
-/* Import Address Option: Import Address from Clipboard */
+/*Import Address Option: Import Address from Clipboard*/
 "Assets.Send.pasteFromClipboard" = "Plak vanaf het klembord";
 
-/* Import Address Option: Scan QR */
+/*Import Address Option: Scan QR*/
 "Assets.Send.scanQR" = "Scan QR-code";
 
-/* Import Address Option: Browse Gallery */
+/*Import Address Option: Browse Gallery*/
 "Assets.Send.browseGallery" = "Door galerij bladeren";
 
-/* Import Address Description: Address Book */
+/*Import Address Description: Address Book*/
 "Assets.Send.addressBookDescription" = "Gebruik een adres uit jouw adresboek";
 
-/* Import Address Description: QR Scanner */
+/*Import Address Description: QR Scanner*/
 "Assets.Send.scanQRDescription" = "Gebruik jouw camera om een QR-code te scannen die een adres bevat";
 
-/* Import Address Heading*/
+/*Import Address Heading*/
 "Assets.Send.browseGalleryDescription" = "Importeer een afbeelding uit Galerij";
+
+/*Favorite Switch Title (as favorite)-option*/
+"AddressBook.favorite" = "Favoriet";
+
+/*Version: 2.0.0*/
+"Abput.version" = "Versie: #%1$@";
+
+/*Development Heading in About Section*/
+"Abput.development" = "Ontwikkeling";
+
+/*UI Heading in About Section*/
+"About.ui" = "UI";
+
+/*Special Thanks Heading in About Section*/
+"About.specialThanks" = "Speciale Dank";
+
+/*Translations Heading in About Section*/
+"About.translations" = "Vertalingen";
