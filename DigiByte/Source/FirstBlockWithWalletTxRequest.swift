@@ -45,7 +45,7 @@ private class DigiExplorerEndpoint {
     private static let hosts = [
 //        "https://digiexplorer2.info", /* debug purposes (invalid host) */
         "https://digiexplorer.info",
-        "https://explorer-1.us.digibyteservers.io"
+        "https://dgb1.trezor.io"
     ]
     
     // Index of hosts array.
