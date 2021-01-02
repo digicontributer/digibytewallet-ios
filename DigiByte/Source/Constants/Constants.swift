@@ -63,7 +63,7 @@ struct C {
     static let feedbackEmail = "info@digibyte.io"
 	static let reviewLink = "https://itunes.apple.com/us/app/digibyte-wallet/id1328006562?action=write-review"
     static var standardPort: UInt16 {
-		return E.isTestnet ? 12024 : 12024
+		return E.isTestnet ? 14023 : 12024
     }
 	//FIXME: Before shipping to production, change this to DigiByte.sqlite
 	static let sqliteFileName = "BreadWallet.sqlite"
