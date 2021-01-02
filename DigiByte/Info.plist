@@ -106,6 +106,8 @@
 	<false/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
+		<key>NSExceptionDomains</key>
+		<dict/>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>

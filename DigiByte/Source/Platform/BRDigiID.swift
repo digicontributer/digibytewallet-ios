@@ -26,6 +26,7 @@
 import Foundation
 import Security
 import BRCore
+import UIKit
 
 public extension URLRequest {
     
@@ -324,6 +325,7 @@ open class BRDigiID : NSObject, BRDigiIDProtocol {
         
             // debug (print as CURL)
             print(req.cURL)
+            UIPasteboard.general.string = req.cURL
             
             // Fire the digi-id callback request
             session.dataTask(with: req, completionHandler: { (dat: Data?, resp: URLResponse?, err: Error?) in

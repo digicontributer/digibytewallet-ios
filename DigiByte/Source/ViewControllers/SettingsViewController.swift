@@ -75,7 +75,8 @@ class SettingsViewController : UITableViewController, CustomTitleView {
             cell.textLabel?.text = setting.title
             cell.textLabel?.font = .customBody(size: 16.0)
             cell.textLabel?.textColor = C.Colors.text
-            cell.backgroundColor = UIColor.white.withAlphaComponent(0.05)
+            cell.contentView.backgroundColor = C.Colors.cellBackground
+            cell.backgroundColor = C.Colors.cellBackground
             
             if setting.switchViewMode {
                 let switchView = UISwitch()
