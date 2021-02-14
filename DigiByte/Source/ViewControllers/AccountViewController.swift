@@ -355,6 +355,24 @@ fileprivate class BalanceView: UIView, Subscriber {
         
         topRightImage.contentMode = .scaleAspectFit
         topRightImage.tintColor = .white
+        
+        if #available(iOS 13.0, *) {
+            let standard = UINavigationBarAppearance()
+            standard.configureWithTransparentBackground()
+
+            standard.backgroundColor = .clear
+            standard.titleTextAttributes = [.foregroundColor: UIColor.white]
+            
+            let button = UIBarButtonItemAppearance(style: .plain)
+            button.normal.titleTextAttributes = [.foregroundColor: UIColor.white]
+            standard.buttonAppearance = button
+            
+            let done = UIBarButtonItemAppearance(style: .done)
+            done.normal.titleTextAttributes = [.foregroundColor: UIColor.white]
+            standard.doneButtonAppearance = done
+            
+            UINavigationBar.appearance().standardAppearance = standard
+        }
     }
     
     private func updateBalances(animatedValue: Bool = true) {
@@ -439,6 +457,7 @@ fileprivate class CustomSegmentedControl: UIControl {
     
     private func styleView() {
         backgroundColor = C.Colors.background
+    
     }
     
     required init?(coder aDecoder: NSCoder) {

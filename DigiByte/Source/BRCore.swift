@@ -688,19 +688,44 @@ class BRPeerManager {
           listener: BRPeerManagerListener, startBlock: BRMerkleBlock? = nil) {
         var blockRefs = blocks
         
-        if let startBlock = startBlock {
-            // if startBlock was passed, we use Ex function to start sync from that specific block
-            startSyncFrom = UnsafeMutablePointer<BRMerkleBlock>.allocate(capacity: 1)
-            startSyncFrom?.initialize(to: startBlock)
-            
-            guard let cPtr = BPPeerManagerMainNetNewEx(wallet.cPtr, UInt32(earliestKeyTime + NSTimeIntervalSince1970),
-                                                     &blockRefs, blockRefs.count, peers, peers.count, startSyncFrom) else { return nil }
-            self.cPtr = cPtr
+        if E.isTestnet {
+            /**
+               TESTNET
+             */
+            if let startBlock = startBlock {
+                // if startBlock was passed, we use Ex function to start sync from that specific block
+                startSyncFrom = UnsafeMutablePointer<BRMerkleBlock>.allocate(capacity: 1)
+                startSyncFrom?.initialize(to: startBlock)
+                
+                
+                guard let cPtr = BPPeerManagerTestNetNewEx(wallet.cPtr, UInt32(earliestKeyTime + NSTimeIntervalSince1970),
+                                                         &blockRefs, blockRefs.count, peers, peers.count, startSyncFrom) else { return nil }
+                self.cPtr = cPtr
+            } else {
+                // just start sync using checkpoints, etc.
+                guard let cPtr = BPPeerManagerTestNetNew(wallet.cPtr, UInt32(earliestKeyTime + NSTimeIntervalSince1970),
+                                                         &blockRefs, blockRefs.count, peers, peers.count) else { return nil }
+                self.cPtr = cPtr
+            }
         } else {
-            // just start sync using checkpoints, etc.
-            guard let cPtr = BPPeerManagerMainNetNew(wallet.cPtr, UInt32(earliestKeyTime + NSTimeIntervalSince1970),
-                                                     &blockRefs, blockRefs.count, peers, peers.count) else { return nil }
-            self.cPtr = cPtr
+            /**
+               MAINNET
+             */
+            if let startBlock = startBlock {
+                // if startBlock was passed, we use Ex function to start sync from that specific block
+                startSyncFrom = UnsafeMutablePointer<BRMerkleBlock>.allocate(capacity: 1)
+                startSyncFrom?.initialize(to: startBlock)
+                
+                guard let cPtr = BPPeerManagerMainNetNewEx(wallet.cPtr, UInt32(earliestKeyTime + NSTimeIntervalSince1970),
+                                                         &blockRefs, blockRefs.count, peers, peers.count, startSyncFrom) else { return nil }
+                self.cPtr = cPtr
+            } else {
+                // just start sync using checkpoints, etc.
+                guard let cPtr = BPPeerManagerMainNetNew(wallet.cPtr, UInt32(earliestKeyTime + NSTimeIntervalSince1970),
+                                                         &blockRefs, blockRefs.count, peers, peers.count) else { return nil }
+                self.cPtr = cPtr
+            }
+            
         }
 		
         self.listener = listener

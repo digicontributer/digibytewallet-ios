@@ -659,6 +659,7 @@ class ModalPresenter : Subscriber, Trackable {
 
         let settings = SettingsViewController(sections: sections, rows: rows)
         settingsVC = settings
+    
         settings.addCloseNavigationItem(tintColor: .white)
         settingsNav.viewControllers = [settings]
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
