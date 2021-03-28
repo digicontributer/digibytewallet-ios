@@ -1,0 +1,1561 @@
+
+/*About screen blog label*/
+"About.blog" = "https://digibyte.org/";
+
+/*About screen footer*/
+"About.footer" = "Global DigiByte ekibi tarafından geliştirilmiştir. Versiyon %1$@";
+
+/*Privay Policy button label*/
+"About.privacy" = "Gizlilik Politikası";
+
+/*About screen reddit label*/
+"About.reddit" = "https://www.reddit.com/r/Digibyte/";
+
+/*Terms of Use button label*/
+"About.terms" = "Kullanım Koşulları";
+
+/*About screen title*/
+"About.title" = "Hakkında";
+
+/*About screen twitter label*/
+"About.twitter" = "https://twitter.com/digibytecoin";
+
+/*Close modal button accessibility label*/
+"AccessibilityLabels.close" = "Kapat";
+
+/*Support center accessibiliy label*/
+"AccessibilityLabels.faq" = "Yardım Merkezi";
+
+/*Loading Wallet Message*/
+"Account.loadingMessage" = "Cüzdan Yükleniyor";
+
+/*Default wallet name*/
+"AccountHeader.defaultWalletName" = "DigiByte'ım";
+
+/*Error alert title*/
+"Alert.error" = "Hata";
+
+/*No internet alert message*/
+"Alert.noInternet" = "İnternet bağlantınızda sorun var. Bağlantınızı kontrol edin ve tekrar deneyin.";
+
+/*Warning alert title*/
+"Alert.warning" = "Uyarı";
+
+/*'the addresses were copied'' Alert title*/
+"Alerts.copiedAddressesHeader" = "Adres Kopyalandı";
+
+/*Addresses Copied Alert sub header*/
+"Alerts.copiedAddressesSubheader" = "Tüm cüzdan adresleri başarıyla kopyalandı.";
+
+/*Alert Header Label (the paper key was set)*/
+"Alerts.paperKeySet" = "Kurtarma Anahtarı Ayarlandı";
+
+/*Alert Subheader label (playfully positive)*/
+"Alerts.paperKeySetSubheader" = "Harika!";
+
+/*Alert Header label (the PIN was set)*/
+"Alerts.pinSet" = "PIN Kodu Ayarlandı";
+
+/*Send failure alert header label (the send failed to happen)*/
+"Alerts.sendFailure" = "Gönderme başarısız oldu";
+
+/*Send success alert header label (confirmation that the send happened)*/
+"Alerts.sendSuccess" = "Gönderme Başarılı";
+
+/*Send success alert subheader label (e.g. the money was sent)*/
+"Alerts.sendSuccessSubheader" = "DigiByte Gönderildi!";
+
+/*JSON Serialization error message*/
+"ApiClient.jsonError" = "JSON Serileştirme Hatası";
+
+/*Wallet not ready error message*/
+"ApiClient.notReady" = "Cüzdan hazır değil";
+
+/*API Token error message*/
+"ApiClient.tokenError" = "API tokeni alınamadı";
+
+/*Send BCH view body.*/
+"BCH.body" = "DigiByte alıcı adresi aşağıya giriniz. Fork esnasında (%1$@) cüzdanınızda bulunan tüm DigiByte gönderilecek.";
+
+/*Confirm sending <$5.00> to <address>?*/
+"BCH.confirmationMessage" = "%2$@ için %1$@ gönderimini  onaylayın";
+
+/*Confirmation alert title*/
+"BCH.confirmationTitle" = "Doğrulama";
+
+/*Generic bch erorr message*/
+"BCH.genericError" = "Hesabınızda hiç DigiByte bulunmuyor veya forkdan sonra DigiByte almışsınız.";
+
+/*Transaction ID copied message*/
+"BCH.hashCopiedMessage" = "İşlem ID kopyalandı";
+
+/*No address error message*/
+"BCH.noAddressError" = "Lütfen bir adres girin";
+
+/*Attempted to scan unsupported qr code error message.*/
+"BCH.paymentProtocolError" = "Ödeme Protokol İstekleri DigiByte işlemleri için desteklenmiyor";
+
+/*BCH successfully sent alert message*/
+"BCH.successMessage" = "DigiByte başarı ile gönderildi.";
+
+/*Widthdraw BCH view title*/
+"BCH.title" = "DigiByte Çek";
+
+/*Tx Hash button header*/
+"BCH.txHashHeader" = "DigiByte İşlem ID";
+
+/*Approve button label*/
+"BitID.approve" = "Doğrula";
+
+/*<sitename> is requesting authentication using your bitcoin wallet*/
+"BitID.authenticationRequest" = "%1$@ DigiByte cüzdanınızı kullanarak erişim izni istiyor";
+
+/*Deny button label*/
+"BitID.deny" = "Reddet";
+
+/*BitID error alert title*/
+"BitID.error" = "Erişim Hatası";
+
+/*BitID error alert messaage (The payment service you are trying to use isn't working. Please contact them, as you may need to try again)*/
+"BitID.errorMessage" = "Lütfen servisi kontrol edin. Tekrar denemeniz gerekebilir.";
+
+/*BitID success alert title*/
+"BitID.success" = "Başarıyla erişim sağlandı";
+
+/*BitID Authentication Request alert view title*/
+"DigiID.title" = "Digi-ID Erişim İzni İsteği";
+
+/*Cancel button label*/
+"Button.cancel" = "İptal";
+
+/*Ignore button label*/
+"Button.ignore" = "Yoksay";
+
+/*menu button*/
+"Button.menu" = "menü";
+
+/*No button*/
+"Button.no" = "Hayır";
+
+/*OK button label*/
+"Button.ok" = "Tamam";
+
+/*receive button*/
+"Button.receive" = "al";
+
+/*send button*/
+"Button.send" = "gönder";
+
+/*Settings button label*/
+"Button.settings" = "Ayarlar";
+
+/*Settings button label*/
+"Button.submit" = "Gönder";
+
+/*Yes button*/
+"Button.yes" = "Evet";
+
+/*Camera plugin instruction*/
+"CameraPlugin.centerInstruction" = "Kimliğinizi kutuya ortalayınız";
+
+/*Amount to Send: ($1.00)*/
+"Confirmation.amountLabel" = "Gönderilecek Miktar:";
+
+/*Network Fee: ($1.00)*/
+"Confirmation.feeLabel" = "Ağ Ücreti:";
+
+/*eg. Processing time: This transaction will take 10-30 minutes to process.*/
+"Confirmation.processingTime" = "Bu gönderinin işleme koyulması yaklaşık %1$@ saniye sürecektir.";
+
+/*Label for "send" button on final confirmation screen*/
+"Confirmation.send" = "Gönder";
+
+/*Confirmation Screen title*/
+"Confirmation.title" = "Doğrulama";
+
+/*To: (address)*/
+"Confirmation.to" = "Alıcı:";
+
+/*Total Cost: ($5.00)*/
+"Confirmation.totalLabel" = "Toplam Maliyet:";
+
+/*Confirm paper phrase view label.*/
+"ConfirmPaperPhrase.label" = "Kurtarma anahtarının doğru şekilde yedeklendiğine emin olmak için, lütfen istenilen kelimeleri girin.";
+
+/*Word label eg. Word #1, Word #2*/
+"ConfirmPaperPhrase.word" = "#%1$@. Kelime";
+
+/*Bitcoin denomination picker label*/
+"DefaultCurrency.bitcoinLabel" = "Gösterilecek DigiByte Birimi";
+
+/*Exchange rate label*/
+"DefaultCurrency.rateLabel" = "Değişim Kuru";
+
+/*Email unavailable alert title*/
+"ErrorMessages.emailUnavailableMessage" = "Bu cihaz iOS mail uygulaması ile eposta gönderecek şekilde yapılandırılmamış.";
+
+/*Email unavailable alert title*/
+"ErrorMessages.emailUnavailableTitle" = "Eposta Kullanım Dışı";
+
+/*Messaging unavailable alert title*/
+"ErrorMessages.messagingUnavailableMessage" = "Bu cihaz mesaj gönderecek şekilde yapılandırılmamış.";
+
+/*Messaging unavailable alert title*/
+"ErrorMessages.messagingUnavailableTitle" = "Mesajlaşma Kullanım Dışı";
+
+/*You can customize your Face ID Spending Limit from the [FaceIdSettings.linkText gets added here as a button]*/
+"FaceIDSettings.customizeText" = "Face ID harcama limitinizi %1$@ dan başlayacak şekilde özelleştirebilirsiniz.";
+
+/*Face Id screen label*/
+"FaceIDSettings.label" = "DigiByte'ın kilidini açmak ve belirlenen limit dahilinde gönderim yapmak için yüz tanıma kullanın.";
+
+/*Link Text (see FaceIdSettings.customizeText)*/
+"FaceIDSettings.linkText" = "Face ID Gönderim Limiti Ekranı";
+
+/*Face id switch label.*/
+"FaceIDSettings.switchLabel" = "DigiByte için Face ID'yi Aç";
+
+/*Face ID settings view title*/
+"FaceIDSettings.title" = "Face ID";
+
+/*Face ID unavailable alert message*/
+"FaceIDSettings.unavailableAlertMessage" = "Bu cihazda Face ID'yi kurmamışsınız. Ayarlar > Face ID ve Parola seçeneğine gidip kurabilirsiniz.";
+
+/*Face ID unavailable alert title*/
+"FaceIDSettings.unavailableAlertTitle" = "Face ID Kurulu Değil";
+
+/*Face Id spending limit screen title*/
+"FaceIDSpendingLimit.title" = "Face ID Harcama Limiti";
+
+/*Economy fee*/
+"FeeSelector.economy" = "Ekonomik";
+
+/*Fee Selector economly fee description*/
+"FeeSelector.economyLabel" = "Tahmini Süre: 1+ Dakika";
+
+/*Warning message for economy fee*/
+"FeeSelector.economyWarning" = "Bu seçenek zaman açısından hassas işlemlerde tavsiye edilmez.";
+
+/*Regular fee*/
+"FeeSelector.regular" = "Normal";
+
+/*Fee Selector regular fee description*/
+"FeeSelector.regularLabel" = "Tahmini Süre: 15-30 saniye";
+
+/*Fee Selector title*/
+"FeeSelector.title" = "İşlem Hızı";
+
+/*Checking private key balance progress view text*/
+"Import.checking" = "Özel anahtar bakiyesi kontrol ediliyor...";
+
+/*Sweep private key confirmation message*/
+"Import.confirm" = "Bu özel anahtardan %1$@ cüzdanınıza gönderilsin mi? DigiByte ağı %2$@ kadar ücret alacaktır.";
+
+/*Duplicate key error message*/
+"Import.Error.duplicate" = "Bu özel anahtar zaten cüzdanınızda var.";
+
+/*empty private key error message*/
+"Import.Error.empty" = "Bu özel anahtar boş.";
+
+/*High fees error message*/
+"Import.Error.highFees" = "İşlem ücretleri bu özel anahtardaki miktardan fazla tutar.";
+
+/*Not a valid private key error message*/
+"Import.Error.notValid" = "Geçerli bir özel anahtar değil";
+
+/*Import signing error message*/
+"Import.Error.signing" = "İşlemi imzalamada hata";
+
+/*Import button label*/
+"Import.importButton" = "İçe Aktar";
+
+/*Importing wallet progress view label*/
+"Import.importing" = "Cüzdan İçe Aktarılıyor";
+
+/*Caption for graphics*/
+"Import.leftCaption" = "Aktarılacak Cüzdan";
+
+/*Import wallet intro screen message*/
+"Import.message" = "Cüzdan içe aktarma diğer cüzdanınızdaki tüm parayı tek işlemde DigiByte'a aktarır.";
+
+/*Enter password alert view title*/
+"Import.password" = "Bu özel anahtar şifre korumalı.";
+
+/*password textfield placeholder*/
+"Import.passwordPlaceholder" = "şifre";
+
+/*Caption for graphics*/
+"Import.rightCaption" = "DigiByte'ınız";
+
+/*Scan Private key button label*/
+"Import.scan" = "Özel Anahtar Tara";
+
+/*Import wallet success alert title*/
+"Import.success" = "Başarılı";
+
+/*Successfully imported wallet message body*/
+"Import.SuccessBody" = "Cüzdan başarıyla içe aktarıldı.";
+
+/*Import Wallet screen title*/
+"Import.title" = "Cüzdanı İçe Aktar";
+
+/*Unlocking Private key activity view message.*/
+"Import.unlockingActivity" = "Kilit Açma Anahtarı";
+
+/*Import wallet intro warning message*/
+"Import.warning" = "Bir cüzdanı içe aktarmak o cüzdana ait işlem kayıtlarını içermez.";
+
+/*Wrong password alert message*/
+"Import.wrongPassword" = "Yanlış şifre, lütfen tekrar deneyin.";
+
+/*Close app button*/
+"JailbreakWarnings.close" = "Kapat";
+
+/*Ignore jailbreak warning button*/
+"JailbreakWarnings.ignore" = "Yoksay";
+
+/*Jailbreak warning message*/
+"JailbreakWarnings.messageWithBalance" = "Herhangi bir 'jailbreak' uygulaması DigiByte'ın anahtar zincirine erişip DigiByte'larınızı çalabilir! Hemen bu cüzdanı silin ve güvenli bir cihazdan geri yükleyin.";
+
+/*Jailbreak warning message*/
+"JailbreakWarnings.messageWithoutBalance" = "Herhangi bir 'jailbreak' uygulaması DigiByte'ın anahtar zincirine erişip DigiByte'larınızı çalabilir! Lütfen DigiByte'ı sadece jailbreak yapılmamış cihazlarda kullanın.";
+
+/*Jailbreak warning title*/
+"JailbreakWarnings.title" = "UYARI";
+
+/*Location services disabled error*/
+"LocationPlugin.disabled" = "Konum servisleri kapalı.";
+
+/*No permissions for location services*/
+"LocationPlugin.notAuthorized" = "DigiByte'ın  konum servisine erişim yetkisi yok.";
+
+/*Wallet creation date prefix*/
+"ManageWallet.creationDatePrefix" = "Cüzdanınızı %1$@ tarihinde oluşturdunuz.";
+
+/*Manage wallet description text*/
+"ManageWallet.description" = "Cüzdan isminiz sadece sizin hesabınızdaki işlem geçmişinde görüntülenir ve başka birine gözükmez.";
+
+/*Change Wallet name textfield label*/
+"ManageWallet.textFeildLabel" = "Cüzdan İsmi";
+
+/*Manage wallet modal title*/
+"ManageWallet.title" = "Cüzdanı Yönet";
+
+/*Menu button title*/
+"MenuButton.lock" = "Cüzdanı Kilitle";
+
+/*Menu button title*/
+"MenuButton.security" = "Güvenlik Merkezi";
+
+/*Menu button title*/
+"MenuButton.settings" = "Ayarlar";
+
+/*Menu button title*/
+"MenuButton.support" = "Destek";
+
+/*button label*/
+"MenuViewController.createButton" = "Yeni Cüzdan Oluştur";
+
+/*Menu modal title*/
+"MenuViewController.modalTitle" = "Menü";
+
+/*button label*/
+"MenuViewController.recoverButton" = "Cüzdanı Geri Yükle";
+
+/*Switch to automatic mode button label*/
+"NodeSelector.automaticButton" = "Otomatik Moda Geç";
+
+/*Node is connected label*/
+"NodeSelector.connected" = "Bağlı";
+
+/*Enter node ip address view body*/
+"NodeSelector.enterBody" = "Düğüm IP adresi ve portunu girin (opsiyonel)";
+
+/*Enter Node ip address view title*/
+"NodeSelector.enterTitle" = "Düğüm Girin";
+
+/*Switch to manual mode button label*/
+"NodeSelector.manualButton" = "Manuel Moda Geç";
+
+/*Node address label*/
+"NodeSelector.nodeLabel" = "Mevcut Ana Düğüm";
+
+/*Node is not connected label*/
+"NodeSelector.notConnected" = "Bağlı Değil";
+
+/*Node status label*/
+"NodeSelector.statusLabel" = "Düğüm Bağlantı Durumu";
+
+/*Node Selector view title*/
+"NodeSelector.title" = "DigiByte Düğümleri";
+
+/*Bad Payment request alert title*/
+"PaymentProtocol.Errors.badPaymentRequest" = "Hatalı Ödeme İsteği";
+
+/*Error opening payment protocol file message*/
+"PaymentProtocol.Errors.corruptedDocument" = "Desteklenmeyen veya bozuk döküman";
+
+/*Missing certificate payment protocol error message*/
+"PaymentProtocol.Errors.missingCertificate" = "sertifika eksik";
+
+/*Request expired payment protocol error message*/
+"PaymentProtocol.Errors.requestExpired" = "istek zaman aşımına uğradı";
+
+/*Payment too small alert title*/
+"PaymentProtocol.Errors.smallOutputError" = "Ödeme yapılamadı";
+
+/*Amount too small error message*/
+"PaymentProtocol.Errors.smallPayment" = "DigiByte ödemeleri %1$@ 'den aşağı olamaz.";
+
+/*Output too small error message.*/
+"PaymentProtocol.Errors.smallTransaction" = "DigiByte işlem çıktıları $@ 'den aşağı olamaz.";
+
+/*Unsupported signature type payment protocol error message*/
+"PaymentProtocol.Errors.unsupportedSignatureType" = "desteklenmeyen imza türü";
+
+/*Untrusted certificate payment protocol error message*/
+"PaymentProtocol.Errors.untrustedCertificate" = "güvenilmeyen sertifika";
+
+/*Enable face ID prompt body*/
+"Prompts.FaceId.body" = "Face ID'yi açmak için buraya dokunun";
+
+/*Enable face ID prompt title*/
+"Prompts.FaceId.title" = "Face ID'yi Aç";
+
+/*No passcode set warning body*/
+"Prompts.NoPasscode.body" = "Cüzdanınızı güvene almak için parola gerekiyor. Ayarlara gidip parolayı açınız.";
+
+/*No Passcode set warning title*/
+"Prompts.NoPasscode.title" = "Cihaz parolasını aç";
+
+/*Warning about paper key.*/
+"Prompts.PaperKey.body" = "Telefonunuzun kaybolması veya bozulması gibi durumlara karşı Kurtarma Anahtarınızı yedeklemelisiniz. Devam etmek için buraya dokunun.";
+
+/*An action is required (You must do this action).*/
+"Prompts.PaperKey.title" = "Yedekleme Gerekiyor";
+
+/*Transaction rejected prompt body*/
+"Prompts.RecommendRescan.body" = "Cüzdanınız senkronize edilmemiş olabilir. Bu durum genelde blok zinciri yeniden taratıldığında düzelir.";
+
+/*Transaction rejected prompt title*/
+"Prompts.RecommendRescan.title" = "İşlem  Reddedildi";
+
+/*Share data prompt body*/
+"Prompts.ShareData.body" = "Anonim verilerinizi paylaşarak DigiByte'ı geliştirmemize katkıda bulunun.";
+
+/*Share data prompt title*/
+"Prompts.ShareData.title" = "Anonim Veri Paylaş";
+
+/*Enable touch ID prompt body*/
+"Prompts.TouchId.body" = "Touch ID'yi açmak için buraya dokunun";
+
+/*Enable touch ID prompt title*/
+"Prompts.TouchId.title" = "Touch ID'yi Aç";
+
+/*Upgrade PIN prompt body.*/
+"Prompts.UpgradePin.body" = "DigiByte 6 haneli PIN kodu kullanacak şekilde güncellendi. Yükseltmek için buraya dokunun.";
+
+/*Upgrade PIN prompt title.*/
+"Prompts.UpgradePin.title" = "PIN Kodunu Yükselt";
+
+/*Notifications will be added later but users can set their preferences now, which is why we specify "in the future".*/
+"PushNotifications.body" = "İleride DigiByte dan özel haberler alabilmek için bildirimleri açın.";
+
+/*Push notifications toggle switch label*/
+"PushNotifications.label" = "Anlık Bildirimler";
+
+/*Push notifications are off label*/
+"PushNotifications.off" = "Kapalı";
+
+/*Push notifications are on label*/
+"PushNotifications.on" = "Açık";
+
+/*Push notifications settings view title label*/
+"PushNotifications.title" = "Bildirimler";
+
+/*Address copied message.*/
+"Receive.copied" = "Panoya kopyalandı.";
+
+/*Share via email button label*/
+"Receive.emailButton" = "Eposta";
+
+/*Request button label*/
+"Receive.request" = "Bir Miktar Talep Edin";
+
+/*Share button label*/
+"Receive.share" = "Paylaş";
+
+/*Share via text message (SMS)*/
+"Receive.textButton" = "Metin Mesajı";
+
+/*Receive modal title*/
+"Receive.title" = "Al";
+
+/*Done button text*/
+"RecoverWallet.done" = "Tamamlandı.";
+
+/*Recover wallet header*/
+"RecoverWallet.header" = "Cüzdanı Geri Yükle";
+
+/*Reset PIN with paper key: header*/
+"RecoverWallet.header_reset_pin" = "PIN Kodunu Sıfırla";
+
+/*Enter paper key instruction*/
+"RecoverWallet.instruction" = "Kurtarma Anahtarını Girin";
+
+/*Recover wallet intro*/
+"RecoverWallet.intro" = "DigiByte'ınızı kurtarma anahtarınızı kullanarak geri yükleyin.";
+
+/*Invalid paper key message*/
+"RecoverWallet.invalid" = "Girdiğiniz kurtarma anahtarı hatalı. Lütfen tüm kelimeleri iki kez kontrol ederek tekrar girin.";
+
+/*Previous button accessibility label*/
+"RecoverWallet.leftArrow" = "Geri";
+
+/*Next button label*/
+"RecoverWallet.next" = "İleri";
+
+/*Reset PIN with paper key: more information button.*/
+"RecoverWallet.reset_pin_more_info" = "Daha fazla bilgi için buraya dokunun.";
+
+/*Next button accessibility label*/
+"RecoverWallet.rightArrow" = "İleri";
+
+/*Recover wallet sub-header*/
+"RecoverWallet.subheader" = "Geri yüklemek istediğiniz cüzdana ait kurtarma anahtarını girin.";
+
+/*Reset PIN with paper key: sub-header*/
+"RecoverWallet.subheader_reset_pin" = "PIN kodunuzu sıfırlamak için, kurtarma anahtarınızda yazan kelimeleri aşağıdaki kutucuklara girin.";
+
+/*No amount entered error message.*/
+"RequestAnAmount.noAmount" = "Lütfen önce bir miktar giriniz.";
+
+/*Request a specific amount of bitcoin*/
+"RequestAnAmount.title" = "Bir Miktar Talep Edin.";
+
+/*Alert action button label*/
+"ReScan.alertAction" = "Senkronizasyon";
+
+/*Alert message body*/
+"ReScan.alertMessage" = "Senkronizasyon devam ederken gönderim yapamayacaksınız.";
+
+/*Alert message title*/
+"ReScan.alertTitle" = "Blok Zinciri ile Senkronize Et?";
+
+/*extimated time*/
+"ReScan.body1" = "20-45 dakika";
+
+/*Syncing explanation*/
+"ReScan.body2" = "Eğer işleminiz DigiByte ağında tamamlanmış göründüğü halde cüzdanınızda görünmüyorsa.";
+
+/*Syncing explanation*/
+"ReScan.body3" = "Sürekli işleminiz reddedildi mesajı alıyorsanız.";
+
+/*Start Sync button label*/
+"ReScan.buttonTitle" = "Senkronizasyonu Başlat";
+
+/*Sync blockchain view footer*/
+"ReScan.footer" = "Blok zinciri senkronizasyonu devam ederken gönderim yapamayacaksınız.";
+
+/*Sync Blockchain view header*/
+"ReScan.header" = "Blok Zincirini Senkronize Et";
+
+/*Subheader label*/
+"ReScan.subheader1" = "Tahmini süre";
+
+/*Subheader label*/
+"ReScan.subheader2" = "Ne Zaman Senkronize Etmelisiniz?";
+
+/*Scan bitcoin address camera flash toggle*/
+"Scanner.flashButtonLabel" = "Kamera Flaşı";
+
+/*Complete filter label*/
+"Search.complete" = "tamamlanan";
+
+/*Pending filter label*/
+"Search.pending" = "beklemede";
+
+/*Received filter label*/
+"Search.received" = "alınan";
+
+/*Sent filter label*/
+"Search.sent" = "gönderilen";
+
+/*Face ID button title*/
+"SecurityCenter.faceIdTitle" = "Face ID";
+
+/*Security Center Info*/
+"SecurityCenter.info" = "En üst düzeyde koruma için tüm güvenlik özelliklerini etkinleştirin.";
+
+/*Paper Key button description*/
+"SecurityCenter.paperKeyDescription" = "Telefonunuzu kaybeder veya değiştirirseniz DigiByte'larınıza tekrar erişmenizin tek yolu.";
+
+/*Paper Key button title*/
+"SecurityCenter.paperKeyTitle" = "Kurtarma Anahtarı";
+
+/*PIN button description*/
+"SecurityCenter.pinDescription" = "DigiByte'ınızı yetkisiz kullanıcılardan koruyun.";
+
+/*PIN button title*/
+"SecurityCenter.pinTitle" = "6 Haneli PIN Kodu";
+
+/*Security Center Title*/
+"SecurityCenter.title" = "Güvenlik Merkezi";
+
+/*Touch ID button description*/
+"SecurityCenter.touchIdDescription" = "Uygun şekilde DigiByte'ın kilidini açın ve belirlenen limit dahilinde gönderim yapın.";
+
+/*Touch ID button title*/
+"SecurityCenter.touchIdTitle" = "Touch ID";
+
+/*Send money amount label*/
+"Send.amountLabel" = "Miktar";
+
+/*Balance: $4.00*/
+"Send.balance" = "Bakiye: %1$@";
+
+/*Camera not allowed message*/
+"Send.cameraunavailableMessage" = "Kamera erişimine izin vermek için Ayarlar'a gidin.";
+
+/*Camera not allowed alert title*/
+"Send.cameraUnavailableTitle" = "DigiByte'a kameraya erişmek için izin verilmedi.";
+
+/*Warning when sending to self.*/
+"Send.containsAddress" = "Hedef adres size ait. Kendi kendinize gönderim yapamazsınız.";
+
+/*Could not create transaction alert title*/
+"Send.creatTransactionError" = "İşlem oluşturulamadı.";
+
+/*Description for sending money label*/
+"Send.descriptionLabel" = "Not";
+
+/*Emtpy pasteboard error message*/
+"Send.emptyPasteboard" = "Yapıştırma panosu boş.";
+
+/*Network Fee: $0.01*/
+"Send.fee" = "Ağ Ücreti: %1$@";
+
+/*Payee identity not certified alert title.*/
+"Send.identityNotCertified" = "Alacaklı kimliği sertifikalı değil.";
+
+/*Invalid address alert message*/
+"Send.invalidAddressMessage" = "Hedef adresi geçerli bir DigiByte adresi değildir.";
+
+/*Invalid address on pasteboard message*/
+"Send.invalidAddressOnPasteboard" = "Yapıştırma panosu geçerli bir DigiByte adresi içermiyor.";
+
+/*Invalid address alert title*/
+"Send.invalidAddressTitle" = "Adres Geçersiz";
+
+/*Is rescanning error message*/
+"Send.isRescanning" = "Gönderme yeniden tarama devam ederken devre dışı bırakılır.";
+
+/*Loading request activity view message*/
+"Send.loadingRequest" = "Talep İşleniyor";
+
+/*Empty address alert message*/
+"Send.noAddress" = "Lütfen alıcının adresini girin.";
+
+/*Emtpy amount alert message*/
+"Send.noAmount" = "Lütfen gönderilecek miktarı girin.";
+
+/*Paste button label*/
+"Send.pasteLabel" = "Yapıştır";
+
+/*Could not publish transaction alert title*/
+"Send.publishTransactionError" = "İşlem yayınlanamadı.";
+
+/*Could not load remote request error message*/
+"Send.remoteRequestError" = "Ödeme isteği yüklenemedi.";
+
+/*Scan button label*/
+"Send.scanLabel" = "Tara";
+
+/*Send button label (the action, "press here to send")*/
+"Send.sendLabel" = "Gönder";
+
+/*Send screen title (as in "this is the screen for sending money")*/
+"Send.title" = "Gönder";
+
+/*Send money to label*/
+"Send.toLabel" = "Alıcı";
+
+/*Adress already used alert message - first part*/
+"Send.UsedAddress.firstLine" = "DigiByte adresleri yalnızca tek kullanım için tasarlanmıştır.";
+
+/*Adress already used alert message - second part*/
+"Send.UsedAddress.secondLIne" = "Yeniden kullanım hem sizin hem de alıcının gizliliğini azaltır ve alıcı adresini doğrudan kontrol etmezse kayıplara neden olabilir.";
+
+/*Adress already used alert title*/
+"Send.UsedAddress.title" = "Adres Zaten Kullanıldı";
+
+/*About label*/
+"Settings.about" = "Hakkında";
+
+/*Advanced Settings title*/
+"Settings.advancedTitle" = "Gelişmiş Ayarlar";
+
+/*i.e. the currency which will be displayed*/
+"Settings.currency" = "Görünen Para Birimi";
+
+/*Join Early access label*/
+"Settings.earlyAccess" = "Erken Erişime Katıl";
+
+/*Are you enjoying bread alert message body*/
+"Settings.enjoying" = "DigiByte'dan memnun musunuz?";
+
+/*Face ID spending limit label*/
+"Settings.faceIdLimit" = "Face ID Gönderim Limiti";
+
+/*Import wallet label*/
+"Settings.importTitle" = "Cüzdanı İçe Aktar";
+
+/*Manage settings section header*/
+"Settings.manage" = "Yönet";
+
+/*Notifications label*/
+"Settings.notifications" = "Bildirimler";
+
+/*Leave review button label*/
+"Settings.review" = "Geri Bildirimde Bulunun";
+
+/*Share anonymous data label*/
+"Settings.shareData" = "Anonim Bilgi Paylaşın";
+
+/*Sync blockchain label*/
+"Settings.sync" = "Blok zincirini Senkronize Et";
+
+/*Settings title*/
+"Settings.title" = "Ayarlar";
+
+/*Touch ID spending limit label*/
+"Settings.touchIdLimit" = "Touch ID Harcama Limiti";
+
+/*Wallet Settings section header*/
+"Settings.wallet" = "Cüzdan";
+
+/*Start or recover another wallet menu label.*/
+"Settings.wipe" = "Başka Bir Cüzdan Başlat/Kurtar";
+
+/*Share data view body*/
+"ShareData.body" = "Anonim bilgilerinizi paylaşarak DigiByte'ı geliştirmemize yardımcı olun. Bunlar herhangi bir finansal bilgi içermez. Finansal gizliliğinize saygı duymaktayız.";
+
+/*Share data header*/
+"ShareData.header" = "Bilgi Paylaş?";
+
+/*Share data switch label.*/
+"ShareData.toggleLabel" = "Anonim Bilgi Paylaşın?";
+
+/*button label*/
+"StartPaperPhrase.againButtonTitle" = "Kurtarma Anahtarını Tekrar Yazın";
+
+/*Paper key explanation text.*/
+"StartPaperPhrase.body" = "Kurtarma anahtarınız, telefonunuzun kaybolması, çalınması, bozulması veya değişmesi durumunda cüzdanınızı geri yüklemenin tek yoludur.\n\nBir kağıda yazıp güvenli bir yerde saklamanız için şimdi size bir dizi kelime göstereceğiz.";
+
+/*button label*/
+"StartPaperPhrase.buttonTitle" = "Kurtarma Anahtarını Alın";
+
+/*Argument is date*/
+"StartPaperPhrase.date" = "En son kurtarma anahtarınızı yedeklediğiniz tarih %1$@";
+
+/*Start view message*/
+"StartViewController.message" = "DigiByte kullanmanın en güvenli yolu.";
+
+/*Syncing view connectiong state header text*/
+"SyncingView.connecting" = "Bağlanıyor";
+
+/*Syncing view header text*/
+"SyncingView.header" = "Senkronize Ediliyor";
+
+/*Retry button label*/
+"SyncingView.retry" = "Tekrar Dene";
+
+/*Syncing view syncing state header text*/
+"SyncingView.syncing" = "Senkronize Ediliyor";
+
+/*6 d (6 days)*/
+"TimeSince.days" = "%1$@ gün";
+
+/*6 h (6 hours)*/
+"TimeSince.hours" = "%1$@ saat";
+
+/*6 m (6 minutes)*/
+"TimeSince.minutes" = "%1$@ dk";
+
+/*6 s (6 seconds)*/
+"TimeSince.seconds" = "%1$@ sn";
+
+/*You can customize your Touch ID Spending Limit from the [TouchIdSettings.linkText gets added here as a button]*/
+"TouchIdSettings.customizeText" = "Touch ID harcama limitinizi buradan değiştirebilirsiniz %1$@.";
+
+/*Touch Id screen label*/
+"TouchIdSettings.label" = "DigiByte'ın kilidini açmak ve belirlenen limit dahilinde gönderim yapmak için parmak izinizi kullanın.";
+
+/*Link Text (see TouchIdSettings.customizeText)*/
+"TouchIdSettings.linkText" = "Touch ID Gönderim Limiti Ekranı";
+
+/*Spending Limit: b100,000 ($100)*/
+"TouchIdSettings.spendingLimit" = "Gönderim Limiti: %1$@ (%2$@)";
+
+/*Touch id switch label.*/
+"TouchIdSettings.switchLabel" = "DigiByte için Touch ID'yi Etkinleştirin.";
+
+/*Touch ID settings view title*/
+"TouchIdSettings.title" = "Touch ID";
+
+/*Touch ID unavailable alert message*/
+"TouchIdSettings.unavailableAlertMessage" = "Bu cihazda Touch ID'yi kurmamışsınız. Ayarlar > Touch ID ve Parola seçeneğine gidip kurabilirsiniz.";
+
+/*Touch ID unavailable alert title*/
+"TouchIdSettings.unavailableAlertTitle" = "Touch ID Kurulu Değil";
+
+/*Always require passcode option*/
+"TouchIdSpendingLimit" = "Her zaman şifre gerektir";
+
+/*Touch ID spending limit screen body*/
+"TouchIdSpendingLimit.body" = "Gönderim limitinizin üzerindeki her işlem için 6 haneli PIN kodunuzu girmeniz istenecek. Ayrıca PIN kodunuzu en son girdiğiniz andan sonraki her 48 saatlik periyotta tekrar girmeniz gerekecek.";
+
+/*Touch Id spending limit screen title*/
+"TouchIdSpendingLimit.title" = "Touch ID Gönderim Limiti";
+
+/*Availability status text*/
+"Transaction.available" = "Gönderilmek için Uygun";
+
+/*Transaction complete label*/
+"Transaction.complete" = "Tamamlandı";
+
+/*eg. Ending balance: $50.00*/
+"Transaction.ending" = "Son bakiye: %1$@";
+
+/*Exchange rate on date header*/
+"Transaction.exchangeOnDayReceived" = "Alındığı an ki değişim kuru:";
+
+/*Exchange rate on date header*/
+"Transaction.exchangeOnDaySent" = "Gönderildiği an ki değişim kuru:";
+
+/*(b600 fee)*/
+"Transaction.fee" = "(%1$@ masraf)";
+
+/*Invalid transaction*/
+"Transaction.invalid" = "GEÇERSİZ";
+
+/*Timestamp label for event that just happened*/
+"Transaction.justNow" = "hemen şimdi";
+
+/*Receive status text: 'In progress: 20%'*/
+"Transaction.receivedStatus" = "Devam ediyor: %1$@";
+
+/*Send status text: 'In progress: 20%'*/
+"Transaction.sendingStatus" = "Devam ediyor: %1$@";
+
+/*eg. Starting balance: $50.00*/
+"Transaction.starting" = "Başlangıç bakiyesi: %1$@";
+
+/*Waiting to be confirmed string*/
+"Transaction.waiting" = "Onaylanmayı bekliyor. Bazı satıcıların işlemi tamamlaması için onay gerekmektedir. Tahmini süre 1-2 dakika.";
+
+/*e.g. I received money from an account.*/
+"TransactionDetails.account" = "hesap";
+
+/*Amount section header*/
+"TransactionDetails.amountHeader" = "Miktar";
+
+/*Block height label*/
+"TransactionDetails.blockHeightLabel" = "Bu Blokta Onaylandı";
+
+/*Memo section header*/
+"TransactionDetails.commentsHeader" = "Not";
+
+/*Empty transaction list message.*/
+"TransactionDetails.emptyMessage" = "İşlemleriniz burada görünecektir.";
+
+/*"Received [$5] at [which of my addresses]" => This is the "at [which of my addresses]" part.*/
+"TransactionDetails.from" = "buraya %1$@";
+
+/*More button title*/
+"TransactionDetails.more" = "Detaylar...";
+
+/*Moved $5.00 (as in "I moved $5 to another location")*/
+"TransactionDetails.moved" = "%1$@ Taşındı";
+
+/*Moved $5.00*/
+"TransactionDetails.movedAmountDescription" = "<b>%1@</b> Taşındı";
+
+/*eg. Confirmed in Block: Not Confirmed*/
+"TransactionDetails.notConfirmedBlockHeightLabel" = "Onaylanmadı";
+
+/*"Received [$5] at [which of my addresses]" => This is the "Received [$5]" part.*/
+"TransactionDetails.received" = "%1$@ Alındı";
+
+/*Received $5.00*/
+"TransactionDetails.receivedAmountDescription" = "<b>%1@</b> Alındı";
+
+/*"Sent [$5] to [address]" => This is the "Sent [$5]" part.*/
+"TransactionDetails.sent" = "%1$@ Gönderildi";
+
+/*Sent $5.00*/
+"TransactionDetails.sentAmountDescription" = "<b>%1@</b> Gönderildi";
+
+/*Status section header*/
+"TransactionDetails.statusHeader" = "Durum";
+
+/*Transaction Details Title*/
+"TransactionDetails.title" = "İşlem Detayları";
+
+/*"Sent [$5] to [address]" => This is the "to [address]" part.*/
+"TransactionDetails.to" = "buraya %1$@";
+
+/*Transaction ID header*/
+"TransactionDetails.txHashHeader" = "DigiByte İşlem ID";
+
+/*(this transaction was) Received at this address:*/
+"TransactionDirection.address" = "Bu adrese alındı";
+
+/*(this transaction was) Sent to this address:*/
+"TransactionDirection.to" = "Bu adrese gönderildi";
+
+/*Disabled until date*/
+"UnlockScreen.disabled" = "%1$@ Kadar engellendi";
+
+/*My Address button title*/
+"UnlockScreen.myAddress" = "Adresim";
+
+/*Reset PIN with Paper Key button label.*/
+"UnlockScreen.resetPin" = "PIN Kodunu Sıfırla";
+
+/*Scan button title*/
+"UnlockScreen.scan" = "Tara";
+
+/*Unlock Screen sub-header*/
+"UnlockScreen.subheader" = "PIN Kodunu Girin";
+
+/*TouchID prompt text*/
+"UnlockScreen.touchIdPrompt" = "DigiByte'ın kilidini açın.";
+
+/*Unlock with TouchID accessibility label*/
+"UnlockScreen.touchIdText" = "Touch ID kullanarak açın";
+
+/*Wallet unlocked message*/
+"UnlockScreen.unlocked" = "Cüzdanın Kilidi Açıldı";
+
+/*Update PIN caption text*/
+"UpdatePin.caption" = "PIN kodunuzu aklınızda tutun, eğer unutursanız DigiByte'larınıza erişemeyeceksiniz.";
+
+/*PIN creation info.*/
+"UpdatePin.createInstruction" = "PIN kodunuz cüzdanınızın kilidini açmak ve gönderimlerinizi onaylamak için kullanılacak.";
+
+/*Update PIN title*/
+"UpdatePin.createTitle" = "PIN Kodu Belirle";
+
+/*Update PIN title*/
+"UpdatePin.createTitleConfirm" = "PIN Kodunu Tekrar Girin";
+
+/*Enter current PIN instruction*/
+"UpdatePin.enterCurrent" = "Şu anki PIN kodunuzu girin";
+
+/*Enter new PIN instruction*/
+"UpdatePin.enterNew" = "Yeni PIN kodunuzu girin.";
+
+/*Re-Enter new PIN instruction*/
+"UpdatePin.reEnterNew" = "Yeni PIN kodunuzu tekrar girin.";
+
+/*Update PIN failure error message.*/
+"UpdatePin.setPinError" = "Üzgünüz, PIN kodu güncellenemedi.";
+
+/*Update PIN failure alert view title*/
+"UpdatePin.setPinErrorTitle" = "PIN Kodu Güncellenemedi";
+
+/*Update PIN title*/
+"UpdatePin.updateTitle" = "PIN Kodunu Güncelle";
+
+/*Authorize to copy wallet addresses alert message*/
+"URLHandling.addressaddressListAlertMessage" = "Cüzdan adresleri panoya kopyalansın mı?";
+
+/*Authorize to copy wallet address PIN view prompt.*/
+"URLHandling.addressList" = "Cüzdan adreslerini panoya kopyalamak için izin ver";
+
+/*Authorize to copy wallet address alert title*/
+"URLHandling.addressListAlertTitle" = "Cüzdan Adreslerini Kopyala";
+
+/*Copy wallet addresses alert button label*/
+"URLHandling.copy" = "Kopyala";
+
+/*Verify PIN for transaction view body*/
+"VerifyPin.authorize" = "Lütfen işlemi onaylamak için PIN kodunuzu girin.";
+
+/*Verify PIN view body*/
+"VerifyPin.continueBody" = "Lütfen devam etmek için PIN kodunuzu girin.";
+
+/*Verify PIN view title*/
+"VerifyPin.title" = "PIN Kodu Gerekli";
+
+/*Authorize transaction with touch id message*/
+"VerifyPin.touchIdMessage" = "Bu işlemi onaylayın.";
+
+/*'No wallet' warning for watch app*/
+"Watch.noWalletWarning" = "Cüzdanınızı ayarlamak için DigiByte iPhone uygulamasını açın.";
+
+/*Dismiss button label*/
+"Webview.dismiss" = "Reddet";
+
+/*Webview loading error message*/
+"Webview.errorMessage" = "İçerik yüklenirken bir hata oluştu. Lütfen tekrar deneyin.";
+
+/*Updating webview message*/
+"Webview.updating" = "Güncelliyor...";
+
+/*Welcome screen text. (?) will be replaced with the help icon users should look for.*/
+"Welcome.body" = "DigiByte yepyeni bir görünüm ve yeni özellikler eklenerek güncellendi.\n\nEğer yardıma ihtiyaç duyarsanız, çoğu ekranın sağ üst köşede görebileceğiniz (?) simgesine bakın.";
+
+/*Top title of welcome screen*/
+"Welcome.title" = "DigiByte'a Hoş Geldiniz!";
+
+/*Wipe wallet alert message*/
+"WipeWallet.alertMessage" = "Bu cüzdanı silmek istediğinizden emin misiniz?";
+
+/*Wipe wallet alert title*/
+"WipeWallet.alertTitle" = "Cüzdan Silinsin mi?";
+
+/*Failed wipe wallet alert message*/
+"WipeWallet.failedMessage" = "Cüzdanı silme başarısız oldu.";
+
+/*Failed wipe wallet alert title*/
+"WipeWallet.failedTitle" = "Başarısız";
+
+/*Enter phrase to wipe wallet instruction.*/
+"WipeWallet.instruction" = "Bu cüzdanı silmek ve yeni bir tane başlatmak için bu cüzdana ait Kurtarma Anahtarını girin. Bakiyeniz bu Kurtarma Anahtarı üzerinde kalmaya devam edecek.";
+
+/*Start wipe wallet view message*/
+"WipeWallet.startMessage" = "Başka bir cüzdan başlatmak veya kurtarmak, bu cihaz üzerinde farklı bir DigiByte'a erişmenizi ve yönetmenizi sağlar.";
+
+/*Start wipe wallet view warning*/
+"WipeWallet.startWarning" = "Mevcut DigiByte'ınıza artık bu cihaz üzerinden erişemeyeceksiniz. Bakiye Kurtarma Anahtarı üzerinde kalmaya devam edecek.";
+
+/*Wipe wallet navigation item title.*/
+"WipeWallet.title" = "Başka Bir Cüzdan Başlat veya Kurtar";
+
+/*Wipe wallet button title*/
+"WipeWallet.wipe" = "Sil";
+
+/*Wiping activity message*/
+"WipeWallet.wiping" = "Siliyor...";
+
+/*Paper key instructions.*/
+"WritePaperPhrase.instruction" = "Tüm kelimeleri sıralı olarak not alın ve güvenli bir yerde saklayın.";
+
+/*button label*/
+"WritePaperPhrase.next" = "İleri";
+
+/*button label*/
+"WritePaperPhrase.previous" = "Geri";
+
+/*1 of 3*/
+"WritePaperPhrase.step" = "%1$d / %2$d";
+
+/*header of PinView*/
+"Prompts.SecurityCheck.header" = "SECURITY\nCHECK";
+
+/*header of balance*/
+"Balance.header" = "TOTAL\nBALANCE";
+
+/*labels of syncView*/
+"SynchingView.blockHeightLabel" = "BLOCK HEIGHT";
+"SynchingView.progressLabel" = "PROGRESS";
+
+/*filter buttons for transactionView*/
+"TransactionView.all" = "all";
+
+/*TransactionFilter sent*/
+"TransactionView.sent" = "sent";
+
+/*TransactionFilter received*/
+"TransactionView.received" = "received";
+
+/*DATE: date*/
+"TransactionDetailView.date" = "tarih";
+
+/*PROCESSED: time*/
+"TransactionDetailView.processed" = "işlenmiş";
+
+/*STATUS: complete*/
+"TransactionDetailView.status" = "durum";
+
+/*CONFIRMATIONS: number*/
+"TransactionDetailView.confirmations" = "onaylar";
+
+/*missing time translation*/
+"FeeSelector.regularTime" = "15-30 saniye";
+
+/*Text that is shown when asset was not resolved yet*/
+"Assets.unresolved" = "Çözülmemiş varlık";
+
+/*Text to show if no metadata is available for the asset*/
+"Assets.noMetadata" = "DigiAsset";
+
+/*Showing when multiple assets were received*/
+"Assets.multipleAssets" = "Çoklu varlıklar";
+
+/*Title of confirm view*/
+"Assets.receivedAssetsTitle" = "DigiAssets alındı";
+
+/*Message will be displayed if assets were received*/
+"Assets.receivedAssetsMessage" = "Bir veya daha fazla DigiAssets aldınız. Varlıklarınızı görüntülemek için bu uygulamanın bir metadata sunucusuyla iletişim kurması gerekir. Bu, cüzdanınızın adresler veya işlem karmaları gibi bazı genel verilerini açığa çıkarır.";
+
+/*Title of confirm view if opening single*/
+"Assets.openAssetTitle" = "DigiAsset'i görüntüle";
+
+/*Message will be displayed if asset shall be opened*/
+"Assets.openAssetMessage" = "Bu varlığı görüntülemek için bu uygulamanın bir meta veri sunucusuyla iletişim kurması gerekir. Bu, cüzdanınızın genel adreslerinden birini açığa çıkarır.";
+
+/*Title to show when assets are being fetched*/
+"Assets.fetchingAssetsTitle" = "Varlıklar Getiriliyor";
+
+/*View RAW Transaction button title*/
+"Assets.viewRawTransaction" = "HAM İşlemini Görüntüle";
+
+/*Resolve button caption*/
+"Assets.confirmAssetsResolve" = "Varlıkları Çöz";
+
+/*Skip button caption*/
+"Assets.skipAssetsResolve" = "Atla";
+
+/*Cancel button caption*/
+"Assets.cancelAssetsResolve" = "İptal";
+
+/*Skip button caption*/
+"Assets.continueWithoutSync" = "Senkronizasyonu Atla";
+
+/*Total supply of asset*/
+"Assets.totalSupply" = "Toplam Arz";
+
+/*Number of total holders of an asset*/
+"Assets.numberOfHolders" = "Sahip Sayısı";
+
+/*lock status of an asset*/
+"Assets.lockStatus" = "Kilit Durumu";
+
+/*Issuer key*/
+"Assets.issuer" = "Yayınlayan";
+
+/*AssetID key*/
+"Assets.assetID" = "Asset ID";
+
+/*Address key*/
+"Assets.address" = "Adres";
+
+/*Possible value of Lock Status*/
+"Assets.locked" = "Kilitli";
+
+/*Possible value of Lock Status*/
+"Assets.unlocked" = "Kilitsiz";
+
+/*Shown if a value is unknown (N/A)*/
+"Assets.unknown" = "Bilinmiyor";
+
+/*Total Balance: <BALANCE>*/
+"Assets.totalBalance" = "Toplam bakiye";
+
+/*Tap to show button*/
+"Assets.tapToShow" = "Göstermek için dokun";
+
+/*Tap to hide button*/
+"Assets.tapToHide" = "Gizlemek için dokun";
+
+/*Asset ID: XXXXXX*/
+"Assets.assetIdKey" = "Asset ID";
+
+/*Total Balance: 1000*/
+"Assets.balanceKey" = "Toplam Bakiye";
+
+/*Issuer: CreateDigiAssets.com*/
+"Assets.issuerKey" = "Yayınlayan";
+
+/*Asset Info: YYYY*/
+"Assets.assetInfoKey" = "Asset bilgisi";
+
+/*Description: ZZZZ*/
+"Assets.descriptionKey" = "Açıklama";
+
+/*Button title for GET STARTED*/
+"Assets.getStarted" = "Baişlayın";
+
+/*Button title for create new asset*/
+"Assets.createNewAsset" = "Yeni Varlık oluştur";
+
+/*Heading for Receive assets*/
+"Assets.receiveAssets" = "Varlık al";
+
+/*Heading for create new assets*/
+"Assets.createAssets" = "Varlık yarat";
+
+/*Heading for burn assets*/
+"Assets.burnAssets" = "Varlık yak";
+
+/*Button title for send assets*/
+"Assets.sendAssets" = "Varlık gönder";
+
+/*Tab title*/
+"Assets.tabOverview" = "Varlıklar";
+
+/*Tab title*/
+"Assets.tabCreate" = "Yarat";
+
+/*Tab title*/
+"Assets.tabSend" = "Gönder";
+
+/*Tab title*/
+"Assets.tabReceive" = "Al";
+
+/*Tab title*/
+"Assets.tabBurn" = "Yak";
+
+/*Shown, when no assets are available*/
+"Assets.nothingFoundHere" = "Burada hiçbir şey bulunamadı";
+
+/*Asset selector placeholder text*/
+"Assets.selectAnAsset" = "Bir Varlık seç";
+
+/*Danger Title*/
+"Assets.dangerTitle" = "TEHLİKE BÖLGESİ";
+
+/*Danger description*/
+"Assets.dangerText" = "Varlıkları yakmak onları geri dönüşü olmayan bir şekilde yok eder. Onları asla geri alamazsınız.";
+
+/*Asset not available*/
+"Assets.AssetNotAvailable" = "Varlık mevcut değil";
+
+/*Displayed as a message when not enough assets are available*/
+"Assets.NotEnoughAssets" = "Yeterli varlık yok";
+
+/*No asset data error message*/
+"Assets.NoAssetData" = "Varlık verisi yok";
+
+/*Displayed as a message when assets were burned*/
+"Assets.AssetsBurned" = "Varlık(lar) yakıldı!";
+
+/*Displayed as a message when assets were sent*/
+"Assets.AssetsSent" = "Varlık(lar) gönderildi!";
+
+/*Transaction could not be broadcasted: <MESSAGE>*/
+"Assets.couldNotBeBroadcasted" = "İşlem yayınlanamadı: %1$@";
+
+/*Transaction could not be created: <MESSAGE> (code: 123)*/
+"Assets.couldNotBeCreated" = "İşlem oluşturulamadı: %1$@ (kod: %2$@)";
+
+/*Total unique: 1234*/
+"Assets.totalUnique" = "Toplam benzersiz Varlık sayısı: %1$@";
+
+/*Context menu button caption*/
+"Assets.Context.info" = "Bilgi";
+
+/*Context menu button caption*/
+"Assets.Context.send" = "Gönder";
+
+/*Context menu button caption*/
+"Assets.Context.receive" = "Al";
+
+/*Context menu button caption*/
+"Assets.Context.burn" = "Yak";
+
+/*Assets you own (heading)*/
+"Assets.yourAssets" = "Sahip olduğunuz varlıklar";
+
+/*Message heading*/
+"Assets.protocolDisabled" = "DigiAssets protokolü kapalı";
+
+/*Message heading*/
+"Assets.protocolDisabledDescription" = "DigiAssets protokolü kapalı";
+
+/*Select an asset (default dropdown)*/
+"Assets.select" = "Varlık seç ...";
+
+/*(Underlying) Asset Transaction*/
+"Assets.tx" = "Varlık İşlemleri";
+
+/*View RAW Asset Transaction*/
+"Assets.rawTx" = "Ham İşlemi Göster";
+
+/*ImageReader Title*/
+"QRImageReader.title" = "QRGörüntü Okuyucu";
+
+/*Image button label*/
+"QRImageReader.readQRButtonLabel" = "Görüntü";
+
+/*no qr code found*/
+"QRImageReader.readQRMessageNotFound" = "Görüntü içinde QR kodu bulunamadı";
+
+/*Found qrcode*/
+"QRImageReader.readQRMessageSuccess" = "Bulundu:\n\n";
+
+/*Found multiply qr code im image*/
+"QRImageReader.readQRMessageTooMany" = "Birden çok qr kodu bulundu.";
+
+/*address book modal title*/
+"AddressBook.title" = "Adres defteri";
+
+/*Name of contact*/
+"AddressBook.name" = "İsim";
+
+/*Placeholder for searchbar*/
+"AddressBook.searchPlaceholder" = "Kişileri ara";
+
+/*Favorites header title*/
+"AddressBook.favorites" = "Favoriler";
+
+/*Header title in address book*/
+"AddressBook.addContact" = "Yeni kişi ekle";
+
+/*button title for add button*/
+"AddressBook.addContactButtonTitle" = "Kişi ekle";
+
+/*button title for edit button*/
+"AddressBook.editContactButtonTitle" = "Kişi düzenle";
+
+/*Header title in address book*/
+"AddressBook.editContact" = "Kişi düzenle";
+
+/*the contact's address (textfield label)*/
+"AddressBook.address" = "Adres";
+
+/*header in confirm dialog to delete contact*/
+"AddressBook.deleteContactHeader" = "Kişi sil";
+
+/*description in confirm dialog to delete contact*/
+"AddressBook.deleteContact" = "Bu kişiyi gerçekten silmek istiyor musunuz?";
+
+/*Title for first welcome screen*/
+"Welcome.page1title" = "DigiByte cüzdanına hoş geldiniz.";
+
+/*Title for second welcome screen*/
+"Welcome.page2title" = "Gönder";
+
+/*Title for third welcome screen*/
+"Welcome.page3title" = "Al";
+
+/*Title for fourth welcome screen*/
+"Welcome.page4title" = "Güvenle sakla";
+
+/*Title for fifth welcome screen*/
+"Welcome.page5title" = "Digi-ID kullanarak oturum aç";
+
+/*Text for first welcome screen*/
+"Welcome.page1text" = "DigiByte para biriminizi güvenle saklayın ve kullanın.";
+
+/*Text for second welcome screen*/
+"Welcome.page2text" = "DigiByte'ınızı zahmetsizce ve anında global olarak gönderin.";
+
+/*Text for third welcome Text*/
+"Welcome.page3text" = "Ödeme talepleri oluşturun ve dünyanın her yerinden anında para alın.";
+
+/*Text for fourth welcome screen*/
+"Welcome.page4text" = "DigiByte'ınızı bir dizi gelişmiş güvenlik özelliğiyle koruyun.";
+
+/*Text for fifth welcome screen*/
+"Welcome.page5text" = "Digi-ID doğrulama teknolojisi ile blockchain güvenliğinin gücünü kullanın.";
+
+/*Insufficient funds error*/
+"Send.insufficientFunds" = "Yetersiz bakiye";
+
+/*maximum amount*/
+"Send.max" = "Maks";
+
+/*option to use Dandelion Protocol*/
+"Send.useDandelion" = "Gelişmiş gizlilik için Dandelion Protokolünü kullanın";
+
+/*Receive 10 BTC to <Address>*/
+"Receive.receiveAmountTo" = "%2$@ ile %1$@ al";
+
+/*Receive to <Address>*/
+"Receive.receiveTo" = "%1$@ ile al";
+
+/*Clickable button*/
+"Receive.showLegacyAddress" = "Bunun yerine Eski Adres Göster";
+
+/*Clickable button*/
+"Receive.showSegwitAddress" = "Bunun yerine SegWit Adresi Göster";
+
+/*Receive Address Box placeholder*/
+"Receive.receiveAddress" = "Alım Adresi";
+
+/*Wipe wallet button*/
+"JailbreakWarnings.wipe" = "Sil";
+
+/*Wallet locked message*/
+"UnlockScreen.locked" = "Cüzdan kilitli";
+
+/*Unlock with FaceID accessibility label*/
+"UnlockScreen.faceIdPrompt" = "Face ID ile DigiByte'ınizın kilidini açmak için buraya dokunun";
+
+/*Message that appears, when the sign timeout was triggered*/
+"Transaction.signTimeout" = "Zaman aşımı süresi içinde tx imzalanmadı";
+
+/*Manage wallet button title*/
+"AccountHeader.manageButtonName" = "YÖNET";
+
+/*Equals symbol*/
+"AccountHeader.equals" = "=";
+
+/*Switch label for setting*/
+"TouchIdSettings.automaticBiometricsSwitchLabel" = "Başlangıçta otomatik olarak Touch ID iste";
+
+/*Switch label for setting*/
+"FaceIDSettings.automaticBiometricsSwitchLabel" = "Başlangıçta otomatik olarak Face ID iste";
+
+/*Always require passcode option*/
+"TouchIdSpendingLimit.requirePasscode" = "Her parola gerektir";
+
+/*custom amount limit (category)*/
+"TouchIdSpendingLimit.custom" = "Özel";
+
+/*custom amount limit (title)*/
+"TouchIdSpendingLimit.customAmount" = "Özel miktar";
+
+/*Description for custom amount*/
+"TouchIdSpendingLimit.customAmountDescription" = "Özel bir miktar gir";
+
+/*Port must be greater than 0 and less than 65535*/
+"Settings.invalidPortHeader" = "Geçersiz port";
+
+/*send max button visible or not*/
+"Settings.maxSendEnabled" = "Maks gönder butonunu görünür";
+
+/*do not place a digibyte logo into qr codes*/
+"Settings.excludeLogoInQR" = "QR kodlarında DigiByte Logosunu gizle";
+
+/*Do not show any DigiAsset Contents*/
+"Settings.showRawTransactions" = "DigiAssets'i kapat";
+
+/*Resolve Assets without a prompt*/
+"Settings.resolveAssetsWithoutPrompt" = "Varlıkları sormadan çözümleyin";
+
+/*Clear Asset Cache*/
+"Settings.clearAssetCache" = "Varlık Önbelleğini Temizle";
+
+/*Clear Assets Image cache*/
+"Settings.clearImageCache" = "Görüntü Önbelleğini Temizle";
+
+/*Message that appears when a cache was cleared*/
+"Settings.cacheCleared" = "Önbellek temizlendi";
+
+/*DigiByte Nodes (Network term)*/
+"Settings.nodes" = "DigiByte Düğümleri";
+
+/*Settings item*/
+"Settings.useDigiIDLegacy" = "Eski Digi-ID'yi kullan";
+
+/*Message that appears when DigiID Legacy is being opened*/
+"Settings.digiIdLegacyWarning" = "İstisnalar eklemeniz önerilmez. Esk Digi-ID gelecek sürümlerde kaldırılacak.";
+
+/*DigiID Legacy Preview Text (how many websites were added as an exception)*/
+"Settings.digiIdPreview" = "#%1$@ site(ler)";
+
+/*DigiID Legacy Title*/
+"Settings.digiIdLegacyTitle" = "Eski Digi-ID";
+
+/*DigiID Legacy Description*/
+"Settings.digiIdLegacyDescription" = "Eski Digi-ID, DigiByte Android ile uyumlu olmayan eski bir Digi-ID kimlik doğrulama varyantı anlamına gelir. Yeni girişler için Eski Digi-ID kullanılması önerilmez.";
+
+/*DigiID Legacy: Add Exception (button)*/
+"Settings.addException" = "İstisna ekle";
+
+/*Welcome title*/
+"AssetsWelcome.welcomeTitle" = "DigiAssets'e Hoşgeldiniz";
+
+/*Create Heading*/
+"AssetsWelcome.createHeading" = "Yarat.";
+
+/*Send Heading*/
+"AssetsWelcome.sendHeading" = "Gönder.";
+
+/*Receive Heading*/
+"AssetsWelcome.receiveHeading" = "Al.";
+
+/*Create Text*/
+"AssetsWelcome.createText" = "DigiAssets'i doğrudan DigiAssets web uygulaması içinden oluşturabilirsiniz. Sevdiğiniz şeyleri DigiAssets'e dönüştürün.";
+
+/*Send Text*/
+"AssetsWelcome.sendText" = "DigiAssets uygulamasında, mülkiyet transferi yoluyla doğrudan  DigiAssets'i başkalarına gönderebilirsiniz.";
+
+/*Receive Text*/
+"AssetsWelcome.receiveText" = "DigiAssets uygulamasında, DigiAssets'i doğrudan sahiplik aktarımı yoluyla başkalarından alabilirsiniz.";
+
+/*Introduction in About Screen*/
+"About.introduction" = "Bu uygulama DigiByte & Blockchain meraklıları, inandıkları bir projeye zaman ve becerilerini adamış ücretsiz gönüllüler tarafından yaratıldı.";
+
+/*'BLOCK HEIGHT' caption title*/
+"SyncingView.blockHeightLabel" = "BLOK NO";
+
+/*'PROGRESS' caption title (PROGRESS: May 18 / June 18)*/
+"SyncingView.progressLabel" = "İLERLEME";
+
+/*Heading of modal alert*/
+"ReScan.fastSync" = "Hızlı Senkronizasyon";
+
+/*Privacy Warning of fast sync*/
+"ReScan.fastSyncDescription" = "Senkronizasyonu optimize etmek için, bu cüzdan bir blok explorer ile iletişim kurabilir. Bu işlemin, senkronizasyonu hızlandırmak için bazı genel cüzdan adreslerine sızdıracağını unutmayın.";
+
+/*Heading of modal alert*/
+"ReScan.fastReSync" = "Hızlı Yeniden Senkronizasyon";
+
+/*Regular Sync description*/
+"ReScan.regularSync" = "Normal Yeniden Senkronizasyon (yavaş)";
+
+/*Confirm paper phrase error message*/
+"ConfirmPaperPhrase.error" = "Girilen kelimeler kurtarma ifadenizle eşleşmiyor. Lütfen tekrar deneyin.";
+
+/*Confirm dialog's default confirm action title*/
+"Alerts.confirmOkCaption" = "TAMAM";
+
+/*confirm dialog's default cancel action title*/
+"Alerts.confirmCancelCaption" = "İptal";
+
+/*Menu button title for DigiAssets*/
+"MenuButton.digiAssets" = "DigiAssets";
+
+/*Fee Selector regular fee description*/
+"FeeSelector.estimatedDeliver" = "Tahmini Teslimat: %1$@";
+
+/*E.g. [This transaction is predicted to complete in] 1+ minutes*/
+"FeeSelector.economyTime" = "1+ dakika";
+
+/*Import Address Heading*/
+"Assets.Send.importAddress" = "Adres içe aktar";
+
+/*Import Address Option: Address Book*/
+"Assets.Send.addressBook" = "Adres Defteri";
+
+/*Import Address Option: Import Address from Clipboard*/
+"Assets.Send.pasteFromClipboard" = "Panodan Yapıştır";
+
+/*Import Address Option: Scan QR*/
+"Assets.Send.scanQR" = "QR Kodunu Tara";
+
+/*Import Address Option: Browse Gallery*/
+"Assets.Send.browseGallery" = "Galeriye göz at";
+
+/*Import Address Description: Address Book*/
+"Assets.Send.addressBookDescription" = "Adres Defterinizden bir Adresi Kullan";
+
+/*Import Address Description: QR Scanner*/
+"Assets.Send.scanQRDescription" = "Adres içeren bir QR Kodunu taramak için Kameranızı kullanın";
+
+/*Import Address Heading*/
+"Assets.Send.browseGalleryDescription" = "Bir Galeriden Resim İçe Aktar";
+
+/*Favorite Switch Title (as favorite)-option*/
+"AddressBook.favorite" = "Favori";
+
+/*Version: 2.0.0*/
+"Abput.version" = "Versiyon: #%1$@";
+
+/*Development Heading in About Section*/
+"Abput.development" = "Geliştirme";
+
+/*UI Heading in About Section*/
+"About.ui" = "Arayüz";
+
+/*Special Thanks Heading in About Section*/
+"About.specialThanks" = "Özel Teşekkürler";
+
+/*Translations Heading in About Section*/
+"About.translations" = "Çeviriler";

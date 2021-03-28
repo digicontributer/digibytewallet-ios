@@ -1,0 +1,1561 @@
+
+/*About screen blog label*/
+"About.blog" = "مدونة";
+
+/*About screen footer*/
+"About.footer" = "من صنع فريق الديجيولت العالمي. الإصدار%1$@";
+
+/*Privay Policy button label*/
+"About.privacy" = "سياسة الخصوصية";
+
+/*About screen reddit label*/
+"About.reddit" = "ريديت";
+
+/*Terms of Use button label*/
+"About.terms" = "شروط الاستخدام";
+
+/*About screen title*/
+"About.title" = "ديجيولت للآي أو إس هي المحفظة النقالة للديجيبايت.";
+
+/*About screen twitter label*/
+"About.twitter" = "تويتر ";
+
+/*Close modal button accessibility label*/
+"AccessibilityLabels.close" = "إغلاق ";
+
+/*Support center accessibiliy label*/
+"AccessibilityLabels.faq" = "مركز الدعم ";
+
+/*Loading Wallet Message*/
+"Account.loadingMessage" = "تحميل المحفظة";
+
+/*Default wallet name*/
+"AccountHeader.defaultWalletName" = "محفظتي الديجيولت";
+
+/*Error alert title*/
+"Alert.error" = "خطأ";
+
+/*No internet alert message*/
+"Alert.noInternet" = "لم يتم العثور على اتصال بالإنترنت. تحقق من الاتصال وحاول مرة أخرى.";
+
+/*Warning alert title*/
+"Alert.warning" = "تحذير";
+
+/*'the addresses were copied'' Alert title*/
+"Alerts.copiedAddressesHeader" = "تم نسخ العناوين ";
+
+/*Addresses Copied Alert sub header*/
+"Alerts.copiedAddressesSubheader" = "تم نسخ جميع عناوين المحفظة بنجاح.";
+
+/*Alert Header Label (the paper key was set)*/
+"Alerts.paperKeySet" = "تعيين المفتاح الورقي";
+
+/*Alert Subheader label (playfully positive)*/
+"Alerts.paperKeySetSubheader" = "رائع!";
+
+/*Alert Header label (the PIN was set)*/
+"Alerts.pinSet" = "تعيين رقم التعريف الشخصي";
+
+/*Send failure alert header label (the send failed to happen)*/
+"Alerts.sendFailure" = "فشل الإرسال";
+
+/*Send success alert header label (confirmation that the send happened)*/
+"Alerts.sendSuccess" = "تأكيد الإرسال ";
+
+/*Send success alert subheader label (e.g. the money was sent)*/
+"Alerts.sendSuccessSubheader" = "ثم إرسال الديجيبايت! ";
+
+/*JSON Serialization error message*/
+"ApiClient.jsonError" = " خطأ في تسلسل JSON ";
+
+/*Wallet not ready error message*/
+"ApiClient.notReady" = "المحفظة ليست جاهزة";
+
+/*API Token error message*/
+"ApiClient.tokenError" = "غير قادر على استعادة رمز API";
+
+/*Send BCH view body.*/
+"BCH.body" = "أدخل وجهة عنوان ديجيبايت أدناه. جميع الديجيبايت الموجودة في محفظتك عند حدوث تفرع الشبكة \"الفورك\" (%1$@) سيتم ارسالها.";
+
+/*Confirm sending <$5.00> to <address>?*/
+"BCH.confirmationMessage" = "تاكيد إرسال %1$@ الى %2$@";
+
+/*Confirmation alert title*/
+"BCH.confirmationTitle" = "تأكيد";
+
+/*Generic bch erorr message*/
+"BCH.genericError" = "حسابك لا يحتوي على أي ديجيبايت، أو قد تلقيت الديجيبايت بعد التطوير.";
+
+/*Transaction ID copied message*/
+"BCH.hashCopiedMessage" = "تم نسخ التعريف الشخصي";
+
+/*No address error message*/
+"BCH.noAddressError" = "الرجاء إدخال العنوان";
+
+/*Attempted to scan unsupported qr code error message.*/
+"BCH.paymentProtocolError" = "طلبات بروتوكول الدفع غير مدعمة  في معاملات الديجيبايت";
+
+/*BCH successfully sent alert message*/
+"BCH.successMessage" = "ثم إرسال الديجيبايت بنجاح ";
+
+/*Widthdraw BCH view title*/
+"BCH.title" = "سحب الديجيبايت";
+
+/*Tx Hash button header*/
+"BCH.txHashHeader" = "ايصال معاملة الديجيبايت";
+
+/*Approve button label*/
+"BitID.approve" = "موافق";
+
+/*<sitename> is requesting authentication using your bitcoin wallet*/
+"BitID.authenticationRequest" = "%1$@ يقوم بطلب الموافقة باستخدام محفظتك للديجيبايت";
+
+/*Deny button label*/
+"BitID.deny" = "رفض  ";
+
+/*BitID error alert title*/
+"BitID.error" = "خطأ في المصادقة";
+
+/*BitID error alert messaage (The payment service you are trying to use isn't working. Please contact them, as you may need to try again)*/
+"BitID.errorMessage" = "يرجى التحقق من الخدمة. قد تحتاج إلى إعادة المحاولة.";
+
+/*BitID success alert title*/
+"BitID.success" = "تم التصديق بنجاح";
+
+/*BitID Authentication Request alert view title*/
+"DigiID.title" = "طلب مصادقة ديجيايدي";
+
+/*Cancel button label*/
+"Button.cancel" = "إلغاء";
+
+/*Ignore button label*/
+"Button.ignore" = "تجاهل";
+
+/*menu button*/
+"Button.menu" = "القائمة";
+
+/*No button*/
+"Button.no" = "لا";
+
+/*OK button label*/
+"Button.ok" = "موافق";
+
+/*receive button*/
+"Button.receive" = "إستلام ";
+
+/*send button*/
+"Button.send" = "إرسال ";
+
+/*Settings button label*/
+"Button.settings" = "الإعدادات";
+
+/*Settings button label*/
+"Button.submit" = "تقديم الطلب";
+
+/*Yes button*/
+"Button.yes" = "نعم";
+
+/*Camera plugin instruction*/
+"CameraPlugin.centerInstruction" = "ضع التعريف الخاص بك في المربع";
+
+/*Amount to Send: ($1.00)*/
+"Confirmation.amountLabel" = "الكمية المراد ارسالها:";
+
+/*Network Fee: ($1.00)*/
+"Confirmation.feeLabel" = "رسوم الشبكة:";
+
+/*eg. Processing time: This transaction will take 10-30 minutes to process.*/
+"Confirmation.processingTime" = "وقت المعالجة: ستستغرق هذه العملية %1$@ ثواني لمعالجتها";
+
+/*Label for "send" button on final confirmation screen*/
+"Confirmation.send" = "إرسال";
+
+/*Confirmation Screen title*/
+"Confirmation.title" = "تأكيد ";
+
+/*To: (address)*/
+"Confirmation.to" = "إلى";
+
+/*Total Cost: ($5.00)*/
+"Confirmation.totalLabel" = "التكلفة الإجمالية:";
+
+/*Confirm paper phrase view label.*/
+"ConfirmPaperPhrase.label" = "للتأكد من تدوين كل شيء بشكل صحيح ، يرجى إدخال الكلمات التالية من مفتاحك الشخصي الورقي.";
+
+/*Word label eg. Word #1, Word #2*/
+"ConfirmPaperPhrase.word" = "الكلمة # %1$@";
+
+/*Bitcoin denomination picker label*/
+"DefaultCurrency.bitcoinLabel" = "وحدة عرض الديجيبايت";
+
+/*Exchange rate label*/
+"DefaultCurrency.rateLabel" = "سعر الصرف";
+
+/*Email unavailable alert title*/
+"ErrorMessages.emailUnavailableMessage" = "لم تتم تهيئة هذا الجهاز لإرسال بريد إلكتروني باستخدام بريد تطبيق  آي أو إس";
+
+/*Email unavailable alert title*/
+"ErrorMessages.emailUnavailableTitle" = "البريد الإلكتروني غير متوفر";
+
+/*Messaging unavailable alert title*/
+"ErrorMessages.messagingUnavailableMessage" = "لم تتم تهيئة هذا الجهاز لإرسال الرسائل ";
+
+/*Messaging unavailable alert title*/
+"ErrorMessages.messagingUnavailableTitle" = "الرسائل غير متوفرة ";
+
+/*You can customize your Face ID Spending Limit from the [FaceIdSettings.linkText gets added here as a button]*/
+"FaceIDSettings.customizeText" = "يمكنك تخصيص حد الإنفاق لبصمة الوجه  من %1$@.";
+
+/*Face Id screen label*/
+"FaceIDSettings.label" = "استخدم وجهك لفتح الديجيولت الخاصة بك وإرسال ديجيبايت إلى حد محدد.";
+
+/*Link Text (see FaceIdSettings.customizeText)*/
+"FaceIDSettings.linkText" = " نص الرابط(انظر TouchIdSettings.customizeText)";
+
+/*Face id switch label.*/
+"FaceIDSettings.switchLabel" = "تمكين بصمة الوجه للديجيولت";
+
+/*Face ID settings view title*/
+"FaceIDSettings.title" = "التعريف الشخصي ببصمة الوجه";
+
+/*Face ID unavailable alert message*/
+"FaceIDSettings.unavailableAlertMessage" = "لم تقم بإعداد خاصية التريف الشخصي ببصمة الوجه على هذا الجهاز. الرجاء الذهاب الى قائمة الاعدادات->  التعريف الشخصي ببصمة الوجه وكلمة السر لإعداد هذه الخاصية الان. \n ";
+
+/*Face ID unavailable alert title*/
+"FaceIDSettings.unavailableAlertTitle" = "لم يتم إعداد خاصية  التعريف الشخصي ببصمة الوجه";
+
+/*Face Id spending limit screen title*/
+"FaceIDSpendingLimit.title" = " حد الانفاق بإستخدام خاصية التعريف الشخصي ببصمة الوجه";
+
+/*Economy fee*/
+"FeeSelector.economy" = "إقتصاد";
+
+/*Fee Selector economly fee description*/
+"FeeSelector.economyLabel" = "وقت التسليم المتوقع: 1+ دقائق";
+
+/*Warning message for economy fee*/
+"FeeSelector.economyWarning" = "لا ينصح بهذا الخيار للمعاملات الحساسة للوقت ";
+
+/*Regular fee*/
+"FeeSelector.regular" = "إعتيادي";
+
+/*Fee Selector regular fee description*/
+"FeeSelector.regularLabel" = "وقت التسليم المتوقع: 15-30 ثانية";
+
+/*Fee Selector title*/
+"FeeSelector.title" = "سرعة المعالجة";
+
+/*Checking private key balance progress view text*/
+"Import.checking" = "جار التحقق من رصيد المفتاح الخاص";
+
+/*Sweep private key confirmation message*/
+"Import.confirm" = " إرسال%1$@ من هذا المفتاح الخاص إلى داخل محفظتك؟ ستتلقى شبكة الديجيبايت رسوما قدرها %2$@.";
+
+/*Duplicate key error message*/
+"Import.Error.duplicate" = "هذا المفتاح الخاص بالفعل موجود في محفظتك";
+
+/*empty private key error message*/
+"Import.Error.empty" = "هذا المفتاح الخاص فارغ";
+
+/*High fees error message*/
+"Import.Error.highFees" = "رسوم المعاملة ستكلف  أكثر من الأموال المتاحة على هذا المفتاح الخاص.";
+
+/*Not a valid private key error message*/
+"Import.Error.notValid" = "المفتاح الخاص ليس صحيح";
+
+/*Import signing error message*/
+"Import.Error.signing" = "خطأ أثناء توقيع المعاملة";
+
+/*Import button label*/
+"Import.importButton" = "استيراد";
+
+/*Importing wallet progress view label*/
+"Import.importing" = " استيراد المحفظة";
+
+/*Caption for graphics*/
+"Import.leftCaption" = "المحفظة المراد استيرادها";
+
+/*Import wallet intro screen message*/
+"Import.message" = "عند استيراد محفظة يتم تحويل جميع الأموال من محفظتك الأخرى الي محفظة الدي جي بايت الحالية باستخدام تحويلة واحدة.";
+
+/*Enter password alert view title*/
+"Import.password" = "هذا المفتاح الخاص محمي بكلمة مرور.";
+
+/*password textfield placeholder*/
+"Import.passwordPlaceholder" = "كلمة المرور ";
+
+/*Caption for graphics*/
+"Import.rightCaption" = "ديجيولت الخاصة بك ";
+
+/*Scan Private key button label*/
+"Import.scan" = "نسخ المفتاح خاص";
+
+/*Import wallet success alert title*/
+"Import.success" = "نجاح";
+
+/*Successfully imported wallet message body*/
+"Import.SuccessBody" = "تم استيراد المحفظة بنجاح.";
+
+/*Import Wallet screen title*/
+"Import.title" = "استيراد المحفظة ";
+
+/*Unlocking Private key activity view message.*/
+"Import.unlockingActivity" = "فتح مفتاح";
+
+/*Import wallet intro warning message*/
+"Import.warning" = "استيراد محفظة لا يتضمن سجل المعاملات او تفاصيل أخرى. ";
+
+/*Wrong password alert message*/
+"Import.wrongPassword" = "كلمة المرور خاطئة، رجاءا المحاولة مرة أخرى. ";
+
+/*Close app button*/
+"JailbreakWarnings.close" = "إغلاق ";
+
+/*Ignore jailbreak warning button*/
+"JailbreakWarnings.ignore" = "تجاهل";
+
+/*Jailbreak warning message*/
+"JailbreakWarnings.messageWithBalance" = "إخلال بأمن الجهاز\nأي تطبيق من تطبيقات 'جيلبريك' يمكنه الوصول إلى بيانات مفاتيح ديجيولت وسرقة الديجيبايت الخاص بك! امسح هذه المحفظة فورا واستعدها على جهاز آمن.";
+
+/*Jailbreak warning message*/
+"JailbreakWarnings.messageWithoutBalance" = "إخلال بأمن الجهاز\nأي تطبيق من تطبيقات 'جيلبريك' يمكنه الوصول إلى بيانات مفاتيح ديجيولت وسرقة الديجيبايت الخاص بك. يرجى استخدام ديجيولت فقط على جهاز غير مفتوح الحماية.";
+
+/*Jailbreak warning title*/
+"JailbreakWarnings.title" = "تحذير";
+
+/*Location services disabled error*/
+"LocationPlugin.disabled" = "خدمات الموقع غير متاحة .";
+
+/*No permissions for location services*/
+"LocationPlugin.notAuthorized" = "الديجيولت ليس لديه إذن للوصول إلى خدمات الموقع.";
+
+/*Wallet creation date prefix*/
+"ManageWallet.creationDatePrefix" = "قمت  بإنشاء محفظتك على %1$@";
+
+/*Manage wallet description text*/
+"ManageWallet.description" = "لا يظهر اسم محفظتك إلا في سجل معاملات حسابك فقط ولا يمكن لأي شخص آخر رؤيته.";
+
+/*Change Wallet name textfield label*/
+"ManageWallet.textFeildLabel" = "اسم المحفظة ";
+
+/*Manage wallet modal title*/
+"ManageWallet.title" = "إدارة المحفظة";
+
+/*Menu button title*/
+"MenuButton.lock" = "قفل المحفظة ";
+
+/*Menu button title*/
+"MenuButton.security" = "مركز الأمن";
+
+/*Menu button title*/
+"MenuButton.settings" = "الإعدادات";
+
+/*Menu button title*/
+"MenuButton.support" = "الدعم ";
+
+/*button label*/
+"MenuViewController.createButton" = "انشاء محفظة جديدة ";
+
+/*Menu modal title*/
+"MenuViewController.modalTitle" = "القائمة ";
+
+/*button label*/
+"MenuViewController.recoverButton" = "استعادة محفظة";
+
+/*Switch to automatic mode button label*/
+"NodeSelector.automaticButton" = "التبديل إلى الوضع التلقائي";
+
+/*Node is connected label*/
+"NodeSelector.connected" = "متصل ";
+
+/*Enter node ip address view body*/
+"NodeSelector.enterBody" = "قم بإدخال بروتوكول شبكة العقدة والمنفذ (اختياري)";
+
+/*Enter Node ip address view title*/
+"NodeSelector.enterTitle" = "أدخل العقدة";
+
+/*Switch to manual mode button label*/
+"NodeSelector.manualButton" = "التبديل إلى الوضع اليدوي";
+
+/*Node address label*/
+"NodeSelector.nodeLabel" = "العقدة الأساسية الحالية ";
+
+/*Node is not connected label*/
+"NodeSelector.notConnected" = "غير متصل ";
+
+/*Node status label*/
+"NodeSelector.statusLabel" = "حالة إتصال العقدة";
+
+/*Node Selector view title*/
+"NodeSelector.title" = "عقد الديجيبايت";
+
+/*Bad Payment request alert title*/
+"PaymentProtocol.Errors.badPaymentRequest" = "عملية طلب الدفع سيئة ";
+
+/*Error opening payment protocol file message*/
+"PaymentProtocol.Errors.corruptedDocument" = "مستند غير متوافق أو معطوب";
+
+/*Missing certificate payment protocol error message*/
+"PaymentProtocol.Errors.missingCertificate" = "الشهادة مفقودة";
+
+/*Request expired payment protocol error message*/
+"PaymentProtocol.Errors.requestExpired" = "انتهاء صلاحية الطلب";
+
+/*Payment too small alert title*/
+"PaymentProtocol.Errors.smallOutputError" = "تعذر إجراء الدفع ";
+
+/*Amount too small error message*/
+"PaymentProtocol.Errors.smallPayment" = "مدفوعات الديجيبايت لا يمكن ان تكون اقل من %1$@.";
+
+/*Output too small error message.*/
+"PaymentProtocol.Errors.smallTransaction" = "لا يمكن أن تكون مخرجات معاملات ديجيبايت أقل من $@.";
+
+/*Unsupported signature type payment protocol error message*/
+"PaymentProtocol.Errors.unsupportedSignatureType" = "نوع التوقيع غير معتمد";
+
+/*Untrusted certificate payment protocol error message*/
+"PaymentProtocol.Errors.untrustedCertificate" = "شهادة غير موثوق بها";
+
+/*Enable face ID prompt body*/
+"Prompts.FaceId.body" = "انقر هنا لتفعيل بصمة الوجه";
+
+/*Enable face ID prompt title*/
+"Prompts.FaceId.title" = "تفعيل بصمة الوجه";
+
+/*No passcode set warning body*/
+"Prompts.NoPasscode.body" = "هناك حاجة إلى رمز مرور الجهاز لحماية محفظتك. انتقل إلى الإعدادات لتشغيل رمز المرور.";
+
+/*No Passcode set warning title*/
+"Prompts.NoPasscode.title" = "تشغيل رمز مرور الجهاز";
+
+/*Warning about paper key.*/
+"Prompts.PaperKey.body" = "يجب حفظ مفتاحك الورقي في حالة فقدان هاتفك أو تغييره. اضغط هنا للمتابعة.";
+
+/*An action is required (You must do this action).*/
+"Prompts.PaperKey.title" = "إجراء مطلوب ";
+
+/*Transaction rejected prompt body*/
+"Prompts.RecommendRescan.body" = "قد تكون محفظتك غير متزامنة. يمكن غالباً إصلاح هذا عن طريق إعادة فحص سلسلة الكتلة.";
+
+/*Transaction rejected prompt title*/
+"Prompts.RecommendRescan.title" = "تم رفض المعاملة";
+
+/*Share data prompt body*/
+"Prompts.ShareData.body" = "ساعد في تحسين الدجيولت من خلال تبادل البيانات المجهولة معنا";
+
+/*Share data prompt title*/
+"Prompts.ShareData.title" = "مشاركة بيانات مجهولة";
+
+/*Enable touch ID prompt body*/
+"Prompts.TouchId.body" = "انقرهنا لتمكين معرف البصمة";
+
+/*Enable touch ID prompt title*/
+"Prompts.TouchId.title" = "تفعيل معرف البصمة";
+
+/*Upgrade PIN prompt body.*/
+"Prompts.UpgradePin.body" = "تمت ترقية الديجيولت لاستخدام رقم تعريف شخصي مكون من 6 أرقام. انقر هنا للترقية.";
+
+/*Upgrade PIN prompt title.*/
+"Prompts.UpgradePin.title" = "قم بترقية رقم المعرف الشخصي";
+
+/*Notifications will be added later but users can set their preferences now, which is why we specify "in the future".*/
+"PushNotifications.body" = "تشغيل الإشعارات لتلقي رسائل خاصة من ديجيولت في المستقبل.";
+
+/*Push notifications toggle switch label*/
+"PushNotifications.label" = "دفع \"ضغط\"  الإشعارات ";
+
+/*Push notifications are off label*/
+"PushNotifications.off" = "إيقاف ";
+
+/*Push notifications are on label*/
+"PushNotifications.on" = "تشغيل ";
+
+/*Push notifications settings view title label*/
+"PushNotifications.title" = "الإشعارات ";
+
+/*Address copied message.*/
+"Receive.copied" = "نسخ إلى حافظة النظام.";
+
+/*Share via email button label*/
+"Receive.emailButton" = "البريد الإلكتروني ";
+
+/*Request button label*/
+"Receive.request" = "طلب مبلغ";
+
+/*Share button label*/
+"Receive.share" = "مشاركة ";
+
+/*Share via text message (SMS)*/
+"Receive.textButton" = "رسالة نصية";
+
+/*Receive modal title*/
+"Receive.title" = "استلام";
+
+/*Done button text*/
+"RecoverWallet.done" = "تم";
+
+/*Recover wallet header*/
+"RecoverWallet.header" = "استعادة محفظة";
+
+/*Reset PIN with paper key: header*/
+"RecoverWallet.header_reset_pin" = "إعادة تعيين  رقم المعرف الشخصي";
+
+/*Enter paper key instruction*/
+"RecoverWallet.instruction" = "أدخل مفتاحك الشخصي";
+
+/*Recover wallet intro*/
+"RecoverWallet.intro" = "استرداد الديجيولت الخاصة بك بواسطة مفتاحك الشخصي.";
+
+/*Invalid paper key message*/
+"RecoverWallet.invalid" = " المفتاح الشخصي الذي أدخلته غير صالح. يرجى التحقق مرة أخرى من كل كلمة وإعادة المحاولة.";
+
+/*Previous button accessibility label*/
+"RecoverWallet.leftArrow" = "سهم لليسار. ";
+
+/*Next button label*/
+"RecoverWallet.next" = "التالي ";
+
+/*Reset PIN with paper key: more information button.*/
+"RecoverWallet.reset_pin_more_info" = "قم بالضغط هنا لمزيد من المعلومات. ";
+
+/*Next button accessibility label*/
+"RecoverWallet.rightArrow" = "سهم لليمين";
+
+/*Recover wallet sub-header*/
+"RecoverWallet.subheader" = "قم بإدخال مفتاحك الشخصي الخاص بالمحفظة المراد استردادها.";
+
+/*Reset PIN with paper key: sub-header*/
+"RecoverWallet.subheader_reset_pin" = "لإعادة تعيين رقم المعرف الشخصي الخاص بك ، أدخل الكلمات من مفتاحك الورقي في المربعات أدناه.";
+
+/*No amount entered error message.*/
+"RequestAnAmount.noAmount" = "المرجو إدخال مبلغ اولا. ";
+
+/*Request a specific amount of bitcoin*/
+"RequestAnAmount.title" = "طلب مبلغ. ";
+
+/*Alert action button label*/
+"ReScan.alertAction" = "المزامنة ";
+
+/*Alert message body*/
+"ReScan.alertMessage" = "لن تتمكن من إرسال الديجيبايت أثناء المزامنة.";
+
+/*Alert message title*/
+"ReScan.alertTitle" = "المزامنة مع سلسلة الكتلة؟";
+
+/*extimated time*/
+"ReScan.body1" = "20-45 دقيقة";
+
+/*Syncing explanation*/
+"ReScan.body2" = "إذا ظهرت معاملة ما على أنها اكتملت على شبكة ديجيبايت لكن ليس على ديجيولت الخاصة بك.";
+
+/*Syncing explanation*/
+"ReScan.body3" = "يظهر لك خطأ متكرر على ان المعاملة الخاصة بك ثم رفضها. ";
+
+/*Start Sync button label*/
+"ReScan.buttonTitle" = "بدء المزامنة ";
+
+/*Sync blockchain view footer*/
+"ReScan.footer" = "لن تتمكن من إرسال ديجيبايت أثناء المزامنة مع سلسلة الكتل.";
+
+/*Sync Blockchain view header*/
+"ReScan.header" = "مزامنة  سلسلة الكتلة";
+
+/*Subheader label*/
+"ReScan.subheader1" = "الوقت المقدر";
+
+/*Subheader label*/
+"ReScan.subheader2" = "متى المزامنة ؟";
+
+/*Scan bitcoin address camera flash toggle*/
+"Scanner.flashButtonLabel" = "فلاش الكاميرا ";
+
+/*Complete filter label*/
+"Search.complete" = "تم";
+
+/*Pending filter label*/
+"Search.pending" = "قيد الإنتظار ";
+
+/*Received filter label*/
+"Search.received" = "مستلمة";
+
+/*Sent filter label*/
+"Search.sent" = "مرسلة ";
+
+/*Face ID button title*/
+"SecurityCenter.faceIdTitle" = "بصمة الوجه";
+
+/*Security Center Info*/
+"SecurityCenter.info" = "تفعيل جميع مميزات الأمان للحصول على أقصى قدر من الحماية.";
+
+/*Paper Key button description*/
+"SecurityCenter.paperKeyDescription" = "الطريقة الوحيدة للوصول إلى الديجيبايت الخاص بك في حالة فقدان أو ترقية هاتفك.";
+
+/*Paper Key button title*/
+"SecurityCenter.paperKeyTitle" = "المفتاح الشخصي";
+
+/*PIN button description*/
+"SecurityCenter.pinDescription" = "احمي ديجيولت الخاصة بك من المستخدمين غير المصرح لهم.";
+
+/*PIN button title*/
+"SecurityCenter.pinTitle" = "رقم تعريف شخصي من 6 أرقام";
+
+/*Security Center Title*/
+"SecurityCenter.title" = "مركز الأمن";
+
+/*Touch ID button description*/
+"SecurityCenter.touchIdDescription" = "سهولة فتح ديجيولت الخاصة بك وإرسال الديجيبايت إلى الحد الذي حددته.";
+
+/*Touch ID button title*/
+"SecurityCenter.touchIdTitle" = "معرف البصمة";
+
+/*Send money amount label*/
+"Send.amountLabel" = "الكمية ";
+
+/*Balance: $4.00*/
+"Send.balance" = "الرصيد: %1$@";
+
+/*Camera not allowed message*/
+"Send.cameraunavailableMessage" = "انتقل إلى الإعدادات للسماح بالدخول إلى الكاميرا.";
+
+/*Camera not allowed alert title*/
+"Send.cameraUnavailableTitle" = "ليس مسموح للديجيولت للوصول إلى الكاميرا";
+
+/*Warning when sending to self.*/
+"Send.containsAddress" = "الوجهة هي عنوانك الخاص. لا يمكن الارسال إلى نفسك.";
+
+/*Could not create transaction alert title*/
+"Send.creatTransactionError" = "لا يمكن إنشاء المعاملة. ";
+
+/*Description for sending money label*/
+"Send.descriptionLabel" = "مذكرة";
+
+/*Emtpy pasteboard error message*/
+"Send.emptyPasteboard" = "لوحه النسخ فارغه ";
+
+/*Network Fee: $0.01*/
+"Send.fee" = "عمولة الشبكة: %1$@";
+
+/*Payee identity not certified alert title.*/
+"Send.identityNotCertified" = "لم يتم اعتماد هوية المستفيد";
+
+/*Invalid address alert message*/
+"Send.invalidAddressMessage" = "عنوان الوجهة ليس بعنوان ديجيبايت صحيح.";
+
+/*Invalid address on pasteboard message*/
+"Send.invalidAddressOnPasteboard" = "لا تحتوي حافظة النصوص على عنوان ديجيبايت صحيح.";
+
+/*Invalid address alert title*/
+"Send.invalidAddressTitle" = "عنوان غير صحيح ";
+
+/*Is rescanning error message*/
+"Send.isRescanning" = " الإرسال غير متاح أثناء إعادة المسح الكامل.";
+
+/*Loading request activity view message*/
+"Send.loadingRequest" = "تحميل الطلب ";
+
+/*Empty address alert message*/
+"Send.noAddress" = "المرجو إدخال عنوان المستلم. ";
+
+/*Emtpy amount alert message*/
+"Send.noAmount" = "المرجو إدخال الكمية المراد ارسالها. ";
+
+/*Paste button label*/
+"Send.pasteLabel" = "لصق";
+
+/*Could not publish transaction alert title*/
+"Send.publishTransactionError" = "تعذر نشر المعاملة.";
+
+/*Could not load remote request error message*/
+"Send.remoteRequestError" = "تعذر تحميل طلب الدفع";
+
+/*Scan button label*/
+"Send.scanLabel" = "مسح  ";
+
+/*Send button label (the action, "press here to send")*/
+"Send.sendLabel" = "إرسال ";
+
+/*Send screen title (as in "this is the screen for sending money")*/
+"Send.title" = "إرسال ";
+
+/*Send money to label*/
+"Send.toLabel" = "إلى ";
+
+/*Adress already used alert message - first part*/
+"Send.UsedAddress.firstLine" = "عناوين الديجيبايت معدة للاستخدام مرة واحدة فقط.";
+
+/*Adress already used alert message - second part*/
+"Send.UsedAddress.secondLIne" = "إعادة الاستخدام يقلل الخصوصية لكما الاثنين انت والمستلم ويمكن أن يؤدي إلى خسارة إذا كان المستلم  لا يستطيع السيطرة  بشكل مباشر على العنوان. ";
+
+/*Adress already used alert title*/
+"Send.UsedAddress.title" = "العنوان مستخدم من قبل";
+
+/*About label*/
+"Settings.about" = "عن";
+
+/*Advanced Settings title*/
+"Settings.advancedTitle" = "إعدادات متقدمة ";
+
+/*i.e. the currency which will be displayed*/
+"Settings.currency" = "عرض العملة";
+
+/*Join Early access label*/
+"Settings.earlyAccess" = "الانضمام إلى مجموعه الوصول المبكر للخدمه";
+
+/*Are you enjoying bread alert message body*/
+"Settings.enjoying" = "هل انت راض بتطبيق الديجيولت؟";
+
+/*Face ID spending limit label*/
+"Settings.faceIdLimit" = "حد انفاق بصمة الوجه";
+
+/*Import wallet label*/
+"Settings.importTitle" = "استيراد محفظة";
+
+/*Manage settings section header*/
+"Settings.manage" = "تدبير";
+
+/*Notifications label*/
+"Settings.notifications" = "اشعارات";
+
+/*Leave review button label*/
+"Settings.review" = "اترك لنا تقييمك";
+
+/*Share anonymous data label*/
+"Settings.shareData" = "مشاركة البيانات المجهولة ";
+
+/*Sync blockchain label*/
+"Settings.sync" = "مزامنة  سلسلة الكتلة";
+
+/*Settings title*/
+"Settings.title" = "الإعدادات ";
+
+/*Touch ID spending limit label*/
+"Settings.touchIdLimit" = "حد إنفاق معرف البصمة";
+
+/*Wallet Settings section header*/
+"Settings.wallet" = "محفظة ";
+
+/*Start or recover another wallet menu label.*/
+"Settings.wipe" = "بدء / استرداد محفظة أخرى";
+
+/*Share data view body*/
+"ShareData.body" = "ساعد في تحسين الديجيولت من خلال تبادل البيانات المجهولة معنا. هذا لا يتضمن أي معلومات مالية. نحن نحترم خصوصيتك المالية.";
+
+/*Share data header*/
+"ShareData.header" = "مشاركة البيانات؟ ";
+
+/*Share data switch label.*/
+"ShareData.toggleLabel" = "مشاركة البيانات المجهولة؟ ";
+
+/*button label*/
+"StartPaperPhrase.againButtonTitle" = "اكتب المفتاح الورقي مرة أخرى";
+
+/*Paper key explanation text.*/
+"StartPaperPhrase.body" = "مفتاحك الشخصي هو الطريقة الوحيدة لاستعادة ديجيولت الخاص بك في حالة تم فقد هاتفك أو سرقته أو كسره أو ترقيته.\n\nسوف نعرض لك قائمة من الكلمات لتدوينها على ورقة والحفاظ عليها بأمان.";
+
+/*button label*/
+"StartPaperPhrase.buttonTitle" = "اكتب المفتاح الشخصي";
+
+/*Argument is date*/
+"StartPaperPhrase.date" = "آخر مرة كتبت مفتاحك الورقي في %1$@";
+
+/*Start view message*/
+"StartViewController.message" = "الطريقة الأكثر حماية وامان باستخدام الديجيبايت. ";
+
+/*Syncing view connectiong state header text*/
+"SyncingView.connecting" = "إتصال ";
+
+/*Syncing view header text*/
+"SyncingView.header" = "المزامنة ";
+
+/*Retry button label*/
+"SyncingView.retry" = "إعادة المحاولة";
+
+/*Syncing view syncing state header text*/
+"SyncingView.syncing" = "المزامنة ";
+
+/*6 d (6 days)*/
+"TimeSince.days" = "%1$@ ي";
+
+/*6 h (6 hours)*/
+"TimeSince.hours" = "%1$@ س";
+
+/*6 m (6 minutes)*/
+"TimeSince.minutes" = "%1$@ د";
+
+/*6 s (6 seconds)*/
+"TimeSince.seconds" = "%1$@ ث";
+
+/*You can customize your Touch ID Spending Limit from the [TouchIdSettings.linkText gets added here as a button]*/
+"TouchIdSettings.customizeText" = "يمكنك تخصيص معرف بصمتك بحد إنفاق من ال %1$@.";
+
+/*Touch Id screen label*/
+"TouchIdSettings.label" = "استخدم بصمات اصابعك لفتح ديجيولت الخاص بك وإرسال الأموال إلى حد محدد.";
+
+/*Link Text (see TouchIdSettings.customizeText)*/
+"TouchIdSettings.linkText" = "شاشة حد الإنفاق بمعرف البصمة";
+
+/*Spending Limit: b100,000 ($100)*/
+"TouchIdSettings.spendingLimit" = "حد الإنفاق: %1$@ (%2$@) ";
+
+/*Touch id switch label.*/
+"TouchIdSettings.switchLabel" = "تمكين معرف البصمة  للديجيولت";
+
+/*Touch ID settings view title*/
+"TouchIdSettings.title" = "معرف البصمة";
+
+/*Touch ID unavailable alert message*/
+"TouchIdSettings.unavailableAlertMessage" = "لم يتم تعيين معرف البصمة على هذا الجهاز. انتقل إلى الإعدادات->معرف البصمة ورمز المرور لتعيينها الآن.";
+
+/*Touch ID unavailable alert title*/
+"TouchIdSettings.unavailableAlertTitle" = "لم يتم تعيين معرف البصمة";
+
+/*Always require passcode option*/
+"TouchIdSpendingLimit" = "دائما اطلب رمز المرور";
+
+/*Touch ID spending limit screen body*/
+"TouchIdSpendingLimit.body" = "سيُطلب منك إدخال رقم التعريف الشخصي المكون من 6 أرقام لإرسال أي معاملة عبر حد الإنفاق الخاص بك ، وكل 48 ساعة منذ آخر مرة قمت فيها بإدخال رقم التعريف الشخصي المكون من 6 أرقام.";
+
+/*Touch Id spending limit screen title*/
+"TouchIdSpendingLimit.title" = "حد إنفاق معرف البصمة";
+
+/*Availability status text*/
+"Transaction.available" = "متاح للإنفاق ";
+
+/*Transaction complete label*/
+"Transaction.complete" = "اكتمل ";
+
+/*eg. Ending balance: $50.00*/
+"Transaction.ending" = "الرصيد النهائي: %1$@";
+
+/*Exchange rate on date header*/
+"Transaction.exchangeOnDayReceived" = "سعر الصرف عند الاستلام:";
+
+/*Exchange rate on date header*/
+"Transaction.exchangeOnDaySent" = "سعر الصرف عند الإرسال: ";
+
+/*(b600 fee)*/
+"Transaction.fee" = "(رسوم %1$@)";
+
+/*Invalid transaction*/
+"Transaction.invalid" = "غير صالحة";
+
+/*Timestamp label for event that just happened*/
+"Transaction.justNow" = "حاليا ";
+
+/*Receive status text: 'In progress: 20%'*/
+"Transaction.receivedStatus" = "جاري: %1$@";
+
+/*Send status text: 'In progress: 20%'*/
+"Transaction.sendingStatus" = "جاري: %1$@";
+
+/*eg. Starting balance: $50.00*/
+"Transaction.starting" = "أدخل الرصيد الابتدائي: %1$@";
+
+/*Waiting to be confirmed string*/
+"Transaction.waiting" = "في انتظار التأكيد. يحتاج بعض التجار إلى تأكيد العملية لإتمام الصفقة. الوقت المقدر: 1-2 دقائق.";
+
+/*e.g. I received money from an account.*/
+"TransactionDetails.account" = "الحساب ";
+
+/*Amount section header*/
+"TransactionDetails.amountHeader" = "المبلغ ";
+
+/*Block height label*/
+"TransactionDetails.blockHeightLabel" = "مؤكدة في بلوك \"Block\" ";
+
+/*Memo section header*/
+"TransactionDetails.commentsHeader" = " مذكرة ";
+
+/*Empty transaction list message.*/
+"TransactionDetails.emptyMessage" = "ستظهر معاملاتك هنا.";
+
+/*"Received [$5] at [which of my addresses]" => This is the "at [which of my addresses]" part.*/
+"TransactionDetails.from" = "عند %1$@";
+
+/*More button title*/
+"TransactionDetails.more" = "المزيد.. ";
+
+/*Moved $5.00 (as in "I moved $5 to another location")*/
+"TransactionDetails.moved" = "تم نقل %1$@";
+
+/*Moved $5.00*/
+"TransactionDetails.movedAmountDescription" = "تم نقل <b>  %1@ </ b>";
+
+/*eg. Confirmed in Block: Not Confirmed*/
+"TransactionDetails.notConfirmedBlockHeightLabel" = "ليست مفعلة";
+
+/*"Received [$5] at [which of my addresses]" => This is the "Received [$5]" part.*/
+"TransactionDetails.received" = "تم استلام %1$@";
+
+/*Received $5.00*/
+"TransactionDetails.receivedAmountDescription" = "تم استلام <b> %1@ </ b>";
+
+/*"Sent [$5] to [address]" => This is the "Sent [$5]" part.*/
+"TransactionDetails.sent" = "تم ارسال %1$@";
+
+/*Sent $5.00*/
+"TransactionDetails.sentAmountDescription" = "تم إرسال <b> %1@ </ b>";
+
+/*Status section header*/
+"TransactionDetails.statusHeader" = "الحالة ";
+
+/*Transaction Details Title*/
+"TransactionDetails.title" = "تفاصيل المعاملة ";
+
+/*"Sent [$5] to [address]" => This is the "to [address]" part.*/
+"TransactionDetails.to" = "إلى %1$@";
+
+/*Transaction ID header*/
+"TransactionDetails.txHashHeader" = "سجل معاملة الديجيبايت ";
+
+/*(this transaction was) Received at this address:*/
+"TransactionDirection.address" = "تم استلامها في هذا العنوان";
+
+/*(this transaction was) Sent to this address:*/
+"TransactionDirection.to" = "تم إرسالها إلى هذا العنوان ";
+
+/*Disabled until date*/
+"UnlockScreen.disabled" = "غير متاح حتى: %1$@";
+
+/*My Address button title*/
+"UnlockScreen.myAddress" = "عنواني ";
+
+/*Reset PIN with Paper Key button label.*/
+"UnlockScreen.resetPin" = "إعادة تعيين رقم المعرف الشخصي";
+
+/*Scan button title*/
+"UnlockScreen.scan" = "فحص scan ";
+
+/*Unlock Screen sub-header*/
+"UnlockScreen.subheader" = "قم بإدخال رقم المعرّف الشخصي";
+
+/*TouchID prompt text*/
+"UnlockScreen.touchIdPrompt" = "فتح ديجيولت الخاصة بك. ";
+
+/*Unlock with TouchID accessibility label*/
+"UnlockScreen.touchIdText" = "فتح باستخدام خاصية معرف البصمة";
+
+/*Wallet unlocked message*/
+"UnlockScreen.unlocked" = "تم فتح المحفظه";
+
+/*Update PIN caption text*/
+"UpdatePin.caption" = "تذكر رقم التعريف الشخصي هذا. إذا نسيت ذلك ، فلن تتمكن من الوصول إلى الديجيبايت الخاص بك.";
+
+/*PIN creation info.*/
+"UpdatePin.createInstruction" = "سيتم استخدام رقم التعريف الشخصي الخاص بك لفتح الديجيولت الخاص بك وإرسال ديجيبايت.";
+
+/*Update PIN title*/
+"UpdatePin.createTitle" = "تعيين رقم التعريف الشخصي";
+
+/*Update PIN title*/
+"UpdatePin.createTitleConfirm" = "اعد إدخال رقم التعريف الشخصي";
+
+/*Enter current PIN instruction*/
+"UpdatePin.enterCurrent" = "قم بإدخال رقم التعريف الشخصي الحالي. ";
+
+/*Enter new PIN instruction*/
+"UpdatePin.enterNew" = "أدخل رقم التعريف الشخصي الجديد.";
+
+/*Re-Enter new PIN instruction*/
+"UpdatePin.reEnterNew" = "اعد إدخال رقم معرفك الشخصي الجديد مرة أخرى. ";
+
+/*Update PIN failure error message.*/
+"UpdatePin.setPinError" = "عذرا، تعذر تحديث رقم التعريف الشخصي.";
+
+/*Update PIN failure alert view title*/
+"UpdatePin.setPinErrorTitle" = "خطأ في تحديث رقم التعريف الشخصي";
+
+/*Update PIN title*/
+"UpdatePin.updateTitle" = "تحديث رقم التعريف الشخصي";
+
+/*Authorize to copy wallet addresses alert message*/
+"URLHandling.addressaddressListAlertMessage" = "نسخ عناوين المحفظة على حافظة النظام؟";
+
+/*Authorize to copy wallet address PIN view prompt.*/
+"URLHandling.addressList" = "السماح بنسخ عنوان المحفظة على حافظة النظام";
+
+/*Authorize to copy wallet address alert title*/
+"URLHandling.addressListAlertTitle" = "نسخ عناوين المحفظة ";
+
+/*Copy wallet addresses alert button label*/
+"URLHandling.copy" = "نسخ ";
+
+/*Verify PIN for transaction view body*/
+"VerifyPin.authorize" = "يرجى إدخال رقم التعريف الشخصي الخاص بك لتفويض هذه المعاملة.";
+
+/*Verify PIN view body*/
+"VerifyPin.continueBody" = "الرجاء إدخال رقم المعرف الشخصي للمتابعة. ";
+
+/*Verify PIN view title*/
+"VerifyPin.title" = "مطلوب رقم المعرف الشخصي";
+
+/*Authorize transaction with touch id message*/
+"VerifyPin.touchIdMessage" = "السماح بقيام هذه المعاملة ";
+
+/*'No wallet' warning for watch app*/
+"Watch.noWalletWarning" = "افتح تطبيق الدجيولت للايفون من اجل إعداد محفظتك";
+
+/*Dismiss button label*/
+"Webview.dismiss" = "صرف النظر ";
+
+/*Webview loading error message*/
+"Webview.errorMessage" = "حدث خطأ أثناء تحميل المحتوى. حاول مرة اخرى.";
+
+/*Updating webview message*/
+"Webview.updating" = "تحديث ...";
+
+/*Welcome screen text. (?) will be replaced with the help icon users should look for.*/
+"Welcome.body" = "الديجيبايت للالآي أو إس  تم تغيير اسمه إلى ديجيولت، وبشكل جميل جديد وبعض المميزات الجديدة.\n\nإذا كنت بحاجة إلى مساعدة، ابحث عن علامة  (؟) أعلى يسار الشاشة.";
+
+/*Top title of welcome screen*/
+"Welcome.title" = "مرحبا بك على الديجيولت! ";
+
+/*Wipe wallet alert message*/
+"WipeWallet.alertMessage" = "هل انت متأكد انك تريد إزالة هذه المحفظة؟ ";
+
+/*Wipe wallet alert title*/
+"WipeWallet.alertTitle" = "مسح المحفظة؟";
+
+/*Failed wipe wallet alert message*/
+"WipeWallet.failedMessage" = "فشل في محاولة مسح المحفظة. ";
+
+/*Failed wipe wallet alert title*/
+"WipeWallet.failedTitle" = "فشل";
+
+/*Enter phrase to wipe wallet instruction.*/
+"WipeWallet.instruction" = "أدخل عبارة استرداد هذه المحفظة لمسحها و البدء أو استرداد واحدة آخرى. سيظل رصيدك الحالي موصول بهذه العبارة.";
+
+/*Start wipe wallet view message*/
+"WipeWallet.startMessage" = "بدء أو استرداد محفظة أخرى يسمح لك بالوصول وإدارة ديجيولت مختلفة على هذا الجهاز.";
+
+/*Start wipe wallet view warning*/
+"WipeWallet.startWarning" = "لن تكون قادرا على الوصول إلى الديجيولت الخاصة بك من هذا الجهاز. وسيظل الرصيد على مفتاح الاسترداد الشخصي.";
+
+/*Wipe wallet navigation item title.*/
+"WipeWallet.title" = "بدء أو استرداد محفظة أخرى";
+
+/*Wipe wallet button title*/
+"WipeWallet.wipe" = "مسح";
+
+/*Wiping activity message*/
+"WipeWallet.wiping" = "جار القيام بعملية المسح.. ";
+
+/*Paper key instructions.*/
+"WritePaperPhrase.instruction" = "قم بكتابة كل كلمة و تاكد انها مرتبة وقم بتخزينها في مكان آمن. ";
+
+/*button label*/
+"WritePaperPhrase.next" = "التالي ";
+
+/*button label*/
+"WritePaperPhrase.previous" = "السابق ";
+
+/*1 of 3*/
+"WritePaperPhrase.step" = "%1$d of %2$d";
+
+/*header of PinView*/
+"Prompts.SecurityCheck.header" = "الأمان\nكونترول";
+
+/*header of balance*/
+"Balance.header" = "مجموع\nتوازن";
+
+/*labels of syncView*/
+"SynchingView.blockHeightLabel" = "بلوك الطول";
+"SynchingView.progressLabel" = "تقدم";
+
+/*filter buttons for transactionView*/
+"TransactionView.all" = "الكل";
+
+/*TransactionFilter sent*/
+"TransactionView.sent" = "أرسلت";
+
+/*TransactionFilter received*/
+"TransactionView.received" = "تسلم";
+
+/*DATE: date*/
+"TransactionDetailView.date" = "التاريخ";
+
+/*PROCESSED: time*/
+"TransactionDetailView.processed" = "تم المعالجة";
+
+/*STATUS: complete*/
+"TransactionDetailView.status" = "الحالة";
+
+/*CONFIRMATIONS: number*/
+"TransactionDetailView.confirmations" = "التأكيدات";
+
+/*missing time translation*/
+"FeeSelector.regularTime" = "30-15 ثانية";
+
+/*Text that is shown when asset was not resolved yet*/
+"Assets.unresolved" = " أصول لم يتم حلها";
+
+/*Text to show if no metadata is available for the asset*/
+"Assets.noMetadata" = "DigiAsset";
+
+/*Showing when multiple assets were received*/
+"Assets.multipleAssets" = "أصول متعددة";
+
+/*Title of confirm view*/
+"Assets.receivedAssetsTitle" = "استلام DigiAssets";
+
+/*Message will be displayed if assets were received*/
+"Assets.receivedAssetsMessage" = "لقد تلقيت DigiAssets واحدة أو أكثر. لعرض أصولك ، يحتاج هذا التطبيق إلى التواصل مع خادم بيانات التعريف. سيؤدي هذا إلى الكشف عن بعض البيانات العامة لمحفظتك ، مثل العناوين أو الهاش الخاص بالمعاملات.";
+
+/*Title of confirm view if opening single*/
+"Assets.openAssetTitle" = "عرض DigiAsset";
+
+/*Message will be displayed if asset shall be opened*/
+"Assets.openAssetMessage" = "لعرض هذا الأصل ، يحتاج هذا التطبيق إلى التواصل مع الخادم. سيؤدي هذا إلى الكشف عن أحد عناوين محفظتك العامة.";
+
+/*Title to show when assets are being fetched*/
+"Assets.fetchingAssetsTitle" = "جلب الأصول";
+
+/*View RAW Transaction button title*/
+"Assets.viewRawTransaction" = "عرض المعاملات الأولية";
+
+/*Resolve button caption*/
+"Assets.confirmAssetsResolve" = "حل الأصول";
+
+/*Skip button caption*/
+"Assets.skipAssetsResolve" = "تخطى";
+
+/*Cancel button caption*/
+"Assets.cancelAssetsResolve" = "إلغاء";
+
+/*Skip button caption*/
+"Assets.continueWithoutSync" = "تخطي المزامنة";
+
+/*Total supply of asset*/
+"Assets.totalSupply" = "إجمالي العرض";
+
+/*Number of total holders of an asset*/
+"Assets.numberOfHolders" = "عدد المالكين";
+
+/*lock status of an asset*/
+"Assets.lockStatus" = "حالة الاغلاق";
+
+/*Issuer key*/
+"Assets.issuer" = "جهة الإصدار";
+
+/*AssetID key*/
+"Assets.assetID" = "معرف الأصول";
+
+/*Address key*/
+"Assets.address" = "العنوان";
+
+/*Possible value of Lock Status*/
+"Assets.locked" = "مقفل";
+
+/*Possible value of Lock Status*/
+"Assets.unlocked" = "فتح القفل";
+
+/*Shown if a value is unknown (N/A)*/
+"Assets.unknown" = "غير معروف";
+
+/*Total Balance: <BALANCE>*/
+"Assets.totalBalance" = "إجمالي الرصيد";
+
+/*Tap to show button*/
+"Assets.tapToShow" = "انقر للعرض";
+
+/*Tap to hide button*/
+"Assets.tapToHide" = "انقر للاخفاء";
+
+/*Asset ID: XXXXXX*/
+"Assets.assetIdKey" = "معرف الأصول(Asset ID)";
+
+/*Total Balance: 1000*/
+"Assets.balanceKey" = "إجمالي الرصيد";
+
+/*Issuer: CreateDigiAssets.com*/
+"Assets.issuerKey" = "جهة الإصدار";
+
+/*Asset Info: YYYY*/
+"Assets.assetInfoKey" = "معلومات الأصول (Asset Info )";
+
+/*Description: ZZZZ*/
+"Assets.descriptionKey" = "الوصف";
+
+/*Button title for GET STARTED*/
+"Assets.getStarted" = "ابدأ";
+
+/*Button title for create new asset*/
+"Assets.createNewAsset" = "إنشاء أصل جديد";
+
+/*Heading for Receive assets*/
+"Assets.receiveAssets" = "استلام الأصول (Receive Assets)";
+
+/*Heading for create new assets*/
+"Assets.createAssets" = "إنشاء الأصول (Create Assets)";
+
+/*Heading for burn assets*/
+"Assets.burnAssets" = "حرق الأصول (Burn Assets)";
+
+/*Button title for send assets*/
+"Assets.sendAssets" = "إرسال الأصول (Send Assets)";
+
+/*Tab title*/
+"Assets.tabOverview" = "الأصول (Assets)";
+
+/*Tab title*/
+"Assets.tabCreate" = "انشاء (Create)";
+
+/*Tab title*/
+"Assets.tabSend" = "ارسال (Send)";
+
+/*Tab title*/
+"Assets.tabReceive" = "استلام (Receive)";
+
+/*Tab title*/
+"Assets.tabBurn" = "حرق (Burn)";
+
+/*Shown, when no assets are available*/
+"Assets.nothingFoundHere" = "لا يوجد شيء هنا";
+
+/*Asset selector placeholder text*/
+"Assets.selectAnAsset" = "قم باختيار الأصول";
+
+/*Danger Title*/
+"Assets.dangerTitle" = "منطقة الخطر";
+
+/*Danger description*/
+"Assets.dangerText" = "حرق الأصول يدمرها بشكل لا رجعة فيه. لا يمكنك أبدًا استعادتهم.";
+
+/*Asset not available*/
+"Assets.AssetNotAvailable" = "الأصول غير متاحه";
+
+/*Displayed as a message when not enough assets are available*/
+"Assets.NotEnoughAssets" = "عدد الأصول غير كافي";
+
+/*No asset data error message*/
+"Assets.NoAssetData" = " بيانات الأصول غير متاحة";
+
+/*Displayed as a message when assets were burned*/
+"Assets.AssetsBurned" = "تم حرق الأصول!";
+
+/*Displayed as a message when assets were sent*/
+"Assets.AssetsSent" = "تم إرسال الأصول!";
+
+/*Transaction could not be broadcasted: <MESSAGE>*/
+"Assets.couldNotBeBroadcasted" = "تعذر ارسال المعاملة : %";
+
+/*Transaction could not be created: <MESSAGE> (code: 123)*/
+"Assets.couldNotBeCreated" = "تعذر إنشاء المعاملة: 1 $ % @ (الرمز: 2% $ @)";
+
+/*Total unique: 1234*/
+"Assets.totalUnique" = "إجمالي عدد الأصول الفريدة: 1% $ @";
+
+/*Context menu button caption*/
+"Assets.Context.info" = "المعلومات";
+
+/*Context menu button caption*/
+"Assets.Context.send" = "ارسال (Send) \n";
+
+/*Context menu button caption*/
+"Assets.Context.receive" = "استلام (Receive)";
+
+/*Context menu button caption*/
+"Assets.Context.burn" = "حرق (Burn)";
+
+/*Assets you own (heading)*/
+"Assets.yourAssets" = "الأصول التي تمتلكها";
+
+/*Message heading*/
+"Assets.protocolDisabled" = "بروتوكول DigiAssets معطل ";
+
+/*Message heading*/
+"Assets.protocolDisabledDescription" = "بروتوكول DigiAssets معطل ";
+
+/*Select an asset (default dropdown)*/
+"Assets.select" = "قم باختيار الأصول";
+
+/*(Underlying) Asset Transaction*/
+"Assets.tx" = "معاملة الأصول (Select asset)";
+
+/*View RAW Asset Transaction*/
+"Assets.rawTx" = "عرض المعاملات الأولية";
+
+/*ImageReader Title*/
+"QRImageReader.title" = "قارئ QR";
+
+/*Image button label*/
+"QRImageReader.readQRButtonLabel" = "صوره";
+
+/*no qr code found*/
+"QRImageReader.readQRMessageNotFound" = "لم يتم العثور على رمز QR في الصورة";
+
+/*Found qrcode*/
+"QRImageReader.readQRMessageSuccess" = "موجود";
+
+/*Found multiply qr code im image*/
+"QRImageReader.readQRMessageTooMany" = "مضاعف ال QR موجود";
+
+/*address book modal title*/
+"AddressBook.title" = "دليل العناوين (Address Book)";
+
+/*Name of contact*/
+"AddressBook.name" = "الإ سم";
+
+/*Placeholder for searchbar*/
+"AddressBook.searchPlaceholder" = "البحث في جهات الاتصال";
+
+/*Favorites header title*/
+"AddressBook.favorites" = "المفضلة";
+
+/*Header title in address book*/
+"AddressBook.addContact" = "إضافة جهة اتصال جديدة";
+
+/*button title for add button*/
+"AddressBook.addContactButtonTitle" = "إضافة جهة اتصال";
+
+/*button title for edit button*/
+"AddressBook.editContactButtonTitle" = "تحرير جهة الاتصال";
+
+/*Header title in address book*/
+"AddressBook.editContact" = "تحرير جهة الاتصال";
+
+/*the contact's address (textfield label)*/
+"AddressBook.address" = "العنوان";
+
+/*header in confirm dialog to delete contact*/
+"AddressBook.deleteContactHeader" = "حذف جهة الاتصال";
+
+/*description in confirm dialog to delete contact*/
+"AddressBook.deleteContact" = "هل تريد حقًا حذف جهة الاتصال هذه؟";
+
+/*Title for first welcome screen*/
+"Welcome.page1title" = "مرحبًا بك في محفظة DigiByte.";
+
+/*Title for second welcome screen*/
+"Welcome.page2title" = "إرسال";
+
+/*Title for third welcome screen*/
+"Welcome.page3title" = "استلام";
+
+/*Title for fourth welcome screen*/
+"Welcome.page4title" = "التخزين بأمان";
+
+/*Title for fifth welcome screen*/
+"Welcome.page5title" = "تسجيل الدخول باستخدام معرف Digi";
+
+/*Text for first welcome screen*/
+"Welcome.page1text" = "قم بتخزين  واستخدام عملة DigiByte الخاصة بك بأمان.";
+
+/*Text for second welcome screen*/
+"Welcome.page2text" = "قم بإرسال DigiByte إلى جميع أنحاء العالم دون عناء.";
+
+/*Text for third welcome Text*/
+"Welcome.page3text" = "قم بإنشاء طلبات الدفع وتلقي الأموال على الفور من جميع أنحاء العالم.";
+
+/*Text for fourth welcome screen*/
+"Welcome.page4text" = "قم بحماية DigiByte الخاص بك مع مجموعة من ميزات الأمان المتقدمة.";
+
+/*Text for fifth welcome screen*/
+"Welcome.page5text" = "الاستفادة من قوة أمان البلوكتشين مع معرف Digi ذو المصادقة المفتوحة";
+
+/*Insufficient funds error*/
+"Send.insufficientFunds" = "رصيد غير كاف";
+
+/*maximum amount*/
+"Send.max" = "الحد الاقصى";
+
+/*option to use Dandelion Protocol*/
+"Send.useDandelion" = "استخدم بروتوكول Dandelion لتعزيز الخصوصية";
+
+/*Receive 10 BTC to <Address>*/
+"Receive.receiveAmountTo" = "استلام 1% @ الى 2% @";
+
+/*Receive to <Address>*/
+"Receive.receiveTo" = "استلام  1% @";
+
+/*Clickable button*/
+"Receive.showLegacyAddress" = "إظهار عنوان قديم بدلاً من ذلك";
+
+/*Clickable button*/
+"Receive.showSegwitAddress" = "إظهار عنوان Segwit بدلاً من ذلك";
+
+/*Receive Address Box placeholder*/
+"Receive.receiveAddress" = "استلام العنوان";
+
+/*Wipe wallet button*/
+"JailbreakWarnings.wipe" = "مسح";
+
+/*Wallet locked message*/
+"UnlockScreen.locked" = "المحفظة مغلقة";
+
+/*Unlock with FaceID accessibility label*/
+"UnlockScreen.faceIdPrompt" = "انقر هنا لفتح DigiByte باستخدام معرف الوجه";
+
+/*Message that appears, when the sign timeout was triggered*/
+"Transaction.signTimeout" = "لم توقع المعاملة خلال المهلة";
+
+/*Manage wallet button title*/
+"AccountHeader.manageButtonName" = "ادارة";
+
+/*Equals symbol*/
+"AccountHeader.equals" = "=\n";
+
+/*Switch label for setting*/
+"TouchIdSettings.automaticBiometricsSwitchLabel" = "طلب معرف اللمس تلقائيًا عند بدء التشغيل\n";
+
+/*Switch label for setting*/
+"FaceIDSettings.automaticBiometricsSwitchLabel" = "طلب معرف الوجه تلقائيًا عند بدء التشغيل";
+
+/*Always require passcode option*/
+"TouchIdSpendingLimit.requirePasscode" = "طلب رمز المرور دائمًا";
+
+/*custom amount limit (category)*/
+"TouchIdSpendingLimit.custom" = "مخصص";
+
+/*custom amount limit (title)*/
+"TouchIdSpendingLimit.customAmount" = "مبلغ مخصص";
+
+/*Description for custom amount*/
+"TouchIdSpendingLimit.customAmountDescription" = "أدخل المبلغ المخصص";
+
+/*Port must be greater than 0 and less than 65535*/
+"Settings.invalidPortHeader" = "منفذ غير صالح";
+
+/*send max button visible or not*/
+"Settings.maxSendEnabled" = "أدخل مبلغًا مخصصًا";
+
+/*do not place a digibyte logo into qr codes*/
+"Settings.excludeLogoInQR" = "إخفاء شعار DigiByte في رموز QR";
+
+/*Do not show any DigiAsset Contents*/
+"Settings.showRawTransactions" = "تعطيل DigiAssets";
+
+/*Resolve Assets without a prompt*/
+"Settings.resolveAssetsWithoutPrompt" = "حل الأصول دون موجه";
+
+/*Clear Asset Cache*/
+"Settings.clearAssetCache" = "امسح ذاكرة التخزين المؤقت للأصول";
+
+/*Clear Assets Image cache*/
+"Settings.clearImageCache" = "امسح ذاكرة التخزين المؤقت للصور";
+
+/*Message that appears when a cache was cleared*/
+"Settings.cacheCleared" = "تم محو ذاكرة التخزين المؤقت";
+
+/*DigiByte Nodes (Network term)*/
+"Settings.nodes" = "عقد DigiByte";
+
+/*Settings item*/
+"Settings.useDigiIDLegacy" = "معرف Digi القديم";
+
+/*Message that appears when DigiID Legacy is being opened*/
+"Settings.digiIdLegacyWarning" = "لا يوصى بإضافة استثناءات. ستتم إزالة معرف Digi القديم في الإصدار المستقبلي";
+
+/*DigiID Legacy Preview Text (how many websites were added as an exception)*/
+"Settings.digiIdPreview" = "# 1 % $ @ موقع (مواقع)";
+
+/*DigiID Legacy Title*/
+"Settings.digiIdLegacyTitle" = "معرف Digi القديم";
+
+/*DigiID Legacy Description*/
+"Settings.digiIdLegacyDescription" = "يشير معرف Digi القديم إلى معرف Digi ذو المصادقة المختلفه ، والذي لم يكن متوافقًا مع DigiByte اندرويد. لا يوصى باستخدام معرف Digi القديم لتسجيلات الدخول الجديدة.";
+
+/*DigiID Legacy: Add Exception (button)*/
+"Settings.addException" = "أضف استثناء";
+
+/*Welcome title*/
+"AssetsWelcome.welcomeTitle" = "مرحبًا بك في DigiAssets";
+
+/*Create Heading*/
+"AssetsWelcome.createHeading" = "إنشاء";
+
+/*Send Heading*/
+"AssetsWelcome.sendHeading" = "إرسال";
+
+/*Receive Heading*/
+"AssetsWelcome.receiveHeading" = "استلام";
+
+/*Create Text*/
+"AssetsWelcome.createText" = "يمكنك إنشاء DigiAssets مباشرة من داخل تطبيق الويب DigiAssets. حول الأشياء التي تحبها إلى DigiAssets.";
+
+/*Send Text*/
+"AssetsWelcome.sendText" = "يمكنك إرسال DigiAssets إلى أشخاص آخرين من خلال نقل الملكية مباشرة في تطبيق DigiAssets.";
+
+/*Receive Text*/
+"AssetsWelcome.receiveText" = "يمكنك استلام DigiAssets من أشخاص آخرين من خلال نقل الملكية مباشرة في تطبيق DigiAssets.";
+
+/*Introduction in About Screen*/
+"About.introduction" = "تم بناء هذا التطبيق من قبل عشاق DigiByte & عشاق البلوكتشين وهم متطوعين كرسوا وقتهم ومهاراتهم لمشروع يؤمنون به.";
+
+/*'BLOCK HEIGHT' caption title*/
+"SyncingView.blockHeightLabel" = "ارتفاع الكتلة";
+
+/*'PROGRESS' caption title (PROGRESS: May 18 / June 18)*/
+"SyncingView.progressLabel" = "التقدم\n";
+
+/*Heading of modal alert*/
+"ReScan.fastSync" = "تزامن سريع";
+
+/*Privacy Warning of fast sync*/
+"ReScan.fastSyncDescription" = "من أجل تحسين المزامنة ، يمكن لهذه المحفظة التواصل مع مستكشف الكتلة (blockexplorer). لاحظ أن هذا سيؤدي إلى تسريب بعض عناوين المحفظة العامة من أجل تسريع المزامنة.";
+
+/*Heading of modal alert*/
+"ReScan.fastReSync" = "إعادة المزامنة السريعة";
+
+/*Regular Sync description*/
+"ReScan.regularSync" = "إعادة المزامنة العادية (بشكل بطيئ)";
+
+/*Confirm paper phrase error message*/
+"ConfirmPaperPhrase.error" = "الكلمات المدخلة لا تتطابق مع مفتاحك. حاول مرة اخرى.";
+
+/*Confirm dialog's default confirm action title*/
+"Alerts.confirmOkCaption" = "ok";
+
+/*confirm dialog's default cancel action title*/
+"Alerts.confirmCancelCaption" = "إلغاء";
+
+/*Menu button title for DigiAssets*/
+"MenuButton.digiAssets" = "DigiAssets\n";
+
+/*Fee Selector regular fee description*/
+"FeeSelector.estimatedDeliver" = "تقدير التسليم : 1 % $ @";
+
+/*E.g. [This transaction is predicted to complete in] 1+ minutes*/
+"FeeSelector.economyTime" = "1+ دقيقة";
+
+/*Import Address Heading*/
+"Assets.Send.importAddress" = "استيراد العنوان";
+
+/*Import Address Option: Address Book*/
+"Assets.Send.addressBook" = "دليل العناوين";
+
+/*Import Address Option: Import Address from Clipboard*/
+"Assets.Send.pasteFromClipboard" = "لصق من Clipboard";
+
+/*Import Address Option: Scan QR*/
+"Assets.Send.scanQR" = "مسح رمز ال QR";
+
+/*Import Address Option: Browse Gallery*/
+"Assets.Send.browseGallery" = "تصفح المعرض";
+
+/*Import Address Description: Address Book*/
+"Assets.Send.addressBookDescription" = "استخدم عنوان دفتر العناوين الخاص بك";
+
+/*Import Address Description: QR Scanner*/
+"Assets.Send.scanQRDescription" = "استخدم الكاميرا لمسح رمز ال QR  الذي يحتوي على عنوان";
+
+/*Import Address Heading*/
+"Assets.Send.browseGalleryDescription" = "استيراد صورة من المعرض";
+
+/*Favorite Switch Title (as favorite)-option*/
+"AddressBook.favorite" = "مفضل";
+
+/*Version: 2.0.0*/
+"Abput.version" = "الإصدار: # 1 % $ @";
+
+/*Development Heading in About Section*/
+"Abput.development" = "التطوير";
+
+/*UI Heading in About Section*/
+"About.ui" = "واجهة المستخدم";
+
+/*Special Thanks Heading in About Section*/
+"About.specialThanks" = "شكر خاص";
+
+/*Translations Heading in About Section*/
+"About.translations" = "الترجمات";

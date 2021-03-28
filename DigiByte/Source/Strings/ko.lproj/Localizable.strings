@@ -1,0 +1,1561 @@
+
+/*About screen blog label*/
+"About.blog" = "블로그";
+
+/*About screen footer*/
+"About.footer" = "세계적인 디지월렛팀이 만든 버젼 %1$@";
+
+/*Privay Policy button label*/
+"About.privacy" = "개인정보처리방침";
+
+/*About screen reddit label*/
+"About.reddit" = "레딧";
+
+/*Terms of Use button label*/
+"About.terms" = "이용약관";
+
+/*About screen title*/
+"About.title" = "소개";
+
+/*About screen twitter label*/
+"About.twitter" = "트위터";
+
+/*Close modal button accessibility label*/
+"AccessibilityLabels.close" = "닫기";
+
+/*Support center accessibiliy label*/
+"AccessibilityLabels.faq" = "지원센터";
+
+/*Loading Wallet Message*/
+"Account.loadingMessage" = "전자지갑 로딩중";
+
+/*Default wallet name*/
+"AccountHeader.defaultWalletName" = "내 디지지갑 (DigiWallet)";
+
+/*Error alert title*/
+"Alert.error" = "오류";
+
+/*No internet alert message*/
+"Alert.noInternet" = "인터넷에 연결되지 않았습니다. 연결 상태를 확인한 후 다시 시도 하세요.";
+
+/*Warning alert title*/
+"Alert.warning" = "경고";
+
+/*'the addresses were copied'' Alert title*/
+"Alerts.copiedAddressesHeader" = "주소를 복사했습니다.";
+
+/*Addresses Copied Alert sub header*/
+"Alerts.copiedAddressesSubheader" = "모든 주소를 성공적으로 복사했습니다.";
+
+/*Alert Header Label (the paper key was set)*/
+"Alerts.paperKeySet" = "페이퍼 키 세팅";
+
+/*Alert Subheader label (playfully positive)*/
+"Alerts.paperKeySetSubheader" = "훌륭합니다!";
+
+/*Alert Header label (the PIN was set)*/
+"Alerts.pinSet" = "PIN 설정";
+
+/*Send failure alert header label (the send failed to happen)*/
+"Alerts.sendFailure" = "전송실패";
+
+/*Send success alert header label (confirmation that the send happened)*/
+"Alerts.sendSuccess" = "전송확인";
+
+/*Send success alert subheader label (e.g. the money was sent)*/
+"Alerts.sendSuccessSubheader" = "송금이 처리 되었습니다!";
+
+/*JSON Serialization error message*/
+"ApiClient.jsonError" = "JSON 직렬화 오류";
+
+/*Wallet not ready error message*/
+"ApiClient.notReady" = "전자지갑이 준비되지 않았습니다.";
+
+/*API Token error message*/
+"ApiClient.tokenError" = "API토큰을 불러올 수 없습니다.";
+
+/*Send BCH view body.*/
+"BCH.body" = "DigiByte주소를 알에 입력하세요. 현 포크 (%1$@) 기준으로 전자지갑안의 모든 DigiByte이 송금됩니다.";
+
+/*Confirm sending <$5.00> to <address>?*/
+"BCH.confirmationMessage" = "%1$@에서 %2$@로 보내는것을 확인하세요.";
+
+/*Confirmation alert title*/
+"BCH.confirmationTitle" = "확인";
+
+/*Generic bch erorr message*/
+"BCH.genericError" = "당신의 계좌는 디지바이트를 포함하고 있지 않거나 이번 요청 이후에 디지바이트를 받았습니다.";
+
+/*Transaction ID copied message*/
+"BCH.hashCopiedMessage" = "거래 ID를 복사하였습니다";
+
+/*No address error message*/
+"BCH.noAddressError" = "주소를 입력하세요";
+
+/*Attempted to scan unsupported qr code error message.*/
+"BCH.paymentProtocolError" = "DigiByte 트랜잭션에는 지급 프로토콜 요청이 지원되지 않습니다.";
+
+/*BCH successfully sent alert message*/
+"BCH.successMessage" = "DigiByte이 성공적으로 송금되었습니다.";
+
+/*Widthdraw BCH view title*/
+"BCH.title" = "DigiByte 출금";
+
+/*Tx Hash button header*/
+"BCH.txHashHeader" = "DigiByte 거래 ID";
+
+/*Approve button label*/
+"BitID.approve" = "승인";
+
+/*<sitename> is requesting authentication using your bitcoin wallet*/
+"BitID.authenticationRequest" = "%1$@이(가) 디지바이트 지갑을 사용하여 인증을 요청하고 있습니다.";
+
+/*Deny button label*/
+"BitID.deny" = "거부";
+
+/*BitID error alert title*/
+"BitID.error" = "인증 오류";
+
+/*BitID error alert messaage (The payment service you are trying to use isn't working. Please contact them, as you may need to try again)*/
+"BitID.errorMessage" = "서비스 상태를 확인하시고 다시 시도해주세요.";
+
+/*BitID success alert title*/
+"BitID.success" = "인증 성공";
+
+/*BitID Authentication Request alert view title*/
+"DigiID.title" = "디지바이트ID 인증이 요구됩니다.";
+
+/*Cancel button label*/
+"Button.cancel" = "취소";
+
+/*Ignore button label*/
+"Button.ignore" = "무시";
+
+/*menu button*/
+"Button.menu" = "메뉴";
+
+/*No button*/
+"Button.no" = "아니오";
+
+/*OK button label*/
+"Button.ok" = "OK";
+
+/*receive button*/
+"Button.receive" = "받기";
+
+/*send button*/
+"Button.send" = "보내기";
+
+/*Settings button label*/
+"Button.settings" = "설정";
+
+/*Settings button label*/
+"Button.submit" = "제출하기";
+
+/*Yes button*/
+"Button.yes" = "네";
+
+/*Camera plugin instruction*/
+"CameraPlugin.centerInstruction" = "ID를 카메라 화면 가운데로 표시하십시오.";
+
+/*Amount to Send: ($1.00)*/
+"Confirmation.amountLabel" = "송금액: ";
+
+/*Network Fee: ($1.00)*/
+"Confirmation.feeLabel" = "네트워크 수수료: ";
+
+/*eg. Processing time: This transaction will take 10-30 minutes to process.*/
+"Confirmation.processingTime" = "처리시간: 본 거래는 %1$@ 분이 소요될것으로 예상됩니다.";
+
+/*Label for "send" button on final confirmation screen*/
+"Confirmation.send" = "확인";
+
+/*Confirmation Screen title*/
+"Confirmation.title" = "확인";
+
+/*To: (address)*/
+"Confirmation.to" = "~에게";
+
+/*Total Cost: ($5.00)*/
+"Confirmation.totalLabel" = "총액: ";
+
+/*Confirm paper phrase view label.*/
+"ConfirmPaperPhrase.label" = "입력한 내용들이 정확한지 확인 후 페이퍼키에 있는 단어를 입력해주세요.";
+
+/*Word label eg. Word #1, Word #2*/
+"ConfirmPaperPhrase.word" = "단어 %1$@";
+
+/*Bitcoin denomination picker label*/
+"DefaultCurrency.bitcoinLabel" = "디지바이트 표시 단위";
+
+/*Exchange rate label*/
+"DefaultCurrency.rateLabel" = "환율";
+
+/*Email unavailable alert title*/
+"ErrorMessages.emailUnavailableMessage" = "본 기기는 iOS 메일 어플로 이메일을 보낼수 있도록 설정되어있지 않습니다.";
+
+/*Email unavailable alert title*/
+"ErrorMessages.emailUnavailableTitle" = "사용불가한 이메일입니다.";
+
+/*Messaging unavailable alert title*/
+"ErrorMessages.messagingUnavailableMessage" = "본기기는 메세지를 보낼수 있도록 설정되어있지 않습니다.";
+
+/*Messaging unavailable alert title*/
+"ErrorMessages.messagingUnavailableTitle" = "메시지 전송이 불가능합니다.";
+
+/*You can customize your Face ID Spending Limit from the [FaceIdSettings.linkText gets added here as a button]*/
+"FaceIDSettings.customizeText" = "%1$@에서 얼굴인식ID를 생성하여 지출한도를 정할수 있습니다.";
+
+/*Face Id screen label*/
+"FaceIDSettings.label" = "얼굴인식 기능을 사용하여 당신의 디지월렛을 열고, 지정 한도내에서 송금하세요.";
+
+/*Link Text (see FaceIdSettings.customizeText)*/
+"FaceIDSettings.linkText" = "바로가기 링크 (TouchIdSettings.customizeText))";
+
+/*Face id switch label.*/
+"FaceIDSettings.switchLabel" = "디지월렛을 위한 얼굴인식 ID 활성화하기";
+
+/*Face ID settings view title*/
+"FaceIDSettings.title" = "얼굴인식 ID";
+
+/*Face ID unavailable alert message*/
+"FaceIDSettings.unavailableAlertMessage" = "이 기기에는 얼굴인식 ID가 세팅되어 있지 않습니다. Settings->FaceID&Passcode로 들어가서 ID를 생성하세요.";
+
+/*Face ID unavailable alert title*/
+"FaceIDSettings.unavailableAlertTitle" = "얼굴인식 ID 설정되지 않음.";
+
+/*Face Id spending limit screen title*/
+"FaceIDSpendingLimit.title" = "얼굴인식 ID 횟수 제한";
+
+/*Economy fee*/
+"FeeSelector.economy" = "경제";
+
+/*Fee Selector economly fee description*/
+"FeeSelector.economyLabel" = "예상소요시간: 1분 이상";
+
+/*Warning message for economy fee*/
+"FeeSelector.economyWarning" = "시간에 민감한 전송에는 이 옵션을 사용하지 않는 것이 좋습니다.";
+
+/*Regular fee*/
+"FeeSelector.regular" = "정기적인";
+
+/*Fee Selector regular fee description*/
+"FeeSelector.regularLabel" = "예상 소요시간: 10-30분";
+
+/*Fee Selector title*/
+"FeeSelector.title" = "처리속도";
+
+/*Checking private key balance progress view text*/
+"Import.checking" = "개인 키 잔액을 확인중입니다.";
+
+/*Sweep private key confirmation message*/
+"Import.confirm" = "개인키에서 당신의 지갑으로 %1$@를 보내겠습니까? 디지바이트 네트워크는 %2$@의 수수료를 받을것입니다.";
+
+/*Duplicate key error message*/
+"Import.Error.duplicate" = "해당 개인키는 이미 당신의 지갑에 있습니다.";
+
+/*empty private key error message*/
+"Import.Error.empty" = "개인 키가 비어있습니다.";
+
+/*High fees error message*/
+"Import.Error.highFees" = "거래 수수료는 이 개인 키에서 사용할 수 있는 자금보다 더 많은 비용이 들 것입니다.";
+
+/*Not a valid private key error message*/
+"Import.Error.notValid" = "사용 불가한 개인 키 입니다.";
+
+/*Import signing error message*/
+"Import.Error.signing" = "거래 서명 오류입니다.";
+
+/*Import button label*/
+"Import.importButton" = "불러오기";
+
+/*Importing wallet progress view label*/
+"Import.importing" = "전자지갑 불러오기";
+
+/*Caption for graphics*/
+"Import.leftCaption" = "불러올 전자지갑";
+
+/*Import wallet intro screen message*/
+"Import.message" = "지갑가져오기를 통해 한번의 거래로 당신의 다른 지갑에서 나오는 모든 돈을 디지월렛으로 옮깁니다.";
+
+/*Enter password alert view title*/
+"Import.password" = "이 개인키는 비밀번호로 보호됩니다.";
+
+/*password textfield placeholder*/
+"Import.passwordPlaceholder" = "암호";
+
+/*Caption for graphics*/
+"Import.rightCaption" = "당신의 DigiWallet";
+
+/*Scan Private key button label*/
+"Import.scan" = "개인 키를 스캔하세요.";
+
+/*Import wallet success alert title*/
+"Import.success" = "불러오기 성공";
+
+/*Successfully imported wallet message body*/
+"Import.SuccessBody" = "전자지갑 불러오기가 성공적으로 처리되었습니다.";
+
+/*Import Wallet screen title*/
+"Import.title" = "전자지갑 불러오기";
+
+/*Unlocking Private key activity view message.*/
+"Import.unlockingActivity" = "키를 해제하세요.";
+
+/*Import wallet intro warning message*/
+"Import.warning" = "지갑을 가져오는 것은 거래 내역이나 다른 세부 사항을 포함하지 않습니다.";
+
+/*Wrong password alert message*/
+"Import.wrongPassword" = "암호가 틀렸습니다. 확인후 다시 시도해 주세요.";
+
+/*Close app button*/
+"JailbreakWarnings.close" = "닫기";
+
+/*Ignore jailbreak warning button*/
+"JailbreakWarnings.ignore" = "무시";
+
+/*Jailbreak warning message*/
+"JailbreakWarnings.messageWithBalance" = "장치 보안 완료됨 \n'탈옥'앱은 DigiWallet의 키체인 데이터에 액세스 할 수 있으며 당신의 디지바이트를 훔칩니다! 이 지갑을 즉시 삭제하고 안전한 기기에 복원하세요.";
+
+/*Jailbreak warning message*/
+"JailbreakWarnings.messageWithoutBalance" = "장치 보안 완료됨 \n'탈옥'앱은 DigiWallet의 키체인 데이터에 액세스 할 수 있으며 당신의 디지바이트를 훔칩니다. '탈옥'하지않은 기기에서만 DigiWallet을 사용하십시오.";
+
+/*Jailbreak warning title*/
+"JailbreakWarnings.title" = "경고";
+
+/*Location services disabled error*/
+"LocationPlugin.disabled" = "위치기반 서비스가 비활성화 되었습니다.";
+
+/*No permissions for location services*/
+"LocationPlugin.notAuthorized" = "DigiWallet이 위치기반 서비스에 대한 권한이 없습니다.";
+
+/*Wallet creation date prefix*/
+"ManageWallet.creationDatePrefix" = "귀하의 전자지갑은 %1$@ 에 생성되었습니다";
+
+/*Manage wallet description text*/
+"ManageWallet.description" = "귀하의 전자지갑이름은 귀하의 거래 내역에만 표시되고, 다른 사용자들에겐 보여지지 않습니다.";
+
+/*Change Wallet name textfield label*/
+"ManageWallet.textFeildLabel" = "전자지갑 이름";
+
+/*Manage wallet modal title*/
+"ManageWallet.title" = "전자지갑 관리";
+
+/*Menu button title*/
+"MenuButton.lock" = "전자지갑 잠그기";
+
+/*Menu button title*/
+"MenuButton.security" = "보안센터";
+
+/*Menu button title*/
+"MenuButton.settings" = "설정";
+
+/*Menu button title*/
+"MenuButton.support" = "지원";
+
+/*button label*/
+"MenuViewController.createButton" = "전자지갑 생성";
+
+/*Menu modal title*/
+"MenuViewController.modalTitle" = "메뉴";
+
+/*button label*/
+"MenuViewController.recoverButton" = "전자지갑 복구";
+
+/*Switch to automatic mode button label*/
+"NodeSelector.automaticButton" = "자동모드로 전환";
+
+/*Node is connected label*/
+"NodeSelector.connected" = "연결되었음";
+
+/*Enter node ip address view body*/
+"NodeSelector.enterBody" = "노드 IP주소와 포트(선택 사항)를 입력합니다.";
+
+/*Enter Node ip address view title*/
+"NodeSelector.enterTitle" = "노드를 입력하세요.";
+
+/*Switch to manual mode button label*/
+"NodeSelector.manualButton" = "수동모드로 전환하기";
+
+/*Node address label*/
+"NodeSelector.nodeLabel" = "현재 주요 노드";
+
+/*Node is not connected label*/
+"NodeSelector.notConnected" = "연결되지 않음.";
+
+/*Node status label*/
+"NodeSelector.statusLabel" = "노드 연결 상태";
+
+/*Node Selector view title*/
+"NodeSelector.title" = "디지바이트 노드";
+
+/*Bad Payment request alert title*/
+"PaymentProtocol.Errors.badPaymentRequest" = "적절하지 않은 지출 요청입니다.";
+
+/*Error opening payment protocol file message*/
+"PaymentProtocol.Errors.corruptedDocument" = "지원되지않거나 손상된 파일입니다.";
+
+/*Missing certificate payment protocol error message*/
+"PaymentProtocol.Errors.missingCertificate" = "손상된 증명서입니다.";
+
+/*Request expired payment protocol error message*/
+"PaymentProtocol.Errors.requestExpired" = "요청이 만료되었습니다.";
+
+/*Payment too small alert title*/
+"PaymentProtocol.Errors.smallOutputError" = "결제가 불가합니다.(너무 적은 금액)";
+
+/*Amount too small error message*/
+"PaymentProtocol.Errors.smallPayment" = "디지바이트 지출은 %1$@보다 적을수 없습니다.";
+
+/*Output too small error message.*/
+"PaymentProtocol.Errors.smallTransaction" = "디지바이트 전송은 $@.보다 적을수 없습니다.";
+
+/*Unsupported signature type payment protocol error message*/
+"PaymentProtocol.Errors.unsupportedSignatureType" = "지원되지 않는 서명방식입니다";
+
+/*Untrusted certificate payment protocol error message*/
+"PaymentProtocol.Errors.untrustedCertificate" = "신뢰할 수 없는 인증서입니다.";
+
+/*Enable face ID prompt body*/
+"Prompts.FaceId.body" = "얼굴인식 ID를 사용하려면 이곳을 클릭하세요.";
+
+/*Enable face ID prompt title*/
+"Prompts.FaceId.title" = "얼굴인식 ID 활성화하기";
+
+/*No passcode set warning body*/
+"Prompts.NoPasscode.body" = "지갑을 보호하려면 기기 암호가 필요합니다. 설정으로 이동하고 암호를  설정하세요.";
+
+/*No Passcode set warning title*/
+"Prompts.NoPasscode.title" = "암호 활성화 하기";
+
+/*Warning about paper key.*/
+"Prompts.PaperKey.body" = "전화기를 잃어버리거나 변경할 경우를 대비해서 반드시 용지 키를 저장해야 합니다. 계속하려면 여기를 누르십시오.";
+
+/*An action is required (You must do this action).*/
+"Prompts.PaperKey.title" = "반드시 수행해야 할 일";
+
+/*Transaction rejected prompt body*/
+"Prompts.RecommendRescan.body" = "지갑이 동기화 되지 않았을 수 있습니다. 블록체인 재탐색을 시도해보시면 해결될 수도 있습니다.";
+
+/*Transaction rejected prompt title*/
+"Prompts.RecommendRescan.title" = "거래가 거부되었습니다.";
+
+/*Share data prompt body*/
+"Prompts.ShareData.body" = "우리에게 익명의 제보를 공유해줌으로써 디지월렛의 발전을 도와주세요.";
+
+/*Share data prompt title*/
+"Prompts.ShareData.title" = "익명으로 자료 제출하기.";
+
+/*Enable touch ID prompt body*/
+"Prompts.TouchId.body" = "터치 ID를 활성화하려면 이곳을 클릭하세요.";
+
+/*Enable touch ID prompt title*/
+"Prompts.TouchId.title" = "터치ID 사용가능";
+
+/*Upgrade PIN prompt body.*/
+"Prompts.UpgradePin.body" = "디지월렛은 6-디지 핀으로 업그레이드 되었습니다. 업그레이드 하려면 이곳을 누르세요.";
+
+/*Upgrade PIN prompt title.*/
+"Prompts.UpgradePin.title" = "핀 업그레이드하기";
+
+/*Notifications will be added later but users can set their preferences now, which is why we specify "in the future".*/
+"PushNotifications.body" = "향후 디지월렛으로부터 특별한 메시지를 받으려면 알림기능을 켜주세요.";
+
+/*Push notifications toggle switch label*/
+"PushNotifications.label" = "푸쉬 알림";
+
+/*Push notifications are off label*/
+"PushNotifications.off" = "끄기";
+
+/*Push notifications are on label*/
+"PushNotifications.on" = "켜기";
+
+/*Push notifications settings view title label*/
+"PushNotifications.title" = "알림";
+
+/*Address copied message.*/
+"Receive.copied" = "클립보드에 복사";
+
+/*Share via email button label*/
+"Receive.emailButton" = "이메일";
+
+/*Request button label*/
+"Receive.request" = "금액 요청하기";
+
+/*Share button label*/
+"Receive.share" = "공유";
+
+/*Share via text message (SMS)*/
+"Receive.textButton" = "문자메세지";
+
+/*Receive modal title*/
+"Receive.title" = "받기";
+
+/*Done button text*/
+"RecoverWallet.done" = "마침";
+
+/*Recover wallet header*/
+"RecoverWallet.header" = "전자지갑 복구";
+
+/*Reset PIN with paper key: header*/
+"RecoverWallet.header_reset_pin" = "PIN 재설정";
+
+/*Enter paper key instruction*/
+"RecoverWallet.instruction" = "페이퍼 키를 입력해주세요.";
+
+/*Recover wallet intro*/
+"RecoverWallet.intro" = "페이퍼 키를 통해 디지월렛을 복구하세요.";
+
+/*Invalid paper key message*/
+"RecoverWallet.invalid" = "당신이 입력한 페이퍼 키는 유효하지 않습니다. 한번 더 확인 후 재시도 해주세요.";
+
+/*Previous button accessibility label*/
+"RecoverWallet.leftArrow" = "왼쪽 화살표";
+
+/*Next button label*/
+"RecoverWallet.next" = "다음";
+
+/*Reset PIN with paper key: more information button.*/
+"RecoverWallet.reset_pin_more_info" = "추가정보";
+
+/*Next button accessibility label*/
+"RecoverWallet.rightArrow" = "오른쪽 화살표";
+
+/*Recover wallet sub-header*/
+"RecoverWallet.subheader" = "당신의 지갑을 복구하려면 페이퍼 키를 입력하세요.";
+
+/*Reset PIN with paper key: sub-header*/
+"RecoverWallet.subheader_reset_pin" = "핀을 재설정하려면 아래 박스에 당신의 페이퍼 키에 있는 단어를 입력하세요.";
+
+/*No amount entered error message.*/
+"RequestAnAmount.noAmount" = "금액을 먼저 입력해주세요.";
+
+/*Request a specific amount of bitcoin*/
+"RequestAnAmount.title" = "비트코인의 양을 설정해주세요.";
+
+/*Alert action button label*/
+"ReScan.alertAction" = "동기화";
+
+/*Alert message body*/
+"ReScan.alertMessage" = "동기화중에는 송금을 할 수 없습니다.";
+
+/*Alert message title*/
+"ReScan.alertTitle" = "블록체인을 동기화 하시겠습니까?";
+
+/*extimated time*/
+"ReScan.body1" = "20~45분정도 소요됩니다.";
+
+/*Syncing explanation*/
+"ReScan.body2" = "디지바이트 네트워크에 전송요청이 완료되었다고 나타나지만 디지월렛에는 확인되지 않는다면";
+
+/*Syncing explanation*/
+"ReScan.body3" = "당신의 요청이 거절되었다고 오류창이 반복적으로 나타날것입니다.";
+
+/*Start Sync button label*/
+"ReScan.buttonTitle" = "동기화하기";
+
+/*Sync blockchain view footer*/
+"ReScan.footer" = "블록체인으로 동기화하는 동안에는 송금을 할 수 없습니다.";
+
+/*Sync Blockchain view header*/
+"ReScan.header" = "블록체인 동기화하기";
+
+/*Subheader label*/
+"ReScan.subheader1" = "예상소요시간";
+
+/*Subheader label*/
+"ReScan.subheader2" = "언제 동기화하시겠습니까?";
+
+/*Scan bitcoin address camera flash toggle*/
+"Scanner.flashButtonLabel" = "카메라 플래시";
+
+/*Complete filter label*/
+"Search.complete" = "완료";
+
+/*Pending filter label*/
+"Search.pending" = "미결정";
+
+/*Received filter label*/
+"Search.received" = "받다";
+
+/*Sent filter label*/
+"Search.sent" = "전송";
+
+/*Face ID button title*/
+"SecurityCenter.faceIdTitle" = "얼굴인식 ID";
+
+/*Security Center Info*/
+"SecurityCenter.info" = "보호를 극대화하기 위해 모든 보안 기능을 사용하도록 설정합니다.";
+
+/*Paper Key button description*/
+"SecurityCenter.paperKeyDescription" = "전화기를 잃어버리거나 업그레이드할 때 당신의 디지바이트에 접근할 수 있는 유일한 방법입니다.";
+
+/*Paper Key button title*/
+"SecurityCenter.paperKeyTitle" = "페이퍼 키";
+
+/*PIN button description*/
+"SecurityCenter.pinDescription" = "무단 사용자로부터 당신의 디지월렛을 보호합니다.";
+
+/*PIN button title*/
+"SecurityCenter.pinTitle" = "6자리 디지 핀";
+
+/*Security Center Title*/
+"SecurityCenter.title" = "보안 센터";
+
+/*Touch ID button description*/
+"SecurityCenter.touchIdDescription" = "DigiWallet의 잠금을 편리하게 해제하고 정해진 한도까지 돈을 보냅니다.";
+
+/*Touch ID button title*/
+"SecurityCenter.touchIdTitle" = "터치 ID";
+
+/*Send money amount label*/
+"Send.amountLabel" = "양";
+
+/*Balance: $4.00*/
+"Send.balance" = "잔액:%1$@";
+
+/*Camera not allowed message*/
+"Send.cameraunavailableMessage" = "세팅화면으로 가서 카메라 접근을 허용해주세요.";
+
+/*Camera not allowed alert title*/
+"Send.cameraUnavailableTitle" = "디지월렛의 카메라 접근이 허용되어 있지 않습니다.";
+
+/*Warning when sending to self.*/
+"Send.containsAddress" = "설정된 주소가 본인의 주소입니다. 본인의 주소로는 보낼수 없습니다.";
+
+/*Could not create transaction alert title*/
+"Send.creatTransactionError" = "거래를 생성할수 없습니다.";
+
+/*Description for sending money label*/
+"Send.descriptionLabel" = "메모";
+
+/*Emtpy pasteboard error message*/
+"Send.emptyPasteboard" = "명함이 비어있습니다.";
+
+/*Network Fee: $0.01*/
+"Send.fee" = "네트워크 이용료:%1$@";
+
+/*Payee identity not certified alert title.*/
+"Send.identityNotCertified" = "수취인 신원은 확인되지 않았습니다.";
+
+/*Invalid address alert message*/
+"Send.invalidAddressMessage" = "보내려는 주소가 유효하지 않은 디지바이트 주소입니다.";
+
+/*Invalid address on pasteboard message*/
+"Send.invalidAddressOnPasteboard" = "명함에 있는 디지바이트 주소가 유효하지 않습니다.";
+
+/*Invalid address alert title*/
+"Send.invalidAddressTitle" = "유효하지 않은 주소입니다.";
+
+/*Is rescanning error message*/
+"Send.isRescanning" = "전체 재검색중에는 전송이 불가능합니다.";
+
+/*Loading request activity view message*/
+"Send.loadingRequest" = "로딩 요청중입니다.";
+
+/*Empty address alert message*/
+"Send.noAddress" = "수신인의 주소를 입력하세요.";
+
+/*Emtpy amount alert message*/
+"Send.noAmount" = "보낼 금액을 입력하세요.";
+
+/*Paste button label*/
+"Send.pasteLabel" = "제출";
+
+/*Could not publish transaction alert title*/
+"Send.publishTransactionError" = "트랜잭션을 게시할 수 없습니다.";
+
+/*Could not load remote request error message*/
+"Send.remoteRequestError" = "지급 요청을 로드할 수 없습니다.";
+
+/*Scan button label*/
+"Send.scanLabel" = "스캔";
+
+/*Send button label (the action, "press here to send")*/
+"Send.sendLabel" = "보내기";
+
+/*Send screen title (as in "this is the screen for sending money")*/
+"Send.title" = "보내기";
+
+/*Send money to label*/
+"Send.toLabel" = "에게";
+
+/*Adress already used alert message - first part*/
+"Send.UsedAddress.firstLine" = "디지바이트 주소는 일회용으로만 사용됩니다.";
+
+/*Adress already used alert message - second part*/
+"Send.UsedAddress.secondLIne" = "다시 사용하면 사용자와 수신인 모두의 개인 정보 보호 수준이 낮아지며, 받는 사람이 직접 주소를 제어하지 않는 경우 다시 사용하면 손실될 수 있습니다.";
+
+/*Adress already used alert title*/
+"Send.UsedAddress.title" = "이미 사용된 주소입니다.";
+
+/*About label*/
+"Settings.about" = "대하여";
+
+/*Advanced Settings title*/
+"Settings.advancedTitle" = "고급 설정";
+
+/*i.e. the currency which will be displayed*/
+"Settings.currency" = "통화 표시";
+
+/*Join Early access label*/
+"Settings.earlyAccess" = "초기 액세스 가입";
+
+/*Are you enjoying bread alert message body*/
+"Settings.enjoying" = "DigiWallet에서 즐거운 시간을 보내고 있나요?";
+
+/*Face ID spending limit label*/
+"Settings.faceIdLimit" = "페이스 ID 횟수 제한";
+
+/*Import wallet label*/
+"Settings.importTitle" = "지갑 수입";
+
+/*Manage settings section header*/
+"Settings.manage" = "관리";
+
+/*Notifications label*/
+"Settings.notifications" = "알림";
+
+/*Leave review button label*/
+"Settings.review" = "리뷰를 남겨주세요.";
+
+/*Share anonymous data label*/
+"Settings.shareData" = "익명데이터 공유하기";
+
+/*Sync blockchain label*/
+"Settings.sync" = "블록체인 동기화";
+
+/*Settings title*/
+"Settings.title" = "설정";
+
+/*Touch ID spending limit label*/
+"Settings.touchIdLimit" = "터치 ID 횟수제한";
+
+/*Wallet Settings section header*/
+"Settings.wallet" = "지갑";
+
+/*Start or recover another wallet menu label.*/
+"Settings.wipe" = "다른 지갑 시작/복구하기";
+
+/*Share data view body*/
+"ShareData.body" = "귀하의 익명 데이터를 저희와 공유함으로써 DigiWallet이 향상되도록 도와 주십시오. 이것은 어떠한 재정적인 정보도 포함하고 있지 않습니다. 우리는 당신의 재정적 사생활을 존중합니다.";
+
+/*Share data header*/
+"ShareData.header" = "데이터를 공유하시겠습니까?";
+
+/*Share data switch label.*/
+"ShareData.toggleLabel" = "익명 자료를 공유하시겠습니까?";
+
+/*button label*/
+"StartPaperPhrase.againButtonTitle" = "페이퍼키를 재입력 해주세요.";
+
+/*Paper key explanation text.*/
+"StartPaperPhrase.body" = "페이퍼키는 휴대폰분실,파손,업그레이드시 당신의 기지월렛을 복구할 수 있는 유일한 방법입니다.\n\n종이에 쓰고 안전하게 보관할 수 있는 단어 목록을 보여 드리겠습니다.";
+
+/*button label*/
+"StartPaperPhrase.buttonTitle" = "페이퍼키 입력하기";
+
+/*Argument is date*/
+"StartPaperPhrase.date" = "페이퍼 키를 적은 최근 날짜는 %1$@입니다.";
+
+/*Start view message*/
+"StartViewController.message" = "디지바이트를 사용하는 가장 안전한 방법";
+
+/*Syncing view connectiong state header text*/
+"SyncingView.connecting" = "연결중입니다.";
+
+/*Syncing view header text*/
+"SyncingView.header" = "동기화중";
+
+/*Retry button label*/
+"SyncingView.retry" = "재시도";
+
+/*Syncing view syncing state header text*/
+"SyncingView.syncing" = "동기화중";
+
+/*6 d (6 days)*/
+"TimeSince.days" = "%1$@ 일";
+
+/*6 h (6 hours)*/
+"TimeSince.hours" = "%1$@시간";
+
+/*6 m (6 minutes)*/
+"TimeSince.minutes" = "%1$@분";
+
+/*6 s (6 seconds)*/
+"TimeSince.seconds" = "%1$@ 초";
+
+/*You can customize your Touch ID Spending Limit from the [TouchIdSettings.linkText gets added here as a button]*/
+"TouchIdSettings.customizeText" = "%1$@에서 터치 ID 제한 횟수를사용자 지정할 수 있습니다.";
+
+/*Touch Id screen label*/
+"TouchIdSettings.label" = "지문인식을 통해 디지월렛을 잠금해제하고 원하는 금액을 지정해 송금하세요.";
+
+/*Link Text (see TouchIdSettings.customizeText)*/
+"TouchIdSettings.linkText" = "터치 ID 횟수 제한 초과";
+
+/*Spending Limit: b100,000 ($100)*/
+"TouchIdSettings.spendingLimit" = "제한 금액 :%1$@(%2$@)";
+
+/*Touch id switch label.*/
+"TouchIdSettings.switchLabel" = "디지월렛을 위한 터치 ID 사용 가능이 가능합니다.";
+
+/*Touch ID settings view title*/
+"TouchIdSettings.title" = "터치 ID";
+
+/*Touch ID unavailable alert message*/
+"TouchIdSettings.unavailableAlertMessage" = "이 기기에 터치 ID가 설정되어 있지않습니다. 설정으로가서 터치 ID와 패스코드를 설정하세요.";
+
+/*Touch ID unavailable alert title*/
+"TouchIdSettings.unavailableAlertTitle" = "터치 ID가 설정되지 않았습니다.";
+
+/*Always require passcode option*/
+"TouchIdSpendingLimit" = "항상 암호가 필요합니다.";
+
+/*Touch ID spending limit screen body*/
+"TouchIdSpendingLimit.body" = "지출한도를 초과하는 거래를 하려면 6자리 디지털 핀을 입력해야하고, 마지막으로 6자리 PIN을 입력한 이후로 48시간마다 입력하라는 메시지가 표시됩니다";
+
+/*Touch Id spending limit screen title*/
+"TouchIdSpendingLimit.title" = "터치 ID 사용 제한";
+
+/*Availability status text*/
+"Transaction.available" = "지출 가능";
+
+/*Transaction complete label*/
+"Transaction.complete" = "완료";
+
+/*eg. Ending balance: $50.00*/
+"Transaction.ending" = "완료 금액 : %1$@";
+
+/*Exchange rate on date header*/
+"Transaction.exchangeOnDayReceived" = "수령시 환율:";
+
+/*Exchange rate on date header*/
+"Transaction.exchangeOnDaySent" = "전송 시 환율:";
+
+/*(b600 fee)*/
+"Transaction.fee" = "%1$@ 요금";
+
+/*Invalid transaction*/
+"Transaction.invalid" = "유효하지않습니다.";
+
+/*Timestamp label for event that just happened*/
+"Transaction.justNow" = "지금 바로";
+
+/*Receive status text: 'In progress: 20%'*/
+"Transaction.receivedStatus" = "진행중 %1$@";
+
+/*Send status text: 'In progress: 20%'*/
+"Transaction.sendingStatus" = "진행중 %1$@";
+
+/*eg. Starting balance: $50.00*/
+"Transaction.starting" = "시작 금액 :%1$@";
+
+/*Waiting to be confirmed string*/
+"Transaction.waiting" = "확인 대기 중. 일부 상품들은 거래를 완료하기 위해 확인을 요구됩니다. 예상 시간:1-2분.";
+
+/*e.g. I received money from an account.*/
+"TransactionDetails.account" = "계좌";
+
+/*Amount section header*/
+"TransactionDetails.amountHeader" = "양";
+
+/*Block height label*/
+"TransactionDetails.blockHeightLabel" = "확정 블록";
+
+/*Memo section header*/
+"TransactionDetails.commentsHeader" = "메모";
+
+/*Empty transaction list message.*/
+"TransactionDetails.emptyMessage" = "거래 내역이 여기에 나타납니다.";
+
+/*"Received [$5] at [which of my addresses]" => This is the "at [which of my addresses]" part.*/
+"TransactionDetails.from" = "%1$@에 ";
+
+/*More button title*/
+"TransactionDetails.more" = "더보기";
+
+/*Moved $5.00 (as in "I moved $5 to another location")*/
+"TransactionDetails.moved" = "%1$@ 옮기기";
+
+/*Moved $5.00*/
+"TransactionDetails.movedAmountDescription" = "<b>%1@</b> 가 옮겨졌습니다.";
+
+/*eg. Confirmed in Block: Not Confirmed*/
+"TransactionDetails.notConfirmedBlockHeightLabel" = "확인되지 않았습니다.";
+
+/*"Received [$5] at [which of my addresses]" => This is the "Received [$5]" part.*/
+"TransactionDetails.received" = "%1$@를 받았습니다.";
+
+/*Received $5.00*/
+"TransactionDetails.receivedAmountDescription" = "<b>%1@</b>를 받았습니다.";
+
+/*"Sent [$5] to [address]" => This is the "Sent [$5]" part.*/
+"TransactionDetails.sent" = "%1$@를 보내기";
+
+/*Sent $5.00*/
+"TransactionDetails.sentAmountDescription" = "<b>%1@</b>를 보내기";
+
+/*Status section header*/
+"TransactionDetails.statusHeader" = "상태";
+
+/*Transaction Details Title*/
+"TransactionDetails.title" = "거래 내역";
+
+/*"Sent [$5] to [address]" => This is the "to [address]" part.*/
+"TransactionDetails.to" = "%1$@ 로";
+
+/*Transaction ID header*/
+"TransactionDetails.txHashHeader" = "DigiByte 거래 ID";
+
+/*(this transaction was) Received at this address:*/
+"TransactionDirection.address" = "이 주소로 받았습니다.";
+
+/*(this transaction was) Sent to this address:*/
+"TransactionDirection.to" = "이 주소로 보냈습니다.";
+
+/*Disabled until date*/
+"UnlockScreen.disabled" = "%1$@까지 사용불가합니다.";
+
+/*My Address button title*/
+"UnlockScreen.myAddress" = "내 주소";
+
+/*Reset PIN with Paper Key button label.*/
+"UnlockScreen.resetPin" = "핀 재설정";
+
+/*Scan button title*/
+"UnlockScreen.scan" = "스캔";
+
+/*Unlock Screen sub-header*/
+"UnlockScreen.subheader" = "핀 입력";
+
+/*TouchID prompt text*/
+"UnlockScreen.touchIdPrompt" = "디지월렛을 잠금해제 하세요.";
+
+/*Unlock with TouchID accessibility label*/
+"UnlockScreen.touchIdText" = "터치 ID로 잠금해제";
+
+/*Wallet unlocked message*/
+"UnlockScreen.unlocked" = "지갑 잠금해제 완료";
+
+/*Update PIN caption text*/
+"UpdatePin.caption" = "이 PIN을 기억하세요. 잊어 버리시면, 당신은 당신의 디지바이트에 접속하실 수 없습니다.";
+
+/*PIN creation info.*/
+"UpdatePin.createInstruction" = "비밀 번호는 DigiWallet의 잠금을 해제하고 돈을 보내는 데 사용됩니다.";
+
+/*Update PIN title*/
+"UpdatePin.createTitle" = "핀 설정";
+
+/*Update PIN title*/
+"UpdatePin.createTitleConfirm" = "핀 재입력";
+
+/*Enter current PIN instruction*/
+"UpdatePin.enterCurrent" = "현재 핀을 입력하세요.";
+
+/*Enter new PIN instruction*/
+"UpdatePin.enterNew" = "새로운 핀을 입력하세요.";
+
+/*Re-Enter new PIN instruction*/
+"UpdatePin.reEnterNew" = "새로운 핀을 재입력하세요.";
+
+/*Update PIN failure error message.*/
+"UpdatePin.setPinError" = "죄송합니다만 핀을 업데이트 할 수 없습니다.";
+
+/*Update PIN failure alert view title*/
+"UpdatePin.setPinErrorTitle" = "핀 업데이트 에러";
+
+/*Update PIN title*/
+"UpdatePin.updateTitle" = "핀 업데이트";
+
+/*Authorize to copy wallet addresses alert message*/
+"URLHandling.addressaddressListAlertMessage" = "클립보드에 지갑 주소를 복사할까요?";
+
+/*Authorize to copy wallet address PIN view prompt.*/
+"URLHandling.addressList" = "클립보드에 지갑 주소를 복사하였습니다.";
+
+/*Authorize to copy wallet address alert title*/
+"URLHandling.addressListAlertTitle" = "지갑 주소 복사하기";
+
+/*Copy wallet addresses alert button label*/
+"URLHandling.copy" = "복사";
+
+/*Verify PIN for transaction view body*/
+"VerifyPin.authorize" = "전송을 완료하기위해 핀번호를 입력하세요.";
+
+/*Verify PIN view body*/
+"VerifyPin.continueBody" = "계속하려면 핀번호를 입력하세요.";
+
+/*Verify PIN view title*/
+"VerifyPin.title" = "핀번호가 요구됩니다.";
+
+/*Authorize transaction with touch id message*/
+"VerifyPin.touchIdMessage" = "전송이 승인되었습니다.";
+
+/*'No wallet' warning for watch app*/
+"Watch.noWalletWarning" = "당신의 지갑설정을 위해 아이폰 디지월렛 앱을 실행하세요.";
+
+/*Dismiss button label*/
+"Webview.dismiss" = "버리기";
+
+/*Webview loading error message*/
+"Webview.errorMessage" = "로딩중에 오류가 발생했습니다. 재시도 해주세요.";
+
+/*Updating webview message*/
+"Webview.updating" = "업데이트중";
+
+/*Welcome screen text. (?) will be replaced with the help icon users should look for.*/
+"Welcome.body" = "iOS의 디지바이트는 디지월렛으로 이름이 바뀌었으며, 새로운 화면과 몇몇 새로운 기능들이 있습니다. \n\n도움이 필요하시면, 대부분의 화면 오른쪽 상단에 있는(?)를 찾으세요.";
+
+/*Top title of welcome screen*/
+"Welcome.title" = "디지월렛에 오신것을 환영합니다!";
+
+/*Wipe wallet alert message*/
+"WipeWallet.alertMessage" = "이 지갑을 삭제하시겠습니까?";
+
+/*Wipe wallet alert title*/
+"WipeWallet.alertTitle" = "지갑을 삭제하시겠습니까 ?";
+
+/*Failed wipe wallet alert message*/
+"WipeWallet.failedMessage" = "지갑 삭제에 실패했습니다.";
+
+/*Failed wipe wallet alert title*/
+"WipeWallet.failedTitle" = "실패";
+
+/*Enter phrase to wipe wallet instruction.*/
+"WipeWallet.instruction" = "이 지갑을 지우고 다른 지갑을 열거나 복구하려면 복구 문구를 입력합니다. 당신의 현재 잔고는 이 문구에 남아 있습니다.";
+
+/*Start wipe wallet view message*/
+"WipeWallet.startMessage" = "다른 지갑을 열거나 복구하면 이 장치의 다른 DigiWallet에 액세스하고 관리할 수 있습니다.";
+
+/*Start wipe wallet view warning*/
+"WipeWallet.startWarning" = "더 이상 이 기기에서 현재 DigiWallet에 액세스 할 수 없습니다. 잔액은 문구에 남아있을 것입니다.";
+
+/*Wipe wallet navigation item title.*/
+"WipeWallet.title" = "다른 월렛 시작 또는 복구";
+
+/*Wipe wallet button title*/
+"WipeWallet.wipe" = "지우기";
+
+/*Wiping activity message*/
+"WipeWallet.wiping" = "삭제중";
+
+/*Paper key instructions.*/
+"WritePaperPhrase.instruction" = "각 단어를 순서대로 쓰고 안전한 곳에 저장하세요.";
+
+/*button label*/
+"WritePaperPhrase.next" = "다음";
+
+/*button label*/
+"WritePaperPhrase.previous" = "뒤로";
+
+/*1 of 3*/
+"WritePaperPhrase.step" = "%2$d중에 %1$d";
+
+/*header of PinView*/
+"Prompts.SecurityCheck.header" = "보안\n검사";
+
+/*header of balance*/
+"Balance.header" = "합계\n밸런스";
+
+/*labels of syncView*/
+"SynchingView.blockHeightLabel" = "블록\n신장";
+"SynchingView.progressLabel" = "진행";
+
+/*filter buttons for transactionView*/
+"TransactionView.all" = "모든";
+
+/*TransactionFilter sent*/
+"TransactionView.sent" = "보낸";
+
+/*TransactionFilter received*/
+"TransactionView.received" = "받은";
+
+/*DATE: date*/
+"TransactionDetailView.date" = "일자";
+
+/*PROCESSED: time*/
+"TransactionDetailView.processed" = "처리된";
+
+/*STATUS: complete*/
+"TransactionDetailView.status" = "상태";
+
+/*CONFIRMATIONS: number*/
+"TransactionDetailView.confirmations" = "확인";
+
+/*missing time translation*/
+"FeeSelector.regularTime" = "15-30초";
+
+/*Text that is shown when asset was not resolved yet*/
+"Assets.unresolved" = "미결정된 자산";
+
+/*Text to show if no metadata is available for the asset*/
+"Assets.noMetadata" = "DigiAsset";
+
+/*Showing when multiple assets were received*/
+"Assets.multipleAssets" = "다수의 자산";
+
+/*Title of confirm view*/
+"Assets.receivedAssetsTitle" = "DigiAssets을 받았습니다.";
+
+/*Message will be displayed if assets were received*/
+"Assets.receivedAssetsMessage" = "하나 혹은 여러개의 DigiAssets을 받았습니다. Aseets을 보려면 앱이 메타데이터 서버와 통신해야 합니다. 이렇게 하면 주소나 거래 해시 같은 지갑의 공용 데이터 일부가 공개됩니다.";
+
+/*Title of confirm view if opening single*/
+"Assets.openAssetTitle" = "DigiAsset 보기";
+
+/*Message will be displayed if asset shall be opened*/
+"Assets.openAssetMessage" = "Asset을 보기 위해서는 메타데이터 서버와 통신해야 합니다. 이렇게 하면 여러분 지갑의 퍼블릭 주소가 중 하나가 공개됩니다.";
+
+/*Title to show when assets are being fetched*/
+"Assets.fetchingAssetsTitle" = "Asset을 가져오는 중";
+
+/*View RAW Transaction button title*/
+"Assets.viewRawTransaction" = "RAW 고래를 확인해보세요.";
+
+/*Resolve button caption*/
+"Assets.confirmAssetsResolve" = "자산 결정";
+
+/*Skip button caption*/
+"Assets.skipAssetsResolve" = "넘기기";
+
+/*Cancel button caption*/
+"Assets.cancelAssetsResolve" = "취소";
+
+/*Skip button caption*/
+"Assets.continueWithoutSync" = "동기화 취소";
+
+/*Total supply of asset*/
+"Assets.totalSupply" = "전체 공급량";
+
+/*Number of total holders of an asset*/
+"Assets.numberOfHolders" = "Holder의 수";
+
+/*lock status of an asset*/
+"Assets.lockStatus" = "상태 보기";
+
+/*Issuer key*/
+"Assets.issuer" = "발행인";
+
+/*AssetID key*/
+"Assets.assetID" = "자산 ID";
+
+/*Address key*/
+"Assets.address" = "주소";
+
+/*Possible value of Lock Status*/
+"Assets.locked" = "잠김";
+
+/*Possible value of Lock Status*/
+"Assets.unlocked" = "잠금 해제됨";
+
+/*Shown if a value is unknown (N/A)*/
+"Assets.unknown" = "알 수 없음";
+
+/*Total Balance: <BALANCE>*/
+"Assets.totalBalance" = "총 잔고\n";
+
+/*Tap to show button*/
+"Assets.tapToShow" = "확인하시려면 누르세요.";
+
+/*Tap to hide button*/
+"Assets.tapToHide" = "숨기시려면 누르세요.";
+
+/*Asset ID: XXXXXX*/
+"Assets.assetIdKey" = "자산 ID";
+
+/*Total Balance: 1000*/
+"Assets.balanceKey" = "총 잔고";
+
+/*Issuer: CreateDigiAssets.com*/
+"Assets.issuerKey" = "발행인";
+
+/*Asset Info: YYYY*/
+"Assets.assetInfoKey" = "자산 정보";
+
+/*Description: ZZZZ*/
+"Assets.descriptionKey" = "설명";
+
+/*Button title for GET STARTED*/
+"Assets.getStarted" = "시작하기";
+
+/*Button title for create new asset*/
+"Assets.createNewAsset" = "새로운 자산 만들기";
+
+/*Heading for Receive assets*/
+"Assets.receiveAssets" = "자산 받기";
+
+/*Heading for create new assets*/
+"Assets.createAssets" = "자산 만들기";
+
+/*Heading for burn assets*/
+"Assets.burnAssets" = "자산 소각";
+
+/*Button title for send assets*/
+"Assets.sendAssets" = "자산 보내기";
+
+/*Tab title*/
+"Assets.tabOverview" = "자산";
+
+/*Tab title*/
+"Assets.tabCreate" = "생성";
+
+/*Tab title*/
+"Assets.tabSend" = "보내기";
+
+/*Tab title*/
+"Assets.tabReceive" = "받기";
+
+/*Tab title*/
+"Assets.tabBurn" = "소각";
+
+/*Shown, when no assets are available*/
+"Assets.nothingFoundHere" = "아무것도 찾을 수 없습니다.";
+
+/*Asset selector placeholder text*/
+"Assets.selectAnAsset" = "자산을 선택하세요.";
+
+/*Danger Title*/
+"Assets.dangerTitle" = "위험 영역";
+
+/*Danger description*/
+"Assets.dangerText" = "소각된 자산은 되돌릴 수 없습니다. 절대로 되돌릴 수 없습니다.";
+
+/*Asset not available*/
+"Assets.AssetNotAvailable" = "자산은 이용이 불가합니다.";
+
+/*Displayed as a message when not enough assets are available*/
+"Assets.NotEnoughAssets" = "자산이 충분하지 않습니다.";
+
+/*No asset data error message*/
+"Assets.NoAssetData" = "이용할수 있는 자산 데이터가 없습니다.";
+
+/*Displayed as a message when assets were burned*/
+"Assets.AssetsBurned" = "자산 소각!";
+
+/*Displayed as a message when assets were sent*/
+"Assets.AssetsSent" = "자산 보내기!";
+
+/*Transaction could not be broadcasted: <MESSAGE>*/
+"Assets.couldNotBeBroadcasted" = "거래를 알릴 수 없습니다: %1$@";
+
+/*Transaction could not be created: <MESSAGE> (code: 123)*/
+"Assets.couldNotBeCreated" = "거래는 생성될 수 없습니다: %1$@ (code: %2$@)";
+
+/*Total unique: 1234*/
+"Assets.totalUnique" = "총 고유 자산 수 : % 1 $ @";
+
+/*Context menu button caption*/
+"Assets.Context.info" = "정보";
+
+/*Context menu button caption*/
+"Assets.Context.send" = "보내기";
+
+/*Context menu button caption*/
+"Assets.Context.receive" = "받기";
+
+/*Context menu button caption*/
+"Assets.Context.burn" = "소각";
+
+/*Assets you own (heading)*/
+"Assets.yourAssets" = "소유 자산";
+
+/*Message heading*/
+"Assets.protocolDisabled" = "DigiAssets 프로토콜 이용불가";
+
+/*Message heading*/
+"Assets.protocolDisabledDescription" = "DigiAssets 프로토콜 이용불가";
+
+/*Select an asset (default dropdown)*/
+"Assets.select" = "자산을 선택하세요";
+
+/*(Underlying) Asset Transaction*/
+"Assets.tx" = "자산 거래";
+
+/*View RAW Asset Transaction*/
+"Assets.rawTx" = "거래 보기";
+
+/*ImageReader Title*/
+"QRImageReader.title" = "QR코드 리더기";
+
+/*Image button label*/
+"QRImageReader.readQRButtonLabel" = "사진";
+
+/*no qr code found*/
+"QRImageReader.readQRMessageNotFound" = "사진에서 QR코드를 찾을 수 없습니다.";
+
+/*Found qrcode*/
+"QRImageReader.readQRMessageSuccess" = "찾기";
+
+/*Found multiply qr code im image*/
+"QRImageReader.readQRMessageTooMany" = "Multiply QR 코드가 발견됨";
+
+/*address book modal title*/
+"AddressBook.title" = "주소록";
+
+/*Name of contact*/
+"AddressBook.name" = "이름";
+
+/*Placeholder for searchbar*/
+"AddressBook.searchPlaceholder" = "연락처 검색";
+
+/*Favorites header title*/
+"AddressBook.favorites" = "즐겨찾기";
+
+/*Header title in address book*/
+"AddressBook.addContact" = "새로운 연락처 등록";
+
+/*button title for add button*/
+"AddressBook.addContactButtonTitle" = "연락처 등록";
+
+/*button title for edit button*/
+"AddressBook.editContactButtonTitle" = "연락처 편집";
+
+/*Header title in address book*/
+"AddressBook.editContact" = "연락처 편집";
+
+/*the contact's address (textfield label)*/
+"AddressBook.address" = "주소";
+
+/*header in confirm dialog to delete contact*/
+"AddressBook.deleteContactHeader" = "연락처 지우기";
+
+/*description in confirm dialog to delete contact*/
+"AddressBook.deleteContact" = "연락처를 지우시겠습니까?";
+
+/*Title for first welcome screen*/
+"Welcome.page1title" = "DigiByte 지갑을 이용해 주셔서 감사합니다";
+
+/*Title for second welcome screen*/
+"Welcome.page2title" = "보내기";
+
+/*Title for third welcome screen*/
+"Welcome.page3title" = "받기";
+
+/*Title for fourth welcome screen*/
+"Welcome.page4title" = "안전하게 저장";
+
+/*Title for fifth welcome screen*/
+"Welcome.page5title" = "Digi-ID를 이용하여 로그인";
+
+/*Text for first welcome screen*/
+"Welcome.page1text" = "여러분의 DigiByte를 안전하고 저장하고 사용하세요";
+
+/*Text for second welcome screen*/
+"Welcome.page2text" = "DigiByte를 쉽고 빠르게 전세계로 보내보세요.";
+
+/*Text for third welcome Text*/
+"Welcome.page3text" = "결제 요청을 만들고 바로 전 세계로부터 돈을 받으세요.";
+
+/*Text for fourth welcome screen*/
+"Welcome.page4text" = "앞서가는 보안 기술로 DigiByte를 보호하십시오.";
+
+/*Text for fifth welcome screen*/
+"Welcome.page5text" = "Digi-ID Open Auth로 블록체인 보안의 힘을 활용해보세요.";
+
+/*Insufficient funds error*/
+"Send.insufficientFunds" = "자금 부족";
+
+/*maximum amount*/
+"Send.max" = "최대";
+
+/*option to use Dandelion Protocol*/
+"Send.useDandelion" = "개인 정보 보호를 위해 Dandelion Protocol 사용";
+
+/*Receive 10 BTC to <Address>*/
+"Receive.receiveAmountTo" = "%1$@을 %2$@에게 받기\n";
+
+/*Receive to <Address>*/
+"Receive.receiveTo" = "%1$@에게 받기";
+
+/*Clickable button*/
+"Receive.showLegacyAddress" = "대신 Legacy 주소 표시";
+
+/*Clickable button*/
+"Receive.showSegwitAddress" = "대신 Segwit 주소 표시\n";
+
+/*Receive Address Box placeholder*/
+"Receive.receiveAddress" = "수신 주소";
+
+/*Wipe wallet button*/
+"JailbreakWarnings.wipe" = "닦다";
+
+/*Wallet locked message*/
+"UnlockScreen.locked" = "지갑 잠금";
+
+/*Unlock with FaceID accessibility label*/
+"UnlockScreen.faceIdPrompt" = "Face ID로 DigiByte 잠금을 해제하려면 여기를 누르십시오.";
+
+/*Message that appears, when the sign timeout was triggered*/
+"Transaction.signTimeout" = "시간 초과 내에 tx에 서명하지 않음";
+
+/*Manage wallet button title*/
+"AccountHeader.manageButtonName" = "관리";
+
+/*Equals symbol*/
+"AccountHeader.equals" = "=";
+
+/*Switch label for setting*/
+"TouchIdSettings.automaticBiometricsSwitchLabel" = "시작할 때 자동으로 터치 ID 요청";
+
+/*Switch label for setting*/
+"FaceIDSettings.automaticBiometricsSwitchLabel" = "시작할 때 자동으로 Face ID 요청";
+
+/*Always require passcode option*/
+"TouchIdSpendingLimit.requirePasscode" = "항상 암호 필요\n";
+
+/*custom amount limit (category)*/
+"TouchIdSpendingLimit.custom" = "사용자 지정";
+
+/*custom amount limit (title)*/
+"TouchIdSpendingLimit.customAmount" = "사용자 지정 금액";
+
+/*Description for custom amount*/
+"TouchIdSpendingLimit.customAmountDescription" = "사용자 지정 금액을 기입하세요";
+
+/*Port must be greater than 0 and less than 65535*/
+"Settings.invalidPortHeader" = "잘못된 포트";
+
+/*send max button visible or not*/
+"Settings.maxSendEnabled" = "전송 최대 버튼 표시\n";
+
+/*do not place a digibyte logo into qr codes*/
+"Settings.excludeLogoInQR" = "QR 코드의 DigiByte 로고 숨기기\n";
+
+/*Do not show any DigiAsset Contents*/
+"Settings.showRawTransactions" = "DigiAsset 사용 안 함\n";
+
+/*Resolve Assets without a prompt*/
+"Settings.resolveAssetsWithoutPrompt" = "즉각적이지 않은 자산 해결";
+
+/*Clear Asset Cache*/
+"Settings.clearAssetCache" = "자산 캐시 지우기\n";
+
+/*Clear Assets Image cache*/
+"Settings.clearImageCache" = "이미지 캐시 지우기\n";
+
+/*Message that appears when a cache was cleared*/
+"Settings.cacheCleared" = "캐시 삭제";
+
+/*DigiByte Nodes (Network term)*/
+"Settings.nodes" = "DigiByte 노드";
+
+/*Settings item*/
+"Settings.useDigiIDLegacy" = "Digi-ID 레거시 사용\n";
+
+/*Message that appears when DigiID Legacy is being opened*/
+"Settings.digiIdLegacyWarning" = "예외를 추가하는 것은 권장되지 않는다. Digi-ID 레거시는 향후 출시가 되면 에서 지워질 겁니다.";
+
+/*DigiID Legacy Preview Text (how many websites were added as an exception)*/
+"Settings.digiIdPreview" = "#%1$@ 사이트";
+
+/*DigiID Legacy Title*/
+"Settings.digiIdLegacyTitle" = "Digi-ID 레거시";
+
+/*DigiID Legacy Description*/
+"Settings.digiIdLegacyDescription" = "Digi-ID 레거시는 Digi-ID의 이전 버젼을 말하며, 레거시는는 DigiByte Android와 호환되지 않습니다. 새로운 로그인에는 Digi-ID 레거시를 사용하지 마시길 바랍니다.";
+
+/*DigiID Legacy: Add Exception (button)*/
+"Settings.addException" = "예외 추가\n";
+
+/*Welcome title*/
+"AssetsWelcome.welcomeTitle" = "DigiAssets의 이용을 환영합니다.\n";
+
+/*Create Heading*/
+"AssetsWelcome.createHeading" = "생성";
+
+/*Send Heading*/
+"AssetsWelcome.sendHeading" = "보내기";
+
+/*Receive Heading*/
+"AssetsWelcome.receiveHeading" = "받기";
+
+/*Create Text*/
+"AssetsWelcome.createText" = "DigiAssets 웹앱 내에서 바로 DigiAssets를 만들 수 있습니다. 여러분이 좋아하는 것을 DigiAssets으로 바꿔보세요.";
+
+/*Send Text*/
+"AssetsWelcome.sendText" = "DigiAssets 앱에서 직접 소유권 양도를 통해 다른 사람에게 DigiAssets를 보낼 수 있습니다.";
+
+/*Receive Text*/
+"AssetsWelcome.receiveText" = "소유권 양도를 통해 DigiAssets을  다른 사람들로부터 DigiAssets 앱을 직접 받을 수 있습니다.";
+
+/*Introduction in About Screen*/
+"About.introduction" = "이 앱은 DigiByte & Blockchain 지지자들과 프로젝트를 믿고 시간과 기술을 바친 무보수 자원봉사자들이 만든 앱 입니다.";
+
+/*'BLOCK HEIGHT' caption title*/
+"SyncingView.blockHeightLabel" = "블록 높이\n";
+
+/*'PROGRESS' caption title (PROGRESS: May 18 / June 18)*/
+"SyncingView.progressLabel" = "진행";
+
+/*Heading of modal alert*/
+"ReScan.fastSync" = "빠른 동기화";
+
+/*Privacy Warning of fast sync*/
+"ReScan.fastSyncDescription" = "동기화를 최적화하기 위해 이 지갑은 blockexplorer와 통신할수 있어야 합니다. 동기화 속도를 높이기 위해 일부 공용 지갑 주소가 누출된다는 점에 유의하십시오.";
+
+/*Heading of modal alert*/
+"ReScan.fastReSync" = "빠른 재동기화";
+
+/*Regular Sync description*/
+"ReScan.regularSync" = "일반 재동기화(느림)\n";
+
+/*Confirm paper phrase error message*/
+"ConfirmPaperPhrase.error" = "입력한 단어가 종이 키와 일치하지 않습니다. 다시 시도하십시오.\n";
+
+/*Confirm dialog's default confirm action title*/
+"Alerts.confirmOkCaption" = "확인";
+
+/*confirm dialog's default cancel action title*/
+"Alerts.confirmCancelCaption" = "취소";
+
+/*Menu button title for DigiAssets*/
+"MenuButton.digiAssets" = "DigiAssets\n";
+
+/*Fee Selector regular fee description*/
+"FeeSelector.estimatedDeliver" = "예상 배달: %1$@\n";
+
+/*E.g. [This transaction is predicted to complete in] 1+ minutes*/
+"FeeSelector.economyTime" = "1분 이상\n";
+
+/*Import Address Heading*/
+"Assets.Send.importAddress" = "주소 가져오기\n";
+
+/*Import Address Option: Address Book*/
+"Assets.Send.addressBook" = "주소록";
+
+/*Import Address Option: Import Address from Clipboard*/
+"Assets.Send.pasteFromClipboard" = "클립보드에서 붙여넣기\n";
+
+/*Import Address Option: Scan QR*/
+"Assets.Send.scanQR" = "QR 코드 스캔\n";
+
+/*Import Address Option: Browse Gallery*/
+"Assets.Send.browseGallery" = "갤러리 찾아보기\n";
+
+/*Import Address Description: Address Book*/
+"Assets.Send.addressBookDescription" = "주소록의 주소 사용\n";
+
+/*Import Address Description: QR Scanner*/
+"Assets.Send.scanQRDescription" = "카메라를 사용하여 주소가 포함된 QR 코드 스캔";
+
+/*Import Address Heading*/
+"Assets.Send.browseGalleryDescription" = "갤러리에서 이미지 가져오기\n";
+
+/*Favorite Switch Title (as favorite)-option*/
+"AddressBook.favorite" = "좋아하는 것, 사람";
+
+/*Version: 2.0.0*/
+"Abput.version" = "버젼: #%1$@\n";
+
+/*Development Heading in About Section*/
+"Abput.development" = "개발";
+
+/*UI Heading in About Section*/
+"About.ui" = "UI\n";
+
+/*Special Thanks Heading in About Section*/
+"About.specialThanks" = "특별 감사\n";
+
+/*Translations Heading in About Section*/
+"About.translations" = "번역";

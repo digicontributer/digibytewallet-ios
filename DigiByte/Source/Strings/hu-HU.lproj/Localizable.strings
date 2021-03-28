@@ -1,0 +1,1561 @@
+
+/*About screen blog label*/
+"About.blog" = "Blog";
+
+/*About screen footer*/
+"About.footer" = "Készítette a DigiWallet nemzetközi csapata. Verzió: %1$@";
+
+/*Privay Policy button label*/
+"About.privacy" = "Adatvédelmi Irányelvek";
+
+/*About screen reddit label*/
+"About.reddit" = "Reddit";
+
+/*Terms of Use button label*/
+"About.terms" = "Felhasználási feltételek";
+
+/*About screen title*/
+"About.title" = "A DigiByte iOS-re a DigiByte mobil tárcája.";
+
+/*About screen twitter label*/
+"About.twitter" = "Twitter";
+
+/*Close modal button accessibility label*/
+"AccessibilityLabels.close" = "Bezárás";
+
+/*Support center accessibiliy label*/
+"AccessibilityLabels.faq" = "Támogatási Központ";
+
+/*Loading Wallet Message*/
+"Account.loadingMessage" = "Tárca betöltése";
+
+/*Default wallet name*/
+"AccountHeader.defaultWalletName" = "Az én DigiWallet tárcám";
+
+/*Error alert title*/
+"Alert.error" = "Hiba";
+
+/*No internet alert message*/
+"Alert.noInternet" = "Nincs internetkapcsolat. Ellenőrizd az internet-hozzáférésed és próbálkozz újra.";
+
+/*Warning alert title*/
+"Alert.warning" = "Figyelmeztetés";
+
+/*'the addresses were copied'' Alert title*/
+"Alerts.copiedAddressesHeader" = "Címek másolva";
+
+/*Addresses Copied Alert sub header*/
+"Alerts.copiedAddressesSubheader" = "Az összes tárca cím sikeresen másolva lett.";
+
+/*Alert Header Label (the paper key was set)*/
+"Alerts.paperKeySet" = "Személyi Visszaállító Kulcs beállítva";
+
+/*Alert Subheader label (playfully positive)*/
+"Alerts.paperKeySetSubheader" = "Nagyszerű!";
+
+/*Alert Header label (the PIN was set)*/
+"Alerts.pinSet" = "PIN-kód beállítva";
+
+/*Send failure alert header label (the send failed to happen)*/
+"Alerts.sendFailure" = "Küldés sikertelen";
+
+/*Send success alert header label (confirmation that the send happened)*/
+"Alerts.sendSuccess" = "Megerősítés küldése";
+
+/*Send success alert subheader label (e.g. the money was sent)*/
+"Alerts.sendSuccessSubheader" = "DigiByte elküldve!";
+
+/*JSON Serialization error message*/
+"ApiClient.jsonError" = "JSON Sorszámozási hiba";
+
+/*Wallet not ready error message*/
+"ApiClient.notReady" = "A tárca nem áll készen";
+
+/*API Token error message*/
+"ApiClient.tokenError" = "API token lekérése sikertelen";
+
+/*Send BCH view body.*/
+"BCH.body" = "Adj meg egy cél DigiByte címet alul. A fork idején (%1$@) a pénztárcádban található összes DigiByte  küldésre kerül.";
+
+/*Confirm sending <$5.00> to <address>?*/
+"BCH.confirmationMessage" = "Küldés megerősítése: %1$@, %2$@ címre.";
+
+/*Confirmation alert title*/
+"BCH.confirmationTitle" = "Megerősítés";
+
+/*Generic bch erorr message*/
+"BCH.genericError" = "A számládon nincs DigiByte, vagy a fork után kaptad meg.";
+
+/*Transaction ID copied message*/
+"BCH.hashCopiedMessage" = "Tranzakció azonosító másolva";
+
+/*No address error message*/
+"BCH.noAddressError" = "Kérlek adj meg egy címet";
+
+/*Attempted to scan unsupported qr code error message.*/
+"BCH.paymentProtocolError" = "Fizetési protokollkérelmek nem támogatottak a DigiByte tranzakciókhoz";
+
+/*BCH successfully sent alert message*/
+"BCH.successMessage" = "DigiByte küldése sikeres volt.";
+
+/*Widthdraw BCH view title*/
+"BCH.title" = "DigiByte kiutalás";
+
+/*Tx Hash button header*/
+"BCH.txHashHeader" = "DigiByte tranzakció azonosító";
+
+/*Approve button label*/
+"BitID.approve" = "Jóváhagyás";
+
+/*<sitename> is requesting authentication using your bitcoin wallet*/
+"BitID.authenticationRequest" = "%1$@ hitelesítést kér a DigiWallet használatához";
+
+/*Deny button label*/
+"BitID.deny" = "Megtagadás";
+
+/*BitID error alert title*/
+"BitID.error" = "Hitelesítési Hiba";
+
+/*BitID error alert messaage (The payment service you are trying to use isn't working. Please contact them, as you may need to try again)*/
+"BitID.errorMessage" = "Kérjük, ellenőrizd a szolgáltatást. Lehet, hogy újra kell próbálkoznod.";
+
+/*BitID success alert title*/
+"BitID.success" = "Sikeres hitelesítés";
+
+/*BitID Authentication Request alert view title*/
+"DigiID.title" = "Digi-ID Hitelesítési Kérelem";
+
+/*Cancel button label*/
+"Button.cancel" = "Mégse";
+
+/*Ignore button label*/
+"Button.ignore" = "Mellőz";
+
+/*menu button*/
+"Button.menu" = "Menü";
+
+/*No button*/
+"Button.no" = "Nem";
+
+/*OK button label*/
+"Button.ok" = "Ok";
+
+/*receive button*/
+"Button.receive" = "Fogadás";
+
+/*send button*/
+"Button.send" = "Küldés";
+
+/*Settings button label*/
+"Button.settings" = "Beállítások";
+
+/*Settings button label*/
+"Button.submit" = "Beállít";
+
+/*Yes button*/
+"Button.yes" = "Igen";
+
+/*Camera plugin instruction*/
+"CameraPlugin.centerInstruction" = "Mozgasd az ID-d a doboz közepére";
+
+/*Amount to Send: ($1.00)*/
+"Confirmation.amountLabel" = "Küldendő összeg:";
+
+/*Network Fee: ($1.00)*/
+"Confirmation.feeLabel" = "Hálózati Díj:";
+
+/*eg. Processing time: This transaction will take 10-30 minutes to process.*/
+"Confirmation.processingTime" = "Átfutási idő: A tranzakció előreláthatólag %1$@ másodpercen belül teljesül.";
+
+/*Label for "send" button on final confirmation screen*/
+"Confirmation.send" = "Küldés";
+
+/*Confirmation Screen title*/
+"Confirmation.title" = "Megerősítés";
+
+/*To: (address)*/
+"Confirmation.to" = "Címzett";
+
+/*Total Cost: ($5.00)*/
+"Confirmation.totalLabel" = "Összes költség:";
+
+/*Confirm paper phrase view label.*/
+"ConfirmPaperPhrase.label" = "Annak ellenőrzése képpen, hogy minden helyesen lett leírva, kérlek add meg a következő szavakat a Személyi Visszaállító Kulcsodból.";
+
+/*Word label eg. Word #1, Word #2*/
+"ConfirmPaperPhrase.word" = "Szó #%1$@";
+
+/*Bitcoin denomination picker label*/
+"DefaultCurrency.bitcoinLabel" = "DigiByte kijelző egység";
+
+/*Exchange rate label*/
+"DefaultCurrency.rateLabel" = "Árfolyam";
+
+/*Email unavailable alert title*/
+"ErrorMessages.emailUnavailableMessage" = "Ez az eszköz nincs konfigurálva email küldéséhez az iOS levelező alkalmazásának használatával.";
+
+/*Email unavailable alert title*/
+"ErrorMessages.emailUnavailableTitle" = "Email nem elérhető";
+
+/*Messaging unavailable alert title*/
+"ErrorMessages.messagingUnavailableMessage" = "Ez az eszköz nincs konfigurálva üzenetek küldéséhez.";
+
+/*Messaging unavailable alert title*/
+"ErrorMessages.messagingUnavailableTitle" = "Üzenetküldés nem elérhető";
+
+/*You can customize your Face ID Spending Limit from the [FaceIdSettings.linkText gets added here as a button]*/
+"FaceIDSettings.customizeText" = "Face ID költési limitedet itt tudod beállítani: %1$@";
+
+/*Face Id screen label*/
+"FaceIDSettings.label" = "Használd az arcod DigiWallet tárcád feloldásához és DigiByte küldéséhez egy beállítható határértékig.\n";
+
+/*Link Text (see FaceIdSettings.customizeText)*/
+"FaceIDSettings.linkText" = "Face ID költési limit kijelző";
+
+/*Face id switch label.*/
+"FaceIDSettings.switchLabel" = "Face ID engedélyezése a DigiWallet számára";
+
+/*Face ID settings view title*/
+"FaceIDSettings.title" = "Face ID";
+
+/*Face ID unavailable alert message*/
+"FaceIDSettings.unavailableAlertMessage" = "A Face ID nincs beállítva ezen az eszközön. Menj a Beállítások -> Face ID és jelszó menüpontba és állítsd be most.";
+
+/*Face ID unavailable alert title*/
+"FaceIDSettings.unavailableAlertTitle" = "Face ID nincs beállítva";
+
+/*Face Id spending limit screen title*/
+"FaceIDSpendingLimit.title" = "Face ID költési limit";
+
+/*Economy fee*/
+"FeeSelector.economy" = "Gazdaságos";
+
+/*Fee Selector economly fee description*/
+"FeeSelector.economyLabel" = "Előrelátható átfutási idő: 1+ perc";
+
+/*Warning message for economy fee*/
+"FeeSelector.economyWarning" = "Ez az opció nem javasolt sürgős tranzakciók esetén.";
+
+/*Regular fee*/
+"FeeSelector.regular" = "Szokásos";
+
+/*Fee Selector regular fee description*/
+"FeeSelector.regularLabel" = "Becsült átfutási idő: 15-30 másodperc";
+
+/*Fee Selector title*/
+"FeeSelector.title" = "Átfutási sebesség";
+
+/*Checking private key balance progress view text*/
+"Import.checking" = "Privát kulcs egyenlegének ellenőrzése…";
+
+/*Sweep private key confirmation message*/
+"Import.confirm" = "%1$@ küldés  a privát kulcsról a tárcádba? DigiByte hálózati díja %2$@.";
+
+/*Duplicate key error message*/
+"Import.Error.duplicate" = "Ez a privát kulcs már a tárcádban van.";
+
+/*empty private key error message*/
+"Import.Error.empty" = "Ez a privát kulcs üres.";
+
+/*High fees error message*/
+"Import.Error.highFees" = "A tranzakciós díj magasabb, mint a privát kulcson rendelkezésre álló összeg.";
+
+/*Not a valid private key error message*/
+"Import.Error.notValid" = "Érvénytelen privát kulcs";
+
+/*Import signing error message*/
+"Import.Error.signing" = "Hiba történt a tranzakció aláírásakor";
+
+/*Import button label*/
+"Import.importButton" = "Importálás";
+
+/*Importing wallet progress view label*/
+"Import.importing" = "Tárca importálása";
+
+/*Caption for graphics*/
+"Import.leftCaption" = "Importálandó tárca";
+
+/*Import wallet intro screen message*/
+"Import.message" = "Egy tárca importálása a tárcán található összes DigiByte-ot egyetlen tranzakcióval a DigiWallet tárcádba utalja.";
+
+/*Enter password alert view title*/
+"Import.password" = "Ez a privát kulcs jelszóval védett.";
+
+/*password textfield placeholder*/
+"Import.passwordPlaceholder" = "Jelszó";
+
+/*Caption for graphics*/
+"Import.rightCaption" = "A Te DigiWallet tárcád";
+
+/*Scan Private key button label*/
+"Import.scan" = "Privát kulcs beolvasása";
+
+/*Import wallet success alert title*/
+"Import.success" = "Sikerült";
+
+/*Successfully imported wallet message body*/
+"Import.SuccessBody" = "Tárca importálása sikeres.";
+
+/*Import Wallet screen title*/
+"Import.title" = "Tárca importálása";
+
+/*Unlocking Private key activity view message.*/
+"Import.unlockingActivity" = "Kulcs feloldása";
+
+/*Import wallet intro warning message*/
+"Import.warning" = "Egy tárca importálása nem tartalmazza a tranzakciós előzmények és egyéb más információk importálását.";
+
+/*Wrong password alert message*/
+"Import.wrongPassword" = "Helytelen jelszó, próbálkozz újra.";
+
+/*Close app button*/
+"JailbreakWarnings.close" = "Bezárás";
+
+/*Ignore jailbreak warning button*/
+"JailbreakWarnings.ignore" = "Mellőzés";
+
+/*Jailbreak warning message*/
+"JailbreakWarnings.messageWithBalance" = "A  KÉSZÜLÉK BIZTONSÁGA VESZÉLYEZTETETT\nMinden 'feltörő' alkalmazás hozzáférhet a DigiWallet tárca adataihoz és ellophatja DigiByte-jaidat! Töröld ezt a tárcát azonnal és állítsd helyre egy biztonságos eszközön.";
+
+/*Jailbreak warning message*/
+"JailbreakWarnings.messageWithoutBalance" = "A  KÉSZÜLÉK BIZTONSÁGA VESZÉLYEZTETETT\nMinden 'feltörő' alkalmazás hozzáférhet a DigiWallet tárca adataihoz és ellophatja a DigiByte-jaidat. Kérlek, csak nem feltört eszközön használd a DigiWalletet.";
+
+/*Jailbreak warning title*/
+"JailbreakWarnings.title" = "FIGYELMEZTETÉS";
+
+/*Location services disabled error*/
+"LocationPlugin.disabled" = "A helymeghatározás le van tiltva.";
+
+/*No permissions for location services*/
+"LocationPlugin.notAuthorized" = "A DigiWalletnek nincs engedélye a helymeghatározási szolgáltatások eléréséhez.";
+
+/*Wallet creation date prefix*/
+"ManageWallet.creationDatePrefix" = "Tárca létrehozásának időpontja: %1$@";
+
+/*Manage wallet description text*/
+"ManageWallet.description" = "A tárcanév csak a fiók tranzakciós előzményeiben jelenik meg és senki más nem fogja látni rajtad kívül.";
+
+/*Change Wallet name textfield label*/
+"ManageWallet.textFeildLabel" = "Tárca neve";
+
+/*Manage wallet modal title*/
+"ManageWallet.title" = "Tárca kezelése";
+
+/*Menu button title*/
+"MenuButton.lock" = "Tárca zárolása";
+
+/*Menu button title*/
+"MenuButton.security" = "Biztonsági Központ";
+
+/*Menu button title*/
+"MenuButton.settings" = "Beállítások";
+
+/*Menu button title*/
+"MenuButton.support" = "Támogatás";
+
+/*button label*/
+"MenuViewController.createButton" = "Új tárca létrehozása";
+
+/*Menu modal title*/
+"MenuViewController.modalTitle" = "Menü";
+
+/*button label*/
+"MenuViewController.recoverButton" = "Tárca Visszaállítása";
+
+/*Switch to automatic mode button label*/
+"NodeSelector.automaticButton" = "Váltás automata üzemmódra";
+
+/*Node is connected label*/
+"NodeSelector.connected" = "Csatlakozva";
+
+/*Enter node ip address view body*/
+"NodeSelector.enterBody" = "Add meg a csomópont IP-címét és portját (opcionális)";
+
+/*Enter Node ip address view title*/
+"NodeSelector.enterTitle" = "Csomópont megadása";
+
+/*Switch to manual mode button label*/
+"NodeSelector.manualButton" = "Váltás manuális üzemmódra";
+
+/*Node address label*/
+"NodeSelector.nodeLabel" = "Jelenlegi Elsődleges Csomópont";
+
+/*Node is not connected label*/
+"NodeSelector.notConnected" = "Nincs csatlakozva";
+
+/*Node status label*/
+"NodeSelector.statusLabel" = "Csomópont csatlakozás állapota";
+
+/*Node Selector view title*/
+"NodeSelector.title" = "DigiByte Csomópontok";
+
+/*Bad Payment request alert title*/
+"PaymentProtocol.Errors.badPaymentRequest" = "Rossz Fizetési Kérelem";
+
+/*Error opening payment protocol file message*/
+"PaymentProtocol.Errors.corruptedDocument" = "Nem támogatott vagy sérült dokumentum";
+
+/*Missing certificate payment protocol error message*/
+"PaymentProtocol.Errors.missingCertificate" = "Hiányzó tanúsítvány";
+
+/*Request expired payment protocol error message*/
+"PaymentProtocol.Errors.requestExpired" = "A kérelem lejárt";
+
+/*Payment too small alert title*/
+"PaymentProtocol.Errors.smallOutputError" = "Sikertelen fizetés";
+
+/*Amount too small error message*/
+"PaymentProtocol.Errors.smallPayment" = "DigiByte kifizetés nem lehet kevesebb, mint %1$@.";
+
+/*Output too small error message.*/
+"PaymentProtocol.Errors.smallTransaction" = "DigiByte tranzakciós kimenetek nem lehetnek kevesebbek, mint $@.";
+
+/*Unsupported signature type payment protocol error message*/
+"PaymentProtocol.Errors.unsupportedSignatureType" = "Nem támogatott aláírási forma";
+
+/*Untrusted certificate payment protocol error message*/
+"PaymentProtocol.Errors.untrustedCertificate" = "Megbízhatatlan tanúsítvány";
+
+/*Enable face ID prompt body*/
+"Prompts.FaceId.body" = "Itt érintsd meg a Face ID engedélyezéséhez";
+
+/*Enable face ID prompt title*/
+"Prompts.FaceId.title" = "Face ID engedélyezése";
+
+/*No passcode set warning body*/
+"Prompts.NoPasscode.body" = "Jelszó szükséges a tárca védelme érdekében. A beállításokban kapcsold be a jelszóvédelmet.";
+
+/*No Passcode set warning title*/
+"Prompts.NoPasscode.title" = "Kapcsold be az eszközön a jelszóvédelmet.";
+
+/*Warning about paper key.*/
+"Prompts.PaperKey.body" = "Mentsd el a Személyi Visszaállító Kulcsod arra az esetre, ha elvesztenéd vagy kicserélnéd a telefonodat. Érintsd meg a képernyőt a folytatáshoz itt.";
+
+/*An action is required (You must do this action).*/
+"Prompts.PaperKey.title" = "Intézkedés szükséges";
+
+/*Transaction rejected prompt body*/
+"Prompts.RecommendRescan.body" = "A tárcád lehet, hogy nincs szinkronizálva. Ez legtöbbször megoldódik a blokklánc újrabeolvasásával.";
+
+/*Transaction rejected prompt title*/
+"Prompts.RecommendRescan.title" = "Tranzakció elutasítva";
+
+/*Share data prompt body*/
+"Prompts.ShareData.body" = "Segíts a DigiWallet fejlesztésében anonim adatok megosztásával";
+
+/*Share data prompt title*/
+"Prompts.ShareData.title" = "Anonim adatok megosztása";
+
+/*Enable touch ID prompt body*/
+"Prompts.TouchId.body" = "Itt érintsd meg a Touch ID engedélyezéséhez";
+
+/*Enable touch ID prompt title*/
+"Prompts.TouchId.title" = "Touch ID engedélyezése";
+
+/*Upgrade PIN prompt body.*/
+"Prompts.UpgradePin.body" = "A DigiWallet 6 számjegyű PIN-kóddal bővült. Itt érintsd meg a frissítéshez.";
+
+/*Upgrade PIN prompt title.*/
+"Prompts.UpgradePin.title" = "PIN frissítése";
+
+/*Notifications will be added later but users can set their preferences now, which is why we specify "in the future".*/
+"PushNotifications.body" = "Kapcsold be az értesítéseket, hogy a jövőben személyre szóló üzeneteket kaphass a DigiWallettől.";
+
+/*Push notifications toggle switch label*/
+"PushNotifications.label" = "Nyomd meg az Értesítéseket";
+
+/*Push notifications are off label*/
+"PushNotifications.off" = "Ki";
+
+/*Push notifications are on label*/
+"PushNotifications.on" = "Be";
+
+/*Push notifications settings view title label*/
+"PushNotifications.title" = "Értesítések";
+
+/*Address copied message.*/
+"Receive.copied" = "Vágólapra másolva.";
+
+/*Share via email button label*/
+"Receive.emailButton" = "Email";
+
+/*Request button label*/
+"Receive.request" = "Összeg kérelmezése";
+
+/*Share button label*/
+"Receive.share" = "Megosztás";
+
+/*Share via text message (SMS)*/
+"Receive.textButton" = "Szöveges üzenet";
+
+/*Receive modal title*/
+"Receive.title" = "Fogadás";
+
+/*Done button text*/
+"RecoverWallet.done" = "Kész";
+
+/*Recover wallet header*/
+"RecoverWallet.header" = "Tárca visszaállítása";
+
+/*Reset PIN with paper key: header*/
+"RecoverWallet.header_reset_pin" = "PIN-kód visszaállítása";
+
+/*Enter paper key instruction*/
+"RecoverWallet.instruction" = "Személyi Visszaállító Kulcs megadása";
+
+/*Recover wallet intro*/
+"RecoverWallet.intro" = "DigiWallet tárca visszaállítása Személyi Visszaállító Kulcs segítségével.";
+
+/*Invalid paper key message*/
+"RecoverWallet.invalid" = "A megadott Személyi Visszaállító Kulcs érvénytelen. Kérlek ellenőrizz minden szót és próbáld újra.";
+
+/*Previous button accessibility label*/
+"RecoverWallet.leftArrow" = "Bal nyíl";
+
+/*Next button label*/
+"RecoverWallet.next" = "Következő";
+
+/*Reset PIN with paper key: more information button.*/
+"RecoverWallet.reset_pin_more_info" = "További információkhoz itt érintsd meg.";
+
+/*Next button accessibility label*/
+"RecoverWallet.rightArrow" = "Jobb nyíl";
+
+/*Recover wallet sub-header*/
+"RecoverWallet.subheader" = "Add meg a visszaállítandó tárca Személyi Visszaállító Kulcsát.";
+
+/*Reset PIN with paper key: sub-header*/
+"RecoverWallet.subheader_reset_pin" = "PIN-kód visszaállításához írd be a szavakat a Személyi Visszaállító Kulcsodból az alábbi dobozokba.";
+
+/*No amount entered error message.*/
+"RequestAnAmount.noAmount" = "Kérlek, először add meg az összeget.";
+
+/*Request a specific amount of bitcoin*/
+"RequestAnAmount.title" = "Összeg kérelmezése";
+
+/*Alert action button label*/
+"ReScan.alertAction" = "Szinkronizálás";
+
+/*Alert message body*/
+"ReScan.alertMessage" = "Szinkronizálás közben nem tudsz DigiByte-ot küldeni.";
+
+/*Alert message title*/
+"ReScan.alertTitle" = "Szinkronizálás a Blokklánccal?";
+
+/*extimated time*/
+"ReScan.body1" = "20-45 perc";
+
+/*Syncing explanation*/
+"ReScan.body2" = "Ha egy tranzakció befejezettnek látszik a DigiByte hálózaton, de nem látszik a DigiWallet tárcában.";
+
+/*Syncing explanation*/
+"ReScan.body3" = "Ismételt hibaüzenetet kapsz azzal, hogy a tranzakciód elutasításra került.";
+
+/*Start Sync button label*/
+"ReScan.buttonTitle" = "Szinkronizálás indítása";
+
+/*Sync blockchain view footer*/
+"ReScan.footer" = "Szinkronizálás közben nem tudsz DigiByte-ot küldeni.";
+
+/*Sync Blockchain view header*/
+"ReScan.header" = "Szinkronizálás a Blokklánccal";
+
+/*Subheader label*/
+"ReScan.subheader1" = "Becsült idő";
+
+/*Subheader label*/
+"ReScan.subheader2" = "Mikor kell szinkronizálni?";
+
+/*Scan bitcoin address camera flash toggle*/
+"Scanner.flashButtonLabel" = "Vaku";
+
+/*Complete filter label*/
+"Search.complete" = "Teljesítve";
+
+/*Pending filter label*/
+"Search.pending" = "Függőben";
+
+/*Received filter label*/
+"Search.received" = "Beérkezett";
+
+/*Sent filter label*/
+"Search.sent" = "Elküldött";
+
+/*Face ID button title*/
+"SecurityCenter.faceIdTitle" = "Face ID";
+
+/*Security Center Info*/
+"SecurityCenter.info" = "A nagyobb biztonság érdekében az összes biztonsági funkciót engedélyezd.";
+
+/*Paper Key button description*/
+"SecurityCenter.paperKeyDescription" = "Az egyetlen módja, hogy hozzáférj a DigiByte-jaidhoz, ha elhagyod vagy lecseréled a telefonod. ";
+
+/*Paper Key button title*/
+"SecurityCenter.paperKeyTitle" = "Személyi Visszaállító Kulcs";
+
+/*PIN button description*/
+"SecurityCenter.pinDescription" = "Védd DigiWallet tárcád jogosulatlan felhasználóktól.";
+
+/*PIN button title*/
+"SecurityCenter.pinTitle" = "6 számjegyű PIN-kód";
+
+/*Security Center Title*/
+"SecurityCenter.title" = "Biztonsági Központ";
+
+/*Touch ID button description*/
+"SecurityCenter.touchIdDescription" = "Férj hozzá kényelmesen a DigiWallet tárcádhoz és küldj DigiByte-ot a beállított összeghatárig.";
+
+/*Touch ID button title*/
+"SecurityCenter.touchIdTitle" = "Touch ID";
+
+/*Send money amount label*/
+"Send.amountLabel" = "Összeg";
+
+/*Balance: $4.00*/
+"Send.balance" = "Egyenleg: %1$@";
+
+/*Camera not allowed message*/
+"Send.cameraunavailableMessage" = "Engedélyezd a kamera-hozzáférést a Beállításokban";
+
+/*Camera not allowed alert title*/
+"Send.cameraUnavailableTitle" = "A DigiWalletnek nincs engedélye a kamera hozzáféréséhez";
+
+/*Warning when sending to self.*/
+"Send.containsAddress" = "A címzett a saját címed. Nem küldhetsz magadnak semmit.";
+
+/*Could not create transaction alert title*/
+"Send.creatTransactionError" = "Tranzakció létrehozása sikertelen.";
+
+/*Description for sending money label*/
+"Send.descriptionLabel" = "Emlékeztető";
+
+/*Emtpy pasteboard error message*/
+"Send.emptyPasteboard" = "A vágólap üres";
+
+/*Network Fee: $0.01*/
+"Send.fee" = "Hálózati Díj: %1$@";
+
+/*Payee identity not certified alert title.*/
+"Send.identityNotCertified" = "A kedvezményezett személyazonossága nincs igazolva.";
+
+/*Invalid address alert message*/
+"Send.invalidAddressMessage" = "A címzett címe nem egy érvényes DigiByte cím.";
+
+/*Invalid address on pasteboard message*/
+"Send.invalidAddressOnPasteboard" = "A vágólap nem tartalmaz érvényes DigiByte címet.";
+
+/*Invalid address alert title*/
+"Send.invalidAddressTitle" = "Érvénytelen cím";
+
+/*Is rescanning error message*/
+"Send.isRescanning" = "A küldés le van tiltva a teljes újraolvasás alatt";
+
+/*Loading request activity view message*/
+"Send.loadingRequest" = "Kérelem betöltése";
+
+/*Empty address alert message*/
+"Send.noAddress" = "Kérlek, add meg a címzett címét.";
+
+/*Emtpy amount alert message*/
+"Send.noAmount" = "Kérlek, add meg a küldendő összeget.";
+
+/*Paste button label*/
+"Send.pasteLabel" = "Beillesztés";
+
+/*Could not publish transaction alert title*/
+"Send.publishTransactionError" = "A tranzakció közzététele nem lehetséges.";
+
+/*Could not load remote request error message*/
+"Send.remoteRequestError" = "A fizetési kérelem betöltése nem lehetséges.";
+
+/*Scan button label*/
+"Send.scanLabel" = "Beolvasás";
+
+/*Send button label (the action, "press here to send")*/
+"Send.sendLabel" = "Küldés";
+
+/*Send screen title (as in "this is the screen for sending money")*/
+"Send.title" = "Küldés";
+
+/*Send money to label*/
+"Send.toLabel" = "Címzett";
+
+/*Adress already used alert message - first part*/
+"Send.UsedAddress.firstLine" = "A DigiByte címek csak egyszer használatosak.";
+
+/*Adress already used alert message - second part*/
+"Send.UsedAddress.secondLIne" = "A címek újbóli felhasználása csökkenti az adatvédelmet mind a címzett, mind pedig saját magad számára, ami veszteséget okozhat, amennyiben a címzett nem saját maga felügyeli a címét.";
+
+/*Adress already used alert title*/
+"Send.UsedAddress.title" = "Már használatban lévő cím";
+
+/*About label*/
+"Settings.about" = "Névjegy";
+
+/*Advanced Settings title*/
+"Settings.advancedTitle" = "Haladó beállítások";
+
+/*i.e. the currency which will be displayed*/
+"Settings.currency" = "Megjelenítendő valuta";
+
+/*Join Early access label*/
+"Settings.earlyAccess" = "Csatlakozz a korai hozzáféréshez";
+
+/*Are you enjoying bread alert message body*/
+"Settings.enjoying" = "Szereted a DigiWalletet?";
+
+/*Face ID spending limit label*/
+"Settings.faceIdLimit" = "Face ID költési limit";
+
+/*Import wallet label*/
+"Settings.importTitle" = "Tárca importálása";
+
+/*Manage settings section header*/
+"Settings.manage" = "Kezelő";
+
+/*Notifications label*/
+"Settings.notifications" = "Értesítések";
+
+/*Leave review button label*/
+"Settings.review" = "Hagyj visszajelzést";
+
+/*Share anonymous data label*/
+"Settings.shareData" = "Anonim adatok megosztása";
+
+/*Sync blockchain label*/
+"Settings.sync" = "Blokklánc szinkronizálás";
+
+/*Settings title*/
+"Settings.title" = "Beállítások";
+
+/*Touch ID spending limit label*/
+"Settings.touchIdLimit" = "Touch ID költési limit";
+
+/*Wallet Settings section header*/
+"Settings.wallet" = "Tárca";
+
+/*Start or recover another wallet menu label.*/
+"Settings.wipe" = "Másik tárca nyitása/visszaállítása";
+
+/*Share data view body*/
+"ShareData.body" = "Segíts a DigiWallet fejlesztésében anonim adatok megosztásával. Pénzügyi információk nem kerülnek megosztásra. Tiszteletben tartjuk a pénzügyi magánéleted.";
+
+/*Share data header*/
+"ShareData.header" = "Adatok megosztása?";
+
+/*Share data switch label.*/
+"ShareData.toggleLabel" = "Anonim adatok megosztása?";
+
+/*button label*/
+"StartPaperPhrase.againButtonTitle" = "Írd le a Személyi Visszaállító Kulcsot újra";
+
+/*Paper key explanation text.*/
+"StartPaperPhrase.body" = "Személyi Visszaállító Kulcsod az egyetlen módja annak, hogy visszaállítsd DigiWallet tárcád, ha azt elhagynád, ellopnák, tönkremenne vagy frissítenéd a telefonod.\n\nMutatunk neked egy listát szavakkal, amiket írj le egy papírra és tarts biztonságos helyen.";
+
+/*button label*/
+"StartPaperPhrase.buttonTitle" = "Írd le a Személyi Visszaállító Kulcsot";
+
+/*Argument is date*/
+"StartPaperPhrase.date" = "Utoljára ekkor írtad le a Személyi Visszaállító Kulcsod: %1$@";
+
+/*Start view message*/
+"StartViewController.message" = "A legbiztonságosabb mód a DigiByte használatára.";
+
+/*Syncing view connectiong state header text*/
+"SyncingView.connecting" = "Kapcsolódás";
+
+/*Syncing view header text*/
+"SyncingView.header" = "Szinkronizálás";
+
+/*Retry button label*/
+"SyncingView.retry" = "Újra";
+
+/*Syncing view syncing state header text*/
+"SyncingView.syncing" = "Szinkronizálás";
+
+/*6 d (6 days)*/
+"TimeSince.days" = "%1$@ n";
+
+/*6 h (6 hours)*/
+"TimeSince.hours" = "%1$@ ó";
+
+/*6 m (6 minutes)*/
+"TimeSince.minutes" = "%1$@ p";
+
+/*6 s (6 seconds)*/
+"TimeSince.seconds" = "%1$@ mp";
+
+/*You can customize your Touch ID Spending Limit from the [TouchIdSettings.linkText gets added here as a button]*/
+"TouchIdSettings.customizeText" = "Touch ID költési limitedet itt tudod beállítani: %1$@";
+
+/*Touch Id screen label*/
+"TouchIdSettings.label" = "Használd az ujjlenyomatod DigiWallet tárcád feloldásához és DigiByte küldéséhez egy beállítható határértékig.";
+
+/*Link Text (see TouchIdSettings.customizeText)*/
+"TouchIdSettings.linkText" = "Touch ID költési limit képernyő";
+
+/*Spending Limit: b100,000 ($100)*/
+"TouchIdSettings.spendingLimit" = "Költési limit: %1$@ (%2$@)";
+
+/*Touch id switch label.*/
+"TouchIdSettings.switchLabel" = "Touch ID engedélyezése a DigiWallet számára";
+
+/*Touch ID settings view title*/
+"TouchIdSettings.title" = "Touch ID";
+
+/*Touch ID unavailable alert message*/
+"TouchIdSettings.unavailableAlertMessage" = "A Touch ID nincs beállítva ezen az eszközön. Menj a Beállítások -> Touch ID és jelszó menüpontba hogy most beállíthasd.";
+
+/*Touch ID unavailable alert title*/
+"TouchIdSettings.unavailableAlertTitle" = "Touch ID nincs beállítva";
+
+/*Always require passcode option*/
+"TouchIdSpendingLimit" = "Mindig kérjen jelszót";
+
+/*Touch ID spending limit screen body*/
+"TouchIdSpendingLimit.body" = "A 6 számjegyű PIN-kódod megadása szükséges minden küldési limitet meghaladó tranzakció küldése előtt, illetve ha eltelt 48 óra a legutóbbi PIN-kód megadása óta.";
+
+/*Touch Id spending limit screen title*/
+"TouchIdSpendingLimit.title" = "Touch ID költési limit";
+
+/*Availability status text*/
+"Transaction.available" = "Elérhető";
+
+/*Transaction complete label*/
+"Transaction.complete" = "Teljesítve";
+
+/*eg. Ending balance: $50.00*/
+"Transaction.ending" = "Záró egyenleg: %1$@";
+
+/*Exchange rate on date header*/
+"Transaction.exchangeOnDayReceived" = "Árfolyam beérkezéskor:";
+
+/*Exchange rate on date header*/
+"Transaction.exchangeOnDaySent" = "Árfolyam küldéskor:";
+
+/*(b600 fee)*/
+"Transaction.fee" = "(%1$@ díj)";
+
+/*Invalid transaction*/
+"Transaction.invalid" = "ÉRVÉNYTELEN";
+
+/*Timestamp label for event that just happened*/
+"Transaction.justNow" = "Éppen most";
+
+/*Receive status text: 'In progress: 20%'*/
+"Transaction.receivedStatus" = "Folyamatban: %1$@";
+
+/*Send status text: 'In progress: 20%'*/
+"Transaction.sendingStatus" = "Folyamatban: %1$@";
+
+/*eg. Starting balance: $50.00*/
+"Transaction.starting" = "Kezdő egyenleg: %1$@";
+
+/*Waiting to be confirmed string*/
+"Transaction.waiting" = "Várakozás a megerősítésre. Egyes kereskedők megerősítést kérnek a tranzakció befejezéséhez. Becsült idő: 1-2 perc.";
+
+/*e.g. I received money from an account.*/
+"TransactionDetails.account" = "Számla";
+
+/*Amount section header*/
+"TransactionDetails.amountHeader" = "Összeg";
+
+/*Block height label*/
+"TransactionDetails.blockHeightLabel" = "Blokkban megerősítve";
+
+/*Memo section header*/
+"TransactionDetails.commentsHeader" = "Közlemény";
+
+/*Empty transaction list message.*/
+"TransactionDetails.emptyMessage" = "Tranzakcióid itt jelennek meg.";
+
+/*"Received [$5] at [which of my addresses]" => This is the "at [which of my addresses]" part.*/
+"TransactionDetails.from" = "%1$@ címre";
+
+/*More button title*/
+"TransactionDetails.more" = "Több...";
+
+/*Moved $5.00 (as in "I moved $5 to another location")*/
+"TransactionDetails.moved" = "Áthelyezve %1$@";
+
+/*Moved $5.00*/
+"TransactionDetails.movedAmountDescription" = "Áthelyezve <b>%1@</b>";
+
+/*eg. Confirmed in Block: Not Confirmed*/
+"TransactionDetails.notConfirmedBlockHeightLabel" = "Nincs megerősítve";
+
+/*"Received [$5] at [which of my addresses]" => This is the "Received [$5]" part.*/
+"TransactionDetails.received" = "Beérkezett %1$@";
+
+/*Received $5.00*/
+"TransactionDetails.receivedAmountDescription" = "Beérkezett <b>%1@</b>";
+
+/*"Sent [$5] to [address]" => This is the "Sent [$5]" part.*/
+"TransactionDetails.sent" = "Elküldve %1$@";
+
+/*Sent $5.00*/
+"TransactionDetails.sentAmountDescription" = "Elküldve <b>%1@</b>";
+
+/*Status section header*/
+"TransactionDetails.statusHeader" = "Állapot";
+
+/*Transaction Details Title*/
+"TransactionDetails.title" = "Tranzakció részletei";
+
+/*"Sent [$5] to [address]" => This is the "to [address]" part.*/
+"TransactionDetails.to" = "%1$@ számára";
+
+/*Transaction ID header*/
+"TransactionDetails.txHashHeader" = "DigiByte tranzakció azonosító";
+
+/*(this transaction was) Received at this address:*/
+"TransactionDirection.address" = "Erre a címre érkezett";
+
+/*(this transaction was) Sent to this address:*/
+"TransactionDirection.to" = "Elküldve erre a címre";
+
+/*Disabled until date*/
+"UnlockScreen.disabled" = "Letiltva eddig: %1$@";
+
+/*My Address button title*/
+"UnlockScreen.myAddress" = "Saját címem";
+
+/*Reset PIN with Paper Key button label.*/
+"UnlockScreen.resetPin" = "PIN-kód visszaállítása";
+
+/*Scan button title*/
+"UnlockScreen.scan" = "Beolvasás";
+
+/*Unlock Screen sub-header*/
+"UnlockScreen.subheader" = "PIN-kód megadása";
+
+/*TouchID prompt text*/
+"UnlockScreen.touchIdPrompt" = "DigiWallet feloldása.";
+
+/*Unlock with TouchID accessibility label*/
+"UnlockScreen.touchIdText" = "Feloldás TouchID-vel";
+
+/*Wallet unlocked message*/
+"UnlockScreen.unlocked" = "Tárca feloldva";
+
+/*Update PIN caption text*/
+"UpdatePin.caption" = "Jegyezd meg ezt a PIN-kódot. Nem fogsz tudni hozzáférni a DigiByte-jaidhoz, ha elfelejted.";
+
+/*PIN creation info.*/
+"UpdatePin.createInstruction" = "A PIN-kódod a DigiWallet tárcád feloldásához és DigiByte küldéséhez lesz használva.";
+
+/*Update PIN title*/
+"UpdatePin.createTitle" = "PIN-kód beállítása";
+
+/*Update PIN title*/
+"UpdatePin.createTitleConfirm" = "Add meg a PIN-kódot még egyszer.";
+
+/*Enter current PIN instruction*/
+"UpdatePin.enterCurrent" = "Add meg a jelenlegi PIN-kódodat";
+
+/*Enter new PIN instruction*/
+"UpdatePin.enterNew" = "Add meg az új PIN-kódod";
+
+/*Re-Enter new PIN instruction*/
+"UpdatePin.reEnterNew" = "Add meg az új PIN-kódod újra.";
+
+/*Update PIN failure error message.*/
+"UpdatePin.setPinError" = "Sajnáljuk, a PIN-kódot nem sikerült frissíteni.";
+
+/*Update PIN failure alert view title*/
+"UpdatePin.setPinErrorTitle" = "PIN-kód frissítési hiba";
+
+/*Update PIN title*/
+"UpdatePin.updateTitle" = "PIN-kód frissítése";
+
+/*Authorize to copy wallet addresses alert message*/
+"URLHandling.addressaddressListAlertMessage" = "Tárca címek másolása a vágólapra?";
+
+/*Authorize to copy wallet address PIN view prompt.*/
+"URLHandling.addressList" = "Engedélyezd a tárca cím másolását a vágólapra";
+
+/*Authorize to copy wallet address alert title*/
+"URLHandling.addressListAlertTitle" = "Tárca címek másolása";
+
+/*Copy wallet addresses alert button label*/
+"URLHandling.copy" = "Másolás";
+
+/*Verify PIN for transaction view body*/
+"VerifyPin.authorize" = "Add meg a PIN-kódod a tranzakció engedélyezéséhez.";
+
+/*Verify PIN view body*/
+"VerifyPin.continueBody" = "Kérlek add meg a PIN-kódod a folytatáshoz.";
+
+/*Verify PIN view title*/
+"VerifyPin.title" = "PIN-kód szükséges";
+
+/*Authorize transaction with touch id message*/
+"VerifyPin.touchIdMessage" = "Engedélyezd a tranzakciót";
+
+/*'No wallet' warning for watch app*/
+"Watch.noWalletWarning" = "Nyisd meg a DigiWallet iPhone appot a tárcád beállításához.";
+
+/*Dismiss button label*/
+"Webview.dismiss" = "Elutasítás";
+
+/*Webview loading error message*/
+"Webview.errorMessage" = "A tartalom betöltése közben hiba történt. Kérlek próbáld újra.";
+
+/*Updating webview message*/
+"Webview.updating" = "Frissítés...";
+
+/*Welcome screen text. (?) will be replaced with the help icon users should look for.*/
+"Welcome.body" = "A DigiByte for iOS új neve: DigiWallet, új megjelenéssel és új funkciókkal.\n\nHa segítségre lenne szükséged, keresd a (?) jelet a képernyő jobb felső sarkában.";
+
+/*Top title of welcome screen*/
+"Welcome.title" = "Üdvözöl a DigiWallet!";
+
+/*Wipe wallet alert message*/
+"WipeWallet.alertMessage" = "Biztos vagy benne, hogy törölni akarod ezt a pénztárcát?";
+
+/*Wipe wallet alert title*/
+"WipeWallet.alertTitle" = "Tárca törlése?";
+
+/*Failed wipe wallet alert message*/
+"WipeWallet.failedMessage" = "Tárca törlése sikertelen";
+
+/*Failed wipe wallet alert title*/
+"WipeWallet.failedTitle" = "Sikertelen";
+
+/*Enter phrase to wipe wallet instruction.*/
+"WipeWallet.instruction" = "Add meg ennek a pénztárcának a Személyi Visszaállító Kulcsát a törléshez és indíts, vagy állíts vissza egy másikat. Jelenlegi egyenleged ezen a Személyi Visszaállító Kulcson marad.";
+
+/*Start wipe wallet view message*/
+"WipeWallet.startMessage" = "Másik tárca indítása vagy visszaállítása lehetőséget ad különböző DigiWallet tárcák kezelésére.";
+
+/*Start wipe wallet view warning*/
+"WipeWallet.startWarning" = "Nem fogsz tudni többé  hozzáférni a DigiWallet tárcádhoz erről az eszközről. Az egyenleged a Személyi Visszaállító Kulcsodon marad. ";
+
+/*Wipe wallet navigation item title.*/
+"WipeWallet.title" = "Másik tárca indítása vagy visszaállítása";
+
+/*Wipe wallet button title*/
+"WipeWallet.wipe" = "Törlés";
+
+/*Wiping activity message*/
+"WipeWallet.wiping" = "Törlés...";
+
+/*Paper key instructions.*/
+"WritePaperPhrase.instruction" = "Írj le sorrendben minden egyes szót és tárold egy biztonságos helyen.";
+
+/*button label*/
+"WritePaperPhrase.next" = "Következő";
+
+/*button label*/
+"WritePaperPhrase.previous" = "Előző";
+
+/*1 of 3*/
+"WritePaperPhrase.step" = "%1$d / %2$d";
+
+/*header of PinView*/
+"Prompts.SecurityCheck.header" = "BIZTONSÁG\nJELÖLJE BE";
+
+/*header of balance*/
+"Balance.header" = "TELJES\nEGYENLEG";
+
+/*labels of syncView*/
+"SynchingView.blockHeightLabel" = "BLOKK MAGASSÁGA";
+"SynchingView.progressLabel" = "HALADÁS";
+
+/*filter buttons for transactionView*/
+"TransactionView.all" = "minden";
+
+/*TransactionFilter sent*/
+"TransactionView.sent" = "küldött";
+
+/*TransactionFilter received*/
+"TransactionView.received" = "kapott";
+
+/*DATE: date*/
+"TransactionDetailView.date" = "dátum";
+
+/*PROCESSED: time*/
+"TransactionDetailView.processed" = "feldolgozott";
+
+/*STATUS: complete*/
+"TransactionDetailView.status" = "állapot";
+
+/*CONFIRMATIONS: number*/
+"TransactionDetailView.confirmations" = "megerősítések";
+
+/*missing time translation*/
+"FeeSelector.regularTime" = "15-30 másodperc";
+
+/*Text that is shown when asset was not resolved yet*/
+"Assets.unresolved" = "Fel nem oldott eszköz";
+
+/*Text to show if no metadata is available for the asset*/
+"Assets.noMetadata" = "DigiAsset";
+
+/*Showing when multiple assets were received*/
+"Assets.multipleAssets" = "Többféle eszközök";
+
+/*Title of confirm view*/
+"Assets.receivedAssetsTitle" = "Kapott DigiAsset-ek";
+
+/*Message will be displayed if assets were received*/
+"Assets.receivedAssetsMessage" = "Egy vagy több DigiAsset-et kaptál. Ahhoz, hogy láthasd eszközeidet, az app-nak egy metadata szerverrel kell kommunikálnia. Ez felfedi a tárcád néhány publikus adatát, például címeket vagy tranzakciós hash-eket.";
+
+/*Title of confirm view if opening single*/
+"Assets.openAssetTitle" = "Tekintsd meg a DigiAsset-et";
+
+/*Message will be displayed if asset shall be opened*/
+"Assets.openAssetMessage" = "Ahhoz, hogy megtekinthesd ezt az eszközt, az appnak metadata szerverrel kell kommunikálnia. Ez felfedi az egyik tárcád publikus címét.";
+
+/*Title to show when assets are being fetched*/
+"Assets.fetchingAssetsTitle" = "Hozz el eszközöket";
+
+/*View RAW Transaction button title*/
+"Assets.viewRawTransaction" = "Nézd meg a RAW tranzakciót";
+
+/*Resolve button caption*/
+"Assets.confirmAssetsResolve" = "Oldj fel eszköz(öket)";
+
+/*Skip button caption*/
+"Assets.skipAssetsResolve" = "Ugrás";
+
+/*Cancel button caption*/
+"Assets.cancelAssetsResolve" = "Mégse";
+
+/*Skip button caption*/
+"Assets.continueWithoutSync" = "Ugord át a szinkronizálást";
+
+/*Total supply of asset*/
+"Assets.totalSupply" = "Teljes kínálat";
+
+/*Number of total holders of an asset*/
+"Assets.numberOfHolders" = "Tulajdonosok száma";
+
+/*lock status of an asset*/
+"Assets.lockStatus" = "Rögzítsd az állapotot";
+
+/*Issuer key*/
+"Assets.issuer" = "Kibocsátó";
+
+/*AssetID key*/
+"Assets.assetID" = "Eszköz ID";
+
+/*Address key*/
+"Assets.address" = "Cím";
+
+/*Possible value of Lock Status*/
+"Assets.locked" = "Zárolt";
+
+/*Possible value of Lock Status*/
+"Assets.unlocked" = "Feloldott";
+
+/*Shown if a value is unknown (N/A)*/
+"Assets.unknown" = "Ismeretlen";
+
+/*Total Balance: <BALANCE>*/
+"Assets.totalBalance" = "Teljes egyenleg";
+
+/*Tap to show button*/
+"Assets.tapToShow" = "Megtekintéshez érintsd meg";
+
+/*Tap to hide button*/
+"Assets.tapToHide" = "Elrejtéshez érintsd meg";
+
+/*Asset ID: XXXXXX*/
+"Assets.assetIdKey" = "Eszköz ID";
+
+/*Total Balance: 1000*/
+"Assets.balanceKey" = "Teljes egyenleg";
+
+/*Issuer: CreateDigiAssets.com*/
+"Assets.issuerKey" = "Kibocsátó";
+
+/*Asset Info: YYYY*/
+"Assets.assetInfoKey" = "Eszköz infó";
+
+/*Description: ZZZZ*/
+"Assets.descriptionKey" = "Leírás";
+
+/*Button title for GET STARTED*/
+"Assets.getStarted" = "Kezdd el";
+
+/*Button title for create new asset*/
+"Assets.createNewAsset" = "Hozz létre új eszközt";
+
+/*Heading for Receive assets*/
+"Assets.receiveAssets" = "Fogadj eszközöket";
+
+/*Heading for create new assets*/
+"Assets.createAssets" = "Hozz létre eszközöket";
+
+/*Heading for burn assets*/
+"Assets.burnAssets" = "Égess el eszközöket";
+
+/*Button title for send assets*/
+"Assets.sendAssets" = "Küldj eszközöket";
+
+/*Tab title*/
+"Assets.tabOverview" = "Eszközök";
+
+/*Tab title*/
+"Assets.tabCreate" = "Hozz létre";
+
+/*Tab title*/
+"Assets.tabSend" = "Küldj";
+
+/*Tab title*/
+"Assets.tabReceive" = "Fogadj";
+
+/*Tab title*/
+"Assets.tabBurn" = "Égess";
+
+/*Shown, when no assets are available*/
+"Assets.nothingFoundHere" = "Itt semmit nem találtunk";
+
+/*Asset selector placeholder text*/
+"Assets.selectAnAsset" = "Válassz eszközt";
+
+/*Danger Title*/
+"Assets.dangerTitle" = "VESZÉLYZÓNA";
+
+/*Danger description*/
+"Assets.dangerText" = "Az eszközök elégetése visszafordíthatatlanul elpusztítja azokat. Sose kapod őket vissza.";
+
+/*Asset not available*/
+"Assets.AssetNotAvailable" = "Az eszköz nem elérhető";
+
+/*Displayed as a message when not enough assets are available*/
+"Assets.NotEnoughAssets" = "Nincs elég eszköz";
+
+/*No asset data error message*/
+"Assets.NoAssetData" = "Nincs elérhető eszköz infó";
+
+/*Displayed as a message when assets were burned*/
+"Assets.AssetsBurned" = "Eszköz(ök) elégetve!";
+
+/*Displayed as a message when assets were sent*/
+"Assets.AssetsSent" = "Eszköz(ök) elküldve!";
+
+/*Transaction could not be broadcasted: <MESSAGE>*/
+"Assets.couldNotBeBroadcasted" = "A tranzakciót nem lehetett közvetíteni: %1$@";
+
+/*Transaction could not be created: <MESSAGE> (code: 123)*/
+"Assets.couldNotBeCreated" = "A tranzakció nem létrehozható: %1$@ (kód: %2$@)";
+
+/*Total unique: 1234*/
+"Assets.totalUnique" = "Az egyedi eszközök teljes száma: %1$@";
+
+/*Context menu button caption*/
+"Assets.Context.info" = "Infó";
+
+/*Context menu button caption*/
+"Assets.Context.send" = "Küldés";
+
+/*Context menu button caption*/
+"Assets.Context.receive" = "Fogadás";
+
+/*Context menu button caption*/
+"Assets.Context.burn" = "Égetés";
+
+/*Assets you own (heading)*/
+"Assets.yourAssets" = "Eszközeid";
+
+/*Message heading*/
+"Assets.protocolDisabled" = "DigiAssets Protokoll Blokkolva";
+
+/*Message heading*/
+"Assets.protocolDisabledDescription" = "DigiAssets Protokoll Blokkolva";
+
+/*Select an asset (default dropdown)*/
+"Assets.select" = "Válassz eszközt...";
+
+/*(Underlying) Asset Transaction*/
+"Assets.tx" = "Eszköz tranzakció";
+
+/*View RAW Asset Transaction*/
+"Assets.rawTx" = "Nézd meg a RAW tranzakciót";
+
+/*ImageReader Title*/
+"QRImageReader.title" = "QRImage olvasó";
+
+/*Image button label*/
+"QRImageReader.readQRButtonLabel" = "Kép";
+
+/*no qr code found*/
+"QRImageReader.readQRMessageNotFound" = "A képben nem találtunk QR-kódot";
+
+/*Found qrcode*/
+"QRImageReader.readQRMessageSuccess" = "Megtalálva:";
+
+/*Found multiply qr code im image*/
+"QRImageReader.readQRMessageTooMany" = "Több QR-kódot találtunk.";
+
+/*address book modal title*/
+"AddressBook.title" = "Címlista";
+
+/*Name of contact*/
+"AddressBook.name" = "Név";
+
+/*Placeholder for searchbar*/
+"AddressBook.searchPlaceholder" = "Keress kontaktokat";
+
+/*Favorites header title*/
+"AddressBook.favorites" = "Kedvencek";
+
+/*Header title in address book*/
+"AddressBook.addContact" = "Adj hozzá új kontaktot";
+
+/*button title for add button*/
+"AddressBook.addContactButtonTitle" = "Kontakt hozzáadása";
+
+/*button title for edit button*/
+"AddressBook.editContactButtonTitle" = "Kontakt szerkesztése";
+
+/*Header title in address book*/
+"AddressBook.editContact" = "Kontakt szerkesztése";
+
+/*the contact's address (textfield label)*/
+"AddressBook.address" = "Cím";
+
+/*header in confirm dialog to delete contact*/
+"AddressBook.deleteContactHeader" = "Kontakt törlése";
+
+/*description in confirm dialog to delete contact*/
+"AddressBook.deleteContact" = "Tényleg törölni szeretnéd ezt a kontaktot?";
+
+/*Title for first welcome screen*/
+"Welcome.page1title" = "Üdvözlünk a DigiByte tárcában.";
+
+/*Title for second welcome screen*/
+"Welcome.page2title" = "Küldés";
+
+/*Title for third welcome screen*/
+"Welcome.page3title" = "Fogadás";
+
+/*Title for fourth welcome screen*/
+"Welcome.page4title" = "Biztonságos tárolás";
+
+/*Title for fifth welcome screen*/
+"Welcome.page5title" = "Bejelentkezés Digi-ID-vel";
+
+/*Text for first welcome screen*/
+"Welcome.page1text" = "Tárold és használd biztonságosan DigiByte pénzeidet.";
+
+/*Text for second welcome screen*/
+"Welcome.page2text" = "Könnyen és azonnal küldd DigiByte-jaidat világszerte bárhová.";
+
+/*Text for third welcome Text*/
+"Welcome.page3text" = "Hozz létre fizetési kérelmeket és azonnal fogadj pénzt a világ bármely pontjáról.";
+
+/*Text for fourth welcome screen*/
+"Welcome.page4text" = "Védd meg DigiByte-jaidat fejlett biztonsági funkciók széles skálájával.";
+
+/*Text for fifth welcome screen*/
+"Welcome.page5text" = "Használd ki a blokklánc extra biztonságát a Digi-ID Open Auth. segítségével.";
+
+/*Insufficient funds error*/
+"Send.insufficientFunds" = "Hiányos pénzalap";
+
+/*maximum amount*/
+"Send.max" = "Max";
+
+/*option to use Dandelion Protocol*/
+"Send.useDandelion" = "Használd a Dandelion Protokollt a megerősített adatvédelemért.";
+
+/*Receive 10 BTC to <Address>*/
+"Receive.receiveAmountTo" = "Fogadj %1$@  %2$@-ig";
+
+/*Receive to <Address>*/
+"Receive.receiveTo" = "Fogadj %1$@-ig";
+
+/*Clickable button*/
+"Receive.showLegacyAddress" = "Mutass Legacy címet ehelyett";
+
+/*Clickable button*/
+"Receive.showSegwitAddress" = "Mutass Segwit címet ehelyett";
+
+/*Receive Address Box placeholder*/
+"Receive.receiveAddress" = "Fogadj címet";
+
+/*Wipe wallet button*/
+"JailbreakWarnings.wipe" = "Törlés";
+
+/*Wallet locked message*/
+"UnlockScreen.locked" = "A tárca zárolva";
+
+/*Unlock with FaceID accessibility label*/
+"UnlockScreen.faceIdPrompt" = "Érintsd meg itt, hogy feloldd a DigiByte-jaidat Face ID-val";
+
+/*Message that appears, when the sign timeout was triggered*/
+"Transaction.signTimeout" = "Nem szignóztad a tx-et időben";
+
+/*Manage wallet button title*/
+"AccountHeader.manageButtonName" = "KEZELÉS";
+
+/*Equals symbol*/
+"AccountHeader.equals" = "=";
+
+/*Switch label for setting*/
+"TouchIdSettings.automaticBiometricsSwitchLabel" = "Indításkor kérj automatikusan Touch ID-t";
+
+/*Switch label for setting*/
+"FaceIDSettings.automaticBiometricsSwitchLabel" = "Indításkor kérj automatikusan Face ID-t";
+
+/*Always require passcode option*/
+"TouchIdSpendingLimit.requirePasscode" = "Mindig kérj jelszót";
+
+/*custom amount limit (category)*/
+"TouchIdSpendingLimit.custom" = "Egyedi";
+
+/*custom amount limit (title)*/
+"TouchIdSpendingLimit.customAmount" = "Egyedi összeg";
+
+/*Description for custom amount*/
+"TouchIdSpendingLimit.customAmountDescription" = "Írj be egy egyedi összeget";
+
+/*Port must be greater than 0 and less than 65535*/
+"Settings.invalidPortHeader" = "Érvénytelen port";
+
+/*send max button visible or not*/
+"Settings.maxSendEnabled" = "Küldés max gomb megjelenítése";
+
+/*do not place a digibyte logo into qr codes*/
+"Settings.excludeLogoInQR" = "Rejtsd el a DigiByte logót a QR-kódokban";
+
+/*Do not show any DigiAsset Contents*/
+"Settings.showRawTransactions" = "Blokkolj DigiAssets-eket";
+
+/*Resolve Assets without a prompt*/
+"Settings.resolveAssetsWithoutPrompt" = "Oldj fel eszközöket prompt nélkül";
+
+/*Clear Asset Cache*/
+"Settings.clearAssetCache" = "Tisztítsd meg az Eszköz Cache-t";
+
+/*Clear Assets Image cache*/
+"Settings.clearImageCache" = "Tisztítsd meg a Kép Cache-t";
+
+/*Message that appears when a cache was cleared*/
+"Settings.cacheCleared" = "Cache megtisztítva";
+
+/*DigiByte Nodes (Network term)*/
+"Settings.nodes" = "DigiByte csomópontok";
+
+/*Settings item*/
+"Settings.useDigiIDLegacy" = "Használj Legacy Digi-ID-t";
+
+/*Message that appears when DigiID Legacy is being opened*/
+"Settings.digiIdLegacyWarning" = "A kivételek hozzáadása nem ajánlott. A Legacy Digi-ID el lesz távolítva a jövőbeli kiadásokból.";
+
+/*DigiID Legacy Preview Text (how many websites were added as an exception)*/
+"Settings.digiIdPreview" = "\n#%1$@ oldal(ak)";
+
+/*DigiID Legacy Title*/
+"Settings.digiIdLegacyTitle" = "Legacy Digi-ID";
+
+/*DigiID Legacy Description*/
+"Settings.digiIdLegacyDescription" = "A Legacy Digi-ID a Digi-ID egy elévült verzióját jelenti, ami nem volt kompatibilis a DigiByte Android-dal. Nem ajánlott Legacy Digi-ID-t használni az új bejelentkezésekhez.";
+
+/*DigiID Legacy: Add Exception (button)*/
+"Settings.addException" = "Adj hozzá kivételt";
+
+/*Welcome title*/
+"AssetsWelcome.welcomeTitle" = "Üdv a DigiAssets-eknél";
+
+/*Create Heading*/
+"AssetsWelcome.createHeading" = "Hozz létre.\n";
+
+/*Send Heading*/
+"AssetsWelcome.sendHeading" = "Küldj.";
+
+/*Receive Heading*/
+"AssetsWelcome.receiveHeading" = "Fogadj.";
+
+/*Create Text*/
+"AssetsWelcome.createText" = "Létrehozhatsz DigiAssets-eket a DigiAssets webappon keresztül. Bármilyen dolgot, amit szeretsz, DigiAssets-é varázsolhatsz.";
+
+/*Send Text*/
+"AssetsWelcome.sendText" = "A DigiAssets-ek tulajdonjogának transzferálásával küldhetsz eszközöket közvetlenül a DigiAssets app használatával.";
+
+/*Receive Text*/
+"AssetsWelcome.receiveText" = "Fogadhatsz DigiAssets-eket másoktól a tulajdonjog transzferálásával, közvetlenül a DigiAssets app használatával.";
+
+/*Introduction in About Screen*/
+"About.introduction" = "Ezt az appot a DigiByte & Blokklánc fanatikusai, önkéntesei építették, akik abba a projektbe ölték idejüket és képességeiket, amiben hisznek.";
+
+/*'BLOCK HEIGHT' caption title*/
+"SyncingView.blockHeightLabel" = "BLOKK MAGASSÁG";
+
+/*'PROGRESS' caption title (PROGRESS: May 18 / June 18)*/
+"SyncingView.progressLabel" = "PROGRESSZIÓ";
+
+/*Heading of modal alert*/
+"ReScan.fastSync" = "Gyors Szinkronizálás";
+
+/*Privacy Warning of fast sync*/
+"ReScan.fastSyncDescription" = "A szinkronizálás optimizálása végett ez a tárca a blockexplorer-ral kommunikál.A szinkronizálás felgyorsítása miatt néhány publikus tárca cím ki fog szivárogni.";
+
+/*Heading of modal alert*/
+"ReScan.fastReSync" = "Gyors Újraszinkronizálás";
+
+/*Regular Sync description*/
+"ReScan.regularSync" = "Szabályos újraszinkronizálás (lassú)";
+
+/*Confirm paper phrase error message*/
+"ConfirmPaperPhrase.error" = "A beírt szavak nem egyeznek a papírra írt kulcsoddal. Kérlek, próbáld újra.";
+
+/*Confirm dialog's default confirm action title*/
+"Alerts.confirmOkCaption" = "OK";
+
+/*confirm dialog's default cancel action title*/
+"Alerts.confirmCancelCaption" = "Mégse";
+
+/*Menu button title for DigiAssets*/
+"MenuButton.digiAssets" = "DigiAssets";
+
+/*Fee Selector regular fee description*/
+"FeeSelector.estimatedDeliver" = "Becsült érkezés: %1$@";
+
+/*E.g. [This transaction is predicted to complete in] 1+ minutes*/
+"FeeSelector.economyTime" = "1 + perc";
+
+/*Import Address Heading*/
+"Assets.Send.importAddress" = "Cím importálása";
+
+/*Import Address Option: Address Book*/
+"Assets.Send.addressBook" = "Címlista";
+
+/*Import Address Option: Import Address from Clipboard*/
+"Assets.Send.pasteFromClipboard" = "Másolás vágólapról";
+
+/*Import Address Option: Scan QR*/
+"Assets.Send.scanQR" = "QR-kód szkennelés";
+
+/*Import Address Option: Browse Gallery*/
+"Assets.Send.browseGallery" = "Galéria böngészése";
+
+/*Import Address Description: Address Book*/
+"Assets.Send.addressBookDescription" = "Használj egy címet a címlistádról";
+
+/*Import Address Description: QR Scanner*/
+"Assets.Send.scanQRDescription" = "Használd a kamerádat egy címet tartalmazó QR-kód szkenneléséhez";
+
+/*Import Address Heading*/
+"Assets.Send.browseGalleryDescription" = "Importálj egy képet a galériából";
+
+/*Favorite Switch Title (as favorite)-option*/
+"AddressBook.favorite" = "Kedvenc";
+
+/*Version: 2.0.0*/
+"Abput.version" = "Verzió: #%1$@";
+
+/*Development Heading in About Section*/
+"Abput.development" = "Fejlődés";
+
+/*UI Heading in About Section*/
+"About.ui" = "UI";
+
+/*Special Thanks Heading in About Section*/
+"About.specialThanks" = "Külön köszönet";
+
+/*Translations Heading in About Section*/
+"About.translations" = "Fordítások";

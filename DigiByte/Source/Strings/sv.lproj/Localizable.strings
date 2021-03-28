@@ -1,0 +1,1561 @@
+
+/*About screen blog label*/
+"About.blog" = "https://digibyte.org/";
+
+/*About screen footer*/
+"About.footer" = "Utvecklad av DigiBytes globala team. Version %1$@";
+
+/*Privay Policy button label*/
+"About.privacy" = "Integritetspolicy";
+
+/*About screen reddit label*/
+"About.reddit" = "https://www.reddit.com/r/Digibyte/";
+
+/*Terms of Use button label*/
+"About.terms" = "Användningsvillkor";
+
+/*About screen title*/
+"About.title" = "DigiByte för iOS är den mobila plånboken för DigiByte.";
+
+/*About screen twitter label*/
+"About.twitter" = "https://twitter.com/digibytecoin";
+
+/*Close modal button accessibility label*/
+"AccessibilityLabels.close" = "Stäng";
+
+/*Support center accessibiliy label*/
+"AccessibilityLabels.faq" = "Supportcenter";
+
+/*Loading Wallet Message*/
+"Account.loadingMessage" = "Läser in Plånbok";
+
+/*Default wallet name*/
+"AccountHeader.defaultWalletName" = "Min DigiByte Plånbok";
+
+/*Error alert title*/
+"Alert.error" = "Felmeddelande";
+
+/*No internet alert message*/
+"Alert.noInternet" = "Internetanslutning saknas. Kontrollera din anslutning och försök igen.";
+
+/*Warning alert title*/
+"Alert.warning" = "Varning";
+
+/*'the addresses were copied'' Alert title*/
+"Alerts.copiedAddressesHeader" = "Adresser Kopierade";
+
+/*Addresses Copied Alert sub header*/
+"Alerts.copiedAddressesSubheader" = "Alla plånboksadresser kopierade.";
+
+/*Alert Header Label (the paper key was set)*/
+"Alerts.paperKeySet" = "Personlig Återställningsnyckel Angiven";
+
+/*Alert Subheader label (playfully positive)*/
+"Alerts.paperKeySetSubheader" = "Häftigt!";
+
+/*Alert Header label (the PIN was set)*/
+"Alerts.pinSet" = "PIN Angiven";
+
+/*Send failure alert header label (the send failed to happen)*/
+"Alerts.sendFailure" = "Transaktion misslyckades";
+
+/*Send success alert header label (confirmation that the send happened)*/
+"Alerts.sendSuccess" = "Transaktionsbekräftelse";
+
+/*Send success alert subheader label (e.g. the money was sent)*/
+"Alerts.sendSuccessSubheader" = "DigiByte Skickade!";
+
+/*JSON Serialization error message*/
+"ApiClient.jsonError" = "JSON Publiceringsfel";
+
+/*Wallet not ready error message*/
+"ApiClient.notReady" = "Plånbok ej redo";
+
+/*API Token error message*/
+"ApiClient.tokenError" = "Hämtning av API-token misslyckades";
+
+/*Send BCH view body.*/
+"BCH.body" = "Ange en destinationsadress för DigiByte här nedanför. Alla DigiByte i din plånbok vid tiden för avknoppningen (%1$@) kommer att skickas.";
+
+/*Confirm sending <$5.00> to <address>?*/
+"BCH.confirmationMessage" = "Skicka %1$@ till %2$@";
+
+/*Confirmation alert title*/
+"BCH.confirmationTitle" = "Bekräftelse";
+
+/*Generic bch erorr message*/
+"BCH.genericError" = "Ditt konto innehåller inga DigiByte, eller så mottog du DigiByte efter avknoppningen.";
+
+/*Transaction ID copied message*/
+"BCH.hashCopiedMessage" = "Transaktions-ID kopierat";
+
+/*No address error message*/
+"BCH.noAddressError" = "Vänligen ange en adress";
+
+/*Attempted to scan unsupported qr code error message.*/
+"BCH.paymentProtocolError" = "Payment Protocol Requests stöds inte för DigiByte-transaktioner";
+
+/*BCH successfully sent alert message*/
+"BCH.successMessage" = "Överföring av DigiByte lyckades.";
+
+/*Widthdraw BCH view title*/
+"BCH.title" = "Ta ut DigiByte";
+
+/*Tx Hash button header*/
+"BCH.txHashHeader" = "DigiByte Transaktions-ID";
+
+/*Approve button label*/
+"BitID.approve" = "Godkänn";
+
+/*<sitename> is requesting authentication using your bitcoin wallet*/
+"BitID.authenticationRequest" = "%1$@ efterfrågar verifiering med hjälp av din DigiByte plånbok.";
+
+/*Deny button label*/
+"BitID.deny" = "Avvisa";
+
+/*BitID error alert title*/
+"BitID.error" = "Autentiseringsfel";
+
+/*BitID error alert messaage (The payment service you are trying to use isn't working. Please contact them, as you may need to try again)*/
+"BitID.errorMessage" = "Vänligen kontrollera tjänsten. Du kan behöva försöka igen.";
+
+/*BitID success alert title*/
+"BitID.success" = "Autentisering Lyckades";
+
+/*BitID Authentication Request alert view title*/
+"DigiID.title" = "Digi-ID Autentiserings-begäran";
+
+/*Cancel button label*/
+"Button.cancel" = "Avbryt";
+
+/*Ignore button label*/
+"Button.ignore" = "Ignorera";
+
+/*menu button*/
+"Button.menu" = "meny";
+
+/*No button*/
+"Button.no" = "Nej";
+
+/*OK button label*/
+"Button.ok" = "OK";
+
+/*receive button*/
+"Button.receive" = "ta emot";
+
+/*send button*/
+"Button.send" = "skicka";
+
+/*Settings button label*/
+"Button.settings" = "Inställningar";
+
+/*Settings button label*/
+"Button.submit" = "Spara";
+
+/*Yes button*/
+"Button.yes" = "Ja";
+
+/*Camera plugin instruction*/
+"CameraPlugin.centerInstruction" = "Centrera ditt ID innanför markeringarna";
+
+/*Amount to Send: ($1.00)*/
+"Confirmation.amountLabel" = "Belopp att Skicka:";
+
+/*Network Fee: ($1.00)*/
+"Confirmation.feeLabel" = "Nätverksavgift:";
+
+/*eg. Processing time: This transaction will take 10-30 minutes to process.*/
+"Confirmation.processingTime" = "Bearbetningstid: Denna transaktion beräknas ta %1$@.";
+
+/*Label for "send" button on final confirmation screen*/
+"Confirmation.send" = "Skicka";
+
+/*Confirmation Screen title*/
+"Confirmation.title" = "Bekräftelse";
+
+/*To: (address)*/
+"Confirmation.to" = "Till";
+
+/*Total Cost: ($5.00)*/
+"Confirmation.totalLabel" = "Total Kostnad:";
+
+/*Confirm paper phrase view label.*/
+"ConfirmPaperPhrase.label" = "För att säkerställa att allting blev nedskrivet korrekt, vänligen ange följande ord från din Personliga Återskapningsnyckel.";
+
+/*Word label eg. Word #1, Word #2*/
+"ConfirmPaperPhrase.word" = "Ord #%1$@";
+
+/*Bitcoin denomination picker label*/
+"DefaultCurrency.bitcoinLabel" = "DigiByte-visningsenhet";
+
+/*Exchange rate label*/
+"DefaultCurrency.rateLabel" = "Växelkurs";
+
+/*Email unavailable alert title*/
+"ErrorMessages.emailUnavailableMessage" = "Denna enhet är inte konfigurerad för att skicka e-post via iOS förinstallerade e-postklient.";
+
+/*Email unavailable alert title*/
+"ErrorMessages.emailUnavailableTitle" = "E-post Inte Tillgänglig";
+
+/*Messaging unavailable alert title*/
+"ErrorMessages.messagingUnavailableMessage" = "Denna enhet är inte konfigurerad för att skicka meddelanden.";
+
+/*Messaging unavailable alert title*/
+"ErrorMessages.messagingUnavailableTitle" = "Meddelanden Inte Tillgängligt";
+
+/*You can customize your Face ID Spending Limit from the [FaceIdSettings.linkText gets added here as a button]*/
+"FaceIDSettings.customizeText" = "Du kan ändra din Face ID-utgiftsbegränsning från %1$@.";
+
+/*Face Id screen label*/
+"FaceIDSettings.label" = "Använd ditt ansikte för att låsa upp din DigiWallet och skicka DigiByte upp till en angiven utgiftsbegränsning.";
+
+/*Link Text (see FaceIdSettings.customizeText)*/
+"FaceIDSettings.linkText" = "Textlänk (se TouchIdSettings.customizeText)";
+
+/*Face id switch label.*/
+"FaceIDSettings.switchLabel" = "Aktivera Face ID för DigiWallet";
+
+/*Face ID settings view title*/
+"FaceIDSettings.title" = "Face ID";
+
+/*Face ID unavailable alert message*/
+"FaceIDSettings.unavailableAlertMessage" = "Du har inte konfigurerat Face ID på denna enhet. Gå till Inställningar > Face ID & Lösenkod för att konfigurera detta nu.";
+
+/*Face ID unavailable alert title*/
+"FaceIDSettings.unavailableAlertTitle" = "Face ID Inte Konfigurerat";
+
+/*Face Id spending limit screen title*/
+"FaceIDSpendingLimit.title" = "Face ID-utgiftsbegränsning";
+
+/*Economy fee*/
+"FeeSelector.economy" = "Ekonomi";
+
+/*Fee Selector economly fee description*/
+"FeeSelector.economyLabel" = "Förväntad Transaktionstid: 10+ minuter";
+
+/*Warning message for economy fee*/
+"FeeSelector.economyWarning" = "Detta alternativ är inte rekommenderat för tidskänsliga transaktioner.";
+
+/*Regular fee*/
+"FeeSelector.regular" = "Standard";
+
+/*Fee Selector regular fee description*/
+"FeeSelector.regularLabel" = "Förväntad Transaktionstid: 15-30 sekunder";
+
+/*Fee Selector title*/
+"FeeSelector.title" = "Transaktionshastighet";
+
+/*Checking private key balance progress view text*/
+"Import.checking" = "Kontrollerar saldo på privatnyckel...";
+
+/*Sweep private key confirmation message*/
+"Import.confirm" = "Överför %1$@ från denna privatnyckel till din plånbok? DigiByte-nätverket erhåller en avgift på %2$@.";
+
+/*Duplicate key error message*/
+"Import.Error.duplicate" = "Denna privatnyckel finns redan i din plånbok.";
+
+/*empty private key error message*/
+"Import.Error.empty" = "Denna privatnyckel är tom.";
+
+/*High fees error message*/
+"Import.Error.highFees" = "Transaktionsavgifterna överstiger den tillgängliga balansen på denna privatnyckel.";
+
+/*Not a valid private key error message*/
+"Import.Error.notValid" = "Inte en godkänd privatnyckel";
+
+/*Import signing error message*/
+"Import.Error.signing" = "Fel vid signering av transaktion";
+
+/*Import button label*/
+"Import.importButton" = "Importera";
+
+/*Importing wallet progress view label*/
+"Import.importing" = "Importerar Plånbok";
+
+/*Caption for graphics*/
+"Import.leftCaption" = "Plånbok att importera";
+
+/*Import wallet intro screen message*/
+"Import.message" = "Att importera en plånbok innebär att alla DigiByte från din andra plånbok överförs till din DigiByte app med en enda transaktion.";
+
+/*Enter password alert view title*/
+"Import.password" = "Denna privatnyckel är lösenordsskyddad.";
+
+/*password textfield placeholder*/
+"Import.passwordPlaceholder" = "lösenord";
+
+/*Caption for graphics*/
+"Import.rightCaption" = "Din DigiByte plånbok";
+
+/*Scan Private key button label*/
+"Import.scan" = "Skanna Privat nyckel";
+
+/*Import wallet success alert title*/
+"Import.success" = "Importering Lyckades";
+
+/*Successfully imported wallet message body*/
+"Import.SuccessBody" = "Importering av plånbok lyckades.";
+
+/*Import Wallet screen title*/
+"Import.title" = "Importera Plånbok";
+
+/*Unlocking Private key activity view message.*/
+"Import.unlockingActivity" = "Låser Upp Nyckel";
+
+/*Import wallet intro warning message*/
+"Import.warning" = "Vid importering av plånbok medföljer inte transaktionshistorik eller annan information.";
+
+/*Wrong password alert message*/
+"Import.wrongPassword" = "Felaktigt lösenord, vänligen försök igen.";
+
+/*Close app button*/
+"JailbreakWarnings.close" = "Stäng";
+
+/*Ignore jailbreak warning button*/
+"JailbreakWarnings.ignore" = "Ignorera";
+
+/*Jailbreak warning message*/
+"JailbreakWarnings.messageWithBalance" = "ENHETENS SÄKERHET KOMPROMISSERAD\n'Jailbreak'-appar kan få åtkomst till DigiWallets nyckeldata och stjäla dina DigiByte! Radera denna plånbok omedelbart och återskapa den på en säker enhet.";
+
+/*Jailbreak warning message*/
+"JailbreakWarnings.messageWithoutBalance" = "ENHETENS SÄKERHET KOMPROMISSERAD\n'Jailbreak'-appar kan få åtkomst till DigiWallets nyckeldata och stjäla dina DigiByte! Använd endast DigiWallet på en icke-jailbreakad enhet.";
+
+/*Jailbreak warning title*/
+"JailbreakWarnings.title" = "VARNING";
+
+/*Location services disabled error*/
+"LocationPlugin.disabled" = "Platstjänster är inaktiverade.";
+
+/*No permissions for location services*/
+"LocationPlugin.notAuthorized" = "DigiWallet har inte åtkomst till platstjänster.";
+
+/*Wallet creation date prefix*/
+"ManageWallet.creationDatePrefix" = "Du skapade din plånbok den %1$@";
+
+/*Manage wallet description text*/
+"ManageWallet.description" = "Namnet på din plånbok är endast synligt i din transaktionshistorik och kan inte ses av någon annan.";
+
+/*Change Wallet name textfield label*/
+"ManageWallet.textFeildLabel" = "Plånboksnamn";
+
+/*Manage wallet modal title*/
+"ManageWallet.title" = "Hantera Plånbok";
+
+/*Menu button title*/
+"MenuButton.lock" = "Lås Plånbok";
+
+/*Menu button title*/
+"MenuButton.security" = "Säkerhetscenter";
+
+/*Menu button title*/
+"MenuButton.settings" = "Inställningar";
+
+/*Menu button title*/
+"MenuButton.support" = "Support";
+
+/*button label*/
+"MenuViewController.createButton" = "Skapa Ny Plånbok";
+
+/*Menu modal title*/
+"MenuViewController.modalTitle" = "Meny";
+
+/*button label*/
+"MenuViewController.recoverButton" = "Återskapa Plånbok";
+
+/*Switch to automatic mode button label*/
+"NodeSelector.automaticButton" = "Växla till Automatiskt Läge";
+
+/*Node is connected label*/
+"NodeSelector.connected" = "Ansluten";
+
+/*Enter node ip address view body*/
+"NodeSelector.enterBody" = "Ange IP-adress och port för Nod (frivilligt)";
+
+/*Enter Node ip address view title*/
+"NodeSelector.enterTitle" = "Ange Nod";
+
+/*Switch to manual mode button label*/
+"NodeSelector.manualButton" = "Växla till Manuellt Läge";
+
+/*Node address label*/
+"NodeSelector.nodeLabel" = "Aktuell Primärnod";
+
+/*Node is not connected label*/
+"NodeSelector.notConnected" = "Inte Ansluten";
+
+/*Node status label*/
+"NodeSelector.statusLabel" = "Anslutningsstatus för Nod";
+
+/*Node Selector view title*/
+"NodeSelector.title" = "DigiByte-noder";
+
+/*Bad Payment request alert title*/
+"PaymentProtocol.Errors.badPaymentRequest" = "Felaktig Betalningsförfrågan";
+
+/*Error opening payment protocol file message*/
+"PaymentProtocol.Errors.corruptedDocument" = "Dokumentet stöds ej eller är korrupt";
+
+/*Missing certificate payment protocol error message*/
+"PaymentProtocol.Errors.missingCertificate" = "certifikat saknas";
+
+/*Request expired payment protocol error message*/
+"PaymentProtocol.Errors.requestExpired" = "förfrågan har löpt ut";
+
+/*Payment too small alert title*/
+"PaymentProtocol.Errors.smallOutputError" = "Kunde inte genomföra betalning";
+
+/*Amount too small error message*/
+"PaymentProtocol.Errors.smallPayment" = "DigiByte-betalningar kan inte vara mindre än %1$@.";
+
+/*Output too small error message.*/
+"PaymentProtocol.Errors.smallTransaction" = "Summan av DigiByte-transaktioner kan inte vara mindre än %1$@.";
+
+/*Unsupported signature type payment protocol error message*/
+"PaymentProtocol.Errors.unsupportedSignatureType" = "signaturtyp stöds inte";
+
+/*Untrusted certificate payment protocol error message*/
+"PaymentProtocol.Errors.untrustedCertificate" = "opålitligt certifikat";
+
+/*Enable face ID prompt body*/
+"Prompts.FaceId.body" = "Tryck här för att aktivera Face ID";
+
+/*Enable face ID prompt title*/
+"Prompts.FaceId.title" = "Aktivera Face ID";
+
+/*No passcode set warning body*/
+"Prompts.NoPasscode.body" = "En enhetslösenkod krävs för att skydda din plånbok. Gå till Inställningar och aktivera lösenkod.";
+
+/*No Passcode set warning title*/
+"Prompts.NoPasscode.title" = "Aktivera enhetslösenkod";
+
+/*Warning about paper key.*/
+"Prompts.PaperKey.body" = "Din Personliga Återskapningsnyckel måste sparas om du skulle förlora eller byta ut din enhet. Tryck här för att gå vidare.";
+
+/*An action is required (You must do this action).*/
+"Prompts.PaperKey.title" = "Åtgärd Krävs";
+
+/*Transaction rejected prompt body*/
+"Prompts.RecommendRescan.body" = "Din plånbok kan vara osynkroniserad. Detta kan oftast åtgärdas genom att läsa in blockkedjan igen.";
+
+/*Transaction rejected prompt title*/
+"Prompts.RecommendRescan.title" = "Transaktion Avvisad";
+
+/*Share data prompt body*/
+"Prompts.ShareData.body" = "Hjälp oss att förbättra DigiWallet genom att dela med dig av information anonymt till oss";
+
+/*Share data prompt title*/
+"Prompts.ShareData.title" = "Dela Information Anonymt";
+
+/*Enable touch ID prompt body*/
+"Prompts.TouchId.body" = "Tryck här för att aktivera Touch ID";
+
+/*Enable touch ID prompt title*/
+"Prompts.TouchId.title" = "Aktivera Touch ID";
+
+/*Upgrade PIN prompt body.*/
+"Prompts.UpgradePin.body" = "DigiWallet har uppgraderats till att använda en 6-siffrig PIN. Tryck här för att uppgradera.";
+
+/*Upgrade PIN prompt title.*/
+"Prompts.UpgradePin.title" = "Uppgradera PIN";
+
+/*Notifications will be added later but users can set their preferences now, which is why we specify "in the future".*/
+"PushNotifications.body" = "Aktivera notifikationer för att få speciella meddelanden från DigiWallet i framtiden.";
+
+/*Push notifications toggle switch label*/
+"PushNotifications.label" = "Pushnotiser";
+
+/*Push notifications are off label*/
+"PushNotifications.off" = "Av";
+
+/*Push notifications are on label*/
+"PushNotifications.on" = "På";
+
+/*Push notifications settings view title label*/
+"PushNotifications.title" = "Notiser";
+
+/*Address copied message.*/
+"Receive.copied" = "Kopierat till urklipp.";
+
+/*Share via email button label*/
+"Receive.emailButton" = "E-post";
+
+/*Request button label*/
+"Receive.request" = "Begär Belopp";
+
+/*Share button label*/
+"Receive.share" = "Dela";
+
+/*Share via text message (SMS)*/
+"Receive.textButton" = "Meddelande";
+
+/*Receive modal title*/
+"Receive.title" = "Ta Emot";
+
+/*Done button text*/
+"RecoverWallet.done" = "Klar";
+
+/*Recover wallet header*/
+"RecoverWallet.header" = "Återskapa Plånbok";
+
+/*Reset PIN with paper key: header*/
+"RecoverWallet.header_reset_pin" = "Återställ PIN";
+
+/*Enter paper key instruction*/
+"RecoverWallet.instruction" = "Ange Personlig Återskapningsnyckel";
+
+/*Recover wallet intro*/
+"RecoverWallet.intro" = "Återskapa din DigiWallet med din Personliga Återskapningsnyckel.";
+
+/*Invalid paper key message*/
+"RecoverWallet.invalid" = "Den Personliga Återskapningsnyckeln som du angav är felaktig. Vänligen granska varje ord och försök igen.";
+
+/*Previous button accessibility label*/
+"RecoverWallet.leftArrow" = "Vänsterpil";
+
+/*Next button label*/
+"RecoverWallet.next" = "Nästa";
+
+/*Reset PIN with paper key: more information button.*/
+"RecoverWallet.reset_pin_more_info" = "Tryck här för mer information.";
+
+/*Next button accessibility label*/
+"RecoverWallet.rightArrow" = "Högerpil";
+
+/*Recover wallet sub-header*/
+"RecoverWallet.subheader" = "Ange den Personliga Återskapningsnyckeln för den DigiWallet som du vill återskapa.";
+
+/*Reset PIN with paper key: sub-header*/
+"RecoverWallet.subheader_reset_pin" = "För att återställa din PIN, ange orden från din Personliga Återskapningsnyckel i nedanstående fält.";
+
+/*No amount entered error message.*/
+"RequestAnAmount.noAmount" = "Vänligen ange ett belopp först.";
+
+/*Request a specific amount of bitcoin*/
+"RequestAnAmount.title" = "Begär Belopp";
+
+/*Alert action button label*/
+"ReScan.alertAction" = "Synkronisera";
+
+/*Alert message body*/
+"ReScan.alertMessage" = "Du kommer inte kunna skicka DigiByte under synkronisering.";
+
+/*Alert message title*/
+"ReScan.alertTitle" = "Synkronisera med Blockkedja?";
+
+/*extimated time*/
+"ReScan.body1" = "20-45 minuter";
+
+/*Syncing explanation*/
+"ReScan.body2" = "Om en transaktion visas som genomförd på DigiByte-nätverket men inte i din plånbok.";
+
+/*Syncing explanation*/
+"ReScan.body3" = "Om du vid upprepade tillfällen får ett felmeddelande om att din transaktion blev avvisad.";
+
+/*Start Sync button label*/
+"ReScan.buttonTitle" = "Påbörja Synkronisering";
+
+/*Sync blockchain view footer*/
+"ReScan.footer" = "Du kommer inte kunna skicka DigiByte under synkronisering med blockkedjan.";
+
+/*Sync Blockchain view header*/
+"ReScan.header" = "Synkronisera Blockkedja";
+
+/*Subheader label*/
+"ReScan.subheader1" = "Förväntad tid";
+
+/*Subheader label*/
+"ReScan.subheader2" = "När Synkronisera?";
+
+/*Scan bitcoin address camera flash toggle*/
+"Scanner.flashButtonLabel" = "Kamerablixt";
+
+/*Complete filter label*/
+"Search.complete" = "fullständig";
+
+/*Pending filter label*/
+"Search.pending" = "avvaktar";
+
+/*Received filter label*/
+"Search.received" = "mottagna";
+
+/*Sent filter label*/
+"Search.sent" = "skickade";
+
+/*Face ID button title*/
+"SecurityCenter.faceIdTitle" = "Face ID";
+
+/*Security Center Info*/
+"SecurityCenter.info" = "Aktivera alla säkerhetsfunktioner för maximal säkerhet.";
+
+/*Paper Key button description*/
+"SecurityCenter.paperKeyDescription" = "Det enda sättet att få åtkomst till dina DigiByte om du förlorar eller byter ut din enhet.";
+
+/*Paper Key button title*/
+"SecurityCenter.paperKeyTitle" = "Personlig Återskapningsnyckel";
+
+/*PIN button description*/
+"SecurityCenter.pinDescription" = "Skyddar din DigiWallet från obehöriga användare.";
+
+/*PIN button title*/
+"SecurityCenter.pinTitle" = "6-siffrig PIN";
+
+/*Security Center Title*/
+"SecurityCenter.title" = "Säkerhetscenter";
+
+/*Touch ID button description*/
+"SecurityCenter.touchIdDescription" = "Lås upp din DigiWallet på ett bekvämt sätt och skicka DigiByte upp till angiven en utgiftsbegränsning.";
+
+/*Touch ID button title*/
+"SecurityCenter.touchIdTitle" = "Touch ID";
+
+/*Send money amount label*/
+"Send.amountLabel" = "Belopp";
+
+/*Balance: $4.00*/
+"Send.balance" = "Balans: %1$@";
+
+/*Camera not allowed message*/
+"Send.cameraunavailableMessage" = "Gå till Inställningar för att tillåta kameraåtkomst.";
+
+/*Camera not allowed alert title*/
+"Send.cameraUnavailableTitle" = "DigiWallet har inte åtkomst till kameran";
+
+/*Warning when sending to self.*/
+"Send.containsAddress" = "Destinationsadressen tillhör dig. Du kan inte skicka till dig själv.";
+
+/*Could not create transaction alert title*/
+"Send.creatTransactionError" = "Kunde inte skapa transaktion.";
+
+/*Description for sending money label*/
+"Send.descriptionLabel" = "Anteckning";
+
+/*Emtpy pasteboard error message*/
+"Send.emptyPasteboard" = "Urklipp är tomt";
+
+/*Network Fee: $0.01*/
+"Send.fee" = "Nätverksavgift: %1$@";
+
+/*Payee identity not certified alert title.*/
+"Send.identityNotCertified" = "Betalningsmottagarens identitet är inte certifierad.";
+
+/*Invalid address alert message*/
+"Send.invalidAddressMessage" = "Destinationsadressen är inte en giltig DigiByte-adress.";
+
+/*Invalid address on pasteboard message*/
+"Send.invalidAddressOnPasteboard" = "Urklipp innehåller inte en giltig DigiByte-adress.";
+
+/*Invalid address alert title*/
+"Send.invalidAddressTitle" = "Ogiltig Adress";
+
+/*Is rescanning error message*/
+"Send.isRescanning" = "Möjligheten att skicka är inaktiverad under en fullständig omscanning.";
+
+/*Loading request activity view message*/
+"Send.loadingRequest" = "Laddar Förfrågan";
+
+/*Empty address alert message*/
+"Send.noAddress" = "Vänligen ange mottagarens adress.";
+
+/*Emtpy amount alert message*/
+"Send.noAmount" = "Vänligen ange ett belopp att skicka.";
+
+/*Paste button label*/
+"Send.pasteLabel" = "Klistra In";
+
+/*Could not publish transaction alert title*/
+"Send.publishTransactionError" = "Kunde inte publicera transaktion.";
+
+/*Could not load remote request error message*/
+"Send.remoteRequestError" = "Kunde inte läsa in betalningsförfrågan";
+
+/*Scan button label*/
+"Send.scanLabel" = "Scanna";
+
+/*Send button label (the action, "press here to send")*/
+"Send.sendLabel" = "Skicka";
+
+/*Send screen title (as in "this is the screen for sending money")*/
+"Send.title" = "Skicka";
+
+/*Send money to label*/
+"Send.toLabel" = "Till";
+
+/*Adress already used alert message - first part*/
+"Send.UsedAddress.firstLine" = "DigiByte-adresser är endast avsedda för engångsbruk.";
+
+/*Adress already used alert message - second part*/
+"Send.UsedAddress.secondLIne" = "Återanvändning minskar integriteten för både dig och mottagaren och kan resultera i förlust om inte mottagaren har direktkontroll över adressen.";
+
+/*Adress already used alert title*/
+"Send.UsedAddress.title" = "Address Används Redan";
+
+/*About label*/
+"Settings.about" = "Om";
+
+/*Advanced Settings title*/
+"Settings.advancedTitle" = "Avancerade Inställningar";
+
+/*i.e. the currency which will be displayed*/
+"Settings.currency" = "Visa Valuta";
+
+/*Join Early access label*/
+"Settings.earlyAccess" = "Gå med i Early Access";
+
+/*Are you enjoying bread alert message body*/
+"Settings.enjoying" = "Uppskattar du DigiWallet?";
+
+/*Face ID spending limit label*/
+"Settings.faceIdLimit" = "Utgiftsbegränsning för Face ID";
+
+/*Import wallet label*/
+"Settings.importTitle" = "Importera Plånbok";
+
+/*Manage settings section header*/
+"Settings.manage" = "Hantera";
+
+/*Notifications label*/
+"Settings.notifications" = "Notiser";
+
+/*Leave review button label*/
+"Settings.review" = "Lämna En Recension";
+
+/*Share anonymous data label*/
+"Settings.shareData" = "Dela Information Anonymt";
+
+/*Sync blockchain label*/
+"Settings.sync" = "Synkronisera Blockkedja";
+
+/*Settings title*/
+"Settings.title" = "Inställningar";
+
+/*Touch ID spending limit label*/
+"Settings.touchIdLimit" = "Utgiftsbegränsning för Touch ID";
+
+/*Wallet Settings section header*/
+"Settings.wallet" = "Plånbok";
+
+/*Start or recover another wallet menu label.*/
+"Settings.wipe" = "Starta/Återskapa En Annan Plånbok";
+
+/*Share data view body*/
+"ShareData.body" = "Hjälp oss att förbättra DigiWallet genom att dela information anonymt med oss. Detta inkluderat inte någon finansiell information. Vi respekterar din finansiella integritet.";
+
+/*Share data header*/
+"ShareData.header" = "Dela Information?";
+
+/*Share data switch label.*/
+"ShareData.toggleLabel" = "Dela Information Anonymt?";
+
+/*button label*/
+"StartPaperPhrase.againButtonTitle" = "Skriv ner din Personliga Återskapningsnyckel igen";
+
+/*Paper key explanation text.*/
+"StartPaperPhrase.body" = "Din Personliga Återskapningsnyckel är det enda sättet att återskapa din DigiWallet om din enhet blir borttappad, stulen, trasig och eller uppgraderad.\n\nDu kommer att få se en lista med ord som du skall skriva ner på ett papper och förvara på en säker plats.";
+
+/*button label*/
+"StartPaperPhrase.buttonTitle" = "Skriv Ner Personlig Återskapningsnyckel";
+
+/*Argument is date*/
+"StartPaperPhrase.date" = "Du skrev senast ner din Personliga Återskapningsnyckel den %1$@";
+
+/*Start view message*/
+"StartViewController.message" = "Det säkraste sättet att använda DigiByte.";
+
+/*Syncing view connectiong state header text*/
+"SyncingView.connecting" = "Ansluter";
+
+/*Syncing view header text*/
+"SyncingView.header" = "Synkroniserar";
+
+/*Retry button label*/
+"SyncingView.retry" = "Försök Igen";
+
+/*Syncing view syncing state header text*/
+"SyncingView.syncing" = "Synkroniserar";
+
+/*6 d (6 days)*/
+"TimeSince.days" = "%1$@ d";
+
+/*6 h (6 hours)*/
+"TimeSince.hours" = "%1$@ t";
+
+/*6 m (6 minutes)*/
+"TimeSince.minutes" = "%1$@ m";
+
+/*6 s (6 seconds)*/
+"TimeSince.seconds" = "%1$@ s";
+
+/*You can customize your Touch ID Spending Limit from the [TouchIdSettings.linkText gets added here as a button]*/
+"TouchIdSettings.customizeText" = "Du kan ändra din Touch ID-utgiftsbegränsning från %1$@.";
+
+/*Touch Id screen label*/
+"TouchIdSettings.label" = "Använd ditt fingeravtryck för att låsa upp din DigiWallet och skicka DigiByte upp till en angiven utgiftsbegränsning.";
+
+/*Link Text (see TouchIdSettings.customizeText)*/
+"TouchIdSettings.linkText" = "Touch ID-utgiftsbegränsningsvy";
+
+/*Spending Limit: b100,000 ($100)*/
+"TouchIdSettings.spendingLimit" = "Utgiftsbegränsning: %1$@ (%2$@)";
+
+/*Touch id switch label.*/
+"TouchIdSettings.switchLabel" = "Aktivera Touch ID för DigiWallet";
+
+/*Touch ID settings view title*/
+"TouchIdSettings.title" = "Touch ID";
+
+/*Touch ID unavailable alert message*/
+"TouchIdSettings.unavailableAlertMessage" = "Du har inte konfigurerat Touch ID på denna enhet. Gå till Inställningar > Touch ID & Lösenkod för att konfigurera detta nu.";
+
+/*Touch ID unavailable alert title*/
+"TouchIdSettings.unavailableAlertTitle" = "Touch ID Inte Konfigurerat";
+
+/*Always require passcode option*/
+"TouchIdSpendingLimit" = "Kräv alltid lösenkod";
+
+/*Touch ID spending limit screen body*/
+"TouchIdSpendingLimit.body" = "Du kommer att behöva ange din 6-siffriga PIN för att skicka transaktioner över din utgiftsbegränsning samt var 48:e timme sedan det senaste tillfället du angav din 6-siffriga PIN.";
+
+/*Touch Id spending limit screen title*/
+"TouchIdSpendingLimit.title" = "Utgiftsbegränsning för Touch ID";
+
+/*Availability status text*/
+"Transaction.available" = "Tillgängligt Att Spendera";
+
+/*Transaction complete label*/
+"Transaction.complete" = "Genomförd";
+
+/*eg. Ending balance: $50.00*/
+"Transaction.ending" = "Slutbalans: %1$@";
+
+/*Exchange rate on date header*/
+"Transaction.exchangeOnDayReceived" = "Växelkurs vid mottagande:";
+
+/*Exchange rate on date header*/
+"Transaction.exchangeOnDaySent" = "Växelkurs vid överföring:";
+
+/*(b600 fee)*/
+"Transaction.fee" = "(%1$@ avgift)";
+
+/*Invalid transaction*/
+"Transaction.invalid" = "OGILTIG";
+
+/*Timestamp label for event that just happened*/
+"Transaction.justNow" = " nu";
+
+/*Receive status text: 'In progress: 20%'*/
+"Transaction.receivedStatus" = "Laddar: %1$@";
+
+/*Send status text: 'In progress: 20%'*/
+"Transaction.sendingStatus" = "Laddar: %1$@";
+
+/*eg. Starting balance: $50.00*/
+"Transaction.starting" = "Startbalans: %1$@";
+
+/*Waiting to be confirmed string*/
+"Transaction.waiting" = "Väntar på bekräftelse. Vissa handlare kräver bekräftelse för att slutföra en transaktion. Förväntad tid: 1-2 minuter.";
+
+/*e.g. I received money from an account.*/
+"TransactionDetails.account" = "konto";
+
+/*Amount section header*/
+"TransactionDetails.amountHeader" = "Belopp";
+
+/*Block height label*/
+"TransactionDetails.blockHeightLabel" = "Belopp";
+
+/*Memo section header*/
+"TransactionDetails.commentsHeader" = "Anteckning";
+
+/*Empty transaction list message.*/
+"TransactionDetails.emptyMessage" = "Din transaktion kommer visas här.";
+
+/*"Received [$5] at [which of my addresses]" => This is the "at [which of my addresses]" part.*/
+"TransactionDetails.from" = "till %1$@";
+
+/*More button title*/
+"TransactionDetails.more" = "Mer...";
+
+/*Moved $5.00 (as in "I moved $5 to another location")*/
+"TransactionDetails.moved" = "Överförde %1$@";
+
+/*Moved $5.00*/
+"TransactionDetails.movedAmountDescription" = "Överförde <b>%1$@</b>";
+
+/*eg. Confirmed in Block: Not Confirmed*/
+"TransactionDetails.notConfirmedBlockHeightLabel" = "Inte Bekräftad";
+
+/*"Received [$5] at [which of my addresses]" => This is the "Received [$5]" part.*/
+"TransactionDetails.received" = "Tog emot %1$@";
+
+/*Received $5.00*/
+"TransactionDetails.receivedAmountDescription" = "Tog emot <b>%1$@</b>";
+
+/*"Sent [$5] to [address]" => This is the "Sent [$5]" part.*/
+"TransactionDetails.sent" = "Skickade %1$@";
+
+/*Sent $5.00*/
+"TransactionDetails.sentAmountDescription" = "Skickade <b>%1$@</b>";
+
+/*Status section header*/
+"TransactionDetails.statusHeader" = "Status";
+
+/*Transaction Details Title*/
+"TransactionDetails.title" = "Transaktionsdetaljer";
+
+/*"Sent [$5] to [address]" => This is the "to [address]" part.*/
+"TransactionDetails.to" = "till %1$@";
+
+/*Transaction ID header*/
+"TransactionDetails.txHashHeader" = "DigiByte Transaktions-ID";
+
+/*(this transaction was) Received at this address:*/
+"TransactionDirection.address" = "Mottagen till Denna Adress";
+
+/*(this transaction was) Sent to this address:*/
+"TransactionDirection.to" = "Skickad till Denna Adress";
+
+/*Disabled until date*/
+"UnlockScreen.disabled" = "Inaktiverad till: %1$@";
+
+/*My Address button title*/
+"UnlockScreen.myAddress" = "Min Adress";
+
+/*Reset PIN with Paper Key button label.*/
+"UnlockScreen.resetPin" = "Återställ PIN";
+
+/*Scan button title*/
+"UnlockScreen.scan" = "Scanna";
+
+/*Unlock Screen sub-header*/
+"UnlockScreen.subheader" = "Ange PIN";
+
+/*TouchID prompt text*/
+"UnlockScreen.touchIdPrompt" = "Lås upp din DigiWallet.";
+
+/*Unlock with TouchID accessibility label*/
+"UnlockScreen.touchIdText" = "Lås upp med Touch ID";
+
+/*Wallet unlocked message*/
+"UnlockScreen.unlocked" = "Plånbok Upplåst";
+
+/*Update PIN caption text*/
+"UpdatePin.caption" = "Kom ihåg denna PIN. Om du glömmer bort den kommer du att att förlora åtkomsten till dina DigiByte.";
+
+/*PIN creation info.*/
+"UpdatePin.createInstruction" = "Din PIN kommer att användas för att låsa upp din DigiWallet och för att skicka DigiByte.";
+
+/*Update PIN title*/
+"UpdatePin.createTitle" = "Ange PIN";
+
+/*Update PIN title*/
+"UpdatePin.createTitleConfirm" = "Ange PIN Igen";
+
+/*Enter current PIN instruction*/
+"UpdatePin.enterCurrent" = "Ange nuvarande PIN.";
+
+/*Enter new PIN instruction*/
+"UpdatePin.enterNew" = "Ange din nya PIN.";
+
+/*Re-Enter new PIN instruction*/
+"UpdatePin.reEnterNew" = "Ange din nya PIN igen.";
+
+/*Update PIN failure error message.*/
+"UpdatePin.setPinError" = "Beklagar, kunde inte uppdatera PIN.";
+
+/*Update PIN failure alert view title*/
+"UpdatePin.setPinErrorTitle" = "Fel Vid Uppdatering Av PIN";
+
+/*Update PIN title*/
+"UpdatePin.updateTitle" = "Uppdatera PIN";
+
+/*Authorize to copy wallet addresses alert message*/
+"URLHandling.addressaddressListAlertMessage" = "Kopiera plånboksadress till urklipp?";
+
+/*Authorize to copy wallet address PIN view prompt.*/
+"URLHandling.addressList" = "Verifiera för att kopiera plånboksadress till urklipp";
+
+/*Authorize to copy wallet address alert title*/
+"URLHandling.addressListAlertTitle" = "Kopiera Plånboksadresser";
+
+/*Copy wallet addresses alert button label*/
+"URLHandling.copy" = "Kopiera";
+
+/*Verify PIN for transaction view body*/
+"VerifyPin.authorize" = "Vänligen ange din PIN för att verifiera denna transaktion.";
+
+/*Verify PIN view body*/
+"VerifyPin.continueBody" = "Vänligen ange din PIN för att fortsätta.";
+
+/*Verify PIN view title*/
+"VerifyPin.title" = "PIN Krävs";
+
+/*Authorize transaction with touch id message*/
+"VerifyPin.touchIdMessage" = "Verifiera denna transaktion";
+
+/*'No wallet' warning for watch app*/
+"Watch.noWalletWarning" = "Öppna DigiWallet's iOS-app för att konfigurera din plånbok.";
+
+/*Dismiss button label*/
+"Webview.dismiss" = "Avfärda";
+
+/*Webview loading error message*/
+"Webview.errorMessage" = "Ett fel uppstod vid inläsning av innehållet. Vänligen försök igen.";
+
+/*Updating webview message*/
+"Webview.updating" = "Uppdaterar...";
+
+/*Welcome screen text. (?) will be replaced with the help icon users should look for.*/
+"Welcome.body" = "DigiByte för iOS har ändrat namn till DigiWallet, samt fått ett nytt utseende och några nya funktioner.\n\nOm du behöver hjälp, tryck på (?)-ikonen i det övre högra hörnet där den finns tillgängligt.";
+
+/*Top title of welcome screen*/
+"Welcome.title" = "Välkommen till DigiWallet!";
+
+/*Wipe wallet alert message*/
+"WipeWallet.alertMessage" = "Är du säker på att du vill radera denna plånbok?";
+
+/*Wipe wallet alert title*/
+"WipeWallet.alertTitle" = "Radera Plånbok?";
+
+/*Failed wipe wallet alert message*/
+"WipeWallet.failedMessage" = "Misslyckades med att radera plånbok.";
+
+/*Failed wipe wallet alert title*/
+"WipeWallet.failedTitle" = "Misslyckades";
+
+/*Enter phrase to wipe wallet instruction.*/
+"WipeWallet.instruction" = "Ange den här plånbokens Personliga Återskapningsnyckel för att radera plånboken och skapa en ny eller återskapa en befintlig. Din nuvarande balans finns kvar på denna Personliga Återskapningsnyckel.";
+
+/*Start wipe wallet view message*/
+"WipeWallet.startMessage" = "Att skapa eller att återskapa en annan plånbok ger dig möjligheten att få tillgång till och hantera en annan DigiWallet på denna enhet.";
+
+/*Start wipe wallet view warning*/
+"WipeWallet.startWarning" = "Du kommer inte längre att ha åtkomst till din nuvarande DigiWallet från denna enhet. Balansen finns kvar på din Personliga Återskapningsnyckel.";
+
+/*Wipe wallet navigation item title.*/
+"WipeWallet.title" = "Skapa eller Återskapa En Annan plånbok";
+
+/*Wipe wallet button title*/
+"WipeWallet.wipe" = "Radera";
+
+/*Wiping activity message*/
+"WipeWallet.wiping" = "Raderar...";
+
+/*Paper key instructions.*/
+"WritePaperPhrase.instruction" = "Skriv ner varje ord i angiven ordning och förvara på en säker plats.";
+
+/*button label*/
+"WritePaperPhrase.next" = "Nästa";
+
+/*button label*/
+"WritePaperPhrase.previous" = "Föregående";
+
+/*1 of 3*/
+"WritePaperPhrase.step" = "%1$d av %2$d";
+
+/*header of PinView*/
+"Prompts.SecurityCheck.header" = "säkerhet\nkontrollera";
+
+/*header of balance*/
+"Balance.header" = "total\nbalans";
+
+/*labels of syncView*/
+"SynchingView.blockHeightLabel" = "blockhöjd";
+"SynchingView.progressLabel" = "framsteg";
+
+/*filter buttons for transactionView*/
+"TransactionView.all" = "Allt";
+
+/*TransactionFilter sent*/
+"TransactionView.sent" = "skickat";
+
+/*TransactionFilter received*/
+"TransactionView.received" = "mottagen";
+
+/*DATE: date*/
+"TransactionDetailView.date" = "datum";
+
+/*PROCESSED: time*/
+"TransactionDetailView.processed" = "bearbetad";
+
+/*STATUS: complete*/
+"TransactionDetailView.status" = "status";
+
+/*CONFIRMATIONS: number*/
+"TransactionDetailView.confirmations" = "bekräftningar";
+
+/*missing time translation*/
+"FeeSelector.regularTime" = "15-30 sekunder";
+
+/*Text that is shown when asset was not resolved yet*/
+"Assets.unresolved" = "Oupplöst tillgång";
+
+/*Text to show if no metadata is available for the asset*/
+"Assets.noMetadata" = "DigiAsset";
+
+/*Showing when multiple assets were received*/
+"Assets.multipleAssets" = "Flertal assets";
+
+/*Title of confirm view*/
+"Assets.receivedAssetsTitle" = "DigiAssets mottaget";
+
+/*Message will be displayed if assets were received*/
+"Assets.receivedAssetsMessage" = "Du tog emot en eller flera DigiAssets. För att kunna se dina assets måste din app kommunicera med metadata-servern. Detta kommer blotta viss av din plånboks offentliga data, så som adresser eller transaktions-hash.";
+
+/*Title of confirm view if opening single*/
+"Assets.openAssetTitle" = "Se DigiAsset";
+
+/*Message will be displayed if asset shall be opened*/
+"Assets.openAssetMessage" = "För att se denna asset behöver appen kommunicera med en metadata-server. Detta kommer att blotta en av din plånboks offentliga adresser.";
+
+/*Title to show when assets are being fetched*/
+"Assets.fetchingAssetsTitle" = "Hämtar Assets";
+
+/*View RAW Transaction button title*/
+"Assets.viewRawTransaction" = "Visa RAW Transaktion";
+
+/*Resolve button caption*/
+"Assets.confirmAssetsResolve" = "Lösa tillgångar";
+
+/*Skip button caption*/
+"Assets.skipAssetsResolve" = "Skippa";
+
+/*Cancel button caption*/
+"Assets.cancelAssetsResolve" = "Avbryt";
+
+/*Skip button caption*/
+"Assets.continueWithoutSync" = "Skippa Synkronisering";
+
+/*Total supply of asset*/
+"Assets.totalSupply" = "Total Tillgång";
+
+/*Number of total holders of an asset*/
+"Assets.numberOfHolders" = "Antal Innehavare";
+
+/*lock status of an asset*/
+"Assets.lockStatus" = "Lås-status";
+
+/*Issuer key*/
+"Assets.issuer" = "Utgivare";
+
+/*AssetID key*/
+"Assets.assetID" = "Asset ID";
+
+/*Address key*/
+"Assets.address" = "Adress";
+
+/*Possible value of Lock Status*/
+"Assets.locked" = "Låst";
+
+/*Possible value of Lock Status*/
+"Assets.unlocked" = "Upplåst";
+
+/*Shown if a value is unknown (N/A)*/
+"Assets.unknown" = "Okänd";
+
+/*Total Balance: <BALANCE>*/
+"Assets.totalBalance" = "Totalt saldo";
+
+/*Tap to show button*/
+"Assets.tapToShow" = "Tryck för att visa";
+
+/*Tap to hide button*/
+"Assets.tapToHide" = "Tryck för att dölja";
+
+/*Asset ID: XXXXXX*/
+"Assets.assetIdKey" = "Asset ID";
+
+/*Total Balance: 1000*/
+"Assets.balanceKey" = "Totalt Saldo";
+
+/*Issuer: CreateDigiAssets.com*/
+"Assets.issuerKey" = "Utgivare";
+
+/*Asset Info: YYYY*/
+"Assets.assetInfoKey" = "Asset Info";
+
+/*Description: ZZZZ*/
+"Assets.descriptionKey" = "Beskrivning";
+
+/*Button title for GET STARTED*/
+"Assets.getStarted" = "Börja";
+
+/*Button title for create new asset*/
+"Assets.createNewAsset" = "Skapa ny Asset";
+
+/*Heading for Receive assets*/
+"Assets.receiveAssets" = "Ta emot Assets";
+
+/*Heading for create new assets*/
+"Assets.createAssets" = "Skapa Assets";
+
+/*Heading for burn assets*/
+"Assets.burnAssets" = "Bränn Assets";
+
+/*Button title for send assets*/
+"Assets.sendAssets" = "Skicka Assets";
+
+/*Tab title*/
+"Assets.tabOverview" = "Assets";
+
+/*Tab title*/
+"Assets.tabCreate" = "Skapa";
+
+/*Tab title*/
+"Assets.tabSend" = "Skicka";
+
+/*Tab title*/
+"Assets.tabReceive" = "Ta Emot";
+
+/*Tab title*/
+"Assets.tabBurn" = "Bränn";
+
+/*Shown, when no assets are available*/
+"Assets.nothingFoundHere" = "Ingenting hittat här";
+
+/*Asset selector placeholder text*/
+"Assets.selectAnAsset" = "Välj en Asset";
+
+/*Danger Title*/
+"Assets.dangerTitle" = "FAROZON";
+
+/*Danger description*/
+"Assets.dangerText" = "Att bränna en Asset förstör dem permanent. Du kan aldrig någonsin få tillbaka dem.";
+
+/*Asset not available*/
+"Assets.AssetNotAvailable" = "Asset ej tillgänglig";
+
+/*Displayed as a message when not enough assets are available*/
+"Assets.NotEnoughAssets" = "Inte tillräckligt med assets";
+
+/*No asset data error message*/
+"Assets.NoAssetData" = "Ingen asset-data tillgänglig";
+
+/*Displayed as a message when assets were burned*/
+"Assets.AssetsBurned" = "Asset(s) brända!";
+
+/*Displayed as a message when assets were sent*/
+"Assets.AssetsSent" = "Asset(s) skickade!";
+
+/*Transaction could not be broadcasted: <MESSAGE>*/
+"Assets.couldNotBeBroadcasted" = "Transaktion kunde inte sändas: %1$@";
+
+/*Transaction could not be created: <MESSAGE> (code: 123)*/
+"Assets.couldNotBeCreated" = "Transaktion kunde ej skapas: %1$@ (kod: %2$@)";
+
+/*Total unique: 1234*/
+"Assets.totalUnique" = "Totalt antal unika Assets: %1$@";
+
+/*Context menu button caption*/
+"Assets.Context.info" = "Info";
+
+/*Context menu button caption*/
+"Assets.Context.send" = "Skicka";
+
+/*Context menu button caption*/
+"Assets.Context.receive" = "Ta Emot";
+
+/*Context menu button caption*/
+"Assets.Context.burn" = "Bränn";
+
+/*Assets you own (heading)*/
+"Assets.yourAssets" = "Assets du äger";
+
+/*Message heading*/
+"Assets.protocolDisabled" = "DigiAssets Protokoll Inaktiverat";
+
+/*Message heading*/
+"Assets.protocolDisabledDescription" = "DigiAssets Protokoll Inaktiverat";
+
+/*Select an asset (default dropdown)*/
+"Assets.select" = "Välj asset ...";
+
+/*(Underlying) Asset Transaction*/
+"Assets.tx" = "Asset Transaktion";
+
+/*View RAW Asset Transaction*/
+"Assets.rawTx" = "Visa RAW Transaktion";
+
+/*ImageReader Title*/
+"QRImageReader.title" = "QR-Bild Läsare";
+
+/*Image button label*/
+"QRImageReader.readQRButtonLabel" = "Bild";
+
+/*no qr code found*/
+"QRImageReader.readQRMessageNotFound" = "Ingen QR-kod kunde hittas i bilden";
+
+/*Found qrcode*/
+"QRImageReader.readQRMessageSuccess" = "Hittad:\n\n";
+
+/*Found multiply qr code im image*/
+"QRImageReader.readQRMessageTooMany" = "Flertal qr-koder funna.";
+
+/*address book modal title*/
+"AddressBook.title" = "Adressbok";
+
+/*Name of contact*/
+"AddressBook.name" = "Namn";
+
+/*Placeholder for searchbar*/
+"AddressBook.searchPlaceholder" = "Sök kontakter";
+
+/*Favorites header title*/
+"AddressBook.favorites" = "Favoriter";
+
+/*Header title in address book*/
+"AddressBook.addContact" = "Lägg till ny kontakt";
+
+/*button title for add button*/
+"AddressBook.addContactButtonTitle" = "Lägg till kontakt";
+
+/*button title for edit button*/
+"AddressBook.editContactButtonTitle" = "Redigera kontakt";
+
+/*Header title in address book*/
+"AddressBook.editContact" = "Redigera kontakt";
+
+/*the contact's address (textfield label)*/
+"AddressBook.address" = "Adress";
+
+/*header in confirm dialog to delete contact*/
+"AddressBook.deleteContactHeader" = "Ta bort kontakt";
+
+/*description in confirm dialog to delete contact*/
+"AddressBook.deleteContact" = "Vill du verkligen ta bort denna kontakten?";
+
+/*Title for first welcome screen*/
+"Welcome.page1title" = "Välkommen till DigiByte-plånboken.";
+
+/*Title for second welcome screen*/
+"Welcome.page2title" = "Skicka";
+
+/*Title for third welcome screen*/
+"Welcome.page3title" = "Ta Emot";
+
+/*Title for fourth welcome screen*/
+"Welcome.page4title" = "Förvara säkert";
+
+/*Title for fifth welcome screen*/
+"Welcome.page5title" = "Logga in med Digi-ID";
+
+/*Text for first welcome screen*/
+"Welcome.page1text" = "Förvara och använd din DigiByte-valuta säkert.";
+
+/*Text for second welcome screen*/
+"Welcome.page2text" = "Skicka dina DigiByte globald omedelbart och utan ansträngning.";
+
+/*Text for third welcome Text*/
+"Welcome.page3text" = "Begär betalningar och ta emot pengar omedelbart ifrån hela världen.";
+
+/*Text for fourth welcome screen*/
+"Welcome.page4text" = "Skydda dina DigiByte med en rad olika avancerade säkerhetsfunktioner.";
+
+/*Text for fifth welcome screen*/
+"Welcome.page5text" = "Utnyttja makten av blockkedje-säkerhet med Digi-ID Open Auth.";
+
+/*Insufficient funds error*/
+"Send.insufficientFunds" = "Otillräckligt med tillgångar";
+
+/*maximum amount*/
+"Send.max" = "Max";
+
+/*option to use Dandelion Protocol*/
+"Send.useDandelion" = "Använd Dandelion-protokollen för förhöjd integritet";
+
+/*Receive 10 BTC to <Address>*/
+"Receive.receiveAmountTo" = "Ta emot %1$@ till %2$@";
+
+/*Receive to <Address>*/
+"Receive.receiveTo" = "Ta emot till %1$@";
+
+/*Clickable button*/
+"Receive.showLegacyAddress" = "Visa en Legacy Adress istället";
+
+/*Clickable button*/
+"Receive.showSegwitAddress" = "Visa en Segwit Adress istället";
+
+/*Receive Address Box placeholder*/
+"Receive.receiveAddress" = "Mottagaradress";
+
+/*Wipe wallet button*/
+"JailbreakWarnings.wipe" = "Torka";
+
+/*Wallet locked message*/
+"UnlockScreen.locked" = "Plånbok Låst";
+
+/*Unlock with FaceID accessibility label*/
+"UnlockScreen.faceIdPrompt" = "Klicka här för att låsa upp DigiByte med Ansikts-ID";
+
+/*Message that appears, when the sign timeout was triggered*/
+"Transaction.signTimeout" = "Signerade ej tx inom timeout";
+
+/*Manage wallet button title*/
+"AccountHeader.manageButtonName" = "HANTERA";
+
+/*Equals symbol*/
+"AccountHeader.equals" = "=";
+
+/*Switch label for setting*/
+"TouchIdSettings.automaticBiometricsSwitchLabel" = "Begär Touch ID automatiskt vid start";
+
+/*Switch label for setting*/
+"FaceIDSettings.automaticBiometricsSwitchLabel" = "Begär Ansikts-ID automatiskt vid start";
+
+/*Always require passcode option*/
+"TouchIdSpendingLimit.requirePasscode" = "Kräv alltid lösenordskod";
+
+/*custom amount limit (category)*/
+"TouchIdSpendingLimit.custom" = "Beställnings";
+
+/*custom amount limit (title)*/
+"TouchIdSpendingLimit.customAmount" = "Anpassat belopp";
+
+/*Description for custom amount*/
+"TouchIdSpendingLimit.customAmountDescription" = "Ange ett anpassat belopp";
+
+/*Port must be greater than 0 and less than 65535*/
+"Settings.invalidPortHeader" = "Ogiltig port";
+
+/*send max button visible or not*/
+"Settings.maxSendEnabled" = "Skicka Max Knapp synlig";
+
+/*do not place a digibyte logo into qr codes*/
+"Settings.excludeLogoInQR" = "Dölj DigiByte-logga i QR-koder.";
+
+/*Do not show any DigiAsset Contents*/
+"Settings.showRawTransactions" = "Inaktivera DigiAssets";
+
+/*Resolve Assets without a prompt*/
+"Settings.resolveAssetsWithoutPrompt" = "Lös tillgångar utan snabb";
+
+/*Clear Asset Cache*/
+"Settings.clearAssetCache" = "Rensa Asset-cache";
+
+/*Clear Assets Image cache*/
+"Settings.clearImageCache" = "Rensa Bild-cache";
+
+/*Message that appears when a cache was cleared*/
+"Settings.cacheCleared" = "Cache rensad";
+
+/*DigiByte Nodes (Network term)*/
+"Settings.nodes" = "DigiByte-noder";
+
+/*Settings item*/
+"Settings.useDigiIDLegacy" = "Använd Digi-ID Legacy";
+
+/*Message that appears when DigiID Legacy is being opened*/
+"Settings.digiIdLegacyWarning" = "Att lägga till undantag är ej rekommenderat. Digi-ID Legacy kommer bli borttaget i en framtida release";
+
+/*DigiID Legacy Preview Text (how many websites were added as an exception)*/
+"Settings.digiIdPreview" = "#%1$@ webbplatser";
+
+/*DigiID Legacy Title*/
+"Settings.digiIdLegacyTitle" = "Digi-ID Legacy";
+
+/*DigiID Legacy Description*/
+"Settings.digiIdLegacyDescription" = "Digi-ID Legacy refererar till en utdaterad autentiseringsvariant av Digi-ID, vilket inte är kompatibeld med DigiByte Android. Det är inte rekommenderat  att använda Digi-ID Legacy för nya login.";
+
+/*DigiID Legacy: Add Exception (button)*/
+"Settings.addException" = "Lägg till ett undantag";
+
+/*Welcome title*/
+"AssetsWelcome.welcomeTitle" = "Välkommen till DigiAssets";
+
+/*Create Heading*/
+"AssetsWelcome.createHeading" = "Skapa.";
+
+/*Send Heading*/
+"AssetsWelcome.sendHeading" = "Skicka.";
+
+/*Receive Heading*/
+"AssetsWelcome.receiveHeading" = "Ta emot.";
+
+/*Create Text*/
+"AssetsWelcome.createText" = "Du kan skapa DigiAssets direkt från DigiAssets webbapp. Förvandla saker du älskar till DigiAssets.";
+
+/*Send Text*/
+"AssetsWelcome.sendText" = "Du kan skicka DigiAssets till andra personer genom överföring av ägarskap, direkt i DigiAssets-appen.";
+
+/*Receive Text*/
+"AssetsWelcome.receiveText" = "Du kan ta emot DigiAssets från andra personer genom överföring av ägarskap, direkt i DigiAssets-appen.";
+
+/*Introduction in About Screen*/
+"About.introduction" = "Denna app är byggd av DigiByte & Blockkedje-entusiaster, obetalda volontärer som ägnar sin tid och kunskaper på ett projekt de tror på. ";
+
+/*'BLOCK HEIGHT' caption title*/
+"SyncingView.blockHeightLabel" = "BLOCKHÖJD";
+
+/*'PROGRESS' caption title (PROGRESS: May 18 / June 18)*/
+"SyncingView.progressLabel" = "FRAMSTEG";
+
+/*Heading of modal alert*/
+"ReScan.fastSync" = "Snabbsynka";
+
+/*Privacy Warning of fast sync*/
+"ReScan.fastSyncDescription" = "För att optimera synkroniseringen så kan denna plånbok kommunicera med en blockexplorer. Notera att detta kommer blotta några offentliga plånboks-adresser för att snabba upp synkroniseringen.";
+
+/*Heading of modal alert*/
+"ReScan.fastReSync" = "Snabb Återsynkronisering";
+
+/*Regular Sync description*/
+"ReScan.regularSync" = "Vanlig återsynkronisering (långsam)";
+
+/*Confirm paper phrase error message*/
+"ConfirmPaperPhrase.error" = "Ordet du angav matchar inte din pappersnyckel. Vänligen försök igen.";
+
+/*Confirm dialog's default confirm action title*/
+"Alerts.confirmOkCaption" = "OK";
+
+/*confirm dialog's default cancel action title*/
+"Alerts.confirmCancelCaption" = "Avbryt";
+
+/*Menu button title for DigiAssets*/
+"MenuButton.digiAssets" = "DigiAssets";
+
+/*Fee Selector regular fee description*/
+"FeeSelector.estimatedDeliver" = "Beräknad Leverans: %1$@";
+
+/*E.g. [This transaction is predicted to complete in] 1+ minutes*/
+"FeeSelector.economyTime" = "1+ minuter";
+
+/*Import Address Heading*/
+"Assets.Send.importAddress" = "Importera Adress";
+
+/*Import Address Option: Address Book*/
+"Assets.Send.addressBook" = "Adressbok";
+
+/*Import Address Option: Import Address from Clipboard*/
+"Assets.Send.pasteFromClipboard" = "Klistra in från Urklipp";
+
+/*Import Address Option: Scan QR*/
+"Assets.Send.scanQR" = "Skanna QR-kod";
+
+/*Import Address Option: Browse Gallery*/
+"Assets.Send.browseGallery" = "Utforska Galleri";
+
+/*Import Address Description: Address Book*/
+"Assets.Send.addressBookDescription" = "Använd en adress i din adressbok";
+
+/*Import Address Description: QR Scanner*/
+"Assets.Send.scanQRDescription" = "Använd din kamera för att skanna QR-koden innehållande en adress";
+
+/*Import Address Heading*/
+"Assets.Send.browseGalleryDescription" = "Importera en Bild från ditt Galleri";
+
+/*Favorite Switch Title (as favorite)-option*/
+"AddressBook.favorite" = "Favorit";
+
+/*Version: 2.0.0*/
+"Abput.version" = "Version: #%1$@";
+
+/*Development Heading in About Section*/
+"Abput.development" = "Utveckling";
+
+/*UI Heading in About Section*/
+"About.ui" = "Grafiskt Gränssnitt";
+
+/*Special Thanks Heading in About Section*/
+"About.specialThanks" = "Speciellt Tack";
+
+/*Translations Heading in About Section*/
+"About.translations" = "Översättningar";

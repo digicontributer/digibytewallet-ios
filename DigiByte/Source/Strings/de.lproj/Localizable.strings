@@ -1,0 +1,1561 @@
+
+/*About screen blog label*/
+"About.blog" = "https://digibyte.org/";
+
+/*About screen footer*/
+"About.footer" = "Erstellt vom globalen DigiByte Team. Version %1$@ ";
+
+/*Privay Policy button label*/
+"About.privacy" = "Datenschutzerklärung";
+
+/*About screen reddit label*/
+"About.reddit" = "https://www.reddit.com/r/Digibyte/";
+
+/*Terms of Use button label*/
+"About.terms" = "Nutzungsbedingungen";
+
+/*About screen title*/
+"About.title" = "Über";
+
+/*About screen twitter label*/
+"About.twitter" = "https://twitter.com/digibytecoin";
+
+/*Close modal button accessibility label*/
+"AccessibilityLabels.close" = "Schließen";
+
+/*Support center accessibiliy label*/
+"AccessibilityLabels.faq" = "Hilfe-Center";
+
+/*Loading Wallet Message*/
+"Account.loadingMessage" = "Wallet wird geladen";
+
+/*Default wallet name*/
+"AccountHeader.defaultWalletName" = "Meine DigiByte";
+
+/*Error alert title*/
+"Alert.error" = "Fehler";
+
+/*No internet alert message*/
+"Alert.noInternet" = "Kein Verbindung zum Internet. Überprüfen Sie Ihre Verbindung und versuchen Sie es erneut.";
+
+/*Warning alert title*/
+"Alert.warning" = "Warnung";
+
+/*'the addresses were copied'' Alert title*/
+"Alerts.copiedAddressesHeader" = "Adressen kopiert";
+
+/*Addresses Copied Alert sub header*/
+"Alerts.copiedAddressesSubheader" = "Alle Wallet-Adressen erfolgreich kopiert.";
+
+/*Alert Header Label (the paper key was set)*/
+"Alerts.paperKeySet" = "Papierschlüssel gesetzt";
+
+/*Alert Subheader label (playfully positive)*/
+"Alerts.paperKeySetSubheader" = "Großartig!";
+
+/*Alert Header label (the PIN was set)*/
+"Alerts.pinSet" = "PIN gesetzt";
+
+/*Send failure alert header label (the send failed to happen)*/
+"Alerts.sendFailure" = "Senden fehlgeschlagen";
+
+/*Send success alert header label (confirmation that the send happened)*/
+"Alerts.sendSuccess" = "Senden erfolgreich";
+
+/*Send success alert subheader label (e.g. the money was sent)*/
+"Alerts.sendSuccessSubheader" = "Geld gesendet!";
+
+/*JSON Serialization error message*/
+"ApiClient.jsonError" = "JSON Serialisierungsfehler";
+
+/*Wallet not ready error message*/
+"ApiClient.notReady" = "Wallet nicht bereit";
+
+/*API Token error message*/
+"ApiClient.tokenError" = "Kann API Token nicht empfangen";
+
+/*Send BCH view body.*/
+"BCH.body" = "Fügen Sie unterhalb eine BCH-Adresse ein. Alle BCH in Ihres Wallets zur Zeit des Forks (%1$@) werden gesendet.";
+
+/*Confirm sending <$5.00> to <address>?*/
+"BCH.confirmationMessage" = "Bestätigen Sie %1$@ an %2$@ zu senden";
+
+/*Confirmation alert title*/
+"BCH.confirmationTitle" = "Bestätigung";
+
+/*Generic bch erorr message*/
+"BCH.genericError" = "Ihr Account enthält keine BCH oder Sie erhalten BCH nach dem Fork.";
+
+/*Transaction ID copied message*/
+"BCH.hashCopiedMessage" = "Transaktions-Id kopiert";
+
+/*No address error message*/
+"BCH.noAddressError" = "Bitte geben Sie eine Adresse ein";
+
+/*Attempted to scan unsupported qr code error message.*/
+"BCH.paymentProtocolError" = "Zahlungsprotokollanfragen werden für BCH Transaktionen nicht unterstützt";
+
+/*BCH successfully sent alert message*/
+"BCH.successMessage" = "BCH wurde erfolgreich gesendet";
+
+/*Widthdraw BCH view title*/
+"BCH.title" = "BCH abheben";
+
+/*Tx Hash button header*/
+"BCH.txHashHeader" = "BCH Transaktions Id";
+
+/*Approve button label*/
+"BitID.approve" = "Bestätigen";
+
+/*<sitename> is requesting authentication using your bitcoin wallet*/
+"BitID.authenticationRequest" = "%1$@ benötigt eine Autorisierung über Ihre DigiByte Wallet";
+
+/*Deny button label*/
+"BitID.deny" = "Verweigern";
+
+/*BitID error alert title*/
+"BitID.error" = "Authentifizierungsfehler";
+
+/*BitID error alert messaage (The payment service you are trying to use isn't working. Please contact them, as you may need to try again)*/
+"BitID.errorMessage" = "Bitte überprüfe die Verbindung und versuche es erneut.";
+
+/*BitID success alert title*/
+"BitID.success" = "Erfolgreich authentifiziert";
+
+/*BitID Authentication Request alert view title*/
+"DigiID.title" = "Digi-ID Autentifizierungsanfrage";
+
+/*Cancel button label*/
+"Button.cancel" = "Abbrechen";
+
+/*Ignore button label*/
+"Button.ignore" = "Ignorieren";
+
+/*menu button*/
+"Button.menu" = "Menü";
+
+/*No button*/
+"Button.no" = "Nein";
+
+/*OK button label*/
+"Button.ok" = "Okay";
+
+/*receive button*/
+"Button.receive" = "Empfangen";
+
+/*send button*/
+"Button.send" = "Senden";
+
+/*Settings button label*/
+"Button.settings" = "Einstellungen";
+
+/*Settings button label*/
+"Button.submit" = "Senden";
+
+/*Yes button*/
+"Button.yes" = "Ja";
+
+/*Camera plugin instruction*/
+"CameraPlugin.centerInstruction" = "Zentrieren Sie Ihre ID in der Box";
+
+/*Amount to Send: ($1.00)*/
+"Confirmation.amountLabel" = "Betrag zum Senden:";
+
+/*Network Fee: ($1.00)*/
+"Confirmation.feeLabel" = "Netzwerkgebühr:";
+
+/*eg. Processing time: This transaction will take 10-30 minutes to process.*/
+"Confirmation.processingTime" = "Bearbeitungszeit: Diese Transaktion benötigt %1$@ Sekunden.";
+
+/*Label for "send" button on final confirmation screen*/
+"Confirmation.send" = "Senden";
+
+/*Confirmation Screen title*/
+"Confirmation.title" = "Bestätigung";
+
+/*To: (address)*/
+"Confirmation.to" = "An";
+
+/*Total Cost: ($5.00)*/
+"Confirmation.totalLabel" = "Gesamte Kosten:";
+
+/*Confirm paper phrase view label.*/
+"ConfirmPaperPhrase.label" = "Um sicherzustellen, dass alles korrekt aufgeschrieben wurde, geben Sie bitte folgende Wörter von Ihrem Papierschlüssel ein.";
+
+/*Word label eg. Word #1, Word #2*/
+"ConfirmPaperPhrase.word" = "Wort #%1$@";
+
+/*Bitcoin denomination picker label*/
+"DefaultCurrency.bitcoinLabel" = "DigiByte Anzeigeeinheit";
+
+/*Exchange rate label*/
+"DefaultCurrency.rateLabel" = "Wechselkurs";
+
+/*Email unavailable alert title*/
+"ErrorMessages.emailUnavailableMessage" = "Dieses Gerät ist nicht dafür konfiguriert worden eMails mit der iOS Mail App zu senden.";
+
+/*Email unavailable alert title*/
+"ErrorMessages.emailUnavailableTitle" = "E-Mail ungültig";
+
+/*Messaging unavailable alert title*/
+"ErrorMessages.messagingUnavailableMessage" = "Dieses Gerät kann keine Nachrichten senden.";
+
+/*Messaging unavailable alert title*/
+"ErrorMessages.messagingUnavailableTitle" = "Das Senden von Nachrichten ist nicht verfügbar";
+
+/*You can customize your Face ID Spending Limit from the [FaceIdSettings.linkText gets added here as a button]*/
+"FaceIDSettings.customizeText" = "Du kannst dein Face ID Limit in diesem Menu konfigurieren: %1$@.";
+
+/*Face Id screen label*/
+"FaceIDSettings.label" = "Verwende Face ID um dein Wallet zu entsperren und deine DigiByte bis zu einem festgelegten Limit zu senden.";
+
+/*Link Text (see FaceIdSettings.customizeText)*/
+"FaceIDSettings.linkText" = "Face ID Ausgabegrenze";
+
+/*Face id switch label.*/
+"FaceIDSettings.switchLabel" = "Aktiviere Face ID für dein DigiByte Wallet";
+
+/*Face ID settings view title*/
+"FaceIDSettings.title" = "Face ID";
+
+/*Face ID unavailable alert message*/
+"FaceIDSettings.unavailableAlertMessage" = "Face ID ist nicht konfiguriert. Gehe zu Einstellungen -> Face ID & Passcode um es zu aktivieren.";
+
+/*Face ID unavailable alert title*/
+"FaceIDSettings.unavailableAlertTitle" = "Face ID nicht verfügbar";
+
+/*Face Id spending limit screen title*/
+"FaceIDSpendingLimit.title" = "Face ID Ausgabegrenze";
+
+/*Economy fee*/
+"FeeSelector.economy" = "Wirtschaft";
+
+/*Fee Selector economly fee description*/
+"FeeSelector.economyLabel" = "Geschätzte Zustellung: 1+ Minuten";
+
+/*Warning message for economy fee*/
+"FeeSelector.economyWarning" = "Diese Option ist für zeitkritische Transaktionen nicht zu empfehlen.";
+
+/*Regular fee*/
+"FeeSelector.regular" = "Regulär";
+
+/*Fee Selector regular fee description*/
+"FeeSelector.regularLabel" = "Geschätzte Zustellung: 15-30 Sekunden";
+
+/*Fee Selector title*/
+"FeeSelector.title" = "Verarbeitungsgeschwindigkeit";
+
+/*Checking private key balance progress view text*/
+"Import.checking" = "Privates Schlüsselsaldo wird geprüft ...";
+
+/*Sweep private key confirmation message*/
+"Import.confirm" = "Sende %1$@ von diesem privaten Schlüssel in dein Wallet? Das Digibyte-Netzwerk bekommt eine Gebühr von %2$@.";
+
+/*Duplicate key error message*/
+"Import.Error.duplicate" = "Dieser private Schlüssel ist schon in Ihrem Wallet.";
+
+/*empty private key error message*/
+"Import.Error.empty" = "Dieser private Schlüssel ist leer.";
+
+/*High fees error message*/
+"Import.Error.highFees" = "Die Transaktionsgebühren übersteigen die diesem privaten Schlüssel zur Verfügung stehenden Mittel.";
+
+/*Not a valid private key error message*/
+"Import.Error.notValid" = "Kein valider privater Schlüssel";
+
+/*Import signing error message*/
+"Import.Error.signing" = "Fehler beim Unterzeichnen der Transaktion";
+
+/*Import button label*/
+"Import.importButton" = "Importieren";
+
+/*Importing wallet progress view label*/
+"Import.importing" = "Importiere Wallet";
+
+/*Caption for graphics*/
+"Import.leftCaption" = "Wallet wird importiert";
+
+/*Import wallet intro screen message*/
+"Import.message" = "Das Importieren eines Wallets transferiert das gesamte Guthaben deines anderen Wallet in dein DigiByte.";
+
+/*Enter password alert view title*/
+"Import.password" = "Dieser private Schlüssel ist pass­wort­ge­schützt.";
+
+/*password textfield placeholder*/
+"Import.passwordPlaceholder" = "Passwort";
+
+/*Caption for graphics*/
+"Import.rightCaption" = "Dein DigiByte";
+
+/*Scan Private key button label*/
+"Import.scan" = "Scane privaten Schlüssel";
+
+/*Import wallet success alert title*/
+"Import.success" = "Erfolg";
+
+/*Successfully imported wallet message body*/
+"Import.SuccessBody" = "Wallet erfolgreich importiert.";
+
+/*Import Wallet screen title*/
+"Import.title" = "Wallet importieren";
+
+/*Unlocking Private key activity view message.*/
+"Import.unlockingActivity" = "Schlüssel entsperren";
+
+/*Import wallet intro warning message*/
+"Import.warning" = "Ein Wallet zu Importieren schließt nicht die Transaktionshistorie oder andere Details mit ein.";
+
+/*Wrong password alert message*/
+"Import.wrongPassword" = "Falsches Password, bitte versuchen Sie es erneut.";
+
+/*Close app button*/
+"JailbreakWarnings.close" = "Schließen";
+
+/*Ignore jailbreak warning button*/
+"JailbreakWarnings.ignore" = "Ignorieren";
+
+/*Jailbreak warning message*/
+"JailbreakWarnings.messageWithBalance" = "GERÄTESICHERHEIT GEFÄHRDET\nJede \"Jailbreak\"-App kann auf deine DigiByte Schlüsseldaten zugreifen und deine DigiByte stehlen! Löschen Sie dieses Wallet sofort und stelle Sie sie auf einem sicheren Gerät wieder her.";
+
+/*Jailbreak warning message*/
+"JailbreakWarnings.messageWithoutBalance" = "GERÄTESICHERHEIT KOMPROMITTIERT\nJede 'Jailbreak' App kann auf den DigiByte Schlüsselbund zugreifen und Ihre DigiByte stehlen. Bitte nutzen Sie DigiByte nur auf Geräten die nicht mit einem Jailbreak versehen wurden.";
+
+/*Jailbreak warning title*/
+"JailbreakWarnings.title" = "WARNUNG";
+
+/*Location services disabled error*/
+"LocationPlugin.disabled" = "Ortungsdienste sind deaktiviert.";
+
+/*No permissions for location services*/
+"LocationPlugin.notAuthorized" = "DigiByte hat keine Berechtigung um Ortungsdienste zu nutzen.";
+
+/*Wallet creation date prefix*/
+"ManageWallet.creationDatePrefix" = "Sie haben Ihr Wallet auf %1$@ erstellt.";
+
+/*Manage wallet description text*/
+"ManageWallet.description" = "Ihr Wallet Name erscheint nur in der Transaktionshistorie Ihres Kontos und wird niemandem sonst angezeigt.";
+
+/*Change Wallet name textfield label*/
+"ManageWallet.textFeildLabel" = "Wallet Name";
+
+/*Manage wallet modal title*/
+"ManageWallet.title" = "Wallet verwalten";
+
+/*Menu button title*/
+"MenuButton.lock" = "Wallet sperren";
+
+/*Menu button title*/
+"MenuButton.security" = "Sicherheits-Center";
+
+/*Menu button title*/
+"MenuButton.settings" = "Einstellungen";
+
+/*Menu button title*/
+"MenuButton.support" = "Support";
+
+/*button label*/
+"MenuViewController.createButton" = "Neues Wallet erstellen";
+
+/*Menu modal title*/
+"MenuViewController.modalTitle" = "Menü";
+
+/*button label*/
+"MenuViewController.recoverButton" = "Wallet wiederherstellen";
+
+/*Switch to automatic mode button label*/
+"NodeSelector.automaticButton" = "Automatik-Modus einschalten";
+
+/*Node is connected label*/
+"NodeSelector.connected" = "Verbunden";
+
+/*Enter node ip address view body*/
+"NodeSelector.enterBody" = "Node-IP und Port eingeben (optional)";
+
+/*Enter Node ip address view title*/
+"NodeSelector.enterTitle" = "Node eingeben";
+
+/*Switch to manual mode button label*/
+"NodeSelector.manualButton" = "Manuellen Modus einschalten";
+
+/*Node address label*/
+"NodeSelector.nodeLabel" = "Gegenwärtiger Primär-Node";
+
+/*Node is not connected label*/
+"NodeSelector.notConnected" = "Nicht verbunden";
+
+/*Node status label*/
+"NodeSelector.statusLabel" = "Node Verbindungsstatus";
+
+/*Node Selector view title*/
+"NodeSelector.title" = "DigiByte Nodes";
+
+/*Bad Payment request alert title*/
+"PaymentProtocol.Errors.badPaymentRequest" = "Falsche Zahlungsanfrage";
+
+/*Error opening payment protocol file message*/
+"PaymentProtocol.Errors.corruptedDocument" = "Dokument ist fehlerhaft oder wird nicht unterstützt";
+
+/*Missing certificate payment protocol error message*/
+"PaymentProtocol.Errors.missingCertificate" = "Fehlendes Zertifikat";
+
+/*Request expired payment protocol error message*/
+"PaymentProtocol.Errors.requestExpired" = "Anfrage abgelaufen";
+
+/*Payment too small alert title*/
+"PaymentProtocol.Errors.smallOutputError" = "Zahlung konnte nicht durchgeführt werden";
+
+/*Amount too small error message*/
+"PaymentProtocol.Errors.smallPayment" = "DigiByte Zahlungen können nicht kleiner als %1$@ sein.";
+
+/*Output too small error message.*/
+"PaymentProtocol.Errors.smallTransaction" = "DigiByte Transaktionen können nicht weniger als $@ betragen.";
+
+/*Unsupported signature type payment protocol error message*/
+"PaymentProtocol.Errors.unsupportedSignatureType" = "Nicht unterstützter Signaturtyp";
+
+/*Untrusted certificate payment protocol error message*/
+"PaymentProtocol.Errors.untrustedCertificate" = "Nicht vertrauenswürdiges Zertifikat";
+
+/*Enable face ID prompt body*/
+"Prompts.FaceId.body" = "Hier tippen um Face ID zu aktivieren";
+
+/*Enable face ID prompt title*/
+"Prompts.FaceId.title" = "Face ID aktivieren";
+
+/*No passcode set warning body*/
+"Prompts.NoPasscode.body" = "Ein Geräteschlüssel ist notwendig um Ihre Wallet zu schützen. Gehen Sie zu Einstellungen und aktivieren Sie einen Geräteschlüssel.";
+
+/*No Passcode set warning title*/
+"Prompts.NoPasscode.title" = "Geräteschüssel aktivieren";
+
+/*Warning about paper key.*/
+"Prompts.PaperKey.body" = "Ihr Papierschlüssel muss, für den Fall, dass Sie Ihr Gerät wechseln oder verlieren, gesichert werden. Hier tippen um fortzufahren.";
+
+/*An action is required (You must do this action).*/
+"Prompts.PaperKey.title" = "Handlung erforderlich";
+
+/*Transaction rejected prompt body*/
+"Prompts.RecommendRescan.body" = "Ihre Wallet ist möglicherweise nicht mehr synchronisiert. Dies lässt sich oft durch ein Neuscannen der Blockchain beheben.";
+
+/*Transaction rejected prompt title*/
+"Prompts.RecommendRescan.title" = "Transaktion zurückgewiesen";
+
+/*Share data prompt body*/
+"Prompts.ShareData.body" = "Helfen Sie DigiByte zu verbessern, indem Sie an­o­ny­mi­sie­rte Daten mit uns teilen.";
+
+/*Share data prompt title*/
+"Prompts.ShareData.title" = "Anonymisierte Daten teilen";
+
+/*Enable touch ID prompt body*/
+"Prompts.TouchId.body" = "Hier tippen um Touch Id zu aktivieren";
+
+/*Enable touch ID prompt title*/
+"Prompts.TouchId.title" = "Touch Id aktivieren";
+
+/*Upgrade PIN prompt body.*/
+"Prompts.UpgradePin.body" = "DigiByte wurde um 6-stellige PINs erweitert. Hier klicken zum Aktualisieren.";
+
+/*Upgrade PIN prompt title.*/
+"Prompts.UpgradePin.title" = "PIN upgraden";
+
+/*Notifications will be added later but users can set their preferences now, which is why we specify "in the future".*/
+"PushNotifications.body" = "Schalten Sie Benachrichtigungen an um in Zukunft spezielle Mitteilungen von DigiByte zu erhalten";
+
+/*Push notifications toggle switch label*/
+"PushNotifications.label" = "Push-Benachrichtigungen";
+
+/*Push notifications are off label*/
+"PushNotifications.off" = "Aus";
+
+/*Push notifications are on label*/
+"PushNotifications.on" = "An";
+
+/*Push notifications settings view title label*/
+"PushNotifications.title" = "Benachrichtigungen";
+
+/*Address copied message.*/
+"Receive.copied" = "In die Zwischenablage kopiert.";
+
+/*Share via email button label*/
+"Receive.emailButton" = "Email";
+
+/*Request button label*/
+"Receive.request" = "Betrag anfordern";
+
+/*Share button label*/
+"Receive.share" = "Teilen";
+
+/*Share via text message (SMS)*/
+"Receive.textButton" = "Textnachricht";
+
+/*Receive modal title*/
+"Receive.title" = "Erhalten";
+
+/*Done button text*/
+"RecoverWallet.done" = "Fertig";
+
+/*Recover wallet header*/
+"RecoverWallet.header" = "Wallet wiederherstellen";
+
+/*Reset PIN with paper key: header*/
+"RecoverWallet.header_reset_pin" = "Reset PIN";
+
+/*Enter paper key instruction*/
+"RecoverWallet.instruction" = "Paperkey eingeben";
+
+/*Recover wallet intro*/
+"RecoverWallet.intro" = "Stelle dein DigiByte mit deinem Paperkey wieder her.";
+
+/*Invalid paper key message*/
+"RecoverWallet.invalid" = "Der eingegebene Paperkey ist fehlerhaft. Bitte überprüfe jedes Wort und versuche es erneut.";
+
+/*Previous button accessibility label*/
+"RecoverWallet.leftArrow" = "Linker Pfeil";
+
+/*Next button label*/
+"RecoverWallet.next" = "Weiter";
+
+/*Reset PIN with paper key: more information button.*/
+"RecoverWallet.reset_pin_more_info" = "Für mehr Informationen hier drücken.";
+
+/*Next button accessibility label*/
+"RecoverWallet.rightArrow" = "Rechter Pfeil";
+
+/*Recover wallet sub-header*/
+"RecoverWallet.subheader" = "Gib den Paperkey für das wiederherzustellende Wallet ein.";
+
+/*Reset PIN with paper key: sub-header*/
+"RecoverWallet.subheader_reset_pin" = "Gib die Wörter deines Paperkeys unten in die Felder ein, um deinen PIN zu reseten.";
+
+/*No amount entered error message.*/
+"RequestAnAmount.noAmount" = "Bitte gib zuerst einen Betrag ein.";
+
+/*Request a specific amount of bitcoin*/
+"RequestAnAmount.title" = "Fordere einen Betrag an";
+
+/*Alert action button label*/
+"ReScan.alertAction" = "Synchronisieren";
+
+/*Alert message body*/
+"ReScan.alertMessage" = "Du kannst kein Geld während dem Synchronisieren senden.";
+
+/*Alert message title*/
+"ReScan.alertTitle" = "Synchronisiere mit der Blockchain?";
+
+/*extimated time*/
+"ReScan.body1" = "20-45 Minuten";
+
+/*Syncing explanation*/
+"ReScan.body2" = "Wenn eine Transaktion im DigiByte Netzwerk als abgeschlossen angezeigt wird, in deinem DigiByte aber nicht.";
+
+/*Syncing explanation*/
+"ReScan.body3" = "Sie haben wiederholt einen Fehler erhalten, dass Ihre Transaktion zurückgewiesen wurde.";
+
+/*Start Sync button label*/
+"ReScan.buttonTitle" = "Starte Synchronisation";
+
+/*Sync blockchain view footer*/
+"ReScan.footer" = "Sie können kein Geld senden, während die Blockchain synchronisiert wird.";
+
+/*Sync Blockchain view header*/
+"ReScan.header" = "Synchronisiere Blockchain";
+
+/*Subheader label*/
+"ReScan.subheader1" = "Geschätzte Zeit";
+
+/*Subheader label*/
+"ReScan.subheader2" = "Wann synchronisieren?";
+
+/*Scan bitcoin address camera flash toggle*/
+"Scanner.flashButtonLabel" = "Kamerablitz";
+
+/*Complete filter label*/
+"Search.complete" = "vollständig";
+
+/*Pending filter label*/
+"Search.pending" = "Ausstehend";
+
+/*Received filter label*/
+"Search.received" = "Erhalten";
+
+/*Sent filter label*/
+"Search.sent" = "Gesendet";
+
+/*Face ID button title*/
+"SecurityCenter.faceIdTitle" = "Face ID";
+
+/*Security Center Info*/
+"SecurityCenter.info" = "Für maximale Sicherheit alle Sicherheitsfeatures aktivieren.";
+
+/*Paper Key button description*/
+"SecurityCenter.paperKeyDescription" = "Die einzige Möglichkeit auf Ihre DigiByte zuzugreifen, sollten Sie ihr Telefon verlieren oder es wechseln.";
+
+/*Paper Key button title*/
+"SecurityCenter.paperKeyTitle" = "Papierschlüssel";
+
+/*PIN button description*/
+"SecurityCenter.pinDescription" = "Schützt Ihre DigiByte vor nicht autorisierten Benutzern.";
+
+/*PIN button title*/
+"SecurityCenter.pinTitle" = "6-stellige PIN";
+
+/*Security Center Title*/
+"SecurityCenter.title" = "Sicherheits-Center";
+
+/*Touch ID button description*/
+"SecurityCenter.touchIdDescription" = "Entsprerren Sie bequem Ihre DigiByte und senden Sie Geld bis einem gesetzten Limit.";
+
+/*Touch ID button title*/
+"SecurityCenter.touchIdTitle" = "TouchID";
+
+/*Send money amount label*/
+"Send.amountLabel" = "Betrag";
+
+/*Balance: $4.00*/
+"Send.balance" = "Guthaben: %1$@";
+
+/*Camera not allowed message*/
+"Send.cameraunavailableMessage" = "Gehen Sie in die Einstellungen um den Kamerazugriff zu gestatten.";
+
+/*Camera not allowed alert title*/
+"Send.cameraUnavailableTitle" = "DigiByte hat keine Berechtigung zum Kamerazugriff";
+
+/*Warning when sending to self.*/
+"Send.containsAddress" = "Das Ziel ist Ihre eigene Adresse. Sie können nicht an sich selbst senden.";
+
+/*Could not create transaction alert title*/
+"Send.creatTransactionError" = "Transaktion konnte nicht erstellt werden.";
+
+/*Description for sending money label*/
+"Send.descriptionLabel" = "Memo";
+
+/*Emtpy pasteboard error message*/
+"Send.emptyPasteboard" = "Zwischenablage ist leer";
+
+/*Network Fee: $0.01*/
+"Send.fee" = "Netzwerk-Gebühr: %1$@";
+
+/*Payee identity not certified alert title.*/
+"Send.identityNotCertified" = "Die Identität des Zahlungsempfängers ist nicht zertifiziert.";
+
+/*Invalid address alert message*/
+"Send.invalidAddressMessage" = "Die Zieladresse ist keine gültige DigiByte Adresse.";
+
+/*Invalid address on pasteboard message*/
+"Send.invalidAddressOnPasteboard" = "Die Zwischenablage enthält keine gültige DigiByte Adresse.";
+
+/*Invalid address alert title*/
+"Send.invalidAddressTitle" = "Ungültige Adresse";
+
+/*Is rescanning error message*/
+"Send.isRescanning" = "Senden ist während eines vollen Rescans deaktiviert.";
+
+/*Loading request activity view message*/
+"Send.loadingRequest" = "Anfrage wird geladen";
+
+/*Empty address alert message*/
+"Send.noAddress" = "Bitte geben sie die Empfängeradresse ein.";
+
+/*Emtpy amount alert message*/
+"Send.noAmount" = "Bitte geben Sie den Betrag zum Senden ein.";
+
+/*Paste button label*/
+"Send.pasteLabel" = "Einfügen";
+
+/*Could not publish transaction alert title*/
+"Send.publishTransactionError" = "Transaktion konnte nicht veröffentlicht werden.";
+
+/*Could not load remote request error message*/
+"Send.remoteRequestError" = "Zahlungsanfrage konnte nicht geladen werden";
+
+/*Scan button label*/
+"Send.scanLabel" = "Scannen";
+
+/*Send button label (the action, "press here to send")*/
+"Send.sendLabel" = "Senden";
+
+/*Send screen title (as in "this is the screen for sending money")*/
+"Send.title" = "Senden";
+
+/*Send money to label*/
+"Send.toLabel" = "An";
+
+/*Adress already used alert message - first part*/
+"Send.UsedAddress.firstLine" = "DigiByte Adressen sind zum einmaligen Gebrauch gedacht.";
+
+/*Adress already used alert message - second part*/
+"Send.UsedAddress.secondLIne" = "Wiederverwendung reduziert die Privatsphäre sowohl für Sie als auch für den Empfänger. Sollte der Empfänger die Adresse nicht direkt kontrollieren kann es im schlimmsten Fall zum Verlust der DigiByte kommen.";
+
+/*Adress already used alert title*/
+"Send.UsedAddress.title" = "Die Adresse wurde schon verwendet";
+
+/*About label*/
+"Settings.about" = "Über";
+
+/*Advanced Settings title*/
+"Settings.advancedTitle" = "Erweiterte Einstellungen";
+
+/*i.e. the currency which will be displayed*/
+"Settings.currency" = "Angezeigte Währung";
+
+/*Join Early access label*/
+"Settings.earlyAccess" = "Early-Access beitreten";
+
+/*Are you enjoying bread alert message body*/
+"Settings.enjoying" = "Gefällt Ihnen DigiByte?";
+
+/*Face ID spending limit label*/
+"Settings.faceIdLimit" = "Face ID Ausgabegrenze";
+
+/*Import wallet label*/
+"Settings.importTitle" = "Wallet importieren";
+
+/*Manage settings section header*/
+"Settings.manage" = "Verwalten";
+
+/*Notifications label*/
+"Settings.notifications" = "Benachrichtigungen";
+
+/*Leave review button label*/
+"Settings.review" = "Hinterlassen Sie eine Beurteilung";
+
+/*Share anonymous data label*/
+"Settings.shareData" = "Anonymisierte Daten teilen";
+
+/*Sync blockchain label*/
+"Settings.sync" = "Blockchain synchronisieren";
+
+/*Settings title*/
+"Settings.title" = "Einstellungen";
+
+/*Touch ID spending limit label*/
+"Settings.touchIdLimit" = "Touch ID Ausgabenlimit";
+
+/*Wallet Settings section header*/
+"Settings.wallet" = "Wallet";
+
+/*Start or recover another wallet menu label.*/
+"Settings.wipe" = "Andere Wallet wiederherstellen";
+
+/*Share data view body*/
+"ShareData.body" = "Helfen Sie mit, DigiByte zu verbessern, indem Sie Ihre anonymisierten Daten mit uns teilen. Jegliche finanziellen Informationen sind davon ausgeschlossen. Wir respektieren Ihre Privatsphäre.";
+
+/*Share data header*/
+"ShareData.header" = "Daten teilen?";
+
+/*Share data switch label.*/
+"ShareData.toggleLabel" = "Anonymisierte Daten teilen?";
+
+/*button label*/
+"StartPaperPhrase.againButtonTitle" = "Papierschlüssel nochmal abschreiben";
+
+/*Paper key explanation text.*/
+"StartPaperPhrase.body" = "Ihr Papierschlüssel ist der einzige Weg um Ihre DigiByte im Falle eines Verlustes, Diebstahls oder Defekts Ihres Telefons wiederherzustellen.\n\nWir werden Ihnen eine Liste mit Wörtern zeigen. Schreiben Sie diese bitte ab und bewahren Sie sie an einem sicheren Ort auf.";
+
+/*button label*/
+"StartPaperPhrase.buttonTitle" = "Papierschlüssel abschreiben";
+
+/*Argument is date*/
+"StartPaperPhrase.date" = "Sie haben Ihren Papierschlüssel zuletzt abgeschrieben am %1$@";
+
+/*Start view message*/
+"StartViewController.message" = "Der sicherste Weg um DigiByte zu nutzen.";
+
+/*Syncing view connectiong state header text*/
+"SyncingView.connecting" = "Verbindung wird hergestellt";
+
+/*Syncing view header text*/
+"SyncingView.header" = "Synchronisierung läuft";
+
+/*Retry button label*/
+"SyncingView.retry" = "Nochmal versuchen";
+
+/*Syncing view syncing state header text*/
+"SyncingView.syncing" = "Synchronisierung läuft";
+
+/*6 d (6 days)*/
+"TimeSince.days" = "%1$@ d";
+
+/*6 h (6 hours)*/
+"TimeSince.hours" = "%1$@ h";
+
+/*6 m (6 minutes)*/
+"TimeSince.minutes" = "%1$@ m";
+
+/*6 s (6 seconds)*/
+"TimeSince.seconds" = "%1$@ s";
+
+/*You can customize your Touch ID Spending Limit from the [TouchIdSettings.linkText gets added here as a button]*/
+"TouchIdSettings.customizeText" = "Sie können Ihr Touch ID Ausgabenlimit über %1$@ konfigurieren.";
+
+/*Touch Id screen label*/
+"TouchIdSettings.label" = "Nutzen Sie Ihren Fingerabruck um Ihre DigiByte zu entsperren und Geld bis zu einem gewählten Limit zu senden.";
+
+/*Link Text (see TouchIdSettings.customizeText)*/
+"TouchIdSettings.linkText" = "Touch ID Ausgabenlimit Bildschirm";
+
+/*Spending Limit: b100,000 ($100)*/
+"TouchIdSettings.spendingLimit" = "Ausgabenlimit: %1$@ (%2$@)";
+
+/*Touch id switch label.*/
+"TouchIdSettings.switchLabel" = "Touch ID für DigiByte aktivieren";
+
+/*Touch ID settings view title*/
+"TouchIdSettings.title" = "Touch ID";
+
+/*Touch ID unavailable alert message*/
+"TouchIdSettings.unavailableAlertMessage" = "Sie haben Touch ID auf diesem Gerät nicht eingerichtet. Gehen Sie zu Einstellungen->Touch ID & Passwort um es jetzt einzurichten.";
+
+/*Touch ID unavailable alert title*/
+"TouchIdSettings.unavailableAlertTitle" = "Touch ID nicht eingerichtet";
+
+/*Always require passcode option*/
+"TouchIdSpendingLimit" = "Immer Passcode verwenden";
+
+/*Touch ID spending limit screen body*/
+"TouchIdSpendingLimit.body" = "Sie werden bei jeder Transaktion die oberhalb Ihres Ausgabenlimits liegt nach Ihrer 6-stelligen PIN gefragt. Desweiteren werden Sie alle 48 Stunden nach der letzten Eingabe nach der PIN gefragt.";
+
+/*Touch Id spending limit screen title*/
+"TouchIdSpendingLimit.title" = "Touch ID Ausgabenlimit";
+
+/*Availability status text*/
+"Transaction.available" = "Zum Ausgeben verfügbar";
+
+/*Transaction complete label*/
+"Transaction.complete" = "Vollständig";
+
+/*eg. Ending balance: $50.00*/
+"Transaction.ending" = "Schlussbilanz: %1$@";
+
+/*Exchange rate on date header*/
+"Transaction.exchangeOnDayReceived" = "Wechselkurs bei Erhalt:";
+
+/*Exchange rate on date header*/
+"Transaction.exchangeOnDaySent" = "Wechselkurs bei Versand:";
+
+/*(b600 fee)*/
+"Transaction.fee" = "(%1$@ Gebühr)";
+
+/*Invalid transaction*/
+"Transaction.invalid" = "UNGÜLTIG";
+
+/*Timestamp label for event that just happened*/
+"Transaction.justNow" = "gerade eben";
+
+/*Receive status text: 'In progress: 20%'*/
+"Transaction.receivedStatus" = "In Bearbeitung: %1$@";
+
+/*Send status text: 'In progress: 20%'*/
+"Transaction.sendingStatus" = "In Bearbeitung: %1$@";
+
+/*eg. Starting balance: $50.00*/
+"Transaction.starting" = "Anfänglicher Kontostand: %1$@";
+
+/*Waiting to be confirmed string*/
+"Transaction.waiting" = "Warte auf Bestätigung. Einige Händler benötigen eine Bestätigung um die Transaktion abzuschließen. Geschätzte Zeit: 1-2 Stunden.";
+
+/*e.g. I received money from an account.*/
+"TransactionDetails.account" = "Konto";
+
+/*Amount section header*/
+"TransactionDetails.amountHeader" = "Betrag";
+
+/*Block height label*/
+"TransactionDetails.blockHeightLabel" = "In Block bestätigt";
+
+/*Memo section header*/
+"TransactionDetails.commentsHeader" = "Memo";
+
+/*Empty transaction list message.*/
+"TransactionDetails.emptyMessage" = "Ihre Transaktionen werden hier angezeigt.";
+
+/*"Received [$5] at [which of my addresses]" => This is the "at [which of my addresses]" part.*/
+"TransactionDetails.from" = "von %1$@";
+
+/*More button title*/
+"TransactionDetails.more" = "Mehr...";
+
+/*Moved $5.00 (as in "I moved $5 to another location")*/
+"TransactionDetails.moved" = "%1$@ übertragen";
+
+/*Moved $5.00*/
+"TransactionDetails.movedAmountDescription" = "Übertragen  <b>%1@</b>";
+
+/*eg. Confirmed in Block: Not Confirmed*/
+"TransactionDetails.notConfirmedBlockHeightLabel" = "Nicht bestätigt";
+
+/*"Received [$5] at [which of my addresses]" => This is the "Received [$5]" part.*/
+"TransactionDetails.received" = "%1$@ erhalten";
+
+/*Received $5.00*/
+"TransactionDetails.receivedAmountDescription" = "Erhalten <b>%1@</b>";
+
+/*"Sent [$5] to [address]" => This is the "Sent [$5]" part.*/
+"TransactionDetails.sent" = "%1$@ gesendet";
+
+/*Sent $5.00*/
+"TransactionDetails.sentAmountDescription" = "Gesendet <b>%1@</b>";
+
+/*Status section header*/
+"TransactionDetails.statusHeader" = "Status";
+
+/*Transaction Details Title*/
+"TransactionDetails.title" = "Transaktions-Details";
+
+/*"Sent [$5] to [address]" => This is the "to [address]" part.*/
+"TransactionDetails.to" = "an %1$@";
+
+/*Transaction ID header*/
+"TransactionDetails.txHashHeader" = "DigiByte Transaktions ID";
+
+/*(this transaction was) Received at this address:*/
+"TransactionDirection.address" = "An dieser Adresse empfangen";
+
+/*(this transaction was) Sent to this address:*/
+"TransactionDirection.to" = "Zu dieser Adresse gesendet";
+
+/*Disabled until date*/
+"UnlockScreen.disabled" = "Deaktiviert bis: %1$@";
+
+/*My Address button title*/
+"UnlockScreen.myAddress" = "Meine Adresse";
+
+/*Reset PIN with Paper Key button label.*/
+"UnlockScreen.resetPin" = "PIN neu setzen";
+
+/*Scan button title*/
+"UnlockScreen.scan" = "Scannen";
+
+/*Unlock Screen sub-header*/
+"UnlockScreen.subheader" = "PIN eingeben";
+
+/*TouchID prompt text*/
+"UnlockScreen.touchIdPrompt" = "DigiByte entsperren";
+
+/*Unlock with TouchID accessibility label*/
+"UnlockScreen.touchIdText" = "Mit TouchID entsperren";
+
+/*Wallet unlocked message*/
+"UnlockScreen.unlocked" = "Wallet entsperrt";
+
+/*Update PIN caption text*/
+"UpdatePin.caption" = "Merken Sie sich diese PIN. Wenn Sie sie vergessen, können Sie nicht auf Ihre DigiByte zugreifen.";
+
+/*PIN creation info.*/
+"UpdatePin.createInstruction" = "Ihre PIN wird zum Entsperren Ihrer Wallet und zum Senden von Geld verwendet.";
+
+/*Update PIN title*/
+"UpdatePin.createTitle" = "PIN setzen";
+
+/*Update PIN title*/
+"UpdatePin.createTitleConfirm" = "PIN nochmal eingeben";
+
+/*Enter current PIN instruction*/
+"UpdatePin.enterCurrent" = "Aktuelle PIN eingeben";
+
+/*Enter new PIN instruction*/
+"UpdatePin.enterNew" = "Neue PIN eingeben";
+
+/*Re-Enter new PIN instruction*/
+"UpdatePin.reEnterNew" = "Neue PIN nochmal eingeben";
+
+/*Update PIN failure error message.*/
+"UpdatePin.setPinError" = "PIN konnte leider nicht aktualisiert werden";
+
+/*Update PIN failure alert view title*/
+"UpdatePin.setPinErrorTitle" = "PIN Aktualisierungsfehler";
+
+/*Update PIN title*/
+"UpdatePin.updateTitle" = "PIN Aktualisierung";
+
+/*Authorize to copy wallet addresses alert message*/
+"URLHandling.addressaddressListAlertMessage" = "Wallet-Adresse in die Zwischenablage kopieren?";
+
+/*Authorize to copy wallet address PIN view prompt.*/
+"URLHandling.addressList" = "Autorisieren um Wallet-Adresse in die Zwischenablage zu kopieren";
+
+/*Authorize to copy wallet address alert title*/
+"URLHandling.addressListAlertTitle" = "Wallet-Adresse kopieren";
+
+/*Copy wallet addresses alert button label*/
+"URLHandling.copy" = "Kopieren";
+
+/*Verify PIN for transaction view body*/
+"VerifyPin.authorize" = "Bitte geben Sie Ihre PIN ein um diese Transaktion zu autorisieren.";
+
+/*Verify PIN view body*/
+"VerifyPin.continueBody" = "Bitte geben Sie Ihre PIN ein um fortzufahren.";
+
+/*Verify PIN view title*/
+"VerifyPin.title" = "PIN benötigt";
+
+/*Authorize transaction with touch id message*/
+"VerifyPin.touchIdMessage" = "Diese Transaktion autorisieren";
+
+/*'No wallet' warning for watch app*/
+"Watch.noWalletWarning" = "Öffnen Sie die DigiByte iPhone App um Ihre Wallet zu erstellen.";
+
+/*Dismiss button label*/
+"Webview.dismiss" = "Verwerfen";
+
+/*Webview loading error message*/
+"Webview.errorMessage" = "Es gab einen Fehler beim Laden des Inhaltes. Bitte versuchen Sie es erneut.";
+
+/*Updating webview message*/
+"Webview.updating" = "Aktualisiere...";
+
+/*Welcome screen text. (?) will be replaced with the help icon users should look for.*/
+"Welcome.body" = "DigiByte für iOS heißt ab sofort DigiByte, mit neuem Erscheinungsbild und neuen Funktionen.\n\nWenn Sie Hilfe benötigen, nutzen Sie (?) oben rechts in den meisten Seiten der App.";
+
+/*Top title of welcome screen*/
+"Welcome.title" = "Willkommen in der DigiByte!";
+
+/*Wipe wallet alert message*/
+"WipeWallet.alertMessage" = "Sind Sie sicher, dass Sie diese Wallet löschen wollen?";
+
+/*Wipe wallet alert title*/
+"WipeWallet.alertTitle" = "Wallet unwiederbringlich löschen?";
+
+/*Failed wipe wallet alert message*/
+"WipeWallet.failedMessage" = "Unwiederbringlich Löschen fehlgeschlagen";
+
+/*Failed wipe wallet alert title*/
+"WipeWallet.failedTitle" = "Fehlgeschlagen";
+
+/*Enter phrase to wipe wallet instruction.*/
+"WipeWallet.instruction" = "Geben Sie den Wiederherstellungssatz dieser Wallet ein um sie unwiederbringlich zu löschen. Danach können Sie entweder eine neue Wallet erstellen oder eine vorhandene Wiederherstellen. Das Guthaben wird auf dem Papierschlüssel verbleiben.";
+
+/*Start wipe wallet view message*/
+"WipeWallet.startMessage" = "Sie können eine andere Wallet auf diesem Gerät verwalten, indem sie eine neue Wallet erstellen oder eine vorhandene Wiederherstellen. ";
+
+/*Start wipe wallet view warning*/
+"WipeWallet.startWarning" = "Sie werden nicht länger in der Lage sein, von diesem Gerät aus auf Ihre gegenwärtige DigiByte zuzugreifen. Das Guthaben wird auf dem Papierschlüssel verbleiben.";
+
+/*Wipe wallet navigation item title.*/
+"WipeWallet.title" = "Beginnen oder andere Wallet wiederherstellen";
+
+/*Wipe wallet button title*/
+"WipeWallet.wipe" = "Unwiederbringlich Löschen";
+
+/*Wiping activity message*/
+"WipeWallet.wiping" = "Lösche unwiederbringlich...";
+
+/*Paper key instructions.*/
+"WritePaperPhrase.instruction" = "Schreiben Sie bitte jedes Wort und in dieser Reihenfolge auf und bewahren Sie die Notiz an einem sicheren Ort auf.";
+
+/*button label*/
+"WritePaperPhrase.next" = "Nächste";
+
+/*button label*/
+"WritePaperPhrase.previous" = "Vorherige";
+
+/*1 of 3*/
+"WritePaperPhrase.step" = "%1$d von %2$d";
+
+/*header of PinView*/
+"Prompts.SecurityCheck.header" = "SECURITY\nCHECK";
+
+/*header of balance*/
+"Balance.header" = "Gesamt-\nsaldo";
+
+/*labels of syncView*/
+"SynchingView.blockHeightLabel" = "Blockhöhe";
+"SynchingView.progressLabel" = "Fortschritt";
+
+/*filter buttons for transactionView*/
+"TransactionView.all" = "Alle";
+
+/*TransactionFilter sent*/
+"TransactionView.sent" = "Gesendet";
+
+/*TransactionFilter received*/
+"TransactionView.received" = "Empfangen";
+
+/*DATE: date*/
+"TransactionDetailView.date" = "Datum";
+
+/*PROCESSED: time*/
+"TransactionDetailView.processed" = "Verarbeitet";
+
+/*STATUS: complete*/
+"TransactionDetailView.status" = "Status";
+
+/*CONFIRMATIONS: number*/
+"TransactionDetailView.confirmations" = "Bestätigungen";
+
+/*missing time translation*/
+"FeeSelector.regularTime" = "15-30 Sekunden";
+
+/*Text that is shown when asset was not resolved yet*/
+"Assets.unresolved" = "Nicht-aufgelöste Asset(s)";
+
+/*Text to show if no metadata is available for the asset*/
+"Assets.noMetadata" = "DigiAsset";
+
+/*Showing when multiple assets were received*/
+"Assets.multipleAssets" = "Mehrere Assets";
+
+/*Title of confirm view*/
+"Assets.receivedAssetsTitle" = "DigiAssets empfangen";
+
+/*Message will be displayed if assets were received*/
+"Assets.receivedAssetsMessage" = "Du hast mehrere DigiAssets empfangen. Um diese anzuzeigen, muss diese App mit einem Drittserver kommunizieren. Dabei werden lediglich öffentliche Wallet-Adressen und Transaktions-IDs übertragen.";
+
+/*Title of confirm view if opening single*/
+"Assets.openAssetTitle" = "Zeige DigiAsset";
+
+/*Message will be displayed if asset shall be opened*/
+"Assets.openAssetMessage" = "Um diese Assets anzuzeigen, muss diese App mit einem Drittserver kommunizieren. Dabei werden lediglich öffentliche Wallet-Adressen und Transaktions-IDs übertragen.";
+
+/*Title to show when assets are being fetched*/
+"Assets.fetchingAssetsTitle" = "Lade Assets";
+
+/*View RAW Transaction button title*/
+"Assets.viewRawTransaction" = "Zeige Transaktion";
+
+/*Resolve button caption*/
+"Assets.confirmAssetsResolve" = "Assets auflösen";
+
+/*Skip button caption*/
+"Assets.skipAssetsResolve" = "Überspringen";
+
+/*Cancel button caption*/
+"Assets.cancelAssetsResolve" = "Abbrechen";
+
+/*Skip button caption*/
+"Assets.continueWithoutSync" = "Überspringen";
+
+/*Total supply of asset*/
+"Assets.totalSupply" = "Im Umlauf";
+
+/*Number of total holders of an asset*/
+"Assets.numberOfHolders" = "Anzahl der Inhaber";
+
+/*lock status of an asset*/
+"Assets.lockStatus" = "Sperrstatus";
+
+/*Issuer key*/
+"Assets.issuer" = "Aussteller";
+
+/*AssetID key*/
+"Assets.assetID" = "Asset ID";
+
+/*Address key*/
+"Assets.address" = "Adresse";
+
+/*Possible value of Lock Status*/
+"Assets.locked" = "Gesperrt";
+
+/*Possible value of Lock Status*/
+"Assets.unlocked" = "Offen";
+
+/*Shown if a value is unknown (N/A)*/
+"Assets.unknown" = "Unbekannt";
+
+/*Total Balance: <BALANCE>*/
+"Assets.totalBalance" = "Gesamtsaldo";
+
+/*Tap to show button*/
+"Assets.tapToShow" = "Tippen um anzuzeigen";
+
+/*Tap to hide button*/
+"Assets.tapToHide" = "Tippen um zu verstecken";
+
+/*Asset ID: XXXXXX*/
+"Assets.assetIdKey" = "Asset ID";
+
+/*Total Balance: 1000*/
+"Assets.balanceKey" = "Gesamtsaldo";
+
+/*Issuer: CreateDigiAssets.com*/
+"Assets.issuerKey" = "Aussteller";
+
+/*Asset Info: YYYY*/
+"Assets.assetInfoKey" = "Asset Informationen";
+
+/*Description: ZZZZ*/
+"Assets.descriptionKey" = "Beschreibung";
+
+/*Button title for GET STARTED*/
+"Assets.getStarted" = "Loslegen!";
+
+/*Button title for create new asset*/
+"Assets.createNewAsset" = "Neues Asset erstellen";
+
+/*Heading for Receive assets*/
+"Assets.receiveAssets" = "Assets empfangen";
+
+/*Heading for create new assets*/
+"Assets.createAssets" = "Assets erstellen";
+
+/*Heading for burn assets*/
+"Assets.burnAssets" = "Assets verbrennen";
+
+/*Button title for send assets*/
+"Assets.sendAssets" = "Assets senden";
+
+/*Tab title*/
+"Assets.tabOverview" = "Assets";
+
+/*Tab title*/
+"Assets.tabCreate" = "Erstellen";
+
+/*Tab title*/
+"Assets.tabSend" = "Senden";
+
+/*Tab title*/
+"Assets.tabReceive" = "Empfangen";
+
+/*Tab title*/
+"Assets.tabBurn" = "Verbrennen";
+
+/*Shown, when no assets are available*/
+"Assets.nothingFoundHere" = "Nichts gefunden";
+
+/*Asset selector placeholder text*/
+"Assets.selectAnAsset" = "Wähle ein Asset aus";
+
+/*Danger Title*/
+"Assets.dangerTitle" = "GEFAHRENZONE";
+
+/*Danger description*/
+"Assets.dangerText" = "Das Verbrennen von Assets zerstört sie irreversibel. Verbrannte Assets können nicht wiedergewonnen werden";
+
+/*Asset not available*/
+"Assets.AssetNotAvailable" = "Asset nicht verfügbar";
+
+/*Displayed as a message when not enough assets are available*/
+"Assets.NotEnoughAssets" = "Nicht genügend Assets";
+
+/*No asset data error message*/
+"Assets.NoAssetData" = "Keine Asset Daten verfügbar";
+
+/*Displayed as a message when assets were burned*/
+"Assets.AssetsBurned" = "Asset(s) verbrannt!";
+
+/*Displayed as a message when assets were sent*/
+"Assets.AssetsSent" = "Asset(s) gesendet!";
+
+/*Transaction could not be broadcasted: <MESSAGE>*/
+"Assets.couldNotBeBroadcasted" = "Transaktion konnte nicht publiziert werden: %1$@";
+
+/*Transaction could not be created: <MESSAGE> (code: 123)*/
+"Assets.couldNotBeCreated" = "Transaktion konnte nicht erstellt werden: %1$@ (code: %2$@)";
+
+/*Total unique: 1234*/
+"Assets.totalUnique" = "Anzahl an Assets: %1$@";
+
+/*Context menu button caption*/
+"Assets.Context.info" = "Info";
+
+/*Context menu button caption*/
+"Assets.Context.send" = "Senden";
+
+/*Context menu button caption*/
+"Assets.Context.receive" = "Empfangen";
+
+/*Context menu button caption*/
+"Assets.Context.burn" = "Verbrennen";
+
+/*Assets you own (heading)*/
+"Assets.yourAssets" = "Deine Assets";
+
+/*Message heading*/
+"Assets.protocolDisabled" = "DigiAssets Protokoll deaktiviert";
+
+/*Message heading*/
+"Assets.protocolDisabledDescription" = "DigiAssets Protokoll deaktiviert";
+
+/*Select an asset (default dropdown)*/
+"Assets.select" = "Asset auswählen...";
+
+/*(Underlying) Asset Transaction*/
+"Assets.tx" = "Asset Transaktion";
+
+/*View RAW Asset Transaction*/
+"Assets.rawTx" = "Zeige Transaktion";
+
+/*ImageReader Title*/
+"QRImageReader.title" = "QRImage Leser";
+
+/*Image button label*/
+"QRImageReader.readQRButtonLabel" = "Bild";
+
+/*no qr code found*/
+"QRImageReader.readQRMessageNotFound" = "Es konnte kein QR Code gefunden werden";
+
+/*Found qrcode*/
+"QRImageReader.readQRMessageSuccess" = "QR Code gefunden";
+
+/*Found multiply qr code im image*/
+"QRImageReader.readQRMessageTooMany" = "Mehrere QR Codes gefunden.";
+
+/*address book modal title*/
+"AddressBook.title" = "Adressbuch";
+
+/*Name of contact*/
+"AddressBook.name" = "Name";
+
+/*Placeholder for searchbar*/
+"AddressBook.searchPlaceholder" = "Suche in Kontakten";
+
+/*Favorites header title*/
+"AddressBook.favorites" = "Favoriten";
+
+/*Header title in address book*/
+"AddressBook.addContact" = "Neuen Kontakt hinzufügen";
+
+/*button title for add button*/
+"AddressBook.addContactButtonTitle" = "Hinzufügen";
+
+/*button title for edit button*/
+"AddressBook.editContactButtonTitle" = "Editieren";
+
+/*Header title in address book*/
+"AddressBook.editContact" = "Kontakt editieren";
+
+/*the contact's address (textfield label)*/
+"AddressBook.address" = "Öffentliche Adresse";
+
+/*header in confirm dialog to delete contact*/
+"AddressBook.deleteContactHeader" = "Kontakt löschen";
+
+/*description in confirm dialog to delete contact*/
+"AddressBook.deleteContact" = "Möchten Sie diesen Kontakt wirklich löschen?";
+
+/*Title for first welcome screen*/
+"Welcome.page1title" = "Wilkommen im DigiByte Wallet.";
+
+/*Title for second welcome screen*/
+"Welcome.page2title" = "Senden";
+
+/*Title for third welcome screen*/
+"Welcome.page3title" = "Empfangen";
+
+/*Title for fourth welcome screen*/
+"Welcome.page4title" = "Sicher aufbewahren";
+
+/*Title for fifth welcome screen*/
+"Welcome.page5title" = "Login mit Digi-ID";
+
+/*Text for first welcome screen*/
+"Welcome.page1text" = "Sicheres Aufbewahren und Verwalten von deinen DigiBytes.";
+
+/*Text for second welcome screen*/
+"Welcome.page2text" = "Verwende deine DigiByte sofort und mühelos auf der ganzen Welt.";
+
+/*Text for third welcome Text*/
+"Welcome.page3text" = "Empfange DigiByte indem du deine Adresse teilst.";
+
+/*Text for fourth welcome screen*/
+"Welcome.page4text" = "Sichere deine DigiByte mit einer Vielzahl von Sicherheitsmechanismen.";
+
+/*Text for fifth welcome screen*/
+"Welcome.page5text" = "Nutzen Sie die Möglichkeiten der Blockchain-Sicherheit mit Digi-ID Open Auth.";
+
+/*Insufficient funds error*/
+"Send.insufficientFunds" = "Nicht genügend DigiByte";
+
+/*maximum amount*/
+"Send.max" = "Max";
+
+/*option to use Dandelion Protocol*/
+"Send.useDandelion" = "Verwende das Dandelion Protokoll für gesteigerte Sicherheit";
+
+/*Receive 10 BTC to <Address>*/
+"Receive.receiveAmountTo" = "Empfange %1$@ in %2$@";
+
+/*Receive to <Address>*/
+"Receive.receiveTo" = "Empfangen in %1$@";
+
+/*Clickable button*/
+"Receive.showLegacyAddress" = "Stattdessen eine Legacy-Adresse anzeigen";
+
+/*Clickable button*/
+"Receive.showSegwitAddress" = "Stattdessen eine Segwit Addresse anzeigen";
+
+/*Receive Address Box placeholder*/
+"Receive.receiveAddress" = "Empfängeradresse";
+
+/*Wipe wallet button*/
+"JailbreakWarnings.wipe" = "Leeren";
+
+/*Wallet locked message*/
+"UnlockScreen.locked" = "Wallet gesperrt";
+
+/*Unlock with FaceID accessibility label*/
+"UnlockScreen.faceIdPrompt" = "Hier tippen um deine DigiByte mit Face ID zu entsperren";
+
+/*Message that appears, when the sign timeout was triggered*/
+"Transaction.signTimeout" = "Transaktion nicht schnell genug signiert";
+
+/*Manage wallet button title*/
+"AccountHeader.manageButtonName" = "VERWALTEN";
+
+/*Equals symbol*/
+"AccountHeader.equals" = "=";
+
+/*Switch label for setting*/
+"TouchIdSettings.automaticBiometricsSwitchLabel" = "TouchID beim Start automatisch verwenden";
+
+/*Switch label for setting*/
+"FaceIDSettings.automaticBiometricsSwitchLabel" = "Face ID beim Start automatisch verwenden";
+
+/*Always require passcode option*/
+"TouchIdSpendingLimit.requirePasscode" = "Immer Passcode erfragen";
+
+/*custom amount limit (category)*/
+"TouchIdSpendingLimit.custom" = "Manuell";
+
+/*custom amount limit (title)*/
+"TouchIdSpendingLimit.customAmount" = "Benutzerdefinierte Anzahl";
+
+/*Description for custom amount*/
+"TouchIdSpendingLimit.customAmountDescription" = "Bitte gebe eine Anzahl ein";
+
+/*Port must be greater than 0 and less than 65535*/
+"Settings.invalidPortHeader" = "Ungültiger Port";
+
+/*send max button visible or not*/
+"Settings.maxSendEnabled" = "Maximale-Anzahl Senden Option anzeigen";
+
+/*do not place a digibyte logo into qr codes*/
+"Settings.excludeLogoInQR" = "DigiByte Logo in QR Codes ausblenden";
+
+/*Do not show any DigiAsset Contents*/
+"Settings.showRawTransactions" = "DigiAssets deaktivieren";
+
+/*Resolve Assets without a prompt*/
+"Settings.resolveAssetsWithoutPrompt" = "Assets automatisch auflösen";
+
+/*Clear Asset Cache*/
+"Settings.clearAssetCache" = "Asset Cache leeren";
+
+/*Clear Assets Image cache*/
+"Settings.clearImageCache" = "Asset Bilder-Cache leeren";
+
+/*Message that appears when a cache was cleared*/
+"Settings.cacheCleared" = "Cache geleert";
+
+/*DigiByte Nodes (Network term)*/
+"Settings.nodes" = "DigiByte Nodes";
+
+/*Settings item*/
+"Settings.useDigiIDLegacy" = "Verwende Digi-ID Legacy";
+
+/*Message that appears when DigiID Legacy is being opened*/
+"Settings.digiIdLegacyWarning" = "Es wird nicht dazu geraten Ausnahmen hinzuzufügen. Digi-ID Legacy wird in einem zukünftigen Release entfernt.";
+
+/*DigiID Legacy Preview Text (how many websites were added as an exception)*/
+"Settings.digiIdPreview" = "#%1$@ Ausnahme(n)";
+
+/*DigiID Legacy Title*/
+"Settings.digiIdLegacyTitle" = "Digi-ID Legacy";
+
+/*DigiID Legacy Description*/
+"Settings.digiIdLegacyDescription" = "Digi-ID Legacy ist eine veraltete Authentifizierungsmethode, die nicht kompatibel mit dem Android Wallet ist. Es wird empfohlen, Digi-ID Legacy nicht zu verwenden.";
+
+/*DigiID Legacy: Add Exception (button)*/
+"Settings.addException" = "Eine Ausnahme hinzufügen";
+
+/*Welcome title*/
+"AssetsWelcome.welcomeTitle" = "Wilkommen zu DigiAssets";
+
+/*Create Heading*/
+"AssetsWelcome.createHeading" = "Erstellen.";
+
+/*Send Heading*/
+"AssetsWelcome.sendHeading" = "Senden.";
+
+/*Receive Heading*/
+"AssetsWelcome.receiveHeading" = "Empfangen.";
+
+/*Create Text*/
+"AssetsWelcome.createText" = "Du kannst DigiAssets direkt in einer WebApp erstellen. Verwandle Dinge, die du liebst, in DigiAssets.";
+
+/*Send Text*/
+"AssetsWelcome.sendText" = "Du kannst deine DigiAssets mit dieser App zu anderen Leuten transferieren.";
+
+/*Receive Text*/
+"AssetsWelcome.receiveText" = "Empfange DigiAssets von anderen Leuten direkt in diese App.";
+
+/*Introduction in About Screen*/
+"About.introduction" = "Diese App wurde von DigiByte- und Blockchain Enhusiasten und unbezahlten Freiwilligen programmiert, die ihre Freizeit und Fähigkeiten liebevoll in ein Projekt investiert haben, das sie lieben.";
+
+/*'BLOCK HEIGHT' caption title*/
+"SyncingView.blockHeightLabel" = "BLOCK HÖHE";
+
+/*'PROGRESS' caption title (PROGRESS: May 18 / June 18)*/
+"SyncingView.progressLabel" = "Fortschritt";
+
+/*Heading of modal alert*/
+"ReScan.fastSync" = "Schnelle Synchonisierung";
+
+/*Privacy Warning of fast sync*/
+"ReScan.fastSyncDescription" = "Um die Synchronisierung zu beschleunigen, kann dieses Wallet mit einem externen Blockexplorer kommunizieren. Dieses Feature überträgt lediglich öffentliche Wallet-Adressen.";
+
+/*Heading of modal alert*/
+"ReScan.fastReSync" = "Schnelle Synchonisierung";
+
+/*Regular Sync description*/
+"ReScan.regularSync" = "Normale Synchronisierung (langsam)";
+
+/*Confirm paper phrase error message*/
+"ConfirmPaperPhrase.error" = "Die eingegebenen Wörter gleichen nicht dem Papierschlüssel.";
+
+/*Confirm dialog's default confirm action title*/
+"Alerts.confirmOkCaption" = "OK";
+
+/*confirm dialog's default cancel action title*/
+"Alerts.confirmCancelCaption" = "Abbrechen";
+
+/*Menu button title for DigiAssets*/
+"MenuButton.digiAssets" = "DigiAssets";
+
+/*Fee Selector regular fee description*/
+"FeeSelector.estimatedDeliver" = "Ungefähre Ankunft: %1$@";
+
+/*E.g. [This transaction is predicted to complete in] 1+ minutes*/
+"FeeSelector.economyTime" = "1+ Minuten";
+
+/*Import Address Heading*/
+"Assets.Send.importAddress" = "Addresse Importieren";
+
+/*Import Address Option: Address Book*/
+"Assets.Send.addressBook" = "Adressbuch";
+
+/*Import Address Option: Import Address from Clipboard*/
+"Assets.Send.pasteFromClipboard" = "Aus Zwischenablage importieren";
+
+/*Import Address Option: Scan QR*/
+"Assets.Send.scanQR" = "Aus QR Code importieren";
+
+/*Import Address Option: Browse Gallery*/
+"Assets.Send.browseGallery" = "Gallerie durchsuchen";
+
+/*Import Address Description: Address Book*/
+"Assets.Send.addressBookDescription" = "Wähle eine Adresse aus deinen Adressbuchkontaken aus";
+
+/*Import Address Description: QR Scanner*/
+"Assets.Send.scanQRDescription" = "Verwende deine Kamera um eine Adresse aus einem QR Code zu importieren";
+
+/*Import Address Heading*/
+"Assets.Send.browseGalleryDescription" = "Importiere einen QR-Code aus deiner Gallerie";
+
+/*Favorite Switch Title (as favorite)-option*/
+"AddressBook.favorite" = "Favoriten";
+
+/*Version: 2.0.0*/
+"Abput.version" = "Version: #%1$@";
+
+/*Development Heading in About Section*/
+"Abput.development" = "Entwicklung";
+
+/*UI Heading in About Section*/
+"About.ui" = "UI";
+
+/*Special Thanks Heading in About Section*/
+"About.specialThanks" = "Besonderer Dank";
+
+/*Translations Heading in About Section*/
+"About.translations" = "Übersetzungen";

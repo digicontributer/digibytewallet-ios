@@ -1,0 +1,1561 @@
+
+/*About screen blog label*/
+"About.blog" = "ブログ";
+
+/*About screen footer*/
+"About.footer" = "製作：グローバルデジウォレットチーム  Version %1$@";
+
+/*Privay Policy button label*/
+"About.privacy" = "プライバシーポリシー";
+
+/*About screen reddit label*/
+"About.reddit" = "Reddit";
+
+/*Terms of Use button label*/
+"About.terms" = "利用規約";
+
+/*About screen title*/
+"About.title" = "About";
+
+/*About screen twitter label*/
+"About.twitter" = "Twitter";
+
+/*Close modal button accessibility label*/
+"AccessibilityLabels.close" = "閉じる";
+
+/*Support center accessibiliy label*/
+"AccessibilityLabels.faq" = "サポートセンター";
+
+/*Loading Wallet Message*/
+"Account.loadingMessage" = "Wallet 読込み中";
+
+/*Default wallet name*/
+"AccountHeader.defaultWalletName" = "マイDigiByte";
+
+/*Error alert title*/
+"Alert.error" = "エラー";
+
+/*No internet alert message*/
+"Alert.noInternet" = "インターネット接続が見つかりません。接続を確認してもう一度操作してください。";
+
+/*Warning alert title*/
+"Alert.warning" = "警告";
+
+/*'the addresses were copied'' Alert title*/
+"Alerts.copiedAddressesHeader" = "アドレスをコピーしました";
+
+/*Addresses Copied Alert sub header*/
+"Alerts.copiedAddressesSubheader" = "全てのウォレットアドレスをコピーしました";
+
+/*Alert Header Label (the paper key was set)*/
+"Alerts.paperKeySet" = "ペーパーキーを設定";
+
+/*Alert Subheader label (playfully positive)*/
+"Alerts.paperKeySetSubheader" = "素晴らしい！";
+
+/*Alert Header label (the PIN was set)*/
+"Alerts.pinSet" = "PINを設定";
+
+/*Send failure alert header label (the send failed to happen)*/
+"Alerts.sendFailure" = "送金失敗";
+
+/*Send success alert header label (confirmation that the send happened)*/
+"Alerts.sendSuccess" = "送金確認";
+
+/*Send success alert subheader label (e.g. the money was sent)*/
+"Alerts.sendSuccessSubheader" = "送金しました！";
+
+/*JSON Serialization error message*/
+"ApiClient.jsonError" = "JSON Serialization エラー";
+
+/*Wallet not ready error message*/
+"ApiClient.notReady" = "Walletの準備が出来ていません";
+
+/*API Token error message*/
+"ApiClient.tokenError" = "APIトークンを取得できません";
+
+/*Send BCH view body.*/
+"BCH.body" = "以下にデジバイトアドレスを入力してください。 フォーク（ %1$@ ）の時点であなたのWalletの全てのDigiByteが送金されます。";
+
+/*Confirm sending <$5.00> to <address>?*/
+"BCH.confirmationMessage" = "送金の確認 %1$@ から %2$@";
+
+/*Confirmation alert title*/
+"BCH.confirmationTitle" = "確認";
+
+/*Generic bch erorr message*/
+"BCH.genericError" = "アカウントにDigiByte残高が無いか、フォーク後のDigiByte受け取となります。";
+
+/*Transaction ID copied message*/
+"BCH.hashCopiedMessage" = "トランザクションIDをコピーしました";
+
+/*No address error message*/
+"BCH.noAddressError" = "アドレスを入力してください";
+
+/*Attempted to scan unsupported qr code error message.*/
+"BCH.paymentProtocolError" = "支払いプロトコルリクエストはDigiByteトランザクションではサポートされていません";
+
+/*BCH successfully sent alert message*/
+"BCH.successMessage" = "DigiByteの送金成功";
+
+/*Widthdraw BCH view title*/
+"BCH.title" = "DigiByteを出金する";
+
+/*Tx Hash button header*/
+"BCH.txHashHeader" = "DigiByteトランザクションID";
+
+/*Approve button label*/
+"BitID.approve" = "承認する";
+
+/*<sitename> is requesting authentication using your bitcoin wallet*/
+"BitID.authenticationRequest" = "%1$@ がDigiByte Wallet を使用して認証を要求しています";
+
+/*Deny button label*/
+"BitID.deny" = "拒否";
+
+/*BitID error alert title*/
+"BitID.error" = "認証エラー";
+
+/*BitID error alert messaage (The payment service you are trying to use isn't working. Please contact them, as you may need to try again)*/
+"BitID.errorMessage" = "サービスをご確認のうえ、もう一度やり直してください。";
+
+/*BitID success alert title*/
+"BitID.success" = "認証成功";
+
+/*BitID Authentication Request alert view title*/
+"DigiID.title" = "Digi-ID 認証リクエスト";
+
+/*Cancel button label*/
+"Button.cancel" = "キャンセル";
+
+/*Ignore button label*/
+"Button.ignore" = "無視する";
+
+/*menu button*/
+"Button.menu" = "メニュー";
+
+/*No button*/
+"Button.no" = "いいえ";
+
+/*OK button label*/
+"Button.ok" = "OK";
+
+/*receive button*/
+"Button.receive" = "受取り";
+
+/*send button*/
+"Button.send" = "送金";
+
+/*Settings button label*/
+"Button.settings" = "設定";
+
+/*Settings button label*/
+"Button.submit" = "送る";
+
+/*Yes button*/
+"Button.yes" = "はい";
+
+/*Camera plugin instruction*/
+"CameraPlugin.centerInstruction" = "IDをボックスの中に入力";
+
+/*Amount to Send: ($1.00)*/
+"Confirmation.amountLabel" = "送金額：";
+
+/*Network Fee: ($1.00)*/
+"Confirmation.feeLabel" = "手数料：";
+
+/*eg. Processing time: This transaction will take 10-30 minutes to process.*/
+"Confirmation.processingTime" = "処理時間：このトランザクションは処理に %1$@ 分かかります";
+
+/*Label for "send" button on final confirmation screen*/
+"Confirmation.send" = "送金";
+
+/*Confirmation Screen title*/
+"Confirmation.title" = "確認";
+
+/*To: (address)*/
+"Confirmation.to" = "宛先";
+
+/*Total Cost: ($5.00)*/
+"Confirmation.totalLabel" = "総金額：";
+
+/*Confirm paper phrase view label.*/
+"ConfirmPaperPhrase.label" = "全てが正しく書き留められていることを確認するので、ペーパーキーから次の単語を入力してください";
+
+/*Word label eg. Word #1, Word #2*/
+"ConfirmPaperPhrase.word" = "単語 # %1$@";
+
+/*Bitcoin denomination picker label*/
+"DefaultCurrency.bitcoinLabel" = "DigiByte表示単位";
+
+/*Exchange rate label*/
+"DefaultCurrency.rateLabel" = "取引レート";
+
+/*Email unavailable alert title*/
+"ErrorMessages.emailUnavailableMessage" = "この端末はiOSメールアプリでメールを送信するように設定されていません";
+
+/*Email unavailable alert title*/
+"ErrorMessages.emailUnavailableTitle" = "メールを利用できません";
+
+/*Messaging unavailable alert title*/
+"ErrorMessages.messagingUnavailableMessage" = "この端末はメッセージを送信するように設定されていません";
+
+/*Messaging unavailable alert title*/
+"ErrorMessages.messagingUnavailableTitle" = "メッセージを利用できません";
+
+/*You can customize your Face ID Spending Limit from the [FaceIdSettings.linkText gets added here as a button]*/
+"FaceIDSettings.customizeText" = "Face IDの利用限度額を %1$@ から選択できます";
+
+/*Face Id screen label*/
+"FaceIDSettings.label" = "Face IDを使用してウォレットのロックを解除、利用限度額まで送金できます。";
+
+/*Link Text (see FaceIdSettings.customizeText)*/
+"FaceIDSettings.linkText" = "Face ID認証の場合の利用限度額";
+
+/*Face id switch label.*/
+"FaceIDSettings.switchLabel" = "ウォレットでFace IDを有効にする";
+
+/*Face ID settings view title*/
+"FaceIDSettings.title" = "Face ID";
+
+/*Face ID unavailable alert message*/
+"FaceIDSettings.unavailableAlertMessage" = "このデバイスでFace IDを設定していません。 設定 - >Face IDとパスコードに移動して設定してください。";
+
+/*Face ID unavailable alert title*/
+"FaceIDSettings.unavailableAlertTitle" = "Face ID が設定されていません";
+
+/*Face Id spending limit screen title*/
+"FaceIDSpendingLimit.title" = "Face ID の利用限度額";
+
+/*Economy fee*/
+"FeeSelector.economy" = "エコノミー";
+
+/*Fee Selector economly fee description*/
+"FeeSelector.economyLabel" = "送金予想時間：1+分";
+
+/*Warning message for economy fee*/
+"FeeSelector.economyWarning" = "このオプションは、時間のかかるトランザクションにはお勧めしません。";
+
+/*Regular fee*/
+"FeeSelector.regular" = "レギュラー";
+
+/*Fee Selector regular fee description*/
+"FeeSelector.regularLabel" = "送金予想時間 :  15-30秒";
+
+/*Fee Selector title*/
+"FeeSelector.title" = "処理速度";
+
+/*Checking private key balance progress view text*/
+"Import.checking" = "秘密鍵の残高を確認しています...";
+
+/*Sweep private key confirmation message*/
+"Import.confirm" = "この秘密鍵から %1$@ をあなたのWalletに送りますか？ DigiByteネットワークには %2$@ の手数料が加算されます。";
+
+/*Duplicate key error message*/
+"Import.Error.duplicate" = "この秘密鍵はすでにあなたのWalletに入っています。";
+
+/*empty private key error message*/
+"Import.Error.empty" = "この秘密鍵は空です。";
+
+/*High fees error message*/
+"Import.Error.highFees" = "取引手数料は、この秘密鍵で利用可能な資金よりも多くなります。";
+
+/*Not a valid private key error message*/
+"Import.Error.notValid" = "有効な秘密鍵ではありません";
+
+/*Import signing error message*/
+"Import.Error.signing" = "トランザクションにエラーが発生しました";
+
+/*Import button label*/
+"Import.importButton" = "インポート";
+
+/*Importing wallet progress view label*/
+"Import.importing" = "Walletをインポート";
+
+/*Caption for graphics*/
+"Import.leftCaption" = "インポートするWallet";
+
+/*Import wallet intro screen message*/
+"Import.message" = "別のウォレットからDigiByteウォレットに全額インポートします";
+
+/*Enter password alert view title*/
+"Import.password" = "この秘密鍵はパスワードで保護されています";
+
+/*password textfield placeholder*/
+"Import.passwordPlaceholder" = "パスワード";
+
+/*Caption for graphics*/
+"Import.rightCaption" = "あなたのウォレット";
+
+/*Scan Private key button label*/
+"Import.scan" = "秘密鍵をスキャンする";
+
+/*Import wallet success alert title*/
+"Import.success" = "成功";
+
+/*Successfully imported wallet message body*/
+"Import.SuccessBody" = "Walletのインポートに成功しました";
+
+/*Import Wallet screen title*/
+"Import.title" = "Walletをインポート";
+
+/*Unlocking Private key activity view message.*/
+"Import.unlockingActivity" = "ロック解除キー";
+
+/*Import wallet intro warning message*/
+"Import.warning" = "Walletのインポートには、トランザクション履歴やその他の詳細は含まれません";
+
+/*Wrong password alert message*/
+"Import.wrongPassword" = "パスワードが違います、もう一度入力してください";
+
+/*Close app button*/
+"JailbreakWarnings.close" = "閉じる";
+
+/*Ignore jailbreak warning button*/
+"JailbreakWarnings.ignore" = "無視する";
+
+/*Jailbreak warning message*/
+"JailbreakWarnings.messageWithBalance" = "デバイスのセキュリティ保護\n全ての脱獄アプリはDigiByteウォレットのキーチェーンデータにアクセスし、DigiByteを盗む事が可能です！ このWalletをすぐに消去して、安全なデバイスに戻してください。";
+
+/*Jailbreak warning message*/
+"JailbreakWarnings.messageWithoutBalance" = "デバイスのセキュリティ保護\n全ての脱獄アプリはDigiByteウォレットのキーチェーンデータにアクセスし、DigiByteを盗む事が可能です！ ウォレットは非脱獄デバイスでのみ使用してください。";
+
+/*Jailbreak warning title*/
+"JailbreakWarnings.title" = "警告";
+
+/*Location services disabled error*/
+"LocationPlugin.disabled" = "位置情報サービスは無効になっています";
+
+/*No permissions for location services*/
+"LocationPlugin.notAuthorized" = "DigiByteには位置情報サービスにアクセスする権限がありません。";
+
+/*Wallet creation date prefix*/
+"ManageWallet.creationDatePrefix" = "%1$@ にWalletを作成しました";
+
+/*Manage wallet description text*/
+"ManageWallet.description" = "Wallet名はアカウントの取引履歴にのみ表示され、他の誰にも見られません。";
+
+/*Change Wallet name textfield label*/
+"ManageWallet.textFeildLabel" = "ウォレット名";
+
+/*Manage wallet modal title*/
+"ManageWallet.title" = "ウォレットを管理する";
+
+/*Menu button title*/
+"MenuButton.lock" = "ウォレットをロックする";
+
+/*Menu button title*/
+"MenuButton.security" = "セキュリティセンター";
+
+/*Menu button title*/
+"MenuButton.settings" = "設定";
+
+/*Menu button title*/
+"MenuButton.support" = "サポート";
+
+/*button label*/
+"MenuViewController.createButton" = "新しいウォレットを作製";
+
+/*Menu modal title*/
+"MenuViewController.modalTitle" = "メニュー";
+
+/*button label*/
+"MenuViewController.recoverButton" = "ウォレットを復元する";
+
+/*Switch to automatic mode button label*/
+"NodeSelector.automaticButton" = "自動モードに切り替える";
+
+/*Node is connected label*/
+"NodeSelector.connected" = "接続済み";
+
+/*Enter node ip address view body*/
+"NodeSelector.enterBody" = "ノードのIPアドレスとポートを入力（オプション）";
+
+/*Enter Node ip address view title*/
+"NodeSelector.enterTitle" = "ノードを入力";
+
+/*Switch to manual mode button label*/
+"NodeSelector.manualButton" = "手動モードに切り替える";
+
+/*Node address label*/
+"NodeSelector.nodeLabel" = "現在のプライマリノード";
+
+/*Node is not connected label*/
+"NodeSelector.notConnected" = "接続されていません";
+
+/*Node status label*/
+"NodeSelector.statusLabel" = "ノード接続ステータス";
+
+/*Node Selector view title*/
+"NodeSelector.title" = "DigiByteノード";
+
+/*Bad Payment request alert title*/
+"PaymentProtocol.Errors.badPaymentRequest" = "不可能な支払いリクエスト";
+
+/*Error opening payment protocol file message*/
+"PaymentProtocol.Errors.corruptedDocument" = "サポートされていないか破損しているドキュメント";
+
+/*Missing certificate payment protocol error message*/
+"PaymentProtocol.Errors.missingCertificate" = "証明書がありません";
+
+/*Request expired payment protocol error message*/
+"PaymentProtocol.Errors.requestExpired" = "期限切れのリクエスト";
+
+/*Payment too small alert title*/
+"PaymentProtocol.Errors.smallOutputError" = "支払いを行うことができませんでした";
+
+/*Amount too small error message*/
+"PaymentProtocol.Errors.smallPayment" = "DigiByteの支払いは %1$@ 以下にすることはできません。";
+
+/*Output too small error message.*/
+"PaymentProtocol.Errors.smallTransaction" = "DigiByteの取引の出力は$ @以下にできません。";
+
+/*Unsupported signature type payment protocol error message*/
+"PaymentProtocol.Errors.unsupportedSignatureType" = "サポートされていない署名タイプ";
+
+/*Untrusted certificate payment protocol error message*/
+"PaymentProtocol.Errors.untrustedCertificate" = "信頼できない証明書";
+
+/*Enable face ID prompt body*/
+"Prompts.FaceId.body" = "タップしてFace IDを有効にする";
+
+/*Enable face ID prompt title*/
+"Prompts.FaceId.title" = "Face IDを有効にする";
+
+/*No passcode set warning body*/
+"Prompts.NoPasscode.body" = "あなたのWalletを保護するためにデバイスのパスコードが必要です。 設定でパスコードをオンにします。";
+
+/*No Passcode set warning title*/
+"Prompts.NoPasscode.title" = "デバイスのパスコードをオンにする";
+
+/*Warning about paper key.*/
+"Prompts.PaperKey.body" = "スマートフォンを紛失または機種変更した場合に備えて、ペーパーキーを保存する必要があります。 続けるにはここをタップしてください。";
+
+/*An action is required (You must do this action).*/
+"Prompts.PaperKey.title" = "必要なアクション";
+
+/*Transaction rejected prompt body*/
+"Prompts.RecommendRescan.body" = "ウォレットが同期していない可能性があります。 ブロックチェーンを再スキャンする事で修正できます。";
+
+/*Transaction rejected prompt title*/
+"Prompts.RecommendRescan.title" = "取引拒否";
+
+/*Share data prompt body*/
+"Prompts.ShareData.body" = "匿名のデータを私たちと共有してDigiByteウォレットアプリを改善する";
+
+/*Share data prompt title*/
+"Prompts.ShareData.title" = "匿名データを共有する";
+
+/*Enable touch ID prompt body*/
+"Prompts.TouchId.body" = "タップしてTouch ID を有効にする";
+
+/*Enable touch ID prompt title*/
+"Prompts.TouchId.title" = "Touch IDを有効にする";
+
+/*Upgrade PIN prompt body.*/
+"Prompts.UpgradePin.body" = "ウォレットは6桁のPINを使用するようにアップグレードしました。 アップグレードするにはここをタップしてください。";
+
+/*Upgrade PIN prompt title.*/
+"Prompts.UpgradePin.title" = "PINのアップグレード";
+
+/*Notifications will be added later but users can set their preferences now, which is why we specify "in the future".*/
+"PushNotifications.body" = "DigiByteから特別なメッセージを受信するよう通知をオンにします。";
+
+/*Push notifications toggle switch label*/
+"PushNotifications.label" = "プッシュ通知";
+
+/*Push notifications are off label*/
+"PushNotifications.off" = "オフ";
+
+/*Push notifications are on label*/
+"PushNotifications.on" = "オン";
+
+/*Push notifications settings view title label*/
+"PushNotifications.title" = "通知";
+
+/*Address copied message.*/
+"Receive.copied" = "クリップボードにコピーされました。";
+
+/*Share via email button label*/
+"Receive.emailButton" = "Eメール";
+
+/*Request button label*/
+"Receive.request" = "金額を請求する";
+
+/*Share button label*/
+"Receive.share" = "シェアする";
+
+/*Share via text message (SMS)*/
+"Receive.textButton" = "テキストメッセージ";
+
+/*Receive modal title*/
+"Receive.title" = "受取る";
+
+/*Done button text*/
+"RecoverWallet.done" = "完了";
+
+/*Recover wallet header*/
+"RecoverWallet.header" = "Walletを復元する";
+
+/*Reset PIN with paper key: header*/
+"RecoverWallet.header_reset_pin" = "PINのリセット";
+
+/*Enter paper key instruction*/
+"RecoverWallet.instruction" = "ペーパーキーを入力";
+
+/*Recover wallet intro*/
+"RecoverWallet.intro" = "ペーパーキーでウォレットを復元します。";
+
+/*Invalid paper key message*/
+"RecoverWallet.invalid" = "入力したペーパーキーは無効です。 各単語を再度確認してから、もう一度お試しください。";
+
+/*Previous button accessibility label*/
+"RecoverWallet.leftArrow" = "左矢印";
+
+/*Next button label*/
+"RecoverWallet.next" = "次";
+
+/*Reset PIN with paper key: more information button.*/
+"RecoverWallet.reset_pin_more_info" = "詳細についてはここをタップしてください。";
+
+/*Next button accessibility label*/
+"RecoverWallet.rightArrow" = "右矢印";
+
+/*Recover wallet sub-header*/
+"RecoverWallet.subheader" = "復元するウォレットのペーパーキーを入力します。";
+
+/*Reset PIN with paper key: sub-header*/
+"RecoverWallet.subheader_reset_pin" = "PINをリセットするには、ペーパーキーの単語を下のボックスに入力します。";
+
+/*No amount entered error message.*/
+"RequestAnAmount.noAmount" = "最初に金額を入力してください。";
+
+/*Request a specific amount of bitcoin*/
+"RequestAnAmount.title" = "金額を請求する";
+
+/*Alert action button label*/
+"ReScan.alertAction" = "同期";
+
+/*Alert message body*/
+"ReScan.alertMessage" = "同期中に送金する事はできません。";
+
+/*Alert message title*/
+"ReScan.alertTitle" = "ブロックチェーンと同期しますか？";
+
+/*extimated time*/
+"ReScan.body1" = "２０−４５分";
+
+/*Syncing explanation*/
+"ReScan.body2" = "取引がDigiByteネットワーク上で完了したものとして表示されますが、ウォレットでは表示されない場合があります。";
+
+/*Syncing explanation*/
+"ReScan.body3" = "トランザクションが拒否されたというエラーが繰り返し表示されます。";
+
+/*Start Sync button label*/
+"ReScan.buttonTitle" = "同期を開始する";
+
+/*Sync blockchain view footer*/
+"ReScan.footer" = "ブロックチェーンと同期している間は送金することはできません。";
+
+/*Sync Blockchain view header*/
+"ReScan.header" = "ブロックチェーンの同期";
+
+/*Subheader label*/
+"ReScan.subheader1" = "予定時間";
+
+/*Subheader label*/
+"ReScan.subheader2" = "いつ同期しますか？";
+
+/*Scan bitcoin address camera flash toggle*/
+"Scanner.flashButtonLabel" = "カメラのフラッシュ";
+
+/*Complete filter label*/
+"Search.complete" = "完了";
+
+/*Pending filter label*/
+"Search.pending" = "保留中";
+
+/*Received filter label*/
+"Search.received" = "受取り";
+
+/*Sent filter label*/
+"Search.sent" = "送金";
+
+/*Face ID button title*/
+"SecurityCenter.faceIdTitle" = "Face ID";
+
+/*Security Center Info*/
+"SecurityCenter.info" = "最大限のセキュリティを実現するため、すべてのセキュリティ機能を有効にして下さい。";
+
+/*Paper Key button description*/
+"SecurityCenter.paperKeyDescription" = "スマートフォンを紛失またはアップグレードした場合にDigiByteにアクセスできる唯一の方法です。";
+
+/*Paper Key button title*/
+"SecurityCenter.paperKeyTitle" = "ペーパーキー";
+
+/*PIN button description*/
+"SecurityCenter.pinDescription" = "許可されていない他のユーザーからウォレットを保護します。";
+
+/*PIN button title*/
+"SecurityCenter.pinTitle" = "６桁のPIN";
+
+/*Security Center Title*/
+"SecurityCenter.title" = "セキュリティセンター";
+
+/*Touch ID button description*/
+"SecurityCenter.touchIdDescription" = "ウォレットのロック解除、設定限度額まで送金ができます。";
+
+/*Touch ID button title*/
+"SecurityCenter.touchIdTitle" = "Touch ID";
+
+/*Send money amount label*/
+"Send.amountLabel" = "金額";
+
+/*Balance: $4.00*/
+"Send.balance" = "残高: %1$@";
+
+/*Camera not allowed message*/
+"Send.cameraunavailableMessage" = "カメラのアクセスを許可するには、[設定]に移動します。";
+
+/*Camera not allowed alert title*/
+"Send.cameraUnavailableTitle" = "ウォレットはカメラにアクセスできません";
+
+/*Warning when sending to self.*/
+"Send.containsAddress" = "宛先はあなた自身のアドレスです。 自分に送金する事は出来ません。";
+
+/*Could not create transaction alert title*/
+"Send.creatTransactionError" = "トランザクションを作成できませんでした。";
+
+/*Description for sending money label*/
+"Send.descriptionLabel" = "メモ";
+
+/*Emtpy pasteboard error message*/
+"Send.emptyPasteboard" = "ペーストボードが空です";
+
+/*Network Fee: $0.01*/
+"Send.fee" = "ネットワーク手数料 :%1$@";
+
+/*Payee identity not certified alert title.*/
+"Send.identityNotCertified" = "受取人の身元が証明されていません。";
+
+/*Invalid address alert message*/
+"Send.invalidAddressMessage" = "宛先アドレスは有効なDigiByteアドレスではありません。";
+
+/*Invalid address on pasteboard message*/
+"Send.invalidAddressOnPasteboard" = "ペーストボードに有効なDigiByteアドレスがありません。";
+
+/*Invalid address alert title*/
+"Send.invalidAddressTitle" = "無効なアドレス";
+
+/*Is rescanning error message*/
+"Send.isRescanning" = "フル再スキャン中は送金が無効になります。";
+
+/*Loading request activity view message*/
+"Send.loadingRequest" = "リクエストを読み込んでいます";
+
+/*Empty address alert message*/
+"Send.noAddress" = "宛先のアドレスを入力してください。";
+
+/*Emtpy amount alert message*/
+"Send.noAmount" = "送金額を入力してください。";
+
+/*Paste button label*/
+"Send.pasteLabel" = "ペースト";
+
+/*Could not publish transaction alert title*/
+"Send.publishTransactionError" = "トランザクションを公開できませんでした。";
+
+/*Could not load remote request error message*/
+"Send.remoteRequestError" = "支払いリクエストを読み込めませんでした";
+
+/*Scan button label*/
+"Send.scanLabel" = "スキャン";
+
+/*Send button label (the action, "press here to send")*/
+"Send.sendLabel" = "送金";
+
+/*Send screen title (as in "this is the screen for sending money")*/
+"Send.title" = "送金";
+
+/*Send money to label*/
+"Send.toLabel" = "宛先";
+
+/*Adress already used alert message - first part*/
+"Send.UsedAddress.firstLine" = "DigiByteアドレスは1回限りの使用を推奨しています。";
+
+/*Adress already used alert message - second part*/
+"Send.UsedAddress.secondLIne" = "アドレスの再利用はあなたと受取人の両方のプライバシーを低下させ、受取人がアドレスを直接管理しない場合に損失を招く可能性があります。";
+
+/*Adress already used alert title*/
+"Send.UsedAddress.title" = "このアドレスは既に使われています";
+
+/*About label*/
+"Settings.about" = "About";
+
+/*Advanced Settings title*/
+"Settings.advancedTitle" = "高度な設定";
+
+/*i.e. the currency which will be displayed*/
+"Settings.currency" = "通貨の表示";
+
+/*Join Early access label*/
+"Settings.earlyAccess" = "アーリーアクセスに参加する";
+
+/*Are you enjoying bread alert message body*/
+"Settings.enjoying" = "DigiByteを楽しんでいますか？";
+
+/*Face ID spending limit label*/
+"Settings.faceIdLimit" = "Face ID 利用限度額";
+
+/*Import wallet label*/
+"Settings.importTitle" = "ウォレットをインポート";
+
+/*Manage settings section header*/
+"Settings.manage" = "管理";
+
+/*Notifications label*/
+"Settings.notifications" = "通知";
+
+/*Leave review button label*/
+"Settings.review" = "レビューを残す";
+
+/*Share anonymous data label*/
+"Settings.shareData" = "匿名データを共有する";
+
+/*Sync blockchain label*/
+"Settings.sync" = "ブロックチェーンの同期";
+
+/*Settings title*/
+"Settings.title" = "設定";
+
+/*Touch ID spending limit label*/
+"Settings.touchIdLimit" = "Touch ID 利用限度額";
+
+/*Wallet Settings section header*/
+"Settings.wallet" = "ウォレット";
+
+/*Start or recover another wallet menu label.*/
+"Settings.wipe" = "新規/Walletの復元";
+
+/*Share data view body*/
+"ShareData.body" = "匿名のデータを私たちと共有することにより、ウォレットアプリを改善するのに役立ちます。 これには資産情報は含まれません。 あなたの資産のプライバシーを尊重します。";
+
+/*Share data header*/
+"ShareData.header" = "データを共有しますか？";
+
+/*Share data switch label.*/
+"ShareData.toggleLabel" = "匿名データを共有しますか？";
+
+/*button label*/
+"StartPaperPhrase.againButtonTitle" = "ペーパーキーを再度書き留めてください";
+
+/*Paper key explanation text.*/
+"StartPaperPhrase.body" = "スマートフォンの紛失、盗難、破損、またはアップグレードをした場合、ウォレットを復元する唯一の方法はペーパーキーです。\n \n単語のリストを表示しますので、紙に書き留めて大事に保管してください。";
+
+/*button label*/
+"StartPaperPhrase.buttonTitle" = "ペーパーキーを書き留めてください";
+
+/*Argument is date*/
+"StartPaperPhrase.date" = "最後にペーパーキーを書き出したのは %1$@";
+
+/*Start view message*/
+"StartViewController.message" = "DigiByteを最も安全に使用できるツール";
+
+/*Syncing view connectiong state header text*/
+"SyncingView.connecting" = "接続中";
+
+/*Syncing view header text*/
+"SyncingView.header" = "同期中";
+
+/*Retry button label*/
+"SyncingView.retry" = "リトライ";
+
+/*Syncing view syncing state header text*/
+"SyncingView.syncing" = "同期中";
+
+/*6 d (6 days)*/
+"TimeSince.days" = "%1$@ 日";
+
+/*6 h (6 hours)*/
+"TimeSince.hours" = "%1$@ 時間";
+
+/*6 m (6 minutes)*/
+"TimeSince.minutes" = "%1$@ 分";
+
+/*6 s (6 seconds)*/
+"TimeSince.seconds" = "%1$@ 秒";
+
+/*You can customize your Touch ID Spending Limit from the [TouchIdSettings.linkText gets added here as a button]*/
+"TouchIdSettings.customizeText" = "Touch IDの利用限度額を ％1 $ @ からカスタマイズすることができます。";
+
+/*Touch Id screen label*/
+"TouchIdSettings.label" = "指紋を使ってウォレットのロックを解除し、設定限度額まで送金できます。";
+
+/*Link Text (see TouchIdSettings.customizeText)*/
+"TouchIdSettings.linkText" = "Touch ID 利用設定画面";
+
+/*Spending Limit: b100,000 ($100)*/
+"TouchIdSettings.spendingLimit" = "利用限度額: %1$@ ( %2$@ )";
+
+/*Touch id switch label.*/
+"TouchIdSettings.switchLabel" = "DigiByteのTouch IDを有効にする";
+
+/*Touch ID settings view title*/
+"TouchIdSettings.title" = "Touch ID";
+
+/*Touch ID unavailable alert message*/
+"TouchIdSettings.unavailableAlertMessage" = "このデバイスでTouch IDが設定されていません。 設定 - > Touch IDとパスワードをタップして今すぐ設定してください。";
+
+/*Touch ID unavailable alert title*/
+"TouchIdSettings.unavailableAlertTitle" = "Touch IDが設定されていません";
+
+/*Always require passcode option*/
+"TouchIdSpendingLimit" = "常にパスコードを要求";
+
+/*Touch ID spending limit screen body*/
+"TouchIdSpendingLimit.body" = "利用限度額を超える取引の際に６桁のPINの入力を求められます。また６桁の PINを最後に入力してから４８時間ごとにも入力を求められます。";
+
+/*Touch Id spending limit screen title*/
+"TouchIdSpendingLimit.title" = "Touch ID 利用限度額";
+
+/*Availability status text*/
+"Transaction.available" = "利用可能";
+
+/*Transaction complete label*/
+"Transaction.complete" = "完了";
+
+/*eg. Ending balance: $50.00*/
+"Transaction.ending" = "終了時の残高: %1$@";
+
+/*Exchange rate on date header*/
+"Transaction.exchangeOnDayReceived" = "受取時のレート：";
+
+/*Exchange rate on date header*/
+"Transaction.exchangeOnDaySent" = "送金時のレート :";
+
+/*(b600 fee)*/
+"Transaction.fee" = "( %1$@ 手数料)";
+
+/*Invalid transaction*/
+"Transaction.invalid" = "無効";
+
+/*Timestamp label for event that just happened*/
+"Transaction.justNow" = "今すぐ";
+
+/*Receive status text: 'In progress: 20%'*/
+"Transaction.receivedStatus" = "進行中: %1$@";
+
+/*Send status text: 'In progress: 20%'*/
+"Transaction.sendingStatus" = "進行中: %1$@";
+
+/*eg. Starting balance: $50.00*/
+"Transaction.starting" = "開始残高: %1$@";
+
+/*Waiting to be confirmed string*/
+"Transaction.waiting" = "確認を待っています。 一部の加盟店は、取引を完了するために確認を要求します。 推定時間：1-2分。";
+
+/*e.g. I received money from an account.*/
+"TransactionDetails.account" = "アカウント";
+
+/*Amount section header*/
+"TransactionDetails.amountHeader" = "金額";
+
+/*Block height label*/
+"TransactionDetails.blockHeightLabel" = "ブロック確認";
+
+/*Memo section header*/
+"TransactionDetails.commentsHeader" = "メモ";
+
+/*Empty transaction list message.*/
+"TransactionDetails.emptyMessage" = "あなたの取引はここに表示されます。";
+
+/*"Received [$5] at [which of my addresses]" => This is the "at [which of my addresses]" part.*/
+"TransactionDetails.from" = "at %1$@";
+
+/*More button title*/
+"TransactionDetails.more" = "さらに...";
+
+/*Moved $5.00 (as in "I moved $5 to another location")*/
+"TransactionDetails.moved" = "移動 %1$@";
+
+/*Moved $5.00*/
+"TransactionDetails.movedAmountDescription" = "移動 <b>%1@</b>";
+
+/*eg. Confirmed in Block: Not Confirmed*/
+"TransactionDetails.notConfirmedBlockHeightLabel" = "確認されていません";
+
+/*"Received [$5] at [which of my addresses]" => This is the "Received [$5]" part.*/
+"TransactionDetails.received" = "受取り %1$@";
+
+/*Received $5.00*/
+"TransactionDetails.receivedAmountDescription" = "受取り  <b>%1@</b>";
+
+/*"Sent [$5] to [address]" => This is the "Sent [$5]" part.*/
+"TransactionDetails.sent" = "送金 %1$@";
+
+/*Sent $5.00*/
+"TransactionDetails.sentAmountDescription" = "送金 <b>%1@</b>";
+
+/*Status section header*/
+"TransactionDetails.statusHeader" = "ステータス";
+
+/*Transaction Details Title*/
+"TransactionDetails.title" = "取引の詳細";
+
+/*"Sent [$5] to [address]" => This is the "to [address]" part.*/
+"TransactionDetails.to" = "to %1$@";
+
+/*Transaction ID header*/
+"TransactionDetails.txHashHeader" = "DigiByte トランザクション ID";
+
+/*(this transaction was) Received at this address:*/
+"TransactionDirection.address" = "このアドレスで受け取りました";
+
+/*(this transaction was) Sent to this address:*/
+"TransactionDirection.to" = "このアドレスに送金されました";
+
+/*Disabled until date*/
+"UnlockScreen.disabled" = "％1 $ @ まで無効になりました";
+
+/*My Address button title*/
+"UnlockScreen.myAddress" = "マイアドレス";
+
+/*Reset PIN with Paper Key button label.*/
+"UnlockScreen.resetPin" = "PINをリセット";
+
+/*Scan button title*/
+"UnlockScreen.scan" = "スキャン";
+
+/*Unlock Screen sub-header*/
+"UnlockScreen.subheader" = "PINを入力";
+
+/*TouchID prompt text*/
+"UnlockScreen.touchIdPrompt" = "ウォレットのロック解除";
+
+/*Unlock with TouchID accessibility label*/
+"UnlockScreen.touchIdText" = "Touch ID でロック解除";
+
+/*Wallet unlocked message*/
+"UnlockScreen.unlocked" = "Walletのロック解除";
+
+/*Update PIN caption text*/
+"UpdatePin.caption" = "このPINを忘れないでください。 忘れた場合DigiByteにアクセスすることはできません。";
+
+/*PIN creation info.*/
+"UpdatePin.createInstruction" = "PINはあなたのウォレットのロック解除と、送金をする為に使用されます。";
+
+/*Update PIN title*/
+"UpdatePin.createTitle" = "PIN設定";
+
+/*Update PIN title*/
+"UpdatePin.createTitleConfirm" = "PINの再入力";
+
+/*Enter current PIN instruction*/
+"UpdatePin.enterCurrent" = "現在のPINを入力してください。";
+
+/*Enter new PIN instruction*/
+"UpdatePin.enterNew" = "新しいPINを入力して下さい。";
+
+/*Re-Enter new PIN instruction*/
+"UpdatePin.reEnterNew" = "新しいPINを再入力して下さい。";
+
+/*Update PIN failure error message.*/
+"UpdatePin.setPinError" = "PINを更新できませんでした。";
+
+/*Update PIN failure alert view title*/
+"UpdatePin.setPinErrorTitle" = "PINの更新エラー";
+
+/*Update PIN title*/
+"UpdatePin.updateTitle" = "PINの更新";
+
+/*Authorize to copy wallet addresses alert message*/
+"URLHandling.addressaddressListAlertMessage" = "ウォレットアドレスをクリップボードにコピーしますか？";
+
+/*Authorize to copy wallet address PIN view prompt.*/
+"URLHandling.addressList" = "ウォレットアドレスをクリップボードにコピーするのを許可";
+
+/*Authorize to copy wallet address alert title*/
+"URLHandling.addressListAlertTitle" = "ウォレットアドレスをコピーする";
+
+/*Copy wallet addresses alert button label*/
+"URLHandling.copy" = "コピー";
+
+/*Verify PIN for transaction view body*/
+"VerifyPin.authorize" = "この取引を承認するには、PINを入力してください。";
+
+/*Verify PIN view body*/
+"VerifyPin.continueBody" = "続けるにはPINを入力してください";
+
+/*Verify PIN view title*/
+"VerifyPin.title" = "PINが必要です";
+
+/*Authorize transaction with touch id message*/
+"VerifyPin.touchIdMessage" = "この取引を承認する";
+
+/*'No wallet' warning for watch app*/
+"Watch.noWalletWarning" = "DigiByteアプリを開いてウォレットを設定します。";
+
+/*Dismiss button label*/
+"Webview.dismiss" = "却下";
+
+/*Webview loading error message*/
+"Webview.errorMessage" = "コンテンツの読み込み中にエラーが発生しました。 もう一度お試しください。";
+
+/*Updating webview message*/
+"Webview.updating" = "アップデート中...";
+
+/*Welcome screen text. (?) will be replaced with the help icon users should look for.*/
+"Welcome.body" = "DigiByte for iOSは、新しい外観といくつかの新機能を追加して名前をDigiByteに変更しました。\n \nヘルプが必要な場合は、画面の右上にある（？）を探してください。";
+
+/*Top title of welcome screen*/
+"Welcome.title" = "DigiByteへようこそ！";
+
+/*Wipe wallet alert message*/
+"WipeWallet.alertMessage" = "このウォレットを削除してもよろしいですか？";
+
+/*Wipe wallet alert title*/
+"WipeWallet.alertTitle" = "ウォレットを削除しますか？";
+
+/*Failed wipe wallet alert message*/
+"WipeWallet.failedMessage" = "ウォレットを消去することができませんでした。";
+
+/*Failed wipe wallet alert title*/
+"WipeWallet.failedTitle" = "失敗";
+
+/*Enter phrase to wipe wallet instruction.*/
+"WipeWallet.instruction" = "このウォレットのリカバリー・フレーズを入力して、現在のウォレットを消去し、新しく作製または復元します。 現在の残高はこのフレーズに記録されます。";
+
+/*Start wipe wallet view message*/
+"WipeWallet.startMessage" = "別のウォレットを起動または復元すると、このデバイス上で別のDigiByteにアクセスして管理することができます。";
+
+/*Start wipe wallet view warning*/
+"WipeWallet.startWarning" = "このデバイスから現在のウォレットにアクセスすることはできなくなります。 残高はフレーズに記録されます。";
+
+/*Wipe wallet navigation item title.*/
+"WipeWallet.title" = "別のウォレットを作製または復元する";
+
+/*Wipe wallet button title*/
+"WipeWallet.wipe" = "消去";
+
+/*Wiping activity message*/
+"WipeWallet.wiping" = "消去中...";
+
+/*Paper key instructions.*/
+"WritePaperPhrase.instruction" = "各単語を順番に書き留めて、安全な場所に保管してください。";
+
+/*button label*/
+"WritePaperPhrase.next" = "次";
+
+/*button label*/
+"WritePaperPhrase.previous" = "前";
+
+/*1 of 3*/
+"WritePaperPhrase.step" = "%1$d of %2$d";
+
+/*header of PinView*/
+"Prompts.SecurityCheck.header" = "セキュリティ\nチェック";
+
+/*header of balance*/
+"Balance.header" = "合計残高";
+
+/*labels of syncView*/
+"SynchingView.blockHeightLabel" = "ブロックの高さ";
+"SynchingView.progressLabel" = "進歩";
+
+/*filter buttons for transactionView*/
+"TransactionView.all" = "すべて";
+
+/*TransactionFilter sent*/
+"TransactionView.sent" = "送金";
+
+/*TransactionFilter received*/
+"TransactionView.received" = "受け取り";
+
+/*DATE: date*/
+"TransactionDetailView.date" = "データ";
+
+/*PROCESSED: time*/
+"TransactionDetailView.processed" = "処理済み";
+
+/*STATUS: complete*/
+"TransactionDetailView.status" = "ステータス";
+
+/*CONFIRMATIONS: number*/
+"TransactionDetailView.confirmations" = "承認";
+
+/*missing time translation*/
+"FeeSelector.regularTime" = "15-30秒";
+
+/*Text that is shown when asset was not resolved yet*/
+"Assets.unresolved" = "未解決のアセット";
+
+/*Text to show if no metadata is available for the asset*/
+"Assets.noMetadata" = "デジアセット";
+
+/*Showing when multiple assets were received*/
+"Assets.multipleAssets" = "複数のアセット";
+
+/*Title of confirm view*/
+"Assets.receivedAssetsTitle" = "デジアセット受取済み";
+
+/*Message will be displayed if assets were received*/
+"Assets.receivedAssetsMessage" = "一つ以上のデジアセットを受け取りました。このアセットを確認するためには、メタデータサーバとの通信が必要です。この作業では、あなたのアドレスやトランザクションハッシュ等のウォレット公開データが開示されます。";
+
+/*Title of confirm view if opening single*/
+"Assets.openAssetTitle" = "デジアセットを確認する";
+
+/*Message will be displayed if asset shall be opened*/
+"Assets.openAssetMessage" = "このアセットを確認するためには、メタデータサーバとの通信が必要です。この作業では、あなたのアドレスやトランザクションハッシュ等のウォレット公開データが開示されます。";
+
+/*Title to show when assets are being fetched*/
+"Assets.fetchingAssetsTitle" = "アセットを取り込む";
+
+/*View RAW Transaction button title*/
+"Assets.viewRawTransaction" = "生のトランザクションを確認する";
+
+/*Resolve button caption*/
+"Assets.confirmAssetsResolve" = "解決済みアセット";
+
+/*Skip button caption*/
+"Assets.skipAssetsResolve" = "スキップ";
+
+/*Cancel button caption*/
+"Assets.cancelAssetsResolve" = "キャンセル";
+
+/*Skip button caption*/
+"Assets.continueWithoutSync" = "同期をスキップ";
+
+/*Total supply of asset*/
+"Assets.totalSupply" = "総供給";
+
+/*Number of total holders of an asset*/
+"Assets.numberOfHolders" = "ホルダーの数";
+
+/*lock status of an asset*/
+"Assets.lockStatus" = "ステータスをロックする";
+
+/*Issuer key*/
+"Assets.issuer" = "発行者";
+
+/*AssetID key*/
+"Assets.assetID" = "アセットID";
+
+/*Address key*/
+"Assets.address" = "アドレス";
+
+/*Possible value of Lock Status*/
+"Assets.locked" = "ロック済み";
+
+/*Possible value of Lock Status*/
+"Assets.unlocked" = "ロック解除";
+
+/*Shown if a value is unknown (N/A)*/
+"Assets.unknown" = "不明";
+
+/*Total Balance: <BALANCE>*/
+"Assets.totalBalance" = "総残高";
+
+/*Tap to show button*/
+"Assets.tapToShow" = "タップして表示";
+
+/*Tap to hide button*/
+"Assets.tapToHide" = "タップして隠す";
+
+/*Asset ID: XXXXXX*/
+"Assets.assetIdKey" = "アセットID";
+
+/*Total Balance: 1000*/
+"Assets.balanceKey" = "総残高";
+
+/*Issuer: CreateDigiAssets.com*/
+"Assets.issuerKey" = "発行者";
+
+/*Asset Info: YYYY*/
+"Assets.assetInfoKey" = "アセット情報";
+
+/*Description: ZZZZ*/
+"Assets.descriptionKey" = "詳細";
+
+/*Button title for GET STARTED*/
+"Assets.getStarted" = "開始する";
+
+/*Button title for create new asset*/
+"Assets.createNewAsset" = "新しいアセットを作成する";
+
+/*Heading for Receive assets*/
+"Assets.receiveAssets" = "アセットを受け取る";
+
+/*Heading for create new assets*/
+"Assets.createAssets" = "アセットを作る";
+
+/*Heading for burn assets*/
+"Assets.burnAssets" = "アセットを破棄する";
+
+/*Button title for send assets*/
+"Assets.sendAssets" = "アセットを送る";
+
+/*Tab title*/
+"Assets.tabOverview" = "アセット";
+
+/*Tab title*/
+"Assets.tabCreate" = "作る";
+
+/*Tab title*/
+"Assets.tabSend" = "送信";
+
+/*Tab title*/
+"Assets.tabReceive" = "受け取る";
+
+/*Tab title*/
+"Assets.tabBurn" = "破棄";
+
+/*Shown, when no assets are available*/
+"Assets.nothingFoundHere" = "何も見つかりません";
+
+/*Asset selector placeholder text*/
+"Assets.selectAnAsset" = "アセットを選ぶ";
+
+/*Danger Title*/
+"Assets.dangerTitle" = "危険領域";
+
+/*Danger description*/
+"Assets.dangerText" = "アセットの破棄は不可逆です。一度行うと二度と元に戻すことができません。";
+
+/*Asset not available*/
+"Assets.AssetNotAvailable" = "アセットが有効ではありません";
+
+/*Displayed as a message when not enough assets are available*/
+"Assets.NotEnoughAssets" = "十分なアセットがありません";
+
+/*No asset data error message*/
+"Assets.NoAssetData" = "有効なアセットデータがありません";
+
+/*Displayed as a message when assets were burned*/
+"Assets.AssetsBurned" = "アセット破棄完了！";
+
+/*Displayed as a message when assets were sent*/
+"Assets.AssetsSent" = "アセット送信完了！";
+
+/*Transaction could not be broadcasted: <MESSAGE>*/
+"Assets.couldNotBeBroadcasted" = "トランザクションはブロードキャストに失敗しました";
+
+/*Transaction could not be created: <MESSAGE> (code: 123)*/
+"Assets.couldNotBeCreated" = "トランザクションの作成に失敗しました";
+
+/*Total unique: 1234*/
+"Assets.totalUnique" = "ユニークなアセットの数: %1$@";
+
+/*Context menu button caption*/
+"Assets.Context.info" = "情報";
+
+/*Context menu button caption*/
+"Assets.Context.send" = "送信";
+
+/*Context menu button caption*/
+"Assets.Context.receive" = "受信";
+
+/*Context menu button caption*/
+"Assets.Context.burn" = "破棄";
+
+/*Assets you own (heading)*/
+"Assets.yourAssets" = "所有中のアセット";
+
+/*Message heading*/
+"Assets.protocolDisabled" = "デジアセットプロトコル無効";
+
+/*Message heading*/
+"Assets.protocolDisabledDescription" = "デジアセットプロトコル無効";
+
+/*Select an asset (default dropdown)*/
+"Assets.select" = "アセットを選択する";
+
+/*(Underlying) Asset Transaction*/
+"Assets.tx" = "アセットトランザクション";
+
+/*View RAW Asset Transaction*/
+"Assets.rawTx" = "生のトランザクションを見る";
+
+/*ImageReader Title*/
+"QRImageReader.title" = "QRコードリーダー";
+
+/*Image button label*/
+"QRImageReader.readQRButtonLabel" = "画像";
+
+/*no qr code found*/
+"QRImageReader.readQRMessageNotFound" = "画像上にQRコードが確認できません";
+
+/*Found qrcode*/
+"QRImageReader.readQRMessageSuccess" = "確認";
+
+/*Found multiply qr code im image*/
+"QRImageReader.readQRMessageTooMany" = "複数のQRコードを確認しました";
+
+/*address book modal title*/
+"AddressBook.title" = "アドレス帳";
+
+/*Name of contact*/
+"AddressBook.name" = "名前";
+
+/*Placeholder for searchbar*/
+"AddressBook.searchPlaceholder" = "連絡先を検索";
+
+/*Favorites header title*/
+"AddressBook.favorites" = "お気に入り";
+
+/*Header title in address book*/
+"AddressBook.addContact" = "新しい連絡先を追加";
+
+/*button title for add button*/
+"AddressBook.addContactButtonTitle" = "連絡先を追加";
+
+/*button title for edit button*/
+"AddressBook.editContactButtonTitle" = "連絡先を編集";
+
+/*Header title in address book*/
+"AddressBook.editContact" = "連絡先を編集";
+
+/*the contact's address (textfield label)*/
+"AddressBook.address" = "アドレス";
+
+/*header in confirm dialog to delete contact*/
+"AddressBook.deleteContactHeader" = "連絡先を削除";
+
+/*description in confirm dialog to delete contact*/
+"AddressBook.deleteContact" = "この連絡先を本当に削除しますか？";
+
+/*Title for first welcome screen*/
+"Welcome.page1title" = "デジバイトウォレットへようこそ";
+
+/*Title for second welcome screen*/
+"Welcome.page2title" = "送る";
+
+/*Title for third welcome screen*/
+"Welcome.page3title" = "受け取る";
+
+/*Title for fourth welcome screen*/
+"Welcome.page4title" = "高い安全性";
+
+/*Title for fifth welcome screen*/
+"Welcome.page5title" = "Digi-IDを使ってログインする";
+
+/*Text for first welcome screen*/
+"Welcome.page1text" = "安全にDigiByteの保管・使用ができます。\n";
+
+/*Text for second welcome screen*/
+"Welcome.page2text" = "すぐ簡単にDigiByteを世界中に送金できます。";
+
+/*Text for third welcome Text*/
+"Welcome.page3text" = "支払い要求を作成して、世界中からお金を受け取ることができます。";
+
+/*Text for fourth welcome screen*/
+"Welcome.page4text" = "先進的なセキュリティ機能であなたのDigiByteを守ります。\n";
+
+/*Text for fifth welcome screen*/
+"Welcome.page5text" = "Digi-ID Open Authを使ってブロックチェーンの力を活用しましょう";
+
+/*Insufficient funds error*/
+"Send.insufficientFunds" = "資金が不足しています";
+
+/*maximum amount*/
+"Send.max" = "全額";
+
+/*option to use Dandelion Protocol*/
+"Send.useDandelion" = "プライバシー保護のためにDandelionプロトコルを使いましょう";
+
+/*Receive 10 BTC to <Address>*/
+"Receive.receiveAmountTo" = "%1$@を%2$@に受け取る";
+
+/*Receive to <Address>*/
+"Receive.receiveTo" = "次のアドレスに受け取る%1$@";
+
+/*Clickable button*/
+"Receive.showLegacyAddress" = "古いアドレスを表示する";
+
+/*Clickable button*/
+"Receive.showSegwitAddress" = "Segwitアドレスを表示する";
+
+/*Receive Address Box placeholder*/
+"Receive.receiveAddress" = "受け取りアドレス";
+
+/*Wipe wallet button*/
+"JailbreakWarnings.wipe" = "消去";
+
+/*Wallet locked message*/
+"UnlockScreen.locked" = "ウォレットロック中";
+
+/*Unlock with FaceID accessibility label*/
+"UnlockScreen.faceIdPrompt" = "ここをタップしてFace IDでロック解除";
+
+/*Message that appears, when the sign timeout was triggered*/
+"Transaction.signTimeout" = "Did not sign tx within timeout";
+
+/*Manage wallet button title*/
+"AccountHeader.manageButtonName" = "管理";
+
+/*Equals symbol*/
+"AccountHeader.equals" = "=";
+
+/*Switch label for setting*/
+"TouchIdSettings.automaticBiometricsSwitchLabel" = "アプリ立ち上げ時にTouchIDを要求する";
+
+/*Switch label for setting*/
+"FaceIDSettings.automaticBiometricsSwitchLabel" = "アプリ立ち上げ時にFace IDを要求する";
+
+/*Always require passcode option*/
+"TouchIdSpendingLimit.requirePasscode" = "常にパスコードを要求する";
+
+/*custom amount limit (category)*/
+"TouchIdSpendingLimit.custom" = "カスタム";
+
+/*custom amount limit (title)*/
+"TouchIdSpendingLimit.customAmount" = "任意の額";
+
+/*Description for custom amount*/
+"TouchIdSpendingLimit.customAmountDescription" = "任意の額を入力";
+
+/*Port must be greater than 0 and less than 65535*/
+"Settings.invalidPortHeader" = "無効なポート";
+
+/*send max button visible or not*/
+"Settings.maxSendEnabled" = "全額送金ボタンを有効にする";
+
+/*do not place a digibyte logo into qr codes*/
+"Settings.excludeLogoInQR" = "QRコード内のDigiByteロゴを隠す";
+
+/*Do not show any DigiAsset Contents*/
+"Settings.showRawTransactions" = "DigiAssetを無効にする";
+
+/*Resolve Assets without a prompt*/
+"Settings.resolveAssetsWithoutPrompt" = "プロンプトなしでアセットを解決する";
+
+/*Clear Asset Cache*/
+"Settings.clearAssetCache" = "アセットキャッシュを消去する";
+
+/*Clear Assets Image cache*/
+"Settings.clearImageCache" = "イメージキャッシュを消去する";
+
+/*Message that appears when a cache was cleared*/
+"Settings.cacheCleared" = "キャッシュは消去されました";
+
+/*DigiByte Nodes (Network term)*/
+"Settings.nodes" = "DigiByteノード";
+
+/*Settings item*/
+"Settings.useDigiIDLegacy" = "Digi-ID Legacyを使う";
+
+/*Message that appears when DigiID Legacy is being opened*/
+"Settings.digiIdLegacyWarning" = "例外を追加することは推奨されていません。Digi-IDレガシー機能は、将来のリリースでサポートされない予定です。";
+
+/*DigiID Legacy Preview Text (how many websites were added as an exception)*/
+"Settings.digiIdPreview" = "#%1$@サイト";
+
+/*DigiID Legacy Title*/
+"Settings.digiIdLegacyTitle" = "Digi-IDレガシー";
+
+/*DigiID Legacy Description*/
+"Settings.digiIdLegacyDescription" = "Digi-ID Legacyとは、Android版との互換性のない古い認証方式です。新規ログインのためにDigi-ID Legacyを使うことは推奨していません。";
+
+/*DigiID Legacy: Add Exception (button)*/
+"Settings.addException" = "例外を追加";
+
+/*Welcome title*/
+"AssetsWelcome.welcomeTitle" = "DigiAssetへようこそ";
+
+/*Create Heading*/
+"AssetsWelcome.createHeading" = "作成";
+
+/*Send Heading*/
+"AssetsWelcome.sendHeading" = "送る";
+
+/*Receive Heading*/
+"AssetsWelcome.receiveHeading" = "受け取る";
+
+/*Create Text*/
+"AssetsWelcome.createText" = "DigiAssetのウェブアプリからDigiAssetを作成することができます。あなたの好きなものをDigiAssetsにしましょう。";
+
+/*Send Text*/
+"AssetsWelcome.sendText" = "DigiAssetアプリ内で直接、所有権を譲渡してDigiAssetを他の人に送ることができます。";
+
+/*Receive Text*/
+"AssetsWelcome.receiveText" = "DigiAssetアプリで直接、他の人から所有権を移転し、DigiAssetを受け取ることができます。";
+
+/*Introduction in About Screen*/
+"About.introduction" = "このアプリはDigiByteとブロックチェーン支持者によって作成されました。彼らは無給のボランティアとして、時間とスキルをこのプロジェクトに投じています。";
+
+/*'BLOCK HEIGHT' caption title*/
+"SyncingView.blockHeightLabel" = "ブロックの高さ";
+
+/*'PROGRESS' caption title (PROGRESS: May 18 / June 18)*/
+"SyncingView.progressLabel" = "進捗";
+
+/*Heading of modal alert*/
+"ReScan.fastSync" = "高速同期";
+
+/*Privacy Warning of fast sync*/
+"ReScan.fastSyncDescription" = "同期を最適化するために、このウォレットはブロックエクスプローラと通信ができるようになっています。これにより、いくつかの公開ウォレットアドレスがリークされることに注意してください。\n";
+
+/*Heading of modal alert*/
+"ReScan.fastReSync" = "高速再同期";
+
+/*Regular Sync description*/
+"ReScan.regularSync" = "通常同期（低速）";
+
+/*Confirm paper phrase error message*/
+"ConfirmPaperPhrase.error" = "入力された単語がペーパーキーと一致しません。もう一度やり直してください。\n\n";
+
+/*Confirm dialog's default confirm action title*/
+"Alerts.confirmOkCaption" = "OK";
+
+/*confirm dialog's default cancel action title*/
+"Alerts.confirmCancelCaption" = "キャンセル";
+
+/*Menu button title for DigiAssets*/
+"MenuButton.digiAssets" = "DigiAsset";
+
+/*Fee Selector regular fee description*/
+"FeeSelector.estimatedDeliver" = "予測所要時間: %1$@";
+
+/*E.g. [This transaction is predicted to complete in] 1+ minutes*/
+"FeeSelector.economyTime" = "1分以上";
+
+/*Import Address Heading*/
+"Assets.Send.importAddress" = "アドレスをインポート";
+
+/*Import Address Option: Address Book*/
+"Assets.Send.addressBook" = "アドレス帳";
+
+/*Import Address Option: Import Address from Clipboard*/
+"Assets.Send.pasteFromClipboard" = "クリップボードからコピー";
+
+/*Import Address Option: Scan QR*/
+"Assets.Send.scanQR" = "QRコードをスキャン";
+
+/*Import Address Option: Browse Gallery*/
+"Assets.Send.browseGallery" = "ギャラリーを参照";
+
+/*Import Address Description: Address Book*/
+"Assets.Send.addressBookDescription" = "アドレス帳から使用";
+
+/*Import Address Description: QR Scanner*/
+"Assets.Send.scanQRDescription" = "アドレスが含まれたQRコードをカメラを使ってスキャンする";
+
+/*Import Address Heading*/
+"Assets.Send.browseGalleryDescription" = "ギャラリーから画像をインポートする";
+
+/*Favorite Switch Title (as favorite)-option*/
+"AddressBook.favorite" = "お気に入り";
+
+/*Version: 2.0.0*/
+"Abput.version" = "バージョン：#%1$@";
+
+/*Development Heading in About Section*/
+"Abput.development" = "開発";
+
+/*UI Heading in About Section*/
+"About.ui" = "UI";
+
+/*Special Thanks Heading in About Section*/
+"About.specialThanks" = "スペシャルサンクス";
+
+/*Translations Heading in About Section*/
+"About.translations" = "翻訳";

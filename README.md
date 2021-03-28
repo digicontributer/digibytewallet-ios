@@ -8,7 +8,7 @@ DigiWallet for iOS and Android is the easiest way to get started sending and rec
 
 DigiWallet for iOS and Android uses the vast DigiByte Network, the worlds most robust and decentralized Blockchain, to allow you to access your DigiByte at any time. Your app connects directly as an SPV (Lite) wallet, so you can start sending and receiving DigiByte right away. No lengthy downloads or syncing!
 
-### Safer than a vault
+### Safer than a vault 
 
 DigiWallet for iOS and Android is based on the latest security features to protect you and your precious DigiByte. Utilizing secure hardware encryption and a variety of other measures, you can rest assured that your DigiByte are accessible to you and you alone.
 
@@ -48,6 +48,8 @@ DigiWallet for iOS and Android was engineered from the ground-up to be as friend
 - Russian
 - Spanish
 - Swedish
+
+... and many more
 
 We manage all translations with:
 

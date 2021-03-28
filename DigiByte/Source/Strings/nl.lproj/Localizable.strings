@@ -1,0 +1,1561 @@
+
+/*About screen blog label*/
+"About.blog" = "https://digibyte.org/";
+
+/*About screen footer*/
+"About.footer" = "Gemaakt door het wereldwijde DigiByte-team. Versie %1$@";
+
+/*Privay Policy button label*/
+"About.privacy" = "Privacybeleid";
+
+/*About screen reddit label*/
+"About.reddit" = "https://www.reddit.com/r/Digibyte/";
+
+/*Terms of Use button label*/
+"About.terms" = "Gebruiksvoorwaarden";
+
+/*About screen title*/
+"About.title" = "DigiByte voor iOS is de mobiele portemonnee voor DigiByte.";
+
+/*About screen twitter label*/
+"About.twitter" = "https://twitter.com/digibytecoin";
+
+/*Close modal button accessibility label*/
+"AccessibilityLabels.close" = "Sluiten";
+
+/*Support center accessibiliy label*/
+"AccessibilityLabels.faq" = "Ondersteuning";
+
+/*Loading Wallet Message*/
+"Account.loadingMessage" = "Portemonnee laden";
+
+/*Default wallet name*/
+"AccountHeader.defaultWalletName" = "Mijn DigiByte";
+
+/*Error alert title*/
+"Alert.error" = "Fout";
+
+/*No internet alert message*/
+"Alert.noInternet" = "Geen internetverbinding gevonden. Controleer je verbinding en probeer het opnieuw.";
+
+/*Warning alert title*/
+"Alert.warning" = "Waarschuwing";
+
+/*'the addresses were copied'' Alert title*/
+"Alerts.copiedAddressesHeader" = "Adressen gekopieerd";
+
+/*Addresses Copied Alert sub header*/
+"Alerts.copiedAddressesSubheader" = "Alle portefeuilleadressen zijn met succes gekopieerd.";
+
+/*Alert Header Label (the paper key was set)*/
+"Alerts.paperKeySet" = "Persoonlijke herstelsleutel ingesteld";
+
+/*Alert Subheader label (playfully positive)*/
+"Alerts.paperKeySetSubheader" = "Super!";
+
+/*Alert Header label (the PIN was set)*/
+"Alerts.pinSet" = "PIN ingesteld";
+
+/*Send failure alert header label (the send failed to happen)*/
+"Alerts.sendFailure" = "Versturen mislukt";
+
+/*Send success alert header label (confirmation that the send happened)*/
+"Alerts.sendSuccess" = "Verzend bevestiging";
+
+/*Send success alert subheader label (e.g. the money was sent)*/
+"Alerts.sendSuccessSubheader" = "DigiByte verzonden!";
+
+/*JSON Serialization error message*/
+"ApiClient.jsonError" = "JSON-serialisatiefout";
+
+/*Wallet not ready error message*/
+"ApiClient.notReady" = "Portemonnee niet klaar";
+
+/*API Token error message*/
+"ApiClient.tokenError" = "Kan API-token niet ophalen";
+
+/*Send BCH view body.*/
+"BCH.body" = "Voer hieronder een DigiByte-bestemmingsadres in. Alle DigiByte in jouw portemonnee op het moment van de splitsing (%1$@) wordt verzonden.";
+
+/*Confirm sending <$5.00> to <address>?*/
+"BCH.confirmationMessage" = "Bevestig het verzenden van %1$@ to %2$@";
+
+/*Confirmation alert title*/
+"BCH.confirmationTitle" = "Bevestiging";
+
+/*Generic bch erorr message*/
+"BCH.genericError" = "Je account bevat geen DigiByte, of je hebt DigiByte ontvangen na de splitsing.";
+
+/*Transaction ID copied message*/
+"BCH.hashCopiedMessage" = "Transactie-ID gekopieerd";
+
+/*No address error message*/
+"BCH.noAddressError" = "Voer een adres in alsjeblieft";
+
+/*Attempted to scan unsupported qr code error message.*/
+"BCH.paymentProtocolError" = "Betalingsprotocolverzoeken worden niet ondersteund voor DigiByte-transacties";
+
+/*BCH successfully sent alert message*/
+"BCH.successMessage" = "DigiByte is succesvol verzonden.";
+
+/*Widthdraw BCH view title*/
+"BCH.title" = "DigiByte opnemen";
+
+/*Tx Hash button header*/
+"BCH.txHashHeader" = "DigiByte transactie-ID";
+
+/*Approve button label*/
+"BitID.approve" = "Goedkeuren";
+
+/*<sitename> is requesting authentication using your bitcoin wallet*/
+"BitID.authenticationRequest" = "%1$@ vraagt om authenticatie met jouw DigiByte-portemonnee";
+
+/*Deny button label*/
+"BitID.deny" = "Weigeren";
+
+/*BitID error alert title*/
+"BitID.error" = "Authenticatiefout";
+
+/*BitID error alert messaage (The payment service you are trying to use isn't working. Please contact them, as you may need to try again)*/
+"BitID.errorMessage" = "Neem contact op met de service. Mogelijk moet je het opnieuw proberen.";
+
+/*BitID success alert title*/
+"BitID.success" = "Succesvol geverifieerd";
+
+/*BitID Authentication Request alert view title*/
+"DigiID.title" = "Verificatieverzoek Digi-ID";
+
+/*Cancel button label*/
+"Button.cancel" = "Annuleren";
+
+/*Ignore button label*/
+"Button.ignore" = "Negeren";
+
+/*menu button*/
+"Button.menu" = "menu";
+
+/*No button*/
+"Button.no" = "Nee";
+
+/*OK button label*/
+"Button.ok" = "OK";
+
+/*receive button*/
+"Button.receive" = "Ontvangen";
+
+/*send button*/
+"Button.send" = "Versturen";
+
+/*Settings button label*/
+"Button.settings" = "Instellingen";
+
+/*Settings button label*/
+"Button.submit" = "Verzenden";
+
+/*Yes button*/
+"Button.yes" = "Ja";
+
+/*Camera plugin instruction*/
+"CameraPlugin.centerInstruction" = "Centreer uw ID in de doos";
+
+/*Amount to Send: ($1.00)*/
+"Confirmation.amountLabel" = "Hoeveelheid om te versturen:";
+
+/*Network Fee: ($1.00)*/
+"Confirmation.feeLabel" = "Netwerkkosten:";
+
+/*eg. Processing time: This transaction will take 10-30 minutes to process.*/
+"Confirmation.processingTime" = "Verwerkingstijd: Deze transactie duurt %1$@.";
+
+/*Label for "send" button on final confirmation screen*/
+"Confirmation.send" = "Sturen";
+
+/*Confirmation Screen title*/
+"Confirmation.title" = "Bevestiging";
+
+/*To: (address)*/
+"Confirmation.to" = "Naar";
+
+/*Total Cost: ($5.00)*/
+"Confirmation.totalLabel" = "Totale prijs:";
+
+/*Confirm paper phrase view label.*/
+"ConfirmPaperPhrase.label" = "Om er zeker van te zijn dat alles correct is opgeschreven, voer je de volgende woorden in vanaf jouw persoonlijke herstelsleutel.";
+
+/*Word label eg. Word #1, Word #2*/
+"ConfirmPaperPhrase.word" = "Woord #%1$@";
+
+/*Bitcoin denomination picker label*/
+"DefaultCurrency.bitcoinLabel" = "DigiByte scherm-eenheid";
+
+/*Exchange rate label*/
+"DefaultCurrency.rateLabel" = "Wisselkoers";
+
+/*Email unavailable alert title*/
+"ErrorMessages.emailUnavailableMessage" = "Dit apparaat is niet geconfigureerd om e-mail te verzenden met de iOS-mailapp.";
+
+/*Email unavailable alert title*/
+"ErrorMessages.emailUnavailableTitle" = "E-mail niet beschikbaar";
+
+/*Messaging unavailable alert title*/
+"ErrorMessages.messagingUnavailableMessage" = "Dit apparaat is niet geconfigureerd om berichten te verzenden.";
+
+/*Messaging unavailable alert title*/
+"ErrorMessages.messagingUnavailableTitle" = "Berichten niet beschikbaar";
+
+/*You can customize your Face ID Spending Limit from the [FaceIdSettings.linkText gets added here as a button]*/
+"FaceIDSettings.customizeText" = "Je kan jouw uitgavenlimiet voor Face ID aanpassen vanaf %1$@.";
+
+/*Face Id screen label*/
+"FaceIDSettings.label" = "Gebruik je gezicht om je DigiByte te ontgrendelen en geld te sturen tot een bepaalde limiet.";
+
+/*Link Text (see FaceIdSettings.customizeText)*/
+"FaceIDSettings.linkText" = "Face ID Scherm Bestedingslimiet";
+
+/*Face id switch label.*/
+"FaceIDSettings.switchLabel" = "Schakel Face ID in voor DigiByte";
+
+/*Face ID settings view title*/
+"FaceIDSettings.title" = "Face ID";
+
+/*Face ID unavailable alert message*/
+"FaceIDSettings.unavailableAlertMessage" = "Je hebt Face ID niet ingesteld op dit apparaat. Ga naar Instellingen-> Face ID & Wachtwoord om het nu in te stellen.";
+
+/*Face ID unavailable alert title*/
+"FaceIDSettings.unavailableAlertTitle" = "Face ID niet ingesteld";
+
+/*Face Id spending limit screen title*/
+"FaceIDSpendingLimit.title" = "Face ID-bestedingslimiet";
+
+/*Economy fee*/
+"FeeSelector.economy" = "Economie";
+
+/*Fee Selector economly fee description*/
+"FeeSelector.economyLabel" = "Geschatte levering: 1+ minuten";
+
+/*Warning message for economy fee*/
+"FeeSelector.economyWarning" = "Deze optie wordt niet aanbevolen voor tijdgevoelige transacties.";
+
+/*Regular fee*/
+"FeeSelector.regular" = "Normaal";
+
+/*Fee Selector regular fee description*/
+"FeeSelector.regularLabel" = "Geschatte levering: 15-30 seconden";
+
+/*Fee Selector title*/
+"FeeSelector.title" = "Verwerkingssnelheid";
+
+/*Checking private key balance progress view text*/
+"Import.checking" = "Saldo privésleutel controleren...";
+
+/*Sweep private key confirmation message*/
+"Import.confirm" = "%1$@ van deze privésleutel naar jouw portemonnee sturen? Het DigiByte-netwerk ontvangt een vergoeding van %2$@.";
+
+/*Duplicate key error message*/
+"Import.Error.duplicate" = "Deze privésleutel zit al in je portemonnee.";
+
+/*empty private key error message*/
+"Import.Error.empty" = "Deze privésleutel is leeg.";
+
+/*High fees error message*/
+"Import.Error.highFees" = "Transactiekosten zouden meer kosten dan het beschikbare geld op deze privésleutel.";
+
+/*Not a valid private key error message*/
+"Import.Error.notValid" = "Geen geldige privésleutel";
+
+/*Import signing error message*/
+"Import.Error.signing" = "Fout bij ondertekenen van transactie";
+
+/*Import button label*/
+"Import.importButton" = "Importeren";
+
+/*Importing wallet progress view label*/
+"Import.importing" = "Portemonnee importeren";
+
+/*Caption for graphics*/
+"Import.leftCaption" = "Portemonnee die moet worden geïmporteerd";
+
+/*Import wallet intro screen message*/
+"Import.message" = "Als je een portemonnee importeert, wordt alle DigiByte van jouw andere portemonnee naar jouw DigiByte overgebracht met één enkele transactie.";
+
+/*Enter password alert view title*/
+"Import.password" = "Deze privésleutel is met een wachtwoord beveiligd.";
+
+/*password textfield placeholder*/
+"Import.passwordPlaceholder" = "wachtwoord";
+
+/*Caption for graphics*/
+"Import.rightCaption" = "Jouw DigiByte";
+
+/*Scan Private key button label*/
+"Import.scan" = "Privésleutel scannen";
+
+/*Import wallet success alert title*/
+"Import.success" = "Succes";
+
+/*Successfully imported wallet message body*/
+"Import.SuccessBody" = "Portemonnee succesvol geïmporteerd.";
+
+/*Import Wallet screen title*/
+"Import.title" = "Portemonnee importeren";
+
+/*Unlocking Private key activity view message.*/
+"Import.unlockingActivity" = "Ontgrendelingssleutel";
+
+/*Import wallet intro warning message*/
+"Import.warning" = "Het importeren van een portemonnee bevat geen transactiegeschiedenis of andere details.";
+
+/*Wrong password alert message*/
+"Import.wrongPassword" = "Verkeerd wachtwoord, probeer het opnieuw.";
+
+/*Close app button*/
+"JailbreakWarnings.close" = "Sluiten";
+
+/*Ignore jailbreak warning button*/
+"JailbreakWarnings.ignore" = "Negeren";
+
+/*Jailbreak warning message*/
+"JailbreakWarnings.messageWithBalance" = "APPARAATBEVEILIGING COMPROMIS\nElke 'jailbreak'-app heeft toegang tot de sleutelhanger-gegevens van DigiByte en steelt jouw DigiByte! Veeg deze portemonnee onmiddellijk schoon en herstel op een veilig apparaat.";
+
+/*Jailbreak warning message*/
+"JailbreakWarnings.messageWithoutBalance" = "APPARAATBEVEILIGING COMPROMIS\nElke 'jailbreak'-app heeft toegang tot de sleutelhanger-gegevens van DigiByte en kan jouw DigiByte stelen. Gebruik DigiByte alleen op een niet-gejailbreakt apparaat.";
+
+/*Jailbreak warning title*/
+"JailbreakWarnings.title" = "WAARSCHUWING";
+
+/*Location services disabled error*/
+"LocationPlugin.disabled" = "Locatieservices zijn uitgeschakeld.";
+
+/*No permissions for location services*/
+"LocationPlugin.notAuthorized" = "DigiByte heeft geen toestemming om toegang te krijgen tot locatiediensten.";
+
+/*Wallet creation date prefix*/
+"ManageWallet.creationDatePrefix" = "Je hebt je portemonnee gemaakt op %1$@";
+
+/*Manage wallet description text*/
+"ManageWallet.description" = "De naam van jouw portemonnee wordt alleen weergegeven in de transactiegeschiedenis van jouw account en kan door niemand anders worden gezien.";
+
+/*Change Wallet name textfield label*/
+"ManageWallet.textFeildLabel" = "Portemonnee naam";
+
+/*Manage wallet modal title*/
+"ManageWallet.title" = "Portemonnee beheren";
+
+/*Menu button title*/
+"MenuButton.lock" = "Portemonnee vergrendelen";
+
+/*Menu button title*/
+"MenuButton.security" = "Beveiligings centrum";
+
+/*Menu button title*/
+"MenuButton.settings" = "Instellingen";
+
+/*Menu button title*/
+"MenuButton.support" = "Ondersteuning";
+
+/*button label*/
+"MenuViewController.createButton" = "Maak een nieuwe portemonnee";
+
+/*Menu modal title*/
+"MenuViewController.modalTitle" = "Menu";
+
+/*button label*/
+"MenuViewController.recoverButton" = "Portemonnee herstellen";
+
+/*Switch to automatic mode button label*/
+"NodeSelector.automaticButton" = "Schakel over naar automatische modus";
+
+/*Node is connected label*/
+"NodeSelector.connected" = "Verbonden";
+
+/*Enter node ip address view body*/
+"NodeSelector.enterBody" = "Voer knooppunt IP-adres en poort in (optioneel)";
+
+/*Enter Node ip address view title*/
+"NodeSelector.enterTitle" = "Voer knooppunt in";
+
+/*Switch to manual mode button label*/
+"NodeSelector.manualButton" = "Schakel over naar handmatige modus";
+
+/*Node address label*/
+"NodeSelector.nodeLabel" = "Huidige primaire knooppunt";
+
+/*Node is not connected label*/
+"NodeSelector.notConnected" = "Niet verbonden";
+
+/*Node status label*/
+"NodeSelector.statusLabel" = "Knooppunt verbindingsstatus";
+
+/*Node Selector view title*/
+"NodeSelector.title" = "DigiByte-knooppunten";
+
+/*Bad Payment request alert title*/
+"PaymentProtocol.Errors.badPaymentRequest" = "Ongeldig betalingsverzoek";
+
+/*Error opening payment protocol file message*/
+"PaymentProtocol.Errors.corruptedDocument" = "Niet-ondersteund of beschadigd document";
+
+/*Missing certificate payment protocol error message*/
+"PaymentProtocol.Errors.missingCertificate" = "ontbrekend certificaat";
+
+/*Request expired payment protocol error message*/
+"PaymentProtocol.Errors.requestExpired" = "verzoek is verlopen";
+
+/*Payment too small alert title*/
+"PaymentProtocol.Errors.smallOutputError" = "Kan betaling niet uitvoeren";
+
+/*Amount too small error message*/
+"PaymentProtocol.Errors.smallPayment" = "DigiByte-betalingen kunnen niet lager zijn dan %1$@.";
+
+/*Output too small error message.*/
+"PaymentProtocol.Errors.smallTransaction" = "De output van DigiByte-transacties mag niet lager zijn dan $@.";
+
+/*Unsupported signature type payment protocol error message*/
+"PaymentProtocol.Errors.unsupportedSignatureType" = "niet-ondersteund handtekeningtype";
+
+/*Untrusted certificate payment protocol error message*/
+"PaymentProtocol.Errors.untrustedCertificate" = "niet-vertrouwd certificaat";
+
+/*Enable face ID prompt body*/
+"Prompts.FaceId.body" = "Tik hier om Face ID in te schakelen";
+
+/*Enable face ID prompt title*/
+"Prompts.FaceId.title" = "Schakel Face ID in";
+
+/*No passcode set warning body*/
+"Prompts.NoPasscode.body" = "Een apparaatwachtwoord is nodig om jouw portemonnee te beschermen. Ga naar instellingen en schakel wachtwoord in.";
+
+/*No Passcode set warning title*/
+"Prompts.NoPasscode.title" = "Schakel apparaatwachtwoord in";
+
+/*Warning about paper key.*/
+"Prompts.PaperKey.body" = "Jouw persoonlijke herstelsleutel moet worden opgeslagen voor het geval je ooit jouw telefoon verliest of verandert. Tik hier om door te gaan.";
+
+/*An action is required (You must do this action).*/
+"Prompts.PaperKey.title" = "Actie vereist";
+
+/*Transaction rejected prompt body*/
+"Prompts.RecommendRescan.body" = "Jouw portemonnee is mogelijk niet gesynchroniseerd. Dit kan vaak worden opgelost door de blockchain opnieuw te scannen.";
+
+/*Transaction rejected prompt title*/
+"Prompts.RecommendRescan.title" = "Transactie afgewezen";
+
+/*Share data prompt body*/
+"Prompts.ShareData.body" = "Help DigiByte te verbeteren door jouw anonieme gegevens met ons te delen";
+
+/*Share data prompt title*/
+"Prompts.ShareData.title" = "Deel anonieme gegevens";
+
+/*Enable touch ID prompt body*/
+"Prompts.TouchId.body" = "Tik hier om Touch ID in te schakelen";
+
+/*Enable touch ID prompt title*/
+"Prompts.TouchId.title" = "Schakel Touch ID in";
+
+/*Upgrade PIN prompt body.*/
+"Prompts.UpgradePin.body" = "DigiByte is geüpgraded naar een 6-cijferige pincode. Tik hier om te upgraden.";
+
+/*Upgrade PIN prompt title.*/
+"Prompts.UpgradePin.title" = "PIN upgraden";
+
+/*Notifications will be added later but users can set their preferences now, which is why we specify "in the future".*/
+"PushNotifications.body" = "Schakel meldingen in om in de toekomst speciale berichten van DigiByte te ontvangen.";
+
+/*Push notifications toggle switch label*/
+"PushNotifications.label" = "Push-meldingen";
+
+/*Push notifications are off label*/
+"PushNotifications.off" = "Uit";
+
+/*Push notifications are on label*/
+"PushNotifications.on" = "Aan";
+
+/*Push notifications settings view title label*/
+"PushNotifications.title" = "Meldingen";
+
+/*Address copied message.*/
+"Receive.copied" = "Gekopieerd naar het klembord.";
+
+/*Share via email button label*/
+"Receive.emailButton" = "E-mail";
+
+/*Request button label*/
+"Receive.request" = "Vraag een bedrag aan";
+
+/*Share button label*/
+"Receive.share" = "Delen";
+
+/*Share via text message (SMS)*/
+"Receive.textButton" = "Tekst bericht";
+
+/*Receive modal title*/
+"Receive.title" = "Ontvangen";
+
+/*Done button text*/
+"RecoverWallet.done" = "Klaar";
+
+/*Recover wallet header*/
+"RecoverWallet.header" = "Portemonnee herstellen";
+
+/*Reset PIN with paper key: header*/
+"RecoverWallet.header_reset_pin" = "PIN opnieuw instellen";
+
+/*Enter paper key instruction*/
+"RecoverWallet.instruction" = "Voer de persoonlijke herstelsleutel in";
+
+/*Recover wallet intro*/
+"RecoverWallet.intro" = "Herstel jouw DigiByte met jouw persoonlijke herstelsleutel.";
+
+/*Invalid paper key message*/
+"RecoverWallet.invalid" = "De persoonlijke herstelsleutel die je hebt ingevoerd, is ongeldig. Controleer elk woord nogmaals en probeer het opnieuw.";
+
+/*Previous button accessibility label*/
+"RecoverWallet.leftArrow" = "Linker pijl";
+
+/*Next button label*/
+"RecoverWallet.next" = "Volgende";
+
+/*Reset PIN with paper key: more information button.*/
+"RecoverWallet.reset_pin_more_info" = "Tik hier voor meer informatie.";
+
+/*Next button accessibility label*/
+"RecoverWallet.rightArrow" = "Rechter pijl";
+
+/*Recover wallet sub-header*/
+"RecoverWallet.subheader" = "Voer de persoonlijke herstelsleutel in voor de DigiByte die je wilt herstellen.";
+
+/*Reset PIN with paper key: sub-header*/
+"RecoverWallet.subheader_reset_pin" = "Voer de woorden van jouw persoonlijke herstelsleutel in de onderstaande vakken in om jouw pincode opnieuw in te stellen.";
+
+/*No amount entered error message.*/
+"RequestAnAmount.noAmount" = "Voer eerst een bedrag in.";
+
+/*Request a specific amount of bitcoin*/
+"RequestAnAmount.title" = "Vraag een bedrag aan";
+
+/*Alert action button label*/
+"ReScan.alertAction" = "Synchroniseren";
+
+/*Alert message body*/
+"ReScan.alertMessage" = "Je kan DigiByte niet verzenden tijdens het synchroniseren.";
+
+/*Alert message title*/
+"ReScan.alertTitle" = "Synchroniseren met Blockchain?";
+
+/*extimated time*/
+"ReScan.body1" = "20-45 minuten";
+
+/*Syncing explanation*/
+"ReScan.body2" = "Als een transactie als voltooid wordt weergegeven op het DigiByte-netwerk, maar niet in jouw DigiByte.";
+
+/*Syncing explanation*/
+"ReScan.body3" = "Je krijgt herhaaldelijk een foutmelding dat jouw transactie is geweigerd.";
+
+/*Start Sync button label*/
+"ReScan.buttonTitle" = "Start synchronisatie";
+
+/*Sync blockchain view footer*/
+"ReScan.footer" = "Je kan DigiByte niet verzenden tijdens het synchroniseren met de blockchain.";
+
+/*Sync Blockchain view header*/
+"ReScan.header" = "Blockchain synchroniseren";
+
+/*Subheader label*/
+"ReScan.subheader1" = "Geschatte tijd";
+
+/*Subheader label*/
+"ReScan.subheader2" = "Wanneer synchroniseren?";
+
+/*Scan bitcoin address camera flash toggle*/
+"Scanner.flashButtonLabel" = "Camera flits";
+
+/*Complete filter label*/
+"Search.complete" = "compleet";
+
+/*Pending filter label*/
+"Search.pending" = "in afwachting";
+
+/*Received filter label*/
+"Search.received" = "ontvangen";
+
+/*Sent filter label*/
+"Search.sent" = "verzonden";
+
+/*Face ID button title*/
+"SecurityCenter.faceIdTitle" = "Face ID";
+
+/*Security Center Info*/
+"SecurityCenter.info" = "Schakel alle beveiligingsfuncties in voor maximale bescherming.";
+
+/*Paper Key button description*/
+"SecurityCenter.paperKeyDescription" = "De enige manier om toegang te krijgen tot jouw DigiByte als je jouw telefoon verliest of upgradet.";
+
+/*Paper Key button title*/
+"SecurityCenter.paperKeyTitle" = "Persoonlijke herstelsleutel";
+
+/*PIN button description*/
+"SecurityCenter.pinDescription" = "Beschermt jouw DigiByte tegen onbevoegde gebruikers.";
+
+/*PIN button title*/
+"SecurityCenter.pinTitle" = "6-cijferige pincode";
+
+/*Security Center Title*/
+"SecurityCenter.title" = "Beveiligings centrum";
+
+/*Touch ID button description*/
+"SecurityCenter.touchIdDescription" = "Ontgrendel jouw DigiByte gemakkelijk en stuur DigiByte tot een bepaalde limiet.";
+
+/*Touch ID button title*/
+"SecurityCenter.touchIdTitle" = "Touch ID";
+
+/*Send money amount label*/
+"Send.amountLabel" = "Aantal";
+
+/*Balance: $4.00*/
+"Send.balance" = "Saldo: %1$@";
+
+/*Camera not allowed message*/
+"Send.cameraunavailableMessage" = "Ga naar Instellingen om cameratoegang toe te staan.";
+
+/*Camera not allowed alert title*/
+"Send.cameraUnavailableTitle" = "DigiByte heeft geen toegang tot de camera";
+
+/*Warning when sending to self.*/
+"Send.containsAddress" = "De bestemming is je eigen adres. Je kan niet naar jezelf sturen.";
+
+/*Could not create transaction alert title*/
+"Send.creatTransactionError" = "Kan transactie niet maken.";
+
+/*Description for sending money label*/
+"Send.descriptionLabel" = "Memo";
+
+/*Emtpy pasteboard error message*/
+"Send.emptyPasteboard" = "Plakbord is leeg";
+
+/*Network Fee: $0.01*/
+"Send.fee" = "Netwerkkosten: %1$@";
+
+/*Payee identity not certified alert title.*/
+"Send.identityNotCertified" = "Identiteit van begunstigde is niet gecertificeerd.";
+
+/*Invalid address alert message*/
+"Send.invalidAddressMessage" = "Het bestemmingsadres is geen geldig DigiByte-adres.";
+
+/*Invalid address on pasteboard message*/
+"Send.invalidAddressOnPasteboard" = "Plakbord bevat geen geldig DigiByte-adres.";
+
+/*Invalid address alert title*/
+"Send.invalidAddressTitle" = "Ongeldig adres";
+
+/*Is rescanning error message*/
+"Send.isRescanning" = "Verzenden is uitgeschakeld tijdens een volledige nieuwe scan.";
+
+/*Loading request activity view message*/
+"Send.loadingRequest" = "Aanvraag laden";
+
+/*Empty address alert message*/
+"Send.noAddress" = "Voer het adres van de ontvanger in.";
+
+/*Emtpy amount alert message*/
+"Send.noAmount" = "Voer een te verzenden bedrag in.";
+
+/*Paste button label*/
+"Send.pasteLabel" = "Plakken";
+
+/*Could not publish transaction alert title*/
+"Send.publishTransactionError" = "Kan transactie niet publiceren.";
+
+/*Could not load remote request error message*/
+"Send.remoteRequestError" = "Kan betalingsverzoek niet laden";
+
+/*Scan button label*/
+"Send.scanLabel" = "Scannen";
+
+/*Send button label (the action, "press here to send")*/
+"Send.sendLabel" = "Sturen";
+
+/*Send screen title (as in "this is the screen for sending money")*/
+"Send.title" = "Sturen";
+
+/*Send money to label*/
+"Send.toLabel" = "Naar";
+
+/*Adress already used alert message - first part*/
+"Send.UsedAddress.firstLine" = "DigiByte-adressen zijn uitsluitend bedoeld voor eenmalig gebruik.";
+
+/*Adress already used alert message - second part*/
+"Send.UsedAddress.secondLIne" = "Hergebruik vermindert de privacy voor zowel jou als de ontvanger en kan leiden tot verlies als de ontvanger het adres niet rechtstreeks beheert.";
+
+/*Adress already used alert title*/
+"Send.UsedAddress.title" = "Adres al gebruikt";
+
+/*About label*/
+"Settings.about" = "Over";
+
+/*Advanced Settings title*/
+"Settings.advancedTitle" = "Geavanceerde instellingen";
+
+/*i.e. the currency which will be displayed*/
+"Settings.currency" = "Valuta weergeven";
+
+/*Join Early access label*/
+"Settings.earlyAccess" = "Word lid van Early Access";
+
+/*Are you enjoying bread alert message body*/
+"Settings.enjoying" = "Geniet je van DigiByte?";
+
+/*Face ID spending limit label*/
+"Settings.faceIdLimit" = "Face ID-bestedingslimiet";
+
+/*Import wallet label*/
+"Settings.importTitle" = "Portemonnee importeren";
+
+/*Manage settings section header*/
+"Settings.manage" = "Beheren";
+
+/*Notifications label*/
+"Settings.notifications" = "Meldingen";
+
+/*Leave review button label*/
+"Settings.review" = "Laat ons een beoordeling achter";
+
+/*Share anonymous data label*/
+"Settings.shareData" = "Deel anonieme gegevens";
+
+/*Sync blockchain label*/
+"Settings.sync" = "Blockchain synchroniseren";
+
+/*Settings title*/
+"Settings.title" = "Instellingen";
+
+/*Touch ID spending limit label*/
+"Settings.touchIdLimit" = "Touch ID Uitgave limiet";
+
+/*Wallet Settings section header*/
+"Settings.wallet" = "Portemonnee";
+
+/*Start or recover another wallet menu label.*/
+"Settings.wipe" = "Start / herstel een andere portemonnee";
+
+/*Share data view body*/
+"ShareData.body" = "Help DigiByte te verbeteren door jouw anonieme gegevens met ons te delen. Dit bevat geen financiële informatie. We respecteren jouw financiële privacy.";
+
+/*Share data header*/
+"ShareData.header" = "Gegevens delen?";
+
+/*Share data switch label.*/
+"ShareData.toggleLabel" = "Anonieme gegevens delen?";
+
+/*button label*/
+"StartPaperPhrase.againButtonTitle" = "Schrijf jouw persoonlijke herstelsleutel opnieuw op";
+
+/*Paper key explanation text.*/
+"StartPaperPhrase.body" = "Jouw persoonlijke herstelsleutel is de enige manier om jouw DigiByte te herstellen als jouw telefoon verloren, gestolen, kapot of geüpgraded is.\n\nWe laten je een lijst met woorden zien die je op een stuk papier kan opschrijven en veilig kan bewaren.";
+
+/*button label*/
+"StartPaperPhrase.buttonTitle" = "Schrijf de persoonlijke herstelsleutel op";
+
+/*Argument is date*/
+"StartPaperPhrase.date" = "Je hebt jouw persoonlijke herstelsleutel voor het laatst genoteerd op %1$@";
+
+/*Start view message*/
+"StartViewController.message" = "De veiligste en snelste manier om DigiByte te gebruiken.";
+
+/*Syncing view connectiong state header text*/
+"SyncingView.connecting" = "Verbinden";
+
+/*Syncing view header text*/
+"SyncingView.header" = "Synchroniseren";
+
+/*Retry button label*/
+"SyncingView.retry" = "Opnieuw proberen";
+
+/*Syncing view syncing state header text*/
+"SyncingView.syncing" = "Synchroniseren";
+
+/*6 d (6 days)*/
+"TimeSince.days" = "%1$@ d";
+
+/*6 h (6 hours)*/
+"TimeSince.hours" = "%1$@ u";
+
+/*6 m (6 minutes)*/
+"TimeSince.minutes" = "%1$@ m";
+
+/*6 s (6 seconds)*/
+"TimeSince.seconds" = "%1$@ s";
+
+/*You can customize your Touch ID Spending Limit from the [TouchIdSettings.linkText gets added here as a button]*/
+"TouchIdSettings.customizeText" = "Je kan jouw uitgavenlimiet voor Touch ID aanpassen vanaf %1$@.";
+
+/*Touch Id screen label*/
+"TouchIdSettings.label" = "Gebruik jouw vingerafdruk om jouw DigiByte te ontgrendelen en DigiByte te verzenden tot een bepaalde limiet.";
+
+/*Link Text (see TouchIdSettings.customizeText)*/
+"TouchIdSettings.linkText" = "Touch ID Scherm Bestedingslimiet";
+
+/*Spending Limit: b100,000 ($100)*/
+"TouchIdSettings.spendingLimit" = "Bestedingslimiet: %1$@ (%2$@)";
+
+/*Touch id switch label.*/
+"TouchIdSettings.switchLabel" = "Schakel Touch ID in voor DigiByte";
+
+/*Touch ID settings view title*/
+"TouchIdSettings.title" = "Touch ID";
+
+/*Touch ID unavailable alert message*/
+"TouchIdSettings.unavailableAlertMessage" = "Je hebt Touch ID niet ingesteld op dit apparaat. Ga naar Instellingen-> Touch ID & Wachtwoord om het nu in te stellen.";
+
+/*Touch ID unavailable alert title*/
+"TouchIdSettings.unavailableAlertTitle" = "Touch ID niet ingesteld";
+
+/*Always require passcode option*/
+"TouchIdSpendingLimit" = "Vereist altijd een wachtwoord";
+
+/*Touch ID spending limit screen body*/
+"TouchIdSpendingLimit.body" = "Je wordt gevraagd jouw zescijferige pincode in te voeren om een transactie over jouw bestedingslimiet te verzenden, en elke 48 uur sinds de laatste keer dat je jouw zescijferige pincode heeft ingevoerd.";
+
+/*Touch Id spending limit screen title*/
+"TouchIdSpendingLimit.title" = "Touch ID Bestedingslimiet";
+
+/*Availability status text*/
+"Transaction.available" = "Beschikbaar om te besteden";
+
+/*Transaction complete label*/
+"Transaction.complete" = "Compleet";
+
+/*eg. Ending balance: $50.00*/
+"Transaction.ending" = "Eindsaldo: %1$@";
+
+/*Exchange rate on date header*/
+"Transaction.exchangeOnDayReceived" = "Wisselkoers bij ontvangst:";
+
+/*Exchange rate on date header*/
+"Transaction.exchangeOnDaySent" = "Wisselkoers bij verzending:";
+
+/*(b600 fee)*/
+"Transaction.fee" = "(%1$@ transactiekosten)";
+
+/*Invalid transaction*/
+"Transaction.invalid" = "ONGELDIG";
+
+/*Timestamp label for event that just happened*/
+"Transaction.justNow" = "zo net";
+
+/*Receive status text: 'In progress: 20%'*/
+"Transaction.receivedStatus" = "Bezig: %1$@";
+
+/*Send status text: 'In progress: 20%'*/
+"Transaction.sendingStatus" = "Bezig: %1$@";
+
+/*eg. Starting balance: $50.00*/
+"Transaction.starting" = "Beginsaldo: %1$@";
+
+/*Waiting to be confirmed string*/
+"Transaction.waiting" = "Wachten op bevestiging. Sommige verkopers hebben bevestiging nodig om een transactie te voltooien. Geschatte tijd: 1-2 minuten.";
+
+/*e.g. I received money from an account.*/
+"TransactionDetails.account" = "account";
+
+/*Amount section header*/
+"TransactionDetails.amountHeader" = "Bedrag";
+
+/*Block height label*/
+"TransactionDetails.blockHeightLabel" = "Bevestigd in blok";
+
+/*Memo section header*/
+"TransactionDetails.commentsHeader" = "Memo";
+
+/*Empty transaction list message.*/
+"TransactionDetails.emptyMessage" = "Jouw transacties worden hier weergegeven.";
+
+/*"Received [$5] at [which of my addresses]" => This is the "at [which of my addresses]" part.*/
+"TransactionDetails.from" = "op %1$@";
+
+/*More button title*/
+"TransactionDetails.more" = "Meer...";
+
+/*Moved $5.00 (as in "I moved $5 to another location")*/
+"TransactionDetails.moved" = "%1$@ verplaatst";
+
+/*Moved $5.00*/
+"TransactionDetails.movedAmountDescription" = "<b>%1@</b> verplaatst";
+
+/*eg. Confirmed in Block: Not Confirmed*/
+"TransactionDetails.notConfirmedBlockHeightLabel" = "Niet bevestigd";
+
+/*"Received [$5] at [which of my addresses]" => This is the "Received [$5]" part.*/
+"TransactionDetails.received" = "%1$@ ontvangen";
+
+/*Received $5.00*/
+"TransactionDetails.receivedAmountDescription" = "<b>%1@</b> ontvangen";
+
+/*"Sent [$5] to [address]" => This is the "Sent [$5]" part.*/
+"TransactionDetails.sent" = "%1$@ verzonden";
+
+/*Sent $5.00*/
+"TransactionDetails.sentAmountDescription" = "<b>%1@</b> verzonden";
+
+/*Status section header*/
+"TransactionDetails.statusHeader" = "Toestand";
+
+/*Transaction Details Title*/
+"TransactionDetails.title" = "Transactie details";
+
+/*"Sent [$5] to [address]" => This is the "to [address]" part.*/
+"TransactionDetails.to" = "aan %1$@";
+
+/*Transaction ID header*/
+"TransactionDetails.txHashHeader" = "DigiByte transactie-ID";
+
+/*(this transaction was) Received at this address:*/
+"TransactionDirection.address" = "Ontvangen op dit adres";
+
+/*(this transaction was) Sent to this address:*/
+"TransactionDirection.to" = "Verzonden naar dit adres";
+
+/*Disabled until date*/
+"UnlockScreen.disabled" = "Uitgeschakeld tot: %1$@";
+
+/*My Address button title*/
+"UnlockScreen.myAddress" = "Mijn adres";
+
+/*Reset PIN with Paper Key button label.*/
+"UnlockScreen.resetPin" = "PIN opnieuw instellen";
+
+/*Scan button title*/
+"UnlockScreen.scan" = "Scannen";
+
+/*Unlock Screen sub-header*/
+"UnlockScreen.subheader" = "Voer pincode in";
+
+/*TouchID prompt text*/
+"UnlockScreen.touchIdPrompt" = "Ontgrendel jouw DigiByte.";
+
+/*Unlock with TouchID accessibility label*/
+"UnlockScreen.touchIdText" = "Ontgrendel met Touch ID";
+
+/*Wallet unlocked message*/
+"UnlockScreen.unlocked" = "Portemonnee ontgrendeld";
+
+/*Update PIN caption text*/
+"UpdatePin.caption" = "Onthoud deze pincode. Als je het vergeet, heb je geen toegang tot je DigiByte.";
+
+/*PIN creation info.*/
+"UpdatePin.createInstruction" = "Jouw pincode wordt gebruikt om jouw DigiByte te ontgrendelen en DigiByte te verzenden.";
+
+/*Update PIN title*/
+"UpdatePin.createTitle" = "Pincode instellen";
+
+/*Update PIN title*/
+"UpdatePin.createTitleConfirm" = "Voer de pincode opnieuw in";
+
+/*Enter current PIN instruction*/
+"UpdatePin.enterCurrent" = "Voer jouw huidige pincode in.";
+
+/*Enter new PIN instruction*/
+"UpdatePin.enterNew" = "Voer jouw nieuwe pincode in.";
+
+/*Re-Enter new PIN instruction*/
+"UpdatePin.reEnterNew" = "Voer jouw nieuwe pincode opnieuw in.";
+
+/*Update PIN failure error message.*/
+"UpdatePin.setPinError" = "Sorry, kan pincode niet updaten.";
+
+/*Update PIN failure alert view title*/
+"UpdatePin.setPinErrorTitle" = "Updaten pincode fout";
+
+/*Update PIN title*/
+"UpdatePin.updateTitle" = "Pincode updaten";
+
+/*Authorize to copy wallet addresses alert message*/
+"URLHandling.addressaddressListAlertMessage" = "Portemonnee-adressen naar klembord kopiëren?";
+
+/*Authorize to copy wallet address PIN view prompt.*/
+"URLHandling.addressList" = "Autoriseer om het adres van de portemonnee naar het klembord te kopiëren";
+
+/*Authorize to copy wallet address alert title*/
+"URLHandling.addressListAlertTitle" = "Kopieer Wallet-adressen";
+
+/*Copy wallet addresses alert button label*/
+"URLHandling.copy" = "Kopiëren";
+
+/*Verify PIN for transaction view body*/
+"VerifyPin.authorize" = "Voer jouw pincode in om deze transactie te autoriseren.";
+
+/*Verify PIN view body*/
+"VerifyPin.continueBody" = "Voer jouw pincode in om door te gaan.";
+
+/*Verify PIN view title*/
+"VerifyPin.title" = "Pincode vereist";
+
+/*Authorize transaction with touch id message*/
+"VerifyPin.touchIdMessage" = "Autoriseer deze transactie";
+
+/*'No wallet' warning for watch app*/
+"Watch.noWalletWarning" = "Open de DigiByte iPhone-app om je portemonnee in te stellen.";
+
+/*Dismiss button label*/
+"Webview.dismiss" = "Afwijzen";
+
+/*Webview loading error message*/
+"Webview.errorMessage" = "Er is een fout opgetreden bij het laden van de inhoud. Probeer het alsjeblieft opnieuw.";
+
+/*Updating webview message*/
+"Webview.updating" = "Bezig met bijwerken...";
+
+/*Welcome screen text. (?) will be replaced with the help icon users should look for.*/
+"Welcome.body" = "DigiByte voor iOS heeft de naam veranderd in DigiByte, met een geheel nieuwe look en enkele nieuwe functies.\n\nAls je hulp nodig hebt, zoek dan naar de (?) In de rechterbovenhoek van de meeste schermen.";
+
+/*Top title of welcome screen*/
+"Welcome.title" = "Welkom bij DigiByte!";
+
+/*Wipe wallet alert message*/
+"WipeWallet.alertMessage" = "Weet je zeker dat je deze portemonnee wilt verwijderen?";
+
+/*Wipe wallet alert title*/
+"WipeWallet.alertTitle" = "Portemonnee wissen?";
+
+/*Failed wipe wallet alert message*/
+"WipeWallet.failedMessage" = "Kan portemonnee niet wissen.";
+
+/*Failed wipe wallet alert title*/
+"WipeWallet.failedTitle" = "Mislukt";
+
+/*Enter phrase to wipe wallet instruction.*/
+"WipeWallet.instruction" = "Voer de persoonlijke herstelsleutel van deze portefeuille in om deze te wissen en een andere te starten of te herstellen. Jouw huidige saldo blijft op deze persoonlijke herstelsleutel.";
+
+/*Start wipe wallet view message*/
+"WipeWallet.startMessage" = "Door een andere portemonnee te starten of te herstellen, kan je op dit apparaat een andere DigiByte openen en beheren.";
+
+/*Start wipe wallet view warning*/
+"WipeWallet.startWarning" = "Je hebt vanaf dit apparaat geen toegang meer tot jouw huidige DigiByte. Het saldo blijft op jouw persoonlijke herstelsleutel.";
+
+/*Wipe wallet navigation item title.*/
+"WipeWallet.title" = "Start of herstel een andere portemonnee";
+
+/*Wipe wallet button title*/
+"WipeWallet.wipe" = "Wissen";
+
+/*Wiping activity message*/
+"WipeWallet.wiping" = "Verwijderen...";
+
+/*Paper key instructions.*/
+"WritePaperPhrase.instruction" = "Schrijf elk woord op volgorde op en bewaar het op een veilige plaats.";
+
+/*button label*/
+"WritePaperPhrase.next" = "Volgende";
+
+/*button label*/
+"WritePaperPhrase.previous" = "Vorige";
+
+/*1 of 3*/
+"WritePaperPhrase.step" = "%1$d van %2$d";
+
+/*header of PinView*/
+"Prompts.SecurityCheck.header" = "VEILIGHEIDSCONTROLE";
+
+/*header of balance*/
+"Balance.header" = "TOTAAL\nBALANS";
+
+/*labels of syncView*/
+"SynchingView.blockHeightLabel" = "BLOK HOOGTE";
+"SynchingView.progressLabel" = "VOORUITGANG";
+
+/*filter buttons for transactionView*/
+"TransactionView.all" = "allemaal";
+
+/*TransactionFilter sent*/
+"TransactionView.sent" = "verzonden";
+
+/*TransactionFilter received*/
+"TransactionView.received" = "ontvangen";
+
+/*DATE: date*/
+"TransactionDetailView.date" = "datum";
+
+/*PROCESSED: time*/
+"TransactionDetailView.processed" = "verwerkt";
+
+/*STATUS: complete*/
+"TransactionDetailView.status" = "toestand";
+
+/*CONFIRMATIONS: number*/
+"TransactionDetailView.confirmations" = "bevestigingen";
+
+/*missing time translation*/
+"FeeSelector.regularTime" = "15-30 seconden";
+
+/*Text that is shown when asset was not resolved yet*/
+"Assets.unresolved" = "Onopgeloste assets";
+
+/*Text to show if no metadata is available for the asset*/
+"Assets.noMetadata" = "DigiAsset";
+
+/*Showing when multiple assets were received*/
+"Assets.multipleAssets" = "Meerdere assets";
+
+/*Title of confirm view*/
+"Assets.receivedAssetsTitle" = "DigiAssets ontvangen";
+
+/*Message will be displayed if assets were received*/
+"Assets.receivedAssetsMessage" = "Je hebt een of meer DigiAssets ontvangen. Om jouw assets te kunnen zien, moet deze app communiceren met een metadataserver. Hierdoor worden enkele van de openbare gegevens van jouw portemonnee bekendgemaakt, zoals adressen of transactie-hashes.";
+
+/*Title of confirm view if opening single*/
+"Assets.openAssetTitle" = "Bekijk DigiAsset";
+
+/*Message will be displayed if asset shall be opened*/
+"Assets.openAssetMessage" = "Om deze assets te kunnen bekijken, moet deze app communiceren met een metadataserver. Hiermee wordt een van de openbare adressen van jouw portemonnee bekendgemaakt.";
+
+/*Title to show when assets are being fetched*/
+"Assets.fetchingAssetsTitle" = "Assets ophalen";
+
+/*View RAW Transaction button title*/
+"Assets.viewRawTransaction" = "Bekijk RAW-transactie";
+
+/*Resolve button caption*/
+"Assets.confirmAssetsResolve" = "Los asset(s) op";
+
+/*Skip button caption*/
+"Assets.skipAssetsResolve" = "Overslaan";
+
+/*Cancel button caption*/
+"Assets.cancelAssetsResolve" = "Annuleren";
+
+/*Skip button caption*/
+"Assets.continueWithoutSync" = "Synchronisatie overslaan";
+
+/*Total supply of asset*/
+"Assets.totalSupply" = "Totaal aanbod";
+
+/*Number of total holders of an asset*/
+"Assets.numberOfHolders" = "Aantal houders";
+
+/*lock status of an asset*/
+"Assets.lockStatus" = "Vergrendelingsstatus";
+
+/*Issuer key*/
+"Assets.issuer" = "Uitgever";
+
+/*AssetID key*/
+"Assets.assetID" = "Asset ID";
+
+/*Address key*/
+"Assets.address" = "Adres";
+
+/*Possible value of Lock Status*/
+"Assets.locked" = "Op slot";
+
+/*Possible value of Lock Status*/
+"Assets.unlocked" = "Ontgrendeld";
+
+/*Shown if a value is unknown (N/A)*/
+"Assets.unknown" = "Onbekend";
+
+/*Total Balance: <BALANCE>*/
+"Assets.totalBalance" = "Saldo";
+
+/*Tap to show button*/
+"Assets.tapToShow" = "Tik om weer te geven";
+
+/*Tap to hide button*/
+"Assets.tapToHide" = "Tik om te verbergen";
+
+/*Asset ID: XXXXXX*/
+"Assets.assetIdKey" = "Asset ID";
+
+/*Total Balance: 1000*/
+"Assets.balanceKey" = "Saldo";
+
+/*Issuer: CreateDigiAssets.com*/
+"Assets.issuerKey" = "Uitgever";
+
+/*Asset Info: YYYY*/
+"Assets.assetInfoKey" = "Informatie over asset";
+
+/*Description: ZZZZ*/
+"Assets.descriptionKey" = "Omschrijving";
+
+/*Button title for GET STARTED*/
+"Assets.getStarted" = "Begin";
+
+/*Button title for create new asset*/
+"Assets.createNewAsset" = "Maak een nieuw asset";
+
+/*Heading for Receive assets*/
+"Assets.receiveAssets" = "Assets ontvangen";
+
+/*Heading for create new assets*/
+"Assets.createAssets" = "Assets maken";
+
+/*Heading for burn assets*/
+"Assets.burnAssets" = "Verbrand assets";
+
+/*Button title for send assets*/
+"Assets.sendAssets" = "Stuur assets";
+
+/*Tab title*/
+"Assets.tabOverview" = "Assets";
+
+/*Tab title*/
+"Assets.tabCreate" = "Creëren";
+
+/*Tab title*/
+"Assets.tabSend" = "Sturen";
+
+/*Tab title*/
+"Assets.tabReceive" = "Ontvangen";
+
+/*Tab title*/
+"Assets.tabBurn" = "Verbranden";
+
+/*Shown, when no assets are available*/
+"Assets.nothingFoundHere" = "Niets gevonden hier";
+
+/*Asset selector placeholder text*/
+"Assets.selectAnAsset" = "Selecteer een asset";
+
+/*Danger Title*/
+"Assets.dangerTitle" = "GEVARENZONE";
+
+/*Danger description*/
+"Assets.dangerText" = "Het verbranden van assets vernietigt ze onomkeerbaar. Je kan ze nooit meer terugkrijgen.";
+
+/*Asset not available*/
+"Assets.AssetNotAvailable" = "Asset niet beschikbaar";
+
+/*Displayed as a message when not enough assets are available*/
+"Assets.NotEnoughAssets" = "Niet genoeg assets";
+
+/*No asset data error message*/
+"Assets.NoAssetData" = "Geen assetgegevens beschikbaar";
+
+/*Displayed as a message when assets were burned*/
+"Assets.AssetsBurned" = "Asset(s) verbrand!";
+
+/*Displayed as a message when assets were sent*/
+"Assets.AssetsSent" = "Asset(s) verzonden!";
+
+/*Transaction could not be broadcasted: <MESSAGE>*/
+"Assets.couldNotBeBroadcasted" = "Transactie kan niet worden uitgezonden: %1$@";
+
+/*Transaction could not be created: <MESSAGE> (code: 123)*/
+"Assets.couldNotBeCreated" = "Transactie kan niet worden gemaakt: %1$@ (code: %2$@)";
+
+/*Total unique: 1234*/
+"Assets.totalUnique" = "Totaal aantal unieke items: %1$@";
+
+/*Context menu button caption*/
+"Assets.Context.info" = "Info";
+
+/*Context menu button caption*/
+"Assets.Context.send" = "Sturen";
+
+/*Context menu button caption*/
+"Assets.Context.receive" = "Ontvangen";
+
+/*Context menu button caption*/
+"Assets.Context.burn" = "Verbranden";
+
+/*Assets you own (heading)*/
+"Assets.yourAssets" = "Assets die je bezit";
+
+/*Message heading*/
+"Assets.protocolDisabled" = "DigiAssets-protocol uitgeschakeld";
+
+/*Message heading*/
+"Assets.protocolDisabledDescription" = "DigiAssets-protocol uitgeschakeld";
+
+/*Select an asset (default dropdown)*/
+"Assets.select" = "Selecteer asset...";
+
+/*(Underlying) Asset Transaction*/
+"Assets.tx" = "Asset transactie";
+
+/*View RAW Asset Transaction*/
+"Assets.rawTx" = "Bekijk RAW-transactie";
+
+/*ImageReader Title*/
+"QRImageReader.title" = "QR code lezer";
+
+/*Image button label*/
+"QRImageReader.readQRButtonLabel" = "Afbeelding";
+
+/*no qr code found*/
+"QRImageReader.readQRMessageNotFound" = "Geen QR-code gevonden in afbeelding";
+
+/*Found qrcode*/
+"QRImageReader.readQRMessageSuccess" = "Gevonden:";
+
+/*Found multiply qr code im image*/
+"QRImageReader.readQRMessageTooMany" = "Meerdere QR-codes gevonden.";
+
+/*address book modal title*/
+"AddressBook.title" = "Adresboek";
+
+/*Name of contact*/
+"AddressBook.name" = "Name";
+
+/*Placeholder for searchbar*/
+"AddressBook.searchPlaceholder" = "Zoek contacten";
+
+/*Favorites header title*/
+"AddressBook.favorites" = "Favorieten";
+
+/*Header title in address book*/
+"AddressBook.addContact" = "Voeg een nieuw contact toe";
+
+/*button title for add button*/
+"AddressBook.addContactButtonTitle" = "Contact toevoegen";
+
+/*button title for edit button*/
+"AddressBook.editContactButtonTitle" = "Bewerk contact";
+
+/*Header title in address book*/
+"AddressBook.editContact" = "Bewerk contact";
+
+/*the contact's address (textfield label)*/
+"AddressBook.address" = "Adres";
+
+/*header in confirm dialog to delete contact*/
+"AddressBook.deleteContactHeader" = "Verwijder contact";
+
+/*description in confirm dialog to delete contact*/
+"AddressBook.deleteContact" = "Weet je zeker dat je dit contact wilt verwijderen?";
+
+/*Title for first welcome screen*/
+"Welcome.page1title" = "Welkom bij de DigiByte-portemonnee.";
+
+/*Title for second welcome screen*/
+"Welcome.page2title" = "Sturen";
+
+/*Title for third welcome screen*/
+"Welcome.page3title" = "Ontvangen";
+
+/*Title for fourth welcome screen*/
+"Welcome.page4title" = "Veilig bewaren";
+
+/*Title for fifth welcome screen*/
+"Welcome.page5title" = "Log in met Digi-ID";
+
+/*Text for first welcome screen*/
+"Welcome.page1text" = "Bewaar en gebruik jouw DigiByte-valuta veilig.";
+
+/*Text for second welcome screen*/
+"Welcome.page2text" = "Stuur jouw DigiByte moeiteloos en direct wereldwijd.";
+
+/*Text for third welcome Text*/
+"Welcome.page3text" = "Maak betalingsverzoeken aan en ontvang direct geld van over de hele wereld.";
+
+/*Text for fourth welcome screen*/
+"Welcome.page4text" = "Bescherm jouw DigiByte met een reeks geavanceerde beveiligingsfuncties.";
+
+/*Text for fifth welcome screen*/
+"Welcome.page5text" = "Benut de kracht van blockchain-beveiliging met Digi-ID Open Authenticatie.";
+
+/*Insufficient funds error*/
+"Send.insufficientFunds" = "Onvoldoende saldo";
+
+/*maximum amount*/
+"Send.max" = "Max";
+
+/*option to use Dandelion Protocol*/
+"Send.useDandelion" = "Gebruik het Dandelion Protocol voor meer privacy";
+
+/*Receive 10 BTC to <Address>*/
+"Receive.receiveAmountTo" = "Ontvang %1$@ naar %2$@";
+
+/*Receive to <Address>*/
+"Receive.receiveTo" = "Ontvang aan %1$@";
+
+/*Clickable button*/
+"Receive.showLegacyAddress" = "Geef in plaats daarvan een Legacy-adres weer";
+
+/*Clickable button*/
+"Receive.showSegwitAddress" = "Geef in plaats daarvan een Segwit-adres weer";
+
+/*Receive Address Box placeholder*/
+"Receive.receiveAddress" = "Ontvang adres";
+
+/*Wipe wallet button*/
+"JailbreakWarnings.wipe" = "Wissen";
+
+/*Wallet locked message*/
+"UnlockScreen.locked" = "Portemonnee vergrendeld";
+
+/*Unlock with FaceID accessibility label*/
+"UnlockScreen.faceIdPrompt" = "Tik hier om je DigiByte te ontgrendelen met Face ID";
+
+/*Message that appears, when the sign timeout was triggered*/
+"Transaction.signTimeout" = "Ondertekende tx niet binnen time-out";
+
+/*Manage wallet button title*/
+"AccountHeader.manageButtonName" = "BEHEREN";
+
+/*Equals symbol*/
+"AccountHeader.equals" = "=";
+
+/*Switch label for setting*/
+"TouchIdSettings.automaticBiometricsSwitchLabel" = "Vraag Touch ID automatisch aan bij het opstarten";
+
+/*Switch label for setting*/
+"FaceIDSettings.automaticBiometricsSwitchLabel" = "Vraag Face ID automatisch aan bij het opstarten";
+
+/*Always require passcode option*/
+"TouchIdSpendingLimit.requirePasscode" = "Vereist altijd een wachtwoord";
+
+/*custom amount limit (category)*/
+"TouchIdSpendingLimit.custom" = "Aangepast";
+
+/*custom amount limit (title)*/
+"TouchIdSpendingLimit.customAmount" = "Aangepast bedrag";
+
+/*Description for custom amount*/
+"TouchIdSpendingLimit.customAmountDescription" = "Voer een aangepast bedrag in";
+
+/*Port must be greater than 0 and less than 65535*/
+"Settings.invalidPortHeader" = "Ongeldige poort";
+
+/*send max button visible or not*/
+"Settings.maxSendEnabled" = "Max-knop verzenden zichtbaar";
+
+/*do not place a digibyte logo into qr codes*/
+"Settings.excludeLogoInQR" = "Verberg het DigiByte-logo in QR-codes";
+
+/*Do not show any DigiAsset Contents*/
+"Settings.showRawTransactions" = "Schakel DigiAssets uit";
+
+/*Resolve Assets without a prompt*/
+"Settings.resolveAssetsWithoutPrompt" = "Los assets zonder prompt op";
+
+/*Clear Asset Cache*/
+"Settings.clearAssetCache" = "Assetcache wissen";
+
+/*Clear Assets Image cache*/
+"Settings.clearImageCache" = "Afbeeldingscache wissen";
+
+/*Message that appears when a cache was cleared*/
+"Settings.cacheCleared" = "Cache gewist";
+
+/*DigiByte Nodes (Network term)*/
+"Settings.nodes" = "DigiByte-knooppunten";
+
+/*Settings item*/
+"Settings.useDigiIDLegacy" = "Gebruik Digi-ID Legacy";
+
+/*Message that appears when DigiID Legacy is being opened*/
+"Settings.digiIdLegacyWarning" = "Uitzonderingen toevoegen wordt niet aanbevolen. Digi-ID Legacy wordt in een toekomstige release verwijderd";
+
+/*DigiID Legacy Preview Text (how many websites were added as an exception)*/
+"Settings.digiIdPreview" = "#%1$@ plaats(en)";
+
+/*DigiID Legacy Title*/
+"Settings.digiIdLegacyTitle" = "Digi-ID Legacy";
+
+/*DigiID Legacy Description*/
+"Settings.digiIdLegacyDescription" = "Digi-ID Legacy verwijst naar een verouderde authenticatievariant van Digi-ID, die niet compatibel was met DigiByte Android. Het wordt niet aanbevolen om Digi-ID Legacy te gebruiken voor nieuwe aanmeldingen.";
+
+/*DigiID Legacy: Add Exception (button)*/
+"Settings.addException" = "Voeg een uitzondering toe";
+
+/*Welcome title*/
+"AssetsWelcome.welcomeTitle" = "Welkom bij DigiAssets";
+
+/*Create Heading*/
+"AssetsWelcome.createHeading" = "Creëer.";
+
+/*Send Heading*/
+"AssetsWelcome.sendHeading" = "Versturen.";
+
+/*Receive Heading*/
+"AssetsWelcome.receiveHeading" = "Ontvangen.";
+
+/*Create Text*/
+"AssetsWelcome.createText" = "Je kan DigiAssets rechtstreeks vanuit de DigiAssets-webapp maken. Verander dingen waar je van houdt in DigiAssets.";
+
+/*Send Text*/
+"AssetsWelcome.sendText" = "Je kan DigiAssets naar andere mensen sturen door middel van eigendomsoverdracht, rechtstreeks in de DigiAssets-app.";
+
+/*Receive Text*/
+"AssetsWelcome.receiveText" = "Je kan DigiAssets van andere mensen ontvangen via eigendomsoverdracht, rechtstreeks in de DigiAssets-app.";
+
+/*Introduction in About Screen*/
+"About.introduction" = "Deze app is gebouwd door liefhebbers van DigiByte & Blockchain, onbetaalde vrijwilligers die hun tijd en vaardigheden hebben gewijd aan een project waarin ze geloven.";
+
+/*'BLOCK HEIGHT' caption title*/
+"SyncingView.blockHeightLabel" = "BLOK HOOGTE";
+
+/*'PROGRESS' caption title (PROGRESS: May 18 / June 18)*/
+"SyncingView.progressLabel" = "VOORUITGANG";
+
+/*Heading of modal alert*/
+"ReScan.fastSync" = "Snelle synchronisatie";
+
+/*Privacy Warning of fast sync*/
+"ReScan.fastSyncDescription" = "Om de synchronisatie te optimaliseren, kan deze portemonnee communiceren met een blockexplorer. Merk op dat hierdoor sommige openbare portemonnee-adressen zullen lekken om de synchronisatie te versnellen.";
+
+/*Heading of modal alert*/
+"ReScan.fastReSync" = "Snelle hersynchronisatie";
+
+/*Regular Sync description*/
+"ReScan.regularSync" = "Regelmatig hersynchroniseren (langzaam)";
+
+/*Confirm paper phrase error message*/
+"ConfirmPaperPhrase.error" = "De ingevoerde woorden komen niet overeen met jouw papieren sleutel. Probeer het alsjeblieft opnieuw.";
+
+/*Confirm dialog's default confirm action title*/
+"Alerts.confirmOkCaption" = "OK";
+
+/*confirm dialog's default cancel action title*/
+"Alerts.confirmCancelCaption" = "Annuleren";
+
+/*Menu button title for DigiAssets*/
+"MenuButton.digiAssets" = "DigiAssets";
+
+/*Fee Selector regular fee description*/
+"FeeSelector.estimatedDeliver" = "Geschatte levering: %1$@";
+
+/*E.g. [This transaction is predicted to complete in] 1+ minutes*/
+"FeeSelector.economyTime" = "1+ minuten";
+
+/*Import Address Heading*/
+"Assets.Send.importAddress" = "Adres importeren";
+
+/*Import Address Option: Address Book*/
+"Assets.Send.addressBook" = "Adresboek";
+
+/*Import Address Option: Import Address from Clipboard*/
+"Assets.Send.pasteFromClipboard" = "Plak vanaf het klembord";
+
+/*Import Address Option: Scan QR*/
+"Assets.Send.scanQR" = "Scan QR-code";
+
+/*Import Address Option: Browse Gallery*/
+"Assets.Send.browseGallery" = "Door galerij bladeren";
+
+/*Import Address Description: Address Book*/
+"Assets.Send.addressBookDescription" = "Gebruik een adres uit jouw adresboek";
+
+/*Import Address Description: QR Scanner*/
+"Assets.Send.scanQRDescription" = "Gebruik jouw camera om een QR-code te scannen die een adres bevat";
+
+/*Import Address Heading*/
+"Assets.Send.browseGalleryDescription" = "Importeer een afbeelding uit Galerij";
+
+/*Favorite Switch Title (as favorite)-option*/
+"AddressBook.favorite" = "Favoriet";
+
+/*Version: 2.0.0*/
+"Abput.version" = "Versie: #%1$@";
+
+/*Development Heading in About Section*/
+"Abput.development" = "Ontwikkeling";
+
+/*UI Heading in About Section*/
+"About.ui" = "UI";
+
+/*Special Thanks Heading in About Section*/
+"About.specialThanks" = "Speciale Dank";
+
+/*Translations Heading in About Section*/
+"About.translations" = "Vertalingen";

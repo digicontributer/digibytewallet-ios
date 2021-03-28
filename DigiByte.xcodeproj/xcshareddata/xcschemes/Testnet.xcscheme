@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1140"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "75A2A78F1DA5934300A983D8"
-               BuildableName = "digibyte.app"
-               BlueprintName = "digibyte"
+               BuildableName = "DigiByte.app"
+               BlueprintName = "DigiByte"
                ReferencedContainer = "container:DigiByte.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -27,14 +27,23 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "75A2A78F1DA5934300A983D8"
+            BuildableName = "DigiByte.app"
+            BlueprintName = "DigiByte"
+            ReferencedContainer = "container:DigiByte.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "75A2A7A31DA5934300A983D8"
-               BuildableName = "digibyteTests.xctest"
-               BlueprintName = "digibyteTests"
+               BuildableName = "DigiByteTests.xctest"
+               BlueprintName = "DigiByteTests"
                ReferencedContainer = "container:DigiByte.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -43,23 +52,12 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "75A2A7AE1DA5934300A983D8"
-               BuildableName = "digibyteUITests.xctest"
-               BlueprintName = "digibyteUITests"
+               BuildableName = "DigiByteUITests.xctest"
+               BlueprintName = "DigiByteUITests"
                ReferencedContainer = "container:DigiByte.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "75A2A78F1DA5934300A983D8"
-            BuildableName = "digibyte.app"
-            BlueprintName = "digibyte"
-            ReferencedContainer = "container:DigiByte.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Testnet"
@@ -76,13 +74,11 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "75A2A78F1DA5934300A983D8"
-            BuildableName = "digibyte.app"
-            BlueprintName = "digibyte"
+            BuildableName = "DigiByte.app"
+            BlueprintName = "DigiByte"
             ReferencedContainer = "container:DigiByte.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -95,8 +91,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "75A2A78F1DA5934300A983D8"
-            BuildableName = "digibyte.app"
-            BlueprintName = "digibyte"
+            BuildableName = "DigiByte.app"
+            BlueprintName = "DigiByte"
             ReferencedContainer = "container:DigiByte.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
