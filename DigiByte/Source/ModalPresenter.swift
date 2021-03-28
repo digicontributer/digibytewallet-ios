@@ -625,13 +625,9 @@ class ModalPresenter : Subscriber, Trackable {
                 }),
                 
                 Setting(title: S.MenuButton.support, callback: {
-                    let screenName =  "DGBSupport"
-                    let appURL = URL(string: "tg://resolve?domain=\(screenName)")!
-                    let webURL = URL(string: "https://t.me/\(screenName)")!
+                    let webURL = URL(string: "https://dgbsupport.digiassetx.com")!
                     
-                    if UIApplication.shared.canOpenURL(appURL as URL) {
-                        UIApplication.shared.open(appURL, options: [:], completionHandler: nil)
-                    } else {
+                    if UIApplication.shared.canOpenURL(webURL as URL) {
                         UIApplication.shared.open(webURL, options: [:], completionHandler: nil)
                     }
                 }),

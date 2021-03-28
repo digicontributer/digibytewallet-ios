@@ -1,6 +1,6 @@
 
 /*About screen blog label*/
-"About.blog" = "https://digibyte.io/";
+"About.blog" = "https://digibyte.org/";
 
 /*About screen footer*/
 "About.footer" = "Global DigiByte ekibi tarafından geliştirilmiştir. Versiyon %1$@";

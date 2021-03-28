@@ -1,6 +1,6 @@
 
 /*About screen blog label*/
-"About.blog" = "https://digibyte.io/";
+"About.blog" = "https://digibyte.org/";
 
 /*About screen footer*/
 "About.footer" = "Sviluppato da Global DigiWallet Team. Versione %1$@";
