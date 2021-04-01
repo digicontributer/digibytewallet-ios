@@ -19,7 +19,6 @@ class BiometricsSettingsViewController : UIViewController, Subscriber {
         super.init(nibName: nil, bundle: nil)
     }
 
-    //private let header = RadialGradientView(backgroundColor: C.Colors.cardBackground)
     private let header: UIView = {
         let view = DigiRadialGradientView(backgroundColor: C.Colors.background, offset: 64.0, hideDigi: false)
         return view
@@ -119,7 +118,6 @@ class BiometricsSettingsViewController : UIViewController, Subscriber {
     }
 
     private func setData() {
-        
         view.backgroundColor = C.Colors.background
         title = LAContext.biometricType() == .face ? S.FaceIDSettings.title : S.TouchIdSettings.title
         label.text = LAContext.biometricType() == .face ? S.FaceIDSettings.label : S.TouchIdSettings.label
@@ -162,6 +160,7 @@ class BiometricsSettingsViewController : UIViewController, Subscriber {
         automaticBiometricsSwitch.valueChanged = { [unowned self] in
             UserDefaults.automaticBiometricsOnStartup = self.automaticBiometricsSwitch.isOn
         }
+    
     }
 
     private func addFaqButton() {
