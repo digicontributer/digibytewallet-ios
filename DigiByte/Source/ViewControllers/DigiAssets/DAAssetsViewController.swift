@@ -12,26 +12,43 @@ typealias AssetId = String
 
 import AVKit
 import AVFoundation
+import Kingfisher
 
-fileprivate class MainAssetHeader: UIView {
+class DAMainAssetHeader: UIView {
     let header = UILabel(font: UIFont.da.customBold(size: 20), color: .white)
+    let additionalInfo = UILabel(font: UIFont.da.customMedium(size: 16), color: UIColor.da.orange)
     let searchBar = UITextField()
     
-    init() {
+    let text: String
+    
+    init(_ text: String) {
+        self.text = text
         super.init(frame: .zero)
         
         addSubview(header)
+        addSubview(additionalInfo)
         addSubview(searchBar)
         
         header.constrain([
             header.leftAnchor.constraint(equalTo: leftAnchor),
             header.rightAnchor.constraint(equalTo: rightAnchor),
             header.topAnchor.constraint(equalTo: topAnchor),
-            header.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
         
-        header.text = "Assets you own"
+        additionalInfo.constrain([
+            additionalInfo.leftAnchor.constraint(equalTo: leftAnchor),
+            additionalInfo.rightAnchor.constraint(equalTo: rightAnchor),
+            additionalInfo.topAnchor.constraint(equalTo: header.bottomAnchor),
+            additionalInfo.bottomAnchor.constraint(equalTo: bottomAnchor),
+        ])
+        
+        header.text = text
+        additionalInfo.text = " "
         searchBar.leftView = UIImageView(image: UIImage(named: "da-glyph-search"))
+    }
+    
+    func setAdditionalText(info: String) {
+        additionalInfo.text = String(format: S.Assets.totalUnique, info)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -241,6 +258,8 @@ class AssetCell: PaddedCell {
     var imageTappedCallback: ((AssetCell) -> Void)? = nil
     var assetId: String?
     
+    static let AssetSize: CGFloat = 40.0
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(backgroundRect)
@@ -290,8 +309,8 @@ class AssetCell: PaddedCell {
         assetImage.constrain([
             assetImage.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
             assetImage.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16),
-            assetImage.widthAnchor.constraint(equalToConstant: 40),
-            assetImage.heightAnchor.constraint(equalToConstant: 40),
+            assetImage.widthAnchor.constraint(equalToConstant: AssetCell.AssetSize),
+            assetImage.heightAnchor.constraint(equalToConstant: AssetCell.AssetSize),
         ])
         
         assetLabel.constrain([
@@ -374,52 +393,6 @@ class AssetCell: PaddedCell {
     }
 }
 
-fileprivate class CreateNewAssetCell: PaddedCell {
-    
-    let backgroundImage = UIImageView(image: UIImage(named: "da-new-asset-bg"))
-    let headingLabel = UILabel(font: UIFont.da.customBold(size: 20), color: .white)
-    let getStartedBtn = DAButton(title: "Get started".uppercased(), backgroundColor: UIColor.da.darkSkyBlue)
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        backgroundView = backgroundImage
-        backgroundColor = .clear
-        selectionStyle = .none
-        
-        // add elements
-        contentView.addSubview(headingLabel)
-        contentView.addSubview(getStartedBtn)
-        
-        headingLabel.constrain([
-            headingLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),
-            headingLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
-        ])
-        
-        getStartedBtn.constrain([
-            getStartedBtn.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
-            getStartedBtn.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -24),
-            getStartedBtn.widthAnchor.constraint(equalToConstant: 122)
-        ])
-        
-        headingLabel.textAlignment = .right
-        headingLabel.text = "Create a new asset"
-        getStartedBtn.label.font = UIFont.da.customBold(size: 12)
-        getStartedBtn.height = 34
-        
-        getStartedBtn.touchUpInside = {
-            let url = URL(string: "https://createdigiassets.com")!
-            UIApplication.shared.open(url)
-        }
-        
-        contentView.heightAnchor.constraint(equalToConstant: 128).isActive = true
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
 class AssetContextMenuButton: UIControl {
     let label = UILabel(font: UIFont.customBold(size: 14), color: UIColor.white)
     let glyph = UIImageView()
@@ -483,10 +456,10 @@ class AssetContextMenu: UIView {
     let roundedView = UIView()
     let stackView = UIStackView()
     
-    let txBtn = AssetContextMenuButton(UIImage(named: "da-glyph-info"), text: "Transactions")
-    let sendBtn = AssetContextMenuButton(UIImage(named: "da-glyph-send"), text: "Send")
-//        let receiveBtn = AssetContextMenuButton(UIImage(named: "da-glyph-receive"), text: "Receive"))
-    let burnBtn = AssetContextMenuButton(UIImage(named: "da-glyph-burn"), text: "Burn", bgColor: UIColor.da.burnColor)
+    let txBtn = AssetContextMenuButton(UIImage(named: "da-glyph-info"), text: S.Assets.Context.info)
+    let sendBtn = AssetContextMenuButton(UIImage(named: "da-glyph-send"), text: S.Assets.Context.send)
+//        let receiveBtn = AssetContextMenuButton(UIImage(named: "da-glyph-receive"), text: S.Assets.Context.receive))
+    let burnBtn = AssetContextMenuButton(UIImage(named: "da-glyph-burn"), text: S.Assets.Context.burn, bgColor: UIColor.da.burnColor)
     
     init() {
         super.init(frame: .zero)
@@ -537,18 +510,18 @@ class AssetContextMenu: UIView {
 class DAAssetsViewController: UIViewController {
     // MARK: Private
     private let store: BRStore
-    private let wallet: BRWallet
+    private let walletManager: WalletManager
     
     private var loadingAssetsModalView = DGBModalLoadingView(title: S.Assets.fetchingAssetsTitle)
     private var assetResolver: AssetResolver? = nil
     
     private let emptyImage: UIImageView = UIImageView()
     private let emptyContainer = UIView() // will be displayed when there is no asset in the wallet
-    private let createNewAssetButton = DAButton(title: "Create new asset", backgroundColor: UIColor.da.darkSkyBlue)
-    private let receiveAssetsButton = DAButton(title: "Receive assets", backgroundColor: UIColor.da.secondaryGrey)
+    private let createNewAssetButton = DAButton(title: S.Assets.createNewAsset, backgroundColor: UIColor.da.darkSkyBlue)
+    private let receiveAssetsButton = DAButton(title: S.Assets.receiveAssets, backgroundColor: UIColor.da.secondaryGrey)
     
     private let mainView = UIView()
-    private let mainHeader = MainAssetHeader()
+    private let mainHeader = DAMainAssetHeader(S.Assets.yourAssets)
     private let tableView = UITableView(frame: .zero)
     private let contextMenu = AssetContextMenu()
     private let contextMenuUnderlay = UIView() // transparent view that closes contextmenu when tapped
@@ -579,23 +552,27 @@ class DAAssetsViewController: UIViewController {
         }
     }
     
-    init(store: BRStore, wallet: BRWallet) {
+    init(store: BRStore, walletManager: WalletManager) {
         self.store = store
-        self.wallet = wallet
+        self.walletManager = walletManager
         super.init(nibName: nil, bundle: nil)
         
         emptyImage.image = UIImage(named: "da-empty")
         
-        tabBarItem = UITabBarItem(title: "Assets", image: UIImage(named: "da-assets")?.withRenderingMode(.alwaysTemplate), tag: 0)
+        tabBarItem = UITabBarItem(title: S.Assets.tabOverview, image: UIImage(named: "da-assets")?.withRenderingMode(.alwaysTemplate), tag: 0)
         
         addSubviews()
         setContent()
         addEvents()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.tintColor = UIColor.da.orange
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tabBarController?.tabBar.tintColor = UIColor(red: 38 / 255, green: 152 / 255, blue: 237 / 255, alpha: 1.0)
         
         tableView.reloadData()
         
@@ -707,7 +684,7 @@ class DAAssetsViewController: UIViewController {
             mainHeader.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 58),
             mainHeader.leftAnchor.constraint(equalTo: mainView.leftAnchor, constant: 32),
             mainHeader.rightAnchor.constraint(equalTo: mainView.rightAnchor, constant: 0),
-            mainHeader.heightAnchor.constraint(equalToConstant: 32) /* YOSHI */
+//            mainHeader.heightAnchor.constraint(equalToConstant: 32) /* YOSHI */
         ])
         
         mainView.addSubview(tableViewBorder)
@@ -739,7 +716,6 @@ class DAAssetsViewController: UIViewController {
         
         tableView.backgroundColor = .clear
         tableView.register(AssetCell.self, forCellReuseIdentifier: "asset")
-        tableView.register(CreateNewAssetCell.self, forCellReuseIdentifier: "get_started")
         tableView.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 20, right: 0)
         tableView.separatorInset = UIEdgeInsets.zero
         tableView.rowHeight = UITableView.automaticDimension
@@ -747,7 +723,7 @@ class DAAssetsViewController: UIViewController {
     }
     
     private func setContent() {
-        emptyLabel.text = "Nothing found here"
+        emptyLabel.text = S.Assets.nothingFoundHere
         emptyLabel.text = ""
         
         createNewAssetButton.height = 46.0
@@ -816,7 +792,7 @@ class DAAssetsViewController: UIViewController {
             return
         }
         
-        let vc = DADetailViewController(store: store, wallet: wallet, assetModel: assetModel)
+        let vc = DADetailViewController(store: store, walletManager: walletManager, assetModel: assetModel)
         self.present(vc, animated: true, completion: nil)
     }
     
@@ -896,24 +872,15 @@ class DAAssetsViewController: UIViewController {
 
 extension DAAssetsViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return AssetHelper.allAssets.count
-        } else {
-            return 1
-        }
+        self.mainHeader.setAdditionalText(info: "\(AssetHelper.allAssets.count)")
+        return AssetHelper.allAssets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // return get-started cell
-        guard indexPath.section == 0 else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "get_started") as! CreateNewAssetCell
-            return cell
-        }
-        
         // return asset cell
         let assetId = AssetHelper.allAssets[indexPath.row]
         let assetModel = AssetHelper.getAssetModel(assetID: assetId) ?? AssetModel.dummy()
@@ -952,7 +919,11 @@ extension DAAssetsViewController: UITableViewDelegate, UITableViewDataSource {
             let urlStr = urlModel.url,
             let url = URL(string: urlStr)
         {
-            cell.assetImage.kf.setImage(with: url)
+            cell.assetImage.kf.setImage(with: url, placeholder: nil, options: [
+                .processor(DownsamplingImageProcessor(size: CGSize(width: AssetCell.AssetSize, height: AssetCell.AssetSize) )),
+                .scaleFactor(UIScreen.main.scale),
+                .cacheOriginalImage
+            ])
         }
         
         return cell
@@ -974,15 +945,18 @@ extension DAAssetsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         self.decelerate = true
-//        showTableViewBorder = false
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.section == 0 else { return }
         
         let openDetailView: (AssetModel) -> Void = { [weak self] assetModel in
-            guard let myself = self else { return }
-            let vc = DADetailViewController(store: myself.store, wallet: myself.wallet, assetModel: assetModel)
+            guard
+                let myself = self
+            else {
+                return
+            }
+            let vc = DADetailViewController(store: myself.store, walletManager: myself.walletManager, assetModel: assetModel)
             myself.present(vc, animated: true, completion: nil)
         }
         
