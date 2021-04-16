@@ -8,6 +8,8 @@
 
 import Foundation
 
+private let bitpayURL = "https://bitpay.com/rates"
+private let bittrexURL = "https://api.bittrex.com/v3/markets/DGB-BTC/ticker"
 private let feeURL = "https://go.digibyte.co/bws/api/v2/feelevels/"
 private let ratesURL = "https://digibyte.org/rates.php"
 private let fallbackRatesURL = "http://pettys.website/rates.php"
@@ -72,6 +74,57 @@ extension BRAPIClient {
         }
     }
     
+    private func getFromBitpay(_ handler: @escaping (_ rates: [Rate], _ error: String?) -> Void) {
+        let request = URLRequest(url: URL(string: bitpayURL)!)
+        let task = dataTaskWithRequest(request) { (data, response, error) in
+            if let data = data,
+               let parsedData = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) {
+                if let json = parsedData as? [String: Any] {
+                    
+                    guard let array = json["data"] as? [Any] else {
+                        return handler([], "/rates didn't return an array")
+                    }
+                    handler(array.compactMap { Rate(data: $0) }, nil)
+                } else {
+                    handler([], "Error fetching from bitpay url")
+                }
+            } else {
+                handler([], "Error fetching from bitpay url")
+            }
+        }
+        task.resume()
+    }
+    
+    private func getFromBittrex(_ handler: @escaping (_ rate: Double, _ error: String?) -> Void) {
+        let request = URLRequest(url: URL(string: bittrexURL)!)
+        let task = dataTaskWithRequest(request) { (data, response, error) in
+            if let data = data,
+               let parsedData = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) {
+                if let json = parsedData as? [String: Any] {
+                    let rate = (json["lastTradeRate"] as! NSString).doubleValue
+                    handler(rate, nil)
+                } else {
+                    return handler(0, "bittrex returned invalid response")
+                }
+            } else {
+                handler(0, "Error fetching from bittrex url")
+            }
+            
+        }
+        task.resume()
+    }
+
+    func loadFromAPIs(_ handler: @escaping (_ rates: [Rate], _ error: String?) -> Void) {
+        self.getFromBittrex { rate, error in
+            self.getFromBitpay { rates, err in
+                let array = rates.map {Rate(code: $0.code, name: $0.name, rate: $0.rate * rate)}
+                handler(array.compactMap { Rate(data: $0) }, nil)
+            }
+        }
+    }
+    
+    
+
     func exchangeRates(isFallback: Bool = false, _ handler: @escaping (_ rates: [Rate], _ error: String?) -> Void) {
         let request = isFallback ? URLRequest(url: URL(string: fallbackRatesURL)!) : URLRequest(url: URL(string: ratesURL)!)
         let task = dataTaskWithRequest(request) { (data, response, error) in
